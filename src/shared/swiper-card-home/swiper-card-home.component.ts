@@ -1,31 +1,26 @@
+import { NgFor } from '@angular/common';
 import { Component, AfterViewInit } from '@angular/core';
-import Swiper from 'swiper';
-import 'swiper/swiper-bundle.css'; // Required if you're using Swiper from npm
+declare var Swiper: any; // 👈️ this is required to use Swiper from CDN
 
 @Component({
   selector: 'app-swiper-card-home',
   standalone: true,
+  imports:[NgFor],
   templateUrl: './swiper-card-home.component.html',
   styleUrl: './swiper-card-home.component.css'
 })
 export class SwiperCardHomeComponent implements AfterViewInit {
+  swiperImages: any = ["swiper-home/1.webp", "swiper-home/2.webp", "swiper-home/1.webp", "swiper-home/2.webp", "swiper-home/1.webp", "swiper-home/2.webp"]
 
   ngAfterViewInit(): void {
-    // const swiper = new Swiper('.swiper', {
-    //   direction: 'horizontal',
-    //   loop: true,
-    //   pagination: {
-    //     el: '.swiper-pagination',
-    //     clickable: true,
-    //   },
-    //   navigation: {
-    //     nextEl: '.swiper-button-next',
-    //     prevEl: '.swiper-button-prev',
-    //   },
-    //   scrollbar: {
-    //     el: '.swiper-scrollbar',
-    //     draggable: true,
-    //   },
-    // });
+    // @ts-ignore — ignore type issue since we use Swiper from CDN
+    const swiper = new Swiper('.mySwiper', {
+      loop: true, // 👈 Enables infinite looping
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+    
   }
 }

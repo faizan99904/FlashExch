@@ -1,24 +1,17 @@
-<div class="swiper relative h-64 w-full overflow-hidden">
-    <!-- Slides wrapper -->
-    <div class="swiper-wrapper">
-        <div class="swiper-slide bg-red-500 text-white flex justify-center items-center text-xl">Slide 1</div>
-        <div class="swiper-slide bg-green-500 text-white flex justify-center items-center text-xl">Slide 2</div>
-        <div class="swiper-slide bg-blue-500 text-white flex justify-center items-center text-xl">Slide 3</div>
-    </div>
+<!-- Swiper container -->
+<div class="swiper mySwiper max-w-[800px] mt-2 rounded-md">
+    <div class="swiper-wrapper ">
 
-    <!-- Pagination Dots -->
-    <div class="swiper-pagination"></div>
 
-    <!-- Navigation Buttons -->
-    <div
-        class="swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-6 h-6 bg-black bg-opacity-50 rounded-full flex items-center justify-center text-white cursor-pointer">
-        ‹
-    </div>
-    <div
-        class="swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-6 h-6 bg-black bg-opacity-50 rounded-full flex items-center justify-center text-white cursor-pointer">
-        ›
-    </div>
+        <div class="swiper-slide " *ngFor=" let img of swiperImages">
+            <img [src]="img" alt="slide" class="w-full h-auto object-cover " />
+        </div>
 
-    <!-- Scrollbar -->
-    <div class="swiper-scrollbar"></div>
+
+
+
+    </div>
+    <!-- Navigation arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
 </div>
