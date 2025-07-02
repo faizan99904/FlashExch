@@ -1,10 +1,10 @@
-<div class="w-[250px] bg-black text-white h-[calc(100dvh-114px)] max-md:absolute left-[-100%] p-4 ">
+<div class="w-[250px] bg-black text-white h-[calc(100dvh-114px)] max-md:absolute left-[-100%] p-4  overflow-auto">
 
 
     <!-- Dropdowns -->
     <!-- TOP LEAGUES -->
-    <div>
-        <div class="cursor-pointer font-semibold py-2 pl-2 pr-3 bg-[#101317] rounded-md flex items-center justify-between"
+    <div class="py-2 pl-2 pr-3 bg-[#101317]">
+        <div class="cursor-pointer font-semibold  rounded-md flex items-center justify-between"
             (click)="toggleDropdown('topLeagues')">
             <div class="flex items-center space-x-2">
                 <span class="text-[#00aa30] font-bold">|</span>
@@ -13,26 +13,19 @@
             <i class="text-gray-400"
                 [ngClass]="dropdowns['topLeagues'] ? 'fas fa-chevron-down' : 'fas fa-chevron-right'"></i>
         </div>
+        <div *ngIf="dropdowns['topLeagues']" class=" text-sm mt-2 space-y-2">
+            <div *ngFor="let league of topLeagues" class="flex items-center justify-between rounded-md">
+                <!-- Left: Image + Bar + League Name -->
+                <div class="flex items-center space-x-2">
+                    <img [src]="league.image" alt="league icon" class="w-5 h-5 object-contain" />
+                    <span class="text-gray-200">{{ league.name }}</span>
+                </div>
 
-        <div *ngIf="dropdowns['topLeagues']" class="pl-4 text-sm mt-2">
-            <div *ngFor="let league of [
-          'FIFA Club World Cup (27)',
-          'UEFA Europa Conference League (6)',
-          'Premier League (10)',
-          'Bundesliga (9)',
-          'Serie A (10)',
-          'Ligue 1 (8)',
-          'MLS (15)',
-          'British Grand Prix 2025 (35)',
-          'Serie A (20)',
-          'ATP - Wimbledon (76)',
-          'WTA - Wimbledon (82)',
-          'MLB (18)',
-          'NFL (37)'
-        ]">
-                 {{ league }}
+                <!-- Right: Count -->
+                <span class="text-gray-400">{{ league.count }}</span>
             </div>
         </div>
+
     </div>
 
     <!-- TOP LIVE -->
