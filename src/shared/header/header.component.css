@@ -303,7 +303,7 @@ header .change-lang div.current-lang {
 
   header form .fields-wrapper .field input {
     height: 40px;
-    width: 160px;
+    width: 166px;
   }
 
   header form .fields-wrapper .field:nth-child(2)::after {
