@@ -1,0 +1,39 @@
+.sport-item {
+  @apply h-full inline-block leading-[15vw] text-[4vw] relative min-w-[19vw] align-middle overflow-hidden box-border text-center border-b-4 border-transparent;
+}
+
+ul {
+  scrollbar-width: none;
+}
+
+.active {
+  color: #11e311;
+}
+
+li {
+  margin: 0;
+  height: 100%;
+}
+
+.trans {
+  transition: color 0.4s ease;
+}
+
+.new {
+  position: absolute;
+  right: -0.625rem;
+  top: 6px;
+  background: red;
+  color: #fff;
+  padding: 0 5px;
+  font-weight: 400;
+  font-size: 0.5rem;
+  border-radius: 4px;
+  animation: 0.5s newAnimation ease-in-out infinite alternate;
+}
+
+@keyframes newAnimation {
+  0% {
+    opacity: 0.3;
+  }
+}

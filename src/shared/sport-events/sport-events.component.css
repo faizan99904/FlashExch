@@ -1,0 +1,63 @@
+.casino {
+  background-image: url("/assets/images/casino.png");
+}
+
+.live-casino {
+  background-image: url("/assets/images/live-casino.png");
+}
+
+.virtual {
+  background-image: url("/assets/images/virtual.png");
+}
+
+.esports {
+  background-image: url("/assets/images/sports.png");
+}
+
+.active {
+  border-bottom-color: #00aa30 !important;
+}
+
+.tab:hover {
+  border-bottom-color: #00aa30 !important;
+}
+
+.tab {
+  @apply relative h-8 mx-[0.9375rem] text-white cursor-pointer border-t-4 border-solid border-transparent border-b-4 flex items-center justify-center text-[12px];
+}
+
+.tab::after {
+  @apply content-[''] absolute right-[-0.9375rem] top-[0.3125rem] inline-block w-[1px] bg-[#101317] h-[0.625rem];
+}
+
+.tab svg {
+  fill: #00aa30;
+  width: 1rem;
+  margin-right: 0.3125rem;
+}
+
+.tab i {
+  font-size: 10px;
+  margin-right: 0.3125rem;
+}
+
+.tab:nth-child(3)::before {
+  content: "";
+  margin-right: 0.3125rem;
+  width: 0.3125rem;
+  height: 0.3125rem;
+  border-radius: 50%;
+  background-color: #00aa30;
+  animation: bgColorAnim 2s ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bgColorAnim {
+  50% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
