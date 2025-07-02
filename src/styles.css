@@ -2,10 +2,152 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-
-body {
-    font-family: 'Kanit', sans-serif;
+html , body{
+  font-family: Roboto, sans-serif;
+  /* font-size: 3.5vw; */
+}
+  @font-face {
+    font-family: 'Kanit';
+    src: url('../public/assets/fonts/Kanit-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
   }
-  
+
+  @font-face {
+    font-family: 'SportIcons';
+    src: url('../public/assets/fonts/sporticons.woff2?v=6') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+.sport-icon {
+  font-family: SportIcons;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ .sport-icon[sport='arenaofvalor']:before { content: '\e800'; } /* '' */
+ .sport-icon[sport='athletics']:before { content: '\e801'; } /* '' */
+ .sport-icon[sport='aussierules']:before { content: '\e802'; } /* '' */
+ .sport-icon[sport='badminton']:before { content: '\e803'; } /* '' */
+ .sport-icon[sport='bandy']:before { content: '\e804'; } /* '' */
+ .sport-icon[sport='baseball']:before { content: '\e805'; } /* '' */
+ .sport-icon[sport='basketball']:before { content: '\e806'; } /* '' */
+ .sport-icon[sport='basketball3x3']:before { content: '\e807'; } /* '' */
+ .sport-icon[sport='3x3basketball']:before { content: '\e807'; } /* '' */
+ .sport-icon[sport='beachsoccer']:before { content: '\e808'; } /* '' */
+ .sport-icon[sport='beachvolley']:before { content: '\e809'; } /* '' */
+ .sport-icon[sport='biathlon']:before { content: '\e80a'; } /* '' */
+ .sport-icon[sport='bowls']:before { content: '\e80b'; } /* '' */
+ .sport-icon[sport='boxing']:before { content: '\e80c'; } /* '' */
+ .sport-icon[sport='breaking']:before { content: '\e80d'; } /* '' */
+ .sport-icon[sport='callofduty']:before { content: '\e80e'; } /* '' */
+ .sport-icon[sport='canoeing']:before { content: '\e80f'; } /* '' */
+ .sport-icon[sport='chess']:before { content: '\e810'; } /* '' */
+ .sport-icon[sport='counterstrike']:before { content: '\e811'; } /* '' */
+ .sport-icon[sport='counter-strike']:before { content: '\e812'; } /* '' */
+ .sport-icon[sport='counterstrikego']:before { content: '\e813'; } /* '' */
+ .sport-icon[sport='cricket']:before { content: '\e814'; } /* '' */
+ .sport-icon[sport='crosscountry']:before { content: '\e815'; } /* '' */
+ .sport-icon[sport='curling']:before { content: '\e816'; } /* '' */
+ .sport-icon[sport='cycling']:before { content: '\e817'; } /* '' */
+ .sport-icon[sport='darts']:before { content: '\e818'; } /* '' */
+ .sport-icon[sport='diving']:before { content: '\e819'; } /* '' */
+ .sport-icon[sport='dota']:before { content: '\e81a'; } /* '' */
+ .sport-icon[sport='dota2']:before { content: '\e81b'; } /* '' */
+ .sport-icon[sport='equestrian']:before { content: '\e81c'; } /* '' */
+ .sport-icon[sport='fencing']:before { content: '\e81d'; } /* '' */
+ .sport-icon[sport='fieldhockey']:before { content: '\e81e'; } /* '' */
+ .sport-icon[sport='fifa']:before { content: '\e81f'; } /* '' */
+ .sport-icon[sport='figureskating']:before { content: '\e820'; } /* '' */
+ .sport-icon[sport='floorball']:before { content: '\e821'; } /* '' */
+ .sport-icon[sport='formula1']:before { content: '\e822'; } /* '' */
+ .sport-icon[sport='formulae']:before { content: '\e823'; } /* '' */
+ .sport-icon[sport='futsal']:before { content: '\e824'; } /* '' */
+ .sport-icon[sport='gaelicfootball']:before { content: '\e825'; } /* '' */
+ .sport-icon[sport='gaelichurling']:before { content: '\e826'; } /* '' */
+ .sport-icon[sport='golf']:before { content: '\e827'; } /* '' */
+ .sport-icon[sport='greyhoundraicing']:before { content: '\e828'; } /* '' */
+ .sport-icon[sport='gymnastics']:before { content: '\e829'; } /* '' */
+ .sport-icon[sport='handball']:before { content: '\e82a'; } /* '' */
+ .sport-icon[sport='harnessracing']:before { content: '\e82b'; } /* '' */
+ .sport-icon[sport='heartstone']:before { content: '\e82c'; } /* '' */
+ .sport-icon[sport='heroesofnewerth']:before { content: '\e82d'; } /* '' */
+ .sport-icon[sport='heroesofthestorm']:before { content: '\e82e'; } /* '' */
+ .sport-icon[sport='horseracing']:before { content: '\e82f'; } /* '' */
+ .sport-icon[sport='icehockey']:before { content: '\e830'; } /* '' */
+ .sport-icon[sport='indyracing']:before { content: '\e831'; } /* '' */
+ .sport-icon[sport='judo']:before { content: '\e832'; } /* '' */
+ .sport-icon[sport='kabaddi']:before { content: '\e833'; } /* '' */
+ .sport-icon[sport='lacrosse']:before { content: '\e834'; } /* '' */
+ .sport-icon[sport='leagueoflegends']:before { content: '\e835'; } /* '' */
+ .sport-icon[sport='luge']:before { content: '\e836'; } /* '' */
+ .sport-icon[sport='marathonswimming']:before { content: '\e837'; } /* '' */
+ .sport-icon[sport='mma']:before { content: '\e838'; } /* '' */
+ .sport-icon[sport='modernpentathlon']:before { content: '\e839'; } /* '' */
+ .sport-icon[sport='motorcycleracing']:before { content: '\e83a'; } /* '' */
+ .sport-icon[sport='motorsport']:before { content: '\e83b'; } /* '' */
+ .sport-icon[sport='moviesandtvshows']:before { content: '\e83c'; } /* '' */
+ .sport-icon[sport='nhl']:before { content: '\e83d'; } /* '' */
+ .sport-icon[sport='olympics']:before { content: '\e83e'; } /* '' */
+ .sport-icon[sport='overwatch']:before { content: '\e83f'; } /* '' */
+ .sport-icon[sport='pesapallo']:before { content: '\e840'; } /* '' */
+ .sport-icon[sport='playerunknownsbattlegrounds']:before { content: '\e841'; } /* '' */
+ .sport-icon[sport='poker']:before { content: '\e842'; } /* '' */
+ .sport-icon[sport='politics']:before { content: '\e843'; } /* '' */
+ .sport-icon[sport='quakeii']:before { content: '\e844'; } /* '' */
+ .sport-icon[sport='rainbowsix']:before { content: '\e845'; } /* '' */
+ .sport-icon[sport='rally']:before { content: '\e846'; } /* '' */
+ .sport-icon[sport='rocketleague']:before { content: '\e847'; } /* '' */
+ .sport-icon[sport='rowing']:before { content: '\e848'; } /* '' */
+ .sport-icon[sport='rugby']:before { content: '\e849'; } /* '' */
+ .sport-icon[sport='sailing']:before { content: '\e84a'; } /* '' */
+ .sport-icon[sport='schwingen']:before { content: '\e84b'; } /* '' */
+ .sport-icon[sport='shooting']:before { content: '\e84c'; } /* '' */
+ .sport-icon[sport='shorttrackspeedskating']:before { content: '\e84d'; } /* '' */
+ .sport-icon[sport='skateboarding']:before { content: '\e84e'; } /* '' */
+ .sport-icon[sport='skijumping']:before { content: '\e84f'; } /* '' */
+ .sport-icon[sport='smite']:before { content: '\e850'; } /* '' */
+ .sport-icon[sport='snooker']:before { content: '\e851'; } /* '' */
+ .sport-icon[sport='soccer']:before { content: '\e852'; } /* '' */
+ .sport-icon[sport='soccermythical']:before { content: '\e853'; } /* '' */
+ .sport-icon[sport='specialodds']:before { content: '\e854'; } /* '' */
+ .sport-icon[sport='softball']:before { content: '\e855'; } /* '' */
+ .sport-icon[sport='specials']:before { content: '\e856'; } /* '' */
+ .sport-icon[sport='speedskating']:before { content: '\e857'; } /* '' */
+ .sport-icon[sport='speedway']:before { content: '\e858'; } /* '' */
+ .sport-icon[sport='sportclimbing']:before { content: '\e859'; } /* '' */
+ .sport-icon[sport='squash']:before { content: '\e85a'; } /* '' */
+ .sport-icon[sport='starcraft']:before { content: '\e85b'; } /* '' */
+ .sport-icon[sport='starcraftbroodwar']:before { content: '\e85c'; } /* '' */
+ .sport-icon[sport='stockcarracing']:before { content: '\e85d'; } /* '' */
+ .sport-icon[sport='sumo']:before { content: '\e85e'; } /* '' */
+ .sport-icon[sport='surfing']:before { content: '\e85f'; } /* '' */
+ .sport-icon[sport='swimming']:before { content: '\e860'; } /* '' */
+ .sport-icon[sport='tabletennis']:before { content: '\e861'; } /* '' */
+ .sport-icon[sport='taekwondo']:before { content: '\e862'; } /* '' */
+ .sport-icon[sport='tennis']:before { content: '\e863'; } /* '' */
+ .sport-icon[sport='triathlon']:before { content: '\e864'; } /* '' */
+ .sport-icon[sport='vainglory']:before { content: '\e865'; } /* '' */
+ .sport-icon[sport='valorant']:before { content: '\e866'; } /* '' */
+ .sport-icon[sport='volleyball']:before { content: '\e867'; } /* '' */
+ .sport-icon[sport='warcraft3']:before { content: '\e868'; } /* '' */
+ .sport-icon[sport='waterpolo']:before { content: '\e869'; } /* '' */
+ .sport-icon[sport='weightlifting']:before { content: '\e86a'; } /* '' */
+ .sport-icon[sport='wintersports']:before { content: '\e86b'; } /* '' */
+ .sport-icon[sport='worldoftanks']:before { content: '\e86c'; } /* '' */
+ .sport-icon[sport='worldofwarcraft']:before { content: '\e86d'; } /* '' */
+ .sport-icon[sport='wrestling']:before { content: '\e86e'; } /* '' */
+ .sport-icon[sport='11']:before { content: '\e86f'; } /* '' */
+ .sport-icon[sport='alpineskiing']:before { content: '\e870'; } /* '' */
+ .sport-icon[sport='americanfootball']:before { content: '\e871'; } /* '' */
+ .sport-icon[sport='archery']:before { content: '\e872'; } /* '' */
+ .sport-icon[sport='rugbyunionsevens']:before { content: '\e873'; } /* '' */
+ .sport-icon[sport='canoekayak']:before { content: '\e80f'; } /* '' */
