@@ -37,7 +37,7 @@ export class SportsNavComponent {
     {
       name: 'Ice Hockey',
       icon: 'fa-solid fa-volleyball',
-      score: '1061',
+      score: '10',
     },
   ];
 }
