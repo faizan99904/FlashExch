@@ -30,6 +30,7 @@ body {
   .forMedia,
   .imageMain {
     max-height: 96px !important;
+    min-height: 96px !important;
   }
 }
 
@@ -37,6 +38,14 @@ body {
   .forMedia,
   .imageMain {
     max-height: 108px !important;
+    min-height: 108px !important;
+  }
+}
+@media (min-width: 375px) {
+  .forMedia,
+  .imageMain {
+    max-height: 112px !important;
+    min-height: 112px !important;
   }
 }
 
@@ -44,6 +53,7 @@ body {
   .forMedia,
   .imageMain {
     max-height: 117.11px !important;
+    min-height: 117.11px !important;
   }
 }
 
@@ -51,6 +61,7 @@ body {
   .forMedia,
   .imageMain {
     max-height: 123.6px !important;
+    min-height: 123.6px !important;
   }
 }
 
@@ -58,6 +69,7 @@ body {
   .forMedia,
   .imageMain {
     max-height: 124.31px !important;
+    min-height: 124.31px !important;
   }
 }
 
@@ -65,6 +77,7 @@ body {
   .forMedia,
   .imageMain {
     max-height: 129.11px !important;
+    min-height: 129.11px !important;
   }
 }
 
@@ -72,6 +85,7 @@ body {
   .forMedia,
   .imageMain {
     max-height: 162px !important;
+    min-height: 162px !important;
   }
 }
 
@@ -79,6 +93,7 @@ body {
   .forMedia,
   .imageMain {
     max-height: 230.4px !important;
+    min-height: 230.4px !important;
   }
 }
 
@@ -86,6 +101,7 @@ body {
   .forMedia,
   .imageMain {
     max-height: 246px !important;
+    min-height: 246px !important;
   }
 }
 
@@ -93,20 +109,22 @@ body {
   .forMedia,
   .imageMain {
     max-height: 273.6px !important;
+    min-height: 273.6px !important;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1023px) {
   .forMedia,
   .imageMain {
-    max-height: 307.2px !important;
+    max-height: 97.46px !important;
+    min-height: 97.46px !important;
   }
 }
 
 @media (min-width: 1080px) {
   .forMedia,
   .imageMain {
-    max-height: 384px !important;
+    min-height: 107.35px !important;
   }
 }
 
@@ -114,6 +132,7 @@ body {
   .forMedia,
   .imageMain {
     max-height: 146.78px !important;
+    min-height: 146.78px !important;
   }
 }
 
@@ -121,6 +140,7 @@ body {
   .forMedia,
   .imageMain {
     max-height: 155.73px !important;
+    min-height: 155.73px !important;
   }
 }
 
@@ -128,5 +148,6 @@ body {
   .forMedia,
   .imageMain {
     max-height: 338.18px !important;
+    min-height: 338.18px !important;
   }
 }
