@@ -1,15 +1,15 @@
 <div>
     <app-header></app-header>
-    <app-sports-nav></app-sports-nav>
-    <app-sport-events></app-sport-events>
-    <div class="flex">
+    <div class="flex lg:gap-4 gap-0">
         <app-sidebar></app-sidebar>
-        <router-outlet></router-outlet>
-        <div class="max-md:hidden">
+        <div class="w-[100vw] lg:w-[calc(100vw-492px)]">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="max-lg:hidden w-[242px]">
             <app-betslip></app-betslip>
         </div>
     </div>
-    <div class="hidden">
+    <div class="lg:hidden">
         <app-bottom-nav></app-bottom-nav>
     </div>
 </div>
