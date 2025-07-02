@@ -1,0 +1,149 @@
+header {
+  position: relative;
+  height: 52px;
+}
+
+header .content {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 52px;
+  line-height: 52px;
+  background: #272d33;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  z-index: 99;
+  padding: 0 12.4872px;
+  box-sizing: border-box;
+  transition: 0.2s ease;
+}
+
+header .content .logo-area {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+header .content .logo {
+  float: left;
+  text-align: center;
+  box-sizing: border-box;
+  margin-right: auto;
+}
+
+header .content .logo img {
+  height: 8vw;
+  max-width: 26vw;
+}
+
+a img {
+  vertical-align: middle;
+}
+
+header .content #not-authorized.visible {
+  display: -webkit-box;
+  display: flex;
+  gap: 5px;
+}
+
+header .content #not-authorized .btn {
+  height: 32px;
+  font-size: 14px;
+  min-width: 108px;
+  padding: 0 2px;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+  border-radius: 2px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+header .content #not-authorized .btn.registration {
+  background: #13161b;
+}
+
+.btn {
+  position: relative;
+  line-height: normal;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  user-select: none;
+  transition: 0.2s ease;
+}
+
+header .content #not-authorized .btn.login {
+  background: #11e311;
+}
+
+header form .fields-wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+  margin-right: 2.2rem;
+}
+
+header form .fields-wrapper > div {
+  gap: 0.5333rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+header .field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 0.533rem;
+  border-radius: 3px;
+}
+
+header form .fields-wrapper .field input {
+  height: 24px;
+  width: 99px;
+  padding: 0 10px !important;
+  background: #272d33;
+  border: 0;
+  border-radius: 3px;
+  font-family: Kanit-Light;
+  font-size: 0.8667rem;
+  color: #fff;
+  outline: none;
+}
+
+header form .fields-wrapper .field:nth-child(2) {
+  position: relative;
+  background: #272d33;
+}
+
+header form .fields-wrapper .field:nth-child(2) .forgot-pass {
+  position: absolute;
+  right: 2px;
+}
+
+@media (min-width: 820px) {
+  header .content {
+    background: #171717 !important;
+    height: 38px;
+  }
+}
