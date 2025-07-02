@@ -1,51 +1,52 @@
 <header>
     <div class="content">
         <div class="logo-area">
-            <div class="logo"><a href="/en/"><img src="https://static.inpcdn.com/112,1c3cd62c481703.webp"></a></div>
-            <!-- <div class="authorized-content">
-                <ul>
-                    <li class="gifts"><a href="/en/account/freespins"><img src="/assets/images/gifts.png?v2" alt="">
-                            <div class="count"></div>
-                        </a></li>
-                    <li class="notifications-item"><a href="/en/account/notifications"><img
-                                src="/assets/images/notifications.png?v2" alt="">
-                            <div class="notifications-count"></div>
-                        </a></li>
-                </ul>
-            </div> -->
-        </div>
-        <!-- <label class="lang"><select name="lang">
-                <option value="br" text_key="LANGUAGE__BR">BR</option>
-
-                <option value="es" text_key="LANGUAGE__ES">ES</option>
-
-                <option value="fr" text_key="LANGUAGE__FR">FR</option>
-
-                <option value="de" text_key="LANGUAGE__DE">DE</option>
-
-                <option value="fi" text_key="LANGUAGE__FI">FI</option>
-
-                <option value="nn" text_key="LANGUAGE__NN">NN</option>
-
-                <option value="it" text_key="LANGUAGE__IT">IT</option>
-
-                <option value="ru" text_key="LANGUAGE__RU">RU</option>
-            </select>
-        </label> -->
-        <!-- <div id="authorized">
-            <div class="user-info"><a class="balance"><span class="amount"></span> <span class="currency"></span> </a><a
-                    class="deposit-money">
-                    <img src="/assets/images/header/deposit-money.svg" alt="deposit"
-                        style="height: 18px;"> </a>
+            <div class="logo">
+                <a>
+                    <img src="https://static.inpcdn.com/112,1c3cd62c481703.webp" class="min-[820px]:hidden">
+                    <img src="https://static.inpcdn.com/112,1c3cf09c739d87.webp" class="max-[819px]:hidden !h-[19px]">
+                </a>
             </div>
-            <a class="user-icon">
-                <span class="material-icons icon">person</span>
-            </a>
-        </div> -->
-        <div id="not-authorized" class="visible"><a href="/en/" class="btn registration open-registration-popup"
-                text_key="LOGIN__SIGNUP">Sign Up</a> <a href="/en/static/login" class="btn login open-login-popup"
-                text_key="LOGIN__LOGIN">Log
-                In</a></div>
+        </div>
+        <div>
+            <form class="flex">
+                <div class="fields-wrapper max-[819px]:!hidden">
+                    <div>
+                        <div class="field">
+                            <input type="text" name="userName" placeholder_key="LOGIN__USERNAME" required=""
+                                placeholder="Username">
+                        </div>
+                        <div class="field">
+                            <input type="password" name="password" placeholder_key="LOGIN__PASSWORD" required=""
+                                placeholder="Password"> <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
+                                class="forgot-pass" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_11_40)">
+                                    <path
+                                        d="M0.10812 12.9019C0.16771 19.8936 5.90432 25.5332 12.9019 25.4736C19.8995 25.4139 25.5391 19.6773 25.4795 12.6857C25.42 5.694 19.6774 0.0484767 12.6857 0.108066C5.69405 0.167656 0.0484798 5.90431 0.10812 12.9019ZM1.29315 12.8918C1.23901 6.54005 6.34407 1.34723 12.6958 1.29309C19.0476 1.23896 24.2404 6.34401 24.2945 12.6958C24.3487 19.0475 19.2435 24.2344 12.8918 24.2885C6.54006 24.3427 1.34723 19.2376 1.29315 12.8918Z"
+                                        fill="white" fill-opacity="0.5"></path>
+                                    <path
+                                        d="M5.67641 16.8661C9.03495 18.8047 14.0837 18.1277 17.0781 14.1853C17.0839 14.1734 17.0956 14.1615 17.1014 14.1496L18.5245 14.9493C19.0128 15.2295 19.3604 14.9955 19.2904 14.4331L18.3872 7.18201C18.3172 6.6256 17.8409 6.35709 17.3273 6.58663L10.6689 9.59431C10.1554 9.82386 10.1353 10.2448 10.6294 10.519L12.243 11.4238C12.243 11.4238 12.2316 11.4772 12.2259 11.5069C11.8419 13.7322 9.41332 15.9217 6.12746 15.5586C5.09548 15.4489 4.12675 15.1134 4.02709 15.2387C3.92737 15.3581 4.56311 16.2534 5.67054 16.872L5.67641 16.8661ZM8.41778 16.6116C11.2094 15.9952 13.0275 13.7873 13.389 11.7043C13.5327 11.1817 13.297 10.6504 12.8208 10.3878L12.3623 10.131L17.2852 7.90247L17.9531 13.2653L17.6793 13.1136C17.4947 13.0085 17.2928 12.9628 17.0914 12.9646C16.7536 12.9674 16.4171 13.1184 16.1884 13.393C16.1708 13.4168 16.1415 13.4526 16.118 13.4824C14.5592 15.5223 12.2524 16.7033 9.78162 16.7244C9.31354 16.7284 8.85695 16.6908 8.41185 16.6116L8.41778 16.6116Z"
+                                        fill="white" fill-opacity="0.5"></path>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_11_40">
+                                        <rect width="25.3664" height="25.3664" fill="white"
+                                            transform="translate(0 0.216187) rotate(-0.488319)"></rect>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="err-text main-err"></p>
+                </div>
+
+                <div id="not-authorized" class="visible">
+                    <a href="/en/"
+                        class="btn registration open-registration-popup min-[820px]:max-h-[24px] min-[820px]:!bg-[#272D33]">Sign
+                        Up</a>
+                    <a href="/en/static/login" class="btn login open-login-popup min-[820px]:max-h-[24px]">Log In</a>
+                </div>
+            </form>
+        </div>
     </div>
 </header>
-
