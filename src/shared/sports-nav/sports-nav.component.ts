@@ -12,22 +12,22 @@ export class SportsNavComponent {
     {
       name: 'Soccer',
       icon: 'fa-solid fa-volleyball',
-      score: '1061',
+      score: '972',
     },
     {
       name: 'Basketball',
       icon: 'fa-solid fa-basketball',
-      score: '1061',
+      score: '96',
     },
     {
       name: '3x3 Basketball',
       icon: 'fa-solid fa-volleyball',
-      score: '1061',
+      score: '5',
     },
     {
       name: 'Tennis',
       icon: 'fa-solid fa-volleyball',
-      score: '1061',
+      score: '385',
     },
     {
       name: 'Baseball',
