@@ -10,25 +10,21 @@ import { Component } from '@angular/core';
 export class SportsNavComponent {
   sports = [
     {
-      name: 'soccer',
-      icon: 'soccer',
-      score: '1061',
+      name: 'Soccer',
+      icon: 'fa-solid fa-volleyball',
+      score: '972',
     },
     {
-      name: 'basketball',
-      icon: 'basketball',
-      score: '10',
+      name: 'Basketball',
+      icon: 'fa-solid fa-basketball',
+      score: '96',
     },
     {
-      name: '3x3 basketball',
-      icon: 'basketball3x3',
-      score: '103',
+      name: '3x3 Basketball',
+      icon: 'fa-solid fa-volleyball',
+      score: '5',
     },
-    {
-      name: 'tennis',
-      icon: 'tennis',
-      score: '1061',
-    },
+
     {
       name: 'baseball',
       icon: 'baseball',

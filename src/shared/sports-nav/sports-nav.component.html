@@ -1,18 +1,19 @@
-<div class="h-[15vw] min-[819px]:hidden text-white bg-black">
+<div class="font-['Roboto'] h-[15vw] min-[819px]:hidden text-white bg-black">
     <ul class="block whitespace-nowrap overflow-x-scroll w-full h-full">
-        <li class="sport-item">
+        <li class="sport-item !mr-[3px] min-[429px]:!mr-1 sport-all">
             All
         </li>
         @for (item of sports; track $index) {
         <li class="sport-item">
-            <div class="h-[11vw] leading-[11vw] relative pt-1 opacity-60">
-                <i [attr.sport]="item.icon" class="sport-icon"></i>
+
+            <div class="h-[11vw] leading-[11vw] relative pt-1 opacity-60 sport-img">
+                <i [ngClass]="item.icon" class="text-[6.5vw]"></i>
             </div>
             <div class="h-[5vw] leading-[3vw] text-[3vw] px-[1vw] truncate opacity-60 capitalize">
                 {{item.name}}
             </div>
             <div style="font-size: 2.5vw;"
-                class="absolute left-[calc(50%_+_4vw)] top-[1vw] text-[#00aa30] font-medium leading-none inline-block">
+                class="absolute left-[calc(50%_+_4vw)] top-[1.1vw] text-[#00aa30] font-semibold leading-none inline-block min-[429px]:!top-[1.3vw]">
                 {{item.score}}
             </div>
         </li>
