@@ -1,0 +1,7 @@
+@media (min-width: 820px) {
+  .layout-wrapper {
+    background-color: black;
+    height: calc(100dvh - 117.32px);
+    overflow: hidden;
+  }
+}

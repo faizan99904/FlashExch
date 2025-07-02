@@ -33,7 +33,7 @@
     </nav>
 </div>
 
-<div class="hidden lg:flex justify-start items-center mt-[0.625rem] bg-black h-[2.625rem]">
+<div class="hidden lg:flex justify-start items-center mt-[0.625rem] min-[820px]:mt-0 bg-black h-[2.625rem]">
     <div class="tab active">
         <svg x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24">
             <path
@@ -57,24 +57,40 @@
 
 
 
-<div class="bg-black flex w-full h-[12vw]">
-    <div class="relative grow-[1] h-full">
+<div class="bg-black flex w-full h-[12vw] xl:h-[49px] lg:bg-[#111317] lg:rounded-[3px]">
+    <div class="relative grow-[1] xl:max-w-[210px] h-full">
         <input type="text"
-            class="bg-transparent border-0 h-full w-full pl-[12vw] leading-[12vw] outline-0 text-[3.5vw] text-white"
+            class="bg-transparent border-0 h-full w-full pl-[12vw] xl:pl-[49px] leading-[12vw] outline-0 xl:text-base text-[3.5vw] text-white"
             placeholder="Search games">
         <i
-            class="fa-solid fa-magnifying-glass text-[#999999] absolute left-[4vw] pointer-events-none top-[50%] text-[4.5vw] -mt-[2vw]"></i>
-    </div>
-    <div class="flex items-center w-[33vw] h-[100%] before:block before:w-[1px] before:h-[60%] before:bg-[#23282a]">
-        <div
-            class="text-[7vw] ml-[6vw] flex justify-center relative w-[calc(50%-3vw)] h-[80%] border-b-[8vw] border-transparent">
-
-        </div>
+            class="fa-solid fa-magnifying-glass text-[#999999] absolute left-[4vw] xl:left-[1vw] xl:-mt-[7px] pointer-events-none top-[50%]  xl:text-base text-[4.5vw] -mt-[2vw]"></i>
     </div>
     <div
-        class="relative  before:block before:w-[1px] before:h-[60%] before:bg-[#23282a] before:absolute before:top-[20%] before:left-[0px] ">
-        <span class="flex items-center justify-center w-[12vw] h-full font-[4.5vw]">
-            <i class="fa-solid fa-gear text-[#999999] text-[16.5px]"></i>
+        class="flex items-center w-[33vw] h-[100%] before:block before:w-[1px] before:h-[60%] before:bg-[#23282a] xl:before:bg-transparent min-[820px]:hidden">
+        <div
+            class="text-[7vw] ml-[6vw] w-[calc(50%-3vw)] flex justify-center relative  h-[100%] border-b-[8vw] border-transparent">
+            <i
+                class="fa-solid fa-list-ul text-[#999999] text-[18px] absolute top-[90%] left-[50%] translate-x-[-50%] "></i>
+        </div>
+        <div
+            class="text-[7vw] ml-[6vw] w-[calc(50%-3vw)] flex justify-center relative  h-[100%] border-b-[8vw] border-transparent">
+            <i
+                class="fa-solid fa-list-ul text-[#999999] text-[18px] absolute top-[90%] left-[50%] translate-x-[-50%] "></i>
+        </div>
+
+    </div>
+    <div
+        class="relative min-[820px]:hidden  before:block before:w-[1px] before:h-[60%] before:bg-[#23282a] before:absolute before:top-[20%] before:left-[0px] ">
+        <span class="flex items-center justify-center w-[12vw] h-full font-[4vw]">
+            <i class="fa-solid fa-gear text-[#999999] text-[3.8vw]"></i>
         </span>
     </div>
+
+    <ul class="max-[820px]:hidden ml-auto flex items-center whitespace-nowrap overflow-hidden pr-[28px]">
+        <li
+            class="bg-[#030303] ml-4 h-[35px] basis-auto p-[.5rem] text-white flex items-center justify-center shrink-0 text-center text-[.9rem] overflow-hidden cursor-pointer ">
+            
+            <span class="m-[0_.7rem] block text-[12.6px]">Soccer</span>
+        </li>
+    </ul>
 </div>

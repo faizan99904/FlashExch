@@ -1,9 +1,9 @@
 <div>
     <app-header></app-header>
     <app-sports-nav></app-sports-nav>
-    <div class="flex lg:gap-4 gap-0">
+    <div class="flex lg:gap-4 gap-0 layout-wrapper">
         <app-sidebar></app-sidebar>
-        <div class="w-[100vw] lg:w-[calc(100vw-492px)]">
+        <div class="w-[100vw] lg:w-[calc(100vw-492px)] overflow-y-auto">
             <router-outlet></router-outlet>
         </div>
         <div class="max-lg:hidden w-[242px]">
