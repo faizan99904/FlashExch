@@ -1,9 +1,9 @@
 <!-- Swiper container -->
-<div class="swiper mySwiper max-w-[800px] mt-2 rounded-md">
+<div class="swiper mySwiper  max-w-[calc(100vw)]  min-h-auto lg:mt-2 lg:rounded-md">
     <div class="swiper-wrapper ">
 
 
-        <div class="swiper-slide " *ngFor=" let img of swiperImages">
+        <div class="swiper-slide h-[190px]" *ngFor=" let img of swiperImages">
             <img [src]="img" alt="slide" class="w-full h-auto object-cover " />
         </div>
 
@@ -12,6 +12,7 @@
 
     </div>
     <!-- Navigation arrows -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next !hidden lg:!block z-10"></div>
+    <div class="swiper-button-prev !hidden lg:!block z-10"></div>
+
 </div>
