@@ -39,6 +39,12 @@ body {
     max-height: 108px !important;
   }
 }
+@media (min-width: 375px) {
+  .forMedia,
+  .imageMain {
+    max-height: 112px !important;
+  }
+}
 
 @media (min-width: 390px) {
   .forMedia,
