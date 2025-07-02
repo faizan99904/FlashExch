@@ -1,0 +1,103 @@
+<div class="h-[15vw] min-[819px]:hidden text-white bg-black">
+    <ul class="block whitespace-nowrap overflow-x-scroll w-full h-full">
+        <li class="sport-item">
+            All
+        </li>
+        @for (item of sports; track $index) {
+        <li class="sport-item">
+            <div class="h-[11vw] leading-[11vw] relative pt-1 opacity-60">
+                <i [ngClass]="item.icon" class="text-[6.5vw]"></i>
+            </div>
+            <div class="h-[5vw] leading-[3vw] text-[3vw] px-[1vw] truncate opacity-60">
+                {{item.name}}
+            </div>
+            <div style="font-size: 2.5vw;"
+                class="absolute left-[calc(50%_+_4vw)] top-[1vw] text-[#00aa30] font-medium leading-none inline-block">
+                {{item.score}}
+            </div>
+        </li>
+        }
+    </ul>
+</div>
+
+<nav class="hidden min-[820px]:block bg-[#272d33] h-[3.333rem]">
+    <div
+        class="flex items-center h-full justify-between px-[1.25rem] overflow-hidden relative mx-auto max-w-[66.3333rem]">
+        <ul class="h-full flex gap-[1.55rem] justify-center items-center">
+            <li class="relative">
+                <span
+                    class="active relative hover:text-[#11e311] cursor-pointer e h-full text-[0.6358125rem] flex items-center justify-center uppercase trans text-white">Sports</span>
+            </li>
+            <li class="relative">
+                <span
+                    class="hover:text-[#11e311] cursor-pointer relative h-full text-[0.6358125rem] flex items-center justify-center uppercase trans text-white">FIFA
+                    Club World Cup</span>
+                <span class="new">New</span>
+            </li>
+            <li class="relative">
+                <span
+                    class="hover:text-[#11e311] cursor-pointer relative h-full text-[0.6358125rem] flex items-center justify-center uppercase trans text-white">Live</span>
+            </li>
+            <li class="relative">
+                <span
+                    class="hover:text-[#11e311] cursor-pointer relative h-full text-[0.6358125rem] flex items-center justify-center uppercase trans text-white">Casino</span>
+            </li>
+            <li class="relative">
+                <span
+                    class="hover:text-[#11e311] cursor-pointer relative h-full text-[0.6358125rem] flex items-center justify-center uppercase trans text-white">Casino
+                    Marathon</span>
+                <span class="new">New</span>
+            </li>
+            <li class="relative">
+                <span
+                    class="hover:text-[#11e311] cursor-pointer relative h-full text-[0.6358125rem] flex items-center justify-center uppercase trans text-white">Live
+                    Casino</span>
+            </li>
+            <li class="relative">
+                <span
+                    class="hover:text-[#11e311] cursor-pointer relative h-full text-[0.6358125rem] flex items-center justify-center uppercase trans text-white">Sports</span>
+            </li>
+            <li class="relative">
+                <span
+                    class="hover:text-[#11e311] cursor-pointer relative h-full text-[0.6358125rem] flex items-center justify-center uppercase trans text-white">Virtual
+                    Sport</span>
+            </li>
+            <li class="relative">
+                <span
+                    class="hover:text-[#11e311] cursor-pointer relative h-full text-[0.6358125rem] flex items-center justify-center uppercase trans text-white">ESports</span>
+            </li>
+            <li class="relative">
+                <span
+                    class="hover:text-[#11e311] cursor-pointer relative h-full text-[0.6358125rem] flex items-center justify-center uppercase trans text-white">Mini
+                    Games</span>
+            </li>
+            <li class="relative">
+                <span
+                    class="hover:text-[#11e311] cursor-pointer relative h-full text-[0.6358125rem] flex items-center justify-center uppercase trans text-white">Racing</span>
+            </li>
+        </ul>
+        <span
+            class="relative h-full text-[0.6358125rem] flex items-center justify-center uppercase trans text-white hover:text-[#11e311] cursor-pointer">
+            <svg class="mr-[.533rem]" width="17" height="19" viewBox="0 0 17 19" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_6_18)">
+                    <path
+                        d="M16.9998 12.7874L16.0598 10.9312L13.7619 6.39372L10.5237 0C10.5237 0 8.43242 5.41979 4.63713 7.69522C4.5983 7.62219 4.53415 7.56742 4.45751 7.54284C4.37884 7.51756 4.29376 7.52564 4.22117 7.56566L1.84121 8.86891C0.158467 9.79018 -0.489445 11.9631 0.396496 13.7129C1.01335 14.9312 2.21328 15.6274 3.45373 15.6274C3.8913 15.6274 4.33427 15.5403 4.758 15.3592L5.15674 18.1075C5.23946 18.678 5.75603 19.0744 6.30468 18.9884C6.85333 18.9024 7.23451 18.3652 7.15179 17.7947L6.65075 14.3414L7.43507 13.912C7.58497 13.8298 7.64338 13.6385 7.56742 13.4819C11.519 11.5151 16.9998 12.7881 16.9998 12.7881V12.7874ZM4.76576 14.6437C3.38621 15.3992 1.6724 14.8466 0.94582 13.412C0.21924 11.9775 0.75067 10.1953 2.13023 9.43979L4.23568 8.2868L6.87122 13.4907L4.76576 14.6437Z"
+                        fill="white"></path>
+                    <path
+                        d="M13.0022 4.68181C13.8834 4.19941 14.9837 4.55401 15.448 5.47036C15.9119 6.38671 15.5709 7.53092 14.6897 8.01367"
+                        fill="white"></path>
+                    <path
+                        d="M2.33847 11.6078C2.26385 11.6078 2.1889 11.5801 2.12914 11.5232C2.00252 11.4031 1.99375 11.1988 2.10922 11.0675C2.37628 10.7634 2.69028 10.5113 3.04242 10.3186L3.55056 10.0402C3.70215 9.95731 3.88987 10.0177 3.96989 10.1753C4.04991 10.333 3.9915 10.5282 3.83991 10.6114L3.33177 10.8898C3.04344 11.0478 2.78616 11.2542 2.56738 11.5028C2.50627 11.5723 2.4222 11.6078 2.33813 11.6078H2.33847Z"
+                        fill="white"></path>
+                </g>
+                <defs>
+                    <clipPath id="clip0_6_18">
+                        <rect width="17" height="19" fill="white"></rect>
+                    </clipPath>
+                </defs>
+            </svg>
+            Pormotion
+        </span>
+    </div>
+</nav>
