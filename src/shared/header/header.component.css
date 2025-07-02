@@ -125,7 +125,6 @@ header form .fields-wrapper .field input {
   background: #272d33;
   border: 0;
   border-radius: 3px;
-  font-family: Kanit-Light;
   font-size: 0.8667rem;
   color: #fff;
   outline: none;
@@ -141,9 +140,77 @@ header form .fields-wrapper .field:nth-child(2) .forgot-pass {
   right: 2px;
 }
 
+header .change-lang div.current-lang {
+  text-transform: uppercase;
+  margin-left: 1.1333rem;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  gap: 0.3333rem;
+  width: 90px;
+  height: 2.6667rem;
+  border-radius: 10px;
+  background: rgba(39, 45, 51, 0.5);
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.lang-text {
+  font-size: 14px;
+  color: #fff;
+  vertical-align: middle;
+}
+
+header .change-lang div.current-lang img {
+  width: 41px;
+  height: 21px;
+  border-radius: 3px;
+}
+
 @media (min-width: 820px) {
   header .content {
     background: #171717 !important;
     height: 38px;
+  }
+  header {
+    position: relative;
+    height: 38px;
+  }
+}
+
+@media (min-width: 1440px) {
+  header .content {
+    background: #171717 !important;
+    height: 64px;
+    max-width: 1362px;
+    padding: 0 0px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  header {
+    position: relative;
+    height: 64px;
+    background: #171717 !important;
+  }
+
+  header form .fields-wrapper .field input {
+    height: 40px;
+    width: 160px;
+  }
+
+  header form .fields-wrapper .field:nth-child(2)::after {
+    content: "";
+    height: 35px;
+    width: 1px;
+    position: absolute;
+    right: 2.5333rem;
+    background: rgba(255, 255, 255, 0.2);
   }
 }

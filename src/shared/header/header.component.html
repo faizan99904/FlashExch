@@ -4,12 +4,13 @@
             <div class="logo">
                 <a>
                     <img src="https://static.inpcdn.com/112,1c3cd62c481703.webp" class="min-[820px]:hidden">
-                    <img src="https://static.inpcdn.com/112,1c3cf09c739d87.webp" class="max-[819px]:hidden !h-[19px]">
+                    <img src="https://static.inpcdn.com/112,1c3cf09c739d87.webp"
+                        class="max-[819px]:hidden !h-[19px] min-[1280px]:!h-[33px]">
                 </a>
             </div>
         </div>
-        <div>
-            <form class="flex">
+        <div class="flex h-full items-center">
+            <form class="flex h-full items-center">
                 <div class="fields-wrapper max-[819px]:!hidden">
                     <div>
                         <div class="field">
@@ -42,11 +43,17 @@
 
                 <div id="not-authorized" class="visible">
                     <a href="/en/"
-                        class="btn registration open-registration-popup min-[820px]:max-h-[24px] min-[820px]:!bg-[#272D33]">Sign
+                        class="btn registration open-registration-popup min-[820px]:!h-[24px] min-[820px]:!bg-[#272D33] min-[1280px]:!w-[134px] min-[1280px]:!h-[40px]">Sign
                         Up</a>
-                    <a href="/en/static/login" class="btn login open-login-popup min-[820px]:max-h-[24px]">Log In</a>
+                    <a href="/en/static/login"
+                        class="btn login open-login-popup min-[820px]:!h-[24px] min-[1280px]:!w-[134px] min-[1280px]:!h-[40px]">Log
+                        In</a>
                 </div>
             </form>
+            <div class="change-lang max-[810px]:!hidden" style="display: block;">
+                <div class="current-lang"><span class="current-lang lang-text">en</span><img
+                        src="https://velobet.win/assets/images/lang/en.png?v=14" lang="en"></div>
+            </div>
         </div>
     </div>
 </header>
