@@ -1,7 +1,11 @@
 <div>
     <app-header></app-header>
-    <div>
-        <!-- <app-sidebar></app-sidebar> -->
+    <div class="flex">
+        <app-sidebar></app-sidebar>
         <router-outlet></router-outlet>
+        <div class="max-md:hidden">
+            <app-betslip></app-betslip>
+        </div>
     </div>
+    <app-bottom-nav></app-bottom-nav>
 </div>
