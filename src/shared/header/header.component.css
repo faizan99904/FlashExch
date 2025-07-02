@@ -39,6 +39,7 @@ header .content .logo {
 header .content .logo img {
   height: 8vw;
   max-width: 26vw;
+  @apply md:max-h-[42px];
 }
 
 a img {
@@ -167,11 +168,11 @@ header .change-lang div.current-lang {
   vertical-align: middle;
 }
 
-header .change-lang div.current-lang img {
+/* header .change-lang div.current-lang img {
   width: 41px;
   height: 21px;
   border-radius: 3px;
-}
+} */
 
 @media (min-width: 820px) {
   header .content {
@@ -181,6 +182,95 @@ header .change-lang div.current-lang img {
   header {
     position: relative;
     height: 38px;
+  }
+
+  header .change-lang div.current-lang img {
+    width: 24px;
+    height: 12px;
+    border-radius: 3px;
+  }
+
+  header .change-lang div.current-lang {
+    text-transform: uppercase;
+    margin-left: 1.1333rem;
+    color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 0.3333rem;
+    width: 90px;
+    height: 24px;
+    border-radius: 10px;
+    background: rgba(39, 45, 51, 0.5);
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  header .content {
+    background: #171717 !important;
+    height: 42.66px;
+    max-width: 908px;
+    padding: 0 0px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .lang-text {
+    font-size: 9px;
+  }
+
+  header {
+    position: relative;
+    height: 42.66px;
+    background: #171717 !important;
+  }
+
+  header form .fields-wrapper .field input {
+    height: 26px;
+    width: 110px;
+  }
+
+  header form .fields-wrapper .field:nth-child(2)::after {
+    content: "";
+    height: 0px;
+    width: 0px;
+    position: absolute;
+    right: 2.5333rem;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  header .change-lang div.current-lang img {
+    width: 27px;
+    height: 14px;
+    border-radius: 3px;
+  }
+
+  header .change-lang div.current-lang {
+    text-transform: uppercase;
+    margin-left: 1.1333rem;
+    color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 0.3333rem;
+    width: 60px;
+    height: 26px;
+    border-radius: 10px;
+    background: rgba(39, 45, 51, 0.5);
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
 }
 
@@ -212,5 +302,32 @@ header .change-lang div.current-lang img {
     position: absolute;
     right: 2.5333rem;
     background: rgba(255, 255, 255, 0.2);
+  }
+
+  header .change-lang div.current-lang img {
+    width: 41px;
+    height: 21px;
+    border-radius: 3px;
+  }
+
+  header .change-lang div.current-lang {
+    text-transform: uppercase;
+    margin-left: 1.1333rem;
+    color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 0.3333rem;
+    width: 90px;
+    height: 2.6667rem;
+    border-radius: 10px;
+    background: rgba(39, 45, 51, 0.5);
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
 }
