@@ -351,3 +351,74 @@ header .change-lang div.current-lang {
     right: 7px;
   }
 }
+
+header .change-lang ul {
+  position: absolute;
+  top: 3.6667rem;
+  min-width: 10.625rem;
+  line-height: normal;
+  z-index: 999;
+  background: #101318;
+  border-radius: 0.1875rem;
+  right: 0;
+  border-radius: 0.1875rem;
+  -webkit-box-shadow: 0.625rem 0 1.6875rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0.625rem 0 1.6875rem rgba(0, 0, 0, 0.2);
+  z-index: 9;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: 0.1s ease;
+  transition: 0.1s ease;
+  -webkit-transform-origin: top;
+  transform-origin: top;
+  -webkit-transform: scaleY(0.3);
+  transform: scaleY(0.3);
+}
+
+header .change-lang:hover ul {
+  transform: scaleY(1);
+  opacity: 1;
+  pointer-events: all;
+}
+
+header .change-lang ul:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 5.1rem;
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+  width: 100%;
+  background: 0 0;
+}
+
+header .change-lang ul li {
+  cursor: pointer;
+}
+
+header .change-lang ul li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 2.4rem;
+  padding: 0.5rem 0.9375rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #fff;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+header .change-lang ul li span {
+  display: inline-block;
+  margin-left: 0.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 6.6667rem;
+}
