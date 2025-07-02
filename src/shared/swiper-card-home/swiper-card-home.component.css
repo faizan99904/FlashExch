@@ -24,3 +24,129 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+@media (min-width: 414px) {
+  .forMedia {
+    max-height: 124.31px !important;
+  }
+  .imageMain {
+    max-height: 124.31px !important;
+  }
+}
+
+@media (min-width: 390px) {
+  .forMedia {
+    max-height: 117.11px !important;
+  }
+  .imageMain {
+    max-height: 117.11px !important;
+  }
+}
+@media (min-width: 430px) {
+  .forMedia {
+    max-height: 129.11px !important;
+  }
+  .imageMain {
+    max-height: 129.11px !important;
+  }
+}
+
+@media (min-width: 412px) {
+  .forMedia {
+    max-height: 123.6px !important;
+  }
+  .imageMain {
+    max-height: 123.6px !important;
+  }
+}
+@media (min-width: 360px) {
+  .forMedia {
+    max-height: 108px !important;
+  }
+  .imageMain {
+    max-height: 108px !important;
+  }
+}
+@media (min-width: 768px) {
+  .forMedia {
+    max-height: 230.4px !important;
+  }
+  .imageMain {
+    max-height: 230.4px !important;
+  }
+}
+@media (min-width: 820px) {
+  .forMedia {
+    max-height: 246px !important;
+  }
+  .imageMain {
+    max-height: 246px !important;
+  }
+}
+@media (min-width: 1024px) {
+  .forMedia {
+    max-height: 307.2px !important;
+  }
+  .imageMain {
+    max-height: 307.2px !important;
+  }
+}
+@media (min-width: 912px) {
+  .forMedia {
+    max-height: 273.6px !important;
+  }
+  .imageMain {
+    max-height: 273.6px !important;
+  }
+}
+@media (min-width: 540px) {
+  .forMedia {
+    max-height: 162px !important;
+  }
+  .imageMain {
+    max-height: 162px !important;
+  }
+}
+@media (min-width: 1080px) {
+  .forMedia {
+    max-height: 384px !important;
+  }
+  .imageMain {
+    max-height: 384px !important;
+  }
+}
+
+@media (min-width: 1346px) {
+  .forMedia {
+    max-height: 146.78px !important;
+  }
+  .imageMain {
+    max-height: 146.78px !important;
+  }
+}
+@media (min-width: 320px) {
+  .forMedia {
+    max-height: 96px !important;
+  }
+  .imageMain {
+    max-height: 96px !important;
+  }
+}
+@media (min-width: 2560px) {
+  .forMedia {
+    max-height: 338.18px !important;
+  }
+  .imageMain {
+    max-height: 338.18px !important;
+  }
+}
+@media (min-width: 1440px) {
+  .forMedia {
+    max-height: 155.73px !important;
+    
+  }
+  .imageMain {
+    max-height: 155.73px !important;
+    
+  }
+}
