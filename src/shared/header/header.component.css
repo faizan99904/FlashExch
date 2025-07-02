@@ -282,6 +282,9 @@ header .change-lang div.current-lang {
 }
 
 @media (min-width: 1440px) {
+  header .content #not-authorized.visible {
+    gap: 8px;
+  }
   header .content {
     background: #171717 !important;
     height: 64px;
@@ -292,7 +295,7 @@ header .change-lang div.current-lang {
   }
 
   .lang-text {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   header {
@@ -304,6 +307,8 @@ header .change-lang div.current-lang {
   header form .fields-wrapper .field input {
     height: 40px;
     width: 166px;
+    padding: 0px 16px !important;
+    @apply placeholder:text-[12.6px] placeholder:text-[#BFC0C2];
   }
 
   header form .fields-wrapper .field:nth-child(2)::after {
@@ -327,7 +332,7 @@ header .change-lang div.current-lang {
 
   header .change-lang div.current-lang {
     text-transform: uppercase;
-    margin-left: 1.1333rem;
+    margin-left: 16.9995px;
     color: #fff;
     display: -webkit-box;
     display: -ms-flexbox;

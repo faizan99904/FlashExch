@@ -1,0 +1,1187 @@
+@font-face {
+    font-family: 'SportIconsUpdated';
+    font-weight: normal;
+    font-style: normal;
+    src: url(fonts/sporticons.woff2?v=6) format('woff2'),
+         url(fonts/sporticons.woff?v=6) format('woff');
+}
+
+html .material-icons {
+    line-height: unset;
+    font-size: inherit;
+}
+html .material-icons:before {
+    content: attr(icon);
+}
+
+.flag[country] {
+    background-image: url('img/flags.png?v=7');
+}
+#sportsbook .flag[country^=worldcup] {
+    background-position: -287px -411px;
+}
+#sportsbook .flag[country^=eurobasket] {
+    background-position: -226px -412px;
+}
+#sportsbook .flag[country^=uefaeuropaconferenceleague] {
+    background-position: 0 0;
+    background-size: 100% 100%;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAACL0lEQVQ4jYWUW4hOURTHfzMYl1CSZpq8eMBn9jzJJYp4mJJZLqWMN0WkpJSEEW8eJZOS4sm8UBqXTaPk8oDCC82WeXC/FIk0cq1ZWqf15XPsj1Wnfc7e//Xba6299kFVy0+Dqnaq6hFV7VbVr6q6RVWHVHWfqvaoakfGj0b+NgV2A1uBH8AYYAQwHgr9NmBnxi8LMzvgY4OPo0v6Y/+FhSgrQ5S9wGVgAJgMvC/5fADOhygHQ5RVWViIshk4C4inehiYD9yticxSvQj8BDqAPvf7DQtRlgBHgSfAWl87DbQB94ApwGev3SVft02fml+IsrSoSduFzibgEdAKzE4SH9ZEfga4DcwBpgMPgB2eqgXR7pu9ASoWWRcwDThUApn1+SFMBQaB11WQWZJode1x/64qDE+zbFdc+M1TGshoqn4FzFJ4nCS+yAhbgHHAO+ATcL8sSBJtk2fGMVgz8CoDMqt44S2ij8DzOrqXxjHYMNBUR9TiNfrubdFcR2f+w41OrYQoDXWE1h5zgRXeGn9YiGKMWcaxl5vAJGBRBmSRrPFDsl5amNEsBiYax2C9PrkrI2wtfbdnNN0+9hqsH7gFLA9RNpWEM/4F86tk18oau9/+XTY5E7gDjAU2JokngVHAUM29NLMWKQ4hRFkPHAe+APOSxMEC5otWk3PABGBdkngd2JNJa3+Isgw45ZutThKv2sLIqiJJvBaiLABOADeAt8D2DMzM0rJMNiSJqZgBfgHgUc2DPOvucAAAAABJRU5ErkJggg==');
+}
+#sportsbook .flag[country^='federationcup'],
+#sportsbook .flag[country^='fedcup'] {
+    background-position: -338px -409px;
+    background-size: unset;
+}
+#sportsbook .flag[country^='unitedcup'] {
+    background-image: url('img/unitedcup.png');
+    background-position: 0 0;
+    background-size: cover;
+    filter: var(--invertWhite);
+}
+#sportsbook .flag[country^=south-korea],
+#sportsbook .flag[country^=southkorea],
+#sportsbook .flag[country^=koreasouth],
+#sportsbook .flag[country^=korea-republic],
+#sportsbook .flag[country^=republic-of-korea],
+#sportsbook .flag[country^=republicofkorea] {
+    background-position:-288px -168px;
+}
+#sportsbook .flag[country^="usesport"] {
+    background-position: -72px -360px;
+}
+#sportsbook .flag[country="zanzibar"] {
+    background-position: -362px -410px;
+}
+#sportsbook .flag[country="seychelles"] {
+    background-position: 3px -434px;
+}
+#sportsbook .flag[country^="canadiangrandprix"] {
+    background-position: -312px -48px;
+}
+#sportsbook .flag[country^="spanishgrandprix"] {
+    background-position: -192px -312px;
+}
+#sportsbook .flag[country^="hungariangrandprix"] {
+    background-position: -216px -144px;
+}
+#sportsbook .flag[country^="lasvegasgrandprix"] {
+    background-position: -72px -360px;
+}
+#sportsbook .flag[country^="fifaclubworldcup"] {
+    background-position: -361px -408px;
+}
+
+/* /// */
+#sportsbook .sportsbook-tree li[region='540'] .flag[country^=worldcup],
+#sportsbook #live-events div[sport='2'] .flag[country^=worldcup],
+#prematch-home section.user-matches .sport-icon[sport='basketball'] + .flag[country^=worldcup] {
+    background-position: -258px -411px;
+}
+
+#bet-history .bet-info .items .item {
+    width: 100%;
+}
+
+#sportsbook #live-header section.match-info .main-banner[sport="tabletennis"] .set-stats .team .name {
+    width: 40%;
+}
+
+#racing-events .stream-wrapper .iframe-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+#sportsbook #live-events .sport-filters ul.menu-slide li.cricket i.virtual-icon:before {
+    content: "\E90D";
+}
+
+#sportsbook #live-header section.match-info .main-banner[type="2"] .set-stats .team {
+    width: 100%;
+}
+#sportsbook #live-header section.match-info .main-banner[sport=tabletennis] .set-stats>div ul {
+    width: 50%;
+}
+
+#sportsbook .prematch-match-page .markets {
+    max-height: none;
+}
+
+#sportsbook .sport-icon {
+    font-family: 'SportIconsUpdated';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+#sportsbook .sport-icon[sport='basketball3x3'],
+#sportsbook .sport-icon[sport='3x3basketball'],
+#sportsbook .sport-icon[sport='formula1'],
+#sportsbook .sport-icon[sport='playerunknownsbattlegrounds'] {
+    font-size: 4vw !important;
+}
+
+#sportsbook .prematch-events section.top-events .league-name {
+    display: flex;
+    align-items: center;
+    height: 8vw;
+    color: #fff;
+    padding-left: 4vw;
+    background-color: var(--elBgColor);
+}
+
+#sportsbook .sport-icon[sport='arenaofvalor']:before { content: '\e800'; } /* '' */
+#sportsbook .sport-icon[sport='athletics']:before { content: '\e801'; } /* '' */
+#sportsbook .sport-icon[sport='aussierules']:before { content: '\e802'; } /* '' */
+#sportsbook .sport-icon[sport='badminton']:before { content: '\e803'; } /* '' */
+#sportsbook .sport-icon[sport='bandy']:before { content: '\e804'; } /* '' */
+#sportsbook .sport-icon[sport='baseball']:before { content: '\e805'; } /* '' */
+#sportsbook .sport-icon[sport='basketball']:before { content: '\e806'; } /* '' */
+#sportsbook .sport-icon[sport='basketball3x3']:before { content: '\e807'; } /* '' */
+#sportsbook .sport-icon[sport='3x3basketball']:before { content: '\e807'; } /* '' */
+#sportsbook .sport-icon[sport='beachsoccer']:before { content: '\e808'; } /* '' */
+#sportsbook .sport-icon[sport='beachvolley']:before { content: '\e809'; } /* '' */
+#sportsbook .sport-icon[sport='biathlon']:before { content: '\e80a'; } /* '' */
+#sportsbook .sport-icon[sport='bowls']:before { content: '\e80b'; } /* '' */
+#sportsbook .sport-icon[sport='boxing']:before { content: '\e80c'; } /* '' */
+#sportsbook .sport-icon[sport='breaking']:before { content: '\e80d'; } /* '' */
+#sportsbook .sport-icon[sport='callofduty']:before { content: '\e80e'; } /* '' */
+#sportsbook .sport-icon[sport='canoeing']:before { content: '\e80f'; } /* '' */
+#sportsbook .sport-icon[sport='chess']:before { content: '\e810'; } /* '' */
+#sportsbook .sport-icon[sport='counterstrike']:before { content: '\e811'; } /* '' */
+#sportsbook .sport-icon[sport='counter-strike']:before { content: '\e812'; } /* '' */
+#sportsbook .sport-icon[sport='counterstrikego']:before { content: '\e813'; } /* '' */
+#sportsbook .sport-icon[sport='cricket']:before { content: '\e814'; } /* '' */
+#sportsbook .sport-icon[sport='crosscountry']:before { content: '\e815'; } /* '' */
+#sportsbook .sport-icon[sport='curling']:before { content: '\e816'; } /* '' */
+#sportsbook .sport-icon[sport='cycling']:before { content: '\e817'; } /* '' */
+#sportsbook .sport-icon[sport='darts']:before { content: '\e818'; } /* '' */
+#sportsbook .sport-icon[sport='diving']:before { content: '\e819'; } /* '' */
+#sportsbook .sport-icon[sport='dota']:before { content: '\e81a'; } /* '' */
+#sportsbook .sport-icon[sport='dota2']:before { content: '\e81b'; } /* '' */
+#sportsbook .sport-icon[sport='equestrian']:before { content: '\e81c'; } /* '' */
+#sportsbook .sport-icon[sport='fencing']:before { content: '\e81d'; } /* '' */
+#sportsbook .sport-icon[sport='fieldhockey']:before { content: '\e81e'; } /* '' */
+#sportsbook .sport-icon[sport='fifa']:before { content: '\e81f'; } /* '' */
+#sportsbook .sport-icon[sport='figureskating']:before { content: '\e820'; } /* '' */
+#sportsbook .sport-icon[sport='floorball']:before { content: '\e821'; } /* '' */
+#sportsbook .sport-icon[sport='formula1']:before { content: '\e822'; } /* '' */
+#sportsbook .sport-icon[sport='formulae']:before { content: '\e823'; } /* '' */
+#sportsbook .sport-icon[sport='futsal']:before { content: '\e824'; } /* '' */
+#sportsbook .sport-icon[sport='gaelicfootball']:before { content: '\e825'; } /* '' */
+#sportsbook .sport-icon[sport='gaelichurling']:before { content: '\e826'; } /* '' */
+#sportsbook .sport-icon[sport='golf']:before { content: '\e827'; } /* '' */
+#sportsbook .sport-icon[sport='greyhoundraicing']:before { content: '\e828'; } /* '' */
+#sportsbook .sport-icon[sport='gymnastics']:before { content: '\e829'; } /* '' */
+#sportsbook .sport-icon[sport='handball']:before { content: '\e82a'; } /* '' */
+#sportsbook .sport-icon[sport='harnessracing']:before { content: '\e82b'; } /* '' */
+#sportsbook .sport-icon[sport='heartstone']:before { content: '\e82c'; } /* '' */
+#sportsbook .sport-icon[sport='heroesofnewerth']:before { content: '\e82d'; } /* '' */
+#sportsbook .sport-icon[sport='heroesofthestorm']:before { content: '\e82e'; } /* '' */
+#sportsbook .sport-icon[sport='horseracing']:before { content: '\e82f'; } /* '' */
+#sportsbook .sport-icon[sport='icehockey']:before { content: '\e830'; } /* '' */
+#sportsbook .sport-icon[sport='indyracing']:before { content: '\e831'; } /* '' */
+#sportsbook .sport-icon[sport='judo']:before { content: '\e832'; } /* '' */
+#sportsbook .sport-icon[sport='kabaddi']:before { content: '\e833'; } /* '' */
+#sportsbook .sport-icon[sport='lacrosse']:before { content: '\e834'; } /* '' */
+#sportsbook .sport-icon[sport='leagueoflegends']:before { content: '\e835'; } /* '' */
+#sportsbook .sport-icon[sport='luge']:before { content: '\e836'; } /* '' */
+#sportsbook .sport-icon[sport='marathonswimming']:before { content: '\e837'; } /* '' */
+#sportsbook .sport-icon[sport='mma']:before { content: '\e838'; } /* '' */
+#sportsbook .sport-icon[sport='modernpentathlon']:before { content: '\e839'; } /* '' */
+#sportsbook .sport-icon[sport='motorcycleracing']:before { content: '\e83a'; } /* '' */
+#sportsbook .sport-icon[sport='motorsport']:before { content: '\e83b'; } /* '' */
+#sportsbook .sport-icon[sport='moviesandtvshows']:before { content: '\e83c'; } /* '' */
+#sportsbook .sport-icon[sport='nhl']:before { content: '\e83d'; } /* '' */
+#sportsbook .sport-icon[sport='olympics']:before { content: '\e83e'; } /* '' */
+#sportsbook .sport-icon[sport='overwatch']:before { content: '\e83f'; } /* '' */
+#sportsbook .sport-icon[sport='pesapallo']:before { content: '\e840'; } /* '' */
+#sportsbook .sport-icon[sport='playerunknownsbattlegrounds']:before { content: '\e841'; } /* '' */
+#sportsbook .sport-icon[sport='poker']:before { content: '\e842'; } /* '' */
+#sportsbook .sport-icon[sport='politics']:before { content: '\e843'; } /* '' */
+#sportsbook .sport-icon[sport='quakeii']:before { content: '\e844'; } /* '' */
+#sportsbook .sport-icon[sport='rainbowsix']:before { content: '\e845'; } /* '' */
+#sportsbook .sport-icon[sport='rally']:before { content: '\e846'; } /* '' */
+#sportsbook .sport-icon[sport='rocketleague']:before { content: '\e847'; } /* '' */
+#sportsbook .sport-icon[sport='rowing']:before { content: '\e848'; } /* '' */
+#sportsbook .sport-icon[sport='rugby']:before { content: '\e849'; } /* '' */
+#sportsbook .sport-icon[sport='sailing']:before { content: '\e84a'; } /* '' */
+#sportsbook .sport-icon[sport='schwingen']:before { content: '\e84b'; } /* '' */
+#sportsbook .sport-icon[sport='shooting']:before { content: '\e84c'; } /* '' */
+#sportsbook .sport-icon[sport='shorttrackspeedskating']:before { content: '\e84d'; } /* '' */
+#sportsbook .sport-icon[sport='skateboarding']:before { content: '\e84e'; } /* '' */
+#sportsbook .sport-icon[sport='skijumping']:before { content: '\e84f'; } /* '' */
+#sportsbook .sport-icon[sport='smite']:before { content: '\e850'; } /* '' */
+#sportsbook .sport-icon[sport='snooker']:before { content: '\e851'; } /* '' */
+#sportsbook .sport-icon[sport='soccer']:before { content: '\e852'; } /* '' */
+#sportsbook .sport-icon[sport='soccermythical']:before { content: '\e853'; } /* '' */
+#sportsbook .sport-icon[sport='specialodds']:before { content: '\e854'; } /* '' */
+#sportsbook .sport-icon[sport='softball']:before { content: '\e855'; } /* '' */
+#sportsbook .sport-icon[sport='specials']:before { content: '\e856'; } /* '' */
+#sportsbook .sport-icon[sport='speedskating']:before { content: '\e857'; } /* '' */
+#sportsbook .sport-icon[sport='speedway']:before { content: '\e858'; } /* '' */
+#sportsbook .sport-icon[sport='sportclimbing']:before { content: '\e859'; } /* '' */
+#sportsbook .sport-icon[sport='squash']:before { content: '\e85a'; } /* '' */
+#sportsbook .sport-icon[sport='starcraft']:before { content: '\e85b'; } /* '' */
+#sportsbook .sport-icon[sport='starcraftbroodwar']:before { content: '\e85c'; } /* '' */
+#sportsbook .sport-icon[sport='stockcarracing']:before { content: '\e85d'; } /* '' */
+#sportsbook .sport-icon[sport='sumo']:before { content: '\e85e'; } /* '' */
+#sportsbook .sport-icon[sport='surfing']:before { content: '\e85f'; } /* '' */
+#sportsbook .sport-icon[sport='swimming']:before { content: '\e860'; } /* '' */
+#sportsbook .sport-icon[sport='tabletennis']:before { content: '\e861'; } /* '' */
+#sportsbook .sport-icon[sport='taekwondo']:before { content: '\e862'; } /* '' */
+#sportsbook .sport-icon[sport='tennis']:before { content: '\e863'; } /* '' */
+#sportsbook .sport-icon[sport='triathlon']:before { content: '\e864'; } /* '' */
+#sportsbook .sport-icon[sport='vainglory']:before { content: '\e865'; } /* '' */
+#sportsbook .sport-icon[sport='valorant']:before { content: '\e866'; } /* '' */
+#sportsbook .sport-icon[sport='volleyball']:before { content: '\e867'; } /* '' */
+#sportsbook .sport-icon[sport='warcraft3']:before { content: '\e868'; } /* '' */
+#sportsbook .sport-icon[sport='waterpolo']:before { content: '\e869'; } /* '' */
+#sportsbook .sport-icon[sport='weightlifting']:before { content: '\e86a'; } /* '' */
+#sportsbook .sport-icon[sport='wintersports']:before { content: '\e86b'; } /* '' */
+#sportsbook .sport-icon[sport='worldoftanks']:before { content: '\e86c'; } /* '' */
+#sportsbook .sport-icon[sport='worldofwarcraft']:before { content: '\e86d'; } /* '' */
+#sportsbook .sport-icon[sport='wrestling']:before { content: '\e86e'; } /* '' */
+#sportsbook .sport-icon[sport='11']:before { content: '\e86f'; } /* '' */
+#sportsbook .sport-icon[sport='alpineskiing']:before { content: '\e870'; } /* '' */
+#sportsbook .sport-icon[sport='americanfootball']:before { content: '\e871'; } /* '' */
+#sportsbook .sport-icon[sport='archery']:before { content: '\e872'; } /* '' */
+#sportsbook .sport-icon[sport='rugbyunionsevens']:before { content: '\e873'; } /* '' */
+#sportsbook .sport-icon[sport='canoekayak']:before { content: '\e80f'; } /* '' */
+
+#virtual .champ-select ul li.new:after {
+    position: absolute;
+    content: 'NEW';
+    right: 0;
+    top: 0;
+    background-color: #ff172d;
+    color: #fff;
+    font-size: 9px;
+    padding: 1px 4px;
+    border-bottom-left-radius: 2px;
+    font-weight: 600;
+}
+
+#virtual .widget-mode[champ='666'] iframe {
+    height: 85vw;
+}
+
+#esport-svgs {
+	 height: 0;
+	 overflow: hidden;
+	 visibility: hidden;
+}
+#esport-svgs .dotast0 {
+	 fill-rule: evenodd;
+	 clip-rule: evenodd;
+	 fill: url(#dotaSVGID_1_);
+}
+#esport-svgs .hotsst0 {
+	 fill: #41ace1;
+}
+#esport-svgs .hsst0 {
+	 fill: #f89b1c;
+}
+#esport-svgs .hsst1 {
+	 fill: #593915;
+}
+#esport-svgs .hsst2 {
+	 fill: #4cc8f4;
+}
+#esport-svgs .lolst0 {
+	 fill: #fabe12;
+}
+#esport-svgs .lolst1 {
+	 fill: #da9d28;
+}
+#esport-svgs .lolst2 {
+	 fill: #0977bb;
+}
+#esport-svgs .lolst3 {
+	 fill: #005899;
+}
+#esport-svgs .lolst4 {
+	 fill: #3889c9;
+}
+#esport-svgs .ovst0 {
+	 fill: #f89b20;
+}
+#esport-svgs .ovst1 {
+	 fill: #4b4c4e;
+}
+#esport-svgs .live-icon {
+	 fill: #db2e27;
+}
+#esport-svgs #valorant-icon .cls-1 {
+	 fill: none;
+	 stroke: #fff;
+	 stroke-linecap: round;
+	 stroke-linejoin: round;
+	 stroke-width: 2px;
+}
+#esport-svgs #rocketleague-icon .cls-1 {
+	 fill: #fff;
+}
+#esport-svgs #playerunknownsbattlegrounds-icon {
+	 fill: #fff;
+}
+
+
+#sportsbook .flag {
+    transform-origin: left center;
+}
+#sportsbook .flag[country^="home"] {
+    background-image: none;
+}
+#sportsbook .flag[country^="worldcup"] {
+    background-position: -287px -411px;
+}
+#sportsbook .flag[country^="international"] {
+    background-position: -239px -384px;
+}
+#sportsbook .flag[country^="uefachampionsleague"] {
+    background-position: -47px -72px;
+}
+#sportsbook .flag[country^="uefaeuropaleague"] {
+    background-position: -336px -96px;
+}
+#sportsbook .flag[country^="copaamericacnt"] {
+    background-position: -264px -72px;
+}
+#sportsbook .flag[country^="wta"] {
+    background-position: -1px -405px;
+}
+#sportsbook .flag[country^="atp"] {
+    background-position: -25px -405px;
+}
+#sportsbook .flag[country^="itf"] {
+    background-position: -50px -405px;
+    transform: scale(0.8);
+}
+#sportsbook .flag[country^="challenger"] {
+    background-position: -74px -405px;
+}
+#sportsbook .flag[country^="daviscup"] {
+    background-position: -149px -405px;
+}
+#sportsbook .flag[country^="euro"] {
+    background-position: -198px -407px;
+}
+#sportsbook .flag[country^="eurobasket"] {
+    background-position: -226px -412px;
+}
+#sportsbook .flag[country^="federationcup"],
+#sportsbook .flag[country^="fedcup"] {
+    background-position: -338px -409px;
+}
+#sportsbook .flag[country^="asean"] {
+    background-position: 0px 0px;
+}
+#sportsbook .flag[country^="afghanistan"] {
+    background-position: -24px 0px;
+}
+#sportsbook .flag[country^="africa"] {
+    background-position: -48px 0px;
+}
+#sportsbook .flag[country^="african-union-oas"] {
+    background-position: -72px 0px;
+}
+#sportsbook .flag[country^="albania"] {
+    background-position: -96px 0px;
+}
+#sportsbook .flag[country^="algeria"] {
+    background-position: -120px 0px;
+}
+#sportsbook .flag[country^="america"] {
+    background-position: -144px 0px;
+}
+#sportsbook .flag[country^="american-samoa"] {
+    background-position: -168px 0px;
+}
+#sportsbook .flag[country^="andorra"] {
+    background-position: -192px 0px;
+}
+#sportsbook .flag[country^="angola"] {
+    background-position: -216px 0px;
+}
+#sportsbook .flag[country^="anguilla"] {
+    background-position: -240px 0px;
+}
+#sportsbook .flag[country^="antarctica"] {
+    background-position: -264px 0px;
+}
+#sportsbook .flag[country^="antiguaandbarbuda"] {
+    background-position: -288px 0px;
+}
+#sportsbook .flag[country^="arab-league"] {
+    background-position: -312px 0px;
+}
+#sportsbook .flag[country^="argentina"] {
+    background-position: -336px 0px;
+}
+#sportsbook .flag[country^="armenia"] {
+    background-position: -360px 0px;
+}
+#sportsbook .flag[country^="aruba"] {
+    background-position: 0px -24px;
+}
+#sportsbook .flag[country^="asia"] {
+    background-position: -24px -24px;
+}
+#sportsbook .flag[country^="australia"] {
+    background-position: -48px -24px;
+}
+#sportsbook .flag[country^="austria"] {
+    background-position: -72px -24px;
+}
+#sportsbook .flag[country^="azerbaijan"] {
+    background-position: -96px -24px;
+}
+#sportsbook .flag[country^="bahamas"] {
+    background-position: -120px -24px;
+}
+#sportsbook .flag[country^="bahrain"] {
+    background-position: -144px -24px;
+}
+#sportsbook .flag[country^="bangladesh"] {
+    background-position: -168px -24px;
+}
+#sportsbook .flag[country^="barbados"] {
+    background-position: -192px -24px;
+}
+#sportsbook .flag[country^="belarus"] {
+    background-position: -216px -24px;
+}
+#sportsbook .flag[country^="belgium"] {
+    background-position: -240px -24px;
+}
+#sportsbook .flag[country^="belize"] {
+    background-position: -264px -24px;
+}
+#sportsbook .flag[country^="benin"] {
+    background-position: -288px -24px;
+}
+#sportsbook .flag[country^="bermuda"] {
+    background-position: -312px -24px;
+}
+#sportsbook .flag[country^="bhutan"] {
+    background-position: -336px -24px;
+}
+#sportsbook .flag[country^="bolivia"] {
+    background-position: -360px -24px;
+}
+#sportsbook .flag self[country^="bosnia&herzegovina"] {
+    background-position: 0px -48px;
+}
+#sportsbook .flag[country^="bosnia"],
+#sportsbook .flag[country^="bosniaandherzegovina"] {
+    background-position: -24px -48px;
+}
+#sportsbook .flag[country^="botswana"] {
+    background-position: -48px -48px;
+}
+#sportsbook .flag[country^="brazil"] {
+    background-position: -72px -48px;
+}
+#sportsbook .flag[country^="brunei"] {
+    background-position: -96px -48px;
+}
+#sportsbook .flag[country^="bulgaria"] {
+    background-position: -120px -48px;
+}
+#sportsbook .flag[country^="burkina-faso"] {
+    background-position: -144px -48px;
+}
+#sportsbook .flag[country^="burundi"] {
+    background-position: -168px -48px;
+}
+#sportsbook .flag[country^="caricom"] {
+    background-position: -192px -48px;
+}
+#sportsbook .flag[country^="cis"] {
+    background-position: -216px -48px;
+}
+#sportsbook .flag[country^="cambodia"] {
+    background-position: -240px -48px;
+}
+#sportsbook .flag[country^="cambodja"] {
+    background-position: -264px -48px;
+}
+#sportsbook .flag[country^="cameroon"] {
+    background-position: -288px -48px;
+}
+#sportsbook .flag[country^="canada"] {
+    background-position: -312px -48px;
+}
+#sportsbook .flag[country^="cape-verde"] {
+    background-position: -336px -48px;
+}
+#sportsbook .flag[country^="cayman-islands"] {
+    background-position: -360px -48px;
+}
+#sportsbook .flag[country^="central-african-republic"] {
+    background-position: 0px -72px;
+}
+#sportsbook .flag[country^="chad"] {
+    background-position: -24px -72px;
+}
+#sportsbook .flag[country^="championsleague"] {
+    background-position: -48px -72px;
+}
+#sportsbook .flag[country^="chile"] {
+    background-position: -72px -72px;
+}
+#sportsbook .flag[country^="china"],
+#sportsbook .flag[country^="chinesetaipei"] {
+    background-position: -96px -72px;
+}
+#sportsbook .flag[country^="colombia"] {
+    background-position: -120px -72px;
+}
+#sportsbook .flag[country^="commonwealth"] {
+    background-position: -144px -72px;
+}
+#sportsbook .flag[country^="comoros"] {
+    background-position: -168px -72px;
+}
+#sportsbook .flag[country^="congo-brazzaville"] {
+    background-position: -192px -72px;
+}
+#sportsbook .flag[country^="congo-kinshasa"] {
+    background-position: -216px -72px;
+}
+#sportsbook .flag[country^="cook-islands"] {
+    background-position: -240px -72px;
+}
+#sportsbook .flag[country^="copaamerica"] {
+    background-position: -264px -72px;
+}
+#sportsbook .flag[country^="costarica"] {
+    background-position: -288px -72px;
+}
+#sportsbook .flag[country^="cote-divoire"] {
+    background-position: -312px -72px;
+}
+#sportsbook .flag[country^="croatia"] {
+    background-position: -336px -72px;
+}
+#sportsbook .flag[country^="cuba"] {
+    background-position: -360px -72px;
+}
+#sportsbook .flag[country^="cyprus"] {
+    background-position: 0px -96px;
+}
+#sportsbook .flag[country^="czechrepublic"] {
+    background-position: -24px -96px;
+}
+#sportsbook .flag[country^="denmark"] {
+    background-position: -48px -96px;
+}
+#sportsbook .flag[country^="djibouti"] {
+    background-position: -72px -96px;
+}
+#sportsbook .flag[country^="dominica"] {
+    background-position: -96px -96px;
+}
+#sportsbook .flag[country^="dominicanrepublic"] {
+    background-position: -120px -96px;
+}
+#sportsbook .flag[country^="ecuador"] {
+    background-position: -144px -96px;
+}
+#sportsbook .flag[country^="egypt"] {
+    background-position: -168px -96px;
+}
+#sportsbook .flag[country^="elsalvador"] {
+    background-position: -192px -96px;
+}
+#sportsbook .flag[country^="england"] {
+    background-position: -216px -96px;
+}
+#sportsbook .flag[country^="equatorial-guinea"] {
+    background-position: -240px -96px;
+}
+#sportsbook .flag[country^="eritrea"] {
+    background-position: -264px -96px;
+}
+#sportsbook .flag[country^="estonia"] {
+    background-position: -288px -96px;
+}
+#sportsbook .flag[country^="ethiopia"] {
+    background-position: -312px -96px;
+}
+#sportsbook .flag[country^="europaleague"] {
+    background-position: -336px -96px;
+}
+#sportsbook .flag[country^="europe"] {
+    background-position: -360px -96px;
+}
+#sportsbook .flag[country^="faroeislands"] {
+    background-position: -24px -120px;
+}
+#sportsbook .flag[country^="fiji"] {
+    background-position: -48px -120px;
+}
+#sportsbook .flag[country^="finland"] {
+    background-position: -72px -120px;
+}
+#sportsbook .flag[country^="france"] {
+    background-position: -96px -120px;
+}
+#sportsbook .flag[country^="gabon"] {
+    background-position: -120px -120px;
+}
+#sportsbook .flag[country^="gambia"] {
+    background-position: -144px -120px;
+}
+#sportsbook .flag[country^="georgia"] {
+    background-position: -168px -120px;
+}
+#sportsbook .flag[country^="germany"] {
+    background-position: -192px -120px;
+}
+#sportsbook .flag[country^="ghana"] {
+    background-position: -216px -120px;
+}
+#sportsbook .flag[country^="gibraltar"] {
+    background-position: -240px -120px;
+}
+#sportsbook .flag[country^="greatbritain"] {
+    background-position: -264px -120px;
+}
+#sportsbook .flag[country^="greece"] {
+    background-position: -288px -120px;
+}
+#sportsbook .flag[country^="greenland"] {
+    background-position: -312px -120px;
+}
+#sportsbook .flag[country^="grenada"] {
+    background-position: -336px -120px;
+}
+#sportsbook .flag[country^="guadeloupe"] {
+    background-position: -360px -120px;
+}
+#sportsbook .flag[country^="guam"] {
+    background-position: 0px -144px;
+}
+#sportsbook .flag[country^="guatemala"] {
+    background-position: -24px -144px;
+}
+#sportsbook .flag[country^="guernsey"] {
+    background-position: -48px -144px;
+}
+#sportsbook .flag[country^="guinea-bissau"] {
+    background-position: -72px -144px;
+}
+#sportsbook .flag[country^="guinea"] {
+    background-position: -96px -144px;
+}
+#sportsbook .flag[country^="guyana"] {
+    background-position: -120px -144px;
+}
+#sportsbook .flag[country^="haiti"] {
+    background-position: -144px -144px;
+}
+#sportsbook .flag[country^="honduras"] {
+    background-position: -168px -144px;
+}
+#sportsbook .flag[country^="hongkong"] {
+    background-position: -192px -144px;
+}
+#sportsbook .flag[country^="hungary"] {
+    background-position: -216px -144px;
+}
+#sportsbook .flag[country^="iceland"] {
+    background-position: -240px -144px;
+}
+#sportsbook .flag[country^="india"] {
+    background-position: -264px -144px;
+}
+#sportsbook .flag[country^="indonesia"] {
+    background-position: -288px -144px;
+}
+#sportsbook .flag[country^="iran"] {
+    background-position: -336px -144px;
+}
+#sportsbook .flag[country^="iraq"] {
+    background-position: -360px -144px;
+}
+#sportsbook .flag[country^="ireland"] {
+    background-position: 0px -168px;
+}
+#sportsbook .flag[country^="islamic-conference"] {
+    background-position: -24px -168px;
+}
+#sportsbook .flag[country^="isle-of-man"] {
+    background-position: -48px -168px;
+}
+#sportsbook .flag[country^="israel"] {
+    background-position: -72px -168px;
+}
+#sportsbook .flag[country^="italy"] {
+    background-position: -96px -168px;
+}
+#sportsbook .flag[country^="jamaica"] {
+    background-position: -120px -168px;
+}
+#sportsbook .flag[country^="jersey"] {
+    background-position: -144px -168px;
+}
+#sportsbook .flag[country^="jordan"] {
+    background-position: -168px -168px;
+}
+#sportsbook .flag[country^="kazakhstan"] {
+    background-position: -192px -168px;
+}
+#sportsbook .flag[country^="kenya"] {
+    background-position: -216px -168px;
+}
+#sportsbook .flag[country^="kiribati"] {
+    background-position: -240px -168px;
+}
+#sportsbook .flag[country^="korea-south"] {
+    background-position: -264px -168px;
+}
+#sportsbook .flag[country^="koreasouth"] {
+    background-position: -288px -168px;
+}
+#sportsbook .flag[country^="kosovo"] {
+    background-position: -312px -168px;
+}
+#sportsbook .flag[country^="kuwait"] {
+    background-position: -336px -168px;
+}
+#sportsbook .flag[country^="kyrgyzstan"] {
+    background-position: -360px -168px;
+}
+#sportsbook .flag[country^="laos"] {
+    background-position: 0px -192px;
+}
+#sportsbook .flag[country^="latvia"] {
+    background-position: -24px -192px;
+}
+#sportsbook .flag[country^="lebanon"] {
+    background-position: -48px -192px;
+}
+#sportsbook .flag[country^="lesotho"] {
+    background-position: -72px -192px;
+}
+#sportsbook .flag[country^="liberia"] {
+    background-position: -96px -192px;
+}
+#sportsbook .flag[country^="libya"] {
+    background-position: -120px -192px;
+}
+#sportsbook .flag[country^="liechtenstein"] {
+    background-position: -144px -192px;
+}
+#sportsbook .flag[country^="lithuania"] {
+    background-position: -168px -192px;
+}
+#sportsbook .flag[country^="luxembourg"] {
+    background-position: -192px -192px;
+}
+#sportsbook .flag[country^="macao"],
+#sportsbook .flag[country^="macau"] {
+    background-position: -216px -192px;
+}
+#sportsbook .flag[country^="macedonia"] {
+    background-position: -240px -192px;
+}
+#sportsbook .flag[country^="madagascar"] {
+    background-position: -264px -192px;
+}
+#sportsbook .flag[country^="malawi"] {
+    background-position: -288px -192px;
+}
+#sportsbook .flag[country^="malaysia"] {
+    background-position: -312px -192px;
+}
+#sportsbook .flag[country^="maldives"] {
+    background-position: -336px -192px;
+}
+#sportsbook .flag[country^="mali"] {
+    background-position: -360px -192px;
+}
+#sportsbook .flag[country^="malta"] {
+    background-position: 0px -216px;
+}
+#sportsbook .flag[country^="marshall-islands"] {
+    background-position: -24px -216px;
+}
+#sportsbook .flag[country^="martinique"] {
+    background-position: -48px -216px;
+}
+#sportsbook .flag[country^="mauritania"] {
+    background-position: -72px -216px;
+}
+#sportsbook .flag[country^="mauritius"] {
+    background-position: -96px -216px;
+}
+#sportsbook .flag[country^="mexico"] {
+    background-position: -120px -216px;
+}
+#sportsbook .flag[country^="micronesia"] {
+    background-position: -144px -216px;
+}
+#sportsbook .flag[country^="moldova"] {
+    background-position: -168px -216px;
+}
+#sportsbook .flag[country^="monaco"] {
+    background-position: -192px -216px;
+}
+#sportsbook .flag[country^="mongolia"] {
+    background-position: -216px -216px;
+}
+#sportsbook .flag[country^="montenegro"] {
+    background-position: -240px -216px;
+}
+#sportsbook .flag[country^="montserrat"] {
+    background-position: -264px -216px;
+}
+#sportsbook .flag[country^="morocco"] {
+    background-position: -288px -216px;
+}
+#sportsbook .flag[country^="mozambique"] {
+    background-position: -312px -216px;
+}
+#sportsbook .flag[country^="myanmar"] {
+    background-position: -336px -216px;
+}
+#sportsbook .flag[country^="nato"] {
+    background-position: -360px -216px;
+}
+#sportsbook .flag[country^="namibia"] {
+    background-position: 0px -240px;
+}
+#sportsbook .flag[country^="nauru"] {
+    background-position: -24px -240px;
+}
+#sportsbook .flag[country^="nepal"] {
+    background-position: -48px -240px;
+}
+#sportsbook .flag[country^="netherlands-antilles"] {
+    background-position: -72px -240px;
+}
+#sportsbook .flag[country^="netherlands"],
+#sportsbook .flag[country^="holland"],
+#sportsbook .flag[country^="dutch"] {
+    background-position: -96px -240px;
+}
+#sportsbook .flag[country^="newcaledonia"] {
+    background-position: -120px -240px;
+}
+#sportsbook .flag[country^="newzealand"] {
+    background-position: -144px -240px;
+}
+#sportsbook .flag[country^="nicaragua"] {
+    background-position: -168px -240px;
+}
+#sportsbook .flag[country^="niger"] {
+    background-position: -192px -240px;
+}
+#sportsbook .flag[country^="nigeria"] {
+    background-position: -216px -240px;
+}
+#sportsbook .flag[country^="north-korea"] {
+    background-position: -240px -240px;
+}
+#sportsbook .flag[country^="northamerica"] {
+    background-position: -264px -240px;
+}
+#sportsbook .flag[country^="northern-cyprus"] {
+    background-position: -288px -240px;
+}
+#sportsbook .flag[country^="northernireland"] {
+    background-position: -312px -240px;
+}
+#sportsbook .flag[country^="norway"] {
+    background-position: -336px -240px;
+}
+#sportsbook .flag[country^="opec"] {
+    background-position: -360px -240px;
+}
+#sportsbook .flag[country^="olimpic-movement"] {
+    background-position: 0px -264px;
+}
+#sportsbook .flag[country^="olympicgames"] {
+    background-position: 0 0;
+    background-size: 100% 100%;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMy4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDE4IDE4IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxOCAxODsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MC45NTtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0MXtmaWxsOiM2MDYwNjA7fQ0KCS5zdDJ7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjk4MjY7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDN7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDoxLjAwNTM7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDR7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjkyMztzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NXtmaWxsOiNGRkZGRkY7fQ0KCS5zdDZ7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjk1O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0N3tmaWxsOm5vbmU7c3Ryb2tlOiMxQkEyRkY7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDh7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjY4MDg7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDl7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9DQoJLnN0MTB7Y2xpcC1wYXRoOnVybCgjU1ZHSURfNF8pO30NCgkuc3QxMXtjbGlwLXBhdGg6dXJsKCNTVkdJRF8xMl8pO30NCgkuc3QxMntjbGlwLXBhdGg6dXJsKCNTVkdJRF8xOF8pO30NCgkuc3QxM3tjbGlwLXBhdGg6dXJsKCNTVkdJRF8yNl8pO30NCgkuc3QxNHtmaWxsOm5vbmU7c3Ryb2tlOiNBMDAwMDA7c3Ryb2tlLXdpZHRoOjAuOTU7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDE1e2ZpbGw6bm9uZTtzdHJva2U6I0EwMDAwMDtzdHJva2Utd2lkdGg6MC40MDEzO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3QxNntmaWxsOm5vbmU7c3Ryb2tlOiNBMDAwMDA7c3Ryb2tlLXdpZHRoOjAuNDc2NztzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0MTd7ZmlsbDpub25lO3N0cm9rZTojQTAwMDAwO3N0cm9rZS13aWR0aDowLjU2NjQ7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDE4e2ZpbGw6bm9uZTtzdHJva2U6I0EwMDAwMDtzdHJva2Utd2lkdGg6MC42NzM7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDE5e2ZpbGw6bm9uZTtzdHJva2U6I0EwMDAwMDtzdHJva2Utd2lkdGg6MC43OTk2O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3QyMHtmaWxsOm5vbmU7c3Ryb2tlOiNERDBBMjQ7c3Ryb2tlLXdpZHRoOjAuODE0NDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0MjF7ZmlsbDpub25lO3N0cm9rZTojREQwQTI0O3N0cm9rZS13aWR0aDowLjg0Njk7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDIye2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MC44O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3QyM3tmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuNjtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0MjR7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjE1NTQ7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDI1e2ZpbGw6bm9uZTt9DQoJLnN0MjZ7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjg2NzM7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDI3e2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0Mjh7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjg4MDI7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3QyOXtmaWxsOiNGNUY1RjU7fQ0KCS5zdDMwe2ZpbGw6I0ZBRkFGQTt9DQoJLnN0MzF7b3BhY2l0eTowLjM5O2ZpbGw6I0ZGRkZGRjt9DQoJLnN0MzJ7ZmlsbDojMkMzODRDO30NCgkuc3QzM3tmaWxsOiNGM0JGMkM7fQ0KCS5zdDM0e2ZpbGw6I0ZFRkVGRDt9DQoJLnN0MzV7ZmlsbDojRkRGREZEO30NCgkuc3QzNntmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuNTtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0Mzd7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjk4O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3QzOHtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjEuMTI5MjtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0Mzl7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDoxLjU4Mzk7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDQwe2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MS4xMjgxO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q0MXtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuOTE5MTtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NDJ7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjc5Mzg7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDQze2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MC43MjYxO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q0NHtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuODQyODtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NDV7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjg1Mzg7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDQ2e2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MjtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NDd7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjc3MTM7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDQ4e2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MS41NDI3O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q0OXtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuODMxO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q1MHtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuODc4NTtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NTF7ZmlsbDojRkZGRkZGO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjk1O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q1MntmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuODQxNTtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NTN7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjg0Njk7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDU0e2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MC44NDY7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDU1e2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MC40MzEyO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q1NntmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuNDIyMTtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NTd7ZmlsbDpub25lO3N0cm9rZTojNjA2MDYwO3N0cm9rZS13aWR0aDowLjM7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDU4e2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MC42ODY5O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q1OXtmaWxsOm5vbmU7c3Ryb2tlOiM2MDYwNjA7c3Ryb2tlLXdpZHRoOjAuNTtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NjB7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjkyOTI7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDYxe2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MC44NTcxO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q2MntmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuNjY4ODtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NjN7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDoxLjMzNzU7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDY0e29wYWNpdHk6MC44NjtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuNjE4NjtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NjV7b3BhY2l0eTowLjg2O2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MC42MzAzO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q2NntvcGFjaXR5OjAuODY7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjQ4NDQ7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDY3e2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MC40ODQ0O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q2OHtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuNTYyODtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0Njl7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDoxLjM5NzU7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDcwe2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MS4wMjgzO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q3MXtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuNzc0O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q3MntjbGlwLXBhdGg6dXJsKCNTVkdJRF8zMF8pO30NCgkuc3Q3M3tjbGlwLXBhdGg6dXJsKCNTVkdJRF8zMl8pO30NCgkuc3Q3NHtjbGlwLXBhdGg6dXJsKCNTVkdJRF8zNF8pO30NCgkuc3Q3NXtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGMDA7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDc2e2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MC40NTA4O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q3N3tmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuNTgzNTtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0Nzh7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjg4NjtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0Nzl7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjg1NDI7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDgwe2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MC43NTU4O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q4MXtmaWxsOiNGRkZGRkY7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuMjU7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KPC9zdHlsZT4NCjxzeW1ib2wgIGlkPSJOZXdfU3ltYm9sIiB2aWV3Qm94PSItOC4zIC03LjYgMTcuOSAxMi41Ij4NCgk8Zz4NCgkJPGc+DQoJCQk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTgtNC41bDMuMS0yLjJjMC43LTAuNSwxLjYtMC41LDIuMy0wLjFsMi40LDEuNmMwLjcsMC40LDEuNSwwLjQsMi4yLDBsMi40LTEuNkM1LjEtNy4yLDYtNy4yLDYuNy02LjYNCgkJCQlsMi42LDIuMSIvPg0KCQk8L2c+DQoJCTxnPg0KCQkJPHBhdGggY2xhc3M9InN0MCIgZD0iTS04LTEuNWwzLjEtMi4yYzAuNy0wLjUsMS42LTAuNSwyLjMtMC4xbDIuNCwxLjZjMC43LDAuNCwxLjUsMC40LDIuMiwwbDIuNC0xLjZDNS4xLTQuMiw2LTQuMiw2LjctMy42DQoJCQkJbDIuNiwyLjEiLz4NCgkJPC9nPg0KCQk8Zz4NCgkJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0tOCwxLjVsMy4xLTIuMmMwLjctMC41LDEuNi0wLjUsMi4zLTAuMWwyLjQsMS42YzAuNywwLjQsMS41LDAuNCwyLjIsMGwyLjQtMS42QzUuMS0xLjIsNi0xLjIsNi43LTAuNg0KCQkJCWwyLjYsMi4xIi8+DQoJCTwvZz4NCgkJPGc+DQoJCQk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTgsNC41bDMuMS0yLjJjMC43LTAuNSwxLjYtMC41LDIuMy0wLjFsMi40LDEuNmMwLjcsMC40LDEuNSwwLjQsMi4yLDBsMi40LTEuNkM1LjEsMS44LDYsMS44LDYuNywyLjQNCgkJCQlsMi42LDIuMSIvPg0KCQk8L2c+DQoJPC9nPg0KPC9zeW1ib2w+DQo8ZyBpZD0iTGF5ZXJfMSI+DQoJPHBhdGggY2xhc3M9InN0NSIgZD0iTTE1LDQuOWMtMS40LDAtMi42LDEuMS0yLjgsMi41YzAsMCwwLDAsMCwwYy0wLjEsMC0wLjIsMC0wLjMsMEMxMS42LDYsMTAuNSw0LjksOSw0LjlDNy42LDQuOSw2LjQsNiw2LjIsNy40DQoJCWMtMC4xLDAtMC4yLDAtMC4zLDBjMCwwLTAuMSwwLTAuMSwwQzUuNiw2LDQuNCw0LjksMyw0LjljLTEuNiwwLTIuOCwxLjMtMi44LDIuOWMwLDEuNiwxLjMsMi44LDIuOCwyLjhjMCwwLDAuMSwwLDAuMSwwDQoJCWMwLjIsMS40LDEuNCwyLjUsMi44LDIuNWMxLjQsMCwyLjYtMS4xLDIuOC0yLjVjMC4xLDAsMC4yLDAsMC4zLDBjMC4xLDAsMC4yLDAsMC4zLDBjMC4yLDEuNCwxLjQsMi41LDIuOCwyLjUNCgkJYzEuNCwwLDIuNi0xLjEsMi44LTIuNWMwLDAsMCwwLDAsMGMxLjYsMCwyLjgtMS4zLDIuOC0yLjhDMTcuOCw2LjIsMTYuNiw0LjksMTUsNC45eiBNMC45LDcuOGMwLTEuMSwwLjktMi4xLDIuMS0yLjENCgkJYzEuMSwwLDEuOSwwLjgsMi4xLDEuOEM0LDcuOSwzLjMsOC43LDMuMSw5LjhjMCwwLTAuMSwwLTAuMSwwQzEuOSw5LjgsMC45LDguOSwwLjksNy44eiBNNSw4LjRjLTAuMiwwLjUtMC41LDEtMSwxLjINCgkJQzQuMSw5LjEsNC41LDguNiw1LDguNHogTTUuOSwxMi4zYy0xLjEsMC0xLjktMC44LTIuMS0xLjhjMS0wLjMsMS44LTEuMiwxLjktMi4zYzAsMCwwLjEsMCwwLjEsMGMwLjEsMCwwLjIsMCwwLjMsMA0KCQljMC4yLDEsMC44LDEuOSwxLjgsMi4yQzcuOSwxMS41LDcsMTIuMyw1LjksMTIuM3ogTTcuMSw4LjVjMC40LDAuMiwwLjYsMC42LDAuOCwxQzcuNSw5LjMsNy4yLDguOSw3LjEsOC41eiBNOC43LDkuOA0KCQljLTAuMi0xLTAuOC0xLjktMS44LTIuMkM3LDYuNSw3LjksNS43LDksNS43YzEuMSwwLDIsMC44LDIuMSwxLjlDMTAuMSw4LDkuNSw4LjgsOS4zLDkuOGMtMC4xLDAtMC4yLDAtMC4zLDANCgkJQzguOSw5LjgsOC44LDkuOCw4LjcsOS44eiBNMTAuOSw4LjZjLTAuMSwwLjQtMC40LDAuNy0wLjcsMC45QzEwLjQsOS4xLDEwLjYsOC44LDEwLjksOC42eiBNMTIuMSwxMi4zYy0xLjEsMC0yLTAuOC0yLjEtMS45DQoJCWMwLjktMC40LDEuNi0xLjIsMS43LTIuMmMwLjEsMCwwLjIsMCwwLjMsMGMwLDAsMCwwLDAsMGMwLjIsMS4xLDEsMiwyLDIuM0MxNC4xLDExLjUsMTMuMiwxMi4zLDEyLjEsMTIuM3ogTTEzLDguNA0KCQljMC41LDAuMiwwLjksMC43LDEuMSwxLjNDMTMuNiw5LjQsMTMuMiw4LjksMTMsOC40eiBNMTUsOS44QzE1LDkuOCwxNSw5LjgsMTUsOS44Yy0wLjItMS4xLTEtMi0yLjEtMi4zYzAuMS0xLDEtMS44LDIuMS0xLjgNCgkJYzEuMSwwLDIuMSwwLjksMi4xLDIuMUMxNy4xLDguOSwxNi4xLDkuOCwxNSw5Ljh6Ii8+DQo8L2c+DQo8ZyBpZD0iTGF5ZXJfMiI+DQo8L2c+DQo8L3N2Zz4NCg==);
+}
+#sportsbook .flag[country^="oman"] {
+    background-position: -48px -264px;
+}
+#sportsbook .flag[country^="pakistan"] {
+    background-position: -72px -264px;
+}
+#sportsbook .flag[country^="palau"] {
+    background-position: -96px -264px;
+}
+#sportsbook .flag[country^="palestine"] {
+    background-position: -120px -264px;
+}
+#sportsbook .flag[country^="panama"] {
+    background-position: -144px -264px;
+}
+#sportsbook .flag[country^="papua-new-guinea"] {
+    background-position: -168px -264px;
+}
+#sportsbook .flag[country^="paraguay"] {
+    background-position: -192px -264px;
+}
+#sportsbook .flag[country^="peru"] {
+    background-position: -216px -264px;
+}
+#sportsbook .flag[country^="philippines"] {
+    background-position: -240px -264px;
+}
+#sportsbook .flag[country^="poland"] {
+    background-position: -264px -264px;
+}
+#sportsbook .flag[country^="portugal"] {
+    background-position: -288px -264px;
+}
+#sportsbook .flag[country^="puertorico"] {
+    background-position: -312px -264px;
+}
+#sportsbook .flag[country^="qatar"] {
+    background-position: -336px -264px;
+}
+#sportsbook .flag[country^="red-cross"] {
+    background-position: -360px -264px;
+}
+#sportsbook .flag[country^="republicofireland"] {
+    background-position: 0px -288px;
+}
+#sportsbook .flag[country^="reunion"] {
+    background-position: -24px -288px;
+}
+#sportsbook .flag[country^="romania"] {
+    background-position: -48px -288px;
+}
+#sportsbook .flag[country^="russia"] {
+    background-position: -72px -288px;
+}
+#sportsbook .flag[country^="rwanda"] {
+    background-position: -96px -288px;
+}
+#sportsbook .flag[country^="saint-lucia"] {
+    background-position: -120px -288px;
+}
+#sportsbook .flag[country^="samoa"] {
+    background-position: -144px -288px;
+}
+#sportsbook .flag[country^="sanmarino"] {
+    background-position: -168px -288px;
+}
+#sportsbook .flag[country^="sao-tome-principe"] {
+    background-position: -192px -288px;
+}
+#sportsbook .flag[country^="saudiarabia"] {
+    background-position: -216px -288px;
+}
+#sportsbook .flag[country^="scotland"] {
+    background-position: -240px -288px;
+}
+#sportsbook .flag[country^="senegal"] {
+    background-position: -264px -288px;
+}
+#sportsbook .flag[country^="serbia"] {
+    background-position: -288px -288px;
+}
+#sportsbook .flag[country^="seyshelles"] {
+    background-position: -312px -288px;
+}
+#sportsbook .flag[country^="sierra-leone"] {
+    background-position: -336px -288px;
+}
+#sportsbook .flag[country^="singapore"] {
+    background-position: -360px -288px;
+}
+#sportsbook .flag[country^="slovakia"] {
+    background-position: 0px -312px;
+}
+#sportsbook .flag[country^="slovenia"] {
+    background-position: -24px -312px;
+}
+#sportsbook .flag[country^="solomon-islands"] {
+    background-position: -48px -312px;
+}
+#sportsbook .flag[country^="somalia"] {
+    background-position: -72px -312px;
+}
+#sportsbook .flag[country^="somaliland"] {
+    background-position: -96px -312px;
+}
+#sportsbook .flag[country^="southafrica"] {
+    background-position: -120px -312px;
+}
+#sportsbook .flag[country^="southkorea-copy"] {
+    background-position: -144px -312px;
+}
+#sportsbook .flag[country^="southkorea"] {
+    background-position: -168px -312px;
+}
+#sportsbook .flag[country^="spain"] {
+    background-position: -192px -312px;
+}
+#sportsbook .flag[country^="sri-lanka"] {
+    background-position: -216px -312px;
+}
+#sportsbook .flag[country^="st-kitts-nevis"] {
+    background-position: -240px -312px;
+}
+#sportsbook .flag[country^="st-vincent-the-grenadines"] {
+    background-position: -264px -312px;
+}
+#sportsbook .flag[country^="sudan"] {
+    background-position: -288px -312px;
+}
+#sportsbook .flag[country^="suriname"] {
+    background-position: -312px -312px;
+}
+#sportsbook .flag[country^="swaziland"] {
+    background-position: -336px -312px;
+}
+#sportsbook .flag[country^="sweden"] {
+    background-position: -360px -312px;
+}
+#sportsbook .flag[country^="switzerland"] {
+    background-position: 0px -336px;
+}
+#sportsbook .flag[country^="syria"] {
+    background-position: -24px -336px;
+}
+#sportsbook .flag[country^="tahiti-french-polinesia"] {
+    background-position: -48px -336px;
+}
+#sportsbook .flag[country^="taiwan"] {
+    background-position: -72px -336px;
+}
+#sportsbook .flag[country^="tajikistan"] {
+    background-position: -96px -336px;
+}
+#sportsbook .flag[country^="tanzania"] {
+    background-position: -120px -336px;
+}
+#sportsbook .flag[country^="thailand"] {
+    background-position: -144px -336px;
+}
+#sportsbook .flag[country^="timor-leste"] {
+    background-position: -168px -336px;
+}
+#sportsbook .flag[country^="togo"] {
+    background-position: -192px -336px;
+}
+#sportsbook .flag[country^="tonga"] {
+    background-position: -216px -336px;
+}
+#sportsbook .flag[country^="trinidadtobago"] {
+    background-position: -240px -336px;
+}
+#sportsbook .flag[country^="trinidadandtobago"] {
+    background-position: -264px -336px;
+}
+#sportsbook .flag[country^="tunisia"] {
+    background-position: -288px -336px;
+}
+#sportsbook .flag[country^="turkey"],
+#sportsbook .flag[country^="turkiye"],
+#sportsbook .flag[country^="turkishpolitics"] {
+    background-position: -312px -336px;
+}
+#sportsbook .flag[country^="turkmenistan"] {
+    background-position: -336px -336px;
+}
+#sportsbook .flag[country^="turks-and-caicos-islands"] {
+    background-position: -360px -336px;
+}
+#sportsbook .flag[country^="tuvalu"] {
+    background-position: 0px -360px;
+}
+#sportsbook .flag[country^="uae"] {
+    background-position: -24px -360px;
+}
+#sportsbook .flag[country^="uk"] {
+    background-position: -48px -360px;
+}
+#sportsbook .flag[country^="usa"],
+#sportsbook .flag[country^="unitedstates"] {
+    background-position: -72px -360px;
+}
+#sportsbook .flag[country^="uganda"] {
+    background-position: -96px -360px;
+}
+#sportsbook .flag[country^="ukraine"] {
+    background-position: -120px -360px;
+}
+#sportsbook .flag[country^="united-nations"] {
+    background-position: -144px -360px;
+}
+#sportsbook .flag[country^="unitedarabemirates"] {
+    background-position: -168px -360px;
+}
+#sportsbook .flag[country^="unitedkingdom"],
+#sportsbook .flag[country^="britishgrandprix"] {
+    background-position: -192px -360px;
+}
+#sportsbook .flag[country^="uruguay"] {
+    background-position: -216px -360px;
+}
+#sportsbook .flag[country^="uzbekistan"] {
+    background-position: -240px -360px;
+}
+#sportsbook .flag[country^="vtb"] {
+    background-position: -264px -360px;
+}
+#sportsbook .flag[country^="vanuatu"] {
+    background-position: -288px -360px;
+}
+#sportsbook .flag[country^="vatican-city"] {
+    background-position: -312px -360px;
+}
+#sportsbook .flag[country^="venezuela"] {
+    background-position: -336px -360px;
+}
+#sportsbook .flag[country^="vietnam"] {
+    background-position: -360px -360px;
+}
+#sportsbook .flag[country^="virgin-islands-british"] {
+    background-position: 0px -384px;
+}
+#sportsbook .flag[country^="virgin-islands-us"] {
+    background-position: -24px -384px;
+}
+#sportsbook .flag[country^="wales"] {
+    background-position: -48px -384px;
+}
+#sportsbook .flag[country^="western-sahara"] {
+    background-position: -72px -384px;
+}
+#sportsbook .flag[country^="yemen"] {
+    background-position: -120px -384px;
+}
+#sportsbook .flag[country^="zambia"] {
+    background-position: -144px -384px;
+}
+#sportsbook .flag[country^="zimbabwe"] {
+    background-position: -168px -384px;
+}
+#sportsbook .flag[country^="japan"] {
+    background-position: -192px -384px;
+}
+#sportsbook .flag[country^="rolandgarros"],
+#sportsbook .flag[country^="atp-roland-garros"],
+#sportsbook .flag[country^="wta-roland-garros"] {
+    background-position: -216px -384px;
+}
+#sportsbook .flag[country^="undefined"] {
+    background-position: -240px -384px;
+}
+#sportsbook .flag[country^="wimbledon"] {
+    background-position: -264px -384px;
+}
