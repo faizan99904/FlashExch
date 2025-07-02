@@ -184,6 +184,10 @@ header .change-lang div.current-lang {
     height: 38px;
   }
 
+  header form .fields-wrapper {
+    margin-right: 19.8px;
+  }
+
   header .change-lang div.current-lang img {
     width: 24px;
     height: 12px;
@@ -213,6 +217,9 @@ header .change-lang div.current-lang {
 }
 
 @media (min-width: 1024px) {
+  header form .fields-wrapper {
+    margin-right: 22px;
+  }
   header .content {
     background: #171717 !important;
     height: 42.66px;
@@ -314,6 +321,10 @@ header .change-lang div.current-lang {
     border-radius: 3px;
   }
 
+  header form .fields-wrapper {
+    margin-right: 2.2rem;
+  }
+
   header .change-lang div.current-lang {
     text-transform: uppercase;
     margin-left: 1.1333rem;
@@ -333,5 +344,10 @@ header .change-lang div.current-lang {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+  }
+
+  header form .fields-wrapper .field:nth-child(2) .forgot-pass {
+    position: absolute;
+    right: 7px;
   }
 }
