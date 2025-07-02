@@ -9,7 +9,7 @@ import { SportEventsComponent } from "../shared/sport-events/sport-events.compon
 
 @Component({
   selector: 'app-layout',
-  imports: [HeaderComponent, SidebarComponent, RouterOutlet, BottomNavComponent, BetslipComponent, SportsNavComponent, SportEventsComponent],
+  imports: [HeaderComponent, SidebarComponent, RouterOutlet, BottomNavComponent, BetslipComponent, SportsNavComponent],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css'
 })

@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { SwiperCardHomeComponent } from "../../shared/swiper-card-home/swiper-card-home.component";
+import { SportsNavComponent } from '../../shared/sports-nav/sports-nav.component';
+import { SportEventsComponent } from '../../shared/sport-events/sport-events.component';
 
 @Component({
   selector: 'app-sports-book',
-  imports: [SwiperCardHomeComponent],
+  imports: [SwiperCardHomeComponent, SportEventsComponent ],
   templateUrl: './sports-book.component.html',
   styleUrl: './sports-book.component.css'
 })
