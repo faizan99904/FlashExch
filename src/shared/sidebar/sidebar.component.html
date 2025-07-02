@@ -1,3 +1,137 @@
-<div class="w-[250px] bg-black h-[calc(100dvh-114px)] max-md:absolute left-[-100%]">
+<div class="w-[250px] bg-black text-white h-[calc(100dvh-114px)] max-md:absolute left-[-100%] p-4 ">
 
-</div>
+
+    <!-- Dropdowns -->
+    <!-- TOP LEAGUES -->
+    <div>
+        <div class="cursor-pointer font-semibold py-2 pl-2 pr-3 bg-[#101317] rounded-md flex items-center justify-between"
+            (click)="toggleDropdown('topLeagues')">
+            <div class="flex items-center space-x-2">
+                <span class="text-[#00aa30] font-bold">|</span>
+                <span>TOP LEAGUES</span>
+            </div>
+            <i class="text-gray-400"
+                [ngClass]="dropdowns['topLeagues'] ? 'fas fa-chevron-down' : 'fas fa-chevron-right'"></i>
+        </div>
+
+        <div *ngIf="dropdowns['topLeagues']" class="pl-4 text-sm mt-2">
+            <div *ngFor="let league of [
+          'FIFA Club World Cup (27)',
+          'UEFA Europa Conference League (6)',
+          'Premier League (10)',
+          'Bundesliga (9)',
+          'Serie A (10)',
+          'Ligue 1 (8)',
+          'MLS (15)',
+          'British Grand Prix 2025 (35)',
+          'Serie A (20)',
+          'ATP - Wimbledon (76)',
+          'WTA - Wimbledon (82)',
+          'MLB (18)',
+          'NFL (37)'
+        ]">
+                 {{ league }}
+            </div>
+        </div>
+    </div>
+
+    <!-- TOP LIVE -->
+    <div>
+        <div class="cursor-pointer font-semibold py-2 pl-2 pr-3 bg-[#101317] rounded-md flex items-center justify-between mt-1"
+            (click)="toggleDropdown('topLive')">
+            <div class="flex items-center space-x-2">
+                <span class="text-[#00aa30] font-bold">|</span>
+                <span>TOP LIVE</span>
+            </div>
+            <i class="text-gray-400"
+                [ngClass]="dropdowns['topLive'] ? 'fas fa-chevron-down' : 'fas fa-chevron-right'"></i>
+        </div>
+
+        <div *ngIf="dropdowns['topLive']" class="pl-4 text-sm mt-2 text-gray-400">
+            No live games
+        </div>
+    </div>
+
+    <!-- TOP ESPORT -->
+    <div>
+        <div class="cursor-pointer font-semibold py-2 pl-2 pr-3 bg-[#101317] rounded-md flex items-center justify-between mt-1"
+            (click)="toggleDropdown('topEsport')">
+            <div class="flex items-center space-x-2">
+                <span class="text-[#00aa30] font-bold">|</span>
+                <span>TOP ESPORT</span>
+            </div>
+            <i class="text-gray-400"
+                [ngClass]="dropdowns['topEsport'] ? 'fas fa-chevron-down' : 'fas fa-chevron-right'"></i>
+        </div>
+
+        <div *ngIf="dropdowns['topEsport']" class="pl-4 text-sm mt-2 text-gray-400">
+            No esports data
+        </div>
+    </div>
+
+    <!-- TIME FILTERS Section -->
+    <div class="mt-3 py-2 pl-2 pr-3 bg-[#101317] rounded-md">
+        <!-- Header bar -->
+        <div class=" flex items-center justify-between font-semibold">
+            <div class="flex items-center space-x-2">
+                <span class="text-[#00aa30] font-bold">|</span>
+                <span>TIME FILTERS</span>
+            </div>
+        </div>
+
+        <!-- Time filter options -->
+        <div class="flex justify-between mt-4 px-2">
+            <label *ngFor="let time of ['All', '6H', '12H', '24H', '48H']"
+                class="flex flex-col items-center cursor-pointer text-sm">
+                <!-- Custom Radio Dot -->
+                <div class=" rounded-full mb-1 transition-all duration-200" [ngClass]="{
+            'bg-[#00ff44] shadow-[0_0_10px_2px_rgba(0,255,100,0.5)] w-[9px] h-[9px]': timeFilter === time,
+            'bg-[#00aa30] w-2 h-2': timeFilter !== time
+          }"></div>
+
+                <!-- Label -->
+                <span [ngClass]="{
+            'text-white ': timeFilter === time,
+            'text-gray-400': timeFilter !== time
+          }">
+                    {{ time }}
+                </span>
+
+                <!-- Hidden actual input (still needed for form binding) -->
+                <input type="radio" name="time" [value]="time" [(ngModel)]="timeFilter" class="hidden" />
+            </label>
+        </div>
+    </div>
+
+
+
+    <!-- SPORTS -->
+    <div class="mt-3 py-2 pl-2 pr-3 bg-[#101317] ">
+        <!-- Header bar -->
+        <div class="rounded-md flex items-center justify-between font-semibold">
+            <div class="flex items-center space-x-2">
+                <span class="text-[#00aa30] font-bold">|</span>
+                <span>Sports</span>
+            </div>
+            <button (click)="resetSports()" class="text-gray-300 hover:text-red-500 text-sm">
+                <i class="fas fa-trash text-gray-400"></i>
+            </button>
+        </div>
+
+        <!-- Sports List -->
+        <div class="mt-3 space-y-2 px-2">
+            <div *ngFor="let sport of sports" class="flex items-center justify-between text-sm text-gray-300">
+                <!-- Left: Sport Name -->
+                <div class="flex items-center space-x-2">
+                    <span>{{ sport.name }}</span>
+                </div>
+
+                <!-- Right: Count and Green Checkbox Disc -->
+                <div class="flex items-center space-x-2">
+                    <span>{{ sport.count }}</span>
+                    <input type="checkbox" [(ngModel)]="sport.selected"
+                        class="appearance-none w-3.5 h-3.5 rounded-full bg-[#101317] border border-[#00aa30] checked:bg-[#00aa30] cursor-pointer transition" />
+                </div>
+            </div>
+        </div>
+    </div>
