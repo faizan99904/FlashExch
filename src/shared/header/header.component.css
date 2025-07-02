@@ -284,6 +284,10 @@ header .change-lang div.current-lang {
     position: relative;
   }
 
+  .lang-text {
+    font-size: 14px;
+  }
+
   header {
     position: relative;
     height: 64px;
