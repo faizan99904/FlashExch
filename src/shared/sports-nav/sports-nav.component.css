@@ -1,7 +1,12 @@
 .sport-item {
   @apply h-full inline-block leading-[15vw] text-[4vw] relative min-w-[19vw] align-middle overflow-hidden box-border text-center border-b-4 border-transparent;
 }
-
+.sport-icon {
+  font-size: 6.5vw;
+}
+ .sport-icon[sport='basketball3x3'],  .sport-icon[sport='3x3basketball'],  .sport-icon[sport='formula1'],  .sport-icon[sport='playerunknownsbattlegrounds'] {
+  font-size: 4vw !important;
+}
 ul {
   scrollbar-width: none;
 }
