@@ -225,10 +225,27 @@ header .change-lang div.current-lang {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1260px) {
   header form .fields-wrapper {
-    margin-right: 22px;
+    margin-right: 26px;
   }
+
+  header .content #not-authorized .btn {
+    font-size: 9.33px !important;
+  }
+
+  .log-btn {
+    height: 26.66px !important;
+    width: 84px !important;
+    min-width: 84px !important;
+  }
+
+  .sign-btn {
+    height: 26.66px !important;
+    width: 89.33px !important;
+    min-width: 89.33px !important;
+  }
+
   header .content {
     background: #171717 !important;
     height: 42.66px;
@@ -251,6 +268,7 @@ header .change-lang div.current-lang {
   header form .fields-wrapper .field input {
     height: 26px;
     width: 110px;
+    @apply placeholder:text-[9px] placeholder:text-[#BFC0C2];
   }
 
   header form .fields-wrapper .field:nth-child(2)::after {
@@ -270,7 +288,7 @@ header .change-lang div.current-lang {
 
   header .change-lang div.current-lang {
     text-transform: uppercase;
-    margin-left: 1.1333rem;
+    margin-left: 11.33px;
     color: #fff;
     display: -webkit-box;
     display: -ms-flexbox;
