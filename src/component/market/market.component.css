@@ -1,0 +1,25 @@
+.market-box {
+  @apply p-[0_2vw] w-[calc(33.33%-1.33333px)] h-[10vw] text-[3.5vw] flex justify-between items-center relative float-left bg-[#23282a] text-[#fff] border border-transparent;
+}
+
+.title-desktop {
+    float: left;
+    padding-top: .7rem;
+    box-sizing: border-box;
+    width: 25%;
+    height: 100%;
+    font-weight: 200;
+    font-size: .8rem;
+}
+
+@media (min-width: 820px) {
+  .market-wrapper {
+    @apply hidden;
+  }
+}
+
+@media (max-width:820px){
+    .top-events{
+        @apply hidden
+    }
+}
