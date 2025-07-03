@@ -6,7 +6,10 @@
 .sport-icon {
   font-size: 6.5vw;
 }
- .sport-icon[sport='basketball3x3'],  .sport-icon[sport='3x3basketball'],  .sport-icon[sport='formula1'],  .sport-icon[sport='playerunknownsbattlegrounds'] {
+.sport-icon[sport="basketball3x3"],
+.sport-icon[sport="3x3basketball"],
+.sport-icon[sport="formula1"],
+.sport-icon[sport="playerunknownsbattlegrounds"] {
   font-size: 4vw !important;
 }
 ul {
@@ -52,5 +55,19 @@ li {
 
   .sport-all {
     margin-right: 7px !important;
+  }
+}
+
+@media screen and (min-width: 819px) {
+  .mob-nav {
+    display: none;
+  }
+
+  .desktop-nav {
+    display: block;
+  }
+
+  .new {
+    top: 0 !important;
   }
 }
