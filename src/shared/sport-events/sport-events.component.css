@@ -23,7 +23,7 @@
 }
 
 .tab {
-  @apply relative h-8 mx-[0.9375rem] text-white cursor-pointer border-t-4 border-solid border-transparent border-b-4 flex items-center justify-center text-[12px];
+  @apply relative h-8 mx-[18px] text-white cursor-pointer border-t-4 border-solid border-transparent border-b-4 flex items-center justify-center text-[12px];
 }
 
 .tab::after {
@@ -33,19 +33,19 @@
 .tab svg {
   fill: #00aa30;
   width: 1rem;
-  margin-right: 0.3125rem;
+  margin-right: 5.55px;
 }
 
 .tab i {
-  font-size: 10px;
-  margin-right: 0.3125rem;
+  font-size: 14px;
+  margin-right: 5.55px;
 }
 
 .tab:nth-child(3)::before {
   content: "";
   margin-right: 0.3125rem;
-  width: 0.3125rem;
-  height: 0.3125rem;
+  width: 0.375rem;
+  height: 0.375rem;
   border-radius: 50%;
   background-color: #00aa30;
   animation: bgColorAnim 2s ease-in-out;
