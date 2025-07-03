@@ -42,6 +42,16 @@ li {
   animation: 0.5s newAnimation ease-in-out infinite alternate;
 }
 
+.sport-icon {
+  font-family: "SportIconsUpdated";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 @keyframes newAnimation {
   0% {
     opacity: 0.3;
@@ -93,9 +103,9 @@ li {
     margin-right: 5px;
   }
 
-  .new{
+  .new {
     font-size: 7.2px;
-  } 
+  }
 }
 
 @media (min-width: 1024px) and (max-width: 1260px) {
