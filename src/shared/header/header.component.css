@@ -180,6 +180,11 @@ header .change-lang div.current-lang {
     background: #171717 !important;
     height: 38px;
   }
+
+  .sign-btn {
+    background-color: #272d33 !important;
+  }
+
   header {
     position: relative;
     height: 38px;
@@ -286,6 +291,11 @@ header .change-lang div.current-lang {
   header .content #not-authorized.visible {
     gap: 8px;
   }
+
+  .mobile-logo {
+    @apply hidden;
+  }
+
   header .content {
     background: #171717 !important;
     height: 64px;
@@ -427,4 +437,100 @@ header .change-lang ul li span {
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 6.6667rem;
+}
+
+@media (min-width: 1512px) and (max-width: 1600px) {
+  header .content #not-authorized.visible {
+    gap: 8px;
+  }
+
+  .desktop-logo {
+    height: 28.59px !important;
+  }
+
+  .log-btn {
+    height: 34.66px !important;
+    width: 109.2px !important;
+  }
+
+  .sign-btn {
+    height: 34.66px !important;
+    width: 116.13px !important;
+    background-color: #272d33 !important;
+  }
+
+  header .content {
+    background: #171717 !important;
+    height: 55.46px;
+    max-width: 1180.83px;
+    padding: 0 0px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .lang-text {
+    font-size: 13px;
+  }
+
+  header form .fields-wrapper > div {
+    gap: 7px;
+  }
+
+  header {
+    position: relative;
+    height: 55.46px;
+    background: #171717 !important;
+  }
+
+  header form .fields-wrapper .field input {
+    height: 34.66px;
+    width: 143.86px;
+    padding: 0px 16px !important;
+    @apply placeholder:text-[12.6px] placeholder:text-[#BFC0C2];
+  }
+
+  header form .fields-wrapper .field:nth-child(2)::after {
+    content: "";
+    height: 35px;
+    width: 1px;
+    position: absolute;
+    right: 2.5333rem;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  header .change-lang div.current-lang img {
+    width: 35.53px;
+    height: 18.2px;
+    border-radius: 3px;
+  }
+
+  header form .fields-wrapper {
+    margin-right: 30px;
+  }
+
+  header .change-lang div.current-lang {
+    text-transform: uppercase;
+    margin-left: 14.73px;
+    color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 0.3333rem;
+    width: 78px;
+    height: 34.66px;
+    border-radius: 10px;
+    background: rgba(39, 45, 51, 0.5);
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+
+  header form .fields-wrapper .field:nth-child(2) .forgot-pass {
+    position: absolute;
+    right: 7px;
+  }
 }
