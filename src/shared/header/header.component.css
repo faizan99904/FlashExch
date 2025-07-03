@@ -180,6 +180,9 @@ header .change-lang div.current-lang {
     background: #171717 !important;
     height: 38px;
   }
+  .mobile-logo {
+    @apply hidden;
+  }
 
   .sign-btn {
     background-color: #272d33 !important;
@@ -290,10 +293,6 @@ header .change-lang div.current-lang {
 @media (min-width: 1440px) {
   header .content #not-authorized.visible {
     gap: 8px;
-  }
-
-  .mobile-logo {
-    @apply hidden;
   }
 
   header .content {
