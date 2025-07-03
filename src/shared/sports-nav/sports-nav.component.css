@@ -42,13 +42,10 @@ li {
   animation: 0.5s newAnimation ease-in-out infinite alternate;
 }
 
-.sport-icon {
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.li-active {
+    background-color: #151a21;
+    color: #fff;
+    border-bottom: 4px solid #00aa30;
 }
 
 @keyframes newAnimation {
