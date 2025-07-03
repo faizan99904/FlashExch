@@ -533,4 +533,7 @@ header .change-lang ul li span {
     position: absolute;
     right: 7px;
   }
+  header .content #not-authorized .btn {
+    font-size: 12px !important;
+  }
 }
