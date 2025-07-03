@@ -1,48 +1,78 @@
-.sport-list{
-    color: #fff;
-    background: #000;
-    font-family: Roboto,sans-serif;
+.sport-list {
+  color: hsla(0, 0%, 100%, 0.6);
+  background: #000;
+  font-size: 3.5vw;
+  font-weight: 600;
+
+  font-family: Roboto, sans-serif;
 }
 ul.tabs {
-    font-weight: 600;
-    background-color: #151a21;
+  /* font-weight: 600; */
+  background-color: #151a21;
 }
-ul.menu-slide {
-    display: block;
-    white-space: nowrap;
-    overflow-x: scroll;
-    width: 100%;
-    height: 100%;
-}
+
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
-ul.menu-slide>li {
-    height: 100%;
-    display: inline-block;
-    text-align: center;
+ul.menu-slide > li {
+  height: 100%;
+  display: inline-block;
+  text-align: center;
 }
 ul.tabs li {
-    position: relative;
-    box-sizing: border-box;
-    padding: 0 5vw;
-    height: 12vw;
-    line-height: 12vw;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 5vw;
+  height: 12vw;
+  line-height: 12vw;
 }
 ul.tabs li.active {
-    background-color: #23282a;
-    color: #fff;
-    border-bottom: 1vw solid #00aa30;
+  background-color: #23282a;
+  color: #fff;
+  border-bottom: 1vw solid #00aa30;
 }
 
 ul.tabs li.active:after {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    bottom: -.1vw;
-    left: 50%;
-    margin-left: -1vw;
-    border-bottom: 1vw solid #00aa30;
-    border-left: 1.2vw solid transparent;
-    border-right: 1.2vw solid transparent;
+  content: "";
+  display: inline-block;
+  position: absolute;
+  bottom: -0.1vw;
+  left: 50.4%;
+  margin-left: -1vw;
+  border-bottom: 1vw solid #00aa30;
+  border-left: 1.2vw solid transparent;
+  border-right: 1.2vw solid transparent;
+}
+
+.sport-list {
+  line-height: 12.5vw;
+}
+
+ul.tabs li.active {
+  background-color: #23282a;
+  color: #fff;
+  border-bottom: 1vw solid #00aa30;
+}
+
+ul.tabs li {
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 5vw;
+  height: 12vw;
+  line-height: 12vw;
+}
+
+ul.tabs {
+  /* font-weight: 600; */
+  background-color: #151a21;
+}
+ul.menu-slide {
+  display: block;
+  white-space: nowrap;
+  overflow-x: scroll;
+  width: 100%;
+  height: 95%;
+}
+ul {
+  list-style-type: none;
 }
