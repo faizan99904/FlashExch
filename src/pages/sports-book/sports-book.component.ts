@@ -3,8 +3,10 @@ import { SwiperCardHomeComponent } from '../../shared/swiper-card-home/swiper-ca
 import { SportEventsComponent } from '../../shared/sport-events/sport-events.component';
 import { SportslistComponent } from "../../shared/sportslist/sportslist.component";
 
+
 @Component({
   selector: 'app-sports-book',
+  imports: [SwiperCardHomeComponent, SportEventsComponent, SportslistComponent],
   imports: [SwiperCardHomeComponent, SportEventsComponent, SportslistComponent],
   templateUrl: './sports-book.component.html',
   styleUrl: './sports-book.component.css',

@@ -57,40 +57,84 @@
 
 
 
-<div class="bg-black flex w-full h-[11.9vw] xl:h-[49px] lg:bg-[#111317] lg:rounded-[3px]">
+<div class="bg-[#000000] flex w-full h-[11.9vw] xl:h-[49px] lg:bg-[#111317] lg:rounded-[3px]">
     <div class="relative grow-[1] xl:max-w-[210px] h-full">
         <input type="text"
-            class="bg-transparent border-0 h-full w-full pl-[12vw] xl:pl-[49px] leading-[12vw] outline-0 xl:text-base text-[3.5vw] text-white"
+            class="bg-transparent placeholder:text-[13px] placeholder:text-[#88898B] border-0 h-full w-full pl-[12vw] xl:pl-[49px] leading-[12vw] outline-0 xl:text-base text-[3.5vw] text-white"
             placeholder="Search games">
-        <i
-            class="fa-solid fa-magnifying-glass text-[#999999] absolute left-[4vw] xl:left-[1vw] xl:-mt-[7px] pointer-events-none top-[50%]  xl:text-base text-[4.5vw] -mt-[2vw]"></i>
+        <span
+            class="material-icons text-[#999999] absolute left-[4vw] xl:left-[1vw] xl:-mt-[7px] pointer-events-none top-[50%]  xl:text-base text-[6vw] -mt-[2.73vw]">search</span>
+
     </div>
     <div
         class="flex items-center w-[33vw] h-[100%] before:block before:w-[1px] before:h-[60%] before:bg-[#23282a] xl:before:bg-transparent icon-wrapper">
-        <div
-            class="text-[7vw] ml-[6vw] w-[calc(50%-3vw)] flex justify-center relative  h-[100%] border-b-[8vw] border-transparent">
-            <i
-                class="fa-solid fa-list-ul text-[#999999] text-[18px] absolute top-[90%] left-[50%] translate-x-[-50%] "></i>
+        <div class="h-[80%] flex items-center  w-[50%] justify-center ml-[25.8px] border-b-[.8vw] border-black"
+            (click)="searchEvent('list')" [ngClass]="{'!border-[#00aa30]':searchTab === 'list'}">
+            <div class="material-icons text-[7vw] text-[#999999]  relative"
+                [ngClass]="{'text-black active-list':searchTab === 'list'}">list
+            </div>
         </div>
-        <div
-            class="text-[7vw] ml-[6vw] w-[calc(50%-3vw)] flex justify-center relative  h-[100%] border-b-[8vw] border-transparent">
-            <i
-                class="fa-solid fa-list-ul text-[#999999] text-[18px] absolute top-[90%] left-[50%] translate-x-[-50%] "></i>
+
+        <div class="h-[80%] w-[50%] flex items-center justify-center border-b-[.8vw] border-black"
+            (click)="searchEvent('line_style')" [ngClass]="{'!border-[#00aa30]':searchTab === 'line_style'}">
+            <div class="material-icons text-[5.5vw] text-[#999999] relative "
+                [ngClass]="{'text-black  active':searchTab === 'line_style'}">line_style</div>
         </div>
 
     </div>
-    <div
-        class="relative icon-wrapper before:block before:w-[1px] before:h-[60%] before:bg-[#23282a] before:absolute before:top-[20%] before:left-[0px] ">
-        <span class="flex items-center justify-center w-[12vw] h-full font-[4vw]">
-            <i class="fa-solid fa-gear text-[#999999] text-[3.8vw]"></i>
+    <div class="relative icon-wrapper before:block before:w-[1px] before:h-[60%] before:bg-[#23282a] before:absolute before:top-[20%] before:left-[0px] "
+        (click)="oddToggle()">
+        <span class="flex items-center justify-center w-[13vw] h-full font-[4vw]">
+            <!-- <i class="fa-solid fa-gear "></i> -->
+            <span class="material-icons text-[#999999] text-[4.5vw]" [ngClass]="{'!text-white':isOddType}">settings</span>
         </span>
+        <div class="settings-window" *ngIf="isOddType">
+            <div class="odds-type">
+                <h3>Odds Type:</h3> <label><input type="radio" name="odds-type" value="0"> <span>Decimal</span></label>
+                <label><input type="radio" name="odds-type" value="1"> <span>American</span></label> <label><input
+                        type="radio" name="odds-type" value="2"> <span>Fractional</span></label>
+            </div>
+        </div>
     </div>
 
     <ul class="max-[820px]:hidden ml-auto flex items-center whitespace-nowrap overflow-hidden pr-[28px]">
-        <li
-            class="bg-[#030303] ml-4 h-[35px] basis-auto p-[.5rem] text-white flex items-center justify-center shrink-0 text-center text-[.9rem] overflow-hidden cursor-pointer ">
+        <li class="tabs ml-4 h-[35px] basis-auto p-[.5rem] text-white flex items-center justify-center shrink-0 text-center text-[.9rem] overflow-hidden cursor-pointer "
+            (click)="selectTab('soccer')" [ngClass]="{'active-tab':activeTab == 'soccer'}">
+            <i class="sport-icon text-[#05AA30] text-[1.3rem]" [attr.sport]="'soccer'"> </i>
+            <span class="m-[0_.7rem]  text-[12.6px] hidden">Soccer</span>
+        </li>
 
-            <span class="m-[0_.7rem] block text-[12.6px]">Soccer</span>
+        <li class="tabs ml-4 h-[35px] basis-auto p-[.5rem] text-white flex items-center justify-center shrink-0 text-center text-[.9rem] overflow-hidden cursor-pointer "
+            (click)="selectTab('basketball')" [ngClass]="{'active-tab':activeTab == 'basketball'}">
+            <i class="sport-icon text-[#05AA30] text-[1.3rem]" [attr.sport]="'basketball'"> </i>
+            <span class="m-[0_.7rem]  text-[12.6px] hidden">Basketball</span>
+        </li>
+
+
+        <li class="tabs ml-4 h-[35px] basis-auto p-[.5rem] text-white flex items-center justify-center shrink-0 text-center text-[.9rem] overflow-hidden cursor-pointer "
+            (click)="selectTab('tennis')" [ngClass]="{'active-tab':activeTab == 'tennis'}">
+            <i class="sport-icon text-[#05AA30] text-[1.3rem]" [attr.sport]="'tennis'"> </i>
+            <span class="m-[0_.7rem]  text-[12.6px] hidden">Tennis</span>
+        </li>
+
+        <li class="tabs ml-4 h-[35px] basis-auto p-[.5rem] text-white flex items-center justify-center shrink-0 text-center text-[.9rem] overflow-hidden cursor-pointer "
+            (click)="selectTab('baseball')" [ngClass]="{'active-tab':activeTab == 'baseball'}">
+            <i class="sport-icon text-[#05AA30] text-[1.3rem]" [attr.sport]="'baseball'"> </i>
+            <span class="m-[0_.7rem]  text-[12.6px] hidden">Baseball</span>
+        </li>
+
+
+        <li class="tabs ml-4 h-[35px] basis-auto p-[.5rem] text-white flex items-center justify-center shrink-0 text-center text-[.9rem] overflow-hidden cursor-pointer "
+            (click)="selectTab('formula1')" [ngClass]="{'active-tab':activeTab == 'formula1'}">
+            <i class="sport-icon text-[#05AA30] text-[1.3rem]" [attr.sport]="'formula1'"> </i>
+            <span class="m-[0_.7rem]  text-[12.6px] hidden">Formula 1</span>
+        </li>
+
+
+        <li class="tabs ml-4 h-[35px] basis-auto p-[.5rem] text-white flex items-center justify-center shrink-0 text-center text-[.9rem] overflow-hidden cursor-pointer "
+            (click)="selectTab('leagueoflegends')" [ngClass]="{'active-tab':activeTab == 'leagueoflegends'}">
+            <i class="sport-icon text-[#05AA30] text-[1.3rem]" [attr.sport]="'leagueoflegends'"> </i>
+            <span class="m-[0_.7rem]  text-[12.6px] hidden">League of Legends</span>
         </li>
     </ul>
 </div>

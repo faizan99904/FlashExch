@@ -76,3 +76,9 @@ ul.menu-slide {
 ul {
   list-style-type: none;
 }
+
+@media (min-width: 820px) {
+  .tabs {
+    display: none !important;
+  }
+}

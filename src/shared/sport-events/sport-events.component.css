@@ -62,9 +62,99 @@
   }
 }
 
-
-@media(min-width:820px){
-  .icon-wrapper{
-    @apply hidden
+@media (min-width: 820px) {
+  .icon-wrapper {
+    @apply hidden;
   }
+}
+
+.tabs {
+  @apply hover:bg-[#030303];
+}
+
+.active-tab {
+  @apply !bg-[#030303];
+}
+
+.active-tab span {
+  @apply block;
+}
+
+.tabs:hover span {
+  display: block !important;
+}
+
+.active:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  margin-left: -1vw;
+  border-bottom: 1vw solid #00aa30;
+  border-left: 1vw solid transparent;
+  border-right: 1vw solid transparent;
+}
+
+.active-list::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  margin-left: -1vw;
+  border-bottom: 1vw solid #00aa30;
+  border-left: 1vw solid transparent;
+  border-right: 1vw solid transparent;
+}
+
+.settings-window {
+  position: absolute;
+  right: 2px;
+  top: 100%;
+  background: #23282a;
+  z-index: 2;
+  white-space: nowrap;
+  padding: 3vw 6vw;
+  border-radius: 4px;
+}
+
+.odds-type {
+  display: flex;
+  flex-direction: column;
+}
+
+.odds-type h3 {
+  color: #fff;
+  margin-bottom: 2vw;
+  font-weight: 600;
+}
+
+.odds-type label {
+  display: flex;
+  align-items: center;
+  line-height: normal;
+  height: 9vw;
+}
+
+.odds-type label input {
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  height: 12vw;
+  line-height: 4vw;
+  background-color: var(--leagueTitleBgColor);
+  border: 1px solid var(--lighterBgColor);
+  color: var(--activeTextColor);
+  font-family: Roboto;
+  font-weight: 200;
+  font-size: 3.5vw;
+  -webkit-touch-callout: default !important;
+  -webkit-user-select: text !important;
+  padding-left: 2vw;
+}
+
+.odds-type label span {
+  margin-left: 3vw;
+  color: #a7a9aa;
 }
