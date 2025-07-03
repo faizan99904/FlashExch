@@ -61,3 +61,10 @@
     opacity: 1;
   }
 }
+
+
+@media(min-width:820px){
+  .icon-wrapper{
+    @apply hidden
+  }
+}
