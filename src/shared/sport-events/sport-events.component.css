@@ -158,3 +158,12 @@
   margin-left: 3vw;
   color: #a7a9aa;
 }
+
+@media (min-width: 820px) {
+  .active:before {
+    display: none;
+  }
+  .search-icon {
+    @apply text-[1.4rem] mt-[-11px] left-[1.3rem];
+  }
+}

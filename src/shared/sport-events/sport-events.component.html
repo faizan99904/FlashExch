@@ -63,7 +63,7 @@
             class="bg-transparent placeholder:text-[13px] placeholder:text-[#88898B] border-0 h-full w-full pl-[12vw] xl:pl-[49px] leading-[12vw] outline-0 xl:text-base text-[3.5vw] text-white"
             placeholder="Search games">
         <span
-            class="material-icons text-[#999999] absolute left-[4vw] xl:left-[1vw] xl:-mt-[7px] pointer-events-none top-[50%]  xl:text-base text-[6vw] -mt-[2.73vw]">search</span>
+            class="material-icons text-[#999999] absolute left-[4vw] xl:left-[1vw] xl:-mt-[7px] pointer-events-none top-[50%]  xl:text-base text-[6vw] -mt-[2.73vw] search-icon">search</span>
 
     </div>
     <div
@@ -82,11 +82,13 @@
         </div>
 
     </div>
-    <div class="relative icon-wrapper before:block before:w-[1px] before:h-[60%] before:bg-[#23282a] before:absolute before:top-[20%] before:left-[0px] "
-        (click)="oddToggle()">
-        <span class="flex items-center justify-center w-[13vw] h-full font-[4vw]">
+
+    <div
+        class="relative icon-wrapper before:block before:w-[1px] before:h-[60%] before:bg-[#23282a] before:absolute before:top-[20%] before:left-[0px] ">
+        <span class="flex items-center justify-center w-[13vw] h-full font-[4vw]" (click)="oddToggle()">
             <!-- <i class="fa-solid fa-gear "></i> -->
-            <span class="material-icons text-[#999999] text-[4.5vw]" [ngClass]="{'!text-white':isOddType}">settings</span>
+            <span class="material-icons text-[#999999] text-[4.5vw]"
+                [ngClass]="{'!text-white':isOddType}">settings</span>
         </span>
         <div class="settings-window" *ngIf="isOddType">
             <div class="odds-type">
