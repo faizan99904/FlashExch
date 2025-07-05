@@ -151,3 +151,13 @@ html , body{
  .sport-icon[sport='archery']:before { content: '\e872'; } /* '' */
  .sport-icon[sport='rugbyunionsevens']:before { content: '\e873'; } /* '' */
  .sport-icon[sport='canoekayak']:before { content: '\e80f'; } /* '' */
+
+
+ .prevent-select {
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */
+}
