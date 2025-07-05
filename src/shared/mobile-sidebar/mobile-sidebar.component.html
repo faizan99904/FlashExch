@@ -1,0 +1,332 @@
+<div *ngIf="isVisible"
+    class="w-[94vw] h-[100vh] fixed z-[999999] top-0 bottom-0 bg-[#0f1215] text-white sidebar-container flex flex-col">
+
+    <!-- Fixed Close Button -->
+    <span class="material-icons close text-end pt-[5.2vw] pr-[5.9vw] text-[5vw] sticky top-0 z-10 bg-[#0f1215]">
+        <span (click)="closeSidebar()">close</span>
+    </span>
+
+    <!-- Scrollable content wrapper -->
+    <div class="flex-1 overflow-y-auto">
+
+
+        <!-- language-dropdown.component.html -->
+        <div class="relative" (click)="toggleDropdown()" tabindex="0" (blur)="closeDropdown()">
+            <div
+                class="flex justify-between items-center itemsDropdown pb-[5.566vw] mx-[6.56vw] pt-[7.4vw] text-[3.3vw] cursor-pointer">
+                <div class="flex gap-[4.88vw] items-center">
+                    <img src="/assets/images/menu/globe.svg" class="w-[4.87vw] h-[4.87vw]" alt="globe">
+                    <span class="text-[3.458vw]">{{ selectedLanguage.label }}</span>
+                </div>
+                <span class="material-icons transition-transform duration-300 text-[16px] pb-[1px] pr-[0.5px]"
+                    [ngClass]="{ 'rotate-180': dropdownOpen }">
+                    keyboard_arrow_down
+                </span>
+            </div>
+
+            <!-- Dropdown -->
+            <div class="overflow-hidden transition-all duration-500 ease-in-out "
+                [ngStyle]="{ height: dropdownOpen ? dropdownHeight : '0px' }">
+                <ul class="text-[#c6c6c6] bg-[#13171a]  rounded-md " #dropdownList>
+                    <li *ngFor="let lang of languages" (click)="selectLanguage(lang)"
+                        class="flex items-center px-[6.56vw] gap-[3.6vw] py-[7px] itemsDropdown cursor-pointer text-[3.5vw] border-b border-white/10">
+                        <img [src]="lang.flag" alt="{{ lang.code }}" class="w-[5vw] h-[5vw]">
+                        <span>{{ lang.label }}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav-list">
+            <ul>
+                <li><a><img src="/assets/images/menu/sport.svg"> <span>Sports</span></a></li>
+                <li><a><img src="/assets/images/menu/live.svg"> <span>Live</span></a></li>
+                <li><a><img src="/assets/images/menu/esports.svg"> <span>Esports</span></a></li>
+                <li><a><img src="/assets/images/menu/livecasino.svg"> <span>Live Casino</span></a></li>
+                <li><a><img src="/assets/images/menu/777.svg"> <span>Casino</span></a></li>
+                <li><a><img src="/assets/images/menu/virtual.svg"> <span>Virtual sport</span></a></li>
+                <li><a><img src="/assets/images/menu/promos.svg"> <span>Promotions</span></a></li>
+                <li><a><img src="/assets/images/menu/affiliate.svg"> <span>AFFILIATES</span></a></li>
+            </ul>
+        </div>
+        <!-- With this: -->
+        <div class="top-leagues text-[#afafaf] w-full px-[3.6vw] py-[3.6vw]">
+
+            <h3 class="text-[3.64vw] leading-[1.3] font-semibold text-white">Top Leagues</h3>
+            <ul class="space-y-2">
+
+                <li class="!mb-[2vw]">
+                    <div class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]">
+                            <img src="/assets/images/menu/download.png" class="w-[5.454vw]" alt="">
+                            <span class="text-[3.7vw]">FIFA Club World Cup</span>
+                        </div>
+                        <span class="text-[3.7vw] text-gray-400">33</span>
+                    </div>
+                </li>
+
+                <li class="!mb-[3vw]">
+                    <div class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]">
+                            <img src="/assets/images/menu/download (1).png" class="w-[5.454vw]" alt="">
+                            <span class="text-[3.7vw]">UEFA Europa Conference League</span>
+                        </div>
+                        <span class="text-[3.7vw] text-gray-400">6</span>
+                    </div>
+                </li>
+
+                <li class="!mb-[3vw]">
+                    <div class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]">
+                            <img src="/assets/images/menu/download (2).png" class="w-[5.454vw]" alt="">
+                            <span class="text-[3.7vw]">Premier League</span>
+                        </div>
+                        <span class="text-[3.7vw] text-gray-400">10</span>
+                    </div>
+                </li>
+
+                <!-- Add other leagues similarly, using:
+                   /assets/images/menu/[league-name].svg or .png -->
+
+            </ul>
+        </div>
+
+        <div class="sports text-[#afafaf] w-full px-[3.6vw] py-[3.6vw]">
+
+            <h3 class="text-[3.64vw] leading-[1.3] font-semibold text-white mb-2" text_key="MENU__SPORTS">SPORTS</h3>
+            <ul class="space-y-2 ">
+
+                <!-- Special Odds -->
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="specialodds"></span><span class="text-[3.7vw]">Special Odds</span></div><span
+                            class="text-[3.7vw] text-gray-400">0</span>
+                    </a></li>
+
+                <!-- Common Sports -->
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon" sport="soccer"></span><span
+                                class="text-[3.7vw]">Soccer</span></div><span
+                            class="text-[3.7vw] text-gray-400">1228</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="basketball"></span><span class="text-[3.7vw]">Basketball</span></div><span
+                            class="text-[3.7vw] text-gray-400">134</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="basketball3x3"></span><span class="text-[3.7vw]">3x3 Basketball</span></div><span
+                            class="text-[3.7vw] text-gray-400">5</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon" sport="tennis"></span><span
+                                class="text-[3.7vw]">Tennis</span></div><span
+                            class="text-[3.7vw] text-gray-400">208</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="baseball"></span><span class="text-[3.7vw]">Baseball</span></div><span
+                            class="text-[3.7vw] text-gray-400">76</span>
+                    </a></li>
+
+                <!-- Remaining Sports -->
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="icehockey"></span><span class="text-[3.7vw]">Ice Hockey</span></div><span
+                            class="text-[3.7vw] text-gray-400">63</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="handball"></span><span class="text-[3.7vw]">Handball</span></div><span
+                            class="text-[3.7vw] text-gray-400">2</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="formula1"></span><span class="text-[3.7vw]">Formula 1</span></div><span
+                            class="text-[3.7vw] text-gray-400">38</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="formulae"></span><span class="text-[3.7vw]">Formula E</span></div><span
+                            class="text-[3.7vw] text-gray-400">2</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="volleyball"></span><span class="text-[3.7vw]">Volleyball</span></div><span
+                            class="text-[3.7vw] text-gray-400">11</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon" sport="futsal"></span><span
+                                class="text-[3.7vw]">Futsal</span></div><span
+                            class="text-[3.7vw] text-gray-400">1</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon" sport="rugby"></span><span
+                                class="text-[3.7vw]">Rugby</span></div><span
+                            class="text-[3.7vw] text-gray-400">59</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="americanfootball"></span><span class="text-[3.7vw]">American Football</span>
+                        </div>
+                        <span class="text-[3.7vw] text-gray-400">572</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon" sport="snooker"></span><span
+                                class="text-[3.7vw]">Snooker</span></div><span
+                            class="text-[3.7vw] text-gray-400">16</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon" sport="boxing"></span><span
+                                class="text-[3.7vw]">Boxing</span></div><span
+                            class="text-[3.7vw] text-gray-400">45</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="specials"></span><span class="text-[3.7vw]">Specials</span></div><span
+                            class="text-[3.7vw] text-gray-400">5</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon" sport="mma"></span><span
+                                class="text-[3.7vw]">MMA</span></div><span class="text-[3.7vw] text-gray-400">35</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="badminton"></span><span class="text-[3.7vw]">Badminton</span></div><span
+                            class="text-[3.7vw] text-gray-400">9</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="lacrosse"></span><span class="text-[3.7vw]">Lacrosse</span></div><span
+                            class="text-[3.7vw] text-gray-400">9</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="tabletennis"></span><span class="text-[3.7vw]">Table Tennis</span></div><span
+                            class="text-[3.7vw] text-gray-400">58</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="waterpolo"></span><span class="text-[3.7vw]">Waterpolo</span></div><span
+                            class="text-[3.7vw] text-gray-400">16</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="alpineskiing"></span><span class="text-[3.7vw]">Alpine Skiing</span></div><span
+                            class="text-[3.7vw] text-gray-400">2</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="speedway"></span><span class="text-[3.7vw]">Speedway</span></div><span
+                            class="text-[3.7vw] text-gray-400">3</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="motorcycleracing"></span><span class="text-[3.7vw]">Motorcycle Racing</span>
+                        </div>
+                        <span class="text-[3.7vw] text-gray-400">3</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="aussierules"></span><span class="text-[3.7vw]">Aussie Rules</span></div><span
+                            class="text-[3.7vw] text-gray-400">14</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon" sport="golf"></span><span
+                                class="text-[3.7vw]">Golf</span></div><span class="text-[3.7vw] text-gray-400">7</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="beachvolley"></span><span class="text-[3.7vw]">Beach Volleyball</span></div><span
+                            class="text-[3.7vw] text-gray-400">8</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon" sport="darts"></span><span
+                                class="text-[3.7vw]">Darts</span></div><span
+                            class="text-[3.7vw] text-gray-400">20</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="stockcarracing"></span><span class="text-[3.7vw]">Stock Car Racing</span></div>
+                        <span class="text-[3.7vw] text-gray-400">29</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon" sport="cycling"></span><span
+                                class="text-[3.7vw]">Cycling</span></div><span
+                            class="text-[3.7vw] text-gray-400">149</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="indyracing"></span><span class="text-[3.7vw]">Indy Racing</span></div><span
+                            class="text-[3.7vw] text-gray-400">2</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon" sport="cricket"></span><span
+                                class="text-[3.7vw]">Cricket</span></div><span
+                            class="text-[3.7vw] text-gray-400">28</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="gaelichurling"></span><span class="text-[3.7vw]">Gaelic Hurling</span></div><span
+                            class="text-[3.7vw] text-gray-400">3</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="skijumping"></span><span class="text-[3.7vw]">Ski Jumping</span></div><span
+                            class="text-[3.7vw] text-gray-400">6</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="crosscountry"></span><span class="text-[3.7vw]">Cross Country</span></div><span
+                            class="text-[3.7vw] text-gray-400">6</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="gaelicfootball"></span><span class="text-[3.7vw]">Gaelic Football</span></div>
+                        <span class="text-[3.7vw] text-gray-400">3</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="biathlon"></span><span class="text-[3.7vw]">Biathlon</span></div><span
+                            class="text-[3.7vw] text-gray-400">17</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="counter-strike"></span><span class="text-[3.7vw]">Counter-Strike</span></div>
+                        <span class="text-[3.7vw] text-gray-400">9</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="leagueoflegends"></span><span class="text-[3.7vw]">League of Legends</span></div>
+                        <span class="text-[3.7vw] text-gray-400">23</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon" sport="dota2"></span><span
+                                class="text-[3.7vw]">Dota 2</span></div><span
+                            class="text-[3.7vw] text-gray-400">11</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="valorant"></span><span class="text-[3.7vw]">Valorant</span></div><span
+                            class="text-[3.7vw] text-gray-400">23</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="rainbowsix"></span><span class="text-[3.7vw]">Rainbow Six</span></div><span
+                            class="text-[3.7vw] text-gray-400">14</span>
+                    </a></li>
+                <li><a class="flex items-center justify-between hover:bg-gray-800  rounded">
+                        <div class="flex items-center gap-[3.6vw]"><span class="sport-icon"
+                                sport="starcraft"></span><span class="text-[3.7vw]">Starcraft</span></div><span
+                            class="text-[3.7vw] text-gray-400">4</span>
+                    </a></li>
+
+            </ul>
+        </div>
+
+
+    </div>
+</div> <!-- End of scrollable content -->
+
+<div *ngIf="isVisible" (click)="closeSidebar()"
+    class="bg-black opacity-60 z-[88888] fixed top-0 w-[100vw] h-[100vh] overlay"></div>
