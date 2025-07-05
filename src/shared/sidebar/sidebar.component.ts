@@ -17,21 +17,7 @@ export class SidebarComponent {
   
 
   timeFilter = '6H';
-  topLeagues = [
-    { name: 'FIFA Club World Cup', count: 27, image: 'assets/icons/fifa.png' },
-    { name: 'UEFA Europa Conference League', count: 6, image: 'assets/icons/uefa.png' },
-    { name: 'Premier League', count: 10, image: 'assets/icons/premier.png' },
-    { name: 'Bundesliga', count: 9, image: 'assets/icons/bundesliga.png' },
-    { name: 'Serie A', count: 10, image: 'assets/icons/seriea.png' },
-    { name: 'Ligue 1', count: 8, image: 'assets/icons/ligue1.png' },
-    { name: 'MLS', count: 15, image: 'assets/icons/mls.png' },
-    { name: 'British Grand Prix 2025', count: 35, image: 'assets/icons/f1.png' },
-    { name: 'Serie A', count: 20, image: 'assets/icons/seriea.png' },
-    { name: 'ATP - Wimbledon', count: 76, image: 'assets/icons/atp.png' },
-    { name: 'WTA - Wimbledon', count: 82, image: 'assets/icons/wta.png' },
-    { name: 'MLB', count: 18, image: 'assets/icons/mlb.png' },
-    { name: 'NFL', count: 37, image: 'assets/icons/nfl.png' }
-  ];
+ 
   
   sports = [
     { name: 'Soccer', count: 1024, selected: false },

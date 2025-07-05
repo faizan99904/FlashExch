@@ -3,28 +3,52 @@
 
     <!-- Dropdowns -->
     <!-- TOP LEAGUES -->
-    <div class="py-2 pl-2 pr-3 bg-[#101317]">
-        <div class="cursor-pointer font-semibold  rounded-md flex items-center justify-between"
+    <div class="py-2.5 pl-2 pr-3 bg-[#101317]">
+        <div class="cursor-pointer font-semibold text-[14px] rounded-md flex items-center justify-between"
             (click)="toggleDropdown('topLeagues')">
             <div class="flex items-center space-x-2">
-                <span class="text-[#00aa30] font-bold">|</span>
+                <span class="text-[#00aa30] font-extrabold text-[18px]">|</span>
                 <span>TOP LEAGUES</span>
             </div>
             <i class="text-gray-400"
                 [ngClass]="dropdowns['topLeagues'] ? 'fas fa-chevron-down' : 'fas fa-chevron-right'"></i>
         </div>
-        <div *ngIf="dropdowns['topLeagues']" class=" text-sm mt-2 space-y-2">
-            <div *ngFor="let league of topLeagues" class="flex items-center justify-between rounded-md">
-                <!-- Left: Image + Bar + League Name -->
-                <div class="flex items-center space-x-2">
-                    <img [src]="league.image" alt="league icon" class="w-5 h-5 object-contain" />
-                    <span class="text-gray-200">{{ league.name }}</span>
-                </div>
+        <ul class="space-y-2" *ngIf="dropdowns['topLeagues']">
 
-                <!-- Right: Count -->
-                <span class="text-gray-400">{{ league.count }}</span>
-            </div>
-        </div>
+            <li class="my-1">
+                <div class="flex items-center justify-between hover:bg-gray-800  rounded">
+                    <div class="flex items-center gap-[11px]">
+                        <img src="/assets/images/menu/download.png" class="w-[18.7px]" alt="">
+                        <span class="text-[9.9px]">FIFA Club World Cup</span>
+                    </div>
+                    <span class="text-[9.9px] text-gray-400">33</span>
+                </div>
+            </li>
+
+            <li class="mb-1">
+                <div class="flex items-center justify-between hover:bg-gray-800  rounded">
+                    <div class="flex items-center gap-[11px]">
+                        <img src="/assets/images/menu/download (1).png" class="w-[18.7px]" alt="">
+                        <span class="text-[9.9px]">UEFA Europa Conference League</span>
+                    </div>
+                    <span class="text-[9.9px] text-gray-400">6</span>
+                </div>
+            </li>
+
+            <li class="mb-1">
+                <div class="flex items-center justify-between hover:bg-gray-800  rounded">
+                    <div class="flex items-center gap-[11px]">
+                        <img src="/assets/images/menu/download (2).png" class="w-[18.7px]" alt="">
+                        <span class="text-[9.9px]">Premier League</span>
+                    </div>
+                    <span class="text-[9.9px] text-gray-400">10</span>
+                </div>
+            </li>
+
+            <!-- Add other leagues similarly, using:
+                       /assets/images/menu/[league-name].svg or .png -->
+
+        </ul>
 
     </div>
 
