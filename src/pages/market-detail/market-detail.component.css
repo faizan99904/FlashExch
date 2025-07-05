@@ -15,7 +15,7 @@
 }
 
 .bg-giftBoxGradient {
-    background-image:linear-gradient(133deg, #11E311, #11E311 51.04%, #11E311);
+    background-image:linear-gradient(133deg, #31e61496, #048206 51.04%, #065a07);
     /* No visual effect, parent color shows through */
 }
 
@@ -31,4 +31,6 @@ background: linear-gradient(98deg, #10e312 0.98%, #f4f490);
 .stop-watch{
     background-color: rgba(0, 0, 0, .3);
 }
-
+.border-solid{
+    border-color: #525253;
+}

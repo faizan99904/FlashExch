@@ -4,6 +4,7 @@
 
 html , body{
   font-family: Roboto, sans-serif;
+  background: black;
   /* font-size: 3.5vw; */
 }
   @font-face {
