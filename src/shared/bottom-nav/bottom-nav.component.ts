@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SharedService } from '../../app/service/shared.service';
 
 @Component({
   selector: 'app-bottom-nav',
@@ -7,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './bottom-nav.component.css'
 })
 export class BottomNavComponent {
-
+  constructor(private sharedService: SharedService) { }
+  openSidebar() {
+    this.sharedService.mobileSidebarOpen();
+  }
 }
