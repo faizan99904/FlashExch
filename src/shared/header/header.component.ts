@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,5 +8,18 @@ import { RouterLink } from '@angular/router';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  
+  constructor(private router:Router){
 
+  }
+
+  gotoLogin(){
+    let width = window.innerWidth;
+    if(width<819){
+      this.router.navigateByUrl("/login")
+    }
+    else{
+      return
+    }
+  }
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../../shared/header/header.component';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +10,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
+ 
+
   images = [
     '/assets/images/slide1.webp',
     '/assets/images/slide2.webp',
@@ -36,4 +39,6 @@ export class LoginComponent {
   isLast(): boolean {
     return this.currentIndex === this.images.length - 1;
   }
+
+ 
 }
