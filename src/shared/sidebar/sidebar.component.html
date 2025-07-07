@@ -3,7 +3,7 @@
         class="custom-scrollbar-content pl-[1vw] w-[17.5vw] bg-black text-white h-[calc(100dvh-114px)] max-lg:absolute left-[-100%] mt-[1vw]  overflow-auto">
 
 
-        <!-- Dropdowns -->
+
         <!-- TOP LEAGUES -->
         <div class=" bg-[#101317] rounded-sm mb-[0.3vw]">
             <div class="cursor-pointer font-semibold text-[14px] rounded-md flex items-center justify-between py-[0.7vw] pl-[0.5vw] pr-[1vw]"
@@ -58,7 +58,7 @@
 
         <div class="bg-[#101317] rounded-sm mb-[0.3vw]">
             <!-- Header -->
-            <div class="cursor-pointer font-semibold text-[14px] flex items-center justify-between py-[0.7vw] px-[0.8vw]"
+            <div class="cursor-pointer font-semibold text-[14px] flex items-center justify-between py-[0.7vw] pl-[0.5vw] pr-[0.8vw]"
                 (click)="toggleDropdown('topLive')">
                 <div class="flex items-center space-x-2">
                     <span class="text-[#00aa30] font-extrabold text-[18px]">|</span>
@@ -73,7 +73,7 @@
 
                 <!-- Category: Soccer -->
                 <div>
-                    <div class="text-gray-300 text-xs  border-b border-gray-700 pb-1 mb-2">Soccer</div>
+                    <div class="text-gray-400 text-xs  border-b border-gray-700 pb-1 mb-2">Soccer</div>
 
                     <div *ngFor="let game of topLiveGames.soccer" class="mb-3 flex justify-between items-center">
                         <div class="flex flex-col items-start w-1/2">
