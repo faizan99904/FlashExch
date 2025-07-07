@@ -4,7 +4,7 @@ import { SharedService } from '../../app/service/shared.service';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })

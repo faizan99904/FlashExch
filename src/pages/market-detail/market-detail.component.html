@@ -1,4 +1,4 @@
-<div class=" w-full sticky -top-0.5 left-0 right-0 z-[99]">
+<div class=" w-full sticky -top-0.5 left-0 right-0 z-[99] ">
     <div class="w-full overflow-hidden bg-[#272D33] ">
         <div class="flex items-center justify-between gap-y-1 flex-col w-full px-4 py-2 relative bg-bg_inputBgColor">
             <div
@@ -9,7 +9,7 @@
             </div>
             <div class="flex items-center justify-between relative w-full z-10">
                 <div class="flex items-center gap-x-1 w-full "><span class="w-6 h-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 20 20" fill=""
+                        <svg (click)="navigateBack()" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 20 20" fill=""
                             class="ng-tns-c191-0">
                             <path
                                 d="M13.1213 17.0759L6.25 10.2046L13.1213 3.33325L14.0833 4.31242L8.19115 10.2046L14.0833 16.0968L13.1213 17.0759Z"
@@ -23,10 +23,8 @@
                         </div><span class="font-roboto text-xs font-medium leading-120 text-text_secondary">In
                             Play</span>
                     </div>
-                </div><button class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out cursor-pointer active:scale-90 transition-all duration-300 ease-in-out 
-      cursor-pointer
-      
-      " type="button"><svg width="18" fill="white" height="18" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg">
+                </div><button class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out cursor-pointer active:scale-90 transition-all duration-300 ease-in-out cursor-pointer" type="button">
+               <svg width="18" fill="white" height="18" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" >
                         <g clip-path="url(#clip0_1717_31141)">
                             <path
                                 d="M8.5 0.5C4.07841 0.5 0.5 4.078 0.5 8.5C0.5 12.9215 4.078 16.5 8.5 16.5C12.9216 16.5 16.5 12.922 16.5 8.5C16.5 4.07847 12.922 0.5 8.5 0.5ZM8.5 15.3837C4.70431 15.3837 1.61628 12.2957 1.61628 8.5C1.61628 4.70428 4.70431 1.61628 8.5 1.61628C12.2957 1.61628 15.3837 4.70428 15.3837 8.5C15.3837 12.2957 12.2957 15.3837 8.5 15.3837Z"
@@ -59,7 +57,7 @@
     </div>
     <div class="w-full border-b border-solid border-border_tertiary23 bg-bg_appBackgroundColor">
         <div
-            class=" flex flex-row font-manrope-regular items-center justify-start gap-0 text-nowrap capitalize text-[12px] px-1 relative bg-black">
+            class=" flex flex-row font-manrope-regular items-center justify-start overflow-x-auto gap-0 text-nowrap capitalize text-[12px] px-1 relative bg-black">
             <div class="cursor-pointer w-full flex flex-row items-center justify-center border-b-[2px] border-[#11E311]"><span
                     class=" text-text_secondary  py-2.5 px-1.5 text-[12px] text-[#888A8C] md:text-[13px] lg:text-base font-bold leading-4 active:scale-95 flex items-center justify-center gap-x-1 block z-10 ">Market</span>
             </div>
@@ -88,10 +86,7 @@
             <div class="absolute top-0 right-[7%] h-full w-[29%] vector2 circket-2-bg"></div>
             <div class="flex items-center justify-between relative z-1 gap-1 w-[60%]"><span
                     class="font-roboto text-xs font-medium leading-150 capitalize">Match Odds</span>
-                <div class="flex items-center justify-center gap-[3px]"><button type="button" class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out bg-bg_cashoutBtnGrad rounded-md px-1.5 py-0.5 text-center shadow-[inset_-12px_-8px_40px_#46464620] flex items-center justify-center flex-col flex-wrap w-max h-max mr-1 text-text_secondary2  active:scale-[98%] transition-all duration-300 ease-in-out 
-      cursor-pointer
-      
-      ">
+                <div class="flex items-center justify-center gap-[3px]"><button type="button" class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out bg-bg_cashoutBtnGrad rounded-md px-1.5 py-0.5 text-center shadow-[inset_-12px_-8px_40px_#46464620] flex items-center justify-center flex-col flex-wrap w-max h-max mr-1 text-text_secondary2  active:scale-[98%] transition-all duration-300 ease-in-out cursor-pointer">
                         <div class="text-[10px] md:text-[12px] text-text_secondary2  whitespace-nowrap">Cashout</div>
                     </button>
                     <div class="flex items-center justify-center gap-0.5 py-0.5 px-1 bg-bg_primary5 rounded stop-watch"><span

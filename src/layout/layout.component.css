@@ -4,4 +4,7 @@
     height: calc(100dvh - 117.32px);
     overflow: hidden;
   }
+  .sport-nav-mobile{
+    display: none;
+  }
 }
