@@ -17,7 +17,19 @@ export class SidebarComponent {
   
 
   timeFilter = '6H';
- 
+ topLiveGames = {
+  soccer: [
+    { team1: 'Brentford (SRL)', team2: 'Mainz (SRL)', odds: ['3.25', '2.50', '2.75'] },
+    { team1: 'Rakow Czestochowa', team2: 'FK Austria Wien', odds: ['2.95', '2.40', '3.10'] },
+    { team1: 'Paris Saint Germain', team2: 'FC Bayern Munich', odds: ['15.00', '3.65', '1.12'] }
+  ],
+  basketball: [
+    { team1: 'Tigers', team2: 'Lions', odds: ['5.30', '1.10'] },
+    { team1: 'Ningbo Waves', team2: 'Shenyang Seagulls', odds: ['1.75', '1.95'] },
+    { team1: 'Los Angeles Lakers', team2: 'Oklahoma City Thunder', odds: ['1.73', '1.95'] }
+  ]
+};
+
   
   sports = [
     { name: 'Soccer', count: 1024, selected: false },

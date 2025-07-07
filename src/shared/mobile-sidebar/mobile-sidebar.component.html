@@ -1,6 +1,5 @@
-<div 
-    class="w-[94vw] h-[100vh] fixed top-0 left-0 z-[999999] bg-[#0f1215] text-white sidebar-container flex flex-col transform transition-transform duration-300 ease-in-out"
-    [ngClass]="{ 'translate-x-0': isVisible, '-translate-x-full': !isVisible }">
+<div class="w-[94vw] h-[100vh] mb-10 fixed top-0 translate-x-[-100%] left-0 z-[999999] bg-[#0f1215] text-white sidebar-container  flex-col transform transition-transform duration-300 ease-in-out"
+    [ngClass]="{ 'translate-x-[0%] flex': isVisible, '-translate-x-full ': !isVisible }">
     <!-- Fixed Close Button -->
     <span class="material-icons close text-end pt-[5.2vw] pr-[5.9vw] text-[5vw] sticky top-0 z-10 bg-[#0f1215]">
         <span (click)="closeSidebar()">close</span>
@@ -18,7 +17,7 @@
                     <img src="/assets/images/menu/globe.svg" class="w-[4.87vw] h-[4.87vw]" alt="globe">
                     <span class="text-[3.458vw]">{{ selectedLanguage.label }}</span>
                 </div>
-                <span class="material-icons transition-transform duration-300 text-[16px] pb-[1px] pr-[0.5px]"
+                <span class="material-icons transition-transform duration-300 text-[4vw] pb-[1px] pr-[0.5px]"
                     [ngClass]="{ 'rotate-180': dropdownOpen }">
                     keyboard_arrow_down
                 </span>
@@ -84,8 +83,7 @@
                     </div>
                 </li>
 
-                <!-- Add other leagues similarly, using:
-                   /assets/images/menu/[league-name].svg or .png -->
+
 
             </ul>
         </div>
