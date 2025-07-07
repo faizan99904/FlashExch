@@ -1,0 +1,191 @@
+.content-wrapper {
+  background: #1b1e24;
+  position: absolute;
+  bottom: 4.1311rem;
+  left: 0.5672rem;
+  right: 0.5672rem;
+  margin: auto;
+  padding: 1.1344rem 1.1344rem 1.5314rem;
+  box-sizing: border-box;
+  border-radius: 8px;
+  @apply md:!relative md:!left-0 md:!bottom-0 md:!right-0 xl:scale-[1.2];
+}
+
+.overlay {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+form ul li:not(.accept-terms) {
+  width: 100%;
+  max-height: 4.8211rem;
+  margin-bottom: 0.3403rem;
+  position: relative;
+}
+
+.input {
+  @apply w-full h-[3.0061rem] !bg-[#181b22] text-white border border-solid border-[#11e31233] pl-[4vw] rounded-[0.5672rem] text-[12px];
+}
+
+.select {
+  @apply w-full h-[3.0061rem] !bg-[#181b22] text-white border border-solid border-[#11e31233] pl-[4vw] rounded-[0.5672rem] text-[12px];
+}
+
+select {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url(/assets/images/select_arrow.png) !important;
+  background-repeat: no-repeat !important;
+  background-size: 2vw auto !important;
+  background-position: right 2vw center !important;
+}
+
+form ul li:not(.accept-terms) .currency-cont {
+  width: 100%;
+  max-height: 4.8211rem;
+  margin-bottom: 0.3403rem;
+  position: relative;
+}
+
+.currency-img {
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  height: 0.9642rem;
+  width: 0.9642rem;
+  left: 0.7941rem;
+}
+
+.check {
+  @apply relative select-none cursor-pointer flex items-center flex-wrap pl-[1.9284rem] m-[0.9642rem_0] text-[0.6239rem];
+}
+
+.check input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  width: 0;
+  font-size: 12px;
+  height: 2.2688rem;
+}
+
+.check:hover input ~ .checkmark {
+  opacity: 1;
+}
+
+.check .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  border: 1px solid #11e311;
+  border-radius: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+.check span {
+  font-size: 12px;
+  color: #ffffffe5;
+}
+
+.check .checkmark:after {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80%;
+  background-color: #11e311;
+}
+
+.check .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.check input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.btn {
+  @apply !mb-0 h-[3.0061rem] m-[1.1344rem_auto_1.1344rem] w-full text-sm font-semibold relative leading-normal border-0 outline-0 text-center flex items-center justify-center px-[4vw] bg-[#11e311] text-[#030303] rounded-[0.5672rem];
+}
+
+@media screen and (max-width: 380px) {
+  .content-wrapper {
+    bottom: 1.1311rem;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .content-wrapper {
+    padding: 0 !important;
+  }
+
+  ul li:not(.accept-terms) {
+    margin-bottom: 0.675rem !important;
+  }
+
+  ul li input {
+    height: 1.8rem !important;
+    border-radius: 8px !important;
+    border: 1px solid #11e31233 !important;
+    background: #181b22 !important;
+    width: 100%;
+    padding: 0;
+    padding-left: 5.67px;
+    font-size: 0.456rem !important;
+  }
+
+  select {
+    -webkit-appearance: initial !important;
+    appearance: initial !important;
+    height: 1.8rem !important;
+    padding-left: 5.67px;
+    font-size: 0.456rem !important;
+    background-image: none !important;
+    color: #ffffff99 !important;
+  }
+
+  .select {
+    padding-left: 5.67px;
+  }
+
+  .currency-img {
+    height: 11.9997px;
+    left: 10.1997px;
+  }
+
+  .check .checkmark {
+    height: 11.59px;
+    width: 11.59px;
+    border-radius: 2.8125px;
+  }
+
+  .check span {
+    font-size: 0.456rem;
+  }
+
+  .check .checkmark:after {
+    width: 5.625px !important;
+    height: 5.625px !important;
+    border-radius: 1.6875px !important;
+  }
+
+  label.check {
+    padding-left: 16.875px !important;
+    margin: 0;
+  }
+}
