@@ -162,3 +162,14 @@ html , body{
   user-select: none;
   /* Standard syntax */
 }
+
+
+@media (max-width: 768px) {
+  .mainRouter.prevent-scroll {
+    overflow: hidden !important;
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
+  }
+  
+}

@@ -1,5 +1,5 @@
 import { CommonModule, NgIf } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SharedService } from '../../app/service/shared.service';
 
@@ -31,20 +31,35 @@ export class MobileSidebarComponent {
   isVisible = false;
   private sub!: Subscription;
 
-  constructor(private sharedService: SharedService) { }
+  constructor(private sharedService: SharedService, private renderer: Renderer2) { }
 
   ngOnInit(): void {
     this.sub = this.sharedService.mobileSidebarToggle$.subscribe(show => {
       this.isVisible = show;
+      const mainRouterEl = document.querySelector('.mainRouter');
+      if (mainRouterEl) {
+        if (show) {
+          mainRouterEl.classList.add('prevent-scroll');
+        } else {
+          mainRouterEl.classList.remove('prevent-scroll');
+        }
+      }
     });
   }
-
   closeSidebar() {
     this.sharedService.mobileSidebarClose();
+    const mainRouterEl = document.querySelector('.mainRouter');
+    if (mainRouterEl) {
+      mainRouterEl.classList.remove('prevent-scroll');
+    }
   }
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
+    const mainRouterEl = document.querySelector('.mainRouter');
+    if (mainRouterEl) {
+      mainRouterEl.classList.remove('prevent-scroll');
+    }
   }
   toggleDropdown(): void {
     this.dropdownOpen = !this.dropdownOpen;
