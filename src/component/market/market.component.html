@@ -1,5 +1,5 @@
 <!-- Mobile -->
-<div class="market-wrapper p-[2vw_2.5vw] bg-[#101317] overflow-hidden">
+<div class="market-wrapper p-[2vw_2.5vw] bg-[#101317] overflow-hidden"  *ngFor="let item of arr">
     <div class="first-line flex items-center h-[6vw]">
         <div class="start text-[4.5vw] mr-[1.2vw] h-full items-center">
             <span class="material-icons text-[#A0A1A2] text-[4vw]">equalizer</span>
@@ -20,7 +20,8 @@
         <div class="star-wrapper leading-[6vw] mr-[1vw] ml-[-1px] text-[5vw]">
             <span class="material-icons text-[#00aa30]">star_border</span>
         </div>
-        <div class="match-name w-[calc(100%-7vw)] p-0 text-white leading-[6vw] text-[3.5vw]" routerLink="/market-detail">
+        <div class="match-name w-[calc(100%-7vw)] p-0 text-white leading-[6vw] text-[3.5vw]"
+            routerLink="/market-detail">
             <span>Belgium W.</span><span> - </span><span>Italy W.</span>
         </div>
     </div>
@@ -119,25 +120,49 @@
             </div>
         </div>
     </div> -->
-   <div class="w-full flex items-center mt-[0.56rem] justify-center gap-x-[0.44rem] "><div  class="w-full relative opacity-70 cursor-not-allowed"><div class="undefined w-full rounded-[0.375rem] grid grid-cols-2 text-[13px] text-text_secondary overflow-hidden"><button    class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  h-[35px] col-span-1 w-full flex items-center justify-center bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4  font-bold   
+    <div class="w-full flex items-center mt-[0.56rem] justify-center gap-x-[0.44rem] ">
+        <div class="w-full relative opacity-70 cursor-not-allowed">
+            <div
+                class="undefined w-full rounded-[0.375rem] grid grid-cols-2 text-[13px] text-text_secondary overflow-hidden">
+                <button class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  h-[35px] col-span-1 w-full flex items-center justify-center bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4  font-bold   
       cursor-pointer
       active:scale-[98%]
-      " type="button"><span class=" text-[13px]">4.2</span></button><button   class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  h-[35px] col-span-1 w-full flex items-center justify-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold  
+      " type="button"><span class=" text-[13px]">4.2</span></button><button class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  h-[35px] col-span-1 w-full flex items-center justify-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold  
       cursor-pointer
       active:scale-[98%]
-      " type="button"><span class="text-[13px]">4.3</span></button></div><div class="absolute top-1/2 z-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bg_secondary w-[1.25rem] h-[1.25rem] rounded-full flex items-center justify-center text-text_secondary2 text-[13px] font-semibold">0</div></div><div class="w-full relative opacity-70 cursor-not-allowed"><div class="undefined w-full rounded-[0.375rem] grid grid-cols-2 text-[13px] text-text_secondary overflow-hidden"><button class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  h-[35px] col-span-1 w-full flex items-center justify-center bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4  font-bold   
+      " type="button"><span class="text-[13px]">4.3</span></button></div>
+            <div
+                class="absolute top-1/2 z-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bg_secondary w-[1.25rem] h-[1.25rem] rounded-full flex items-center justify-center text-text_secondary2 text-[13px] font-semibold">
+                0</div>
+        </div>
+        <div class="w-full relative opacity-70 cursor-not-allowed">
+            <div
+                class="undefined w-full rounded-[0.375rem] grid grid-cols-2 text-[13px] text-text_secondary overflow-hidden">
+                <button class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  h-[35px] col-span-1 w-full flex items-center justify-center bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4  font-bold   
       cursor-pointer
       active:scale-[98%]
-      " type="button"><span class=" text-[13px]">55</span></button><button   class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  h-[35px] col-span-1 w-full flex items-center justify-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold  
+      " type="button"><span class=" text-[13px]">55</span></button><button class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  h-[35px] col-span-1 w-full flex items-center justify-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold  
       cursor-pointer
       active:scale-[98%]
-      " type="button"><span class="text-[13px]">60</span></button></div><div class="absolute top-1/2 z-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bg_secondary w-[1.25rem] h-[1.25rem] rounded-full flex items-center justify-center text-text_secondary2 text-[13px] font-semibold">1</div></div><div  class="w-full relative opacity-70 cursor-not-allowed"><div class="undefined w-full rounded-[0.375rem] grid grid-cols-2 text-[13px] text-text_secondary overflow-hidden"><button class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  h-[35px] col-span-1 w-full flex items-center justify-center bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4  font-bold   
+      " type="button"><span class="text-[13px]">60</span></button></div>
+            <div
+                class="absolute top-1/2 z-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bg_secondary w-[1.25rem] h-[1.25rem] rounded-full flex items-center justify-center text-text_secondary2 text-[13px] font-semibold">
+                1</div>
+        </div>
+        <div class="w-full relative opacity-70 cursor-not-allowed">
+            <div
+                class="undefined w-full rounded-[0.375rem] grid grid-cols-2 text-[13px] text-text_secondary overflow-hidden">
+                <button class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  h-[35px] col-span-1 w-full flex items-center justify-center bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4  font-bold   
       cursor-pointer
       active:scale-[98%]
-      " type="button"><span class=" text-[13px]">1.34</span></button><button    class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  h-[35px] col-span-1 w-full flex items-center justify-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold  
+      " type="button"><span class=" text-[13px]">1.34</span></button><button class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  h-[35px] col-span-1 w-full flex items-center justify-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold  
       cursor-pointer
       active:scale-[98%]
-      " type="button"><span class="text-[13px]">1.35</span></button></div><div class="absolute top-1/2 z-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bg_secondary w-[1.25rem] h-[1.25rem] rounded-full flex items-center justify-center text-text_secondary2 text-[13px] font-semibold">2</div></div>
+      " type="button"><span class="text-[13px]">1.35</span></button></div>
+            <div
+                class="absolute top-1/2 z-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bg_secondary w-[1.25rem] h-[1.25rem] rounded-full flex items-center justify-center text-text_secondary2 text-[13px] font-semibold">
+                2</div>
+        </div>
     </div>
 </div>
 
@@ -145,30 +170,117 @@
 <!-- Desktop -->
 <div class="top-events mt-[1rem]">
     <div class="prematch-matches relative p-0 border-none">
-          <div
-            class="g-title [border-bottom-left-radius:0] [border-bottom-right-radius:0;] bg-[#070b10] h-[2.5rem] flex items-center rounded-[3px] leading-[2.5rem]">
+        <div
+            class="g-title [border-bottom-left-radius:0] [border-bottom-right-radius:0;] bg-[#070b10] h-[4rem] flex items-center rounded-[3px] leading-[2.5rem]">
             <div
-                class="rect-title bg-[unset] w-[26rem] pl-[1rem] h-[100%] flex items-center text-[.9rem] text-[#fff] truncate">
+                class="rect-title bg-[unset] w-[240px]  pl-[1rem] h-[100%] flex items-center text-[.9rem] text-[#fff] truncate">
                 <div class="title">Soccer</div>
             </div>
-           <div class="flex justify-end w-full">
-             <div class="flex justify-between w-full max-w-[373px] text-[#7B7D7F] pr-[3rem]">
-                   <span class="flex-auto text-center">1</span>
-                   <span class="flex-auto text-center">X</span>
-                   <span class="flex-auto text-center">2</span>
-            </div>
-           </div>
-        </div>
-          <div class="bg-[#121519]  w-full flex justify-between items-center px-2">
-                 <div class="max-w-[140px]">
-                      <span class="text-[#7B7D7F] mr-2 truncate " routerLink="/market-detail">Ball By Ball</span>
-                       <span class="text-[#00A930] truncate">In-Paly</span>
-                 </div>
-                 <div class=" flex items-center ">
-                    <div class="mr-5"> 
-                        <span class="game-sportbook">S</span>
+            <div class="flex justify-end h-full items-center w-full !max-w-[calc(100%-200px)]">
+                <div class="flex justify-between w-full  text-[#7B7D7F] pr-[3rem]">
+                    <div class="w-[33.33%] gap-2 px-5 text-center flex justify-center items-center flex-col">
+                            <div class="flex items-center gap-2">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="white" d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg>
+                                  <div class="text-[.8rem] text-[#7B7D7F] leading-[12px] ">Match result</div>
+                            </div>
+                            <div class="flex justify-between items-center w-full">
+                                 <div class="text-[.8rem] text-[#7B7D7F] leading-[12px]">1</div>
+                                 <div class="text-[.8rem] text-[#7B7D7F] leading-[12px]">X</div>
+                                 <div class="text-[.8rem] text-[#7B7D7F] leading-[12px]">3</div>
+                            </div>
                     </div>
-                     <div class="w-full grid grid-cols-3 gap-2">
+                    <div class="w-[33.33%] gap-2 px-5  text-center flex justify-center items-center flex-col">
+                            <div class="flex items-center gap-2">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="white" d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg>
+                                  <div class="text-[.8rem] text-[#7B7D7F] leading-[12px]">Match result</div>
+                            </div>
+                            <div class="flex justify-between items-center w-full">
+                                 <div class="text-[.8rem] text-[#7B7D7F] leading-[12px]">1</div>
+                                 <div class="text-[.8rem] text-[#7B7D7F] leading-[12px]">X</div>
+                                 <div class="text-[.8rem] text-[#7B7D7F] leading-[12px]">3</div>
+                            </div>
+                    </div>
+                    <div class="w-[33.33%] gap-2 px-5   text-center flex justify-center items-center flex-col">
+                            <div class="flex items-center gap-2">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="white" d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg>
+                                  <div class="text-[.8rem] text-[#7B7D7F] leading-[12px]">Match result</div>
+                            </div>
+                            <div class="flex justify-between items-center w-full">
+                                 <div class="text-[.8rem] text-[#7B7D7F] leading-[12px]">1</div>
+                                 <div class="text-[.8rem] text-[#7B7D7F] leading-[12px]">X</div>
+                                 <div class="text-[.8rem] text-[#7B7D7F] leading-[12px]">3</div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-[#121519]  w-full flex justify-between items-center px-2" *ngFor="let item of arr"  routerLink="/market-detail">
+            <div class="max-w-[140px]">
+                <!-- <span class="text-[#7B7D7F] mr-2 truncate " routerLink="/market-detail">Ball By Ball</span>
+                <span class="text-[#00A930] truncate">In-Paly</span> -->
+                <div class="flex items-center h-full gap-3">
+                       <span class="material-icons text-[#7B7D7F]">star_border</span>
+                       <div class="text-[#7B7D7F] flex flex-col py-1 ">
+                          <div class="text-[12px]">Even</div>
+                           <div class="text-[12px]">Odd</div>
+                       </div>
+
+                        <div class="text-[#7B7D7F] flex flex-col py-1 ">
+                          <div class="text-[12px]">Ball By Ball</div>
+                           <div class="text-[12px]">In-Paly</div>
+                       </div>
+                </div>
+            </div>
+            <div class=" flex items-center w-[calc(100%-200px)]">
+                
+                <div class="w-full flex items-center justify-center gap-x-[0.44rem]">
+                    <div title="1.12--" class="w-full relative cursor-pointer">
+                        <div
+                            class="undefined w-full rounded-[0.375rem] grid grid-cols-2 text-[13px] text-text_secondary overflow-hidden">
+                            <button title="leftOption-1.12" scaleclass="active:scale-[98%]" class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  h-[35px] col-span-1 w-full flex items-center justify-center bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4 disabled:opacity-80 font-bold   
+      cursor-pointer
+      active:scale-[98%]
+      " type="button"><span class=" text-[13px]">1.12</span></button><button title="rightOption--" disabled=""
+                                scaleclass="active:scale-[98%]" class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  h-[35px] col-span-1 w-full flex items-center justify-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold  
+      cursor-pointer
+      active:scale-[98%]
+      " type="button"><span class="text-[13px]">-</span></button></div>
+                        <div
+                            class="absolute top-1/2 z-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bg_secondary w-[1.25rem] h-[1.25rem] rounded-full flex items-center justify-center text-text_secondary2 text-[13px] font-semibold">
+                            0</div>
+                    </div>
+                    <div title="---" class="w-full relative cursor-pointer">
+                        <div
+                            class="undefined w-full rounded-[0.375rem] grid grid-cols-2 text-[13px] text-text_secondary overflow-hidden">
+                            <button title="leftOption--" disabled="" scaleclass="active:scale-[98%]" class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  h-[35px] col-span-1 w-full flex items-center justify-center bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4 disabled:opacity-80 font-bold   
+      cursor-pointer
+      active:scale-[98%]
+      " type="button"><span class=" text-[13px]">-</span></button><button title="rightOption--" disabled=""
+                                scaleclass="active:scale-[98%]" class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  h-[35px] col-span-1 w-full flex items-center justify-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold  
+      cursor-pointer
+      active:scale-[98%]
+      " type="button"><span class="text-[13px]">-</span></button></div>
+                        <div
+                            class="absolute top-1/2 z-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bg_secondary w-[1.25rem] h-[1.25rem] rounded-full flex items-center justify-center text-text_secondary2 text-[13px] font-semibold">
+                            1</div>
+                    </div>
+                    <div title="5.8--" class="w-full relative cursor-pointer">
+                        <div
+                            class="undefined w-full rounded-[0.375rem] grid grid-cols-2 text-[13px] text-text_secondary overflow-hidden">
+                            <button title="leftOption-5.8" scaleclass="active:scale-[98%]" class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  h-[35px] col-span-1 w-full flex items-center justify-center bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4 disabled:opacity-80 font-bold   
+      cursor-pointer
+      active:scale-[98%]
+      " type="button"><span class=" text-[13px]">5.8</span></button><button title="rightOption--" disabled=""
+                                scaleclass="active:scale-[98%]" class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  h-[35px] col-span-1 w-full flex items-center justify-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold  
+      cursor-pointer
+      active:scale-[98%]
+      " type="button"><span class="text-[13px]">-</span></button></div>
+                        <div
+                            class="absolute top-1/2 z-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bg_secondary w-[1.25rem] h-[1.25rem] rounded-full flex items-center justify-center text-text_secondary2 text-[13px] font-semibold">
+                            2</div>
+                    </div>
+                </div>
+                <!-- <div class="w-full grid grid-cols-3 gap-2">
                        <div class="flex">
                          <span class="count lay flex items-center justify-center">2.15</span>
                           <span class="count back flex items-center justify-center">0</span>
@@ -183,12 +295,14 @@
                          <span class="count lay flex items-center justify-center">2.15</span>
                           <span class="count back flex items-center justify-center">0</span>
                        </div>
-                     </div>
-                    <div class="w-[3rem] flex justify-center h-full items-center">
-                        <span  class="material-icons text-[#898A8C] hover:text-[#fff] text-[1.2rem]">equalizer</span>
-                     </div>
-                 </div>
-                
+                     </div> -->
+                <div class="w-[3rem] flex justify-center h-full items-center">
+                    <span class="material-icons text-[#898A8C] hover:text-[#fff] text-[1.2rem]">equalizer</span>
+                </div>
             </div>
+
+        </div>
+
+        
     </div>
 </div>

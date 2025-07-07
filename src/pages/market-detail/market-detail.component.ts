@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-market-detail',
@@ -7,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './market-detail.component.css'
 })
 export class MarketDetailComponent {
-
+  constructor(private location: Location){}
+  navigateBack() {
+    this.location.back();
+  }
 }
