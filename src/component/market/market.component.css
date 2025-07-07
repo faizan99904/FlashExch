@@ -22,6 +22,9 @@
     .top-events{
         @apply hidden
     }
+    .main-wrapper{
+        @apply pb-[100px]
+    }
 }
 
 
