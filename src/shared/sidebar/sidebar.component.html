@@ -1,154 +1,256 @@
-<div class="w-[250px] bg-black text-white h-[calc(100dvh-114px)] max-lg:absolute left-[-100%] p-4  overflow-auto">
+<div class="custom-scrollbar-wrapper">
+    <div
+        class="custom-scrollbar-content pl-[1vw] w-[17.5vw] bg-black text-white h-[calc(100dvh-114px)] max-lg:absolute left-[-100%] mt-[1vw]  overflow-auto">
 
 
-    <!-- Dropdowns -->
-    <!-- TOP LEAGUES -->
-    <div class="py-2.5 pl-2 pr-3 bg-[#101317]">
-        <div class="cursor-pointer font-semibold text-[14px] rounded-md flex items-center justify-between"
-            (click)="toggleDropdown('topLeagues')">
-            <div class="flex items-center space-x-2">
-                <span class="text-[#00aa30] font-extrabold text-[18px]">|</span>
-                <span>TOP LEAGUES</span>
+        <!-- Dropdowns -->
+        <!-- TOP LEAGUES -->
+        <div class=" bg-[#101317] rounded-sm mb-[0.3vw]">
+            <div class="cursor-pointer font-semibold text-[14px] rounded-md flex items-center justify-between py-[0.7vw] pl-[0.5vw] pr-[1vw]"
+                (click)="toggleDropdown('topLeagues')">
+                <div class="flex items-center space-x-2">
+                    <span class="text-[#00aa30] font-extrabold text-[18px] ">|</span>
+                    <span class="text-[0.9vw] ">TOP LEAGUES</span>
+                </div>
+                <i class="text-white text-[0.9vw] "
+                    [ngClass]="dropdowns['topLeagues'] ? 'fas fa-chevron-down' : 'fas fa-chevron-right'"></i>
             </div>
-            <i class="text-gray-400"
-                [ngClass]="dropdowns['topLeagues'] ? 'fas fa-chevron-down' : 'fas fa-chevron-right'"></i>
-        </div>
-        <ul class="space-y-2" *ngIf="dropdowns['topLeagues']">
+            <ul class="space-y-2 px-[10px] py-[20px]" *ngIf="dropdowns['topLeagues']">
 
-            <li class="my-1">
-                <div class="flex items-center justify-between hover:bg-gray-800  rounded">
-                    <div class="flex items-center gap-[11px]">
-                        <img src="/assets/images/menu/download.png" class="w-[18.7px]" alt="">
-                        <span class="text-[9.9px]">FIFA Club World Cup</span>
+                <li class="my-1">
+                    <div class="flex items-center justify-between text-gray-400 hover:text-white  rounded">
+                        <div class="flex items-center gap-[11px]">
+                            <img src="/assets/images/menu/download.png" class="w-[18.7px]" alt="">
+                            <span class="text-[9.9px]">FIFA Club World Cup</span>
+                        </div>
+                        <span class="text-[9.9px] ">33</span>
                     </div>
-                    <span class="text-[9.9px] text-gray-400">33</span>
-                </div>
-            </li>
+                </li>
 
-            <li class="mb-1">
-                <div class="flex items-center justify-between hover:bg-gray-800  rounded">
-                    <div class="flex items-center gap-[11px]">
-                        <img src="/assets/images/menu/download (1).png" class="w-[18.7px]" alt="">
-                        <span class="text-[9.9px]">UEFA Europa Conference League</span>
+                <li class="mb-1">
+                    <div class="flex items-center justify-between text-gray-400 hover:text-white  rounded">
+
+                        <div class="flex items-center gap-[11px]">
+                            <img src="/assets/images/menu/download (1).png" class="w-[18.7px]" alt="">
+                            <span class="text-[9.9px]">UEFA Europa Conference League</span>
+                        </div>
+                        <span class="text-[9.9px] ">6</span>
                     </div>
-                    <span class="text-[9.9px] text-gray-400">6</span>
-                </div>
-            </li>
+                </li>
 
-            <li class="mb-1">
-                <div class="flex items-center justify-between hover:bg-gray-800  rounded">
-                    <div class="flex items-center gap-[11px]">
-                        <img src="/assets/images/menu/download (2).png" class="w-[18.7px]" alt="">
-                        <span class="text-[9.9px]">Premier League</span>
+                <li class="mb-1">
+                    <div class="flex items-center justify-between text-gray-400 hover:text-white  rounded">
+
+                        <div class="flex items-center gap-[11px]">
+                            <img src="/assets/images/menu/download (2).png" class="w-[18.7px]" alt="">
+                            <span class="text-[9.9px]">Premier League</span>
+                        </div>
+                        <span class="text-[9.9px] ">10</span>
                     </div>
-                    <span class="text-[9.9px] text-gray-400">10</span>
-                </div>
-            </li>
+                </li>
 
-            <!-- Add other leagues similarly, using:
+                <!-- Add other leagues similarly, using:
                        /assets/images/menu/[league-name].svg or .png -->
 
-        </ul>
+            </ul>
 
-    </div>
-
-    <!-- TOP LIVE -->
-    <div>
-        <div class="cursor-pointer font-semibold py-2 pl-2 pr-3 bg-[#101317] rounded-md flex items-center justify-between mt-1"
-            (click)="toggleDropdown('topLive')">
-            <div class="flex items-center space-x-2">
-                <span class="text-[#00aa30] font-bold">|</span>
-                <span>TOP LIVE</span>
-            </div>
-            <i class="text-gray-400"
-                [ngClass]="dropdowns['topLive'] ? 'fas fa-chevron-down' : 'fas fa-chevron-right'"></i>
         </div>
 
-        <div *ngIf="dropdowns['topLive']" class="pl-4 text-sm mt-2 text-gray-400">
-            No live games
-        </div>
-    </div>
-
-    <!-- TOP ESPORT -->
-    <div>
-        <div class="cursor-pointer font-semibold py-2 pl-2 pr-3 bg-[#101317] rounded-md flex items-center justify-between mt-1"
-            (click)="toggleDropdown('topEsport')">
-            <div class="flex items-center space-x-2">
-                <span class="text-[#00aa30] font-bold">|</span>
-                <span>TOP ESPORT</span>
-            </div>
-            <i class="text-gray-400"
-                [ngClass]="dropdowns['topEsport'] ? 'fas fa-chevron-down' : 'fas fa-chevron-right'"></i>
-        </div>
-
-        <div *ngIf="dropdowns['topEsport']" class="pl-4 text-sm mt-2 text-gray-400">
-            No esports data
-        </div>
-    </div>
-
-    <!-- TIME FILTERS Section -->
-    <div class="mt-3 py-2 pl-2 pr-3 bg-[#101317] rounded-md">
-        <!-- Header bar -->
-        <div class=" flex items-center justify-between font-semibold">
-            <div class="flex items-center space-x-2">
-                <span class="text-[#00aa30] font-bold">|</span>
-                <span>TIME FILTERS</span>
-            </div>
-        </div>
-
-        <!-- Time filter options -->
-        <div class="flex justify-between mt-4 px-2">
-            <label *ngFor="let time of ['All', '6H', '12H', '24H', '48H']"
-                class="flex flex-col items-center cursor-pointer text-sm">
-                <!-- Custom Radio Dot -->
-                <div class=" rounded-full mb-1 transition-all duration-200" [ngClass]="{
-            'bg-[#00ff44] shadow-[0_0_10px_2px_rgba(0,255,100,0.5)] w-[9px] h-[9px]': timeFilter === time,
-            'bg-[#00aa30] w-2 h-2': timeFilter !== time
-          }"></div>
-
-                <!-- Label -->
-                <span [ngClass]="{
-            'text-white ': timeFilter === time,
-            'text-gray-400': timeFilter !== time
-          }">
-                    {{ time }}
-                </span>
-
-                <!-- Hidden actual input (still needed for form binding) -->
-                <input type="radio" name="time" [value]="time" [(ngModel)]="timeFilter" class="hidden" />
-            </label>
-        </div>
-    </div>
-
-
-
-    <!-- SPORTS -->
-    <div class="mt-3 py-2 pl-2 pr-3 bg-[#101317] ">
-        <!-- Header bar -->
-        <div class="rounded-md flex items-center justify-between font-semibold">
-            <div class="flex items-center space-x-2">
-                <span class="text-[#00aa30] font-bold">|</span>
-                <span>Sports</span>
-            </div>
-            <button (click)="resetSports()" class="text-gray-300 hover:text-red-500 text-sm">
-                <i class="fas fa-trash text-gray-400"></i>
-            </button>
-        </div>
-
-        <!-- Sports List -->
-        <div class="mt-3 space-y-2 px-2">
-            <div *ngFor="let sport of sports" class="flex items-center justify-between text-sm text-gray-300">
-                <!-- Left: Sport Name -->
+        <div class="bg-[#101317] rounded-sm mb-[0.3vw]">
+            <!-- Header -->
+            <div class="cursor-pointer font-semibold text-[14px] flex items-center justify-between py-[0.7vw] px-[0.8vw]"
+                (click)="toggleDropdown('topLive')">
                 <div class="flex items-center space-x-2">
-                    <span>{{ sport.name }}</span>
+                    <span class="text-[#00aa30] font-extrabold text-[18px]">|</span>
+                    <span class="text-[0.9vw]">TOP LIVE</span>
+                </div>
+                <i class="text-white text-[0.9vw]"
+                    [ngClass]="dropdowns['topLive'] ? 'fas fa-chevron-down' : 'fas fa-chevron-right'"></i>
+            </div>
+
+            <!-- Content -->
+            <div *ngIf="dropdowns['topLive']" class="px-[0.8vw] pb-[0.8vw] space-y-4 text-[11px]">
+
+                <!-- Category: Soccer -->
+                <div>
+                    <div class="text-gray-300 text-xs  border-b border-gray-700 pb-1 mb-2">Soccer</div>
+
+                    <div *ngFor="let game of topLiveGames.soccer" class="mb-3 flex justify-between items-center">
+                        <div class="flex flex-col items-start w-1/2">
+                            <div class="text-green-500 leading-tight text-nowrap">{{ game.team1 }}</div>
+                            <div class="text-green-500 leading-tight mb-1 text-nowrap">{{ game.team2 }}</div>
+                        </div>
+                        <div class="flex justify-between items-center  text-white text-[11px]  w-1/2">
+                            <span *ngFor="let odd of game.odds">{{ odd }}</span>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Right: Count and Green Checkbox Disc -->
+                <!-- Category: Basketball -->
+                <div>
+                    <div class="text-gray-300 text-xs uppercase border-b border-gray-700 pb-1 mb-2">Basketball</div>
+
+                    <div *ngFor="let game of topLiveGames.basketball" class="mb-3 flex justify-between items-center">
+                        <div class="flex flex-col items-start w-1/2">
+                            <div class="text-green-500 leading-tight text-nowrap">{{ game.team1 }}</div>
+                            <div class="text-green-500 leading-tight mb-1 text-nowrap">{{ game.team2
+                                }}</div>
+                        </div>
+                        <div class="flex justify-between items-center text-white text-[11px] w-1/2">
+                            <span *ngFor="let odd of game.odds">{{ odd }}</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <!-- TOP ESPORT -->
+        <div class="bg-[#101317] rounded-sm mb-[0.3vw]">
+            <div class="cursor-pointer font-semibold text-[14px] rounded-md flex items-center justify-between py-[0.7vw] pl-[0.5vw] pr-[1vw]"
+                (click)="toggleDropdown('topEsport')">
                 <div class="flex items-center space-x-2">
-                    <span>{{ sport.count }}</span>
-                    <input type="checkbox" [(ngModel)]="sport.selected"
-                        class="appearance-none w-3.5 h-3.5 rounded-full bg-[#101317] border border-[#00aa30] checked:bg-[#00aa30] cursor-pointer transition" />
+                    <span class="text-[#00aa30] font-extrabold text-[18px]">|</span>
+                    <span class="text-[0.9vw]">TOP ESPORT</span>
+                </div>
+                <i class="text-white text-[0.9vw]"
+                    [ngClass]="dropdowns['topEsport'] ? 'fas fa-chevron-down' : 'fas fa-chevron-right'"></i>
+            </div>
+
+            <ul class="space-y-2 px-[10px] py-[20px]" *ngIf="dropdowns['topEsport']">
+                <li class="text-gray-400 text-[9.9px]">No esports data</li>
+            </ul>
+        </div>
+
+        <!-- TIME FILTERS Section -->
+        <div class="bg-[#101317] rounded-sm mb-[0.3vw] mt-[1vw]">
+            <div
+                class="cursor-default font-semibold text-[14px] rounded-md flex items-center justify-between py-[0.7vw] pl-[0.5vw] pr-[1vw]">
+                <div class="flex items-center space-x-2">
+                    <span class="text-[#00aa30] font-extrabold text-[18px]">|</span>
+                    <span class="text-[0.9vw]">TIME FILTERS</span>
                 </div>
             </div>
+
+            <div class="flex justify-between mt-4 px-3 pb-3">
+                <label *ngFor="let time of ['All', '6H', '12H', '24H', '48H']"
+                    class="flex flex-col items-center cursor-pointer text-sm">
+                    <div class="rounded-full mb-1 transition-all duration-200" [ngClass]="{
+                       'bg-[#00ff44] shadow-[0_0_10px_2px_rgba(0,255,100,0.5)] w-[9px] h-[9px]': timeFilter === time,
+                       'bg-[#00aa30] w-2 h-2': timeFilter !== time
+                     }">
+                    </div>
+                    <span [ngClass]="{
+                  'text-white': timeFilter === time,
+                  'text-gray-400': timeFilter !== time
+                }" class="text-[9.9px]">
+                        {{ time }}
+                    </span>
+                    <input type="radio" name="time" [value]="time" [(ngModel)]="timeFilter" class="hidden" />
+                </label>
+            </div>
+        </div>
+
+
+
+        <div class="mt-3 py-2 pl-2 pr-3 bg-[#101317] pb-8">
+            <!-- Header bar -->
+            <div class="flex items-center justify-between font-semibold border-b border-[#00aa30] pb-2 mb-2">
+                <div class="flex items-center space-x-2">
+                    <span class="text-[#00aa30] font-bold">|</span>
+                    <span class="text-white">Sports</span>
+                </div>
+                <button class="text-gray-300 hover:text-red-500 text-sm">
+                    <i class="fas fa-trash text-gray-400"></i>
+                </button>
+            </div>
+
+            <!-- Sports List -->
+            <ul class="space-y-2">
+
+                <li>
+                    <div class="flex items-center justify-between hover:bg-gray-800 px-2 py-1 rounded cursor-pointer">
+                        <div class="flex items-center gap-[1vw]">
+                            <span class="sport-icon text-green-600" sport="soccer"></span>
+                            <span class="text-white">Soccer</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-gray-400">873</span>
+                            <label
+                                class="w-3.5 h-3.5 border border-transparent rounded-sm flex items-center justify-center cursor-pointer">
+                                <input type="checkbox"
+                                    class="peer appearance-none w-3 h-3 bg-black rounded-sm checked:bg-[#00aa30]" />
+                            </label>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex items-center justify-between hover:bg-gray-800 px-2 py-1 rounded cursor-pointer">
+                        <div class="flex items-center gap-[1vw]">
+                            <span class="sport-icon text-green-600" sport="basketball"></span>
+                            <span class="text-white">Basketball</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-gray-400">90</span>
+                            <label
+                                class="w-3.5 h-3.5 border border-transparent rounded-sm flex items-center justify-center cursor-pointer">
+                                <input type="checkbox"
+                                    class="peer appearance-none w-3 h-3 bg-black rounded-sm checked:bg-[#00aa30]" />
+                            </label>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex items-center justify-between hover:bg-gray-800 px-2 py-1 rounded cursor-pointer">
+                        <div class="flex items-center gap-[1vw]">
+                            <span class="sport-icon text-green-600" sport="tennis"></span>
+                            <span class="text-white">Tennis</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-gray-400">208</span>
+                            <label
+                                class="w-3.5 h-3.5 border border-transparent rounded-sm flex items-center justify-center cursor-pointer">
+                                <input type="checkbox"
+                                    class="peer appearance-none w-3 h-3 bg-black rounded-sm checked:bg-[#00aa30]" />
+                            </label>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex items-center justify-between hover:bg-gray-800 px-2 py-1 rounded cursor-pointer">
+                        <div class="flex items-center gap-[1vw]">
+                            <span class="sport-icon text-green-600" sport="baseball"></span>
+                            <span class="text-white">Baseball</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-gray-400">76</span>
+                            <label
+                                class="w-3.5 h-3.5 border border-transparent rounded-sm flex items-center justify-center cursor-pointer">
+                                <input type="checkbox"
+                                    class="peer appearance-none w-3 h-3 bg-black rounded-sm checked:bg-[#00aa30]" />
+                            </label>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex items-center justify-between hover:bg-gray-800 px-2 py-1 rounded cursor-pointer">
+                        <div class="flex items-center gap-[1vw]">
+                            <span class="sport-icon text-green-600" sport="rugby"></span>
+                            <span class="text-white">Rugby</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-gray-400">59</span>
+                            <label
+                                class="w-3.5 h-3.5 border border-transparent rounded-sm flex items-center justify-center cursor-pointer">
+                                <input type="checkbox"
+                                    class="peer appearance-none w-3 h-3 bg-black rounded-sm checked:bg-[#00aa30]" />
+                            </label>
+                        </div>
+                    </div>
+                </li>
+                <!-- Add more sports here if needed -->
+            </ul>
         </div>
     </div>
