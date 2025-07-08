@@ -132,6 +132,13 @@ form ul li:not(.accept-terms) .currency-cont {
 @media screen and (min-width: 640px) {
   .content-wrapper {
     padding: 0 !important;
+    margin: unset !important;
+  }
+
+  .content-wrapper > div {
+    display: flex;
+    max-height: 100vh;
+    flex-direction: column;
   }
 
   ul li:not(.accept-terms) {
@@ -147,6 +154,7 @@ form ul li:not(.accept-terms) .currency-cont {
     padding: 0;
     padding-left: 5.67px;
     font-size: 0.456rem !important;
+    color: RGBA(255, 255, 255, 0.6);
   }
 
   select {
