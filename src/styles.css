@@ -410,6 +410,7 @@ body {
 
 ::-webkit-scrollbar {
   width: 4px; /* vertical scrollbar */
+  max-height: 4px;
 }
 
 /* Track (background) */
@@ -421,5 +422,4 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #3d3d3d;
   border-radius: 5px;
-  height: 10px;
 }
