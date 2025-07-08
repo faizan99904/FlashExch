@@ -5,12 +5,12 @@
 
 
         <!-- TOP LEAGUES -->
-        <div class=" bg-[#101317] rounded-sm mb-[0.3vw]">
-            <div class="cursor-pointer font-semibold text-[14px] rounded-md flex items-center justify-between py-[0.7vw] pl-[0.5vw] pr-[1vw]"
+        <div class=" bg-[#101317] rounded-sm mb-[0.2vw]">
+            <div class="cursor-pointer text-[14px] rounded-md  flex items-center justify-between py-[0.7vw] pl-[0.5vw] pr-[1vw]"
                 (click)="toggleDropdown('topLeagues')">
-                <div class="flex items-center space-x-2">
+                <div class="flex items-center space-x-2 gap-[0.2vw]">
                     <span class="text-[#00aa30] font-extrabold text-[18px] ">|</span>
-                    <span class="text-[0.9vw] ">TOP LEAGUES</span>
+                    <span class="text-[0.9vw]  font-semibold">TOP LEAGUES</span>
                 </div>
                 <i class="text-white text-[0.9vw] "
                     [ngClass]="dropdowns['topLeagues'] ? 'fas fa-chevron-down' : 'fas fa-chevron-right'"></i>
@@ -18,51 +18,49 @@
             <ul class="space-y-2 px-[10px] py-[20px]" *ngIf="dropdowns['topLeagues']">
 
                 <li class="my-1">
-                    <div class="flex items-center justify-between text-gray-400 hover:text-white  rounded">
+                    <div class="flex items-center justify-between text-[#FFFFFF99] hover:text-white  rounded">
                         <div class="flex items-center gap-[11px]">
-                            <img src="/assets/images/menu/download.png" class="w-[18.7px]" alt="">
-                            <span class="text-[9.9px]">FIFA Club World Cup</span>
+                            <img src="/assets/images/menu/download.png" class="w-[1.6vw]" alt="">
+                            <span class="text-[0.8vw]">FIFA Club World Cup</span>
                         </div>
-                        <span class="text-[9.9px] ">33</span>
+                        <span class="text-[0.8vw]">33</span>
                     </div>
                 </li>
 
                 <li class="mb-1">
-                    <div class="flex items-center justify-between text-gray-400 hover:text-white  rounded">
+                    <div class="flex items-center justify-between text-[#FFFFFF99] hover:text-white  rounded">
 
                         <div class="flex items-center gap-[11px]">
                             <img src="/assets/images/menu/download (1).png" class="w-[18.7px]" alt="">
-                            <span class="text-[9.9px]">UEFA Europa Conference League</span>
+                            <span class="text-[0.8vw]">UEFA Europa Conference League</span>
                         </div>
-                        <span class="text-[9.9px] ">6</span>
+                        <span class="text-[0.8vw] ">6</span>
                     </div>
                 </li>
 
                 <li class="mb-1">
-                    <div class="flex items-center justify-between text-gray-400 hover:text-white  rounded">
+                    <div class="flex items-center justify-between text-[#FFFFFF99] hover:text-white  rounded">
 
                         <div class="flex items-center gap-[11px]">
                             <img src="/assets/images/menu/download (2).png" class="w-[18.7px]" alt="">
-                            <span class="text-[9.9px]">Premier League</span>
+                            <span class="text-[0.8vw]">Premier League</span>
                         </div>
-                        <span class="text-[9.9px] ">10</span>
+                        <span class="text-[0.8vw] ">10</span>
                     </div>
                 </li>
 
-                <!-- Add other leagues similarly, using:
-                       /assets/images/menu/[league-name].svg or .png -->
 
             </ul>
 
         </div>
 
-        <div class="bg-[#101317] rounded-sm mb-[0.3vw]">
+        <div class="bg-[#101317] rounded-sm mb-[0.2vw]">
             <!-- Header -->
-            <div class="cursor-pointer font-semibold text-[14px] flex items-center justify-between py-[0.7vw] pl-[0.5vw] pr-[0.8vw]"
+            <div class="cursor-pointer text-[14px] rounded-md flex items-center justify-between py-[0.7vw] pl-[0.5vw] pr-[1vw]"
                 (click)="toggleDropdown('topLive')">
-                <div class="flex items-center space-x-2">
+                <div class="flex items-center space-x-2 gap-[0.2vw]">
                     <span class="text-[#00aa30] font-extrabold text-[18px]">|</span>
-                    <span class="text-[0.9vw]">TOP LIVE</span>
+                    <span class="text-[0.9vw]  font-semibold">TOP LIVE</span>
                 </div>
                 <i class="text-white text-[0.9vw]"
                     [ngClass]="dropdowns['topLive'] ? 'fas fa-chevron-down' : 'fas fa-chevron-right'"></i>
@@ -73,7 +71,7 @@
 
                 <!-- Category: Soccer -->
                 <div>
-                    <div class="text-gray-400 text-xs  border-b border-gray-700 pb-1 mb-2">Soccer</div>
+                    <div class="text-[#FFFFFF99] text-xs  border-b border-gray-700 pb-1 mb-2">Soccer</div>
 
                     <div *ngFor="let game of topLiveGames.soccer" class="mb-3 flex justify-between items-center">
                         <div class="flex flex-col items-start w-1/2">
@@ -88,7 +86,7 @@
 
                 <!-- Category: Basketball -->
                 <div>
-                    <div class="text-gray-300 text-xs uppercase border-b border-gray-700 pb-1 mb-2">Basketball</div>
+                    <div class="text-[#FFFFFF99] text-xs uppercase border-b border-gray-700 pb-1 mb-2">Basketball</div>
 
                     <div *ngFor="let game of topLiveGames.basketball" class="mb-3 flex justify-between items-center">
                         <div class="flex flex-col items-start w-1/2">
@@ -111,41 +109,41 @@
         <div class="bg-[#101317] rounded-sm mb-[0.3vw]">
             <div class="cursor-pointer font-semibold text-[14px] rounded-md flex items-center justify-between py-[0.7vw] pl-[0.5vw] pr-[1vw]"
                 (click)="toggleDropdown('topEsport')">
-                <div class="flex items-center space-x-2">
+                <div class="flex items-center space-x-2 gap-[0.2vw]">
                     <span class="text-[#00aa30] font-extrabold text-[18px]">|</span>
-                    <span class="text-[0.9vw]">TOP ESPORT</span>
+                    <span class="text-[0.9vw]  font-semibold">TOP ESPORT</span>
                 </div>
-                <i class="text-white text-[0.9vw]"
+                <i class="text-white text-[0.9vw] "
                     [ngClass]="dropdowns['topEsport'] ? 'fas fa-chevron-down' : 'fas fa-chevron-right'"></i>
             </div>
 
             <ul class="space-y-2 px-[10px] py-[20px]" *ngIf="dropdowns['topEsport']">
-                <li class="text-gray-400 text-[9.9px]">No esports data</li>
+                <li class="text-[#FFFFFF99] text-[9.9px]">No esports data</li>
             </ul>
         </div>
 
         <!-- TIME FILTERS Section -->
-        <div class="bg-[#101317] rounded-sm mb-[0.3vw] mt-[1vw]">
+        <div class="bg-[#101317] rounded-sm mb-[0.3vw] mt-[0.88vw]">
             <div
                 class="cursor-default font-semibold text-[14px] rounded-md flex items-center justify-between py-[0.7vw] pl-[0.5vw] pr-[1vw]">
-                <div class="flex items-center space-x-2">
+                <div class="flex items-center space-x-2 gap-[0.2vw]">
                     <span class="text-[#00aa30] font-extrabold text-[18px]">|</span>
-                    <span class="text-[0.9vw]">TIME FILTERS</span>
+                    <span class="text-[0.85vw]  font-semibold">TIME FILTERS</span>
                 </div>
             </div>
 
-            <div class="flex justify-between mt-4 px-3 pb-3">
+            <div class="flex justify-between mt-4 px-[13px] pb-3">
                 <label *ngFor="let time of ['All', '6H', '12H', '24H', '48H']"
-                    class="flex flex-col items-center cursor-pointer text-sm">
-                    <div class="rounded-full mb-1 transition-all duration-200" [ngClass]="{
-                       'bg-[#00ff44] shadow-[0_0_10px_2px_rgba(0,255,100,0.5)] w-[9px] h-[9px]': timeFilter === time,
-                       'bg-[#00aa30] w-2 h-2': timeFilter !== time
+                    class="flex flex-col items-center cursor-pointer  gap-2">
+                    <div class="rounded-full mb-1 transition-all duration-200 w-[9px] h-[9px] bg-[#00aa30] " [ngClass]="{
+                       ' shadow-[0_0_10px_2px_rgba(0,255,100,0.5)] ': timeFilter === time,
+                       '': timeFilter !== time
                      }">
                     </div>
                     <span [ngClass]="{
                   'text-white': timeFilter === time,
-                  'text-gray-400': timeFilter !== time
-                }" class="text-[9.9px]">
+                  'text-[#FFFFFF99]': timeFilter !== time
+                }" class="text-[0.94vw]">
                         {{ time }}
                     </span>
                     <input type="radio" name="time" [value]="time" [(ngModel)]="timeFilter" class="hidden" />
@@ -155,29 +153,31 @@
 
 
 
-        <div class="mt-3 py-2 pl-2 pr-3 bg-[#101317] pb-8">
+        <div class="mt-[1vw] py-2  bg-[#101317] pb-8">
             <!-- Header bar -->
-            <div class="flex items-center justify-between font-semibold border-b border-[#00aa30] pb-2 mb-2">
-                <div class="flex items-center space-x-2">
+            <div
+                class="flex items-center justify-between font-semibold border-b border-[#00aa30] pt-[0.2vw] pb-[0.8vw] pl-2 pr-3 mb-2">
+                <div class="flex items-center space-x-2 gap-[0.2vw]">
                     <span class="text-[#00aa30] font-bold">|</span>
-                    <span class="text-white">Sports</span>
+                    <span class="text-[0.94vw] pt-[0.2vw]">Sports</span>
                 </div>
-                <button class="text-gray-300 hover:text-red-500 text-sm">
-                    <i class="fas fa-trash text-gray-400"></i>
+                <button class="text-[#FFFFFF99] hover:text-red-500 text-sm">
+                    <i class="fas fa-trash text-[#FFFFFF99]"></i>
                 </button>
             </div>
 
             <!-- Sports List -->
             <ul class="space-y-2">
 
-                <li>
-                    <div class="flex items-center justify-between hover:bg-gray-800 px-2 py-1 rounded cursor-pointer">
-                        <div class="flex items-center gap-[1vw]">
-                            <span class="sport-icon text-green-600" sport="soccer"></span>
-                            <span class="text-white">Soccer</span>
+                <li class="text-[#FFFFFF99] hover:text-white text-[0.9vw]">
+                    <div
+                        class="flex items-center justify-between tracking-tighter  hover:bg-[#151a21] px-[0.6vw] pt-[.2vw] cursor-pointer h-[2vw] ">
+                        <div class="flex items-center gap-[0.78vw]">
+                            <span class="sport-icon text-[1.17vw]" sport="soccer"></span>
+                            <span class="pt-[0.1vw]">Soccer</span>
                         </div>
                         <div class="flex items-center gap-2">
-                            <span class="text-gray-400">873</span>
+                            <span class="text-[#ffffff71]">858</span>
                             <label
                                 class="w-3.5 h-3.5 border border-transparent rounded-sm flex items-center justify-center cursor-pointer">
                                 <input type="checkbox"
@@ -186,14 +186,15 @@
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="flex items-center justify-between hover:bg-gray-800 px-2 py-1 rounded cursor-pointer">
-                        <div class="flex items-center gap-[1vw]">
-                            <span class="sport-icon text-green-600" sport="basketball"></span>
-                            <span class="text-white">Basketball</span>
+                <li class="text-[#FFFFFF99] hover:text-white text-[0.9vw]">
+                    <div
+                        class="flex items-center justify-between tracking-tighter  hover:bg-[#151a21] px-[0.6vw] pt-[.2vw] cursor-pointer h-[2vw] ">
+                        <div class="flex items-center gap-[0.78vw]">
+                            <span class="sport-icon text-[1.17vw]" sport="basketball"></span>
+                            <span class="pt-[0.1vw]">Basketball</span>
                         </div>
                         <div class="flex items-center gap-2">
-                            <span class="text-gray-400">90</span>
+                            <span class="text-[#ffffff71]">473</span>
                             <label
                                 class="w-3.5 h-3.5 border border-transparent rounded-sm flex items-center justify-center cursor-pointer">
                                 <input type="checkbox"
@@ -202,14 +203,15 @@
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="flex items-center justify-between hover:bg-gray-800 px-2 py-1 rounded cursor-pointer">
-                        <div class="flex items-center gap-[1vw]">
-                            <span class="sport-icon text-green-600" sport="tennis"></span>
-                            <span class="text-white">Tennis</span>
+                <li class="text-[#FFFFFF99] hover:text-white text-[0.9vw]">
+                    <div
+                        class="flex items-center justify-between tracking-tighter  hover:bg-[#151a21] px-[0.6vw] pt-[.2vw] cursor-pointer h-[2vw] ">
+                        <div class="flex items-center gap-[0.78vw]">
+                            <span class="sport-icon text-[1.17vw]" sport="tennis"></span>
+                            <span class="pt-[0.1vw]">Tennis</span>
                         </div>
                         <div class="flex items-center gap-2">
-                            <span class="text-gray-400">208</span>
+                            <span class="text-[#ffffff71]">567</span>
                             <label
                                 class="w-3.5 h-3.5 border border-transparent rounded-sm flex items-center justify-center cursor-pointer">
                                 <input type="checkbox"
@@ -218,14 +220,15 @@
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="flex items-center justify-between hover:bg-gray-800 px-2 py-1 rounded cursor-pointer">
-                        <div class="flex items-center gap-[1vw]">
-                            <span class="sport-icon text-green-600" sport="baseball"></span>
-                            <span class="text-white">Baseball</span>
+                <li class="text-[#FFFFFF99] hover:text-white text-[0.9vw]">
+                    <div
+                        class="flex items-center justify-between tracking-tighter  hover:bg-[#151a21] px-[0.6vw] pt-[.2vw] cursor-pointer h-[2vw] ">
+                        <div class="flex items-center gap-[0.78vw]">
+                            <span class="sport-icon text-[1.17vw]" sport="rugby"></span>
+                            <span class="pt-[0.1vw]">Rugby</span>
                         </div>
                         <div class="flex items-center gap-2">
-                            <span class="text-gray-400">76</span>
+                            <span class="text-[#ffffff71]">56</span>
                             <label
                                 class="w-3.5 h-3.5 border border-transparent rounded-sm flex items-center justify-center cursor-pointer">
                                 <input type="checkbox"
@@ -234,14 +237,15 @@
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="flex items-center justify-between hover:bg-gray-800 px-2 py-1 rounded cursor-pointer">
-                        <div class="flex items-center gap-[1vw]">
-                            <span class="sport-icon text-green-600" sport="rugby"></span>
-                            <span class="text-white">Rugby</span>
+                <li class="text-[#FFFFFF99] hover:text-white text-[0.9vw]">
+                    <div
+                        class="flex items-center justify-between tracking-tighter  hover:bg-[#151a21] px-[0.6vw] pt-[.2vw] cursor-pointer h-[2vw] ">
+                        <div class="flex items-center gap-[0.78vw]">
+                            <span class="sport-icon text-[1.17vw]" sport="baseball"></span>
+                            <span class="pt-[0.1vw]">Baseball</span>
                         </div>
                         <div class="flex items-center gap-2">
-                            <span class="text-gray-400">59</span>
+                            <span class="text-[#ffffff71]">87</span>
                             <label
                                 class="w-3.5 h-3.5 border border-transparent rounded-sm flex items-center justify-center cursor-pointer">
                                 <input type="checkbox"
@@ -250,7 +254,9 @@
                         </div>
                     </div>
                 </li>
-                <!-- Add more sports here if needed -->
+
+
+
             </ul>
         </div>
     </div>
