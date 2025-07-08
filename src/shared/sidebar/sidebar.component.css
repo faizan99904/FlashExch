@@ -1,1 +1,6 @@
-
+.sport-icon {
+  color: #00aa30;
+}
+li input[type="checkbox"]:checked ~ label {
+  background-color: rgba(0, 170, 48, 0.1);
+}
