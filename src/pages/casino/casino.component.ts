@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { HeaderComponent } from '../../shared/header/header.component';
 import { CommonModule } from '@angular/common';
 declare var Swiper: any;
@@ -6,7 +6,8 @@ declare var Swiper: any;
   selector: 'app-casino',
   imports: [HeaderComponent, CommonModule],
   templateUrl: './casino.component.html',
-  styleUrl: './casino.component.css'
+  styleUrl: './casino.component.css',
+  // encapsulation: ViewEncapsulation.None
 })
 export class CasinoComponent {
 
