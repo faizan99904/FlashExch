@@ -1,3 +1,9 @@
+input:focus,
+select:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .content-wrapper {
   background: #1b1e24;
   position: absolute;
@@ -123,6 +129,10 @@ form ul li:not(.accept-terms) .currency-cont {
   @apply !mb-0 h-[3.0061rem] m-[1.1344rem_auto_1.1344rem] w-full text-sm font-semibold relative leading-normal border-0 outline-0 text-center flex items-center justify-center px-[4vw] bg-[#11e311] text-[#030303] rounded-[0.5672rem];
 }
 
+.overflow-auto {
+  scrollbar-width: none;
+}
+
 @media screen and (max-width: 380px) {
   .content-wrapper {
     bottom: 1.1311rem;
@@ -137,12 +147,16 @@ form ul li:not(.accept-terms) .currency-cont {
 
   .content-wrapper > div {
     display: flex;
-    max-height: 100vh;
+    height: calc(100dvh - 170px);
+    justify-content: space-between;
     flex-direction: column;
   }
 
   ul li:not(.accept-terms) {
     margin-bottom: 0.675rem !important;
+  }
+
+  ul li:nth-child(.finish-btn) {
   }
 
   ul li input {
