@@ -1,4 +1,4 @@
-<div class="overlay fixed left-0 top-0 w-full h-screen bg-[rgba(35,31,32,.9)] z-[9999]">
+<div class="overlay fixed left-0 top-0 w-full h-screen bg-[rgba(6,6,6,.7)] sm:bg-[rgba(35,31,32,.9)] z-[9999]">
     <div class="content-wrapper sm:w-[18.7491rem] overflow-hidden">
         <div class="overflow-auto !overflow-x-hidden h-full">
             <div class="mt-[1.7016rem] sm:mt-0 sm:p-[0.7125rem_1.35rem]">
@@ -16,6 +16,7 @@
                     <li>
                         <input class="input" type="password" placeholder="Password" name="Password" autocomplete="off">
                     </li>
+
                     <div class="flex items-center gap-[0.28rem]">
                         <li>
                             <select class="select country-select" name="Country" required="">
@@ -518,6 +519,7 @@
                             </select>
                         </li>
                     </div>
+
                     <li class="flex gap-[0.28rem]">
                         <select class="select !w-[127px] area-code" name="AreaCode" required="">
                             <option value="1">+1</option>
@@ -976,7 +978,7 @@
 
                             <option value="4779">+4779</option>
                         </select>
-                        <input class="input" type="number" name="MobileNumber" placeholder="Mobile Number">
+                        <input class="input" type="text" name="MobileNumber" placeholder="Mobile Number">
                     </li>
                     <li>
                         <div (click)="this.havePromo = !this.havePromo" class="flex items-center mt-2.5 cursor-pointer">
@@ -996,13 +998,15 @@
                             <input checked name="TermsAccepted" type="checkbox">
                             <span class="checkmark"></span>
                             <span class="accept-text sm:hidden">I am over 18+ years, I accept</span>
-                            <span class="accept-text hidden sm:inline-block">I accept</span>
+                            <span class="accept-text hidden sm:inline-block">I Accept</span>
                             <br>
-                            <span class="mx-[2px] sm:mx-[0.2813rem] underline !text-[#11e311] text-[12px]">Terms and
-                                Conditions</span>
+                            <span class="mx-[2px] sm:mx-[0.2813rem] underline !text-[#11e311] text-[12px]">
+                                Terms and Conditions
+                            </span>
                             <span>And</span>
-                            <span class="mx-[2px] sm:mx-[0.2813rem] underline !text-[#11e311] text-[12px]">Privacy
-                                Policy</span>
+                            <span class="mx-[2px] sm:mx-[0.2813rem] underline !text-[#11e311] text-[12px]">
+                                Privacy Policy
+                            </span>
                         </label>
                     </li>
 
@@ -1012,11 +1016,12 @@
                             <span class="checkmark"></span>
                             <span class="accept-text">I Agree</span>
                             <br>
-                            <span class="mx-[2px] sm:mx-[0.2813rem]  underline !text-[#11e311] text-[12px]">Marketing
-                                Offers</span>
+                            <span class="mx-[2px] sm:mx-[0.2813rem]  underline !text-[#11e311] text-[12px]">
+                                Marketing Offers
+                            </span>
                         </label>
                     </li>
-                    <li class="sm:!mb-8">
+                    <li class="finish-btn sm:!mb-8">
                         <button class="btn sm:!h-[28.8px] sm:!text-[8.3997px] sm:!rounded-[10px]">
                             <span class="sm:hidden">Sign Up</span>
                             <span class="hidden sm:inline">Finish</span>
@@ -1028,7 +1033,8 @@
                 class="absolute top-[0.5672rem] right-[0.5672rem] sm:w-full sm:bg-[#36393f] sm:h-[29.98px] sm:top-0 sm:right-0 sm:flex sm:items-center sm:justify-end sm:pr-[6px]">
                 <span
                     class="hidden sm:block text-white absolute left-1/2 text-[9.6003px] translate-x-[-50%]">Registration</span>
-                <img (click)="closeSignup()" class="sm:w-[11.9997px]" src="/assets/images/close.png" alt="">
+                <img (click)="closeSignup()" class="sm:w-[11.9997px] cursor-pointer" src="/assets/images/close.png"
+                    alt="">
             </div>
         </div>
     </div>
