@@ -156,9 +156,6 @@ form ul li:not(.accept-terms) .currency-cont {
     margin-bottom: 0.675rem !important;
   }
 
-  ul li:nth-child(.finish-btn) {
-  }
-
   ul li input {
     height: 1.8rem !important;
     border-radius: 8px !important;
