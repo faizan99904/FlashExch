@@ -1,0 +1,237 @@
+:host {
+  font-size: 0.94em;
+}
+.racing {
+  font-size: 0.94em;
+}
+@media screen and (max-width: 1600px) {
+  :host {
+    font-size: 14px;
+  }
+  .racing {
+    font-size: 14px;
+  }
+}
+section.main-banner {
+  position: relative;
+  padding-top: 10%;
+  background-image: url(/assets/images/racing/banner.jpg);
+  background-size: cover;
+  border-radius: 5px;
+}
+
+section.filters {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0.6em 0;
+  background-color: #101317;
+  height: 4em;
+  padding: 0 1.2em;
+  border-radius: 5px;
+}
+.search {
+  position: relative;
+}
+.search input {
+  height: 3em;
+  width: 15em;
+  background-color: #151515;
+  border-radius: 5px;
+}
+input,
+select {
+  padding-left: 1em;
+  border: 1px solid #151515;
+}
+button,
+input,
+select,
+textarea {
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  color: #fff;
+  border-radius: 3px;
+  font-family: Roboto;
+  box-sizing: border-box;
+}
+.search .material-icons {
+  position: absolute;
+  right: 0.719em;
+  top: 0.578em;
+  font-size: 1.4em;
+  color: hsla(0, 0%, 100%, 0.5);
+}
+html .material-icons {
+  line-height: unset;
+}
+section.filters .time-filters {
+  margin-left: 1em;
+  font-weight: 700;
+}
+.time-filters {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+ul {
+  list-style-type: none;
+}
+.time-filters li {
+  word-spacing: normal;
+  font-size: 0.9em;
+  padding: 0 1.12em;
+  color: hsla(0, 0%, 100%, 0.6);
+  transition: color 0.12s ease-in;
+  cursor: pointer;
+}
+.time-filters li.active {
+  padding: 0 1.12em;
+  color: white;
+}
+section.filters .with-odds {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #ffffff80;
+  font-size: 0.9em;
+}
+
+section.filters .with-odds .switcher {
+  position: relative;
+  width: 2.22em;
+  height: 0.89em;
+  background-color: #101015;
+  border-radius: 0.5em;
+  margin-left: 1.58em;
+  transition: background-color 0.3s ease;
+}
+
+section.filters .with-odds .switcher::before {
+  content: "";
+  position: absolute;
+  width: 1.1em;
+  height: 1.1em;
+  border-radius: 1.1em;
+  left: -0.55em;
+  top: -0.15em;
+  background-color: #97a1c2;
+  transition: left 0.3s ease, background-color 0.3s ease;
+}
+
+section.filters .with-odds.active .switcher::before {
+  left: 1.45em;
+  background-color: #41cf9a; /* green on active */
+}
+section.filters .with-odds.active .switcher {
+  background-color: #3e3e56;
+}
+
+section.matches .region-block {
+  background-color: #101317;
+  border-radius: 5px;
+  margin-top: 5px;
+  padding: 0.6em 1.3em;
+}
+
+section.matches .region-block .region-title {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 1.7em;
+  cursor: pointer;
+}
+
+section.matches .region-block .region-title .flag {
+  transform: scale(0.9);
+  margin-right: 0.5em;
+}
+.flag {
+  display: inline-block;
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+  background-image: url(/assets/images/racing/flags.png);
+  background-repeat: no-repeat;
+  background-position: 100px 0; /* fallback */
+  transform: scale(0.7);
+  transform-origin: left center;
+}
+
+/* Per-country flag offsets */
+.flag[country="greatbritain"] {
+  background-position: -264px -120px;
+}
+.flag[country^="ireland"] {
+  background-position: 0px -168px;
+}
+.flag[country="turkey"] {
+  background-position: -24px -72px;
+}
+
+/* Add more countries here */
+
+section.matches .region-block .region-title {
+  margin-left: 0.5em;
+  color: hsla(0, 0%, 100%, 0.5);
+}
+section.matches .region-block .region-title .time-filters {
+  margin-left: auto;
+  height: 100%;
+}
+section.matches .region-block .region-title .material-icons {
+  color: hsla(0, 0%, 100%, 0.5);
+  margin-left: 1em;
+}
+section.matches .region-block ul.champs > li {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 4em;
+  color: hsla(0, 0%, 100%, 0.5);
+  border-bottom: 1px solid black;
+}
+
+section.matches .region-block ul.champs > li:last-child {
+  border-bottom: none;
+}
+section.matches .region-block ul.champs ul.matches {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: auto;
+}
+
+section.matches .region-block ul.champs ul.matches > li a {
+  background-color: #1e242b;
+  color: #fff;
+  padding: 0.4em 0.6em;
+  margin-right: 0.4em;
+  border-radius: 0.3em;
+}
+.sb-middle-content .rect {
+  border-radius: 5px;
+  width: 3.6em;
+  height: 2.4em;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  transition: -webkit-filter 0.12s ease-in;
+  transition: filter 0.12s ease-in;
+  transition: filter 0.12s ease-in, -webkit-filter 0.12s ease-in;
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
