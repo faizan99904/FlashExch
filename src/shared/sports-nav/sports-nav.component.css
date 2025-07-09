@@ -170,8 +170,8 @@ li {
 }
 
 ::-webkit-scrollbar {
-  width: 2.5px;
-  max-height: 2.5px;
+  width: 2px;
+  max-height: 2px;
 }
 
 /* Track (background) */
