@@ -12,6 +12,21 @@ export class SharedService {
   private signUpToggle = signal(false);
   readonly isSignupVisible = this.signUpToggle.asReadonly();
 
+  private passToggle = signal(false);
+  readonly isPassVisible = this.passToggle.asReadonly();
+
+  togglePass(): void {
+    this.passToggle.update((value) => !value);
+  }
+
+  showPass(): void {
+    this.passToggle.set(true);
+  }
+
+  hidePass(): void {
+    this.passToggle.set(false);
+  }
+
   toggleSignup(): void {
     this.signUpToggle.update((value) => !value);
   }

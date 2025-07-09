@@ -19,8 +19,9 @@
                         </div>
                         <div class="field">
                             <input type="password" name="password" placeholder_key="LOGIN__PASSWORD" required=""
-                                placeholder="Password"> <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
-                                class="forgot-pass" xmlns="http://www.w3.org/2000/svg">
+                                placeholder="Password">
+                            <svg (click)="showPass()" width="26" height="26" viewBox="0 0 26 26" fill="none"
+                                class="forgot-pass cursor-pointer" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_11_40)">
                                     <path
                                         d="M0.10812 12.9019C0.16771 19.8936 5.90432 25.5332 12.9019 25.4736C19.8995 25.4139 25.5391 19.6773 25.4795 12.6857C25.42 5.694 19.6774 0.0484767 12.6857 0.108066C5.69405 0.167656 0.0484798 5.90431 0.10812 12.9019ZM1.29315 12.8918C1.23901 6.54005 6.34407 1.34723 12.6958 1.29309C19.0476 1.23896 24.2404 6.34401 24.2945 12.6958C24.3487 19.0475 19.2435 24.2344 12.8918 24.2885C6.54006 24.3427 1.34723 19.2376 1.29315 12.8918Z"
@@ -45,7 +46,7 @@
                     <a (click)="showSignup()"
                         class="btn registration open-registration-popup min-[820px]:!h-[24px]  lg:!w-[89px] lg:!h-[26px] xl:!w-[134px] xl:!h-[40px]   sign-btn">Sign
                         Up</a>
-                    <a (click)="gotoLogin()" 
+                    <a (click)="gotoLogin()"
                         class="btn login open-login-popup min-[820px]:!h-[24px] lg:!w-[89px] lg:!h-[26px] xl:!w-[126px] xl:!h-[40px]  log-btn">Log
                         In</a>
                 </div>
