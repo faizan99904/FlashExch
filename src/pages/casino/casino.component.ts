@@ -2,10 +2,11 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { HeaderComponent } from '../../shared/header/header.component';
 import { CommonModule } from '@angular/common';
 import { SportsNavComponent } from "../../shared/sports-nav/sports-nav.component";
+import { FooterComponent } from '../../shared/footer/footer.component';
 declare var Swiper: any;
 @Component({
   selector: 'app-casino',
-  imports: [HeaderComponent, CommonModule, SportsNavComponent],
+  imports: [HeaderComponent, CommonModule, SportsNavComponent, FooterComponent],
   templateUrl: './casino.component.html',
   styleUrl: './casino.component.css',
   // encapsulation: ViewEncapsulation.None

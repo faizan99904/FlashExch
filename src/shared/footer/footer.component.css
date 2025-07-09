@@ -1,0 +1,78 @@
+.payment-methods {
+    background: #0e1014;
+    align-self: center;
+    padding: 13px 18px;
+  }
+  
+  .payment-methods ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 7px 4px;
+  }
+  
+  .payment-methods ul li {
+    height: 31px;
+    border: 0.5px solid rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+  }
+  
+  .payment-methods ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .payment-methods ul li img {
+    height: 19px;
+    width: 90%;
+  }
+  
+  .payment-methods ul.cryptos {
+    margin-top: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 13px;
+  }
+  
+  .payment-methods ul.cryptos li {
+    height: 36px;
+    width: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .payment-methods ul.cryptos li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .payment-methods ul.cryptos li img {
+    height: 26px;
+    max-width: 26px;
+    object-fit: contain;
+  }
+  
+  .license {
+    display: flex;
+    padding: 0 0.7805em;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 1.3008em 0;
+  }
+  
+  .f-terms {
+    text-align: center;
+    padding: 0 0.7805em;
+    font-size: 0.782em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
