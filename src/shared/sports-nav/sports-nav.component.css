@@ -168,3 +168,19 @@ li {
     font-size: 10.4px;
   }
 }
+
+::-webkit-scrollbar {
+  width: 2.5px;
+  max-height: 2.5px;
+}
+
+/* Track (background) */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle (thumb) */
+::-webkit-scrollbar-thumb {
+  background: #3d3d3d;
+  border-radius: 5px;
+}
