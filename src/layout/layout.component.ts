@@ -9,6 +9,7 @@ import { SportEventsComponent } from '../shared/sport-events/sport-events.compon
 import { MobileSidebarComponent } from '../shared/mobile-sidebar/mobile-sidebar.component';
 import { SignupComponent } from '../auth/signup/signup.component';
 import { SharedService } from '../app/service/shared.service';
+import { ForgetModalComponent } from '../shared/forget-modal/forget-modal.component';
 
 @Component({
   selector: 'app-layout',
@@ -21,12 +22,13 @@ import { SharedService } from '../app/service/shared.service';
     SportsNavComponent,
     MobileSidebarComponent,
     SignupComponent,
+    ForgetModalComponent,
   ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css',
 })
 export class LayoutComponent {
   constructor(private toggle: SharedService) {}
-
   signUp = computed(() => this.toggle.isSignupVisible());
+  forgetPass = computed(() => this.toggle.isPassVisible());
 }

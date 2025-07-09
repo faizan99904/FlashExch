@@ -23,4 +23,8 @@ export class HeaderComponent {
   showSignup() {
     this.toggle.toggleSignup();
   }
+
+  showPass() {
+    this.toggle.togglePass();
+  }
 }
