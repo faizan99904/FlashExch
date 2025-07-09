@@ -36,7 +36,7 @@
             <div class="mt-[0] overflow-hidden rounded-[.4rem]">
                 <div class=" ">
                     <div class="h-[53px] w-full relative flex items-center slot-categories">
-                        <div class="min-w-[51.17px] h-[58.2736px] flex justify-center items-center">
+                        <div class="min-w-[51.17px] h-[58.2736px] flex justify-center items-center" (click)="toggleSearch()"> 
                             <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -79,12 +79,13 @@
                 </div>
 
             </div>
+            <div class="mt-[13.068px] relative h-[30.492px] max-h-[30.492px] px-[4.994px] !duration-300 transition-all overflow-hidden"
+                [ngClass]="{'!max-h-0 !duration-300 transition-all mt-0':isSearch}">
+                <input class="search-input" placeholder="Search games...">  </div>
         </div>
     </div>
 
-
-
-
+   
 
 
     <div class="bg-[#13161B] overflow-hidden px-[4.99px]">
