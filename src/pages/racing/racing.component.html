@@ -2,228 +2,70 @@
     <section class="main-banner default"><!----></section>
 
 
-    <section class="filters tracking-tight">
+    <section class="filters tracking-tight  !hidden lg:!flex text-nowrap">
         <div class="search"><input type="text" name="search" placeholder="Search Event"> <span
                 class="material-icons">search</span></div>
-        <ul class="time-filters">
+        <ul class="time-filters tracking-normal">
             <li class="active">All</li>
             <li class="">Today</li>
             <li class="">Tomorrow</li>
         </ul>
 
-        <div class="with-odds" (click)="toggleOdds()" [class.active]="isWithOdds">
+        <div class="with-odds !text-[#ffffff99] tracking-normal" (click)="toggleOdds()" [class.active]="isWithOdds">
             <span>With Odds</span>
             <span class="switcher"></span>
         </div>
 
     </section>
+    <section class="filters lg:!hidden flex text-nowrap justify-between items-center pt-[0.5em]">
+
+
+        <div class="with-odds  !text-[#ffffff99] tracking-normal" (click)="toggleOdds()" [class.active]="isWithOdds">
+            <span class="text-[0.948em] tracking-normal">With Odds</span>
+            <span class="switcher"></span>
+        </div>
+        <select>
+            <option value="">All</option>
+            <option value="TODAY">Today</option>
+            <option value="TOMORROW">Tomorrow</option>
+        </select>
+    </section>
     <section class="matches">
-        <div class="region-block">
+        <div class="region-block" *ngFor="let region of regions; let i = index" (click)="toggleRegion(i)">
             <div class="region-title">
-                <div country="greatbritain" class="flag"></div> <span>Great Britain (Tomorrow)</span>
-                <ul class="time-filters">
+                <div [attr.country]="region.country" class="flag"></div>
+                <span class="!text-[0.9em] !text-[#ffffff99]">{{ region.title }}</span>
+
+                <ul class="time-filters !hidden lg:!flex">
                     <li class="active">All</li>
-                    <li class="">Upcoming</li>
-                    <li class="">Race Off</li>
-                    <li class="">Finished</li>
-                </ul> <span class="material-icons">keyboard_arrow_down</span>
+                    <li>Upcoming</li>
+                    <li>Race Off</li>
+                    <li>Finished</li>
+                </ul>
+
+                <span class="material-icons cursor-pointer">
+                    {{ isCollapsed(i) ? 'keyboard_arrow_right' : 'keyboard_arrow_down' }}
+                </span>
             </div>
-            <ul class="champs">
-                <li><span class="champ-name">Uttoxeter</span>
+
+            <ul class="champs" *ngIf="!isCollapsed(i)">
+                <!-- You can put static or dynamic match data here -->
+                <li *ngFor="let champ of region.champs">
+                    <span class="champ-name">{{ champ.name }}</span>
                     <ul class="matches">
-                        <li><a href="#/racing/match/16140774_25" class="rect">
-
-                                00:00
-                            </a></li>
-                        <li><a href="#/racing/match/16140778_25" class="rect">
-
-                                00:30
-                            </a></li>
-                        <li><a href="#/racing/match/16140781_25" class="rect">
-
-                                01:00
-                            </a></li>
-                    </ul>
-                </li>
-                <li><span class="champ-name">Brighton</span>
-                    <ul class="matches">
-                        <li><a href="#/racing/match/16140540_25" class="rect">
-
-                                00:12
-                            </a></li>
-                        <li><a href="#/racing/match/16140562_25" class="rect">
-
-                                00:42
-                            </a></li>
-                    </ul>
-                </li>
-                <li><span class="champ-name">Catterick</span>
-                    <ul class="matches">
-                        <li><a href="#/racing/match/16148896_25" class="rect">
-
-                                18:20
-                            </a></li>
-                        <li><a href="#/racing/match/16148890_25" class="rect">
-
-                                18:50
-                            </a></li>
-                        <li><a href="#/racing/match/16148902_25" class="rect">
-
-                                19:20
-                            </a></li>
-                        <li><a href="#/racing/match/16148906_25" class="rect">
-
-                                19:50
-                            </a></li>
-                        <li><a href="#/racing/match/16148897_25" class="rect">
-
-                                20:20
-                            </a></li>
-                        <li><a href="#/racing/match/16148892_25" class="rect">
-
-                                20:50
-                            </a></li>
-                    </ul>
-                </li>
-                <li><span class="champ-name">Yarmouth</span>
-                    <ul class="matches">
-                        <li><a href="#/racing/match/16148889_25" class="rect">
-
-                                18:35
-                            </a></li>
-                        <li><a href="#/racing/match/16148905_25" class="rect">
-
-                                19:05
-                            </a></li>
-                        <li><a href="#/racing/match/16148938_25" class="rect">
-
-                                19:35
-                            </a></li>
-                        <li><a href="#/racing/match/16148894_25" class="rect">
-
-                                20:10
-                            </a></li>
-                        <li><a href="#/racing/match/16148907_25" class="rect">
-
-                                20:40
-                            </a></li>
-                        <li><a href="#/racing/match/16148891_25" class="rect">
-
-                                21:10
-                            </a></li>
-                    </ul>
-                </li>
-                <li><span class="champ-name">Kempton</span>
-                    <ul class="matches">
-                        <li><a href="#/racing/match/16148945_25" class="rect">
-
-                                21:50
-                            </a></li>
-                        <li><a href="#/racing/match/16148950_25" class="rect">
-
-                                22:20
-                            </a></li>
-                        <li><a href="#/racing/match/16148893_25" class="rect">
-
-                                22:50
-                            </a></li>
-                        <li><a href="#/racing/match/16148899_25" class="rect">
-
-                                23:20
-                            </a></li>
-                        <li><a href="#/racing/match/16148953_25" class="rect">
-
-                                23:55
-                            </a></li>
-                    </ul>
-                </li>
-                <li><span class="champ-name">Ffos Las</span>
-                    <ul class="matches">
-                        <li><a href="#/racing/match/16148946_25" class="rect">
-
-                                22:10
-                            </a></li>
-                        <li><a href="#/racing/match/16148908_25" class="rect">
-
-                                22:40
-                            </a></li>
-                        <li><a href="#/racing/match/16148904_25" class="rect">
-
-                                23:10
-                            </a></li>
-                        <li><a href="#/racing/match/16148952_25" class="rect">
-
-                                23:40
-                            </a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <div class="region-block">
-            <div class="region-title">
-                <div country="ireland" class="flag"></div> <span>Ireland (Tomorrow)</span>
-                <ul class="time-filters">
-                    <li class="active">All</li>
-                    <li class="">Upcoming</li>
-                    <li class="">Race Off</li>
-                    <li class="">Finished</li>
-                </ul> <span class="material-icons">keyboard_arrow_down</span>
-            </div>
-            <ul class="champs">
-                <li><span class="champ-name">Tramore</span>
-                    <ul class="matches">
-                        <li><a href="#/racing/match/3125579_26" class="rect">
-
-                                00:20
-                            </a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <div class="region-block">
-            <div class="region-title">
-                <div country="turkey" class="flag"></div> <span>Turkey (Tomorrow)</span>
-                <ul class="time-filters">
-                    <li class="active">All</li>
-                    <li class="">Upcoming</li>
-                    <li class="">Race Off</li>
-                    <li class="">Finished</li>
-                </ul> <span class="material-icons">keyboard_arrow_down</span>
-            </div>
-            <ul class="champs">
-                <li><span class="champ-name">Elazig</span>
-                    <ul class="matches">
-                        <li><a href="#/racing/match/16140367_25" class="rect">
-
-                                21:45
-                            </a></li>
-                        <li><a href="#/racing/match/16140370_25" class="rect">
-
-                                22:05
-                            </a></li>
-                        <li><a href="#/racing/match/16140363_25" class="rect">
-
-                                22:30
-                            </a></li>
-                        <li><a href="#/racing/match/16140434_25" class="rect">
-
-                                22:55
-                            </a></li>
-                        <li><a href="#/racing/match/16140364_25" class="rect">
-
-                                23:15
-                            </a></li>
-                        <li><a href="#/racing/match/16140368_25" class="rect">
-
-                                23:35
-                            </a></li>
-                        <li><a href="#/racing/match/16140366_25" class="rect">
-
-                                23:55
-                            </a></li>
+                        <li *ngFor="let match of champ.matches">
+                            <a [href]="match.link" class="rect" [ngClass]="{
+                                  'finished': champ.state === 'finished',
+                                  'active': champ.state === 'active',
+                                  'empty': champ.state === ''
+                                }">
+                                {{ match.time }}
+                            </a>
+                        </li>
                     </ul>
                 </li>
             </ul>
         </div>
     </section>
+
 </section>
