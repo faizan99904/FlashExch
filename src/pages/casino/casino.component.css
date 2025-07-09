@@ -6,6 +6,32 @@
   font-size: 10em;
 } */
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-semiBold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
 .logos {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -46,7 +72,7 @@
 .see-all {
   width: 12em;
   background-color: #11e311;
-  border-radius: 0.4em;
+  border-radius: 2.0812px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -59,7 +85,7 @@
   color: #000;
   cursor: pointer;
   font-size: 2.4em;
-  font-family: Poppins-Medium;
+
   height: 27px;
   width: 62px;
 }
@@ -86,6 +112,8 @@
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
+
+
 
 .heading h1 {
   display: -webkit-box;
@@ -114,8 +142,6 @@
   flex-shrink: 0;
   margin-right: 4.99488px;
 }
-
-
 
 .desktop-see-all {
   background: #1f242b;
@@ -183,7 +209,7 @@
   color: #e8e8e8;
   height: 100%;
   border-radius: 9.75px;
-  font-family: Poppins-Medium;
+
   padding: 0 17.875px;
   cursor: pointer;
   text-align: center;
@@ -284,5 +310,24 @@
   justify-content: center;
   align-items: center;
   padding: 0 24.2671px;
-  font-family: Poppins-Bold;
+}
+
+.see-more {
+  height: 32.82px;
+  background-color: #11e311;
+  border-radius: 4.99488px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #000;
+  /* margin-right: 9.98976px; */
+  font-size: 11.9877px;
+  padding: 7.49232px;
+  text-wrap: nowrap;
 }
