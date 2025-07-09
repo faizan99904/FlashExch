@@ -2,6 +2,16 @@
 <app-sports-nav class="max-lg:hidden"></app-sports-nav>
 <div class="w-full lg:hidden">
 
+    <div class="swiper mySwiper  max-w-[calc(100vw)] [375px]:max-h-[227.9px]
+        lg:mt-2 lg:rounded-md">
+        <div class="swiper-wrapper forMedia max-h-[227.9px]">
+            <div class="swiper-slide h-full" *ngFor=" let img of swiperImages">
+                <img [src]="img" alt="slide" class="w-full max-h-[227.9px] imageMain object-cover " />
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+
 
     <div class="p-[4.99px] bg-[#13161B]  texy-[3.5vw]">
         <div class="logos ">
@@ -128,7 +138,7 @@
     </div>
 
 
-   
+
 </div>
 
 <div class="max-lg:hidden max-w-[1213.33px] mx-auto">
@@ -340,4 +350,3 @@
 </div>
 
 <app-footer></app-footer>
-
