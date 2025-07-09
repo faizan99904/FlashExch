@@ -310,8 +310,18 @@ header .change-lang div.current-lang {
 
 @media (min-width: 1260px) and (max-width: 1440px) {
   header .content {
-    max-width: 908px;
+  
+    position: relative;
+   
   }
+
+  header .content {
+    background: #171717 !important;
+    position: relative;
+    max-width: 1061.33px;
+    margin: 0px auto;
+  }
+
 }
 
 @media (min-width: 1440px) {
