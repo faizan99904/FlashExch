@@ -406,19 +406,20 @@ body {
     position: fixed;
     width: 100vw;
   }
-  ::-webkit-scrollbar {
-    width: 4px; /* vertical scrollbar */
-    max-height: 4px;
-  }
+}
 
-  /* Track (background) */
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
+::-webkit-scrollbar {
+  width: 4px; /* vertical scrollbar */
+  max-height: 4px;
+}
 
-  /* Handle (thumb) */
-  ::-webkit-scrollbar-thumb {
-    background: #3d3d3d;
-    border-radius: 5px;
-  }
+/* Track (background) */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle (thumb) */
+::-webkit-scrollbar-thumb {
+  background: #3d3d3d;
+  border-radius: 5px;
 }
