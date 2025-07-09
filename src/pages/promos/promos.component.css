@@ -1,1 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+ul > li {
+  float: left;
+  width: calc(100% / 3 - 0.2895rem);
+  margin-top: 0.4258rem;
+  margin-left: 0.4258rem;
+  background-color: #101317;
+}
+
+ul > li:nth-child(3n + 1) {
+  margin-left: 0;
+}
+
+ul > li .info {
+  padding: 0 1.2773rem 1.7031rem 1.2773rem;
+  overflow: hidden;
+  background-color: #101317;
+}
+
+ul > li .info > h2 {
+  line-height: 3.832rem;
+  font-size: 1.1543rem;
+}
+
+ul > li .info > div.text-content {
+  line-height: 1.0645rem;
+  font-size: 0.6387rem;
+  height: 3.4063rem;
+  overflow: hidden;
+}
+
+ul > li .info .read-more {
+  margin-top: 1.7031rem;
+  font-size: 0.6813rem;
+  float: left;
+  padding-top: 0.5109rem;
+  padding-bottom: 0.3406rem;
+  border-bottom: 0.0852rem solid #f9d703;
+  cursor: pointer;
+}
+
+ul > li .info span.btn {
+  margin-top: 1.7031rem;
+  float: right;
+  width: 8.5938rem;
+  height: 2.1289rem;
+  line-height: 2.1289rem;
+  font-size: 0.7275rem;
+  text-align: center;
+  background: #11e311;
+  color: #030303;
+  border-radius: 0.3179rem;
+}
+
+@media screen and (max-width: 1380px) {
+  .wrapper {
+    max-width: 1017.33px;
+  }
+}
