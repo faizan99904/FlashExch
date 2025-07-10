@@ -25,6 +25,10 @@ export class CasinoComponent {
         el: '.swiper-pagination',
         clickable: true,
       },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
       autoplay: {
         delay: 3000,
         disableOnInteraction: false, // Keep autoplay after manual scroll

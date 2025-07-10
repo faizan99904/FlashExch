@@ -159,7 +159,9 @@
 
         <ul class="p-[10.406px] overflow-hidden grid [grid-template-columns:repeat(3,_1fr);] gap-[10.406px]">
             <li class="rounded-[7.49232px] overflow-hidden">
-               <div class="relative pt-[81%] bg-cover bg-center overflow-hidden cursor-pointer [background-image:url('/assets/images/24,077b1a7b66f435.gif')]"></div>
+                <div
+                    class="relative pt-[81%] bg-cover bg-center overflow-hidden cursor-pointer [background-image:url('/assets/images/24,077b1a7b66f435.gif')]">
+                </div>
             </li>
 
             <li class="rounded-[7.49232px] overflow-hidden">
@@ -200,18 +202,28 @@
 </div>
 
 <div class="max-lg:hidden max-w-[1213.33px] mx-auto">
-    <div class="swiper mySwiper  max-w-[calc(100vw)] [375px]:max-h-[346px]
-    lg:mt-2 lg:rounded-md">
+
+
+    <div class="swiper mySwiper relative  max-w-[calc(100vw)] [375px]:max-h-[346px]
+    lg:mt-2">
         <div class="swiper-wrapper forMedia max-h-[346px]">
             <div class="swiper-slide h-full" *ngFor=" let img of largeSwiperImages">
                 <img [src]="img" alt="slide" class="w-full max-h-[346px] imageMain object-cover " />
             </div>
         </div>
         <div class="swiper-pagination"></div>
+        <div
+            class="absolute z-[1] left-[50%] top-[50%] px-[20px] translate-x-[-50%] translate-y-[-50%] flex w-full justify-between">
+            <div class="swiper-prev swiper-button-prev"></div>
+            <div class="swiper-next swiper-button-next"></div>
+        </div>
     </div>
-    <div class="overflow-hidden w-full -mt[17.33px] px-[16.25px]">
+
+
+
+    <div class="overflow-hidden w-full -mt-[14.33px] px-[16.25px]">
         <div class="bg-[#14171c] p-[17.0625px_26.8125px] rounded-[26px] relative z-[1] mt-[0px] mb-[19.5px]">
-            <div class="flex justify-center mb-[19.5px] gap-[.875rem]">
+            <div class="flex justify-center mb-[16.5px] gap-[.875rem]">
                 <div class="h-[34.6671px] flex gap-[4.875px] grow-[1] w-full">
                     <div class="rounded-[9.75px] flex justify-center items-center cursor-pointer h-full w-full">
                         <img class="max-h-[20.8px]" src="/assets/images/Playn Go.svg" alt="">
