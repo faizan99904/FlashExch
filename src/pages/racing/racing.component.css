@@ -203,15 +203,13 @@ section.matches .region-block .region-title .material-icons {
 }
 
 section.matches .region-block ul.champs > li {
-  border-bottom: 2px solid black;
-  padding: 0.9em 0px;
+  border-bottom: 1px solid black;
   align-items: center;
 }
-section.matches .region-block ul.champs > li:first-child {
-  padding-bottom: 0.9em;
-  padding-top: 0px;
+.plus-remove {
+  background: none !important;
+  font-size: 1em;
 }
-
 section.matches .region-block ul.champs > li:last-child {
   border-bottom: none;
 }
@@ -270,6 +268,16 @@ select {
 }
 
 @media (max-width: 1023px) {
+  section.matches .region-block ul.champs > li {
+    border-bottom: 1.2px solid black;
+    padding: 0.9em 0px;
+    align-items: center;
+  }
+  section.matches .region-block ul.champs > li:first-child {
+    padding-bottom: 0.9em;
+    padding-top: 0px;
+  }
+
   section.matches .region-block .region-title {
     display: -ms-flexbox;
     display: flex;
