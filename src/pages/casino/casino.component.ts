@@ -12,7 +12,8 @@ declare var Swiper: any;
   // encapsulation: ViewEncapsulation.None
 })
 export class CasinoComponent {
- isSearch:boolean = false
+ isSearch:boolean = false;
+ seeAll:boolean = false 
   swiperImages = ['/assets/images/120,2298c9285a3302.webp', '/assets/images/120,2298db8202d603.webp', '/assets/images/121,2298ed4342af83.webp']
   largeSwiperImages = ['/assets/images/slide2.webp', '/assets/images/120,2298db8202d603.webp', '/assets/images/121,2298ed4342af83.webp']
   ngAfterViewInit(): void {
@@ -44,6 +45,11 @@ export class CasinoComponent {
 
   toggleSearch(){
     this.isSearch = !this.isSearch;
-    console.log('hiii');
   }
+
+  seeToggle(){
+    this.seeAll = !this.seeAll
+  }
+
+  
 }
