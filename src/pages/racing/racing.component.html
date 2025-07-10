@@ -59,7 +59,7 @@
                 <div class="subchamps">   <span class="champ-name">{{ champ.name }}</span>
 
 
-                    <ul class="matches !hidden lg:!flex lg:flex-wrap">
+                    <ul class="matches  !hidden lg:!flex lg:flex-wrap">
                         <li *ngFor="let match of champ.matches ">
                             <a [href]="match.link" class="rect" [ngClass]="{
                                                                       'finished': champ.state === 'finished',
@@ -90,7 +90,7 @@
                     </ul>
 
                          </div> 
-                    <ul class="matches !flex lg:!hidden lg:flex-wrap" *ngIf="isChampExpanded(i, champIdx)">
+                    <ul class="matches submatches !flex lg:!hidden lg:flex-wrap" *ngIf="isChampExpanded(i, champIdx)">
                         <li *ngFor="let match of champ.matches.slice(3, -1)">
                             <a [href]="match.link" class="rect"
                                 [ngClass]="{

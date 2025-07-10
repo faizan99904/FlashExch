@@ -187,7 +187,6 @@ section.matches .region-block .region-title .flag {
 .flag[country="turkey"] {
   background-position: -24px -72px;
 }
-
 /* Add more countries here */
 
 section.matches .region-block .region-title {
@@ -202,17 +201,15 @@ section.matches .region-block .region-title .material-icons {
   color: #ffffff80;
   margin-left: 0.6em;
 }
-section.matches .region-block ul.champs > li .subchamps {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  height: 4em;
-  color: #ffffff99;
-}
+
 section.matches .region-block ul.champs > li {
-  border-bottom: 1px solid black;
-  padding-bottom: 1.09em
+  border-bottom: 2px solid black;
+  padding: 0.9em 0px;
+  align-items: center;
+}
+section.matches .region-block ul.champs > li:first-child {
+  padding-bottom: 0.9em;
+  padding-top: 0px;
 }
 
 section.matches .region-block ul.champs > li:last-child {
@@ -222,7 +219,7 @@ section.matches .region-block ul.champs ul.matches {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
-  align-items: center;
+
   margin-left: auto;
 }
 
@@ -232,6 +229,10 @@ section.matches .region-block ul.champs ul.matches > li a {
   padding: 0.6em 0.555em;
   margin-right: 0.4em;
   border-radius: 0.3em;
+}
+section.matches .region-block ul.champs ul.submatches {
+  padding-top: 0.8em;
+  padding-bottom: 0.57em;
 }
 section.matches .region-block ul.champs ul.matches > li:last-child a {
   margin-right: 0;
@@ -302,6 +303,14 @@ select {
     -webkit-touch-callout: default !important;
     -webkit-user-select: text !important;
     padding-left: 2vw;
+  }
+  section.matches .region-block ul.champs > li .subchamps {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 2.5em;
+    color: #ffffff99;
   }
 }
 @media (min-width: 1023px) {
@@ -394,5 +403,13 @@ select {
     background-color: #e63e4c;
     color: #101015;
     font-weight: 700;
+  }
+  section.matches .region-block ul.champs > li .subchamps {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 4em;
+    color: #ffffff99;
   }
 }
