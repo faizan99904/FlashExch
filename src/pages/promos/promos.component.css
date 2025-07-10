@@ -12,6 +12,10 @@
   font-style: normal;
 }
 
+.page-title {
+  @apply bg-[#101317] flex items-center h-[15vh] text-[4.5vw] text-[#ffdd55] p-[0_6vw];
+}
+
 ul > li {
   float: left;
   width: calc(100% / 3 - 0.2895rem);
@@ -63,6 +67,7 @@ ul > li .info span.btn {
   background: #11e311;
   color: #030303;
   border-radius: 0.3179rem;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1380px) {
@@ -70,3 +75,16 @@ ul > li .info span.btn {
     max-width: 1017.33px;
   }
 }
+
+@media screen and (min-width: 1380px) and (max-width: 1515px) {
+  .wrapper {
+    max-width: 1213.33px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .page-title {
+    @apply h-[2.1289rem] leading-[2.1289rem] mt-[0.8516rem] rounded-[0.0908rem];
+  }
+}
+
