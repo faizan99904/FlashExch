@@ -408,18 +408,57 @@ body {
   }
 }
 
-::-webkit-scrollbar {
-  width: 4px; /* vertical scrollbar */
-  max-height: 4px;
+/* Base: Hide scrollbars */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
 }
 
-/* Track (background) */
-::-webkit-scrollbar-track {
+/* WebKit scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
   background: transparent;
 }
 
-/* Handle (thumb) */
 ::-webkit-scrollbar-thumb {
-  background: #3d3d3d;
-  border-radius: 5px;
+  background: transparent;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+/* Show on hover (desktop) */
+:hover::-webkit-scrollbar-thumb {
+  background: rgba(61, 61, 61, 0.5);
+}
+
+/* Firefox show on hover */
+:hover {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(61, 61, 61, 0.5) transparent;
+}
+
+/* Active state for mobile */
+.show-scrollbar::-webkit-scrollbar-thumb,
+.show-scrollbar {
+  scrollbar-width: thin !important;
+  scrollbar-color: #3d3d3d transparent !important;
+}
+
+.show-scrollbar::-webkit-scrollbar-thumb {
+  background: #3d3d3d !important;
+}
+
+
+
+@media (pointer: coarse) {
+  ::-webkit-scrollbar {
+    width: 10px; 
+    height: 10px;
+  }
+
+::-webkit-scrollbar-thumb {
+    background: #3d3d3d !important;
+    scrollbar-color: #3d3d3d transparent !important;
+  }
 }
