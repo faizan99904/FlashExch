@@ -16,7 +16,7 @@
   @apply bg-[#101317] flex items-center h-[15vh] text-[4.5vw] text-[#ffdd55] p-[0_6vw];
 }
 
-ul > li {
+ul>li {
   float: left;
   width: calc(100% / 3 - 0.2895rem);
   margin-top: 0.4258rem;
@@ -24,29 +24,29 @@ ul > li {
   background-color: #101317;
 }
 
-ul > li:nth-child(3n + 1) {
+ul>li:nth-child(3n + 1) {
   margin-left: 0;
 }
 
-ul > li .info {
+ul>li .info {
   padding: 0 1.2773rem 1.7031rem 1.2773rem;
   overflow: hidden;
   background-color: #101317;
 }
 
-ul > li .info > h2 {
+ul>li .info>h2 {
   line-height: 3.832rem;
   font-size: 1.1543rem;
 }
 
-ul > li .info > div.text-content {
+ul>li .info>div.text-content {
   line-height: 1.0645rem;
   font-size: 0.6387rem;
   height: 3.4063rem;
   overflow: hidden;
 }
 
-ul > li .info .read-more {
+ul>li .info .read-more {
   margin-top: 1.7031rem;
   font-size: 0.6813rem;
   float: left;
@@ -56,7 +56,7 @@ ul > li .info .read-more {
   cursor: pointer;
 }
 
-ul > li .info span.btn {
+ul>li .info span.btn {
   margin-top: 1.7031rem;
   float: right;
   width: 8.5938rem;
@@ -88,3 +88,71 @@ ul > li .info span.btn {
   }
 }
 
+
+
+
+.custom-scrollbar {
+  scrollbar-width: auto;
+  scrollbar-color: #facc15 transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #facc15;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-button:single-button {
+  display: none;
+  height: 0;
+  width: 0;
+  background: none;
+}
+
+
+@media (min-width: 426px) and (max-width: 768px) {
+  .custom {
+    font-size: 51.7px;
+    color: white;
+  }
+  .texting {
+    font-size: 28.2133px;
+    color: #facc15;
+  }
+  .custom-txt {
+    font-size: 24.6867px;
+  }
+}
+
+
+@media (min-width: 321px) and (max-width: 425px) {
+  .mobile-text {
+    font-size: 17.0133px;
+  }
+  .mbl-close {
+    font-size: 29.7733px;
+  }
+  .mbl-body-txt {
+    font-size: 14.8867px;
+  }
+}
+@media(max-width:320px){
+  .mobile-text{
+    font-size: 12.8px;
+  }
+  .custom{
+    font-size: 22.4px;
+    line-height: 38.4px;
+  }
+  .mbl-body-txt{
+    font-size: 11.2px;
+    height: 41.8px;
+  }
+}
