@@ -190,3 +190,9 @@ ul > li .info span.btn {
     @apply hidden;
   }
 }
+
+@media screen and (min-width: 768px) {
+  .page-title {
+    height: 11.3vh;
+  }
+}
