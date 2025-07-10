@@ -34,3 +34,12 @@ background: linear-gradient(98deg, #10e312 0.98%, #f4f490);
 .border-solid{
     border-color: #525253;
 }
+
+@media screen and (min-width:819px) {
+    .bg-bg_inputBgColor{
+        background-color: #202225;
+        color: white;
+       
+    }
+}
+
