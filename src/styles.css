@@ -408,37 +408,57 @@ body {
   }
 }
 
-/* Base scrollbar hidden */
+/* Base: Hide scrollbars */
 * {
   scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
 }
 
-*::-webkit-scrollbar {
-  width: 4px;
-  max-height: 20px;
-  opacity: 0;
-}
-
-/* Track */
-*::-webkit-scrollbar-track {
+/* WebKit scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
   background: transparent;
 }
 
-/* Thumb */
-*::-webkit-scrollbar-thumb {
-  background-color: #3d3d3d;
-  border-radius: 5px;
-  transition: opacity 0.3s;
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 8px;
+  transition: background 0.3s ease;
 }
 
-/* Show scrollbar on hover of any scrollable element */
-*:hover::-webkit-scrollbar-thumb {
-  opacity: 1;
+/* Show on hover (desktop) */
+:hover::-webkit-scrollbar-thumb {
+  background: rgba(61, 61, 61, 0.5);
 }
 
-/* Re-enable Firefox scrollbar only on hover */
-*:hover {
+/* Firefox show on hover */
+:hover {
   scrollbar-width: thin;
-  scrollbar-color: #3d3d3d transparent;
-  -webkit-overflow-scrolling: touch; 
+  scrollbar-color: rgba(61, 61, 61, 0.5) transparent;
+}
+
+/* Active state for mobile */
+.show-scrollbar::-webkit-scrollbar-thumb,
+.show-scrollbar {
+  scrollbar-width: thin !important;
+  scrollbar-color: #3d3d3d transparent !important;
+}
+
+.show-scrollbar::-webkit-scrollbar-thumb {
+  background: #3d3d3d !important;
+}
+
+
+
+@media (pointer: coarse) {
+  ::-webkit-scrollbar {
+    width: 10px; 
+    height: 10px;
+  }
+
+::-webkit-scrollbar-thumb {
+    background: #3d3d3d !important;
+    scrollbar-color: #3d3d3d transparent !important;
+  }
 }
