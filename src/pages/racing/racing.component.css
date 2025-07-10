@@ -266,6 +266,72 @@ select {
   background-size: 2vw auto;
   background-position: right 2vw center;
 }
+@media (min-width: 768px) and (max-width: 768px) {
+  section.filters {
+    height: 9.5em;
+    padding: 1.32em 0em;
+  }
+
+  section.filters .with-odds .switcher {
+    position: relative;
+    width: 4.22em;
+    height: 1.89em;
+    background-color: #101015;
+    border-radius: 1.5em;
+    margin-left: 2.58em;
+    transition: background-color 0.3s ease;
+  }
+
+  section.filters .with-odds .switcher::before {
+    content: "";
+    position: absolute;
+    width: 2.1em;
+    height: 2.1em;
+    border-radius: 1.1em;
+    left: -0.55em;
+    top: -0.15em;
+    background-color: #97a1c2;
+    transition: left 0.3s ease, background-color 0.3s ease;
+  }
+
+  section.filters .with-odds.active .switcher::before {
+    left: 2.45em;
+    background-color: #41cf9a;
+  }
+
+  section.filters .with-odds {
+    margin-left: 1.9em;
+  }
+
+  section.matches .region-block .region-title {
+    display: flex;
+    align-items: center;
+    height: 2.7em;
+    cursor: pointer;
+    padding: 1.6em 0em;
+    font-size: 2em !important;
+  }
+
+  section.matches .region-block ul.champs > li .subchamps {
+    display: flex;
+    align-items: center;
+    height: 3.5em;
+    color: #ffffff99;
+    font-size: 2em;
+  }
+
+  section.matches .region-block ul.champs ul.submatches {
+    padding-top: 0.8em;
+    padding-bottom: 0.57em;
+    font-size: 2em;
+  }
+
+  section.matches .region-block {
+    background-color: #151a21;
+    padding: 0 1.86em;
+    margin-top: 0.17em;
+  }
+}
 
 @media (max-width: 1023px) {
   section.matches .region-block ul.champs > li {
@@ -421,3 +487,5 @@ select {
     color: #ffffff99;
   }
 }
+
+
