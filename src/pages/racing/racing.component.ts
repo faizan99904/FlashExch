@@ -11,11 +11,13 @@ export class RacingComponent {
   isWithOdds = false;
   // Store toggle state for each region
   collapsedRegions: { [key: number]: boolean } = {};
+
   expandedChamps: { [champKey: string]: boolean } = {};
 
-  toggleChampExpansion(regionIndex: number, champIndex: number): void {
+  toggleChampExpansion(regionIndex: number, champIndex: number): boolean {
     const key = `${regionIndex}_${champIndex}`;
     this.expandedChamps[key] = !this.expandedChamps[key];
+    return this.expandedChamps[key];
   }
 
   isChampExpanded(regionIndex: number, champIndex: number): boolean {

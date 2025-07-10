@@ -202,14 +202,17 @@ section.matches .region-block .region-title .material-icons {
   color: #ffffff80;
   margin-left: 0.6em;
 }
-section.matches .region-block ul.champs > li {
+section.matches .region-block ul.champs > li .subchamps {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
   align-items: center;
   height: 4em;
   color: #ffffff99;
+}
+section.matches .region-block ul.champs > li {
   border-bottom: 1px solid black;
+  padding-bottom: 1.09em
 }
 
 section.matches .region-block ul.champs > li:last-child {
@@ -341,15 +344,6 @@ select {
   section.matches .region-block .region-title .material-icons {
     color: #ffffff99;
     margin-left: 0.6em;
-  }
-  section.matches .region-block ul.champs > li {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    height: 4em;
-    color: #ffffff99;
-    border-bottom: 1px solid black;
   }
 
   section.matches .region-block ul.champs > li:last-child {

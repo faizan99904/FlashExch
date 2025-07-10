@@ -55,8 +55,8 @@
 
             <ul class="champs" *ngIf="!isCollapsed(i)">
                 <!-- You can put static or dynamic match data here -->
-            <li *ngFor="let champ of region.champs ;let champIdx = index">
-                    <span class="champ-name">{{ champ.name }}</span>
+               <li *ngFor="let champ of region.champs ;let champIdx = index" [ngClass]="">
+                <div class="subchamps">   <span class="champ-name">{{ champ.name }}</span>
 
 
                     <ul class="matches !hidden lg:!flex lg:flex-wrap">
@@ -89,20 +89,20 @@
                         </div>
                     </ul>
 
-
+                         </div> 
                     <ul class="matches !flex lg:!hidden lg:flex-wrap" *ngIf="isChampExpanded(i, champIdx)">
                         <li *ngFor="let match of champ.matches.slice(3, -1)">
                             <a [href]="match.link" class="rect"
                                 [ngClass]="{
-                                                                                                                                              'finished': champ.state === 'finished',
-                                                                                                                                              'active': champ.state === 'active',
-                                                                                                                                              'empty': champ.state === ''
-                                                                                                                                            }">
+                                                                                                                                                          'finished': champ.state === 'finished',
+                                                                                                                                                          'active': champ.state === 'active',
+                                                                                                                                                          'empty': champ.state === ''
+                                                                                                                                                        }">
                                 {{ match.time }}
                             </a>
                         </li>
-    
                     </ul>
+                    
                 </li>
             </ul>
 
