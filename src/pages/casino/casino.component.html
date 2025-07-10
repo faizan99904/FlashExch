@@ -15,13 +15,13 @@
 
     <div class="p-[9.98976px]   poppins-medium ">
         <div class=" bg-[#13161B]  text-[3.5vw]">
-            <div class="logos ">
+            <div class="logos max-h-0 overflow-hidden transition-all duration-500 " [ngClass]="{'max-h-[27px] duration-500 transition-all':!isProvider}">
                 <ul>
                     <li class="vendor"><img class="max-h-[18.2px]" src="/assets/images/Playn Go.svg" alt=""></li>
                     <li class="vendor"><img class="max-h-[18.2px]" src="/assets/images/Hacksaw Gaming.svg" alt="">
                     </li>
                     <li class="see">
-                        <div class="see-all">
+                        <div class="see-all" (click)="toggleProvider()">
                             <p text_key="CASINO__SEE_ALL "
                                 class="text-[#000] text-[12.48px] !leading-[27PX] vertical-align-middle">See All</p>
                         </div>
@@ -87,20 +87,47 @@
         </div>
     </div>
 
-    <div class="block px-1 bg-[#111317]">
+    <div class="block px-[5px] bg-[#111317] max-h-[0px] overflow-hidden duration-300 transition-all " [ngClass]="{'!max-h-[1000px] duration-300 transition-all ':isProvider}">
         <div class="relative w-[98%] h-[34.9642px] my-[14.9846px] flex">
             <div class="relative w-full">
-                <input type="text" class="search-input" name="provider" id="provider">
+                <input type="text" class="search-input" placeholder="Search Provider" name="provider" id="provider">
             </div>
-            <span class="material-icons close">expand_less</span>
+            <span class="material-icons close" (click)="toggleProvider()">expand_less</span>
         </div>
 
         <ul class="gap-[9.3654px] pb-0 grid [grid-template-columns:repeat(2,_1fr)]">
             <li class="bg-[#fff] rounded-[4.99488px]">
                 <div class="flex p-[6.55578px] items-center">
-                    <div class="inline-block max-h-[25px] max-w-[30px]">
+                    <div class="inline-flex items-center max-h-[25px] max-w-[30px]">
                         <img class="w-full" src="/assets/images/provider/117,218ddbcc73313b.svg" alt="">
-                        <span class="text-[#141414] text-[12.4872px]">Play'n GO</span>
+                        <span class="text-[#141414] text-[12.4872px] text-nowrap">Play'n GO</span>
+                    </div>
+                </div>
+            </li>
+
+            <li class="bg-[#fff] rounded-[4.99488px]">
+                <div class="flex p-[6.55578px] items-center">
+                    <div class="inline-flex items-center max-h-[25px] max-w-[30px]">
+                        <img class="w-full" src="/assets/images/provider/117,218e9eaf887dcc.svg" alt="">
+                        <span class="text-[#141414] text-[12.4872px] text-nowrap">Yggdrasil</span>
+                    </div>
+                </div>
+            </li>
+
+            <li class="bg-[#fff] rounded-[4.99488px]">
+                <div class="flex p-[6.55578px] items-center">
+                    <div class="inline-flex items-center max-h-[25px] max-w-[30px]">
+                        <img class="w-full" src="/assets/images/provider/117,218e5bb8facaf1.svg" alt="">
+                        <span class="text-[#141414] text-[12.4872px] text-nowrap">Thunderkick</span>
+                    </div>
+                </div>
+            </li>
+
+            <li class="bg-[#fff] rounded-[4.99488px]">
+                <div class="flex p-[6.55578px] items-center">
+                    <div class="inline-flex items-center max-h-[25px] max-w-[30px]">
+                        <img class="w-full" src="/assets/images/provider/117,218df795e48399.svg" alt="">
+                        <span class="text-[#141414] text-[12.4872px] text-nowrap">EGT</span>
                     </div>
                 </div>
             </li>
