@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { HeaderComponent } from '../../shared/header/header.component';
 import { SportsNavComponent } from '../../shared/sports-nav/sports-nav.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-promos',
-  imports: [FooterComponent, HeaderComponent, SportsNavComponent],
+  imports: [FooterComponent, HeaderComponent, SportsNavComponent, CommonModule],
   templateUrl: './promos.component.html',
   styleUrl: './promos.component.css',
 })

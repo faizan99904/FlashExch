@@ -187,7 +187,6 @@ section.matches .region-block .region-title .flag {
 .flag[country="turkey"] {
   background-position: -24px -72px;
 }
-
 /* Add more countries here */
 
 section.matches .region-block .region-title {
@@ -202,19 +201,15 @@ section.matches .region-block .region-title .material-icons {
   color: #ffffff80;
   margin-left: 0.6em;
 }
-section.matches .region-block ul.champs > li .subchamps {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  height: 4em;
-  color: #ffffff99;
-}
+
 section.matches .region-block ul.champs > li {
   border-bottom: 1px solid black;
-  padding-bottom: 1.09em
+  align-items: center;
 }
-
+.plus-remove {
+  background: none !important;
+  font-size: 1em;
+}
 section.matches .region-block ul.champs > li:last-child {
   border-bottom: none;
 }
@@ -222,7 +217,7 @@ section.matches .region-block ul.champs ul.matches {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
-  align-items: center;
+
   margin-left: auto;
 }
 
@@ -232,6 +227,10 @@ section.matches .region-block ul.champs ul.matches > li a {
   padding: 0.6em 0.555em;
   margin-right: 0.4em;
   border-radius: 0.3em;
+}
+section.matches .region-block ul.champs ul.submatches {
+  padding-top: 0.8em;
+  padding-bottom: 0.57em;
 }
 section.matches .region-block ul.champs ul.matches > li:last-child a {
   margin-right: 0;
@@ -267,8 +266,84 @@ select {
   background-size: 2vw auto;
   background-position: right 2vw center;
 }
+@media (min-width: 768px) and (max-width: 768px) {
+  section.filters {
+    height: 9.5em;
+    padding: 1.32em 0em;
+  }
+
+  section.filters .with-odds .switcher {
+    position: relative;
+    width: 4.22em;
+    height: 1.89em;
+    background-color: #101015;
+    border-radius: 1.5em;
+    margin-left: 2.58em;
+    transition: background-color 0.3s ease;
+  }
+
+  section.filters .with-odds .switcher::before {
+    content: "";
+    position: absolute;
+    width: 2.1em;
+    height: 2.1em;
+    border-radius: 1.1em;
+    left: -0.55em;
+    top: -0.15em;
+    background-color: #97a1c2;
+    transition: left 0.3s ease, background-color 0.3s ease;
+  }
+
+  section.filters .with-odds.active .switcher::before {
+    left: 2.45em;
+    background-color: #41cf9a;
+  }
+
+  section.filters .with-odds {
+    margin-left: 1.9em;
+  }
+
+  section.matches .region-block .region-title {
+    display: flex;
+    align-items: center;
+    height: 2.7em;
+    cursor: pointer;
+    padding: 1.6em 0em;
+    font-size: 2em !important;
+  }
+
+  section.matches .region-block ul.champs > li .subchamps {
+    display: flex;
+    align-items: center;
+    height: 3.5em;
+    color: #ffffff99;
+    font-size: 2em;
+  }
+
+  section.matches .region-block ul.champs ul.submatches {
+    padding-top: 0.8em;
+    padding-bottom: 0.57em;
+    font-size: 2em;
+  }
+
+  section.matches .region-block {
+    background-color: #151a21;
+    padding: 0 1.86em;
+    margin-top: 0.17em;
+  }
+}
 
 @media (max-width: 1023px) {
+  section.matches .region-block ul.champs > li {
+    border-bottom: 1.2px solid black;
+    padding: 0.9em 0px;
+    align-items: center;
+  }
+  section.matches .region-block ul.champs > li:first-child {
+    padding-bottom: 0.9em;
+    padding-top: 0px;
+  }
+
   section.matches .region-block .region-title {
     display: -ms-flexbox;
     display: flex;
@@ -302,6 +377,14 @@ select {
     -webkit-touch-callout: default !important;
     -webkit-user-select: text !important;
     padding-left: 2vw;
+  }
+  section.matches .region-block ul.champs > li .subchamps {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 2.5em;
+    color: #ffffff99;
   }
 }
 @media (min-width: 1023px) {
@@ -395,4 +478,14 @@ select {
     color: #101015;
     font-weight: 700;
   }
+  section.matches .region-block ul.champs > li .subchamps {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 4em;
+    color: #ffffff99;
+  }
 }
+
+

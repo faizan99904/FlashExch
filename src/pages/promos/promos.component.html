@@ -1,19 +1,23 @@
 <app-header></app-header>
-<app-sports-nav></app-sports-nav>
-<div class="wrapper overflow-hidden min-h-[70vh] text-white relative px-[0.8516rem] mx-auto">
-    <div class="page-title">
-
+<div class="hidden lg:block">
+    <app-sports-nav></app-sports-nav>
+</div>
+<div class="page-title">
+    <div class="img-wrapper pt-[3px]">
+        <img class="mr-[3.5vw]" src="https://m.velobet.win/assets/images/menu/promotions.svg?v6" alt="">
     </div>
-    <ul class="min-h-[34.0625rem] pb-[0.4258rem] overflow-hidden">
+    <span>Promotions</span>
+</div>
+<div class="wrapper overflow-hidden min-h-[70vh] text-white relative px-[0.8516rem] mx-auto">
+    <ul class="grid grid-cols-1 lg:grid-cols-3 min-h-[34.0625rem] pb-[0.4258rem] overflow-hidden">
         @for (item of promos; track $index) {
         <li>
-            <div class="promo-img w-full bg-[#181818]">
-                <img class="object-cover h-[6.8125rem]" [src]="item.img" alt="">
+            <div [ngStyle]="{ 'background-image': 'url(' + item.img + ')' }" class="promo-img w-full bg-[#181818]">
             </div>
             <div class="info">
                 <h2 class="truncate poppins-bold">{{item.title}}</h2>
                 <div class="text-content">
-                    <p class="text-[#f1c40f] poppins-regular font-bold">{{item.more}}</p>
+                    <p class="text-[#f1c40f]">{{item.more}}</p>
                 </div>
                 <div class="read-more poppins-regular cursor-pointer" (click)="modalfunc()">Read More</div>
                 <span class="btn poppins-bold">Register</span>
