@@ -336,7 +336,7 @@ select {
 @media (max-width: 1023px) {
   section.matches .region-block ul.champs > li {
     border-bottom: 1.2px solid black;
-    padding: 1.072em 0px;
+    padding: 1.1em 0em;
     align-items: center;
   }
   section.matches .region-block ul.champs > li:first-child {
@@ -546,4 +546,25 @@ select {
     height: 4em;
     color: #ffffff99;
   }
+}
+select option {
+  background-color: #151a21;
+  color: white;
+}
+
+select option:checked {
+  background-color: #16a34a !important;
+  color: white;
+}
+
+select {
+  background-color: #151a21;
+  color: white;
+  appearance: none; /* This removes default styling in some browsers */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 white;
 }
