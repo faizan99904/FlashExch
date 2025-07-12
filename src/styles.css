@@ -408,38 +408,32 @@ body {
   }
 }
 
-/* Base: Hide scrollbars */
 * {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  -ms-overflow-style: none;
 }
 
-/* WebKit scrollbars */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 2px;
+  height: 2px;
   background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
   background: transparent;
-  border-radius: 8px;
+  border-radius: 2px;
   transition: background 0.3s ease;
 }
 
-/* Show on hover (desktop) */
-:hover::-webkit-scrollbar-thumb {
-  background: rgba(61, 61, 61, 0.5);
-}
-
-/* Firefox show on hover */
-:hover {
-  scrollbar-width: thin;
+*:hover {
   scrollbar-color: rgba(61, 61, 61, 0.5) transparent;
 }
 
-/* Active state for mobile */
-.show-scrollbar::-webkit-scrollbar-thumb,
+*:hover::-webkit-scrollbar-thumb {
+  background: rgba(61, 61, 61, 0.5);
+}
+
 .show-scrollbar {
   scrollbar-width: thin !important;
   scrollbar-color: #3d3d3d transparent !important;
@@ -449,16 +443,13 @@ body {
   background: #3d3d3d !important;
 }
 
-
-
 @media (pointer: coarse) {
   ::-webkit-scrollbar {
-    width: 10px; 
+    width: 10px;
     height: 10px;
   }
 
-::-webkit-scrollbar-thumb {
+  ::-webkit-scrollbar-thumb {
     background: #3d3d3d !important;
-    scrollbar-color: #3d3d3d transparent !important;
   }
 }
