@@ -201,9 +201,159 @@ ul>li .info span.btn {
   .modal-width{
     width: 747.5px !important;
   }
+  .body-txt{
+   font-size: 14.625px;
+  }
+  .header{
+    height: 56.88px;
+  }
+  .lg-img{
+    padding: 32.5px;
+  }
+  .padding{
+    padding-top: 0% !important;
+    padding-left: 32.5px;
+    padding-right: 32.5px;
+    padding-top: 32.5px;
+    padding-bottom: 32.5px;
+  }
+  .alignment{
+    margin-top: 0px;
+    margin-bottom: 50px;
+  }
+  .rules{
+    margin-top: 0px;
+  }
+  .mid-ul{
+    list-style: none;
+    line-height: 30.375px;
+  }
+  .mid-li{
+    margin-top: 15px !important;
+    margin-left: 0% !important;
+  }
+  .mid-btn{
+    margin-top: 150px;
+  }
+  .mid-secnd-last-txt{
+ letter-spacing: 4px;
+ line-height: 17px;
+  }
+  .mid-last-btn{
+    display: none;
+  }
 }
-@media(max-width:768px){
+@media (min-width:426px) and (max-width:768px){
   .modal-width{
-    width: 691.2px;
+    width: 691.2px !important;
+    top: 8%;
+  }
+  .body-txt{
+   font-size: 26.88px;
+  }
+  .header{
+    height: 92.16px;
+    padding-left: 30px;
+    padding-right: 18px;
+  }
+  .mobile-text{
+    font-size: 30.72px;
+    color: #ffe615;
+  }
+  .mbl-close{
+    font-size: 53.76px;
+    color: white;
+  }
+  .padding{
+    padding: 46.8px;
+  }
+  .alignment{
+    margin-top: 0%;
+  }
+  .middle{
+    margin-top: 40px;
+    margin-bottom: 60px;
+  }
+  .mid-li{
+    height: 5px;
+  }
+  .mid-ul{
+    margin-top: 41px;
+  }
+  .mid-btn{
+    margin-top: 167px;
+    margin-bottom: 40px;
+  }
+  .body-txt{
+    margin-bottom: 56px;
+  }
+  .mid-secnd-last-txt{
+    line-height: 27px;
+  }
+  .mid-last-btn{
+    height: 99.83px;
+  }
+   .mid-last-btn{
+    display: block;
+  }
+}
+@media(max-width:425px){
+  .modal-width{
+    width: 382.79px !important;
+  }
+  .body-txt{
+   font-size: 14.8867px;
+  }
+   .mid-last-btn{
+    display: block;
+  }
+}
+@media(max-width:320px){
+  .modal-width{
+    width: 288px !important;
+    top: 4%;
+  }
+  .mobile-text{
+    font-size: 12.8px;
+  }
+  .mbl-close{
+    font-size: 22.4px !important;
+  }
+  .body-txt{
+   font-size: 11.2px !important;
+  }
+  .header{
+    height: 38.4px !important;
+  }
+  .custom-txt{
+    margin-top: 0%;
+    margin-bottom: 40px;
+  }
+   .mid-last-btn{
+    display: block;
+  }
+  .mid-ul{
+    list-style: disc;
+  }
+  .lg-img{
+    padding: 0%;
+  }
+  .padding{
+    padding:19.2px !important;
+  }
+  .mid-li{
+    margin-bottom: -2px !important;
+  }
+  .mid-secnd-last-txt{
+  line-height: 15px;
+  letter-spacing: 0px;
+  }
+}
+@media(max-width:375px){
+  .texting{
+    font-size: 15.033px !important;
+  }
+  .mbl-close{
+    font-size: 26.2733px !important;
   }
 }
