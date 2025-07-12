@@ -422,7 +422,7 @@ body {
 
 /* WebKit scrollbars */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: none;
   height: 8px;
   background: transparent;
 }
