@@ -32,7 +32,7 @@ ul > li {
   background-color: #101317;
 }
 
-ul > li:nth-child(3n + 1) {
+ul>li:nth-child(3n + 1) {
   margin-left: 0;
 }
 
@@ -48,12 +48,12 @@ ul > li .info {
   background-color: #101317;
 }
 
-ul > li .info > h2 {
+ul>li .info>h2 {
   line-height: 3.832rem;
   font-size: 1.1543rem;
 }
 
-ul > li .info > div.text-content {
+ul>li .info>div.text-content {
   line-height: 1.0645rem;
   font-size: 0.6387rem;
   height: 3.4063rem;
@@ -62,7 +62,7 @@ ul > li .info > div.text-content {
   font-weight: bold;
 }
 
-ul > li .info .read-more {
+ul>li .info .read-more {
   margin-top: 1.7031rem;
   font-size: 0.6813rem;
   float: left;
@@ -72,7 +72,7 @@ ul > li .info .read-more {
   cursor: pointer;
 }
 
-ul > li .info span.btn {
+ul>li .info span.btn {
   margin-top: 1.7031rem;
   float: right;
   width: 8.5938rem;

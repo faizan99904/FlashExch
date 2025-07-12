@@ -5,13 +5,13 @@
 }
 
 .bg-bg_backBtnBgColor {
-    background-image: linear-gradient(115deg,rgba(95,168,238,.9),rgba(144,195,244,.9) 52.26%,rgba(186,221,255,.9) 101.35%);
-    color: white;
+    background: var(--back-bg-clr);
+    color: var(--back-txt-clr);
 }
 
 .bg-bg_layBtnBgColor {
-    background-image: linear-gradient(245deg,rgba(240,146,173,.9) -0.45%,rgba(252,170,193,.9) 48.62%,rgba(255,208,222,.9) 99.78%);
-    color: white;
+    background:  var(--lay-bg-clr);
+    color: var(--lay-txt-clr);
 }
 
 .bg-giftBoxGradient {
@@ -34,3 +34,12 @@ background: linear-gradient(98deg, #10e312 0.98%, #f4f490);
 .border-solid{
     border-color: #525253;
 }
+
+@media screen and (min-width:819px) {
+    .bg-bg_inputBgColor{
+        background-color: #202225;
+        color: white;
+       
+    }
+}
+

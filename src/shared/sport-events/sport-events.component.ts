@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-sport-events',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './sport-events.component.html',
   styleUrl: './sport-events.component.css'
 })

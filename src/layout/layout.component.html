@@ -1,14 +1,14 @@
 <div class="prevent-select">
     <app-header></app-header>
     <app-sports-nav class="max-[820px]:hidden"></app-sports-nav>
-    <div class="flex lg:gap-[14px] layout-wrapper lg:px-[1vw]">
-        <div>
+    <div class="flex lg:gap-[11px] xl:gap-[14px] layout-wrapper lg:px-[1vw]">
+        <div class="lg:max-w-[198px] xl:max-w-[252px]">
             <app-sidebar></app-sidebar>
         </div>
         <div class="lg:hidden">
             <app-mobile-sidebar></app-mobile-sidebar>
         </div>
-        <div class="mainRouter w-[100vw] lg:w-[calc(100vw-618.5px)] max-md:h-[calc(100dvh-52px)] overflow-y-auto">
+        <div class="mainRouter w-[100vw] flex-auto lg:w-full xg:w-[calc(100vw-608.5px)] max-md:h-[calc(100dvh-52px)] overflow-y-auto">
             <app-sports-nav class="sport-nav-mobile"></app-sports-nav>
             <router-outlet></router-outlet>
             @if(signUp()){
@@ -19,7 +19,7 @@
             }
         </div>
 
-        <div class="max-lg:hidden w-[242px]">
+        <div class="max-lg:hidden lg:min-w-[242px] lg:max-w-[242px] xl:min-w-[308px] xl:max-w-[308px]">
             <app-betslip></app-betslip>
         </div>
 
