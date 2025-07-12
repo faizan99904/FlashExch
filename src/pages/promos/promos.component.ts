@@ -65,4 +65,11 @@ export class PromosComponent {
       more: 'Welcome Sport Bonus!',
     },
   ];
+  ismodalopen=false
+  modalfunc(){
+    this.ismodalopen=!this.ismodalopen
+  }
+  closemodal(){
+    this.ismodalopen=false
+  }
 }
