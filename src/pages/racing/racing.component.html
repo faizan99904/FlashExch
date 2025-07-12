@@ -1,4 +1,4 @@
-<section class="racing mt-[0.8rem] px-[0.32em] md:px-[0.8em] lg:px-0  mb-[75px] overflow-x-hidden">
+<section class="racing mt-[1.033em] px-[0.32em] md:px-[0.8em] lg:px-0  mb-[75px] overflow-x-hidden">
     <section class="main-banner default"><!----></section>
 
 
@@ -60,8 +60,8 @@
 
 
                         <ul class="matches  !hidden lg:!flex lg:flex-wrap">
-                            <li *ngFor="let match of champ.matches ">
-                                <a [href]="match.link" class="rect" [ngClass]="{
+                            <li *ngFor="let match of champ.matches " class="mt-[0.06em]">
+                                <a [href]="match.link" class="rect text-[0.938em]" [ngClass]="{
                                                                       'finished': champ.state === 'finished',
                                                                       'active': champ.state === 'active',
                                                                       'empty': champ.state === ''
@@ -72,8 +72,8 @@
                         </ul>
 
                         <ul class="matches !flex lg:!hidden lg:flex-wrap">
-                            <li *ngFor="let match of champ.matches.slice(0, 4)">
-                                <a [href]="match.link" class="rect" [ngClass]="{
+                            <li *ngFor="let match of champ.matches.slice(0, 4)" class=" mt-[0.06em]">
+                                <a [href]="match.link" class="rect text-[0.938em]" [ngClass]="{
                                                                                                               'finished': champ.state === 'finished',
                                                                                                               'active': champ.state === 'active',
                                                                                                               'empty': champ.state === ''
@@ -81,7 +81,7 @@
                                     {{ match.time }}
                                 </a>
                             </li>
-                            <div *ngIf="champ.matches.length > 4" class="lg:hidden pb-[0.1em]">
+                            <div *ngIf="champ.matches.length > 4" class="lg:hidden pb-[0.1em] pl-[0.89em] mt-[0.06em]">
                                 <button class="text-white  !font-semibold !p-0 !m-0 !h-[1.33em] !w-[1.33em] plus-remove"
                                     (click)="toggleChampExpansion(i, champIdx)">
                                     {{ isChampExpanded(i, champIdx) ? '−' : '+' }}
@@ -91,8 +91,8 @@
 
                     </div>
                     <ul class="matches submatches !flex lg:!hidden lg:flex-wrap" *ngIf="isChampExpanded(i, champIdx)">
-                        <li *ngFor="let match of champ.matches.slice(3, -1)">
-                            <a [href]="match.link" class="rect"
+                        <li *ngFor="let match of champ.matches.slice(3, -1)" class="mt-[0.06em]">
+                            <a [href]="match.link" class="rect text-[0.938em]"
                                 [ngClass]="{
                                                                                                                                                           'finished': champ.state === 'finished',
                                                                                                                                                           'active': champ.state === 'active',
