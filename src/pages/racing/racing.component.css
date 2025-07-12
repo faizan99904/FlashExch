@@ -102,11 +102,11 @@ section.filters .with-odds {
 
 section.filters .with-odds .switcher {
   position: relative;
-  width: 2.22em;
-  height: 0.89em;
+  width: 1.78em;
+  height: 0.85em;
   background-color: #101015;
   border-radius: 0.5em;
-  margin-left: 1.58em;
+  margin-left: 1.4em;
   transition: background-color 0.3s ease;
 }
 .matches .region-block ul.champs ul.matches > li a.active {
@@ -123,8 +123,8 @@ section.matches .region-block ul.champs ul.matches > li a.finished {
 section.filters .with-odds .switcher::before {
   content: "";
   position: absolute;
-  width: 1.1em;
-  height: 1.1em;
+  width: 1.143em;
+  height: 1.143em;
   border-radius: 1.1em;
   left: -0.55em;
   top: -0.15em;
@@ -163,7 +163,7 @@ section.matches .region-block .region-title {
 
 section.matches .region-block .region-title .flag {
   transform: scale(0.9);
-  margin-right: 0.5em;
+  margin-right: 0.6em;
 }
 .flag {
   display: inline-block;
@@ -224,7 +224,7 @@ section.matches .region-block ul.champs ul.matches {
 section.matches .region-block ul.champs ul.matches > li a {
   background-color: #1e242b;
   color: #fff;
-  padding: 0.6em 0.555em;
+  padding: 0.65em 0.421em;
   margin-right: 0.4em;
   border-radius: 0.3em;
 }
@@ -351,7 +351,7 @@ select {
     align-items: center;
     height: 1.7em;
     cursor: pointer;
-    padding: 1.6em 0em;
+    padding: 1.5em 0em;
   }
   section.matches .region-block .region-title .material-icons {
     color: #ffffff80;
@@ -437,13 +437,13 @@ select {
     display: flex;
     -ms-flex-align: center;
     align-items: center;
-    margin-left: auto;
+    margin-left: 3.4em;
   }
 
   section.matches .region-block ul.champs ul.matches > li a {
     background-color: #1e242b;
     color: #fff;
-    padding: 0.6em 0.555em;
+    padding: 0.65em 0.421em;
     margin-right: 0.4em;
     border-radius: 0.3em;
   }
@@ -466,7 +466,7 @@ select {
 
   section.matches .region-block .region-title .flag {
     transform: scale(0.9);
-    margin-right: 0.5em;
+    margin-right: 0.6em;
   }
   .matches .region-block ul.champs ul.matches > li a.active {
     background-color: #42cf9a;
@@ -487,5 +487,3 @@ select {
     color: #ffffff99;
   }
 }
-
-
