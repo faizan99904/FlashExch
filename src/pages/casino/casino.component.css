@@ -32,6 +32,12 @@
   font-style: normal;
 }
 
+.desk-search:focus {
+  border: 0.0714rem solid #999;
+  box-shadow: 0 0 0.7143rem rgba(0, 0, 0, 0.05);
+  outline: none;
+}
+
 .logos {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -379,6 +385,17 @@
   transition: 0.2s ease;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+.desk-pro:after {
+  margin: 0 auto;
+  position: absolute;
+  content: "";
+  top: 3.3rem;
+  left: 0;
+  height: 0.0571rem;
+  width: 100%;
+  background-color: rgba(112, 112, 112, 0.16);
 }
 
 ::ng-deep .swiper-button-prev:after {
