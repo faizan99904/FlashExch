@@ -196,3 +196,14 @@ ul>li .info span.btn {
     height: 11.3vh;
   }
 }
+
+@media(max-width:1440px){
+  .modal-width{
+    width: 747.5px !important;
+  }
+}
+@media(max-width:768px){
+  .modal-width{
+    width: 691.2px;
+  }
+}
