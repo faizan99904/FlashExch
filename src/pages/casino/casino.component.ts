@@ -26,6 +26,402 @@ export class CasinoComponent {
     '/assets/images/120,2298db8202d603.webp',
     '/assets/images/121,2298ed4342af83.webp',
   ];
+
+  deskProviders = [
+    {
+      img: 'https://static.inpcdn.com/117,218ddbcc73313b.webp',
+      title: "Play'n GO",
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218e9eaf887dcc.webp',
+      title: 'Yggdrasil',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218e5bb8facaf1.webp',
+      title: 'Thunderkick',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218df795e48399.webp',
+      title: 'EGT',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,2178a12383599c.webp',
+      title: 'Gameart',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,21cba3b335cdba.webp',
+      title: 'Red Rake Gaming',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218dd472aa3746.webp',
+      title: 'ORYX',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,21785db0d93a6a.webp',
+      title: 'Wazdan',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,221006964ab0c1.webp',
+      title: 'JFTW',
+    },
+    {
+      img: 'https://static.inpcdn.com/118,220f5e90b438be.webp',
+      title: '2BY2 Gaming',
+    },
+    {
+      img: 'https://static.inpcdn.com/118,220fb3abda3b50.webp',
+      title: 'Gamevy',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,220f8cd89270b5.webp',
+      title: 'All41 Studios',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,2218d9ff74295f.webp',
+      title: 'Skillzz Gaming',
+    },
+    {
+      img: 'https://static.inpcdn.com/118,2218fae8d32305.webp',
+      title: 'Golden Rock Studio',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218ddbcc73313b.webp',
+      title: "Play'n GO",
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218e9eaf887dcc.webp',
+      title: 'Yggdrasil',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218e5bb8facaf1.webp',
+      title: 'Thunderkick',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218df795e48399.webp',
+      title: 'EGT',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,2178a12383599c.webp',
+      title: 'Gameart',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,21cba3b335cdba.webp',
+      title: 'Red Rake Gaming',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218dd472aa3746.webp',
+      title: 'ORYX',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,21785db0d93a6a.webp',
+      title: 'Wazdan',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,221006964ab0c1.webp',
+      title: 'JFTW',
+    },
+    {
+      img: 'https://static.inpcdn.com/118,220f5e90b438be.webp',
+      title: '2BY2 Gaming',
+    },
+    {
+      img: 'https://static.inpcdn.com/118,220fb3abda3b50.webp',
+      title: 'Gamevy',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,220f8cd89270b5.webp',
+      title: 'All41 Studios',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,2218d9ff74295f.webp',
+      title: 'Skillzz Gaming',
+    },
+    {
+      img: 'https://static.inpcdn.com/118,2218fae8d32305.webp',
+      title: 'Golden Rock Studio',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218ddbcc73313b.webp',
+      title: "Play'n GO",
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218e9eaf887dcc.webp',
+      title: 'Yggdrasil',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218e5bb8facaf1.webp',
+      title: 'Thunderkick',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218df795e48399.webp',
+      title: 'EGT',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,2178a12383599c.webp',
+      title: 'Gameart',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,21cba3b335cdba.webp',
+      title: 'Red Rake Gaming',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218dd472aa3746.webp',
+      title: 'ORYX',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,21785db0d93a6a.webp',
+      title: 'Wazdan',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,221006964ab0c1.webp',
+      title: 'JFTW',
+    },
+    {
+      img: 'https://static.inpcdn.com/118,220f5e90b438be.webp',
+      title: '2BY2 Gaming',
+    },
+    {
+      img: 'https://static.inpcdn.com/118,220fb3abda3b50.webp',
+      title: 'Gamevy',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,220f8cd89270b5.webp',
+      title: 'All41 Studios',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,2218d9ff74295f.webp',
+      title: 'Skillzz Gaming',
+    },
+    {
+      img: 'https://static.inpcdn.com/118,2218fae8d32305.webp',
+      title: 'Golden Rock Studio',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218ddbcc73313b.webp',
+      title: "Play'n GO",
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218e9eaf887dcc.webp',
+      title: 'Yggdrasil',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218e5bb8facaf1.webp',
+      title: 'Thunderkick',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218df795e48399.webp',
+      title: 'EGT',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,2178a12383599c.webp',
+      title: 'Gameart',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,21cba3b335cdba.webp',
+      title: 'Red Rake Gaming',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218dd472aa3746.webp',
+      title: 'ORYX',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,21785db0d93a6a.webp',
+      title: 'Wazdan',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,221006964ab0c1.webp',
+      title: 'JFTW',
+    },
+    {
+      img: 'https://static.inpcdn.com/118,220f5e90b438be.webp',
+      title: '2BY2 Gaming',
+    },
+    {
+      img: 'https://static.inpcdn.com/118,220fb3abda3b50.webp',
+      title: 'Gamevy',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,220f8cd89270b5.webp',
+      title: 'All41 Studios',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,2218d9ff74295f.webp',
+      title: 'Skillzz Gaming',
+    },
+    {
+      img: 'https://static.inpcdn.com/118,2218fae8d32305.webp',
+      title: 'Golden Rock Studio',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218ddbcc73313b.webp',
+      title: "Play'n GO",
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218e9eaf887dcc.webp',
+      title: 'Yggdrasil',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218e5bb8facaf1.webp',
+      title: 'Thunderkick',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218df795e48399.webp',
+      title: 'EGT',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,2178a12383599c.webp',
+      title: 'Gameart',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,21cba3b335cdba.webp',
+      title: 'Red Rake Gaming',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218dd472aa3746.webp',
+      title: 'ORYX',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,21785db0d93a6a.webp',
+      title: 'Wazdan',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,221006964ab0c1.webp',
+      title: 'JFTW',
+    },
+    {
+      img: 'https://static.inpcdn.com/118,220f5e90b438be.webp',
+      title: '2BY2 Gaming',
+    },
+    {
+      img: 'https://static.inpcdn.com/118,220fb3abda3b50.webp',
+      title: 'Gamevy',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,220f8cd89270b5.webp',
+      title: 'All41 Studios',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,2218d9ff74295f.webp',
+      title: 'Skillzz Gaming',
+    },
+    {
+      img: 'https://static.inpcdn.com/118,2218fae8d32305.webp',
+      title: 'Golden Rock Studio',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218ddbcc73313b.webp',
+      title: "Play'n GO",
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218e9eaf887dcc.webp',
+      title: 'Yggdrasil',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218e5bb8facaf1.webp',
+      title: 'Thunderkick',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218df795e48399.webp',
+      title: 'EGT',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,2178a12383599c.webp',
+      title: 'Gameart',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,21cba3b335cdba.webp',
+      title: 'Red Rake Gaming',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218dd472aa3746.webp',
+      title: 'ORYX',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,21785db0d93a6a.webp',
+      title: 'Wazdan',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,221006964ab0c1.webp',
+      title: 'JFTW',
+    },
+    {
+      img: 'https://static.inpcdn.com/118,220f5e90b438be.webp',
+      title: '2BY2 Gaming',
+    },
+    {
+      img: 'https://static.inpcdn.com/118,220fb3abda3b50.webp',
+      title: 'Gamevy',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,220f8cd89270b5.webp',
+      title: 'All41 Studios',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,2218d9ff74295f.webp',
+      title: 'Skillzz Gaming',
+    },
+    {
+      img: 'https://static.inpcdn.com/118,2218fae8d32305.webp',
+      title: 'Golden Rock Studio',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218ddbcc73313b.webp',
+      title: "Play'n GO",
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218e9eaf887dcc.webp',
+      title: 'Yggdrasil',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218e5bb8facaf1.webp',
+      title: 'Thunderkick',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218df795e48399.webp',
+      title: 'EGT',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,2178a12383599c.webp',
+      title: 'Gameart',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,21cba3b335cdba.webp',
+      title: 'Red Rake Gaming',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,218dd472aa3746.webp',
+      title: 'ORYX',
+    },
+    {
+      img: 'https://static.inpcdn.com/117,21785db0d93a6a.webp',
+      title: 'Wazdan',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,221006964ab0c1.webp',
+      title: 'JFTW',
+    },
+    {
+      img: 'https://static.inpcdn.com/118,220f5e90b438be.webp',
+      title: '2BY2 Gaming',
+    },
+    {
+      img: 'https://static.inpcdn.com/118,220fb3abda3b50.webp',
+      title: 'Gamevy',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,220f8cd89270b5.webp',
+      title: 'All41 Studios',
+    },
+    {
+      img: 'https://static.inpcdn.com/119,2218d9ff74295f.webp',
+      title: 'Skillzz Gaming',
+    },
+    {
+      img: 'https://static.inpcdn.com/118,2218fae8d32305.webp',
+      title: 'Golden Rock Studio',
+    },
+  ];
+
   ngAfterViewInit(): void {
     const swiper = new Swiper('.mySwiper', {
       loop: true,
@@ -68,10 +464,10 @@ export class CasinoComponent {
     this.isProvider = !this.isProvider;
   }
 
-  toggleDeskProvider(){
-    let width = window.innerWidth
+  toggleDeskProvider() {
+    let width = window.innerWidth;
     if (width > 1024) {
-      this.isDeskProvider = !this.isDeskProvider
+      this.isDeskProvider = !this.isDeskProvider;
     }
   }
 }

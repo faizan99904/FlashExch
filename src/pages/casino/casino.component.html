@@ -320,7 +320,15 @@
                     <p class="text-[1.4464rem] text-[rgba(30,30,30,.6)]">Filter by provider</p>
                 </div>
                 <ul class="flex overflow-hidden h-full flex-wrap mt-[2.7194rem]">
-                    <li class="w-[6.9643rem] shrink-0 whitespace-nowrap truncate "></li>
+                    @for (item of deskProviders; track $index) {
+                    <li
+                        class="w-[6.9643rem] inline-flex items-center shrink-0 py-[0.6384rem] basis-[calc(100%_/_7)] select-none h-[45.41px] text-[#868686] transition-[color_120ms_ease-in,margin_.4s_ease] relative ">
+                        <div class="inline-block max-h-[25px] max-w-[30px] mr-1">
+                            <img [src]="item.img" alt="" class="!w-full">
+                        </div>
+                        <span class="max-w-[132.42px] truncate leading-tight"> {{item.title}}</span>
+                    </li>
+                    }
                 </ul>
             </div>
             <span (click)="toggleDeskProvider()"
