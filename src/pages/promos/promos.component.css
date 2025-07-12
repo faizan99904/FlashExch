@@ -308,22 +308,31 @@ ul>li .info span.btn {
     display: block;
   }
 }
-@media(max-width:320px){
+@media(max-width:376px){
   .modal-width{
-    width: 288px !important;
-    top: 4%;
+    /* width: 288px !important; */
+    top: 3%;
   }
   .mobile-text{
-    font-size: 12.8px;
+    font-size: 15.0133px;
+    color: #ffe615 !important;
   }
   .mbl-close{
-    font-size: 22.4px !important;
+    font-size: 26.2733px !important;
+    font-weight: 400 !important;
   }
   .body-txt{
-   font-size: 11.2px !important;
+   font-size: 13.1367px !important;
+  }
+  .alert{
+     font-weight: 800;
+    margin-top: 15px !important;
+    text-align: justify;
   }
   .header{
-    height: 38.4px !important;
+    height: 52.4px !important;
+    padding-left: 10px !important;
+    padding-top: 9px;
   }
   .custom-txt{
     margin-top: 0%;
@@ -334,26 +343,57 @@ ul>li .info span.btn {
   }
   .mid-ul{
     list-style: disc;
+    line-height: 8.375px !important;
+    padding-left: 17px;
   }
   .lg-img{
     padding: 0%;
   }
   .padding{
-    padding:19.2px !important;
+    padding: 25.22px 22.52px 22.52px !important;
   }
   .mid-li{
-    margin-bottom: -2px !important;
+    margin-bottom: -3px !important;
   }
   .mid-secnd-last-txt{
   line-height: 15px;
   letter-spacing: 0px;
+  text-align: justify;
+  }
+  .mbl-close{
+    color: white;
+    margin: 0% !important;
+  }
+  .middle{
+    margin-bottom: 28px !important;
+    line-height: 16.25px;
+  }
+  .mid-btn{
+    margin-top: 115px !important;
+    font-size: 13.1367px !important;
+  }
+  .mid-last-btn{
+    font-size: 16.89px !important;
+    height: 48.49px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+   .modal-width{
+    max-width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .alignment{
+    margin-bottom: 35px !important;
   }
 }
-@media(max-width:375px){
+/* @media(max-width:376px){
   .texting{
     font-size: 15.033px !important;
   }
   .mbl-close{
     font-size: 26.2733px !important;
   }
-}
+ 
+} */
