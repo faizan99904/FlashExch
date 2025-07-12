@@ -1,4 +1,4 @@
-<section class="racing mt-[0.8rem] px-[0.32em] md:px-[0.8em] lg:px-0  mb-[75px] overflow-x-hidden">
+<section class="racing mt-[1.033em] px-[0.32em] md:px-[0.8em] lg:px-0  mb-[75px] overflow-x-hidden">
     <section class="main-banner default"><!----></section>
 
 
@@ -34,7 +34,7 @@
         <div class="region-block rounded-sm" *ngFor="let region of regions; let i = index">
             <div class="region-title" (click)="toggleRegion(i)">
                 <div [attr.country]="region.country" class="flag"></div>
-                <span class="!text-[0.9em] !text-[#ffffff99]">{{ region.title }}</span>
+                <span class="!text-[0.94em] !text-[#ffffff99]">{{ region.title }}</span>
 
                 <ul class="time-filters !hidden lg:!flex">
                     <li class="active">All</li>
@@ -43,10 +43,10 @@
                     <li>Finished</li>
                 </ul>
                 <select class="!block lg:!hidden" (click)="$event.stopPropagation()">
-                    <option value="">All</option>
-                    <option value="UPCOMING">Upcoming</option>
-                    <option value="RACE_OFF">Race Off</option>
-                    <option value="FINISHED">Finished</option>
+                    <option value="" class="bg-[#151a21] border-none outline-none">All</option>
+                    <option value="UPCOMING" class="bg-[#151a21] border-none outline-none">Upcoming</option>
+                    <option value="RACE_OFF" class="bg-[#151a21] border-none outline-none">Race Off</option>
+                    <option value="FINISHED" class="bg-[#151a21] border-none outline-none">Finished</option>
                 </select>
                 <span class="material-icons cursor-pointer">
                     {{ isCollapsed(i) ? 'keyboard_arrow_right' : 'keyboard_arrow_down' }}
@@ -60,8 +60,8 @@
 
 
                         <ul class="matches  !hidden lg:!flex lg:flex-wrap">
-                            <li *ngFor="let match of champ.matches ">
-                                <a [href]="match.link" class="rect" [ngClass]="{
+                            <li *ngFor="let match of champ.matches " class="mt-[0.06em]">
+                                <a [href]="match.link" class="rect text-[0.938em]" [ngClass]="{
                                                                       'finished': champ.state === 'finished',
                                                                       'active': champ.state === 'active',
                                                                       'empty': champ.state === ''
@@ -72,8 +72,8 @@
                         </ul>
 
                         <ul class="matches !flex lg:!hidden lg:flex-wrap">
-                            <li *ngFor="let match of champ.matches.slice(0, 4)">
-                                <a [href]="match.link" class="rect" [ngClass]="{
+                            <li *ngFor="let match of champ.matches.slice(0, 4)" class=" mt-[0.06em]">
+                                <a [href]="match.link" class="rect text-[0.938em]" [ngClass]="{
                                                                                                               'finished': champ.state === 'finished',
                                                                                                               'active': champ.state === 'active',
                                                                                                               'empty': champ.state === ''
@@ -81,7 +81,7 @@
                                     {{ match.time }}
                                 </a>
                             </li>
-                            <div *ngIf="champ.matches.length > 4" class="lg:hidden pb-[0.1em]">
+                            <div *ngIf="champ.matches.length > 4" class="lg:hidden pb-[0.1em] pl-[0.89em] mt-[0.06em]">
                                 <button class="text-white  !font-semibold !p-0 !m-0 !h-[1.33em] !w-[1.33em] plus-remove"
                                     (click)="toggleChampExpansion(i, champIdx)">
                                     {{ isChampExpanded(i, champIdx) ? '−' : '+' }}
@@ -91,8 +91,8 @@
 
                     </div>
                     <ul class="matches submatches !flex lg:!hidden lg:flex-wrap" *ngIf="isChampExpanded(i, champIdx)">
-                        <li *ngFor="let match of champ.matches.slice(3, -1)">
-                            <a [href]="match.link" class="rect"
+                        <li *ngFor="let match of champ.matches.slice(3, -1)" class="mt-[0.06em]">
+                            <a [href]="match.link" class="rect text-[0.938em]"
                                 [ngClass]="{
                                                                                                                                                           'finished': champ.state === 'finished',
                                                                                                                                                           'active': champ.state === 'active',

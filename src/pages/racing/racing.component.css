@@ -102,11 +102,11 @@ section.filters .with-odds {
 
 section.filters .with-odds .switcher {
   position: relative;
-  width: 2.22em;
-  height: 0.89em;
+  width: 1.78em;
+  height: 0.85em;
   background-color: #101015;
   border-radius: 0.5em;
-  margin-left: 1.58em;
+  margin-left: 1.4em;
   transition: background-color 0.3s ease;
 }
 .matches .region-block ul.champs ul.matches > li a.active {
@@ -123,8 +123,8 @@ section.matches .region-block ul.champs ul.matches > li a.finished {
 section.filters .with-odds .switcher::before {
   content: "";
   position: absolute;
-  width: 1.1em;
-  height: 1.1em;
+  width: 1.143em;
+  height: 1.143em;
   border-radius: 1.1em;
   left: -0.55em;
   top: -0.15em;
@@ -163,7 +163,7 @@ section.matches .region-block .region-title {
 
 section.matches .region-block .region-title .flag {
   transform: scale(0.9);
-  margin-right: 0.5em;
+  margin-right: 0.6em;
 }
 .flag {
   display: inline-block;
@@ -224,7 +224,7 @@ section.matches .region-block ul.champs ul.matches {
 section.matches .region-block ul.champs ul.matches > li a {
   background-color: #1e242b;
   color: #fff;
-  padding: 0.6em 0.555em;
+  padding: 0.73em 0.53em;
   margin-right: 0.4em;
   border-radius: 0.3em;
 }
@@ -336,11 +336,11 @@ select {
 @media (max-width: 1023px) {
   section.matches .region-block ul.champs > li {
     border-bottom: 1.2px solid black;
-    padding: 0.9em 0px;
+    padding: 1.072em 0px;
     align-items: center;
   }
   section.matches .region-block ul.champs > li:first-child {
-    padding-bottom: 0.9em;
+    padding-bottom: 1em;
     padding-top: 0px;
   }
 
@@ -351,7 +351,7 @@ select {
     align-items: center;
     height: 1.7em;
     cursor: pointer;
-    padding: 1.6em 0em;
+    padding: 1.5em 0em;
   }
   section.matches .region-block .region-title .material-icons {
     color: #ffffff80;
@@ -388,6 +388,66 @@ select {
   }
 }
 @media (min-width: 1023px) {
+  .matches .region-block ul.champs ul.matches > li a.active {
+    background-color: #42cf9a;
+    color: #101015;
+    font-weight: 700;
+  }
+  section.matches .region-block ul.champs ul.matches > li a.finished {
+    background-color: #e63e4c;
+    color: #101015;
+    font-weight: 700;
+  }
+
+  section.filters .with-odds .switcher::before {
+    content: "";
+    position: absolute;
+    width: 1.1em;
+    height: 1.1em;
+    border-radius: 1.1em;
+    left: -0.55em;
+    top: -0.15em;
+    background-color: #97a1c2;
+    transition: left 0.3s ease, background-color 0.3s ease;
+  }
+
+  section.filters .with-odds.active .switcher::before {
+    left: 1.45em;
+    background-color: #41cf9a; /* green on active */
+  }
+  section.filters .with-odds.active .switcher {
+    background-color: #3e3e56;
+  }
+  section.matches .region-block ul.champs ul.matches > li a {
+    background-color: #1e242b;
+    color: #fff;
+    padding: 0.671em 0.674em !important;
+    margin-right: 0.4em;
+    border-radius: 0.3em;
+  }
+  section.matches .region-block ul.champs ul.submatches {
+    padding-top: 0.8em;
+    padding-bottom: 0.57em;
+  }
+  section.matches .region-block ul.champs ul.matches > li:last-child a {
+    margin-right: 0;
+    border-radius: 0.3em;
+  }
+  .sb-middle-content .rect {
+    border-radius: 5px;
+    width: 3.6em;
+    height: 2.4em;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    transition: -webkit-filter 0.12s ease-in;
+    transition: filter 0.12s ease-in;
+    transition: filter 0.12s ease-in, -webkit-filter 0.12s ease-in;
+    cursor: pointer;
+  }
   section.filters {
     display: -ms-flexbox;
     display: flex;
@@ -443,7 +503,7 @@ select {
   section.matches .region-block ul.champs ul.matches > li a {
     background-color: #1e242b;
     color: #fff;
-    padding: 0.6em 0.555em;
+    padding: 0.73em 0.53em;
     margin-right: 0.4em;
     border-radius: 0.3em;
   }
@@ -466,7 +526,7 @@ select {
 
   section.matches .region-block .region-title .flag {
     transform: scale(0.9);
-    margin-right: 0.5em;
+    margin-right: 0.6em;
   }
   .matches .region-block ul.champs ul.matches > li a.active {
     background-color: #42cf9a;
@@ -487,5 +547,3 @@ select {
     color: #ffffff99;
   }
 }
-
-

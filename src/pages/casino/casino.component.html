@@ -15,7 +15,8 @@
 
     <div class="p-[9.98976px]   poppins-medium ">
         <div class=" bg-[#13161B]  text-[3.5vw]">
-            <div class="logos max-h-0 overflow-hidden transition-all duration-500 " [ngClass]="{'max-h-[27px] duration-500 transition-all':!isProvider}">
+            <div class="logos max-h-0 overflow-hidden transition-all duration-500 "
+                [ngClass]="{'max-h-[27px] duration-500 transition-all':!isProvider}">
                 <ul>
                     <li class="vendor"><img class="max-h-[18.2px]" src="/assets/images/Playn Go.svg" alt=""></li>
                     <li class="vendor"><img class="max-h-[18.2px]" src="/assets/images/Hacksaw Gaming.svg" alt="">
@@ -87,7 +88,8 @@
         </div>
     </div>
 
-    <div class="block px-[5px] bg-[#111317] max-h-[0px] overflow-hidden duration-300 transition-all " [ngClass]="{'!max-h-[1000px] duration-300 transition-all ':isProvider}">
+    <div class="block px-[5px] bg-[#111317] max-h-[0px] overflow-hidden duration-300 transition-all "
+        [ngClass]="{'!max-h-[1000px] duration-300 transition-all ':isProvider}">
         <div class="relative w-[98%] h-[34.9642px] my-[14.9846px] flex">
             <div class="relative w-full">
                 <input type="text" class="search-input" placeholder="Search Provider" name="provider" id="provider">
@@ -270,7 +272,8 @@
 
     <div class="overflow-hidden w-full -mt-[14.33px] px-[16.25px]">
         <div class="bg-[#14171c] p-[17.0625px_26.8125px] rounded-[26px] relative z-[1] mt-[0px] mb-[19.5px]">
-            <div class="flex justify-center mb-[16.5px] gap-[.875rem]">
+            <div [ngClass]="{'!max-h-0 opacity-0 overflow-hidden' : isDeskProvider}"
+                class="max-h-[34.66px] opacity-100 transition-all duration-500 ease-in-out flex justify-center mb-[16.5px] gap-[.875rem]">
                 <div class="h-[34.6671px] flex gap-[4.875px] grow-[1] w-full">
                     <div class="rounded-[9.75px] flex justify-center items-center cursor-pointer h-full w-full">
                         <img class="max-h-[20.8px]" src="/assets/images/Playn Go.svg" alt="">
@@ -278,7 +281,7 @@
                     <div class="rounded-[9.75px] flex justify-center items-center cursor-pointer h-full w-full">
                         <img class="max-h-[20.8px]" src="/assets/images/Hacksaw Gaming.svg" alt="">
                     </div>
-                    <div class="desktop-see-all">See All</div>
+                    <div class="desktop-see-all" (click)="toggleDeskProvider()">See All</div>
                 </div>
             </div>
 
@@ -305,6 +308,32 @@
         </div>
 
 
+        <div [ngClass]="{'!max-h-[760px]' : isDeskProvider}"
+            class="text-[0.8696rem] rounded-[0.6094rem] poppins-medium bg-[#ededed] relative mb-4 max-h-0 transition-all overflow-hidden duration-500 ease-in-out">
+            <div class="p-[1.6839rem_1.3366rem_1.6839rem_2rem] w-full poppins-medium">
+                <div class="desk-pro flex items-center relative justify-center">
+                    <div class="absolute left-0">
+                        <input
+                            class="desk-search bg-white text-[#333] w-[12.75rem] rounded-[0.4643rem] h-[2.4938rem] px-[0.5119rem] poppins-regular"
+                            type="text" placeholder="Search Provider">
+                    </div>
+                    <p class="text-[1.4464rem] text-[rgba(30,30,30,.6)]">Filter by provider</p>
+                </div>
+                <ul class="flex overflow-hidden h-full flex-wrap mt-[2.7194rem]">
+                    @for (item of deskProviders; track $index) {
+                    <li
+                        class="w-[6.9643rem] inline-flex items-center shrink-0 py-[0.6384rem] basis-[calc(100%_/_7)] select-none h-[45.41px] text-[#868686] transition-[color_120ms_ease-in,margin_.4s_ease] relative ">
+                        <div class="inline-block max-h-[25px] max-w-[30px] mr-1">
+                            <img [src]="item.img" alt="" class="!w-full">
+                        </div>
+                        <span class="max-w-[132.42px] truncate leading-tight"> {{item.title}}</span>
+                    </li>
+                    }
+                </ul>
+            </div>
+            <span (click)="toggleDeskProvider()"
+                class="material-icons absolute top-[1.1429rem] right-[1.375rem] text-[2rem] text-[#5c5c5c] opacity-70 cursor-pointer transition-opacity duration-[0.3s] mt-[0.2857rem]">close</span>
+        </div>
 
 
 
