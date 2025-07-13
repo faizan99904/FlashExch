@@ -1,30 +1,30 @@
 <app-header></app-header>
 <div class="hidden lg:block">
-    <app-sports-nav></app-sports-nav>
+  <app-sports-nav></app-sports-nav>
 </div>
 <div class="page-title">
-    <div class="img-wrapper pt-[3px]">
-        <img class="mr-[3.5vw]" src="https://m.velobet.win/assets/images/menu/promotions.svg?v6" alt="">
-    </div>
-    <span>Promotions</span>
+  <div class="img-wrapper pt-[3px]">
+    <img class="mr-[3.5vw]" src="https://m.velobet.win/assets/images/menu/promotions.svg?v6" alt="">
+  </div>
+  <span>Promotions</span>
 </div>
 <div class="wrapper overflow-hidden min-h-[70vh] text-white relative px-[0.8516rem] mx-auto">
-    <ul class="grid grid-cols-1 lg:grid-cols-3 min-h-[34.0625rem] pb-[0.4258rem] overflow-hidden">
-        @for (item of promos; track $index) {
-        <li>
-            <div [ngStyle]="{ 'background-image': 'url(' + item.img + ')' }" class="promo-img w-full bg-[#181818]">
-            </div>
-            <div class="info">
-                <h2 class="truncate poppins-bold">{{item.title}}</h2>
-                <div class="text-content">
-                    <p class="text-[#f1c40f]">{{item.more}}</p>
-                </div>
-                <div class="read-more poppins-regular cursor-pointer" (click)="modalfunc()">Read More</div>
-                <span class="btn poppins-bold">Register</span>
-            </div>
-        </li>
-        }
-    </ul>
+  <ul class="grid grid-cols-1 lg:grid-cols-3 min-h-[34.0625rem] pb-[0.4258rem] overflow-hidden">
+    @for (item of promos; track $index) {
+    <li>
+      <div [ngStyle]="{ 'background-image': 'url(' + item.img + ')' }" class="promo-img w-full bg-[#181818]">
+      </div>
+      <div class="info">
+        <h2 class="truncate poppins-bold">{{item.title}}</h2>
+        <div class="text-content">
+          <p class="text-[#f1c40f] font-[300]">{{item.more}}</p>
+        </div>
+        <div class="read-more poppins-regular cursor-pointer" (click)="modalfunc()">Read More</div>
+        <span class="btn poppins-bold">Register</span>
+      </div>
+    </li>
+    }
+  </ul>
 </div>
 <app-footer></app-footer>
 @if (ismodalopen) {
@@ -32,47 +32,52 @@
 <div class="absolute top-0 left-0 w-screen h-screen z-[100] flex items-center justify-center bg-[rgba(61,61,61,.8)]">
 
   <div
-    class="bg-[#13161b] relative leading-[4.375rem] top-[8%] md:mx-auto  border-[1px-solid0-#515151] rounded-[8px] overflow-hidden modal-width"
-  >
-    <div class="lg:text-[1.5625rem] flex justify-between items-center text-[#ffe615] mt-[-5px] lg:px-[15px] px-2 sm:leading-[12vw] sm:text-[30.72px] header">
+    class="bg-[#13161b] relative leading-[4.375rem] top-[8%] md:mx-auto  border-[1px-solid0-#515151] rounded-[8px] overflow-hidden modal-width">
+    <div
+      class="lg:text-[1.5625rem] flex justify-between items-center text-[#ffe615] mt-[-5px] lg:px-[15px] px-2 sm:leading-[12vw] sm:text-[30.72px] header">
       <p class="text-white text-[20px] ps-[5px] texting mobile-text">100% Bonus!</p>
-      <span class="material-icons close font-[700] cursor-pointer mb-1 md:text-white custom mbl-close" (click)="closemodal()">close</span>
+      <span class="material-icons close font-[700] cursor-pointer mb-1 md:text-white custom mbl-close"
+        (click)="closemodal()">close</span>
     </div>
 
-   
+
     <div class=" bg-[#13161b] h-[80vh] overflow-auto custom-scrollbar">
-      <img src="/assets/images/modal-img.jpg" alt="" class="mx-auto w-full max-h-[220px] object-cover md:max-h-none lg-img" />
-<div class="py-[20px] px-[20px] md:py-[25px] md:pe-[28px] md:ps-[32px] padding">
-      <strong class="mt-[2rem] md:mt-[2.5rem] text-[1.125rem] text-[#f1c40f] block leading-none mb-[20px] custom-txt body-txt alignment">
-        Wimbledon Promo – Bet &amp; Get 100% Free Spins!
-      </strong>
+      <img src="/assets/images/modal-img.jpg" alt=""
+        class="mx-auto w-full max-h-[220px] object-cover md:max-h-none lg-img" />
+      <div class="py-[20px] px-[20px] md:py-[25px] md:pe-[28px] md:ps-[32px] padding">
+        <strong
+          class="mt-[2rem] md:mt-[2.5rem] text-[1.125rem] text-[#f1c40f] block leading-none mb-[20px] custom-txt body-txt alignment">
+          Wimbledon Promo – Bet &amp; Get 100% Free Spins!
+        </strong>
 
-      <p class="text-white text-[1.125rem] leading-none mt-2 !h-0 body-txt mb-[20px] middle">
-        Place your bets on Wimbledon and get 100% Free Spins based on your betting activity!
-      </p>
+        <p class="text-white text-[1.125rem] leading-none mt-2 !h-0 body-txt mb-[20px] middle">
+          Place your bets on Wimbledon and get 100% Free Spins based on your betting activity!
+        </p>
 
-      <strong class=" md:mt-[2.5rem] text-[1.125rem] text-[#f1c40f] block body-txt !h-0 rules">🎯 Rules:</strong>
+        <strong class=" md:mt-[2.5rem] text-[1.125rem] text-[#f1c40f] block body-txt !h-0 rules">🎯 Rules:</strong>
 
-      <ul class="list-disc pl-[15px] flex flex-col leading-snug gap-1 mb-[32px] md:mb-[40px] mt-[32px] text-white body-txt !h-0 mid-ul">
-        <li class="h-0 mid-li">Minimum Bet: $50</li>
-        <li class="h-0 mid-li">Minimum Odds (Coef): 1.3</li>
-        <li class="h-0 mid-li">Minimum Position on this event: 2</li>
-        <li class="h-0 mid-li">Maximum Gift: 200 Free Spins</li>
-      </ul>
+        <ul
+          class="list-disc pl-[15px] flex flex-col leading-snug gap-1 mb-[32px] md:mb-[40px] mt-[32px] text-white body-txt !h-0 mid-ul">
+          <li class="h-0 mid-li">Minimum Bet: $50</li>
+          <li class="h-0 mid-li">Minimum Odds (Coef): 1.3</li>
+          <li class="h-0 mid-li">Minimum Position on this event: 2</li>
+          <li class="h-0 mid-li">Maximum Gift: 200 Free Spins</li>
+        </ul>
 
-      
-      <button class="bg-[#11e310] text-white text-[14px] rounded-[4px]  flex items-center justify-center h-[55px] max-w-[265px] w-full mx-auto  mt-[120px] mid-btn">
-        BET NOW
-      </button>
+        <button
+          class="bg-[#11e310] text-white text-[14px] rounded-[4px]  flex items-center justify-center h-[55px] max-w-[265px] w-full mx-auto  mt-[120px] mid-btn">
+          Bet Now
+        </button>
 
-      <p class="text-[#e74c3c] mt-[40px] h-0 mb-[42px] body-txt alert">⚠️ Fraud Prevention Notice:</p>
-      <p class="leading-[13px] tracking-widest text-white mb-2  body-txt mid-secnd-last-txt">
-        Any attempt to manipulate, exploit, or abuse the promotion will result in disqualification and potential account suspension. We reserve the right to take any necessary action to ensure a fair gaming environment.
-      </p>
-      <button class="mt-[42.32px] w-full lg:h-[91.6933px] bg-[#11e311] tex-[#030303] text-[14.4px] font-bold h-[41.99px] flex justify-center items-center body-txt  mid-last-btn">Register</button>
+        <p class="text-[#e74c3c] mt-[40px] h-0 mb-[42px] body-txt">⚠️ Fraud Prevention Notice:</p>
+        <p class="leading-[13px] tracking-widest text-white mb-2  body-txt mid-secnd-last-txt">
+          Any attempt to manipulate, exploit, or abuse the promotion will result in disqualification and potential
+          account suspension. We reserve the right to take any necessary action to ensure a fair gaming environment.
+        </p>
+        <button
+          class="mt-[42.32px] w-full lg:h-[91.6933px] bg-[#11e311] tex-[#030303] text-[14.4px] font-bold h-[41.99px] flex justify-center items-center body-txt  mid-last-btn">Register</button>
       </div>
     </div>
   </div>
 
 </div>}
-
