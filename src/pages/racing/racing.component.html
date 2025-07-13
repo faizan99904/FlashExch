@@ -3,8 +3,8 @@
 
 
     <section class="filters tracking-tight  !hidden lg:!flex text-nowrap">
-        <div class="search"><input type="text" name="search" placeholder="Search Event"> <span
-                class="material-icons">search</span></div>
+        <div class="search"><input type="text" name="search" placeholder="Search Event" autocomplete="off">
+                <span class="material-icons">search</span></div>
         <ul class="time-filters tracking-normal">
             <li class="active">All</li>
             <li class="">Today</li>
@@ -21,7 +21,7 @@
 
 
         <div class="with-odds  !text-[#ffffff99] tracking-normal" (click)="toggleOdds()" [class.active]="isWithOdds">
-            <span class="text-[0.948em] md:text-[1.948em] tracking-normal">With Odds</span>
+            <span class="text-[0.948em] md:text-[1.948em] tracking-normal odds">With Odds</span>
             <span class="switcher"></span>
         </div>
         <select>
@@ -34,9 +34,9 @@
         <div class="region-block rounded-sm" *ngFor="let region of regions; let i = index">
             <div class="region-title" (click)="toggleRegion(i)">
                 <div [attr.country]="region.country" class="flag"></div>
-                <span class="!text-[0.94em] !text-[#ffffff99]">{{ region.title }}</span>
+                <span class="!text-[0.94em] !text-[#ffffff99] regionTitle">{{ region.title }}</span>
 
-                <ul class="time-filters !hidden lg:!flex">
+                <ul class="time-filters !hidden lg:!flex" (click)="$event.stopPropagation()">
                     <li class="active">All</li>
                     <li>Upcoming</li>
                     <li>Race Off</li>
@@ -81,7 +81,7 @@
                                     {{ match.time }}
                                 </a>
                             </li>
-                            <div *ngIf="champ.matches.length > 4" class="lg:hidden pb-[0.1em] pl-[0.89em] mt-[0.06em]">
+                            <div *ngIf="champ.matches.length > 4" class=" lg:hidden pb-[0.1em] pl-[0.89em] mt-[0.06em]">
                                 <button class="text-white  !font-semibold !p-0 !m-0 !h-[1.33em] !w-[1.33em] plus-remove"
                                     (click)="toggleChampExpansion(i, champIdx)">
                                     {{ isChampExpanded(i, champIdx) ? '−' : '+' }}
