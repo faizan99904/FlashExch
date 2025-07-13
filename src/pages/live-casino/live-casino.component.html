@@ -5,7 +5,7 @@
             lg:mt-2 lg:rounded-md">
         <div class="swiper-wrapper forMedia max-h-[227.9px]">
             <div #slide class="swiper-slide h-full" *ngFor=" let img of swiperImages">
-                <img [src]="img" alt="slide" class="!w-full max-h-[227.9px] imageMain object-cover " />
+                <img id="mob-img" [src]="img" alt="slide" class="!w-full max-h-[227.9px] min-h-[198.75px] imageMain object-cover " />
             </div>
         </div>
         <div class="swiper-pagination"></div>
@@ -13,88 +13,90 @@
 
 
     <div class="poppins-medium py-[4.994px]">
-        <div class="lg:hidden rounded-[0.1301rem] m-[0.3122rem]">
-            <div class="flex items-center box-border w-full">
+        <div class="lg:hidden rounded-[0.1301rem] wrap m-[0.27225rem]">
+            <div class="lg:hidden flex items-center box-border w-full">
                 <ul
-                    class="grid w-full grid-cols-4 gap-[0.4878rem] p-[0.5em] rounded-[0.3902rem] bg-[#272d33] justify-between">
+                    class="grid w-full grid-cols-4 gap-[0.4254rem] category-wrapper p-[0.4102em] rounded-[0.3902rem] bg-[#272d33] justify-between">
                     @for (item of mobItems; track $index) {
                     <li
-                        class="flex items-center justify-center cursor-pointer p-[15.05px] bg-[#13161b] rounded-[0.3902rem] overflow-hidden">
-                        <img class="h-[1.6259rem] max-h-[1.6259rem] w-full block" [src]="item.img" alt="">
+                        class="cat-li flex items-center justify-center cursor-pointer p-[0.82em] bg-[#13161b] rounded-[0.3902rem] overflow-hidden">
+                        <img id="cate-img" class="h-[1.6259rem] max-h-[1.6259rem] max-sm:max-h-[1.41797rem] w-full block"
+                            [src]="item.img" alt="">
                     </li>
                     }
                 </ul>
             </div>
-        </div>
-        <div class="px-[9.98976px] bg-[#101317] mt-[8.3248px] mx-[-4.99px]">
-            <div class="mt-[0] overflow-hidden rounded-[.4rem]">
-                <div class=" ">
-                    <div class="h-[53px] w-full relative flex items-center slot-categories">
-                        <div class="min-w-[51.17px] h-[58.2736px] flex justify-center items-center"
-                            (click)="toggleSearch()">
-                            <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M8.16927 14.4999C11.6671 14.4999 14.5026 11.6644 14.5026 8.16659C14.5026 4.66878 11.6671 1.83325 8.16927 1.83325C4.67147 1.83325 1.83594 4.66878 1.83594 8.16659C1.83594 11.6644 4.67147 14.4999 8.16927 14.4999Z"
-                                    stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                </path>
-                                <path d="M15.1693 15.1666L13.8359 13.8333" stroke="white" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
+            <div class="other-filters bg-[#101317] mt-[0.4538rem] w-full">
+                <div class="mt-[0] overflow-hidden rounded-[.4rem]">
+                    <div class=" ">
+                        <div class="h-[2.8927rem] w-full relative flex items-center slot-categories">
+                            <div class="search-icon w-[3.17625rem] h-[3.17625rem] flex justify-center items-center"
+                                (click)="toggleSearch()">
+                                <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M8.16927 14.4999C11.6671 14.4999 14.5026 11.6644 14.5026 8.16659C14.5026 4.66878 11.6671 1.83325 8.16927 1.83325C4.67147 1.83325 1.83594 4.66878 1.83594 8.16659C1.83594 11.6644 4.67147 14.4999 8.16927 14.4999Z"
+                                        stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                    </path>
+                                    <path d="M15.1693 15.1666L13.8359 13.8333" stroke="white" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </div>
+                            <ul class="flex w-full h-full items-center  overflow-x-auto overflow-y-hidden mt-[2.5px]">
+                                <li
+                                    class="text-center relative shrink-0 p-[0.2723rem_0.6806rem] cursor-pointer border-b border-transparent w-[3.5723rem]">
+                                    <div class="text-[0.6806rem] text-white ">All</div>
+                                </li>
+
+                                <li
+                                    class="text-center relative shrink-0 p-[0.2723rem_0.6806rem] cursor-pointer border-b border-transparent">
+                                    <div class="text-[0.6806rem] text-white ">Popular Casino</div>
+                                </li>
+
+                                <li
+                                    class="text-center relative shrink-0 p-[0.2723rem_0.6806rem] cursor-pointer border-b border-transparent">
+                                    <div class="text-[0.6806rem] text-white ">Live Roulette</div>
+                                </li>
+                                <li
+                                    class="text-center relative shrink-0 p-[0.2723rem_0.6806rem] cursor-pointer border-b border-transparent">
+                                    <div class="text-[0.6806rem] text-white ">Live Blackjack</div>
+                                </li>
+                                <li
+                                    class="text-center relative shrink-0 p-[0.2723rem_0.6806rem] cursor-pointer border-b border-transparent">
+                                    <div class="text-[0.6806rem] text-white ">Game Shows</div>
+                                </li>
+                                <li
+                                    class="text-center relative shrink-0 p-[0.2723rem_0.6806rem] cursor-pointer border-b border-transparent">
+                                    <div class="text-[0.6806rem] text-white ">Live Baccarat</div>
+                                </li>
+                                <li
+                                    class="text-center relative shrink-0 p-[0.2723rem_0.6806rem] cursor-pointer border-b border-transparent">
+                                    <div class="text-[0.6806rem] text-white uppercase">Live Baccarat</div>
+                                </li>
+                            </ul>
                         </div>
-                        <ul class="flex w-full items-center  overflow-x-auto overflow-y-hidden mt-[2.5px]">
-                            <li
-                                class="text-center relative shrink-0 p-[4.99px_12.48px] cursor-pointer border-b border-transparent w-[4.0661rem]">
-                                <div class="text-[12.48px] text-white ">All</div>
-                            </li>
 
-                            <li
-                                class="text-center relative shrink-0 p-[4.99px_12.48px] cursor-pointer border-b border-transparent">
-                                <div class="text-[12.48px] text-white ">Popular Casino</div>
-                            </li>
-
-                            <li
-                                class="text-center relative shrink-0 p-[4.99px_12.48px] cursor-pointer border-b border-transparent">
-                                <div class="text-[12.48px] text-white ">Live Roulette</div>
-                            </li>
-                            <li
-                                class="text-center relative shrink-0 p-[4.99px_12.48px] cursor-pointer border-b border-transparent">
-                                <div class="text-[12.48px] text-white ">Live Blackjack</div>
-                            </li>
-                            <li
-                                class="text-center relative shrink-0 p-[4.99px_12.48px] cursor-pointer border-b border-transparent">
-                                <div class="text-[12.48px] text-white ">Game Shows</div>
-                            </li>
-                            <li
-                                class="text-center relative shrink-0 p-[4.99px_12.48px] cursor-pointer border-b border-transparent">
-                                <div class="text-[12.48px] text-white ">Live Baccarat</div>
-                            </li>
-                            <li
-                                class="text-center relative shrink-0 p-[4.99px_12.48px] cursor-pointer border-b border-transparent">
-                                <div class="text-[12.48px] text-white uppercase">Live Baccarat</div>
-                            </li>
-                        </ul>
                     </div>
 
                 </div>
-
-            </div>
-            <div class="relative h-[30.492px]  px-[4.994px]  overflow-hidden  max-h-0 !duration-300 transition-all mt-0"
-                [ngClass]="{'!duration-300 transition-all !max-h-[30.492px] mt-[13.068px] ':isSearch}">
-                <input class="search-input" placeholder="Search games...">
+                <div class="relative h-[30.492px]  px-[4.994px]  overflow-hidden  max-h-0 !duration-300 transition-all mt-0"
+                    [ngClass]="{'!duration-300 transition-all !max-h-[30.492px] mt-[13.068px] ':isSearch}">
+                    <input class="search-input" placeholder="Search games...">
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="bg-[#13161B] overflow-hidden px-[4.99px]" *ngIf="!seeAll">
-        <div class="mt-[12.4872px]">
-            <div class="heading mx-[9.98px] ">
+    <div class="game-tabs bg-[#13161B] overflow-hidden px-[4.356px]" *ngIf="!seeAll">
+        <div class="mt-[10.890px]">
+            <div class="heading mx-[0.5431rem]">
                 <h1 class="font-bold"> <span class="text-[#11e311] mr-[2.49744px]">Popular</span>Casino</h1>
                 <div class="see-more " (click)="seeToggle()">
                     See More
                 </div>
             </div>
-            <div class="games-wrapper">
+            <div class="games-wrapper !px-[0.4844rem]">
                 <div class="game">
                     <img src="https://static.inpcdn.com/111,1d7a88759e186c.webp" alt="">
                 </div>
@@ -201,7 +203,7 @@
 </div>
 
 <div class="max-lg:hidden mx-auto">
-    <div class="swiper mySwiper relative  max-w-[calc(100vw)] [375px]:max-h-[346px]
+    <div class="desk-swiper swiper mySwiper relative  max-w-[calc(100vw)] [375px]:max-h-[346px]
         lg:mt-2">
         <div class="swiper-wrapper forMedia max-h-[290.66px]">
             <div #slide class="swiper-slide h-full" *ngFor=" let img of largeSwiperImages">

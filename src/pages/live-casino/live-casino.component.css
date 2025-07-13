@@ -124,11 +124,25 @@
   display: -ms-flexbox;
   display: flex;
   text-transform: uppercase;
-  /* margin-left: 1.92em; */
+  /* margin-left: 0.5431rem; */
   text-align: left;
-  width: 22.5429em;
-  font-size: 14.98px;
+  width: 6.3985rem;
+  font-size: 0.8179rem;
   color: white;
+}
+
+@media screen and (min-width: 414px) {
+  .heading h1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    text-transform: uppercase;
+    /* margin-left: 1.92em; */
+    text-align: left;
+    width: 22.5429em;
+    font-size: 14.98px;
+    color: white;
+  }
 }
 
 .games-wrapper {
@@ -144,7 +158,8 @@
   width: calc(100% / 2.5);
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  margin-right: 4.99488px;
+  /* margin-right: 4.99488px; */
+  margin-right: 0.2723rem;
 }
 
 .desktop-see-all {
@@ -259,9 +274,10 @@
 }
 
 .see-more {
-  height: 32.82px;
+  /* height: 0.9736rem; */
+  height: 28.61px;
   background-color: #11e311;
-  border-radius: 4.99488px;
+  border-radius: 0.2723rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -273,9 +289,18 @@
   align-items: center;
   color: #000;
   /* margin-right: 9.98976px; */
-  font-size: 11.9877px;
-  padding: 7.49232px;
+  font-size: 0.6537rem;
+  padding: 0.4087rem;
   text-wrap: nowrap;
+}
+
+@media screen and (min-width: 414px) {
+  .see-more {
+    height: 32.82px;
+    border-radius: 4.99488px;
+    font-size: 11.9877px;
+    padding: 7.49232px;
+  }
 }
 
 .search-input {
@@ -428,7 +453,75 @@
   transform: translateY(-50%);
 }
 
+@media screen and (min-width: 430px) {
+  #mob-img {
+    min-height: 227.89px;
+  }
+
+  .category-wrapper {
+    padding: 7.525px;
+    gap: 7.8052px;
+  }
+
+  .wrap {
+    margin: 4.99488px;
+  }
+
+  #cate-img {
+    max-height: 26.015px;
+    height: 26.015px;
+  }
+
+  .cat-li {
+    padding: 15.015px !important;
+  }
+
+  .other-filters {
+    margin-top: 8.3248px;
+  }
+
+  .slot-categories {
+    height: 53.06px;
+  }
+
+  .search-icon {
+    width: 58.2736px;
+    height: 58.2736px;
+  }
+
+  .other-filters ul li {
+    min-width: 65.5578px;
+    padding: 4.99488px 12.4872px;
+    font-size: 12.4872px;
+  }
+
+  .other-filters ul {
+    margin-top: 0;
+  }
+
+  .other-filters ul li > div {
+    font-size: 12.4872px !important;
+  }
+
+  .heading {
+    margin: 0 9.98976px;
+    font-size: 14.9846px;
+  }
+
+  .game {
+    margin-right: 4.99488px;
+  }
+
+  .game-tabs {
+    padding: 0 4.99488px;
+  }
+}
+
 @media (min-width: 1024px) {
+  .desk-swiper {
+    min-height: 346.6px;
+  }
+
   ::ng-deep .swiper-pagination {
     display: flex;
     justify-content: center;
