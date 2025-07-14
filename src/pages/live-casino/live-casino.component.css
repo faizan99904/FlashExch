@@ -430,6 +430,10 @@
   transform: translateY(-50%);
 }
 
+.see-more span {
+  font-weight: 500 !important;
+}
+
 @media screen and (max-width: 375px) {
   .category-wrapper {
     max-height: 173.53px;
@@ -460,7 +464,7 @@
   }
 
   .games-wrapper {
-    margin-top: 0;
+    margin-top: -1px;
   }
 
   .see-more span {
@@ -536,6 +540,8 @@
     width: 22.5429em;
     font-size: 13.5907px;
     color: white;
+    position: relative;
+    top: 1px;
   }
 
   /* .see-more {
@@ -680,9 +686,9 @@
     padding: 4.809px 0;
   }
 
-  .category-wrapper {
+  /* .category-wrapper {
     padding: 7.245px !important;
-  }
+  } */
 
   .slot-categories {
     margin-top: 1px;
@@ -693,7 +699,7 @@
   }
 
   .games-wrapper {
-    margin-top: 1px;
+    margin-top: 0px;
   }
 }
 
@@ -721,7 +727,8 @@
   }
 
   .game-tabs > div {
-    margin-top: 13.4872px;
+    margin-top: 12.4872px;
+    padding-left: 2.2px;
   }
 
   .other-filters {
@@ -752,17 +759,25 @@
   }
 
   .heading {
-    margin: 0 9.98976px;
+    margin: 0 10px;
     font-size: 14.9846px;
     padding: 7.8045px 0;
   }
 
   .heading h1 {
     font-size: 14.9846px;
+    position: relative;
+    left: -2px;
+    top: -1px;
   }
 
   .game {
-    margin-right: 4.99488px;
+    margin-right: 3.99488px;
+  }
+
+  .games-wrapper {
+    padding: 0 8.08931px;
+    padding-top: 1px;
   }
 
   .game-tabs {
@@ -779,6 +794,10 @@
     width: 65.33px;
   }
 
+  .see-more span {
+    font-weight: 500;
+  }
+
   .wrap > div:first-child > ul {
     min-height: 198.91px;
     gap: 7.8045px;
@@ -787,6 +806,15 @@
 
   .wrap > div:first-child > ul li {
     min-height: 56.09px;
+  }
+
+  .games-wrapper > .game:first-child {
+    position: relative;
+    left: 0px;
+  }
+
+  .game img {
+    height: 130.84px;
   }
 }
 
@@ -805,13 +833,17 @@
     border-radius: 3.71712px;
   }
 
+  .mob-view > div {
+    padding: 8.92109px 0;
+  }
+
   .mob-view {
     padding: 0;
   }
 
   .wrap > div:first-child > ul {
     gap: 13.9392px;
-    padding: 13.44px;
+    padding: 13.44px !important;
     border-radius: 11.1514px;
   }
 
@@ -878,6 +910,9 @@
     width: 22.5429em;
     font-size: 26.7633px;
     color: white;
+    position: relative;
+    left: 0;
+    top: 0;
   }
 
   .heading h1 span {
@@ -920,12 +955,37 @@
   #mob-img {
     min-height: 240px;
   }
+
+  .controls {
+    padding: 11.813px 18.563px;
+  }
+
+  .controls .vendor-list {
+    gap: 3.375px;
+    margin-bottom: 11.25px;
+    height: 24.0003px;
+  }
+
+  .vendor-list img {
+    max-height: 14.4px;
+  }
+
+  .desktop-search {
+    max-height: 28.13px;
+  }
+
+  .desktop-category-item {
+    max-height: 35.59px;
+    padding: 0 12.375px;
+    font-size: 8.3997px;
+  }
 }
 
 @media (min-width: 1024px) {
   .after-slider {
     max-width: 933.333px;
     margin-top: -27.333px;
+    padding: 0 12.5px;
   }
 
   .desk-swiper {
@@ -966,6 +1026,16 @@
     height: 12px;
     background-color: #ffd600; /* Yellow */
     border-radius: 20px;
+  }
+
+  .desktop-category-item {
+    max-height: 35.59px;
+    padding: 0 12.375px;
+    font-size: 9.333px;
+  }
+
+  .desktop-search {
+    max-height: 31.25px;
   }
 }
 
