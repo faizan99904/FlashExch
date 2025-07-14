@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
@@ -14,9 +16,23 @@ export class SidebarComponent {
     topLive: false,
     topEsport: false
   };
+  showSidebarContent = true; // This will control visibility
 
+  constructor(private router: Router) {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      this.updateSidebarVisibility(event.urlAfterRedirects);
+    });
+  }
 
-  timeFilter = '6H';
+  updateSidebarVisibility(currentUrl: string) {
+    // Example: Hide sidebar content on '/login' and '/register' routes
+    const hiddenRoutes = ['/racing'];
+    this.showSidebarContent = !hiddenRoutes.includes(currentUrl);
+  }
+
+  timeFilter = 'All';
   topLiveGames = {
     soccer: [
       { team1: 'Brentford (SRL)', team2: 'Mainz (SRL)', odds: ['3.25', '2.50', '2.75'] },
