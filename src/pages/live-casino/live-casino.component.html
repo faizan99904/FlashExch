@@ -1,8 +1,8 @@
 <app-header></app-header>
-<app-sports-nav class="max-lg:hidden"></app-sports-nav>
-<div class="w-full lg:hidden bg-[#14161B]">
+<app-sports-nav class="max-[@media(min-width:820px)]:hidden"></app-sports-nav>
+<div class="w-full [@media(min-width:820px)]:hidden bg-[#14161B]">
     <div class="swiper mySwiper  max-w-[calc(100vw)] [375px]:max-h-[227.9px]
-            lg:mt-2 lg:rounded-md">
+            [@media(min-width:820px)]:mt-2 [@media(min-width:820px)]:rounded-md">
         <div class="swiper-wrapper forMedia max-h-[227.9px]">
             <div #slide class="swiper-slide h-full" *ngFor=" let img of swiperImages">
                 <img id="mob-img" [src]="img" alt="slide"
@@ -14,8 +14,8 @@
 
 
     <div class="mob-view poppins-medium py-[4.994px]">
-        <div class="lg:hidden rounded-[0.1301rem] wrap m-[0.27225rem]">
-            <div class="lg:hidden flex items-center box-border w-full">
+        <div class="[@media(min-width:820px)]:hidden rounded-[0.1301rem] wrap m-[0.27225rem]">
+            <div class="[@media(min-width:820px)]:hidden flex items-center box-border w-full">
                 <ul
                     class="grid w-full grid-cols-4 gap-[0.4254rem] category-wrapper p-[0.4102em] rounded-[0.3902rem] bg-[#272d33] justify-between">
                     @for (item of mobItems; track $index) {
@@ -205,9 +205,9 @@
 
 </div>
 
-<div class="max-lg:hidden mx-auto">
+<div class="max-[@media(min-width:820px)]:hidden mx-auto">
     <div class="desk-swiper swiper mySwiper relative  max-w-[calc(100vw)] [375px]:max-h-[346px]
-        lg:mt-2">
+        [@media(min-width:820px)]:mt-2">
         <div class="swiper-wrapper forMedia max-h-[290.66px]">
             <div #slide class="swiper-slide h-full" *ngFor=" let img of largeSwiperImages">
                 <img [src]="img" alt="slide" class="w-full max-h-[346px] imageMain object-scale-down object-top " />

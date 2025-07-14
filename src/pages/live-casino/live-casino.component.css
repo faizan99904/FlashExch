@@ -674,9 +674,156 @@
   }
 }
 
+@media screen and (min-width: 768px) {
+  .forMedia {
+    max-height: 407.03px;
+  }
+
+  #mob-img {
+    min-height: 407.03px;
+  }
+
+  .wrap {
+    margin: 8.92109px;
+    padding: 8.92109px 0;
+    border-radius: 3.71712px;
+  }
+
+  .mob-view {
+    padding: 0;
+  }
+
+  .wrap > div:first-child > ul {
+    gap: 13.9392px;
+    padding: 13.44px;
+    border-radius: 11.1514px;
+  }
+
+  .cat-li {
+    padding: 26.88px !important;
+    border-radius: 11.1514px;
+  }
+
+  #cate-img {
+    max-height: 46.464px;
+    height: 46.464px;
+  }
+
+  .tab-menu li > div {
+    font-size: 22.3027px;
+  }
+
+  .tab-menu li {
+    min-width: 59.4594px;
+    padding: 4.53024px 11.3256px;
+  }
+
+  .other-filters ul li > div {
+    font-size: 22.3027px !important;
+  }
+
+  .other-filters ul li {
+    min-width: 117.089px;
+    padding: 8.92109px 22.3027px;
+  }
+
+  .wrap > div:first-child > ul li {
+    padding: 13.65px;
+  }
+
+  .wrap > div:first-child > ul li img {
+    min-height: 23.595px;
+  }
+
+  .search-icon {
+    height: 104.08px;
+    min-width: 91.39px;
+  }
+
+  .slot-categories {
+    height: 94.78px;
+  }
+
+  .other-filters {
+    margin-top: 14.8685px;
+  }
+
+  .heading {
+    margin: 0 17.8422px;
+    padding: 13.9392px 0;
+  }
+
+  .heading h1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    text-transform: uppercase;
+    text-align: left;
+    width: 22.5429em;
+    font-size: 26.7633px;
+    color: white;
+  }
+
+  .heading h1 span {
+    margin-right: 4.461px;
+  }
+
+  .see-more {
+    min-height: 58.61px;
+    border-radius: 9.92109px;
+    font-size: 21.4106px;
+    padding: 13.3816px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .game-tabs {
+    padding: 0 8.921px;
+  }
+
+  .game-tabs > div {
+    margin-top: 22.3027px;
+    border-radius: 3.71712px;
+  }
+
+  .games-wrapper {
+    padding: 0 15.93px;
+  }
+
+  .game {
+    margin-right: 8.92109px;
+  }
+}
+
+@media screen and (min-width: 820px) {
+  .forMedia {
+    min-height: 240px;
+  }
+
+  #mob-img {
+    min-height: 240px;
+  }
+}
+
 @media (min-width: 1024px) {
+  .after-slider {
+    max-width: 933.333px;
+    margin-top: -27.333px;
+  }
+
   .desk-swiper {
-    min-height: 346.6px;
+    min-height: 266.66px;
+  }
+
+  .controls {
+    padding: 13.125px 20.625px;
+    margin: 15px 0;
+    border-radius: 20px;
+  }
+
+  .vendor-list img {
+    max-height: 16px;
   }
 
   ::ng-deep .swiper-pagination {
