@@ -1040,16 +1040,20 @@
 }
 
 @media screen and (min-width: 1440px) {
+  .desk-swiper {
+    min-height: 346.66px;
+  }
+
   .after-slider {
-    @apply mt-[-14.33px];
+    @apply mt-[-14.33px] max-w-[1213.33px];
   }
 
   .controls {
-    @apply p-[17.0625px_26.8125px] rounded-[26px] relative z-[1] mt-[0px] mb-[19.5px];
+    @apply p-[17.063px_26.813px] rounded-[26px] relative z-[1] mt-[0px] mb-[19.5px];
   }
 
   .vendor-list {
-    @apply max-h-[34.66px] opacity-100 transition-all duration-500 ease-in-out flex justify-center mb-[16.5px] gap-[.875rem];
+    @apply min-h-[34.66px] opacity-100 transition-all duration-500 ease-in-out flex justify-center mb-[16.5px] gap-[.875rem];
   }
 
   .vendor-list img {
@@ -1084,17 +1088,18 @@
     text-align: center;
     -webkit-transition: 0.2s ease;
     transition: 0.2s ease;
+    min-height: 100%;
   }
 
   .desktop-search {
     width: 100%;
-    height: 40.625px;
+    min-height: 40.625px;
     position: relative;
     margin-bottom: 22px;
   }
 
   .desktop-search input {
-    height: 100%;
+    min-height: 100%;
     width: 100%;
     border: 1px solid #899194;
     border-radius: 9.75px;
