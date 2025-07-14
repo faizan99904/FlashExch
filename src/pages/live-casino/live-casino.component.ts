@@ -65,7 +65,7 @@ export class LiveCasinoComponent implements AfterViewInit {
     });
 
     let width = window.innerWidth;
-    this.elementRef.nativeElement.style.minWidth = `${width}px`;
+    this.elementRef.nativeElement.style.maxWidth = `${width}px`;
   }
 
   toggleSearch() {
