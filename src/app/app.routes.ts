@@ -28,6 +28,6 @@ export const routes: Routes = [
     ],
   },
   { path: 'casino', component: CasinoComponent },
-  { path: 'livecasino', component: LiveCasinoComponent },
+  { path: 'live-casino', component: LiveCasinoComponent },
   { path: 'promos', component: PromosComponent },
 ];
