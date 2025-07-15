@@ -90,3 +90,11 @@ section.live-stream .unauthorized-text p + p {
     padding-top: 1px !important;
   }
 }
+@media (min-width: 768px) and (max-width: 1023px) {
+  section.live-stream .title span:first-child {
+    padding-top: 2px !important;
+  }
+  section.live-stream {
+    height: 64.59vw;
+  }
+}
