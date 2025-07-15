@@ -490,6 +490,9 @@ section.matches .region-block ul.champs > li {
   justify-content: space-between;
   padding: 4vw 0;
 }
+.expand-container {
+  margin-top: 5px;
+}
 @media (min-width: 390px) and (max-width: 415px) {
   .racing {
     padding: 5.20532px !important;
@@ -566,6 +569,9 @@ section.matches .region-block ul.champs > li {
   }
 }
 @media (min-width: 430px) and (max-width: 768px) {
+  .expand-container {
+  margin-top: 7px;
+}
   section.page-title > span {
     margin: 0 auto;
     padding-left: 8vw;

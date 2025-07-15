@@ -91,7 +91,7 @@
                                     {{ match.time }}
                                 </a>
                             </li>
-                            @if (isChampExpanded(i, champIdx)) {<li *ngFor="let match of champ.matches.slice(4)">
+                            @if (isChampExpanded(i, champIdx)) {<li *ngFor="let match of champ.matches.slice(4) " class="expand-container">
                                 <a [href]="match.link" class="rect mt-[5.5px]" [ngClass]="{
                                                   'finished': champ.state === 'finished',
                                                   'active': champ.state === 'active',
