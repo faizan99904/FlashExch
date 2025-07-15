@@ -535,7 +535,7 @@ section.matches .region-block ul.champs > li {
     padding-top: 0.1em;
   }
 }
-@media (min-width: 414px) and (max-width: 430px) {
+@media (min-width: 414px) and (max-width: 429px) {
   .racing {
     padding: 5.52532px !important;
   }
