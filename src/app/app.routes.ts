@@ -9,6 +9,7 @@ import { RacingComponent } from '../pages/racing/racing.component';
 
 import { ForgetPasswordComponent } from '../auth/forget-password/forget-password.component';
 import { PromosComponent } from '../pages/promos/promos.component';
+import { AffliateComponent } from '../pages/affliate/affliate.component';
 
 export const routes: Routes = [
   {
@@ -28,4 +29,5 @@ export const routes: Routes = [
   },
   { path: 'casino', component: CasinoComponent },
   { path: 'promos', component: PromosComponent },
+  { path: 'affliate', component: AffliateComponent },
 ];
