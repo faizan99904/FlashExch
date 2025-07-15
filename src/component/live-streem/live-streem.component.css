@@ -84,3 +84,9 @@ section.live-stream .unauthorized-text p:first-child {
 section.live-stream .unauthorized-text p + p {
   margin-top: 3vw;
 }
+
+@media (min-width: 390px) and (max-width: 415px) {
+  section.live-stream .title span:first-child {
+    padding-top: 1px !important;
+  }
+}

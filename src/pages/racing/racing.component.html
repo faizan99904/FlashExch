@@ -72,11 +72,11 @@
                     <option value="FINISHED" class="bg-[#151a21] border-none outline-none">Finished</option>
                 </select>
                 <span class="material-icons cursor-pointer">
-                    {{ isCollapsed(i) ? 'keyboard_arrow_right' : 'keyboard_arrow_down' }}
+                    {{ isCollapsed(i) ? 'keyboard_arrow_down' :'keyboard_arrow_right'}}
                 </span>
             </div>
 
-            <ul class="champs ">
+            <ul class="champs " *ngIf="this.collapsedRegions[i]">
                 <li *ngFor="let champ of region.champs; let champIdx = index">
                     <div class="list-wrapper">
                         <span class="champ-name">{{ champ.name }}</span>
