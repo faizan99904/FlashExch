@@ -1,5 +1,6 @@
 .racing {
-  font-size: 0.94em;
+  font-size: 3.5vw;
+  margin-bottom: 75px !important ;
 }
 section.page-title {
   display: -ms-flexbox;
@@ -490,6 +491,9 @@ section.matches .region-block ul.champs > li {
   justify-content: space-between;
   padding: 4vw 0;
 }
+.expand-container {
+  margin-top: 5px;
+}
 @media (min-width: 390px) and (max-width: 415px) {
   .racing {
     padding: 5.20532px !important;
@@ -566,6 +570,9 @@ section.matches .region-block ul.champs > li {
   }
 }
 @media (min-width: 430px) and (max-width: 768px) {
+  .expand-container {
+    margin-top: 7px;
+  }
   section.page-title > span {
     margin: 0 auto;
     padding-left: 8vw;
@@ -600,70 +607,31 @@ section.matches .region-block ul.champs > li {
     padding: 1.1447em 0px !important;
   }
 }
-@media (min-width: 768px) {
-  section.filters {
-    height: 9.5em;
-    padding: 1.32em 0em;
+@media (min-width: 768px) and (max-width: 1023px) {
+  .racing {
+    margin: 0px !important;
+    padding: 10.24px !important;
+    font-size: 3.5vw !important;
+    margin-bottom: 75px !important;
   }
-
-  section.filters .with-odds .switcher {
-    position: relative;
-    width: 4.22em;
-    height: 1.89em;
-    background-color: #101015;
-    border-radius: 1.5em;
-    margin-left: 2.58em;
-    transition: background-color 0.3s ease;
+  section.page-title > span {
+    padding-top: 2px;
+  }
+  section.filters {
+    margin-top: 2.6vw !important;
   }
 
   section.filters .with-odds .switcher::before {
-    content: "";
-    position: absolute;
-    width: 2.1em;
-    height: 2.1em;
-    border-radius: 1.1em;
-    left: -0.55em;
-    top: -0.15em;
-    background-color: #97a1c2;
-    transition: left 0.3s ease, background-color 0.3s ease;
+    top: -0.8vw;
   }
-
-  section.filters .with-odds.active .switcher::before {
-    left: 2.45em;
-    background-color: #41cf9a;
+  .startTime {
+    margin-left: 15.36px !important;
   }
-
-  section.filters .with-odds {
-    margin-left: 1.9em;
+  section.matches .region-block .region-title .flag {
+    margin-right: 15.36px;
   }
-
-  section.matches .region-block .region-title {
-    display: flex;
-    align-items: center;
-    height: 2.7em;
-    cursor: pointer;
-    padding: 1.6em 0em;
-    font-size: 2em !important;
-  }
-
-  section.matches .region-block ul.champs > li .subchamps {
-    display: flex;
-    align-items: center;
-    height: 3.5em;
-    color: #ffffff99;
-    font-size: 2em;
-  }
-
-  section.matches .region-block ul.champs ul.submatches {
-    padding-top: 0.8em;
-    padding-bottom: 0.57em;
-    font-size: 2em;
-  }
-
-  section.matches .region-block {
-    background-color: #151a21;
-    padding: 0 3.2vw !important;
-    margin-top: 2.66667vw !important;
+  .expand-container {
+    margin-top: 10px;
   }
 }
 

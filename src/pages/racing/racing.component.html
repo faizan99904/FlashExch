@@ -1,4 +1,4 @@
-<section class="racing  p-[1.33333vw] md:px-[0.8em] lg:mt-[1.033em] lg:!p-0  mb-[75px] overflow-x-hidden lg:hidden">
+<section class="racing  p-[1.33333vw] md:px-[0.8em] lg:mt-[1.033em]  lg:!p-0 !mb-[75px]   overflow-x-hidden lg:hidden">
 
 
     <section class="main-banner hidden default lg:block"><!----></section>
@@ -43,7 +43,7 @@
 
 
         <div class="with-odds  !text-[#ffffff99] tracking-normal" (click)="toggleOdds()" [class.active]="isWithOdds">
-            <span class="text-[3.5vw] md:text-[1.948em] tracking-normal odds">With Odds</span>
+            <span class="text-[3.5vw]  tracking-normal odds">With Odds</span>
             <span class="switcher"></span>
         </div>
         <select>
@@ -91,7 +91,8 @@
                                     {{ match.time }}
                                 </a>
                             </li>
-                            @if (isChampExpanded(i, champIdx)) {<li *ngFor="let match of champ.matches.slice(4)">
+                            @if (isChampExpanded(i, champIdx)) {<li *ngFor="let match of champ.matches.slice(4) "
+                                class="expand-container">
                                 <a [href]="match.link" class="rect mt-[5.5px]" [ngClass]="{
                                                   'finished': champ.state === 'finished',
                                                   'active': champ.state === 'active',
@@ -119,7 +120,7 @@
 
 
 
-<section class="racing mt-[1.033em] px-[0.32em] md:px-[0.8em] lg:px-0  mb-[75px] overflow-x-hidden hidden lg:block">
+<section class="racing mt-[1.033em] px-[0.32em] md:px-[0.8em] lg:px-0   overflow-x-hidden hidden lg:block">
     <section class="main-banner default"><!----></section>
 
 
