@@ -236,7 +236,7 @@ section.matches .region-block .region-title {
 }
 section.matches .region-block .region-title .flag {
   transform: scale(0.9);
-  margin-right:7.504px;
+  margin-right: 7.504px;
 }
 .flag {
   display: inline-block;
@@ -490,150 +490,117 @@ section.matches .region-block ul.champs > li {
   justify-content: space-between;
   padding: 4vw 0;
 }
-@media (min-width: 390px) {
+@media (min-width: 390px) and (max-width: 415px) {
   .racing {
-    padding: 0px 0.4em;
+    padding: 5.20532px !important;
   }
+  section.page-title > span {
+    padding-top: 1px;
+  }
+
   section.filters {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    justify-content: space-between;
-    height: 4.77em;
-    padding: 0.32em 0em;
-    padding-top: 0.5em;
+    height: 3.8em !important;
+    padding: 0.32em 0em !important;
+    padding-top: 0.99em !important;
     border-radius: 5px;
+    margin-top: 0px;
   }
-  section.matches .region-block ul.champs ul.matches > li a {
-    padding: 0.778em 0.601em;
+  section.filters .with-odds {
+    padding-top: 2px;
+  }
+
+  section.filters .with-odds .switcher {
+    margin-left: 5.29vw;
+
+    margin-bottom: 3px;
+  }
+  .startTime {
+    margin-left: 7.808px !important;
+  }
+  section.matches .region-block .region-title .flag {
+    margin-right: 7.808px;
+  }
+  section.matches .region-block .region-title .material-icons {
+    padding-top: 1px !important;
+  }
+  section.matches .region-block ul.champs > li:first-child {
+    padding-bottom: 15.616px !important;
+    padding-top: 0px !important;
+  }
+  section.matches .region-block ul.champs > li {
+    padding: 15.616px 0px !important;
   }
   .regionTitle {
     font-size: 0.99em;
     padding-top: 0.1em;
   }
-  section.matches .region-block ul.champs > li:first-child {
-    padding-bottom: 1.2em !important;
+}
+@media (min-width: 414px) and (max-width: 430px) {
+  .racing {
+    padding: 5.52532px !important;
+  }
+  section.filters {
+    height: 4.1em !important;
+  }
+  section.filters .with-odds {
     padding-top: 0px !important;
   }
+  section.filters .with-odds .switcher {
+    margin-left: 5.2vw !important;
+    margin-bottom: 1px !important;
+  }
+  .startTime {
+    margin-left: 8.288px !important;
+  }
+  section.matches .region-block .region-title .flag {
+    margin-right: 8.288px;
+    margin-bottom: 2px;
+  }
+  section.matches .region-block ul.champs > li .toggle {
+    width: 20.38px;
+    height: 20.38px;
+    margin-top: 9px;
+  }
   section.matches .region-block ul.champs > li {
-    border-bottom: 1.2px solid black;
-    padding: 1.2em 0em !important;
-    align-items: centery;
+    padding: 16.576px 0px !important;
   }
 }
-@media (min-width: 414px) {
-  section.filters {
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    justify-content: space-between;
-    height: 4.9em;
-    padding: 0.32em 0em;
-    padding-top: 0.4em;
-    border-radius: 5px;
+@media (min-width: 430px) and (max-width: 768px) {
+  section.page-title > span {
+    margin: 0 auto;
+    padding-left: 8vw;
+    padding-top: 1px;
   }
-  .odds {
-    font-size: 1.04em !important;
+  section.sport-tabs ul li .img {
+    margin-bottom: 1px;
   }
-  section.matches .region-block .region-title .material-icons {
-    margin-left: 0.6em !important;
-  }
-  .racing {
-    padding: 0em 0.4em;
-  }
-
   section.filters .with-odds .switcher {
     position: relative;
-    width: 6.667vw;
-    height: 3.2vw;
+    width: 2em;
+    height: 0.85em;
     background-color: #101015;
     border-radius: 0.5em;
-    margin-left: 5.33334vw;
+    margin-left: 5.2vw;
     transition: background-color 0.3s ease;
   }
   section.filters .with-odds .switcher::before {
-    content: "";
-    position: absolute;
-    width: 1.29em;
-    height: 1.33em;
-    border-radius: 1.1em;
-    left: -0.7em;
-    top: -0.2em;
-    background-color: #97a1c2;
-    transition: left 0.3s ease, background-color 0.3s ease;
+    top: -0.8vw;
   }
-  section.matches .region-block .region-title {
-    height: 1.7em;
-    cursor: pointer;
-    padding: 1.7em 0em !important;
-
-    margin-right: 0.2em !important;
+  .startTime {
+    margin-left: 8.604px !important;
   }
   section.matches .region-block .region-title .flag {
-    transform: scale(0.93);
-    margin-right: 0.7em;
-    margin-bottom: 3px;
-  }
-  section.matches .region-block ul.champs ul.matches > li a {
-    font-size: 1.036em;
-  }
-  .plus-remove {
-    background: none !important;
-    font-size: 1.3em;
-    width: 20.38px !important;
-    height: 20.38px !important;
-  }
-  section.matches .region-block ul.champs > li {
-    padding: 1.35em 0em !important;
+    margin-right: 8.604px;
   }
   section.matches .region-block ul.champs > li:first-child {
-    padding-bottom: 1.2em !important;
+    padding-bottom: 1.1447em;
     padding-top: 0px !important;
   }
-  section.matches .region-block {
-    background-color: #151a21;
-    padding: 0 3.2vw !important;
-    margin-top: 2.66667vw !important;
-  }
-  section.matches .region-block:first-child {
-    background-color: #151a21;
-    padding: 0 0.86em !important;
-    margin-top: 0.2em !important;
-  }
-  .regionTitle {
-    font-size: 1.07em !important;
-    padding-bottom: 0.1em !important;
+  section.matches .region-block ul.champs > li {
+    padding: 1.1447em 0px !important;
   }
 }
-@media (min-width: 430px) {
-  section.filters {
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    justify-content: space-between;
-    height: 5.267em;
-    padding: 0.1em 0em;
-    padding-top: 0.4em;
-    border-radius: 5px;
-  }
-  .racing {
-    padding: 0em 0.45em;
-  }
-  .odds {
-    font-size: 1.076em !important;
-  }
-  section.matches .region-block .region-title .material-icons {
-    color: #ffffff80;
-    margin-left: 0.6em;
-    font-size: 1.5em !important;
-  }
-  section.matches .region-block ul.champs > li:first-child {
-    padding-bottom: 1.44em !important;
-    padding-top: 1.5px !important;
-  }
-}
-@media (min-width: 768px) and (max-width: 768px) {
+@media (min-width: 768px) {
   section.filters {
     height: 9.5em;
     padding: 1.32em 0em;
