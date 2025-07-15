@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { LiveStreemComponent } from '../../component/live-streem/live-streem.component';
 
 @Component({
   selector: 'app-racing',
-  imports: [CommonModule],
+  imports: [CommonModule, LiveStreemComponent],
   templateUrl: './racing.component.html',
   styleUrl: './racing.component.css'
 })
@@ -13,7 +14,17 @@ export class RacingComponent {
   collapsedRegions: { [key: number]: boolean } = {};
 
   expandedChamps: { [champKey: string]: boolean } = {};
+  isToggleVideoStream = false;
 
+  get imageSrc(): string {
+    return this.isToggleVideoStream
+      ? '/assets/images/racing/uncheck.png'
+      : '/assets/images/racing/check.png';
+  }
+
+  toggleVideoStream(): void {
+    this.isToggleVideoStream = !this.isToggleVideoStream;
+  }
   toggleChampExpansion(regionIndex: number, champIndex: number): boolean {
     const key = `${regionIndex}_${champIndex}`;
     this.expandedChamps[key] = !this.expandedChamps[key];
@@ -27,7 +38,7 @@ export class RacingComponent {
   regions = [
     {
       country: 'greatbritain',
-      title: 'Great Britain (Tomorrow)',
+      title: 'Great Britain',
       champs: [
         {
           name: 'Uttoxeter',
@@ -36,7 +47,7 @@ export class RacingComponent {
             { time: '00:00', link: '#/racing/match/16140774_25' },
             { time: '00:00', link: '#/racing/match/16140774_25' },
             { time: '00:00', link: '#/racing/match/16140774_25' },
-            { time: '00:00', link: '#/racing/match/16140774_25' },
+            { time: '19:04', link: '#/racing/match/16140774_25' },
             { time: '00:00', link: '#/racing/match/16140774_25' },
             { time: '00:00', link: '#/racing/match/16140774_25' },
             { time: '00:30', link: '#/racing/match/16140778_25' }
@@ -85,7 +96,7 @@ export class RacingComponent {
     },
     {
       country: 'ireland',
-      title: 'Ireland (Tomorrow)',
+      title: 'Ireland',
       champs: [
         {
           name: 'Tramore',

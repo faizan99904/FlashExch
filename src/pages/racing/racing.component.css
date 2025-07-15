@@ -1,17 +1,88 @@
-:host {
-  font-size: 0.94em;
-}
 .racing {
   font-size: 0.94em;
 }
-@media screen and (max-width: 1600px) {
-  :host {
-    font-size: 14px;
-  }
-  .racing {
-    font-size: 14px;
-  }
+section.page-title {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 2.66667vw 0;
+  font-size: 3.5vw;
+  color: #ffffff99;
 }
+section.page-title > span {
+  margin: 0 auto;
+  padding-left: 8vw;
+}
+section.page-title .toggle-stream {
+  margin-right: 2.13333vw;
+}
+section.page-title .toggle-stream img {
+  width: 5.86667vw;
+}
+img {
+  vertical-align: middle;
+}
+section.sport-tabs ul,
+section.sport-tabs ul li {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 3.5vw;
+}
+section.sport-tabs ul li.selected,
+section.sport-tabs ul li.selected .match-count {
+  color: #fff;
+}
+section.sport-tabs ul li {
+  background-color: #151a21;
+  height: 13.33333vw;
+  border-radius: 1.33333vw;
+  padding: 0 1.33333vw;
+  width: 100%;
+}
+section.sport-tabs ul,
+section.sport-tabs ul li {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+section.sport-tabs ul li .img {
+  width: 12vw;
+  height: 100%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  margin-right: 2vw;
+}
+section.sport-tabs ul li.selected,
+section.sport-tabs ul li.selected .match-count {
+  color: #fff;
+}
+section.sport-tabs ul li .match-count {
+  margin-left: auto;
+  color: #ffffff66;
+}
+section.sport-tabs ul li .img[sport="horseracing"] {
+  background-image: url(/assets/images/racing/horse.svg);
+}
+section.sport-tabs ul li {
+  background-color: #151a21;
+  height: 13.33333vw;
+  border-radius: 1.33333vw;
+  padding: 0 1.33333vw;
+  width: 100%;
+}
+section.sport-tabs ul li + li {
+  margin-left: 1.33333vw;
+  color: #ffffff99;
+}
+section.sport-tabs ul li .img[sport="greyhound"] {
+  background-image: url(/assets/images/racing/hound.svg);
+}
+
 section.main-banner {
   position: relative;
   padding-top: 10%;
@@ -26,10 +97,9 @@ section.filters {
   -ms-flex-align: center;
   align-items: center;
   justify-content: space-between;
-  height: 4.5em;
-  padding: 0.32em 0em;
-  padding-top: 0.6em;
+
   border-radius: 5px;
+  margin-top: 2.66667vw;
 }
 .search {
   position: relative;
@@ -61,7 +131,7 @@ textarea {
   position: absolute;
   right: 0.719em;
   top: 0.578em;
-  font-size: 1.4em;
+  font-size: 3.5vw !important;
   color: #ffffff99;
 }
 html .material-icons {
@@ -93,11 +163,10 @@ ul {
   color: white;
 }
 section.filters .with-odds {
-  margin-left: 0.9em;
+  margin-left: 3.2vw;
   display: flex;
   align-items: center;
   cursor: pointer;
-  color: #ffffff80;
 }
 
 section.filters .with-odds .switcher {
@@ -106,7 +175,7 @@ section.filters .with-odds .switcher {
   height: 0.85em;
   background-color: #101015;
   border-radius: 0.5em;
-  margin-left: 1.4em;
+  margin-left: 5.33334vw;
   transition: background-color 0.3s ease;
 }
 .matches .region-block ul.champs ul.matches > li a.active {
@@ -123,11 +192,11 @@ section.matches .region-block ul.champs ul.matches > li a.finished {
 section.filters .with-odds .switcher::before {
   content: "";
   position: absolute;
-  width: 1.143em;
-  height: 1.143em;
+  width: 4.265vw;
+  height: 4.265vw;
   border-radius: 1.1em;
-  left: -0.55em;
-  top: -0.15em;
+  left: -2vw;
+  top: -0.4vw;
   background-color: #97a1c2;
   transition: left 0.3s ease, background-color 0.3s ease;
 }
@@ -142,8 +211,9 @@ section.filters .with-odds.active .switcher {
 
 section.matches .region-block {
   background-color: #151a21;
-  padding: 0 0.86em;
-  margin-top: 0.17em;
+  padding: 0 3.2vw !important;
+  margin-top: 2.66667vw !important;
+  color: #ffffff99 !important;
 }
 section.matches .region-block .region-title select {
   background-color: transparent !important;
@@ -160,10 +230,13 @@ section.matches .region-block .region-title {
   cursor: pointer;
   /* padding: 1.6em 0em; */
 }
-
+.startTime {
+  margin-left: 7.504px;
+  color: #ffffff66;
+}
 section.matches .region-block .region-title .flag {
   transform: scale(0.9);
-  margin-right: 0.6em;
+  margin-right:7.504px;
 }
 .flag {
   display: inline-block;
@@ -202,10 +275,6 @@ section.matches .region-block .region-title .material-icons {
   margin-left: 0.6em;
 }
 
-section.matches .region-block ul.champs > li {
-  border-bottom: 1px solid black;
-  align-items: center;
-}
 .plus-remove {
   background: none !important;
   font-size: 1em;
@@ -222,16 +291,14 @@ section.matches .region-block ul.champs ul.matches {
 }
 
 section.matches .region-block ul.champs ul.matches > li a {
-  background-color: #1e242b;
+  background-color: #23282a;
   color: #fff;
-  padding: 0.73em 0.53em;
+  padding: 2.535vw 1.855vw !important;
   margin-right: 0.4em;
   border-radius: 0.3em;
+  font-size: 3.5vw;
 }
-section.matches .region-block ul.champs ul.submatches {
-  padding-top: 0.8em;
-  padding-bottom: 0.57em;
-}
+
 section.matches .region-block ul.champs ul.matches > li:last-child a {
   margin-right: 0;
   border-radius: 0.3em;
@@ -266,6 +333,163 @@ select {
   background-size: 2vw auto;
   background-position: right 2vw center;
 }
+.racing-events {
+  margin-top: 1.33333vw !important;
+  font-size: 0.8208rem;
+}
+
+section.matches .region-block ul.champs > li .toggle {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 18.6px;
+  height: 18.6px;
+
+  border-radius: 1vw;
+  color: #fff;
+  border: 1px solid #404040;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  font-size: 3.5vw;
+}
+
+section.matches .region-block ul.champs > li:first-child {
+  padding-top: 0;
+}
+section.matches .region-block ul.champs > li {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: start;
+  align-items: flex-start !important;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 4vw 0;
+}
+section.matches .region-block ul.champs > li .list-wrapper {
+  position: relative;
+  width: calc(100% - 9.33333vw);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+section.matches .region-block ul.champs > li .list-wrapper .champ-name {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 9.33333vw;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 33%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+section.matches .region-block ul.champs > li .list-wrapper ul.matches {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: auto;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-left: -1.33333vw;
+  width: calc(100% + 1.33333vw);
+}
+section.matches
+  .region-block
+  ul.champs
+  > li
+  .list-wrapper
+  ul.matches
+  > li:first-child {
+  margin-left: calc(33.33% + 1.33333vw);
+}
+section.matches .region-block ul.champs > li .list-wrapper ul.matches > li {
+  margin-left: 1.33333vw;
+  width: calc(16.6% - 1.33333vw);
+  height: 9.33333vw;
+}
+section.matches .region-block ul.champs > li .list-wrapper ul.matches > li a {
+  background-color: #23282a;
+  color: #fff;
+}
+section.matches .region-block ul.champs > li .list-wrapper ul.matches > li a {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 99.92% !important;
+  height: 100%;
+  padding: 0px !important;
+  margin: 0px !important;
+  border-radius: 1.33333vw;
+}
+section.matches
+  .region-block
+  ul.champs
+  > li
+  .list-wrapper
+  ul.matches
+  > li
+  + li {
+  margin-left: 5px;
+}
+section.matches .region-block ul.champs > li .list-wrapper ul.matches > li {
+  margin-left: 1.33333vw;
+  width: calc(16.6% - 1.33333vw);
+  height: 9.33333vw;
+}
+section.matches .region-block ul.champs > li .list-wrapper ul.matches > li a {
+  background-color: #23282a;
+  color: #fff;
+}
+section.matches .region-block ul.champs > li .list-wrapper ul.matches > li a {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.33333vw;
+}
+section.matches .region-block ul.champs > li .toggle {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 4.96vw;
+  height: 4.96vw;
+  margin-top: 2.4vw;
+  border-radius: 1vw;
+  color: #fff;
+  border: 1px solid #404040;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+.material-icons:before {
+  content: attr(icon);
+}
+section.matches .region-block ul.champs > li {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 4vw 0;
+}
 @media (min-width: 390px) {
   .racing {
     padding: 0px 0.4em;
@@ -295,7 +519,7 @@ select {
   section.matches .region-block ul.champs > li {
     border-bottom: 1.2px solid black;
     padding: 1.2em 0em !important;
-    align-items: center;
+    align-items: centery;
   }
 }
 @media (min-width: 414px) {
@@ -321,11 +545,11 @@ select {
 
   section.filters .with-odds .switcher {
     position: relative;
-    width: 2em;
-    height: 0.87em;
+    width: 6.667vw;
+    height: 3.2vw;
     background-color: #101015;
     border-radius: 0.5em;
-    margin-left: 1.6em;
+    margin-left: 5.33334vw;
     transition: background-color 0.3s ease;
   }
   section.filters .with-odds .switcher::before {
@@ -369,8 +593,8 @@ select {
   }
   section.matches .region-block {
     background-color: #151a21;
-    padding: 0 0.86em !important;
-    margin-top: 0.8em !important;
+    padding: 0 3.2vw !important;
+    margin-top: 2.66667vw !important;
   }
   section.matches .region-block:first-child {
     background-color: #151a21;
@@ -405,9 +629,9 @@ select {
     font-size: 1.5em !important;
   }
   section.matches .region-block ul.champs > li:first-child {
-        padding-bottom: 1.44em !important;
-        padding-top: 1.5px !important;
-    }
+    padding-bottom: 1.44em !important;
+    padding-top: 1.5px !important;
+  }
 }
 @media (min-width: 768px) and (max-width: 768px) {
   section.filters {
@@ -471,8 +695,8 @@ select {
 
   section.matches .region-block {
     background-color: #151a21;
-    padding: 0 1.86em;
-    margin-top: 0.17em;
+    padding: 0 3.2vw !important;
+    margin-top: 2.66667vw !important;
   }
 }
 
@@ -492,15 +716,17 @@ select {
     display: flex;
     -ms-flex-align: center;
     align-items: center;
-    height: 1.7em;
+    height: 10.931vw;
     cursor: pointer;
-    padding: 1.5em 0em;
+    padding: 2.13333vw 0em;
   }
   section.matches .region-block .region-title .material-icons {
-    color: #ffffff80;
-    margin-left: 0.6em;
-    font-size: 1.3em;
+    color: #ffffff66;
+    line-height: 4px;
+    margin-left: 2.66667vw;
+    font-size: 5vw;
   }
+
   .sel,
   button,
   input,
@@ -526,7 +752,7 @@ select {
     display: flex;
     -ms-flex-align: center;
     align-items: center;
-    height: 2.5em;
+    height: 2.3em;
     color: #ffffff99;
   }
 }
@@ -643,13 +869,6 @@ select {
     margin-left: auto;
   }
 
-  section.matches .region-block ul.champs ul.matches > li a {
-    background-color: #1e242b;
-    color: #fff;
-    padding: 0.73em 0.53em;
-    margin-right: 0.4em;
-    border-radius: 0.3em;
-  }
   section.matches .region-block ul.champs ul.matches > li:last-child a {
     margin-right: 0;
     border-radius: 0.3em;
