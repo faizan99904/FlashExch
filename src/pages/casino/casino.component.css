@@ -442,6 +442,75 @@
   color: #4e4e4e;
 }
 
+@media (min-width: 375px) and (max-width: 390px) {
+  .swiper-wrapper {
+    max-height: 198.75px;
+  }
+
+  .swiper-slide img {
+    max-height: 198.75px;
+  }
+
+  .logos ul li img {
+    height: 15.8812px;
+  }
+
+  .see-all {
+    height: 23.59px;
+    width: 54.45px;
+  }
+
+  .see-all p {
+    font-size: 10.89px;
+  }
+
+  .top-padding-container {
+    padding: 8.7px;
+  }
+
+  .search-mb-btn {
+    height: 50.82px;
+    min-width: 44.63px;
+    margin-left: 0.5px;
+  }
+
+  .mb-search-main-container {
+    margin-top: 7.26px;
+  }
+  .height-mb-search-wrapper {
+    height: 46.2825px;
+  }
+  .text-nav-item {
+    font-size: 10.89px;
+  }
+  .padding-nav-item {
+    padding: 4.356px 10.89px;
+    margin-top: -2px;
+  }
+
+  .all-nav-item {
+    width: 57.1725px;
+  }
+
+  .game-images-container {
+    margin-top: 10.89px;
+  }
+
+  .heading {
+    margin: 0px 8.712px;
+    padding: 6.80625px 0px;
+  }
+
+  .heading h1 {
+    font-size: 13.068px;
+  }
+  .see-more {
+    width: 56.98px;
+    height: 28.62px;
+    font-size: 10.4544px;
+  }
+}
+
 @media (min-width: 1024px) {
   ::ng-deep .swiper-pagination {
     display: flex;

@@ -2,7 +2,7 @@
 <app-sports-nav class="max-lg:hidden"></app-sports-nav>
 <div class="w-full lg:hidden bg-[#14161B]">
 
-    <div class="swiper mySwiper  max-w-[calc(100vw)] [375px]:max-h-[227.9px]
+    <div class="swiper mySwiper  max-w-[calc(100vw)]
         lg:mt-2 lg:rounded-md">
         <div class="swiper-wrapper forMedia max-h-[227.9px]">
             <div class="swiper-slide h-full" *ngFor=" let img of swiperImages">
@@ -13,7 +13,7 @@
     </div>
 
 
-    <div class="p-[9.98976px]   poppins-medium ">
+    <div class="p-[9.98976px]   poppins-medium top-padding-container">
         <div class=" bg-[#13161B]  text-[3.5vw]">
             <div class="logos max-h-0 overflow-hidden transition-all duration-500 "
                 [ngClass]="{'max-h-[27px] duration-500 transition-all':!isProvider}">
@@ -33,11 +33,11 @@
 
         </div>
 
-        <div class=" bg-[#101317] mt-[8.3248px] mx-[-4.99px]">
+        <div class=" bg-[#101317] mt-[8.3248px] mx-[-4.99px] mb-search-main-container">
             <div class="mt-[0] overflow-hidden rounded-[.4rem]">
                 <div class=" ">
-                    <div class="h-[53px] w-full relative flex items-center slot-categories">
-                        <div class="min-w-[51.17px] h-[58.2736px] flex justify-center items-center"
+                    <div class="h-[53px] height-mb-search-wrapper w-full relative flex items-center slot-categories">
+                        <div class="min-w-[51.17px] h-[58.2736px] flex justify-center items-center search-mb-btn"
                             (click)="toggleSearch()">
                             <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -51,29 +51,29 @@
                         </div>
                         <ul class="flex w-full items-center  overflow-x-auto overflow-y-hidden mt-[2.5px]">
                             <li
-                                class="w-[65.55px] text-center relative shrink-0 p-[4.99px_12.48px] cursor-pointer border-b border-transparent">
-                                <div class="text-[12.48px] text-white ">All</div>
+                                class="w-[65.55px] text-center relative shrink-0 p-[4.99px_12.48px] all-nav-item padding-nav-item  padding-nav-item cursor-pointer border-b border-transparent">
+                                <div class="text-[12.48px] text-nav-item text-white ">All</div>
                             </li>
                             <li
-                                class="text-center relative shrink-0 p-[4.99px_12.48px] cursor-pointer border-b border-transparent">
-                                <div class="text-[12.48px] text-white ">Popular Slots</div>
+                                class="text-center relative shrink-0 p-[4.99px_12.48px] padding-nav-item  cursor-pointer border-b border-transparent">
+                                <div class="text-[12.48px]  text-nav-item text-white ">Popular Slots</div>
                             </li>
 
                             <li
-                                class="text-center relative shrink-0 p-[4.99px_12.48px] cursor-pointer border-b border-transparent">
-                                <div class="text-[12.48px] text-white ">Drops & Wins</div>
+                                class="text-center relative shrink-0 p-[4.99px_12.48px] padding-nav-item  cursor-pointer border-b border-transparent">
+                                <div class="text-[12.48px]  text-nav-item text-white ">Drops & Wins</div>
                             </li>
                             <li
-                                class="text-center relative shrink-0 p-[4.99px_12.48px] cursor-pointer border-b border-transparent">
-                                <div class="text-[12.48px] text-white ">Bonus Buy</div>
+                                class="text-center relative shrink-0 p-[4.99px_12.48px] padding-nav-item  cursor-pointer border-b border-transparent">
+                                <div class="text-[12.48px]  text-nav-item text-white ">Bonus Buy</div>
                             </li>
                             <li
-                                class="text-center relative shrink-0 p-[4.99px_12.48px] cursor-pointer border-b border-transparent">
-                                <div class="text-[12.48px] text-white ">Megaways</div>
+                                class="text-center relative shrink-0 p-[4.99px_12.48px] padding-nav-item  cursor-pointer border-b border-transparent">
+                                <div class="text-[12.48px]  text-nav-item text-white ">Megaways</div>
                             </li>
                             <li
-                                class="text-center relative shrink-0 p-[4.99px_12.48px] cursor-pointer border-b border-transparent">
-                                <div class="text-[12.48px] text-white ">New Games</div>
+                                class="text-center relative shrink-0 p-[4.99px_12.48px] padding-nav-item  cursor-pointer border-b border-transparent">
+                                <div class="text-[12.48px]  text-nav-item text-white ">New Games</div>
                             </li>
                         </ul>
                     </div>
@@ -140,7 +140,7 @@
 
 
     <div class="bg-[#13161B] overflow-hidden px-[4.99px]" *ngIf="!seeAll">
-        <div class="mt-[12.4872px]">
+        <div class="mt-[12.4872px] game-images-container">
             <div class="heading mx-[9.98px] ">
                 <h1 class="font-bold"> <span class="text-[#11e311] mr-[2.49744px]">Popular</span>Slots</h1>
                 <div class="see-more " (click)="seeToggle()">
@@ -244,10 +244,6 @@
             </li>
         </ul>
     </div>
-
-
-
-
 </div>
 
 <div class="max-lg:hidden max-w-[1213.33px] mx-auto">
@@ -501,3 +497,7 @@
 </div>
 
 <app-footer></app-footer>
+
+<div class="bottom-0 fixed w-full left-0 lg:hidden">
+    <app-bottom-nav></app-bottom-nav>
+</div>
