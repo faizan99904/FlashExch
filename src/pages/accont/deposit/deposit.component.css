@@ -1,0 +1,71 @@
+.page-wrapper {
+  position: relative;
+  float: left;
+  width: calc(100% - 253.125px);
+  overflow: hidden;
+  margin-left: 253.125px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.payment-methods {
+  padding: 37.5px;
+}
+
+.info.disabled {
+  opacity: 0.6;
+}
+
+.info {
+  height: 81.5625px;
+  position: relative;
+  color: #4d4d4d;
+  cursor: pointer;
+  border-top: 0.9375px solid rgba(255, 255, 255, 0.1);
+}
+
+.info div {
+  float: left;
+  width: 23%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-right: 9.45px;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.logo-wrapper img {
+  max-width: 89.0625px;
+  line-height: 81.5625px;
+  margin-top: 3px;
+}
+
+.info div h4 {
+  color: #868686;
+  margin-top: 15.9375px;
+  font-size: 13.125px;
+}
+
+.deposit-with {
+  margin-top: 4.6875px;
+  margin-bottom: 13.125px;
+}
+
+.info div p {
+  line-height: 18.75px;
+  font-size: 13.125px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.info .arrow {
+  width: 8% !important;
+  font-size: 32.8125px;
+  text-align: center;
+  line-height: 81.5625px;
+  color: #fff;
+}

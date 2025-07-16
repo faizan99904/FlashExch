@@ -1,0 +1,116 @@
+.page-wrapper {
+  position: relative;
+  float: left;
+  width: calc(100% - 253.125px);
+  overflow: hidden;
+  margin-left: 253.125px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 18.75px;
+}
+
+.promo-code {
+  position: relative;
+  background: linear-gradient(47deg, #2c2c35, #3a4155);
+  line-height: initial;
+  text-align: initial;
+  border-radius: 4.65px;
+  padding-left: 15px;
+  height: 68.4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-top: 18.75px;
+  display: flex;
+}
+
+.promo-code form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.fields {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 37.5px;
+  overflow: hidden;
+}
+
+.fields input {
+  height: 100%;
+  width: 209.1px;
+  background: rgba(255, 255, 255, 0.17);
+  color: #fff;
+  font-size: 14.1px;
+  border: none;
+  border-radius: 4.65px;
+  padding: 0 9.45px;
+}
+
+.fields button {
+  font-size: 15px;
+  min-width: 112.5px;
+  height: 100%;
+  margin-left: 9.45px;
+  background: #11e311;
+  border-radius: 7.0005px;
+  font-weight: bold;
+  width: 124px;
+}
+
+.promo-code form:last-child {
+  margin-left: 9.375px;
+}
+.active-freespins {
+  height: 570px;
+  margin-top: 30px !important;
+}
+
+.table-wrapper table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-wrapper table thead {
+  background-color: #16161b;
+}
+
+table thead tr th {
+  font-weight: 400;
+  color: #fff;
+}
+
+.table-wrapper table thead tr th:nth-child(1) {
+  padding-left: 30px;
+  width: 20%;
+}
+
+.table-wrapper table thead tr th:nth-child(2) {
+  width: 20%;
+}
+
+.table-wrapper table thead tr th:nth-child(3) {
+  width: 14%;
+}
+
+.table-wrapper table thead tr th:nth-child(4) {
+  width: 20%;
+}
+
+.page-wrapper table th {
+  text-align: left;
+  height: 40px;
+}

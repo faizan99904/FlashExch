@@ -13,6 +13,12 @@ import { LiveCasinoComponent } from '../pages/live-casino/live-casino.component'
 import { AccountLayoutComponent } from '../account-layout/account-layout.component';
 import { DashboardComponent } from '../pages/accont/dashboard/dashboard.component';
 import { LivePageComponent } from '../layout/live-page/live-page.component';
+import { PersonalInformationComponent } from '../pages/accont/personal-information/personal-information.component';
+import { DepositComponent } from '../pages/accont/deposit/deposit.component';
+import { WithdrawComponent } from '../pages/accont/withdraw/withdraw.component';
+import { TransactionsHistoryComponent } from '../pages/accont/transactions-history/transactions-history.component';
+import { BonusesComponent } from '../pages/accont/bonuses/bonuses.component';
+import { FreespinsComponent } from '../pages/accont/freespins/freespins.component';
 
 
 export const routes: Routes = [
@@ -46,8 +52,14 @@ export const routes: Routes = [
 
   {
     path: 'account', component: AccountLayoutComponent,
-    children: [
-      { path: 'dashboard', component: DashboardComponent }
+    children:  [
+      { path: 'dashboard', component:  DashboardComponent  },
+      { path: 'personalinfo', component: PersonalInformationComponent },
+      { path: 'deposit', component: DepositComponent },
+      { path: 'withdraw', component: WithdrawComponent },
+      { path: 'transactions', component: TransactionsHistoryComponent },
+      { path: 'bonuses', component: BonusesComponent },
+      { path: 'freespins', component: FreespinsComponent}
     ]
   },
 ];
