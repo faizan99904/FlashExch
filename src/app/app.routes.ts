@@ -9,7 +9,10 @@ import { RacingComponent } from '../pages/racing/racing.component';
 
 import { ForgetPasswordComponent } from '../auth/forget-password/forget-password.component';
 import { PromosComponent } from '../pages/promos/promos.component';
-import { AffliateComponent } from '../pages/affliate/affliate.component';
+import { LiveCasinoComponent } from '../pages/live-casino/live-casino.component';
+import { AccountLayoutComponent } from '../account-layout/account-layout.component';
+import { DashboardComponent } from '../pages/accont/dashboard/dashboard.component';
+
 
 export const routes: Routes = [
   {
@@ -28,6 +31,13 @@ export const routes: Routes = [
     ],
   },
   { path: 'casino', component: CasinoComponent },
+  { path: 'live-casino', component: LiveCasinoComponent },
   { path: 'promos', component: PromosComponent },
-  { path: 'affliate', component: AffliateComponent },
+
+  {
+    path: 'account', component: AccountLayoutComponent,
+    children:[
+      { path: 'dashboard', component:DashboardComponent}
+    ]
+  },
 ];

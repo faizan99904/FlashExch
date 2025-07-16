@@ -4,3 +4,178 @@
 li input[type="checkbox"]:checked ~ label {
   background-color: rgba(0, 170, 48, 0.1);
 }
+#racing {
+  color: #ffffff99;
+}
+#racing .racing-menu ul.sports li.selected {
+  color: #fff;
+  filter: brightness(1.2);
+  font-size: 0.7875rem;
+}
+
+#racing .racing-menu ul.sports li + li {
+  margin-top: 0.4375rem;
+}
+#racing .racing-menu ul.sports li {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #101317;
+  height: 4rem;
+  border-radius: 5px;
+  padding: 0 1.2rem 0 0.6rem;
+  transition: -webkit-filter 0.12s ease-in;
+  transition: filter 0.12s ease-in;
+  transition: filter 0.12s ease-in, -webkit-filter 0.12s ease-in;
+  cursor: pointer;
+}
+#racing .racing-menu ul.sports li .img[sport="horseracing"] {
+  background-image: url(/assets/images/racing/horse.svg);
+}
+#racing .racing-menu ul.sports li.selected .img {
+  transform: scale(1.5);
+  transform-origin: left center;
+  margin-right: 1.75rem;
+}
+
+#racing .racing-menu ul.sports li .img {
+  width: 2.188rem !important;
+  height: 100%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  margin-right: 0.525rem;
+}
+#racing .racing-menu ul.sports li.selected .match-count {
+  color: #fff;
+}
+#racing .racing-menu ul.sports li .match-count {
+  margin-left: auto;
+  color: #ffffff80;
+}
+#racing .racing-menu .upcoming {
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+#racing .racing-menu .upcoming p {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 2.625rem;
+  background-color: #101317;
+  padding: 0 1.05rem;
+  font-size: 0.7875rem;
+}
+#racing .racing-menu .upcoming p .material-icons {
+  color: #ffffff80;
+  font-size: 1.3125rem;
+  margin-right: 0.875rem;
+  line-height: 1;
+  margin-bottom: 0.1rem;
+}
+
+#racing .racing-menu .upcoming ul {
+  padding: 0.7rem 0;
+  background-color: #101317;
+}
+#racing .racing-menu .upcoming ul li {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 1.75rem;
+  padding: 0 1.05rem;
+  transition: color 0.12s ease-in;
+  cursor: pointer;
+  font-size: 0.7875rem;
+}
+#racing .racing-menu .upcoming ul li .flag {
+  transform: none;
+  margin-right: 0.875rem;
+  margin-bottom: 0.1rem !important;
+}
+
+.flag[country^="spain"] {
+  background-position: -192px -312px;
+}
+.flag[country^="ireland"] {
+  background-position: 0px -168px;
+}
+.flag[country^="germany"] {
+  background-position: -192px -120px;
+}
+.flag[country^="greatbritain"] {
+  background-position: -264px -120px;
+}
+.flag[country^="mexico"] {
+  background-position: -120px -216px;
+}
+.flag {
+  transform-origin: left center;
+}
+#racing .racing-menu ul.sports li:hover {
+  -webkit-filter: brightness(1.2);
+  filter: brightness(1.2);
+}
+.flag[country^="unitedstates"] {
+  background-position: -72px -360px;
+}
+.flag[country^="australia"] {
+  background-position: -48px -24px;
+}
+.flag[country^="southafrica"] {
+  background-position: -120px -312px;
+}
+.flag[country^="italy"] {
+  background-position: -96px -168px;
+}
+.flag[country^="spain"] {
+  background-position: -192px -312px;
+}
+.flag {
+  transform-origin: left center;
+}
+.flag[country] {
+  background-image: url(/assets/images/racing/flags.png);
+}
+.flag {
+  display: inline-block;
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+  background-image: url(/assets/images/racing/flags.png);
+  background-repeat: no-repeat;
+  background-position: 100px 0;
+  transform: scale(0.7);
+  transform-origin: left center;
+}
+#racing .racing-menu .upcoming ul li span:last-child {
+  margin-left: auto;
+}
+#racing .racing-menu ul.sports li .img[sport="greyhound"] {
+  background-image: url(/assets/images/racing/hound.svg);
+}
+#racing .racing-menu ul.sports li {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #101317;
+  height: 3.5rem;
+  border-radius: 5px;
+  padding: 0 1.05rem 0 0.525rem;
+  transition: -webkit-filter 0.12s ease-in;
+  transition: filter 0.12s ease-in;
+  transition: filter 0.12s ease-in, -webkit-filter 0.12s ease-in;
+  cursor: pointer;
+  font-size: 0.7875rem;
+}
+
+@media (min-width: 1512px) {
+  #racing .racing-menu ul.sports li .img {
+    height: 64%;
+  }
+}

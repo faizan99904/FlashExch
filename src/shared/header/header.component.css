@@ -1,3 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 header {
   position: relative;
   height: 52px;
@@ -169,6 +189,117 @@ header .change-lang div.current-lang {
   vertical-align: middle;
 }
 
+.large-login-content {
+  display: flex;
+  padding-left: 14.0625px;
+  gap: 4.7997px;
+}
+
+.large-login-content li {
+  border-radius: 0.1333rem;
+  height: 100%;
+}
+
+.user-notifications {
+  position: relative;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  width: 24.3px;
+  background-color: #101317;
+  border-radius: 0.1875rem;
+  cursor: pointer;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #1e242b;
+  box-sizing: border-box;
+  height: 25.63px !important;
+}
+
+.user-notifications svg {
+  height: 11.9997px;
+}
+
+.username {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: var(--textColor);
+  white-space: nowrap;
+  padding: 0 9.6003px;
+  border: 1px solid #1e242b;
+  height: 25.63px !important;
+  color: white;
+}
+.currency-str {
+  color: #a5aaac;
+  font-size: 7.2px;
+}
+
+.amount {
+  color: #fff;
+  margin-right: 4.5px;
+  font-size: 7.2px;
+}
+
+.deposit {
+  min-width: 45.5625px;
+  height: 24.8625px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #11e311;
+  color: #030303;
+  font-size: 7.65px;
+  font-weight: bold;
+}
+
+.li-height {
+  max-height: 24.8625px;
+}
+
+.btn {
+  position: relative;
+  border: 0;
+  outline: 0;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  background: #11e311;
+  color: #030303;
+  width: 74.4003px;
+  border-radius: 4.2003px;
+  height: 24.8625px;
+  line-height: normal;
+  padding: 0 8.4375px;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.username svg {
+  height: 11.9997px;
+}
+
+.arrowdown {
+  margin-left: 4.7997px;
+}
+
+.user {
+  margin: 1.125px;
+  font-size: 7.2px;
+  text-transform: uppercase;
+}
+
 /* header .change-lang div.current-lang img {
   width: 41px;
   height: 21px;
@@ -180,6 +311,14 @@ header .change-lang div.current-lang {
     background: #171717 !important;
     height: 38px;
   }
+
+  .balance-main-container {
+    display: none;
+  }
+  .after-login-mobile-balance {
+    display: none;
+  }
+
   .mobile-logo {
     @apply hidden;
   }
@@ -309,10 +448,8 @@ header .change-lang div.current-lang {
 }
 
 @media (min-width: 1260px) and (max-width: 1440px) {
-  header  {
-  
+  header {
     background: #171717 !important;
-  
   }
 
   header .content {
@@ -321,7 +458,6 @@ header .change-lang div.current-lang {
     max-width: 1061.33px;
     margin: 0px auto;
   }
-
 }
 
 @media (min-width: 1440px) {
@@ -568,5 +704,257 @@ header .change-lang ul li span {
   }
   header .content #not-authorized .btn {
     font-size: 12px !important;
+  }
+}
+
+.gift-icon {
+  width: 33.563px;
+  height: 33.563px;
+  display: flex;
+  position: relative;
+}
+
+.balance {
+  font-size: 10px;
+  margin-right: -2vw;
+  line-height: normal;
+  color: #ffdd55;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 6px 8px 6px 4px;
+  background: #1f2327;
+  height: 18px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 6px;
+}
+
+.currency {
+  margin-left: 1vw;
+}
+
+.user-icon {
+  float: left;
+  height: 35.0658px;
+  width: 35.0658px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  color: #000;
+  background: #11e311;
+  font-size: 6vw;
+  border-radius: 150.282px;
+  position: relative;
+}
+
+@media (min-width: 375px) and (max-width: 390px) {
+  .balance-main-container {
+    margin-left: 17.2425px;
+  }
+  header .content {
+    padding: 0px 10.89px;
+  }
+  .gift-icon {
+    width: 30.4012px;
+    height: 30.4012px;
+  }
+
+  .user-icon {
+    height: 31.7625px;
+    width: 31.7625px;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 412px) {
+  .balance-main-container {
+    margin-left: 17.9322px;
+  }
+  header .content {
+    padding: 0px 11.3256px;
+  }
+  .gift-icon {
+    width: 31.6173px;
+    height: 31.6173px;
+  }
+
+  .user-icon {
+    height: 33.033px;
+    width: 33.033px;
+  }
+}
+
+@media (min-width: 414px) and (max-width: 430px) {
+  .balance-main-container {
+    margin-left: 19.0357px;
+  }
+  header .content {
+    padding: 0px 12.0226px;
+  }
+  .gift-icon {
+    width: 33.563px;
+    height: 33.563px;
+  }
+
+  .user-icon {
+    height: 35.0658px;
+    width: 35.0658px;
+  }
+}
+
+@media (min-width: 430px) and (max-width: 768px) {
+  .balance-main-container {
+    margin-left: 19.7714px;
+  }
+  header .content {
+    padding: 0px 12.4872px;
+  }
+  .gift-icon {
+    width: 34.8601px;
+    height: 34.8601px;
+  }
+
+  .user-icon {
+    height: 36.421px;
+    width: 36.421px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .btn {
+    width: 82.667px;
+    height: 27.625px;
+    font-size: 8.5px;
+  }
+  .username {
+    height: 28.25px !important;
+    padding: 0px 10.667px;
+  }
+  .amount {
+    font-size: 8.1px;
+  }
+
+  .currency-str {
+    font-size: 8.1px;
+  }
+  .user {
+    font-size: 8.1px;
+  }
+
+  .user-notifications {
+    width: 27px;
+    height: 28.25px !important;
+  }
+
+  .large-login-content {
+    gap: 5.333px;
+  }
+
+  .user-notifications svg {
+    height: 13.333px;
+  }
+
+  .username svg {
+    height: 13.333px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .btn {
+    width: 124.001px;
+    height: 41.4375px;
+    font-size: 12.75px;
+    border-radius: 7.0005px;
+  }
+  .username {
+    height: 41.38px !important;
+    padding: 0px 16.005px;
+  }
+  .amount {
+    font-size: 12px;
+    margin-right: 7.5px;
+  }
+
+  .currency-str {
+    font-size: 12px;
+  }
+  .user {
+    font-size: 12px;
+    margin: 1.625px;
+  }
+
+  .user-notifications {
+    width: 40.5px;
+    height: 41.38px !important;
+  }
+
+  .large-login-content {
+    gap: 7.9995px;
+  }
+
+  .user-notifications svg {
+    height: 19.9995px;
+  }
+
+  .username svg {
+    height: 19.9995px;
+  }
+  .arrowdown {
+    margin-left: 7.99px;
+  }
+}
+
+@media (min-width: 1512px) and (max-width: 1600px) {
+  .btn {
+    width: 107.467px;
+    height: 35.91px;
+    font-size: 11.05px;
+    border-radius: 6.0671px;
+  }
+  .username {
+    height: 36.13px !important;
+    padding: 0px 13.86px;
+  }
+  .amount {
+    font-size: 10.4px;
+    margin-right: 6.5px;
+  }
+
+  .currency-str {
+    font-size: 10.4px;
+  }
+  .user {
+    font-size: 10.4px;
+    margin: 1.625px;
+  }
+
+  .user-notifications {
+    width: 35.1px;
+    height: 36.13px !important;
+  }
+
+  .large-login-content {
+    gap: 6.93px;
+  }
+
+  .user-notifications svg {
+    height: 17.3329px;
+  }
+
+  .username svg {
+    height: 17.3329px;
+  }
+  .arrowdown {
+    margin-left: 6.9329px;
   }
 }

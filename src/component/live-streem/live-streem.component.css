@@ -1,0 +1,100 @@
+section.live-stream {
+  background-color: #151a21;
+  padding: 2.13333vw;
+  border-radius: 1.33333vw;
+  margin-bottom: 1.33333vw;
+  color: #ffffff99;
+  height: 64.32vw;
+  font-size: 3.5vw;
+}
+section.live-stream .title {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+section.live-stream .title span:first-child {
+  font-weight: 700;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+section.live-stream .title span:first-child:before {
+  content: "";
+  background-color: #ff0014;
+  width: 3.46667vw;
+  height: 3.46667vw;
+  border-radius: 3.46667vw;
+  margin-right: 2.66667vw;
+}
+section.live-stream .title .material-icons {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 6.4vw;
+  height: 6.4vw;
+  border-radius: 6.4vw;
+  background-color: #3e4146;
+  font-weight: 700;
+  font-size: 3.5vw;
+}
+html .material-icons {
+  line-height: unset;
+  font-size: inherit;
+}
+section.live-stream .stream-wrapper {
+  position: relative;
+  padding-top: 56.25%;
+  border-radius: 4vw;
+  overflow: hidden;
+  margin-top: 1.33333vw;
+  background-color: #000;
+}
+a,
+div,
+li,
+p,
+span {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+section.live-stream .unauthorized-text {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* height: 18vw !important; */
+  padding-top: 19.6vw;
+  text-align: center;
+  box-sizing: border-box;
+  color: #fff;
+}
+section.live-stream .unauthorized-text p:first-child {
+  font-size: 4vw;
+  height: 4.907vw !important;
+}
+section.live-stream .unauthorized-text p + p {
+  margin-top: 3vw;
+}
+
+@media (min-width: 390px) and (max-width: 415px) {
+  section.live-stream .title span:first-child {
+    padding-top: 1px !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  section.live-stream .title span:first-child {
+    padding-top: 2px !important;
+  }
+  section.live-stream {
+    height: 64.59vw;
+  }
+}
