@@ -1,3 +1,8 @@
+.sb-right-content {
+  color: #ffffff99 !important;
+  font-size: 14px !important;
+}
+
 .material-icons {
   font-family: "Material Icons";
   font-weight: normal;
@@ -12,6 +17,50 @@
   direction: ltr;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+button,
+input,
+select,
+textarea {
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  color: #fff;
+  border-radius: 3px;
+  font-family: Roboto;
+  box-sizing: border-box;
+}
+.btn {
+  position: relative;
+  text-transform: uppercase;
+  border: 0;
+  outline: 0;
+  text-align: center;
+  box-sizing: border-box;
+  display: inline-block;
+  font-weight: 400;
+  font-weight: 600;
+  height: 42px;
+  line-height: 42px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background: #00aa30;
+  color: #fff;
+  border-radius: 3px;
+  transition: -webkit-filter 0.12s ease-in;
+  transition: filter 0.12s ease-in;
+  transition: filter 0.12s ease-in, -webkit-filter 0.12s ease-in;
+  cursor: pointer;
+}
+.btn.dark {
+  background: #00aa30;
+  color: #fff;
+  transition: -webkit-filter 0.12s ease-in;
+  transition: filter 0.12s ease-in;
+  transition: filter 0.12s ease-in, -webkit-filter 0.12s ease-in;
+  cursor: pointer;
 }
 
 .sb-right-content {
@@ -160,15 +209,390 @@ g-title:before {
   cursor: pointer;
 }
 .betslip section.betslip-header .clear-all {
-    float: left;
-    width: 40px;
-    text-align: center;
-    height: 42px;
-    line-height: 42px;
-    font-size: 20px;
-    box-sizing: border-box;
-    color: #e72c2c;
-    border-top-right-radius: 3px;
-    transition: background-color .12s ease-in;
-    cursor: pointer;
+  float: left;
+  width: 40px;
+  text-align: center;
+  height: 42px;
+  line-height: 42px;
+  font-size: 20px;
+  box-sizing: border-box;
+  color: #e72c2c;
+  border-top-right-radius: 3px;
+  transition: background-color 0.12s ease-in;
+  cursor: pointer;
+}
+
+.betslip section.betslip-body {
+  position: relative;
+  font-size: 12.6px;
+  overflow: hidden;
+}
+.betslip section.betslip-body .user-odds {
+  background-color: #1e242b;
+  border-radius: 0 0 3px 3px;
+}
+.betslip section.betslip-body .user-odds .price {
+  position: relative;
+  border-top: 1px solid #000;
+  padding: 7px 14px 7px 21px;
+  color: #fff9;
+  overflow: hidden;
+}
+.betslip section.betslip-body .user-odds .price .match-name {
+  color: #fff;
+  line-height: 22.4px;
+  font-weight: 600;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.betslip section.betslip-body .user-odds .price .match-name .num {
+  width: 21px;
+  margin-left: -21px;
+  text-align: center;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+.betslip section.betslip-body .user-odds .price .match-name .name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 7px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+.betslip section.betslip-body .user-odds .price .match-name .add-to-betslip,
+.betslip section.betslip-body .user-odds .price .match-name .remove {
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: auto;
+  transition: color 0.12s ease-in;
+  cursor: pointer;
+}
+.betslip section.betslip-body .user-odds .price .market-name {
+  color: #fff9;
+  line-height: 22.4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.betslip section.betslip-body .user-odds .price .odd {
+  color: #fff9;
+  min-height: 22.4px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+}
+.betslip section.betslip-body .user-odds .price .odd > span:first-child {
+  margin-right: 7px;
+}
+.betslip section.betslip-body .user-odds .price .odd > span:nth-child(2) {
+  color: #fff;
+}
+.betslip section.betslip-body .user-odds .price .odd .betslip-coef {
+  position: relative;
+  margin-left: auto;
+  font-weight: 600;
+  line-height: 22.4px;
+  background: #000;
+  min-width: 40px;
+  font-size: 11.9px;
+  padding: 0 4px;
+  box-sizing: border-box;
+  text-align: center;
+  color: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.betslip .user-odds.single .price .with-inp {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  height: 22.4px;
+}
+.betslip .user-odds.single .price .with-inp input:not([disabled]) {
+  border: 1px solid #2a2b2b;
+}
+.betslip .user-odds.single .price .with-inp input {
+  float: right;
+  width: 56px;
+  padding: 0 7px;
+  text-align: right;
+  background-color: #151616;
+  height: 85%;
+}
+.betslip section.betslip-footer {
+  background-color: #151a21;
+  margin-top: 3px;
+  border-radius: 3px;
+  overflow: hidden;
+  padding: 14px 7px 28px;
+}
+.betslip section.betslip-footer .amounts {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.betslip section.betslip-footer .amounts .bet-amount-wrapper,
+.betslip section.betslip-footer .amounts select {
+  width: 50%;
+  display: -ms-flexbox;
+  display: flex;
+  height: 49px;
+  -ms-flex-order: 1;
+  order: 1;
+}
+.betslip section.betslip-footer .single .amounts .bet-amount-wrapper input {
+  width: 100%;
+}
+.betslip section.betslip-footer .amounts .bet-amount-wrapper input {
+  height: 100%;
+  width: calc(100% - 64.4px);
+  margin: 0;
+  display: block;
+  padding: 0;
+  text-align: center;
+  background-color: #fff;
+  color: #000;
+  border: 0;
+  border-radius: 0;
+  font-size: 15.1px;
+  font-weight: 600;
+}
+.betslip section.betslip-footer .amounts .total-odds {
+  width: 50%;
+  height: 49px;
+  -ms-flex-order: 2;
+  order: 2;
+  background-color: #ffffff0d;
+  padding: 0 7px;
+  box-sizing: border-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.betslip section.betslip-footer .amounts .total-odds span:last-child {
+  margin-left: 8.4px;
+  color: #ffc500;
+}
+.betslip section.betslip-footer .amounts .potential-returns {
+  -ms-flex-order: 4;
+  order: 4;
+  padding: 14px 0;
+  width: 100%;
+}
+.betslip section.betslip-footer .amounts .potential-returns span {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  line-height: 25.2px;
+}
+.betslip section.betslip-footer .amounts .potential-returns span:last-child {
+  font-size: 16.1px;
+  color: #ffc500;
+}
+.betslip section.betslip-footer form.actions .btns {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 0 3px 3px;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+.btn.dark {
+  color: #000;
+}
+.betslip section.betslip-footer form.actions .btns .save {
+  width: 20%;
+  color: #fff9;
+  line-height: normal;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  transition: color 0.12s ease-in;
+  cursor: pointer;
+}
+.betslip .btn.save span:first-child {
+  margin-top: 0;
+}
+.betslip section.betslip-footer form.actions .btns .save span:first-child {
+  font-size: 19.6px;
+  display: block;
+}
+.betslip .btn.save span:last-child {
+  display: none;
+}
+.betslip section.betslip-footer form.actions .btns .save span:last-child {
+  font-size: 9.8px;
+  margin-top: 1.4px;
+  display: block;
+}
+.betslip section.betslip-footer form.actions .btns .accept-changes,
+.betslip section.betslip-footer form.actions .btns .bet {
+  width: calc(80% - 7px);
+  margin-left: auto;
+  font-size: 14px;
+  height: 42px;
+  line-height: 42px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+.betslip section.betslip-footer form.actions .accept-changes-settings {
+  margin-top: 28px;
+  padding-left: 7px;
+  background-color: #151a21;
+}
+.betslip section.betslip-footer form.actions .accept-changes-settings label {
+  display: block;
+  height: 14px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  transition: color 0.12s ease-in;
+  cursor: pointer;
+}
+.betslip
+  section.betslip-footer
+  form.actions
+  .accept-changes-settings
+  label
+  input {
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+.betslip section.betslip-footer form.actions .accept-changes-settings label * {
+  vertical-align: middle;
+}
+input,
+select {
+  padding-left: 14px;
+  border: 1px solid #151515;
+}
+betslip
+  section.betslip-footer
+  form.actions
+  .accept-changes-settings
+  label
+  span {
+  margin-left: 5px;
+}
+.betslip section.betslip-footer form.actions .accept-changes-settings label * {
+  vertical-align: middle;
+}
+.betslip
+  section.betslip-footer
+  form.actions
+  .accept-changes-settings
+  label
+  + label {
+  margin-top: 9.8px;
+}
+.three-plus-one-freebet {
+  overflow: hidden;
+  margin-top: 5px;
+}
+.three-plus-one-freebet .rect {
+  float: left;
+  width: calc(25% - 3px);
+  height: 70px;
+  text-align: center;
+  background-color: #101317;
+  color: #fff;
+  border: none;
+  box-sizing: border-box;
+}
+.three-plus-one-freebet .rect .info {
+  position: relative;
+  height: 56px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  font-weight: 600;
+}
+.three-plus-one-freebet .rect .info p:last-of-type {
+  font-size: 11px;
+}
+.three-plus-one-freebet .rect .info .arrow {
+  position: absolute;
+  right: -9px;
+  top: 8px;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  display: inline-block;
+  text-align: center;
+  background-color: #131313;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: 700;
+  z-index: 2;
+}
+.three-plus-one-freebet .rect:first-child .arrow {
+  color: #8b3ecc;
+}
+.three-plus-one-freebet .rect:first-child .footer {
+  background-color: #743ecc;
+}
+.three-plus-one-freebet .rect .footer {
+  height: 10px;
+  margin-top: 4px;
+}
+.three-plus-one-freebet .rect:not(:first-child) {
+  margin-left: 4px;
+}
+.three-plus-one-freebet .rect:not(:first-child) {
+  margin-left: 4px;
+}
+.three-plus-one-freebet .rect:not(:first-child) {
+  margin-left: 4px;
+}
+.three-plus-one-freebet .rect:nth-child(4) .info {
+  transition: background-color 0.12s ease-in;
+}
+#sportsbook .three-plus-one-freebet .rect:nth-child(4) .info p:first-child {
+  line-height: 16px;
+  font-size: 11px;
+}
+.three-plus-one-freebet .rect .info p:last-of-type {
+  font-size: 11px !important;
+}
+.three-plus-one-freebet .rect:nth-child(4) .footer {
+  background-color: #f83050;
+  transition: background-color 0.12s ease-in;
+}
+.three-plus-one-freebet .rect .footer {
+  height: 10px;
+  margin-top: 4px;
+}
+.three-plus-one-freebet .rect:nth-child(2) .footer {
+  background-color: #8b3ecc;
+}
+.three-plus-one-freebet .rect:nth-child(3) .footer {
+  background-color: #a63ecc;
 }
