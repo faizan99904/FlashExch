@@ -1,7 +1,8 @@
 .racing {
   font-size: 3.5vw;
-  margin-bottom: 75px !important ;
+  margin-bottom: 75px !important;
 }
+
 section.page-title {
   display: -ms-flexbox;
   display: flex;
@@ -11,19 +12,24 @@ section.page-title {
   font-size: 3.5vw;
   color: #ffffff99;
 }
+
 section.page-title > span {
   margin: 0 auto;
   padding-left: 8vw;
 }
+
 section.page-title .toggle-stream {
   margin-right: 2.13333vw;
 }
+
 section.page-title .toggle-stream img {
   width: 5.86667vw;
 }
+
 img {
   vertical-align: middle;
 }
+
 section.sport-tabs ul,
 section.sport-tabs ul li {
   display: -ms-flexbox;
@@ -32,10 +38,12 @@ section.sport-tabs ul li {
   align-items: center;
   font-size: 3.5vw;
 }
+
 section.sport-tabs ul li.selected,
 section.sport-tabs ul li.selected .match-count {
   color: #fff;
 }
+
 section.sport-tabs ul li {
   background-color: #151a21;
   height: 13.33333vw;
@@ -43,6 +51,7 @@ section.sport-tabs ul li {
   padding: 0 1.33333vw;
   width: 100%;
 }
+
 section.sport-tabs ul,
 section.sport-tabs ul li {
   display: -ms-flexbox;
@@ -50,6 +59,7 @@ section.sport-tabs ul li {
   -ms-flex-align: center;
   align-items: center;
 }
+
 section.sport-tabs ul li .img {
   width: 12vw;
   height: 100%;
@@ -58,17 +68,21 @@ section.sport-tabs ul li .img {
   background-size: 100% auto;
   margin-right: 2vw;
 }
+
 section.sport-tabs ul li.selected,
 section.sport-tabs ul li.selected .match-count {
   color: #fff;
 }
+
 section.sport-tabs ul li .match-count {
   margin-left: auto;
   color: #ffffff66;
 }
+
 section.sport-tabs ul li .img[sport="horseracing"] {
   background-image: url(/assets/images/racing/horse.svg);
 }
+
 section.sport-tabs ul li {
   background-color: #151a21;
   height: 13.33333vw;
@@ -76,10 +90,12 @@ section.sport-tabs ul li {
   padding: 0 1.33333vw;
   width: 100%;
 }
+
 section.sport-tabs ul li + li {
   margin-left: 1.33333vw;
   color: #ffffff99;
 }
+
 section.sport-tabs ul li .img[sport="greyhound"] {
   background-image: url(/assets/images/racing/hound.svg);
 }
@@ -102,20 +118,24 @@ section.filters {
   border-radius: 5px;
   margin-top: 2.66667vw;
 }
+
 .search {
   position: relative;
 }
+
 .search input {
   height: 3em;
   width: 15em;
   background-color: #151515;
   border-radius: 5px;
 }
+
 input,
 select {
   padding-left: 1em;
   border: 1px solid #151515;
 }
+
 button,
 input,
 select,
@@ -128,6 +148,7 @@ textarea {
   font-family: Roboto;
   box-sizing: border-box;
 }
+
 .search .material-icons {
   position: absolute;
   right: 0.719em;
@@ -135,22 +156,27 @@ textarea {
   font-size: 3.5vw !important;
   color: #ffffff99;
 }
+
 html .material-icons {
   line-height: unset;
 }
+
 section.filters .time-filters {
   margin-left: 1em;
   font-weight: 700;
 }
+
 .time-filters {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
   align-items: center;
 }
+
 ul {
   list-style-type: none;
 }
+
 .time-filters li {
   word-spacing: normal;
   font-size: 0.9em;
@@ -159,10 +185,12 @@ ul {
   transition: color 0.12s ease-in;
   cursor: pointer;
 }
+
 .time-filters li.active {
   padding: 0 1.12em;
   color: white;
 }
+
 section.filters .with-odds {
   margin-left: 3.2vw;
   display: flex;
@@ -179,11 +207,13 @@ section.filters .with-odds .switcher {
   margin-left: 5.33334vw;
   transition: background-color 0.3s ease;
 }
+
 .matches .region-block ul.champs ul.matches > li a.active {
   background-color: #42cf9a;
   color: #101015;
   font-weight: 700;
 }
+
 section.matches .region-block ul.champs ul.matches > li a.finished {
   background-color: #e63e4c;
   color: #101015;
@@ -204,8 +234,10 @@ section.filters .with-odds .switcher::before {
 
 section.filters .with-odds.active .switcher::before {
   left: 1.45em;
-  background-color: #41cf9a; /* green on active */
+  background-color: #41cf9a;
+  /* green on active */
 }
+
 section.filters .with-odds.active .switcher {
   background-color: #3e3e56;
 }
@@ -216,12 +248,14 @@ section.matches .region-block {
   margin-top: 2.66667vw !important;
   color: #ffffff99 !important;
 }
+
 section.matches .region-block .region-title select {
   background-color: transparent !important;
   border-radius: 1.33333vw;
   height: 6.66667vw;
   margin-left: auto;
 }
+
 section.matches .region-block .region-title {
   display: -ms-flexbox;
   display: flex;
@@ -231,14 +265,17 @@ section.matches .region-block .region-title {
   cursor: pointer;
   /* padding: 1.6em 0em; */
 }
+
 .startTime {
   margin-left: 7.504px;
   color: #ffffff66;
 }
+
 section.matches .region-block .region-title .flag {
   transform: scale(0.9);
   margin-right: 7.504px;
 }
+
 .flag {
   display: inline-block;
   vertical-align: middle;
@@ -246,7 +283,8 @@ section.matches .region-block .region-title .flag {
   height: 24px;
   background-image: url(/assets/images/racing/flags.png);
   background-repeat: no-repeat;
-  background-position: 100px 0; /* fallback */
+  background-position: 100px 0;
+  /* fallback */
   transform: scale(0.7);
   transform-origin: left center;
 }
@@ -255,22 +293,27 @@ section.matches .region-block .region-title .flag {
 .flag[country="greatbritain"] {
   background-position: -264px -120px;
 }
+
 .flag[country^="ireland"] {
   background-position: 0px -168px;
 }
+
 .flag[country="turkey"] {
   background-position: -24px -72px;
 }
+
 /* Add more countries here */
 
 section.matches .region-block .region-title {
   color: hwb(0 100% 0% / 0.5);
   font-size: 1em;
 }
+
 section.matches .region-block .region-title .time-filters {
   margin-left: auto;
   height: 100%;
 }
+
 section.matches .region-block .region-title .material-icons {
   color: #ffffff80;
   margin-left: 0.6em;
@@ -280,9 +323,11 @@ section.matches .region-block .region-title .material-icons {
   background: none !important;
   font-size: 1em;
 }
+
 section.matches .region-block ul.champs > li:last-child {
   border-bottom: none;
 }
+
 section.matches .region-block ul.champs ul.matches {
   display: -ms-flexbox;
   display: flex;
@@ -304,6 +349,7 @@ section.matches .region-block ul.champs ul.matches > li:last-child a {
   margin-right: 0;
   border-radius: 0.3em;
 }
+
 .sb-middle-content .rect {
   border-radius: 5px;
   width: 3.6em;
@@ -319,14 +365,17 @@ section.matches .region-block ul.champs ul.matches > li:last-child a {
   transition: filter 0.12s ease-in, -webkit-filter 0.12s ease-in;
   cursor: pointer;
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
 section.filters select {
   border-radius: 1.33333vw;
   width: 55vw;
 }
+
 select {
   -webkit-appearance: none;
   background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCiA8Zz4KICA8dGl0bGU+YmFja2dyb3VuZDwvdGl0bGU+CiAgPHJlY3QgZmlsbD0ibm9uZSIgaWQ9ImNhbnZhc19iYWNrZ3JvdW5kIiBoZWlnaHQ9IjQwMiIgd2lkdGg9IjU4MiIgeT0iLTEiIHg9Ii0xIi8+CiA8L2c+CiA8Zz4KICA8dGl0bGU+TGF5ZXIgMTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzk5OTk5OSIgaWQ9InN2Z18xIiBkPSJtOTguOSwxODQuN2wxLjgsMi4xbDEzNiwxNTYuNWM0LjYsNS4zIDExLjUsOC42IDE5LjIsOC42YzcuNywwIDE0LjYsLTMuNCAxOS4yLC04LjZsMTM1LjksLTE1Ni4ybDIuMywtMi42YzEuNywtMi41IDIuNywtNS41IDIuNywtOC43YzAsLTguNyAtNy40LC0xNS44IC0xNi42LC0xNS44bDAsMGwtMjg2LjgsMGwwLDBjLTkuMiwwIC0xNi42LDcuMSAtMTYuNiwxNS44YzAsMy4zIDEuMSw2LjQgMi45LDguOXoiLz4KIDwvZz4KPC9zdmc+);
@@ -334,6 +383,7 @@ select {
   background-size: 2vw auto;
   background-position: right 2vw center;
 }
+
 .racing-events {
   margin-top: 1.33333vw !important;
   font-size: 0.8208rem;
@@ -360,6 +410,7 @@ section.matches .region-block ul.champs > li .toggle {
 section.matches .region-block ul.champs > li:first-child {
   padding-top: 0;
 }
+
 section.matches .region-block ul.champs > li {
   display: -ms-flexbox;
   display: flex;
@@ -369,6 +420,7 @@ section.matches .region-block ul.champs > li {
   justify-content: space-between;
   padding: 4vw 0;
 }
+
 section.matches .region-block ul.champs > li .list-wrapper {
   position: relative;
   width: calc(100% - 9.33333vw);
@@ -377,6 +429,7 @@ section.matches .region-block ul.champs > li .list-wrapper {
   -ms-flex-align: center;
   align-items: center;
 }
+
 section.matches .region-block ul.champs > li .list-wrapper .champ-name {
   position: absolute;
   left: 0;
@@ -391,6 +444,7 @@ section.matches .region-block ul.champs > li .list-wrapper .champ-name {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 section.matches .region-block ul.champs > li .list-wrapper ul.matches {
   display: -ms-flexbox;
   display: flex;
@@ -402,6 +456,7 @@ section.matches .region-block ul.champs > li .list-wrapper ul.matches {
   margin-left: -1.33333vw;
   width: calc(100% + 1.33333vw);
 }
+
 section.matches
   .region-block
   ul.champs
@@ -411,15 +466,18 @@ section.matches
   > li:first-child {
   margin-left: calc(33.33% + 1.33333vw);
 }
+
 section.matches .region-block ul.champs > li .list-wrapper ul.matches > li {
   margin-left: 1.33333vw;
   width: calc(16.6% - 1.33333vw);
   height: 9.33333vw;
 }
+
 section.matches .region-block ul.champs > li .list-wrapper ul.matches > li a {
   background-color: #23282a;
   color: #fff;
 }
+
 section.matches .region-block ul.champs > li .list-wrapper ul.matches > li a {
   display: -ms-flexbox;
   display: flex;
@@ -433,6 +491,7 @@ section.matches .region-block ul.champs > li .list-wrapper ul.matches > li a {
   margin: 0px !important;
   border-radius: 1.33333vw;
 }
+
 section.matches
   .region-block
   ul.champs
@@ -443,15 +502,21 @@ section.matches
   + li {
   margin-left: 5px;
 }
+.flag[country^="usa"],
+.flag[country^="unitedstates"] {
+  background-position: -72px -360px;
+}
 section.matches .region-block ul.champs > li .list-wrapper ul.matches > li {
   margin-left: 1.33333vw;
   width: calc(16.6% - 1.33333vw);
   height: 9.33333vw;
 }
+
 section.matches .region-block ul.champs > li .list-wrapper ul.matches > li a {
   background-color: #23282a;
   color: #fff;
 }
+
 section.matches .region-block ul.champs > li .list-wrapper ul.matches > li a {
   display: -ms-flexbox;
   display: flex;
@@ -463,6 +528,7 @@ section.matches .region-block ul.champs > li .list-wrapper ul.matches > li a {
   height: 100%;
   border-radius: 1.33333vw;
 }
+
 section.matches .region-block ul.champs > li .toggle {
   display: -ms-flexbox;
   display: flex;
@@ -479,9 +545,11 @@ section.matches .region-block ul.champs > li .toggle {
   -ms-flex-negative: 0;
   flex-shrink: 0;
 }
+
 .material-icons:before {
   content: attr(icon);
 }
+
 section.matches .region-block ul.champs > li {
   display: -ms-flexbox;
   display: flex;
@@ -491,13 +559,16 @@ section.matches .region-block ul.champs > li {
   justify-content: space-between;
   padding: 4vw 0;
 }
+
 .expand-container {
   margin-top: 5px;
 }
+
 @media (min-width: 390px) and (max-width: 415px) {
   .racing {
     padding: 5.20532px !important;
   }
+
   section.page-title > span {
     padding-top: 1px;
   }
@@ -509,6 +580,7 @@ section.matches .region-block ul.champs > li {
     border-radius: 5px;
     margin-top: 0px;
   }
+
   section.filters .with-odds {
     padding-top: 2px;
   }
@@ -518,69 +590,87 @@ section.matches .region-block ul.champs > li {
 
     margin-bottom: 3px;
   }
+
   .startTime {
     margin-left: 7.808px !important;
   }
+
   section.matches .region-block .region-title .flag {
     margin-right: 7.808px;
   }
+
   section.matches .region-block .region-title .material-icons {
     padding-top: 1px !important;
   }
+
   section.matches .region-block ul.champs > li:first-child {
     padding-bottom: 15.616px !important;
     padding-top: 0px !important;
   }
+
   section.matches .region-block ul.champs > li {
     padding: 15.616px 0px !important;
   }
+
   .regionTitle {
     font-size: 0.99em;
     padding-top: 0.1em;
   }
 }
+
 @media (min-width: 414px) and (max-width: 429px) {
   .racing {
     padding: 5.52532px !important;
   }
+
   section.filters {
     height: 4.1em !important;
   }
+
   section.filters .with-odds {
     padding-top: 0px !important;
   }
+
   section.filters .with-odds .switcher {
     margin-left: 5.2vw !important;
     margin-bottom: 1px !important;
   }
+
   .startTime {
     margin-left: 8.288px !important;
   }
+
   section.matches .region-block .region-title .flag {
     margin-right: 8.288px;
     margin-bottom: 2px;
   }
+
   section.matches .region-block ul.champs > li .toggle {
     width: 20.38px;
     height: 20.38px;
     margin-top: 9px;
   }
+
   section.matches .region-block ul.champs > li {
     padding: 16.576px 0px !important;
   }
 }
+
 @media (min-width: 430px) and (max-width: 768px) {
   .expand-container {
     margin-top: 7px;
   }
+
   section.page-title > span {
     margin: 0 auto;
     padding-left: 8vw;
     padding-top: 1px;
   }
+
   section.sport-tabs ul li .img {
     margin-bottom: 1px;
   }
+
   section.filters .with-odds .switcher {
     position: relative;
     width: 2em;
@@ -590,23 +680,29 @@ section.matches .region-block ul.champs > li {
     margin-left: 5.2vw;
     transition: background-color 0.3s ease;
   }
+
   section.filters .with-odds .switcher::before {
     top: -0.8vw;
   }
+
   .startTime {
     margin-left: 8.604px !important;
   }
+
   section.matches .region-block .region-title .flag {
     margin-right: 8.604px;
   }
+
   section.matches .region-block ul.champs > li:first-child {
     padding-bottom: 1.1447em;
     padding-top: 0px !important;
   }
+
   section.matches .region-block ul.champs > li {
     padding: 1.1447em 0px !important;
   }
 }
+
 @media (min-width: 768px) and (max-width: 1023px) {
   .racing {
     margin: 0px !important;
@@ -614,9 +710,11 @@ section.matches .region-block ul.champs > li {
     font-size: 3.5vw !important;
     margin-bottom: 75px !important;
   }
+
   section.page-title > span {
     padding-top: 2px;
   }
+
   section.filters {
     margin-top: 2.6vw !important;
   }
@@ -624,12 +722,15 @@ section.matches .region-block ul.champs > li {
   section.filters .with-odds .switcher::before {
     top: -0.8vw;
   }
+
   .startTime {
     margin-left: 15.36px !important;
   }
+
   section.matches .region-block .region-title .flag {
     margin-right: 15.36px;
   }
+
   .expand-container {
     margin-top: 10px;
   }
@@ -641,8 +742,9 @@ section.matches .region-block ul.champs > li {
     padding: 1.1em 0em;
     align-items: center;
   }
+
   section.matches .region-block ul.champs > li:first-child {
-    padding-bottom: 1em;
+    padding-bottom: 15.003px;
     padding-top: 0px;
   }
 
@@ -655,6 +757,7 @@ section.matches .region-block ul.champs > li {
     cursor: pointer;
     padding: 2.13333vw 0em;
   }
+
   section.matches .region-block .region-title .material-icons {
     color: #ffffff66;
     line-height: 4px;
@@ -682,6 +785,7 @@ section.matches .region-block ul.champs > li {
     -webkit-user-select: text !important;
     padding-left: 2vw;
   }
+
   section.matches .region-block ul.champs > li .subchamps {
     display: -ms-flexbox;
     display: flex;
@@ -691,56 +795,187 @@ section.matches .region-block ul.champs > li {
     color: #ffffff99;
   }
 }
+
 @media (min-width: 1023px) {
-  .matches .region-block ul.champs ul.matches > li a.active {
-    background-color: #42cf9a;
-    color: #101015;
-    font-weight: 700;
+  .racing {
+    margin-top: 1vw !important;
   }
-  section.matches .region-block ul.champs ul.matches > li a.finished {
-    background-color: #e63e4c;
-    color: #101015;
+
+  section.filters {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 0.5rem 0;
+    background-color: #101317;
+    height: 3.5rem;
+    padding: 0 1.05rem;
+    border-radius: 5px;
+    font-size: 0.833333vw !important;
+    color: #ffffff99;
+  }
+
+  .search {
+    position: relative;
+  }
+
+  .search input {
+    height: 2.625rem;
+    width: 13.125rem;
+    background-color: #151515;
+    border-radius: 5px;
+    font-size: 1vw;
+    color: #fff !important;
+  }
+  .search input::placeholder {
+    color: #ffffff80;
+    letter-spacing: -1px;
+  }
+  input,
+  select {
+    padding-left: 0.875rem;
+    border: 1px solid #151515;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 3px;
+    font-family: Roboto;
+    box-sizing: border-box;
+  }
+
+  .search .material-icons {
+    position: absolute;
+    right: 0.875rem;
+    top: 0.8rem;
+    font-size: 1.225rem !important;
+    color: #fff !important;
+  }
+
+  section.filters .time-filters {
+    margin-left: 0.875rem;
     font-weight: 700;
   }
 
-  section.filters .with-odds .switcher::before {
+  .time-filters {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  .time-filters li.active,
+  .time-filters li.selected,
+  .time-filters li:hover {
+    color: #fff;
+  }
+
+  .time-filters li {
+    padding: 0 0.925923vw;
+    color: #ffffff99;
+    font-size: 0.8333333vw;
+  }
+
+  section.filters .with-odds {
+    margin-left: auto;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  section.filters .with-odds .switcher {
+    position: relative;
+    width: 2.232em;
+    height: 0.874em;
+    background-color: #101015;
+    border-radius: 0.5em;
+    margin-left: 1.3888887vw;
+    transition: background-color 0.3s ease;
+  }
+
+  section.filters .with-odds .switcher:before {
     content: "";
     position: absolute;
-    width: 1.1em;
-    height: 1.1em;
-    border-radius: 1.1em;
-    left: -0.55em;
-    top: -0.15em;
+    width: 0.963rem;
+    height: 0.963rem;
+    border-radius: 1.1rem;
+    left: -0.5rem;
+    top: -0.15rem;
     background-color: #97a1c2;
-    transition: left 0.3s ease, background-color 0.3s ease;
   }
 
-  section.filters .with-odds.active .switcher::before {
-    left: 1.45em;
-    background-color: #41cf9a; /* green on active */
+  section.matches .region-block {
+    background-color: #101317 !important;
+    border-radius: 5px !important;
+    margin-top: 5px !important;
+    padding: 0.525rem 1.1375rem !important;
+    font-size: 0.8333333vw;
   }
-  section.filters .with-odds.active .switcher {
-    background-color: #3e3e56;
+  section.matches .region-block .region-title {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 1.488rem;
+    cursor: pointer;
+    font-size: 0.8333333vw;
+  }
+  section.matches .region-block .region-title .flag {
+    transform: scale(0.9);
+    margin-right: 0.4375rem;
+    margin-top: 1px !important;
+  }
+  section.matches .region-block .region-title .material-icons {
+    color: #ffffff80;
+    margin-left: 0.6em;
+    margin-top: 2px;
+  }
+  section.matches .region-block .region-title .start-time {
+    margin-left: 0.4375rem;
+    color: #ffffff80;
+  }
+
+  section.matches .region-block ul.champs > li {
+    display: -ms-flexbox;
+    display: flex !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    height: 3.5rem !important;
+    padding: 0px !important;
+  }
+  section.matches .region-block ul.champs ul.matches {
+    display: -ms-flexbox;
+    display: flex !important
+;
+    -ms-flex-align: center;
+    align-items: center !important;
+    margin-left: auto !important;
   }
   section.matches .region-block ul.champs ul.matches > li a {
     background-color: #1e242b;
     color: #fff;
-    padding: 0.671em 0.674em !important;
-    margin-right: 0.4em;
-    border-radius: 0.3em;
+    padding: 0px !important;
+
+    margin-right: 0px !important;
+    border-radius: 0px !important;
+    font-size: 0.8333333vw;
+    border-radius: 5px !important;
   }
-  section.matches .region-block ul.champs ul.submatches {
-    padding-top: 0.8em;
-    padding-bottom: 0.57em;
-  }
-  section.matches .region-block ul.champs ul.matches > li:last-child a {
-    margin-right: 0;
-    border-radius: 0.3em;
-  }
-  .sb-middle-content .rect {
-    border-radius: 5px;
-    width: 3.6em;
-    height: 2.4em;
+  .rect {
+    width: 3.15rem;
+    height: 2.1rem;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
@@ -752,95 +987,10 @@ section.matches .region-block ul.champs > li {
     transition: filter 0.12s ease-in, -webkit-filter 0.12s ease-in;
     cursor: pointer;
   }
-  section.filters {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    margin: 0.6em 0;
-    background-color: #101317;
-    height: 4em;
-    padding: 0 1.2em;
-    border-radius: 5px;
+  section.matches .region-block ul.champs ul.matches > li + li {
+    margin-left: 5px;
   }
-  section.filters .with-odds {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    color: #ffffff80;
-    font-size: 0.9em;
-    word-spacing: 1;
-  }
-  section.matches .region-block {
-    background-color: #101317;
-    border-radius: 5px;
-    margin-top: 5.2px;
-    padding: 0.6em 1.3em;
-    color: #ffffff99;
-  }
-
-  section.matches .region-block .region-title {
-    color: hwb(0 100% 0% / 0.5);
-    font-size: 1em;
-  }
-  section.matches .region-block .region-title .time-filters {
-    margin-left: auto;
-    height: 100%;
-  }
-  section.matches .region-block .region-title .material-icons {
-    color: #ffffff99;
-    margin-left: 0.6em;
-  }
-
-  section.matches .region-block ul.champs > li:last-child {
-    border-bottom: none;
-  }
-  section.matches .region-block ul.champs ul.matches {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    margin-left: auto;
-  }
-
-  section.matches .region-block ul.champs ul.matches > li:last-child a {
-    margin-right: 0;
-    border-radius: 0.3em;
-  }
-  section.matches .region-block {
-    background-color: #101317;
-  }
-
-  section.matches .region-block .region-title {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    height: 1.7em;
-    cursor: pointer;
-  }
-
-  section.matches .region-block .region-title .flag {
-    transform: scale(0.9);
-    margin-right: 0.6em;
-  }
-  .matches .region-block ul.champs ul.matches > li a.active {
-    background-color: #42cf9a;
-    color: #101015;
-    font-weight: 700;
-  }
-  section.matches .region-block ul.champs ul.matches > li a.finished {
-    background-color: #e63e4c;
-    color: #101015;
-    font-weight: 700;
-  }
-  section.matches .region-block ul.champs > li .subchamps {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    height: 4em;
-    color: #ffffff99;
+  section.matches .region-block ul.champs > li + li {
+    border-top: 1px solid #000;
   }
 }
