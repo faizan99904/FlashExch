@@ -17,7 +17,7 @@
 .live-header div.tabs a {
   float: left;
   height: 100%;
-  padding: 0 calc(1.2 * 0.875rem);
+  padding: 0 16.8px;
   box-sizing: border-box;
   display: -ms-flexbox;
   display: flex;
@@ -26,6 +26,7 @@
   border-top: 3px solid transparent;
   border-bottom: 3px solid transparent;
   cursor: pointer;
+  margin-top: 2px;
 }
 a {
   text-decoration: none;
@@ -35,7 +36,7 @@ a {
 .live-header div.tabs a:hover {
   color: #fff;
   background-color: #1e242b;
-  border-bottom: 3px solid #00aa30;
+  border-bottom: 4px solid #00aa30 !important;
 }
 .live-header .actions {
   float: right;
@@ -44,11 +45,43 @@ a {
   display: flex;
   -ms-flex-align: center;
   align-items: center;
+  margin-top: 1px;
 }
 ul {
   list-style-type: none;
 }
-live-header .actions ul li.active {
+
+.live-header .actions .toggle-markets {
+  margin: 0 14px 0 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.live-header .actions .toggle-markets span {
+  font-size: 13px;
+  font-weight: 200;
+}
+.live-header .actions .toggle-markets img {
+  margin-left: 4px;
+  height: 12px;
+}
+.live-header div.tabs a .material-icons {
+  color: #ffffff99;
+}
+.live-header div.tabs a .material-icons,
+.live-header div.tabs a img {
+  margin-right: 9.8px;
+  opacity: 0.4;
+  font-size: 19.6px;
+  transition: opacity 0.1s ease-in;
+  margin-bottom: 2px;
+}
+.live-header div.tabs a.active .material-icons,
+.live-header div.tabs a.active img,
+.live-header div.tabs a:hover .material-icons,
+.live-header div.tabs a:hover img {
   opacity: 1;
 }
 .live-header .actions ul li {
@@ -64,16 +97,83 @@ live-header .actions ul li.active {
   transition: opacity 0.12s ease-in;
   cursor: pointer;
 }
+.live-header .actions ul li.active {
+  opacity: 1;
+}
 
-.live-header .actions .toggle-markets {
-  margin: 0 calc(1 * 0.875rem) 0 calc(2 * 0.875rem);
-  cursor: pointer;
+.live-header .actions ul li:first-child .line + .line {
+  margin-top: 2px;
 }
-.live-header .actions .toggle-markets span {
-  font-size: 13px;
-  font-weight: 200;
+.live-header .actions ul li:first-child .line + .line {
+  margin-top: 2px;
 }
-.live-header .actions .toggle-markets img {
-  margin-left: 4px;
-  height: 12px;
+.live-header .actions ul li + li {
+  margin-left: 0.6rem;
+}
+.live-header .actions ul li:nth-child(2) .line {
+  float: left;
+  width: calc(50% - 1px);
+}
+.live-header .actions ul li:nth-child(2) .line:nth-child(2n) {
+  margin-left: 2px;
+}
+.live-header .actions ul li:nth-child(2) .line:nth-child(n + 3) {
+  margin-top: 2px;
+}
+.live-header .actions ul li:nth-child(2) .line:nth-child(n + 3) {
+  margin-top: 2px;
+}
+.live-header .actions ul li:nth-child(2) .line:nth-child(n + 3) {
+  margin-top: 2px;
+}
+.live-header .actions ul li:nth-child(2) .line:nth-child(n + 3) {
+  margin-top: 2px;
+}
+.live-header .actions ul li + li {
+  margin-left: 8.4px;
+}
+.live-header .actions ul li:nth-child(3) .line {
+  float: left;
+  width: calc(33.33% - 0.67px);
+}
+.live-header .actions ul li:nth-child(3) .line:not(:nth-child(3n + 1)) {
+  margin-left: 1px;
+}
+.live-header .actions ul li:nth-child(3) .line {
+  float: left;
+  width: calc(33.33% - 0.67px);
+}
+.live-header .actions ul li .line {
+  height: 3px;
+  background-color: #393939;
+}
+.live-header .actions ul li:nth-child(3) .line:not(:nth-child(3n + 1)) {
+  margin-left: 1px;
+}
+.live-header .actions ul li:nth-child(3) .line:nth-child(n + 4) {
+  margin-top: 2px;
+}
+.live-header .actions ul li:nth-child(3) .line:nth-child(n + 4) {
+  margin-top: 2px;
+}
+.live-header .actions ul li:nth-child(3) .line:not(:nth-child(3n + 1)) {
+  margin-left: 1px;
+}
+.live-header .actions ul li:nth-child(3) .line:nth-child(n + 4) {
+  margin-top: 2px;
+}
+.live-header .actions ul li:nth-child(3) .line:nth-child(n + 4) {
+  margin-top: 2px;
+}
+.live-header .actions ul li:nth-child(3) .line:nth-child(n + 4) {
+  margin-top: 2px;
+}
+.live-header .actions ul li:nth-child(3) .line:not(:nth-child(3n + 1)) {
+  margin-left: 1px;
+}
+.live-header .actions ul li:nth-child(3) .line:nth-child(n + 4) {
+  margin-top: 2px;
+}
+.live-header .actions ul li:nth-child(3) .line:not(:nth-child(3n + 1)) {
+  margin-left: 1px;
 }
