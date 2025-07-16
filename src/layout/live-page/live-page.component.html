@@ -1,0 +1,27 @@
+<div class="prevent-select h-full w-full">
+    <app-header></app-header>
+
+    <app-sports-nav class="max-[820px]:hidden"></app-sports-nav>
+
+    <div class="flex lg:gap-[11px] xl:gap-[14px] layout-wrapper lg:px-[1vw] mt-[0.875rem]">
+
+        <div class="lg:min-w-[242px]  xl:min-w-[308px] bg-white h-[calc(100vh-113px)] overflow-x-hidden overflow-y-auto
+ hidden lg:block whitespace-nowrap">
+            app-sidebar
+        </div>
+        <div class="lg:hidden">
+            <app-mobile-sidebar></app-mobile-sidebar>
+        </div>
+        <div
+            class="mainRouter w-[100vw] flex-auto lg:w-full xg:w-[calc(100vw-608.5px)] max-md:h-[calc(100dvh-52px)] overflow-y-auto bg-blue-700">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="max-lg:hidden lg:min-w-[242px] lg:max-w-[242px] xl:min-w-[308px] xl:max-w-[308px] bg-red-500">
+            <app-betslip></app-betslip>
+        </div>
+
+    </div>
+    <div class="fixed left-0 bottom-0 w-full z-[999]">
+        <app-bottom-nav></app-bottom-nav>
+    </div>
+</div>

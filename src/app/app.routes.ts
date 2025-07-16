@@ -12,6 +12,7 @@ import { PromosComponent } from '../pages/promos/promos.component';
 import { LiveCasinoComponent } from '../pages/live-casino/live-casino.component';
 import { AccountLayoutComponent } from '../account-layout/account-layout.component';
 import { DashboardComponent } from '../pages/accont/dashboard/dashboard.component';
+import { LivePageComponent } from '../layout/live-page/live-page.component';
 
 
 export const routes: Routes = [
@@ -20,6 +21,7 @@ export const routes: Routes = [
     component: LoginComponent,
   },
   { path: 'passwordrecovery', component: ForgetPasswordComponent },
+
   {
     path: '',
     component: LayoutComponent,
@@ -30,14 +32,22 @@ export const routes: Routes = [
       { path: 'racing', component: RacingComponent },
     ],
   },
+  {
+    path: 'live',
+    component: LivePageComponent,
+
+    children: [
+
+    ],
+  },
   { path: 'casino', component: CasinoComponent },
   { path: 'live-casino', component: LiveCasinoComponent },
   { path: 'promos', component: PromosComponent },
 
   {
     path: 'account', component: AccountLayoutComponent,
-    children:[
-      { path: 'dashboard', component:DashboardComponent}
+    children: [
+      { path: 'dashboard', component: DashboardComponent }
     ]
   },
 ];
