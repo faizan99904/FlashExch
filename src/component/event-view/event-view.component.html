@@ -1,0 +1,260 @@
+<section class="w-full h-full">
+    <div
+        class="live-header relative text-white bg-[url('https://velobet.win/sportwide/static/img/soccer.e9fcf14.jpg')] h-[203px] bg-[length:100%_100%] bg-[#1b2735]">
+
+        <div class="line-1 h-[42px] leading-[42px] px-[18.2px] overflow-hidden text-[14px] flex items-center gap-[7px]">
+            <div country="international" title="International" class="flag ml-[-4px]"></div>
+            <span>International - EAFF E-1 Football Championship, Women</span>
+        </div>
+
+        <div class="line-2 flex items-center justify-center h-[36.4px] text-[22.4px] font-black tracking-[.4]">
+            <div class="team-1 justify-end w-[calc(50%_-_56px)] text-[19.6px] truncate flex items-center">Japan W.</div>
+            <div class="score ml-[7px] w-[84px] text-center inline-block">
+                <span>0</span>
+                <span> : </span>
+                <span>0</span>
+            </div>
+            <div class="team-2 justify-start ml-[7px] w-[calc(50%_-_56px)] text-[19.6px] truncate flex items-center">
+                China W.
+            </div>
+        </div>
+
+        <div class="line-3 h-[28px] flex justify-center text-[15.4px] tracking-[.7] mt-[14px] whitespace-nowrap">
+            <ul class="mt-[2px] flex">
+                <li class="relative px-[5px] text-center w-[30px] h-[38px] flex flex-col items-center justify-center">
+                    <div type="corner" class="icon"></div>
+                    <div class="info">2</div>
+                </li>
+                <li class="relative px-[5px] text-center w-[30px] h-[38px] flex flex-col items-center justify-center">
+                    <div type="yellowcard" class="icon"></div>
+                    <div class="info">0</div>
+                </li>
+                <li class="relative px-[5px] text-center w-[30px] h-[38px] flex flex-col items-center justify-center">
+                    <div type="redcard" class="icon"></div>
+                    <div class="info">0</div>
+                </li>
+                <li class="relative px-[5px] text-center w-[30px] h-[38px] flex flex-col items-center justify-center">
+                    <div type="foul" class="icon"></div>
+                    <div class="info">-</div>
+                </li>
+            </ul>
+            <div class="stats min-w-[84px] px-[28px]">
+                <span>2nd half</span>
+                <span class="ml-[7px]">48'</span>
+            </div>
+            <ul class="mt-[2px] flex">
+                <li class="relative px-[5px] text-center w-[30px] h-[38px] flex flex-col items-center justify-center">
+                    <div type="foul" class="icon"></div>
+                    <div class="info">-</div>
+                </li>
+                <li class="relative px-[5px] text-center w-[30px] h-[38px] flex flex-col items-center justify-center">
+                    <div type="redcard" class="icon"></div>
+                    <div class="info">0</div>
+                </li>
+
+                <li class="relative px-[5px] text-center w-[30px] h-[38px] flex flex-col items-center justify-center">
+                    <div type="yellowcard" class="icon"></div>
+                    <div class="info">0</div>
+                </li>
+
+                <li class="relative px-[5px] text-center w-[30px] h-[38px] flex flex-col items-center justify-center">
+                    <div type="corner" class="icon"></div>
+                    <div class="info">2</div>
+                </li>
+            </ul>
+        </div>
+
+        <div
+            class="timeline-wrapper absolute left-0 bottom-0 w-full bg-[#0d0d0d] h-[50px] leading-[50px] px-[14px] text-[hsl(0deg_0%_100%_/_50%)]">
+            <div class="timeline relative h-[10px] bg-[#272727] inline-block w-full">
+                <div class="w-[60%] bg-[#00aa30] h-full"></div>
+                <div class="minutes">
+                    <div class="minute passed">
+                        <div class="rext"></div>
+                        <div class="num">0</div>
+                    </div>
+                    <div class="minute passed">
+                        <div class="rext"></div>
+                        <div class="num">15</div>
+                    </div>
+                    <div class="minute passed">
+                        <div class="rext"></div>
+                        <div class="num">30</div>
+                    </div>
+                    <div class="minute passed">
+                        <div class="rext"></div>
+                        <div class="num">45</div>
+                        <div class="ht text-[14px]">HT</div>
+                    </div>
+                    <div class="minute">
+                        <div class="rext"></div>
+                        <div class="num">60</div>
+                    </div>
+                    <div class="minute">
+                        <div class="rext"></div>
+                        <div class="num">75</div>
+                    </div>
+                    <div class="minute">
+                        <div class="rext"></div>
+                        <div class="num">90</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="live-match-odds">
+        <div class="market-filters overflow-hidden bg-black text-white h-[56px] flex items-center justify-between">
+            <div [ngClass]="{'expanded': searchTrue}" class="search">
+                <div (click)="searchTrue = !searchTrue" class="material-icons icon text-white">search</div>
+                <input type="text" placeholder="Search Markets">
+            </div>
+            <div [ngClass]="{'with-one-arrow': moved}"
+                class="categories-wrapper flex items-center justify-center w-[calc(100%_-_56px)] h-full">
+                <div (click)="left()" class="material-icons arrow">keyboard_arrow_left</div>
+                <div class="market-categories">
+                    <ul #markets
+                        class="font-['Roboto'] overflow-x-auto absolute flex h-full transition-transform ease-in delay-[0.3s] ">
+                        <li *ngFor="let tab of tabs" (click)="activeTab = tab.label"
+                            [ngClass]="{ 'bet-builder-tab': tab.isBetBuilder, 'active': activeTab === tab.label }">
+                            {{ tab.label }}
+                        </li>
+                    </ul>
+                </div>
+                <div (click)="right()" class="material-icons arrow">keyboard_arrow_right</div>
+            </div>
+        </div>
+
+        <div
+            class="no-data hidden w-full bg-[#101317] text-[hsl(0deg_0%_100%_/_50%)] h-[280px] text-center overflow-hidden">
+            <div class="material-icons icon mt-[90px] text-[42px]">assignment</div>
+            <div class="text-[18px] mt-[30px]">At this moment odds not available</div>
+        </div>
+
+        <div class="markets relative z-[2]">
+            <div class="m-col w-full min-h-[1px]">
+                <div
+                    class="market relative bg-[#101317] flex mt-[14px] p-[7px] pt-0 rounded-[3px] border-none flex-col min-h-[42px] justify-end">
+                    <div
+                        class="title relative pl-[21px] h-[28px] w-full flex items-center text-[12.6px] text-white cursor-pointer justify-between">
+                        <div class="w-auto h-full flex items-center">
+                            <img class="ml-[-22.4px] mr-[7px] w-[18.2px] rotate-180"
+                                src="/assets/images/market-title.svg" alt="">
+                            <span>Match Result</span>
+                        </div>
+                        <div class="w-auto h-full flex items-center">
+                            <span
+                                class="material-icons fav text-[hsl(0deg_0%_100%_/_50%)] text-[16.8px] cursor-pointer transition-colors">star_border</span>
+                            <span (click)="toggleCollapse(1)"
+                                class="material-icons arrow text-[hsl(0deg_0%_100%_/_60%)] text-[19.6px] cursor-pointer transition-colors ml-[9.8px]">
+                                {{ collapsed[1] ? 'keyboard_arrow_down' : 'keyboard_arrow_right' }}
+                            </span>
+                        </div>
+                    </div>
+
+                    @if (collapsed[1]) {
+                    <div class="market-odds overflow-hidden box-border flex justify-between">
+                        <div
+                            class="odd-rect-wide relative h-[36.4px] flex items-center justify-between px-[7px] text-[12.6px] bg-[#1e242b] text-white rounded-[3px] overflow-hidden cursor-pointer">
+                            <p class="text-left truncate pr-[2.8px]">1</p>
+                            <span class="text-right">6.75</span>
+                        </div>
+                        <div
+                            class="odd-rect-wide decreased relative h-[36.4px] flex items-center justify-between px-[7px] text-[12.6px] bg-[#1e242b] text-white rounded-[3px] overflow-hidden cursor-pointer">
+                            <p class="text-left truncate pr-[2.8px]">1</p>
+                            <span class="text-right">6.75</span>
+                        </div>
+                        <div
+                            class="odd-rect-wide increased relative h-[36.4px] flex items-center justify-between px-[7px] text-[12.6px] bg-[#1e242b] text-white rounded-[3px] overflow-hidden cursor-pointer">
+                            <p class="text-left truncate pr-[2.8px]">1</p>
+                            <span class="text-right">6.75</span>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+            <div class="m-col w-full min-h-[1px]">
+                <div
+                    class="market relative bg-[#101317] flex mt-[14px] p-[7px] pt-0 rounded-[3px] border-none flex-col min-h-[42px] justify-end">
+                    <div
+                        class="title relative pl-[21px] h-[28px] w-full flex items-center text-[12.6px] text-white cursor-pointer justify-between">
+                        <div class="w-auto h-full flex items-center">
+                            <img class="ml-[-22.4px] mr-[7px] w-[18.2px] rotate-180"
+                                src="/assets/images/market-title.svg" alt="">
+                            <span>Match Result</span>
+                        </div>
+                        <div class="w-auto h-full flex items-center">
+                            <span
+                                class="material-icons fav text-[hsl(0deg_0%_100%_/_50%)] text-[16.8px] cursor-pointer transition-colors">star_border</span>
+                            <span (click)="toggleCollapse(2)"
+                                class="material-icons arrow text-[hsl(0deg_0%_100%_/_60%)] text-[19.6px] cursor-pointer transition-colors ml-[9.8px]">
+                                {{ collapsed[2] ? 'keyboard_arrow_down' : 'keyboard_arrow_right' }}
+                            </span>
+                        </div>
+                    </div>
+
+                    @if (collapsed[2]) {
+                    <div class="market-odds overflow-hidden box-border flex justify-between">
+                        <div
+                            class="odd-rect-wide relative h-[36.4px] flex items-center justify-between px-[7px] text-[12.6px] bg-[#1e242b] text-white rounded-[3px] overflow-hidden cursor-pointer">
+                            <p class="text-left truncate pr-[2.8px]">1</p>
+                            <span class="text-right">6.75</span>
+                        </div>
+                        <div
+                            class="odd-rect-wide decreased relative h-[36.4px] flex items-center justify-between px-[7px] text-[12.6px] bg-[#1e242b] text-white rounded-[3px] overflow-hidden cursor-pointer">
+                            <p class="text-left truncate pr-[2.8px]">1</p>
+                            <span class="text-right">6.75</span>
+                        </div>
+                        <div
+                            class="odd-rect-wide increased relative h-[36.4px] flex items-center justify-between px-[7px] text-[12.6px] bg-[#1e242b] text-white rounded-[3px] overflow-hidden cursor-pointer">
+                            <p class="text-left truncate pr-[2.8px]">1</p>
+                            <span class="text-right">6.75</span>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+            <div class="m-col w-full min-h-[1px]">
+                <div
+                    class="market relative bg-[#101317] flex mt-[14px] p-[7px] pt-0 rounded-[3px] border-none flex-col min-h-[42px] justify-end">
+                    <div
+                        class="title relative pl-[21px] h-[28px] w-full flex items-center text-[12.6px] text-white cursor-pointer justify-between">
+                        <div class="w-auto h-full flex items-center">
+                            <img class="ml-[-22.4px] mr-[7px] w-[18.2px] rotate-180"
+                                src="/assets/images/market-title.svg" alt="">
+                            <span>Match Result</span>
+                        </div>
+                        <div class="w-auto h-full flex items-center">
+                            <span
+                                class="material-icons fav text-[hsl(0deg_0%_100%_/_50%)] text-[16.8px] cursor-pointer transition-colors">star_border</span>
+                            <span (click)="toggleCollapse(3)"
+                                class="material-icons arrow text-[hsl(0deg_0%_100%_/_60%)] text-[19.6px] cursor-pointer transition-colors ml-[9.8px]">
+                                {{ collapsed[3] ? 'keyboard_arrow_down' : 'keyboard_arrow_right' }}
+                            </span>
+                        </div>
+                    </div>
+
+                    @if (collapsed[3]) {
+                    <div class="market-odds overflow-hidden box-border flex justify-between">
+                        <div
+                            class="odd-rect-wide relative h-[36.4px] flex items-center justify-between px-[7px] text-[12.6px] bg-[#1e242b] text-white rounded-[3px] overflow-hidden cursor-pointer">
+                            <p class="text-left truncate pr-[2.8px]">1</p>
+                            <span class="text-right">6.75</span>
+                        </div>
+                        <div
+                            class="odd-rect-wide decreased relative h-[36.4px] flex items-center justify-between px-[7px] text-[12.6px] bg-[#1e242b] text-white rounded-[3px] overflow-hidden cursor-pointer">
+                            <p class="text-left truncate pr-[2.8px]">1</p>
+                            <span class="text-right">6.75</span>
+                        </div>
+                        <div
+                            class="odd-rect-wide increased relative h-[36.4px] flex items-center justify-between px-[7px] text-[12.6px] bg-[#1e242b] text-white rounded-[3px] overflow-hidden cursor-pointer">
+                            <p class="text-left truncate pr-[2.8px]">1</p>
+                            <span class="text-right">6.75</span>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

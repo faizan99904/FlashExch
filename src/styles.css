@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
-  --back-bg-clr:#aed8ff;
-  --lay-bg-clr:#f1bed2;
-  --back-txt-clr:Black;
-  --lay-txt-clr:Black;
+:root {
+  --back-bg-clr: #aed8ff;
+  --lay-bg-clr: #f1bed2;
+  --back-txt-clr: Black;
+  --lay-txt-clr: Black;
 }
 html,
 body {
