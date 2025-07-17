@@ -574,7 +574,7 @@ section.matches .region-block ul.champs > li {
   }
 
   section.filters {
-    height: 3.8em !important;
+    height: 4.2em !important;
     padding: 0.32em 0em !important;
     padding-top: 0.99em !important;
     border-radius: 5px;
@@ -624,7 +624,7 @@ section.matches .region-block ul.champs > li {
   }
 
   section.filters {
-    height: 4.1em !important;
+    height: 4.2em !important;
   }
 
   section.filters .with-odds {
@@ -659,6 +659,9 @@ section.matches .region-block ul.champs > li {
 @media (min-width: 430px) and (max-width: 768px) {
   .expand-container {
     margin-top: 7px;
+  }
+  section.sport-tabs ul li span {
+    padding-top: 2px;
   }
 
   section.page-title > span {

@@ -5,37 +5,36 @@
     <nav class="account-sidebar ">
         <div class="g-title poppins-medium ">Account Menu</div>
         <ul class="poppins-regular">
-            <li class="nav-active">
+
+            <li routerLinkActive="nav-active" routerLink="/account/dashboard">
                 <a class="nav-li">
                     <span class="material-icons-outlined">dashboard</span>
                     <span>Dashboard</span>
                 </a>
             </li>
 
-
-
-            <li>
+            <li routerLinkActive="nav-active" routerLink="/account/personalinfo">
                 <a class="nav-li">
                     <span class="material-icons-outlined">assignment_ind</span>
                     <span>Personal Information</span>
                 </a>
             </li>
 
-            <li>
+            <li routerLinkActive="nav-active" routerLink="/account/deposit">
                 <a class="nav-li">
                     <span class="material-icons-outlined">credit_card</span>
                     <span>Deposit Money</span>
                 </a>
             </li>
 
-            <li>
+            <li routerLinkActive="nav-active" routerLink="/account/withdraw">
                 <a class="nav-li">
                     <span class="material-icons-outlined">directions</span>
                     <span>Withdraw Money</span>
                 </a>
             </li>
 
-            <li>
+            <li routerLinkActive="nav-active" routerLink="/account/transactions">
                 <a class="nav-li">
                     <span class="material-icons-outlined">history</span>
                     <span>Transactions History</span>
@@ -43,7 +42,7 @@
             </li>
 
             <li>
-                <a class="nav-li">
+                <a class="nav-li" routerLinkActive="nav-active" routerLink="/account/bonuses">
                     <span class="material-icons-outlined">card_giftcard</span>
                     <span>Bonus with Promo Code</span>
                 </a>
@@ -63,10 +62,9 @@
                 </a>
             </li>
 
-
         </ul>
     </nav>
-    <div class="page-wrapper">
-        <router-outlet></router-outlet>
-    </div>
+
+    <router-outlet></router-outlet>
+
 </main>
