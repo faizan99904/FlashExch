@@ -1,27 +1,27 @@
 <div class="page-wrapper">
     <ul class="tabs">
-        <li class="active">
+        <li (click)="changeTab('Freespins')" [ngClass]="{'active': tab === 'Freespins'}">
             <span>Freespins</span>
             <span class="total-count visible disabled">0</span>
         </li>
 
-        <li>
+        <li (click)="changeTab('FreeBets')" [ngClass]="{'active': tab === 'FreeBets'}">
             <span>FreeBets</span>
             <span class="total-count visible disabled">0</span>
         </li>
 
-        <li>
+        <li (click)="changeTab('Mini-game')" [ngClass]="{'active': tab === 'Mini-game'}">
             <span>Mini Games</span>
             <span class="total-count visible disabled">0</span>
         </li>
 
-        <li>
+        <li (click)="changeTab('Bonus')" [ngClass]="{'active': tab === 'Bonus'}">
             <span>Bonus</span>
             <span class="total-count visible disabled">0</span>
         </li>
     </ul>
 
-    <section class="freespins">
+    <section class="freespins" *ngIf="tab === 'Freespins'">
         <table>
             <thead>
                 <tr>
@@ -36,6 +36,63 @@
         <div class="no-data" style="display: block;">
             <div class="material-icons icon">assignment</div>
             <div class="text">NO FREESPINS AVAILABLE</div>
+        </div>
+    </section>
+
+    <section class="freespins" *ngIf="tab === 'FreeBets'">
+        <table>
+            <thead>
+                <tr>
+                    <th>Create Time</th>
+                    <th>FreeBet Amount</th>
+                    <th>Expiration Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div class="no-data" style="display: block;">
+            <div class="material-icons icon">assignment</div>
+            <div class="text">No Freebets Available</div>
+        </div>
+    </section>
+
+    <section class="freespins" *ngIf="tab === 'Mini-game'">
+        <table>
+            <thead>
+                <tr>
+                    <th>Create Time</th>
+                    <th>Total Amount</th>
+                    <th>Spent Amount</th>
+                    <th>Expiration Date</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div class="no-data" style="display: block;">
+            <div class="material-icons icon">assignment</div>
+            <div class="text">No Freebets Available</div>
+        </div>
+    </section>
+
+    <section class="bonus visible" *ngIf="tab === 'Bonus'">
+        <div class="bonus-code">
+            <form class="bonus_code">
+                <div class="fields">
+                    <input type="text" name="code" required="" autocomplete="off" placeholder="Bonus Code">
+                    <button class="btn">Use</button>
+                </div>
+                <div class="txt">Please Enter bonus code</div>
+            </form>
+        </div>
+        <div class="bonus-filters ">
+            <ul class="bonus-tabs">
+                <li class="active">All</li>
+                <li >Active</li>
+                <li >Pending</li>
+                <li >Completed</li>
+                <li >Canceled</li>
+            </ul>
         </div>
     </section>
 </div>

@@ -22,6 +22,7 @@ export class SharedService {
   }
 
   setToken(value:any){
+    const token = localStorage.getItem('token')
     this.isLogin.next(value)
   }
 

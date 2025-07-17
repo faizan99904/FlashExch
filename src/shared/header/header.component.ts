@@ -13,9 +13,11 @@ export class HeaderComponent {
   token: any
   constructor(private router: Router, private toggle: SharedService) {
     this.toggle.getToken().subscribe((value: any) => {
-      this.token = value;
-      console.log(this.token);
-    })
+       if(value){
+       this.token = value
+       }
+    });
+    this.token = localStorage.getItem('token')
   }
 
   gotoLogin() {

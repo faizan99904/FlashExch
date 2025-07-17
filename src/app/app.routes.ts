@@ -25,6 +25,7 @@ import { WithdrawComponent } from '../pages/accont/withdraw/withdraw.component';
 import { TransactionsHistoryComponent } from '../pages/accont/transactions-history/transactions-history.component';
 import { BonusesComponent } from '../pages/accont/bonuses/bonuses.component';
 import { FreespinsComponent } from '../pages/accont/freespins/freespins.component';
+import { KycComponent } from '../pages/accont/kyc/kyc.component';
 
 
 
@@ -64,14 +65,15 @@ export const routes: Routes = [
 
   {
     path: 'account', component: AccountLayoutComponent,
-    children:  [
-      { path: 'dashboard', component:  DashboardComponent  },
+    children: [
+      { path: 'dashboard', component: DashboardComponent },
       { path: 'personalinfo', component: PersonalInformationComponent },
       { path: 'deposit', component: DepositComponent },
       { path: 'withdraw', component: WithdrawComponent },
       { path: 'transactions', component: TransactionsHistoryComponent },
       { path: 'bonuses', component: BonusesComponent },
-      { path: 'freespins', component: FreespinsComponent}
+      { path: 'freespins', component: FreespinsComponent },
+      { path: 'kyc', component: KycComponent }
     ]
   },
 ];
