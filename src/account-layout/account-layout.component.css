@@ -26,7 +26,7 @@
 
 .middle {
   position: relative;
-  width: 1400px;
+  max-width: 1400px;
   padding: 0 18.75px;
   margin: 0 auto;
   -webkit-box-sizing: border-box;
@@ -83,6 +83,7 @@ main {
   align-content: center;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .nav-li:hover {
@@ -106,15 +107,4 @@ main {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   color: rgba(255, 255, 255, 0.3);
-}
-
-.page-wrapper {
-  padding: 44.0625px 41.25px;
-  position: relative;
-  float: left;
-  width: calc(100% - 253.125px);
-  overflow: hidden;
-  margin-left: 253.125px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
 }
