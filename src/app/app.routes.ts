@@ -13,6 +13,7 @@ import { LiveCasinoComponent } from '../pages/live-casino/live-casino.component'
 import { AccountLayoutComponent } from '../account-layout/account-layout.component';
 import { DashboardComponent } from '../pages/accont/dashboard/dashboard.component';
 import { LivePageComponent } from '../layout/live-page/live-page.component';
+import { EventViewComponent } from '../component/event-view/event-view.component';
 
 
 export const routes: Routes = [
@@ -37,7 +38,10 @@ export const routes: Routes = [
     component: LivePageComponent,
 
     children: [
-
+      {
+        path: 'event-view',
+        component: EventViewComponent
+      }
     ],
   },
   { path: 'casino', component: CasinoComponent },
