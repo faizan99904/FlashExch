@@ -8,7 +8,7 @@
                     <img src="https://static.inpcdn.com/112,1c3cf09c739d87.webp"
                         class="max-[819px]:hidden !h-[19px] lg:!h-[22px] xl:!h-[33px] desktop-logo" routerLink="/">
                 </a>
-                <div class="ml-[19.0357px]  flex items-center balance-main-container">
+                <div class="ml-[19.0357px]  flex items-center balance-main-container" *ngIf="token">
                     <ul class="flex items-center gap-2 md:gap-4 md:mt-[-7px]">
                         <li>
                             <a class="gift-icon">
@@ -27,7 +27,7 @@
         </div>
         <div class="flex h-full items-center">
             <form class="flex h-full items-center xl:gap-1">
-                <!-- <div class="fields-wrapper max-[819px]:!hidden">
+                <div class="fields-wrapper max-[819px]:!hidden" *ngIf="!token">
                     <div>
                         <div class="field">
                             <input type="text" name="userName" placeholder_key="LOGIN__USERNAME" required=""
@@ -56,17 +56,17 @@
                         </div>
                     </div>
                     <p class="err-text main-err"></p>
-                </div> -->
+                </div>
 
-                <!-- <div id="not-authorized" class="visible">
+                <div id="not-authorized" class="visible" *ngIf="!token">
                     <a (click)="showSignup()"
                         class="btn registration open-registration-popup min-[820px]:!h-[24px]  lg:!w-[89px] lg:!h-[26px] xl:!w-[134px] xl:!h-[40px]   sign-btn">Sign
                         Up</a>
                     <a (click)="gotoLogin()"
                         class="btn login open-login-popup min-[820px]:!h-[24px] lg:!w-[89px] lg:!h-[26px] xl:!w-[126px] xl:!h-[40px]  log-btn">Log
                         In</a>
-                </div> -->
-                <div class="flex items-center gap-[9.39262px] after-login-mobile-balance">
+                </div>
+                <div class="flex items-center gap-[9.39262px] after-login-mobile-balance" *ngIf="token">
                     <div class="flex items-center">
                         <div class="balance md:!text-[16px] md:!mr-[-1vw]">
                             <span class="amount">0.00</span>
@@ -83,7 +83,7 @@
                 </div>
             </form>
 
-            <ul class="large-login-content poppins-semibold [@media(max-width:819px)]:!hidden">
+            <ul class="large-login-content poppins-semibold [@media(max-width:819px)]:!hidden" *ngIf="token">
                 <li class="user-notifications">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10 5.3667V8.1417" stroke="#DEAE26" stroke-width="1.2" stroke-miterlimit="10"

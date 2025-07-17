@@ -73,9 +73,7 @@
 }
 
 section {
-  /* min-height: 0; */
   margin-top: 18.75px;
-  display: none;
 }
 
 .page-wrapper section table {
@@ -100,4 +98,29 @@ section {
 
 .page-wrapper section.visible {
   display: block;
+}
+
+.page-wrapper section table thead tr {
+  border-bottom: 0.9px solid #11e311;
+}
+
+.no-data {
+  width: 100%;
+  background-color: #030303;
+  height: 262.5px;
+  text-align: center;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.no-data .icon {
+  position: relative;
+  width: calc(100% + 0.375rem);
+  margin-top: 84.375px;
+  font-size: 39.375px;
+}
+
+.no-data .text {
+  font-size: 16.875px;
+  margin-top: 28.125px;
 }
