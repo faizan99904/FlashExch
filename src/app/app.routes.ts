@@ -12,6 +12,9 @@ import { PromosComponent } from '../pages/promos/promos.component';
 import { LiveCasinoComponent } from '../pages/live-casino/live-casino.component';
 import { AccountLayoutComponent } from '../account-layout/account-layout.component';
 import { DashboardComponent } from '../pages/accont/dashboard/dashboard.component';
+
+import { AffliateComponent } from '../pages/affliate/affliate.component';
+
 import { LivePageComponent } from '../layout/live-page/live-page.component';
 import { PersonalInformationComponent } from '../pages/accont/personal-information/personal-information.component';
 import { DepositComponent } from '../pages/accont/deposit/deposit.component';
@@ -19,6 +22,7 @@ import { WithdrawComponent } from '../pages/accont/withdraw/withdraw.component';
 import { TransactionsHistoryComponent } from '../pages/accont/transactions-history/transactions-history.component';
 import { BonusesComponent } from '../pages/accont/bonuses/bonuses.component';
 import { FreespinsComponent } from '../pages/accont/freespins/freespins.component';
+
 
 
 export const routes: Routes = [
@@ -49,6 +53,7 @@ export const routes: Routes = [
   { path: 'casino', component: CasinoComponent },
   { path: 'live-casino', component: LiveCasinoComponent },
   { path: 'promos', component: PromosComponent },
+  { path: 'affliate', component: AffliateComponent },
 
   {
     path: 'account', component: AccountLayoutComponent,
