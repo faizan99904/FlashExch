@@ -1,0 +1,46 @@
+<div class="relative w-[calc(100%+0px)] h-full overflow-y-auto">
+    <div id="live-right-content">
+        <div class="stream-switcher with-one-tab pt-[3px]">
+            <div class="active">
+                <span class="material-icons stream-icon">center_focus_strong</span>
+                <span>Match Tracker</span>
+            </div>
+
+            <div class="fullscreen !w-1/5 group">
+                <span (click)="extendScreen()"
+                    class="material-icons group-hover:!text-[#00aa30] !m-0 !text-[19.6px] !text-white">fullscreen</span>
+            </div>
+        </div>
+
+        <div class="match-tracker">
+            <div class="g-title match-name">
+                <span class="text-right w-[calc(50%-28px)] text-[11.2px] inline-block truncate">SV Ried</span>
+                <span class="w-[56px] text-[14px] text-center text-white inline-block truncate">0 - 3</span>
+                <span class="w-[calc(50%-49px)] text-[11.2px] inline-block truncate">Sku Amstetten</span>
+                <span (click)="closeIframe()"
+                    class="material-icons text-[21px] float-right h-full flex items-center">{{iframe
+                    ? 'keyboard_arrow_down' : 'keyboard_arrow_right'}}</span>
+            </div>
+            <div [ngClass]="{'hidden': !iframe}">
+                <div class="betgenius-iframe-frapper"><iframe
+                        src="https://demo.upgaming.ch/sportsbook/matchtracker#en/60926385" scrolling="no"
+                        frameborder="0" width="100%" height="289"></iframe></div>
+            </div>
+        </div>
+
+        <div class="betslip relative border-none">
+            <div class="g-title betslip-title flex items-center justify-between">
+                <span class="text-[14px]">BETSLIP</span>
+                <div class="flex items-center">
+                    <span class="material-icons mr-[14px] text-[21px] text-white cursor-pointer">settings</span>
+                    <span (click)="closeBetSlip()"
+                        class="material-icons text-[21px] text-white cursor-pointer ">{{betSlip
+                        ? 'keyboard_arrow_down' : 'keyboard_arrow_right'}}</span>
+                </div>
+            </div>
+            <section [ngClass]="{'hidden': !betSlip}"
+                class="text-center py-[14px] text-[14px] text-[#FFFFFF99] leading-[16.8px] bg-[#101317] capitalize">No
+                Odds Selected</section>
+        </div>
+    </div>
+</div>

@@ -5,19 +5,27 @@
 
     <div class="flex lg:gap-[11px] xl:gap-[14px] layout-wrapper lg:px-[1vw] mt-[0.875rem]">
 
-        <div class="lg:min-w-[242px]  xl:min-w-[308px] bg-white h-[calc(100vh-113px)] overflow-x-hidden overflow-y-auto
+        <div class="lg:min-w-[242px]  xl:min-w-[308px] max-h-[calc(100dvh-128px)] overflow-hidden
  hidden lg:block whitespace-nowrap">
-            app-sidebar
+            <app-live-sidebar></app-live-sidebar>
         </div>
         <div class="lg:hidden">
             <app-mobile-sidebar></app-mobile-sidebar>
         </div>
         <div
-            class="mainRouter w-[100vw] flex-auto lg:w-full xg:w-[calc(100vw-608.5px)] max-md:h-[calc(100dvh-52px)] overflow-y-auto ">
-            <app-live-page-navbar></app-live-page-navbar>
-            <router-outlet></router-outlet>
+            class="mainRouter w-[100vw] flex-auto lg:w-full xl:w-[calc(100vw-608.5px)] max-h-[calc(100dvh-128px)] overflow-hidden">
+            <div class="h-full overflow-y-auto">
+                <app-live-page-navbar></app-live-page-navbar>
+                <router-outlet></router-outlet>
+            </div>
         </div>
-        <div class="max-lg:hidden lg:min-w-[242px] lg:max-w-[242px] xl:min-w-[308px] xl:max-w-[308px] bg-red-500">
+        <div *ngIf="showMatchTracker()" [ngClass]="{'!min-w-[462px]': toggle.extended()}"
+            class="max-lg:hidden lg:min-w-[242px] lg:max-w-[242px] xl:min-w-[308px] xl:max-w-[308px] overflow-hidden relative max-h-[calc(100dvh-128px)]">
+            <app-match-tracker></app-match-tracker>
+        </div>
+
+        <div *ngIf="!showMatchTracker()"
+            class="max-lg:hidden lg:min-w-[242px] lg:max-w-[242px] xl:min-w-[308px] xl:max-w-[308px]">
             <app-betslip></app-betslip>
         </div>
 
