@@ -7,6 +7,7 @@ import { Subject } from 'rxjs';
 export class SharedService {
   constructor() {}
   private mobileSidebarToggleSource = new Subject<boolean>();
+  private isLogin = new Subject<string>();
   mobileSidebarToggle$ = this.mobileSidebarToggleSource.asObservable();
 
   private signUpToggle = signal(false);
@@ -14,6 +15,16 @@ export class SharedService {
 
   private passToggle = signal(false);
   readonly isPassVisible = this.passToggle.asReadonly();
+
+
+  getToken(){
+    return this.isLogin;
+  }
+
+  setToken(value:any){
+    const token = localStorage.getItem('token')
+    this.isLogin.next(value)
+  }
 
   togglePass(): void {
     this.passToggle.update((value) => !value);

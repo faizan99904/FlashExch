@@ -1,0 +1,203 @@
+.page-wrapper {
+  position: relative;
+  float: left;
+  width: calc(100% - 253.125px);
+  overflow: hidden;
+  margin-left: 253.125px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.page-wrapper .kyc-forms li {
+  width: 90%;
+  margin: auto;
+  margin-top: 18.75px;
+}
+
+.kyc-forms li .kyc-form-collapsable {
+  padding: 23.4375px;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #15191e;
+  cursor: pointer;
+}
+
+.form-name {
+  height: 23.4375px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 16.875px;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.kyc-form-collapsable .assignment {
+  font-size: 45px;
+  margin-right: 18.75px;
+  background: #11e311;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.kyc-form-collapsable .icon {
+  font-size: 26.25px;
+  color: #abb0c0 !important;
+  margin-right: 0px !important;
+  background: none;
+}
+
+.kyc-forms li .form-content {
+  overflow: hidden;
+  -webkit-transition: max-height 0.3s ease-out;
+  transition: max-height 0.3s ease-out;
+  display: block;
+  background-color: #15191e;
+}
+
+.form-description {
+  margin: 28.125px 28.125px 37.5px 28.125px;
+}
+
+.kyc-questionnaires {
+  margin-bottom: 18.75px;
+}
+
+.sumsub-questionnaires {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 22.5px 0;
+}
+
+.sumsub-questionnaires .sumsub-header {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.sumsub-questionnaires .sumsub-container.active {
+  background-color: #11e311;
+}
+
+.sumsub-questionnaires .sumsub-container {
+  cursor: pointer;
+  padding: 15px 30px;
+  background-color: #383642;
+  color: #fff;
+  margin: 0 10.5px;
+  border-radius: 4px;
+}
+
+.sumsub-questionnaires .iframe-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-description p {
+  color: #bfbfbf;
+  font-size: 14.0625px;
+  line-height: 18.75px;
+}
+
+.kyc-questionnaires li {
+  width: 837.188px !important;
+  margin: auto;
+  border: 0.9375px solid rgba(78, 78, 78, 0.35);
+  border-radius: 2.8125px;
+  margin-bottom: 25.3125px;
+}
+
+.kyc-questionnaire-collapsible {
+  padding: 25.3125px 28.125px;
+  font-size: 14.0625px;
+  color: #fff;
+  background-color: #15191e;
+}
+
+.kyc-questionnaire-collapsible {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.kyc-questionnaire-collapsible .status-message {
+  float: right;
+  margin-right: 14.0625px;
+}
+
+.kyc-questionnaires li .content {
+  padding: 0 16.875px;
+  max-height: 468.75px;
+  overflow: hidden;
+  -webkit-transition: max-height 0.3s ease-out;
+  transition: max-height 0.3s ease-out;
+  display: block;
+  background-color: #15191e;
+}
+
+.row {
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  height: 93.75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18.75px;
+}
+
+.btn-grey {
+  background-color: #3e3e46;
+  font-size: 13.125px;
+  height: 35.625px;
+  width: 117.188px;
+  border-radius: 2.8125px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-transition: -webkit-filter 0.2s ease-out;
+  transition: -webkit-filter 0.2s ease-out;
+  transition: filter 0.2s ease-out;
+  transition: filter 0.2s ease-out, -webkit-filter 0.2s ease-out;
+}
+
+.row .kyc-input {
+  padding: 0 9.45px;
+  height: 35.625px;
+  font-size: 13.125px;
+  border: none;
+  border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.164);
+  background-color: transparent;
+  width: unset !important;
+  border-radius: 0 !important;
+  margin-left: 14.0625px;
+  outline: none;
+  color: white;
+}
+
+.btn-save {
+  font-size: 13.125px;
+  height: 35.625px;
+  width: 117.188px;
+  border-radius: 2.8125px;
+  background-color: #11e311;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: -webkit-filter 0.2s ease-out;
+  transition: filter 0.2s ease-out;
+  transition: filter 0.2s ease-out, -webkit-filter 0.2s ease-out;
+  margin-left: 14.0625px;
+}

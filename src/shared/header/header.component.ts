@@ -1,18 +1,28 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { SharedService } from '../../app/service/shared.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  constructor(private router: Router, private toggle: SharedService) {}
+  token: any
+  constructor(private router: Router, private toggle: SharedService) {
+    this.toggle.getToken().subscribe((value: any) => {
+       if(value){
+       this.token = value
+       }
+    });
+    this.token = localStorage.getItem('token')
+  }
 
   gotoLogin() {
     let width = window.innerWidth;
+    this.onSubmit()
     if (width < 819) {
       this.router.navigateByUrl('/login');
     } else {
@@ -26,5 +36,10 @@ export class HeaderComponent {
 
   showPass() {
     this.toggle.togglePass();
+  }
+
+  onSubmit() {
+    localStorage.setItem('token', 'resolveallconflictsmanuallymarkthemasresolvedwith');
+    this.toggle.setToken('resolveallconflictsmanuallymarkthemasresolvedwith')
   }
 }

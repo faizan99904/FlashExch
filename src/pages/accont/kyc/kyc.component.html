@@ -1,0 +1,69 @@
+<div class="page-wrapper">
+    <ul class="kyc-forms">
+        <li>
+            <div class="kyc-form-collapsable" (click)="showIdentity()">
+                <div class="form-name">
+                    <span class="material-icons-outlined assignment">assignment_ind</span>
+                    <span>Proof Of Identity</span>
+                </div>
+                <span class="material-icons-outlined icon !duration-300"
+                    [ngClass]="{'rotate-[90deg] duration-300':identity}">keyboard_arrow_right</span>
+            </div>
+            <div class="form-content max-h-0 overflow-hidden" [ngClass]="{'!max-h-[500px]':identity}">
+                <div class="form-description"></div>
+                <ul class="kyc-questionnaires sumsub-questionnaires">
+                    <div class="sumsub-header">
+                        <div class="sumsub-container active"> Proof Of Identity </div>
+                    </div>
+                </ul>
+            </div>
+        </li>
+
+        <li>
+            <div class="kyc-form-collapsable" (click)="showVerification()">
+                <div class="form-name">
+                    <span class="material-icons-outlined assignment">assignment_ind</span>
+                    <span>Proof Of Verification</span>
+                </div>
+                <span class="material-icons-outlined icon !duration-300"
+                    [ngClass]="{'rotate-[90deg] duration-300':isVerification}">keyboard_arrow_right</span>
+            </div>
+            <div class="form-content max-h-0 overflow-hidden" [ngClass]="{'!max-h-[500px]':isVerification}">
+                <div class="form-description">
+                    <p>To verify the email address press - send code button. Find the code in your email inbox and paste
+                        it in the field
+                        below, then press the verification button.</p>
+                </div>
+
+                <ul form-id="182" class="kyc-questionnaires">
+                    <li class="">
+                        <div class="kyc-questionnaire-collapsible">
+
+                            <span class="title">E-mail verification</span>
+                            <p style="margin-top: 10px; color: #0a91c8;">
+                                <span>Code will be sent</span>
+                                &nbsp;{{'info@chiraagonline.com'}}&nbsp;
+                                <span>If you want to get code</span>
+                            </p>
+
+                            <span class="status-message "></span>
+
+                        </div>
+                        <form class="content">
+
+
+                            <div class="auto-verify">
+                                <div class="row">
+                                    <div class="btn-grey send-code">Send Code</div>
+                                    <input type="text" class="kyc-input" name="code" placeholder="Enter Code">
+                                    <div class="btn-save confirm">Verify</div>
+                                    <p class="message"></p>
+                                </div>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
