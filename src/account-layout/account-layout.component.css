@@ -107,3 +107,13 @@ main {
   box-sizing: border-box;
   color: rgba(255, 255, 255, 0.3);
 }
+
+@media (min-width: 0px) and (max-width: 768px) {
+  .middle {
+    padding: 0px;
+    margin-top: 0px;
+  }
+  main {
+    background-color: transparent;
+  }
+}
