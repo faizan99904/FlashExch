@@ -244,9 +244,11 @@ header .change-lang div.current-lang {
 }
 
 .amount {
-  color: #fff;
+  /* color: #fff;
   margin-right: 4.5px;
-  font-size: 7.2px;
+  font-size: 7.2px; */
+  font-family: "Roboto";
+  font-weight: 600;
 }
 
 .deposit {
@@ -716,7 +718,7 @@ header .change-lang ul li span {
 }
 
 .balance {
-  font-size: 10px;
+  font-size: 11px;
   margin-right: -2vw;
   line-height: normal;
   color: #ffdd55;
