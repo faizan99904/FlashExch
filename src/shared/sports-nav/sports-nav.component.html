@@ -1,5 +1,5 @@
 <div class="font-['Roboto'] h-[15vw] mob-nav text-white bg-black">
-    <ul class="block whitespace-nowrap overflow-x-scroll w-full h-full">
+    <ul class="mobile-nav block whitespace-nowrap overflow-x-scroll w-full h-full">
         <li [class.li-active]="activeIndex === -1" (click)="activeIndex = -1"
             class="sport-item !mr-[3px] min-[429px]:!mr-1 sport-all">
             All
@@ -16,7 +16,7 @@
                 {{item.name}}
             </div>
             <div style="font-size: 2.5vw;"
-                class="absolute left-[calc(50%_+_4vw)] top-[1.1vw] text-[#00aa30] font-semibold leading-none inline-block min-[429px]:!top-[1.3vw]">
+                class="sport-score absolute left-[calc(50%_+_4vw)] top-[1.1vw] text-[#00aa30] font-semibold leading-none inline-block min-[429px]:!top-[1.3vw]">
                 {{item.score}}
             </div>
         </li>

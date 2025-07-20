@@ -3,7 +3,7 @@
 
     <app-sports-nav class="max-[820px]:hidden"></app-sports-nav>
 
-    <div class="flex lg:gap-[11px] xl:gap-[14px] layout-wrapper lg:px-[1vw] mt-[0.875rem]">
+    <div class="flex lg:gap-[11px] xl:gap-[14px] layout-wrapper lg:px-[1vw] lg:mt-[0.875rem]">
 
         <div class="lg:min-w-[242px]  xl:min-w-[308px] max-h-[calc(100dvh-128px)] overflow-hidden
  hidden lg:block whitespace-nowrap">
@@ -15,7 +15,13 @@
         <div
             class="mainRouter w-[100vw] flex-auto lg:w-full xl:w-[calc(100vw-608.5px)] max-h-[calc(100dvh-128px)] overflow-hidden">
             <div class="h-full overflow-y-auto">
-                <app-live-page-navbar></app-live-page-navbar>
+                <div class="hidden xl:block">
+                    <app-live-page-navbar></app-live-page-navbar>
+                </div>
+
+                <div class="block xl:hidden">
+                    <app-sports-nav></app-sports-nav>
+                </div>
                 <router-outlet></router-outlet>
             </div>
         </div>
