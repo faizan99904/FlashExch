@@ -7,8 +7,6 @@ import {
   RouterLinkActive,
   RouterOutlet,
 } from '@angular/router';
-import { AccountNavComponent } from '../pages/account-nav/account-nav.component';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-account-layout',
@@ -18,8 +16,6 @@ import { NgIf } from '@angular/common';
     RouterOutlet,
     RouterLink,
     RouterLinkActive,
-    AccountNavComponent,
-    NgIf,
   ],
   templateUrl: './account-layout.component.html',
   styleUrl: './account-layout.component.css',

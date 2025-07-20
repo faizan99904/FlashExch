@@ -1,7 +1,7 @@
 <app-header></app-header>
 <app-sports-nav class="[@media(max-width:769px)]:hidden" *ngIf="!hide()"></app-sports-nav>
 
-<main class="middle hidden lg:block">
+<main class="middle">
     <nav class="account-sidebar [@media(max-width:769px)]:hidden">
         <div class="g-title poppins-medium ">Account Menu</div>
         <ul class="poppins-regular">
@@ -68,7 +68,3 @@
     <router-outlet></router-outlet>
 
 </main>
-
-<section class="lg:hidden bg-[#13161b] min-h-screen overflow-hidden">
-    <app-account-nav></app-account-nav>
-</section>
