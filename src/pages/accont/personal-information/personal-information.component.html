@@ -1,4 +1,4 @@
-<div class="page-wrapper">
+<div class="page-wrapper [@media(max-width:769px)]:!hidden">
     <div class="nav">
         <div class="rect">
             <div class="flex items-center">
@@ -85,7 +85,67 @@
                 </li>
             </ul>
         </div>
+    </div>
+</div>
 
+<div class="bg-[#14161B] roboto-medium [@media(min-width:769px)]:!hidden " >
+    <div class="page-title">
+        <a class="material-icons arrow">arrow_back</a>
+        <span class="title">PERSONAL INFO</span>
+        <span class="material-icons icon">assignment_ind</span>
+    </div>
+    <div class="mb-content">
+        <h2>User Profile</h2>
+        <ul class="filled mb-fields">
+            <li>
+                <div class="desc">Username</div>
+                <div class="info" field="username">jackey501</div>
+            </li>
+            <li>
+                <div class="desc">FIRSTNAME</div>
+                <div class="info">Jackey</div>
+            </li>
+            <li>
+                <div class="desc">LASTNAME</div>
+                <div class="info">Chain</div>
+            </li>
+            <li class="password">
+                <div class="desc">Password</div>
+                <div class="info">*****************</div>
+                <span class="material-icons editable changepass">border_color</span>
+            </li>
+            <li>
+                <div class="desc">Email</div>
+                <div class="info">{{'info@chiraagonline.com'}}</div>
+            </li>
+            <li>
+                <div class="desc">Country</div>
+                <div class="info">India</div>
+            </li>
+            <li>
+                <div class="desc">Mobile Number</div>
+                <div class="info">8792065967</div>
+            </li>
+        </ul>
 
+        <h2>ADD_YOUR_DETAILS</h2>
+
+        <ul class="fill mb-fields">
+            <li class="edit-mode">
+                <div class="desc">Date of Birth</div>
+                <input type="date" name="birthdate" placeholder="Date of Birth">
+            </li>
+
+            <li class="edit-mode">
+                <div class="desc">City</div>
+                <input type="text" name="city" placeholder="City">
+            </li>
+
+            <li class="edit-mode">
+                <div class="desc">Address</div>
+                <input type="text" name="address" placeholder="Address">
+            </li>
+        </ul>
+        <div class="save btn"  bis_skin_checked="1">SAVE_DETAILS</div>
     </div>
 </div>

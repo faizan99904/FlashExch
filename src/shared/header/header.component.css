@@ -712,6 +712,7 @@ header .change-lang ul li span {
   height: 33.563px;
   display: flex;
   position: relative;
+  border-bottom: none !important;
 }
 
 .balance {
