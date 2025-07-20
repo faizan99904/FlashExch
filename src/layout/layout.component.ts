@@ -10,6 +10,7 @@ import { MobileSidebarComponent } from '../shared/mobile-sidebar/mobile-sidebar.
 import { SignupComponent } from '../auth/signup/signup.component';
 import { SharedService } from '../app/service/shared.service';
 import { ForgetModalComponent } from '../shared/forget-modal/forget-modal.component';
+import { AccountNavComponent } from "../pages/account-nav/account-nav.component";
 
 @Component({
   selector: 'app-layout',
@@ -23,7 +24,8 @@ import { ForgetModalComponent } from '../shared/forget-modal/forget-modal.compon
     MobileSidebarComponent,
     SignupComponent,
     ForgetModalComponent,
-  ],
+    AccountNavComponent
+],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css',
 })

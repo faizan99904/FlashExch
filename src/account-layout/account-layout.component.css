@@ -29,7 +29,6 @@
   max-width: 1400px;
   padding: 0 18.75px;
   margin: 0 auto;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin-top: 12px;
 }

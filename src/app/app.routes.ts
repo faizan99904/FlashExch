@@ -26,6 +26,7 @@ import { TransactionsHistoryComponent } from '../pages/accont/transactions-histo
 import { BonusesComponent } from '../pages/accont/bonuses/bonuses.component';
 import { FreespinsComponent } from '../pages/accont/freespins/freespins.component';
 import { KycComponent } from '../pages/accont/kyc/kyc.component';
+import { AccountNavComponent } from '../pages/account-nav/account-nav.component';
 
 
 
@@ -73,7 +74,8 @@ export const routes: Routes = [
       { path: 'transactions', component: TransactionsHistoryComponent },
       { path: 'bonuses', component: BonusesComponent },
       { path: 'freespins', component: FreespinsComponent },
-      { path: 'kyc', component: KycComponent }
+      { path: 'kyc', component: KycComponent },
+      { path: 'nav', component: AccountNavComponent }
     ]
   },
 ];
