@@ -77,7 +77,7 @@
                                 style="height: 18px;" alt="">
                         </div>
                     </div>
-                    <a class="user-icon authorized">
+                    <a (click)="gotoAccNav()" class="user-icon authorized">
                         <span class="material-icons icon">person</span>
                     </a>
                 </div>
@@ -170,7 +170,7 @@
                             <a>Transactions History</a>
                         </li>
 
-                        <li  routerLink="/account/freespins">
+                        <li routerLink="/account/freespins">
                             <a>Bonus with Promo Code</a>
                         </li>
                         <li>

@@ -1,5 +1,5 @@
 <app-header></app-header>
-<app-sports-nav class="[@media(max-width:769px)]:hidden"></app-sports-nav>
+<app-sports-nav class="[@media(max-width:769px)]:hidden" *ngIf="!hide()"></app-sports-nav>
 
 <main class="middle">
     <nav class="account-sidebar [@media(max-width:769px)]:hidden">

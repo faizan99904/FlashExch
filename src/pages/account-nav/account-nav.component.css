@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.user-info {
+  height: 15vw;
+  line-height: 15vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.user-info .username {
+  float: left;
+  width: 50%;
+  height: 100%;
+  font-size: 4.4vw;
+  color: #fff;
+  padding-top: 3px;
+  gap: 4px;
+}
+
+.user-info .username span:first-child {
+  display: inline-block;
+  margin-top: -1px;
+  color: #616161;
+  font-size: 6vw;
+}
+
+.user-info .username span:last-child {
+  margin-left: 1.5vw;
+}
+
+.user-info .balance {
+  text-align: right;
+  width: 50%;
+  font-size: 4.4vw;
+  padding-top: 3px;
+}
+
+.user-info .balance span:first-child {
+  color: #f9c343;
+}
+
+.user-info .balance span:last-child,
+.user-info .username span:last-child {
+  margin-left: 1.5vw;
+}
+
+.payments {
+  overflow: hidden;
+  padding-bottom: 6vw;
+  border-bottom: 1px dashed #434343;
+}
+
+.btn {
+  position: relative;
+  height: 13vw;
+  line-height: normal;
+  outline: 0;
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4.5vw;
+  padding: 0 4vw;
+  border-radius: 2px;
+  background: #11e311;
+  color: #030303;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  user-select: none;
+  transition: 0.2s ease;
+}
+
+.payments .btn {
+  width: calc(50% - 0.75vw);
+}
+
+.btn.stroked {
+  border: 0.7vw solid #11e311;
+  color: #000 !important;
+  background: #11e311 !important;
+}

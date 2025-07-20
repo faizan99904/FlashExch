@@ -27,6 +27,7 @@ import { BonusesComponent } from '../pages/accont/bonuses/bonuses.component';
 import { FreespinsComponent } from '../pages/accont/freespins/freespins.component';
 import { KycComponent } from '../pages/accont/kyc/kyc.component';
 import { ChangePasswordComponent } from '../pages/accont/change-password/change-password.component';
+import { AccountNavComponent } from '../pages/account-nav/account-nav.component';
 
 
 
@@ -75,7 +76,8 @@ export const routes: Routes = [
       { path: 'bonuses', component: BonusesComponent },
       { path: 'freespins', component: FreespinsComponent },
       { path: 'kyc', component: KycComponent },
-      { path: 'change-password', component: ChangePasswordComponent }
+      { path: 'change-password', component: ChangePasswordComponent },
+      { path: 'nav', component: AccountNavComponent }
     ]
   },
 ];

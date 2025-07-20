@@ -10,24 +10,28 @@ import { CommonModule } from '@angular/common';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  token: any
+  token: any;
   constructor(private router: Router, private toggle: SharedService) {
     this.toggle.getToken().subscribe((value: any) => {
-       if(value){
-       this.token = value
-       }
+      if (value) {
+        this.token = value;
+      }
     });
-    this.token = localStorage.getItem('token')
+    this.token = localStorage.getItem('token');
   }
 
   gotoLogin() {
     let width = window.innerWidth;
-    this.onSubmit()
+    this.onSubmit();
     if (width < 819) {
       this.router.navigateByUrl('/login');
     } else {
       return;
     }
+  }
+
+  gotoAccNav() {
+    this.router.navigateByUrl('/account/nav');
   }
 
   showSignup() {
@@ -39,7 +43,10 @@ export class HeaderComponent {
   }
 
   onSubmit() {
-    localStorage.setItem('token', 'resolveallconflictsmanuallymarkthemasresolvedwith');
-    this.toggle.setToken('resolveallconflictsmanuallymarkthemasresolvedwith')
+    localStorage.setItem(
+      'token',
+      'resolveallconflictsmanuallymarkthemasresolvedwith'
+    );
+    this.toggle.setToken('resolveallconflictsmanuallymarkthemasresolvedwith');
   }
 }
