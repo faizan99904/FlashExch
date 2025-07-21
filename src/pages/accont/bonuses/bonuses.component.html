@@ -1,15 +1,22 @@
-<div class="page-wrapper">
+<div class="page-wrapper [@media(max-width:768px)]:bg-[#13161b]">
+    <div class="lg:hidden page-title justify-between">
+        <a class="material-icons arrow" href="/account/nav">arrow_back</a>
+        <div class="flex items-center">
+            <span class="material-icons icon">stars</span>
+            <span class="title" text_key="PROFILE_BONUS__FREESPINS">FREESPINS</span>
+        </div>
+    </div>
     <div class="promo-code">
         <form class="bonus_code">
             <div class="fields">
-                <input type="text" name="code" required="" autocomplete="off" placeholder="Bonus Code">
+                <input type="text" name="code" required="" autocomplete="off" placeholder="BONUS_CODE">
                 <button class="btn">Use</button>
             </div>
         </form>
 
         <form class="bonus_code">
             <div class="fields">
-                <input type="text" name="code" required="" autocomplete="off" placeholder="Bonus Code">
+                <input type="text" name="code" required="" autocomplete="off" placeholder="Promo Code Success">
                 <button class="btn">Use</button>
             </div>
         </form>
@@ -20,15 +27,22 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Create Date</th>
+                        <th class="first-one">Create Date</th>
                         <th>Name</th>
                         <th>Amount</th>
                         <th>Status</th>
-                        <th></th>
+                        <th class="hidden lg:table-cell"></th>
                     </tr>
                 </thead>
                 <tbody></tbody>
             </table>
         </div>
+        <div class="loader-wrapper lg:hidden">
+            <div class="loader"></div>
+        </div>
     </div>
+</div>
+
+<div class="lg:hidden footer mt-[24.35rem]">
+    <app-footer></app-footer>
 </div>
