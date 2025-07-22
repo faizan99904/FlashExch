@@ -8,7 +8,7 @@ import { SportsNavComponent } from '../shared/sports-nav/sports-nav.component';
 import { SportEventsComponent } from '../shared/sport-events/sport-events.component';
 import { MobileSidebarComponent } from '../shared/mobile-sidebar/mobile-sidebar.component';
 import { SignupComponent } from '../auth/signup/signup.component';
-import { SharedService } from '../app/service/shared.service';
+import { SharedService } from '../service/shared.service';
 import { ForgetModalComponent } from '../shared/forget-modal/forget-modal.component';
 import { AccountNavComponent } from "../pages/account-nav/account-nav.component";
 
@@ -24,7 +24,6 @@ import { AccountNavComponent } from "../pages/account-nav/account-nav.component"
     MobileSidebarComponent,
     SignupComponent,
     ForgetModalComponent,
-    AccountNavComponent
 ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css',

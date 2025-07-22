@@ -1,6 +1,6 @@
 import { Component, OnInit, Signal } from '@angular/core';
-import { SharedService } from '../../app/service/shared.service';
 import { CommonModule } from '@angular/common';
+import { SharedService } from '../../service/shared.service';
 
 @Component({
   selector: 'app-match-tracker',

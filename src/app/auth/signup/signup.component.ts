@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { SharedService } from '../../app/service/shared.service';
+import { SharedService } from '../../service/shared.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +10,7 @@ import { SharedService } from '../../app/service/shared.service';
 })
 export class SignupComponent {
   havePromo: boolean = false;
-  constructor(private toggle: SharedService) {}
+  constructor(private toggle: SharedService) { }
   closeSignup() {
     this.toggle.hideSignup();
   }

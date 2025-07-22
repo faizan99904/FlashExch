@@ -1,18 +1,23 @@
 import { Component, computed, signal, Signal } from '@angular/core';
-import { HeaderComponent } from '../../shared/header/header.component';
-import { SportsNavComponent } from '../../shared/sports-nav/sports-nav.component';
-import { BottomNavComponent } from '../../shared/bottom-nav/bottom-nav.component';
-import { MobileSidebarComponent } from '../../shared/mobile-sidebar/mobile-sidebar.component';
-import { BetslipComponent } from '../../shared/betslip/betslip.component';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
-import { LivePageNavbarComponent } from '../../component/live-page-navbar/live-page-navbar.component';
-import { LiveSidebarComponent } from '../../component/live-sidebar/live-sidebar.component';
-import { SharedService } from '../../app/service/shared.service';
+import { HeaderComponent } from '../shared/header/header.component';
+import { SportsNavComponent } from '../shared/sports-nav/sports-nav.component';
+import { BottomNavComponent } from '../shared/bottom-nav/bottom-nav.component';
+import { MobileSidebarComponent } from '../shared/mobile-sidebar/mobile-sidebar.component';
+import { BetslipComponent } from '../shared/betslip/betslip.component';
+import { LivePageNavbarComponent } from '../component/live-page-navbar/live-page-navbar.component';
+import { LiveSidebarComponent } from '../component/live-sidebar/live-sidebar.component';
 import { CommonModule } from '@angular/common';
-import { MatchTrackerComponent } from '../../component/match-tracker/match-tracker.component';
+import { MatchTrackerComponent } from '../component/match-tracker/match-tracker.component';
+import { SharedService } from '../service/shared.service';
+
+
+
+
 
 @Component({
   selector: 'app-live-page',
+  standalone:true,
   imports: [
     HeaderComponent,
     SportsNavComponent,

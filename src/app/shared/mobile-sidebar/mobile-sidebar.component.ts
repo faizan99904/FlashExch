@@ -1,7 +1,7 @@
 import { CommonModule, NgIf } from '@angular/common';
 import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { SharedService } from '../../app/service/shared.service';
+import { SharedService } from '../../service/shared.service';
 
 @Component({
   selector: 'app-mobile-sidebar',
