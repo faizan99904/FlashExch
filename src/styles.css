@@ -169,7 +169,7 @@ body {
 .sport-icon[sport="golf"]:before {
   content: "\e827";
 } /* '' */
-.sport-icon[sport="greyhoundraicing"]:before {
+.sport-icon[sport="greyhound racing"]:before {
   content: "\e828";
 } /* '' */
 .sport-icon[sport="gymnastics"]:before {
@@ -190,7 +190,7 @@ body {
 .sport-icon[sport="heroesofthestorm"]:before {
   content: "\e82e";
 } /* '' */
-.sport-icon[sport="horseracing"]:before {
+.sport-icon[sport="horse racing"]:before {
   content: "\e82f";
 } /* '' */
 .sport-icon[sport="icehockey"]:before {
@@ -400,6 +400,9 @@ body {
 .sport-icon[sport="canoekayak"]:before {
   content: "\e80f";
 } /* '' */
+.sport-icon[sport="lottery"]:before {
+  content: "\e833";
+}
 
 .prevent-select {
   -webkit-user-select: none;
