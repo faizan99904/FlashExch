@@ -8,6 +8,11 @@
   --back-txt-clr: Black;
   --lay-txt-clr: Black;
 }
+@media screen and (min-width: 1200px) {
+  html {
+      font-size: 14px;
+  }
+}
 html,
 body {
   font-family: Roboto, sans-serif;

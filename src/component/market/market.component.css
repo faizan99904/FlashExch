@@ -73,3 +73,9 @@
     border-radius: 4px;
     font-size: 12px;
 }
+.marketName{
+    font-size: .88rem;
+}
+.marketType{
+    font-size: .7rem;
+}

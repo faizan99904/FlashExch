@@ -4,7 +4,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-account-nav',
-  imports: [FooterComponent, RouterLink],
+  imports: [FooterComponent],
   templateUrl: './account-nav.component.html',
   styleUrl: './account-nav.component.css',
 })
