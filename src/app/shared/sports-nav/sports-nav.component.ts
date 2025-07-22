@@ -1,8 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { Component, effect, WritableSignal } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { MainService } from '../../service/main.service';
 
 @Component({
