@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-change-password',
   imports: [],
@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './change-password.component.css'
 })
 export class ChangePasswordComponent {
-
+  constructor(private location: Location) { }
+  goBack(): void {
+    this.location.back();
+  }
 }

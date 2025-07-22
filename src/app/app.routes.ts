@@ -49,6 +49,7 @@ export const routes: Routes = [
       { path: 'racing', component: RacingComponent },
     ],
   },
+
   {
     path: 'live',
     component: LivePageComponent,
@@ -60,6 +61,7 @@ export const routes: Routes = [
       }
     ],
   },
+  
   { path: 'casino', component: CasinoComponent },
   { path: 'live-casino', component: LiveCasinoComponent },
   { path: 'promos', component: PromosComponent },

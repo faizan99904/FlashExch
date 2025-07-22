@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-transactions-history',
@@ -7,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './transactions-history.component.css'
 })
 export class TransactionsHistoryComponent {
-
+  constructor(private location: Location) { }
+  goBack(): void {
+    this.location.back();
+  }
 }

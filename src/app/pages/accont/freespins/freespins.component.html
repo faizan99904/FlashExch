@@ -1,4 +1,4 @@
-<div class="page-wrapper">
+<div class="page-wrapper [@media(max-width:769px)]:!hidden">
     <ul class="tabs">
         <li (click)="changeTab('Freespins')" [ngClass]="{'active': tab === 'Freespins'}">
             <span>Freespins</span>
@@ -88,11 +88,22 @@
         <div class="bonus-filters ">
             <ul class="bonus-tabs">
                 <li class="active">All</li>
-                <li >Active</li>
-                <li >Pending</li>
-                <li >Completed</li>
-                <li >Canceled</li>
+                <li>Active</li>
+                <li>Pending</li>
+                <li>Completed</li>
+                <li>Canceled</li>
             </ul>
         </div>
     </section>
+</div>
+
+<div class="[@media(min-width:769px)]:!hidden p-[3vw] h-[calc(100vh-40vw)] bg-[#14161B]">
+    <div class="page-title">
+        <a class="material-icons arrow" (click)="goBack()">arrow_back</a>
+        <span class="title">My Gifts</span>
+        <span class="material-icons icon">card_giftcard</span>
+    </div>
+    <ul class="tabs-mb">
+         
+    </ul>
 </div>

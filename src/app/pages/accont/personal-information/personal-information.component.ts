@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-personal-information',
@@ -7,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './personal-information.component.css'
 })
 export class PersonalInformationComponent {
-
+  constructor(private location: Location) { }
+  goBack(): void {
+    this.location.back();
+  }
 }

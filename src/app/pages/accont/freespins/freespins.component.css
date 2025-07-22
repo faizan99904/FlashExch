@@ -227,3 +227,66 @@ section {
 .bonus-tabs li + li {
   margin-left: 46.875px;
 }
+
+.page-title {
+  height: 14vw;
+  line-height: 14vw;
+  padding: 0 6vw;
+  font-size: 4.5vw;
+  background-color: #111317;
+  color: #fff;
+  font-weight: 400;
+}
+
+.page-title .arrow {
+  float: left;
+  font-size: 8vw;
+  line-height: 14vw;
+}
+
+.page-title * {
+  vertical-align: middle;
+  align-content: center;
+}
+
+.page-title .title {
+  float: right;
+}
+
+.page-title .icon {
+  float: right;
+  line-height: 14vw;
+  font-size: 6vw;
+  max-height: 6vw;
+  margin-right: 3vw;
+  color: #fff;
+}
+
+.tabs-mb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: 0 0 !important;
+  margin-top: 3vw;
+  background-color: #101317;
+  display: block;
+  color: rgba(222, 228, 236, 0.6);
+  white-space: nowrap;
+  overflow-x: scroll;
+  width: 100%;
+}
+
+.tabs-mb li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(50% - 1.5vw);
+  height: 50px;
+  font-size: 16px;
+  font-family: Roboto-Medium;
+  background-color: #101317;
+  color: #fff;
+  border-radius: 5px;
+}

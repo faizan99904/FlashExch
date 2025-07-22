@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-freespins',
@@ -12,5 +13,10 @@ export class FreespinsComponent {
 
   changeTab(val: string) {
     this.tab = val
+  }
+
+  constructor(private location: Location) { }
+  goBack(): void {
+    this.location.back();
   }
 }
