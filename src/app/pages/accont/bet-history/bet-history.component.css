@@ -150,6 +150,9 @@
     display: -ms-flexbox;
     display: flex;
     overflow: hidden;
+    flex-wrap: wrap;
+    row-gap: 16px;
+    column-gap: 37.5px;
   }
 
   ul li:first-child,
@@ -159,6 +162,7 @@
 
   ul li {
     position: relative;
+    min-width: 135.63px;
   }
 
   .operation-type {
@@ -177,14 +181,14 @@
     color: #222;
   }
 
-  .filters ul li:not(:first-child) {
+  /* .filters ul li:not(:first-child) {
     margin-left: 37.5px;
-  }
+  } */
 
-  .filters ul li:nth-child(3):nth-child(3),
+  /* .filters ul li:nth-child(3):nth-child(3),
   .page-wrapper .content .filters ul li:nth-child(4):nth-child(3) {
     margin-left: 56.25px;
-  }
+  } */
 
   .page-wrapper .content .filters ul li input {
     width: 100%;
@@ -277,4 +281,5 @@ thead,
 th,
 td {
   border-color: #afafaf !important ;
+  white-space: nowrap;
 }

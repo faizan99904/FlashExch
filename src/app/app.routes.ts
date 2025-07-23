@@ -30,6 +30,10 @@ import { ChangePasswordComponent } from './pages/accont/change-password/change-p
 import { AccountNavComponent } from './pages/account-nav/account-nav.component';
 import { ProfitLossComponent } from './pages/accont/profit-loss/profit-loss.component';
 import { CompetitionsComponent } from './pages/competitions/competitions.component';
+import { BetHistoryComponent } from './pages/accont/bet-history/bet-history.component';
+import { ActivityLogComponent } from './pages/accont/activity-log/activity-log.component';
+import { AccountStatementComponent } from './pages/accont/account-statement/account-statement.component';
+import { PasswordHistoryComponent } from './pages/accont/password-history/password-history.component';
 
 export const routes: Routes = [
   {
@@ -81,7 +85,12 @@ export const routes: Routes = [
       { path: 'kyc', component: KycComponent },
       { path: 'change-password', component: ChangePasswordComponent },
       { path: 'profit-loss', component: ProfitLossComponent },
+      { path: 'bet-history', component: BetHistoryComponent },
+      { path: 'activity-log', component: ActivityLogComponent },
+      { path: 'account-statement', component: AccountStatementComponent },
+      { path: 'password-history', component: PasswordHistoryComponent },
       { path: 'nav', component: AccountNavComponent },
     ],
   },
 ];
+
