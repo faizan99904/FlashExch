@@ -1,3 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-semiBold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
 .page-wrapper {
   position: relative;
   float: left;
@@ -263,7 +289,7 @@ section {
 }
 
 .tabs-mb {
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -282,11 +308,173 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 12vw;
   width: calc(50% - 1.5vw);
   height: 50px;
   font-size: 16px;
-  font-family: Roboto-Medium;
+
   background-color: #101317;
   color: #fff;
   border-radius: 5px;
+}
+
+.tabs-mb .active-tab {
+  background: #11e311;
+  color: #fff;
+  border: 0;
+}
+
+.tabs-mb li .total-count {
+  background-color: #11e311;
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  width: 22px;
+  height: 22px;
+  border-radius: 22px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.tabs-mb li:nth-child(even) {
+  margin-left: 3vw;
+}
+
+.tabs-mb li:nth-child(n + 3) {
+  margin-top: 3vw;
+}
+
+.freespins-mb {
+  min-height: 30vw;
+  margin-top: 3vw;
+}
+
+.freespins-mb table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.freespins-mb table thead {
+  background-color: #000;
+}
+
+.freespins-mb table thead tr {
+  border-bottom: 1px solid #333645;
+}
+
+.freespins-mb table thead tr th {
+  font-weight: 400;
+  color: #fff;
+  height: 10vw;
+  padding-left: 3vw;
+  text-align: left;
+  font-size: 3.5vw;
+  line-height: 18px;
+}
+
+.freespins-mb .no-data {
+  width: 100%;
+  color: #434343;
+  background-color: #000;
+  height: 50vw;
+  text-align: center;
+  overflow: hidden;
+}
+
+.freespins-mb .no-data .icon {
+  margin-top: 13vw;
+  font-size: 11vw;
+}
+
+.freespins-mb .no-data .text {
+  font-size: 4vw;
+  margin-top: 1.4vw;
+}
+
+.bonus-mb {
+  min-height: 30vw;
+  margin-top: 3vw;
+}
+
+.bonus-mb .bonus-code-mb {
+  background: linear-gradient(47deg, #f5f5f5, #f5f5f5);
+  border-radius: 4px;
+  margin: 4vw;
+  padding: 4vw;
+}
+
+.bonus-mb .bonus-code-mb form h2 {
+  color: #313131;
+  font-size: 4vw;
+  line-height: 20px;
+}
+
+.fields-mb {
+  margin-top: 3vw;
+  height: 10vw;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.fields-mb input {
+  width: calc(100% - 37vw);
+  margin-right: 2vw;
+  height: 100%;
+  background: #d8d8d8;
+  border: none;
+  font-size: 3.5vw;
+  border-radius: 10.406px !important;
+  color: #000;
+  padding-left: 4vw;
+}
+
+.fields-mb button {
+  font-size: 3.6vw;
+  width: 35vw;
+  height: 100%;
+  line-height: 10vw;
+  position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4vw;
+  background: #11e311;
+  color: #030303;
+  border-radius: 10.406px;
+}
+
+.mobile-tabs {
+  background-color: #101317;
+  display: block;
+  color: rgba(222, 228, 236, 0.6);
+  white-space: nowrap;
+  overflow-x: scroll;
+  width: 100%;
+}
+
+.mobile-tabs li {
+  position: relative;
+  height: 12vw;
+  line-height: 12vw;
+  display: inline-block;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 5vw;
+  font-size: 3.5vw;
+}
+
+.mobile-tab-active {
+  background-color: #11e311;
+  color: #000;
+  border-bottom: 1vw solid #11e311;
 }
