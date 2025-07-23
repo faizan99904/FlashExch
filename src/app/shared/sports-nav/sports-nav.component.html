@@ -6,7 +6,7 @@
         </li>
 
         <li *ngFor="let item of mainService.sportsList(); let i = index" (click)="activeIndex = i"
-            [class.li-active]="i === activeIndex" class="sport-item">
+            [class.li-active]="i === activeIndex" class="sport-item" routerLink="/competitions">
 
             <div class="h-[11vw] leading-[11vw] relative opacity-60 sport-img">
                 <!-- <i [ngClass]="item.icon" class="text-[6.5vw]"></i> -->
