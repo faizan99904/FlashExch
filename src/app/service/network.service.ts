@@ -422,58 +422,55 @@ export class NetworkService {
         });
     });
   }
-  dateManager(newValue: string) {
-    const today = new Date();
-    let targetDate: Date;
-
+  dateManager(newValue: string): string {
+    const now = new Date();
+    // start with a copy of today
+    const target = new Date(now);
     if (newValue === 'BACKUP') {
       // 3 months ago
-      targetDate = new Date();
-      targetDate.setMonth(targetDate.getMonth() - 3);
+      target.setMonth(now.getMonth() - 3);
     } else if (newValue === 'LIVE') {
-      targetDate = today;
+      
+      // leave as today
     } else {
       // 1 year ago
-      targetDate = new Date();
-      targetDate.setFullYear(targetDate.getFullYear() - 1);
+      target.setFullYear(now.getFullYear() - 1);
     }
-
-    return {
-      date: {
-        year: targetDate.getFullYear(),
-        month: targetDate.getMonth() + 1, // JS months are 0-based
-        day: targetDate.getDate(),
-      },
-    };
+  
+    // produce "YYYY-MM-DD"
+    return target.toISOString().slice(0, 10);
   }
 
-  getStartDate(date: any) {
-    if (!date) {
-      date = { year: new Date().getFullYear(), month: 1, day: 1 };
-    }
+  getStartDate(input: string | { date: { year: number; month: number; day: number } }): string | null {
+    const date = typeof input === 'string'
+      ? new Date(input)  
+      : new Date(input.date.year, input.date.month - 1, input.date.day);
 
-    const startDate = new Date(date.date.year, date.date.month - 1, date.date.day);
-    // Format as ISO string with timezone offset
-    // Using Angular DatePipe here:
-    const formattedStartDate = this.datePipe.transform(
-      startDate,
-      "yyyy-MM-dd'T'HH:mm:ssxxx"
+    date.setHours(0, 0, 0, 0);
+
+   
+    return this.datePipe.transform(
+      date,
+      "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
     );
-    return formattedStartDate;
   }
 
-  getEndDate(date: any) {
-    if (!date) {
-      date = { year: new Date().getFullYear(), month: 1, day: 1 };
-    }
-
-    const endDate = new Date(date.date.year, date.date.month - 1, date.date.day);
-    endDate.setHours(23, 59, 0, 0);
-
-    const formattedEndDate = this.datePipe.transform(
-      endDate,
-      "yyyy-MM-dd'T'HH:mm:ssxxx"
+  getEndDate(
+    input: string | { date: { year: number; month: number; day: number } }
+  ): string | null {
+   
+    const dateObj =
+      typeof input === 'string'
+        ? new Date(input)  
+        : new Date(input.date.year, input.date.month - 1, input.date.day);
+  
+   
+    dateObj.setHours(23, 59, 0, 0);
+  
+   
+    return this.datePipe.transform(
+      dateObj,
+      "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
     );
-    return formattedEndDate;
   }
 }

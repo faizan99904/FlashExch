@@ -23,42 +23,22 @@ export class AccountStatementComponent {
   public today = new Date();
   time = { hour: 13, minute: 30 };
 
-  // myDpOptions: IMyDpOptions = {
-  //   dateFormat: 'dd-mm-yyyy',
-  //   markCurrentDay: true,
-  //   monthSelector: false,
-  //   showTodayBtn: false,
-  //   showClearDateBtn: false,
-  //   inline: false,
-  //   editableDateField: false,
-
-  //   openSelectorOnInputClick: true,
-  //   disableDateRanges: [],
-
-  //   disableUntil: { year: this.today.getFullYear(), month: this.today.getMonth(), day: this.today.getDate() - 15 },
-  //   disableSince: { year: this.today.getFullYear(), month: this.today.getMonth() + 1, day: this.today.getDate() + 1 }
-  // };
-
-  // startDate:any = { date: { year: this.today.getFullYear(), month: this.today.getMonth() + 1, day: this.today.getDate() -1 }};
-  // endDate:any= { date: { year: this.today.getFullYear(), month: this.today.getMonth() + 1, day: this.today.getDate() }};
-
-  startDate: any;
-  endDate: any = { date: { year: this.today.getFullYear(), month: this.today.getMonth() + 1, day: this.today.getDate() }, isRange: false, singleDate: { jsDate: new Date() } };
   reqForBets = {};
   historyList: any;
   isLoader: boolean = false;
   statementList: any = [];
   selectedDataSource = '';
+ 
+
+  startDate :any
+  todayString = new Date().toISOString().slice(0,10); // "YYYY-MM-DD"
+  endDate = this.todayString;
 
   constructor(private http: HttpClient, private backendService: NetworkService) {
-    const today = new Date();
-    const yesterday = new Date(today);
-    yesterday.setDate(today.getDate() - 1);
-    this.startDate = {
-      date: { year: this.today.getFullYear(), month: this.today.getMonth() + 1, day: this.today.getDate() - 1 },
-      isRange: false,
-      singleDate: { jsDate: yesterday },
-    };
+    const yesterday = new Date(this.today);
+    yesterday.setDate(yesterday.getDate() - 1);
+    this.startDate = yesterday.toISOString().slice(0, 10);
+
   }
 
   ngOnInit(): void {
@@ -67,32 +47,15 @@ export class AccountStatementComponent {
     //   // "dom": 'rtip'
 
     // };
+    console.log(' this.startDate', this.startDate)
+    console.log(' end Date', this.endDate)
     this.getAccountStatement()
   }
   onDataSourceChange(newValue: string) {
     this.startDate = this.backendService.dateManager(newValue);
+    console.log(' this.startDate', this.startDate)
   }
-  onSourceChange() {
-
-    if (this.selectedDataSource == 'LIVE') {
-      let dback = new Date();
-      dback.setDate(dback.getDate() - 1);
-      this.startDate = { date: { year: this.today.getFullYear(), month: this.today.getMonth() + 1, day: this.today.getDate() - 1 }, isRange: false, singleDate: { jsDate: dback } };
-      this.endDate = { isRange: false, singleDate: { jsDate: new Date() } };
-    }
-    if (this.selectedDataSource == 'BACKUP') {
-      var d = new Date();
-      d.setMonth(d.getMonth() - 2);
-      this.startDate = { date: { year: this.today.getFullYear(), month: this.today.getMonth() - 1, day: this.today.getDate() }, isRange: false, singleDate: { jsDate: d } };
-      this.endDate = { isRange: false, singleDate: { jsDate: new Date() } };
-    }
-    if (this.selectedDataSource == 'OLD') {
-      var d = new Date();
-      d.setMonth(d.getMonth() - 12);
-      this.startDate = { date: { year: this.today.getFullYear() - 1, month: this.today.getMonth() + 1, day: this.today.getDate() }, isRange: false, singleDate: { jsDate: d } };
-      this.endDate = { isRange: false, singleDate: { jsDate: new Date() } };
-    }
-  }
+ 
 
   getAccountStatement() {
     this.reqForBets = {
@@ -151,6 +114,10 @@ export class AccountStatementComponent {
   }
 
   rerender(): void {
+    console.log('startDate ',this.backendService.getStartDate(this.startDate))
+    console.log('startDate New',this.backendService.getStartDate(this.startDate))
+    console.log('endDate',this.endDate)
+    console.log('endDate New',this.backendService.getEndDate(this.endDate),)
     this.reqForBets = {
       startDate: this.backendService.getStartDate(this.startDate),
       endDate: this.backendService.getEndDate(this.endDate),
