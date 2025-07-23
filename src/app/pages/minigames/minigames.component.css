@@ -1,0 +1,628 @@
+@font-face {
+  font-family: luckiest;
+  src: url(/assets/fonts/LuckiestGuy.woff2);
+}
+
+@media screen and (max-width: 1025px) {
+  .mini-games-wrapper {
+    font-size: 100.5%;
+  }
+}
+
+.mini-games-wrapper {
+  font-size: 62.5%;
+}
+
+.mini-games-head {
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+h1 {
+  font-size: 5vw;
+  color: white;
+}
+
+.mini-games-wrapper .mini-games-head > h1 {
+  width: fit-content;
+  font-family: luckiest;
+  font-weight: 100;
+  filter: drop-shadow(0.131em 0.131em 0.005em #672ee1);
+  margin: 0.75em auto;
+  display: flex;
+  justify-content: center;
+  letter-spacing: 0.094em;
+  user-select: none;
+}
+
+.mini-games-wrapper .mini-games-head > h1 > p {
+  color: #f4ff07;
+  position: relative;
+  cursor: pointer;
+}
+
+.mini-games-wrapper .mini-games-head > h1 > p.default-logo {
+  color: #fff;
+}
+
+.mini-games-wrapper .mini-games-head > h1 > p span {
+  font-size: 1.74em;
+}
+
+.bg-component-wrapper .left,
+.mini-games-wrapper .bg-component-wrapper .right {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+}
+
+.bg-component-wrapper .left .bg-components {
+  position: absolute;
+}
+
+.bg-component-wrapper .right .bg-components {
+  position: absolute;
+}
+
+.mini-games-wrapper .game-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4.5375px;
+  justify-content: center;
+  padding-bottom: 26.3813px;
+  padding-top: 8.1906px;
+  perspective: 1978.59px;
+}
+
+.mini-games-wrapper .card {
+  animation: cardAnimation 0.8s ease-out;
+  animation-delay: var(--delay);
+  animation-fill-mode: both;
+  height: 174.116px;
+  width: 153.011px;
+  perspective: 1055.25px;
+}
+
+.mini-games-wrapper .card .card-inner {
+  border-radius: 13.1906px;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  font-family: luckiest;
+}
+
+.card .card-inner:before {
+  background: radial-gradient(
+    circle at top var(--y) left var(--x),
+    rgba(255, 255, 255, 0.4) 0,
+    rgba(255, 255, 255, 0) 40em
+  );
+  content: "";
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  width: 100%;
+  z-index: 99;
+}
+
+.card .card-inner .images {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.card .card-inner .images img {
+  margin: auto;
+  min-width: 187.307px;
+  object-fit: cover;
+  object-position: right;
+  position: absolute;
+}
+
+.card .card-inner .title {
+  bottom: 3.89297px;
+  color: #fff;
+  filter: drop-shadow(0.4211em 0.4211em 0.2632em #672ee1);
+  font-size: 32.9766px;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 9.89297px;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  z-index: 100;
+  transition: scale 0.3s ease;
+}
+
+.card .card-inner .title span {
+  font-family: luckiest;
+  letter-spacing: 2.24241px;
+  font-size: 42.8695px;
+}
+
+.mini-games-wrapper .bg-component-wrapper > .bg-gradient {
+  width: 834.481px;
+  height: 842.811px;
+  position: absolute;
+  background-image: radial-gradient(#573dc0, #302070, transparent, transparent);
+  left: 50%;
+  transform: translate(-50%);
+  opacity: 0.6;
+}
+
+.mini-games-wrapper .bg-component-wrapper {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+/* left ================= */
+
+.bg-component-wrapper .left .bg-components:nth-child(1) {
+  animation: linear 5s bg241 infinite alternate;
+  animation-delay: 442ms;
+  transform: translate3d(3.2086em, 0.4734em, 0.6312em) scale(0.2);
+}
+
+.mini-games-wrapper .bg-component-wrapper .left .bg-components:nth-child(2) {
+  animation: linear 5s bg241 infinite alternate;
+  animation-delay: 205ms;
+  transform: translate3d(1.9988em, 0.9994em, 0.1052em) scale(0.2);
+}
+
+.bg-component-wrapper .left .bg-components:nth-child(3) {
+  animation: linear 5s bg241 infinite alternate;
+  animation-delay: 103ms;
+  transform: translate3d(3.419em, 0.7364em, 0.3682em) scale(0.2);
+}
+
+.bg-component-wrapper .left .bg-components:nth-child(4) {
+  animation: linear 5s bg241 infinite alternate;
+  animation-delay: 309ms;
+  transform: translate3d(3.419em, 0.7364em, 0.3682em) scale(0.2);
+}
+
+.bg-component-wrapper .left .bg-components:nth-child(5) {
+  animation: linear 5s bg241 infinite alternate;
+  animation-delay: 424ms;
+  transform: translate3d(3.419em, 0.7364em, 0.3682em) scale(0.2);
+}
+
+.bg-component-wrapper .left .bg-components:nth-child(6) {
+  animation: linear 5s bg241 infinite alternate;
+  animation-delay: 232ms;
+  transform: translate3d(3.419em, 0.7364em, 0.3682em) scale(0.2);
+}
+
+.bg-component-wrapper .left .bg-components:nth-child(7) {
+  animation: linear 5s bg241 infinite alternate;
+  animation-delay: 52ms;
+  transform: translate3d(3.419em, 0.7364em, 0.3682em) scale(0.2);
+}
+
+.bg-component-wrapper .left .bg-components:nth-child(8) {
+  animation: linear 5s bg241 infinite alternate;
+  animation-delay: 379ms;
+  transform: translate3d(3.419em, 0.7364em, 0.3682em) scale(0.2);
+}
+
+.bg-component-wrapper .left .bg-components:nth-child(9) {
+  animation: linear 5s bg241 infinite alternate;
+  animation-delay: 254ms;
+  transform: translate3d(3.419em, 0.7364em, 0.3682em) scale(0.2);
+}
+
+.bg-component-wrapper .left .bg-components:nth-child(10) {
+  animation: linear 5s bg241 infinite alternate;
+  animation-delay: 98ms;
+  transform: translate3d(3.419em, 0.7364em, 0.3682em) scale(0.2);
+}
+
+.bg-component-wrapper .left .bg-components:nth-child(11) {
+  animation: linear 5s bg241 infinite alternate;
+  animation-delay: 464ms;
+  transform: translate3d(3.419em, 0.7364em, 0.3682em) scale(0.2);
+}
+
+.bg-component-wrapper .left .bg-components:nth-child(12) {
+  animation: linear 5s bg241 infinite alternate;
+  animation-delay: 37ms;
+  transform: translate3d(3.419em, 0.7364em, 0.3682em) scale(0.2);
+}
+
+.bg-component-wrapper .left .bg-components:nth-child(13) {
+  animation: linear 5s bg241 infinite alternate;
+  animation-delay: 299ms;
+  transform: translate3d(3.419em, 0.7364em, 0.3682em) scale(0.2);
+}
+
+.bg-component-wrapper .left .bg-components:nth-child(14) {
+  animation: linear 5s bg241 infinite alternate;
+  animation-delay: 342ms;
+  transform: translate3d(3.419em, 0.7364em, 0.3682em) scale(0.2);
+}
+
+.bg-component-wrapper .left .bg-components:nth-child(15) {
+  animation: linear 5s bg241 infinite alternate;
+  animation-delay: 293ms;
+  transform: translate3d(3.419em, 0.7364em, 0.3682em) scale(0.2);
+}
+
+.bg-component-wrapper .left .bg-components:nth-child(16) {
+  animation: linear 5s bg241 infinite alternate;
+  animation-delay: 87ms;
+  transform: translate3d(3.419em, 0.7364em, 0.3682em) scale(0.2);
+}
+
+.bg-component-wrapper .left .bg-components:nth-child(17) {
+  animation: linear 5s bg241 infinite alternate;
+  animation-delay: 4ms;
+  transform: translate3d(3.419em, 0.7364em, 0.3682em) scale(0.2);
+}
+
+.bg-component-wrapper .left .bg-components:nth-child(18) {
+  animation: linear 5s bg241 infinite alternate;
+  animation-delay: 81ms;
+  transform: translate3d(3.419em, 0.7364em, 0.3682em) scale(0.2);
+}
+
+.bg-component-wrapper .left .bg-components:nth-child(19) {
+  animation: linear 5s bg241 infinite alternate;
+  animation-delay: 195ms;
+  transform: translate3d(3.419em, 0.7364em, 0.3682em) scale(0.2);
+}
+
+.bg-component-wrapper .left .bg-components:nth-child(20) {
+  animation: linear 5s bg241 infinite alternate;
+  animation-delay: 366ms;
+  transform: translate3d(3.419em, 0.7364em, 0.3682em) scale(0.2);
+}
+
+/* right =============== */
+
+.bg-component-wrapper .right .bg-components:nth-child(1) {
+  animation: linear 3s bg241 infinite;
+  animation-delay: 104ms;
+  transform: translate3d(1.052em, 6.312em, 4.3658em) scale(0.2);
+}
+
+.bg-component-wrapper .right .bg-components:nth-child(2) {
+  animation: linear 3s bg241 infinite;
+  animation-delay: 186ms;
+  transform: translate3d(1.052em, 6.312em, 4.3658em) scale(0.2);
+}
+
+.bg-component-wrapper .right .bg-components:nth-child(3) {
+  animation: linear 3s bg241 infinite;
+  animation-delay: 162ms;
+  transform: translate3d(1.052em, 6.312em, 4.3658em) scale(0.2);
+}
+
+.bg-component-wrapper .right .bg-components:nth-child(4) {
+  animation: linear 3s bg241 infinite;
+  animation-delay: 110ms;
+  transform: translate3d(1.052em, 6.312em, 4.3658em) scale(0.2);
+}
+
+.bg-component-wrapper .right .bg-components:nth-child(5) {
+  animation: linear 3s bg241 infinite;
+  animation-delay: 385ms;
+  transform: translate3d(1.052em, 6.312em, 4.3658em) scale(0.2);
+}
+
+.bg-component-wrapper .right .bg-components:nth-child(6) {
+  animation: linear 3s bg241 infinite;
+  animation-delay: 297ms;
+  transform: translate3d(1.052em, 6.312em, 4.3658em) scale(0.2);
+}
+
+.bg-component-wrapper .right .bg-components:nth-child(7) {
+  animation: linear 3s bg241 infinite;
+  animation-delay: 88ms;
+  transform: translate3d(1.052em, 6.312em, 4.3658em) scale(0.2);
+}
+
+.bg-component-wrapper .right .bg-components:nth-child(8) {
+  animation: linear 3s bg241 infinite;
+  animation-delay: 229ms;
+  transform: translate3d(1.052em, 6.312em, 4.3658em) scale(0.2);
+}
+
+.bg-component-wrapper .right .bg-components:nth-child(9) {
+  animation: linear 3s bg241 infinite;
+  animation-delay: 440ms;
+  transform: translate3d(1.052em, 6.312em, 4.3658em) scale(0.2);
+}
+
+.bg-component-wrapper .right .bg-components:nth-child(10) {
+  animation: linear 3s bg241 infinite;
+  animation-delay: 226ms;
+  transform: translate3d(1.052em, 6.312em, 4.3658em) scale(0.2);
+}
+
+.bg-component-wrapper .right .bg-components:nth-child(11) {
+  animation: linear 3s bg241 infinite;
+  animation-delay: 455ms;
+  transform: translate3d(1.052em, 6.312em, 4.3658em) scale(0.2);
+}
+
+.bg-component-wrapper .right .bg-components:nth-child(12) {
+  animation: linear 3s bg241 infinite;
+  animation-delay: 385ms;
+  transform: translate3d(1.052em, 6.312em, 4.3658em) scale(0.2);
+}
+
+.bg-component-wrapper .right .bg-components:nth-child(13) {
+  animation: linear 3s bg241 infinite;
+  animation-delay: 487ms;
+  transform: translate3d(1.052em, 6.312em, 4.3658em) scale(0.2);
+}
+
+.bg-component-wrapper .right .bg-components:nth-child(14) {
+  animation: linear 3s bg241 infinite;
+  animation-delay: 264ms;
+  transform: translate3d(1.052em, 6.312em, 4.3658em) scale(0.2);
+}
+
+.bg-component-wrapper .right .bg-components:nth-child(15) {
+  animation: linear 3s bg241 infinite;
+  animation-delay: 97ms;
+  transform: translate3d(1.052em, 6.312em, 4.3658em) scale(0.2);
+}
+
+.bg-component-wrapper .right .bg-components:nth-child(16) {
+  animation: linear 3s bg241 infinite;
+  animation-delay: 151ms;
+  transform: translate3d(1.052em, 6.312em, 4.3658em) scale(0.2);
+}
+
+.bg-component-wrapper .right .bg-components:nth-child(17) {
+  animation: linear 3s bg241 infinite;
+  animation-delay: 124ms;
+  transform: translate3d(1.052em, 6.312em, 4.3658em) scale(0.2);
+}
+
+.bg-component-wrapper .right .bg-components:nth-child(18) {
+  animation: linear 3s bg241 infinite;
+  animation-delay: 4ms;
+  transform: translate3d(1.052em, 6.312em, 4.3658em) scale(0.2);
+}
+
+.bg-component-wrapper .right .bg-components:nth-child(19) {
+  animation: linear 3s bg241 infinite;
+  animation-delay: 370ms;
+  transform: translate3d(1.052em, 6.312em, 4.3658em) scale(0.2);
+}
+
+.bg-component-wrapper .right .bg-components:nth-child(20) {
+  animation: linear 3s bg241 infinite;
+  animation-delay: 209ms;
+  transform: translate3d(1.052em, 6.312em, 4.3658em) scale(0.2);
+}
+
+@media screen and (min-width: 390px) {
+  .bg-component-wrapper > .bg-gradient {
+    width: 867.86px;
+    min-height: 876.523px;
+  }
+
+  .card .card-inner .images img {
+    min-width: 194.799px;
+  }
+
+  .card .card-inner {
+    border-radius: 13.7182px;
+  }
+
+  .mini-games-wrapper .card {
+    height: 181.081px;
+    width: 159.132px;
+  }
+
+  .card .card-inner .title {
+    font-size: 34.2956px;
+    letter-spacing: 10.2887px;
+    bottom: 5.2887px;
+  }
+
+  .mini-games-wrapper .game-list {
+    gap: 4.719px;
+    padding-bottom: 27.4365px;
+    perspective: 2057.74px;
+  }
+}
+
+@media screen and (min-width: 414px) {
+  .bg-component-wrapper > .bg-gradient {
+    width: 921.267px;
+    min-height: 930.463px;
+  }
+
+  .card .card-inner .images img {
+    min-width: 206.787px;
+  }
+
+  .card .card-inner {
+    border-radius: 14.5624px;
+  }
+
+  .mini-games-wrapper .card {
+    height: 192.224px;
+    width: 168.924px;
+  }
+
+  .card .card-inner .title {
+    font-size: 36.4061px;
+    letter-spacing: 10.9218px;
+    bottom: 5.89297px;
+  }
+
+  .mini-games-wrapper .game-list {
+    gap: 5.0094px;
+    padding-bottom: 29.1249px;
+    perspective: 2184.37px;
+  }
+}
+
+@media screen and (min-width: 430px) {
+  .mini-games-wrapper {
+    margin-top: -5px;
+  }
+
+  .bg-component-wrapper > .bg-gradient {
+    width: 956.872px;
+    min-height: 966.423px;
+  }
+
+  .card .card-inner .images img {
+    min-width: 214.779px;
+  }
+
+  .card .card-inner {
+    border-radius: 15.1252px;
+  }
+
+  .mini-games-wrapper .card {
+    height: 199.653px;
+    width: 175.453px;
+  }
+
+  .card .card-inner .title {
+    font-size: 37.8131px;
+    letter-spacing: 11.3439px;
+    bottom: 5.3439px;
+  }
+
+  .mini-games-wrapper .game-list {
+    gap: 5.203px;
+    padding-bottom: 30.2505px;
+    perspective: 2268.79px;
+    padding-top: 10.1906px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .middle {
+    position: relative;
+    width: 1213.33px;
+    padding: 0 16.25px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .mini-games-wrapper {
+    font-size: 62.5%;
+    width: 1135.33px;
+    margin-top: -25px;
+  }
+
+  .mini-games-wrapper .mini-games-head {
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+  .mini-games-head {
+    direction: ltr;
+  }
+
+  h1 {
+    font-size: 39px;
+  }
+
+  .mini-games-wrapper .mini-games-head > h1 {
+    margin: 29.25px auto;
+    letter-spacing: 3.666px;
+  }
+
+  .mini-games-wrapper .mini-games-head > h1 > p span {
+    font-size: 48.36px;
+  }
+
+  .card .card-inner .images img {
+    min-width: 218.497px;
+  }
+
+  .card .card-inner {
+    border-radius: 6.58125px !important;
+  }
+
+  .mini-games-wrapper .card {
+    height: 205.335px;
+    width: 179.01px;
+  }
+
+  .card .card-inner .title {
+    font-size: 19.7437px;
+    letter-spacing: 4.93594px;
+    bottom: 16.4531px;
+    line-height: 1.1;
+  }
+
+  .card .card-inner .title span {
+    font-family: luckiest;
+    letter-spacing: 3.35644px;
+    font-size: 19.7437px !important;
+  }
+
+  .mini-games-wrapper .game-list {
+    gap: 26.325px 52.65px;
+    padding-bottom: 13.1625px;
+    perspective: 987.187px;
+    padding-top: 6.58125px;
+    margin-top: -7px;
+  }
+
+  .bg-component-wrapper > .bg-gradient {
+    width: 617.944px;
+    min-height: 617.944px;
+    background-image: radial-gradient(
+      #573dc0,
+      #302070,
+      transparent,
+      transparent
+    );
+    transform: translate(-50%);
+  }
+}
+
+/* Animations ================= */
+
+@keyframes cardAnimation {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes bg241 {
+  0%,
+  50%,
+  80%,
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(0, 0, 157.8947em) translateY(-10.5263em);
+    opacity: 0;
+  }
+}

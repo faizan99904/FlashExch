@@ -29,6 +29,7 @@ import { KycComponent } from './pages/accont/kyc/kyc.component';
 import { ChangePasswordComponent } from './pages/accont/change-password/change-password.component';
 import { AccountNavComponent } from './pages/account-nav/account-nav.component';
 import { CompetitionsComponent } from './pages/competitions/competitions.component';
+import { MinigamesComponent } from './pages/minigames/minigames.component';
 
 export const routes: Routes = [
   {
@@ -65,6 +66,7 @@ export const routes: Routes = [
   { path: 'promos', component: PromosComponent },
   { path: 'affliate', component: AffliateComponent },
   { path: 'competitions', component: CompetitionsComponent },
+  { path: 'minigames', component: MinigamesComponent },
 
   {
     path: 'account',
