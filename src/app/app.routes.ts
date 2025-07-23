@@ -28,9 +28,7 @@ import { FreespinsComponent } from './pages/accont/freespins/freespins.component
 import { KycComponent } from './pages/accont/kyc/kyc.component';
 import { ChangePasswordComponent } from './pages/accont/change-password/change-password.component';
 import { AccountNavComponent } from './pages/account-nav/account-nav.component';
-
-
-
+import { CompetitionsComponent } from './pages/competitions/competitions.component';
 
 export const routes: Routes = [
   {
@@ -57,18 +55,20 @@ export const routes: Routes = [
     children: [
       {
         path: 'event-view',
-        component: EventViewComponent
-      }
+        component: EventViewComponent,
+      },
     ],
   },
-  
+
   { path: 'casino', component: CasinoComponent },
   { path: 'live-casino', component: LiveCasinoComponent },
   { path: 'promos', component: PromosComponent },
   { path: 'affliate', component: AffliateComponent },
+  { path: 'competitions', component: CompetitionsComponent },
 
   {
-    path: 'account', component: AccountLayoutComponent,
+    path: 'account',
+    component: AccountLayoutComponent,
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'personalinfo', component: PersonalInformationComponent },
@@ -79,7 +79,7 @@ export const routes: Routes = [
       { path: 'freespins', component: FreespinsComponent },
       { path: 'kyc', component: KycComponent },
       { path: 'change-password', component: ChangePasswordComponent },
-      { path: 'nav', component: AccountNavComponent }
-    ]
+      { path: 'nav', component: AccountNavComponent },
+    ],
   },
 ];

@@ -5,8 +5,8 @@
             All
         </li>
 
-        <li *ngFor="let item of mainService.sportsList(); let i = index" (click)="activeIndex = i" [class.li-active]="i === activeIndex"
-            class="sport-item">
+        <li *ngFor="let item of mainService.sportsList(); let i = index" (click)="activeIndex = i"
+            [class.li-active]="i === activeIndex" class="sport-item">
 
             <div class="h-[11vw] leading-[11vw] relative opacity-60 sport-img">
                 <!-- <i [ngClass]="item.icon" class="text-[6.5vw]"></i> -->
@@ -28,7 +28,8 @@
     <div
         class="flex items-center h-full justify-between px-[1.25rem] overflow-hidden relative mx-auto max-w-[66.3333rem] width-wrapper">
         <ul class="h-full flex gap-[1.317rem] justify-center items-center item-nav">
-            <li class="relative text-white hover:text-[#11e311]" routerLink="/" routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }">
+            <li class="relative text-white hover:text-[#11e311]" routerLink="/" routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }">
                 <span
                     class="relative  cursor-pointer e h-full text-[0.6358125rem] flex items-center justify-center uppercase trans ">Sports</span>
             </li>
