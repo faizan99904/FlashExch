@@ -1,0 +1,130 @@
+.sportsbook-tree {
+  color: hsl(0deg 0% 100% / 60%);
+}
+
+.tabs.tm-or-cmp li:first-child {
+  width: 14%;
+  color: #fff;
+  font-size: 6vw;
+  background-color: #070707;
+}
+
+ul.tabs li {
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 5vw;
+  height: 12vw;
+  line-height: 12vw;
+  color: #ffffff99;
+}
+
+.tabs.tm-or-cmp li {
+  float: left;
+  text-align: center;
+  padding: 0;
+}
+
+ul.tabs li.active {
+  background-color: #23282a;
+  color: #fff;
+  border-bottom: 1vw solid #00aa30;
+}
+
+.tabs.tm-or-cmp li + li {
+  width: 43%;
+  font-size: 3vw;
+}
+
+ul.tabs li.active:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  bottom: -0.1vw;
+  left: 50%;
+  margin-left: -1vw;
+  border-bottom: 1vw solid #00aa30;
+  border-left: 1.2vw solid transparent;
+  border-right: 1.2vw solid transparent;
+}
+
+.sportsbook-tree div.calendar {
+  position: relative;
+  height: 14.5vw;
+  display: flex;
+  align-items: center;
+  background-color: #101317;
+  color: #fff;
+  padding-left: 4vw;
+}
+
+.sportsbook-tree div.calendar .icon {
+  font-size: 7vw;
+  margin-right: 4vw;
+  color: hsl(0deg 0% 100% / 60%);
+}
+
+.sportsbook-tree .arrow {
+  width: 10vw;
+  margin-left: 2vw;
+  font-size: 7vw;
+  text-align: right;
+  box-sizing: border-box;
+}
+
+.sportsbook-tree div.calendar .arrow {
+  margin-left: auto;
+  margin-right: 5.5vw;
+}
+
+.sportsbook-tree ul.time-filters li {
+  height: 14vw;
+  line-height: 14vw;
+  padding-left: 15vw;
+  background-color: #151a21;
+}
+
+ul.time-filters li.active {
+  color: #fff;
+}
+
+ul.time-filters li:not(:first-child) {
+  margin-top: 2px;
+}
+
+.sportsbook-tree ul.regions > li {
+  margin-top: 2px;
+}
+
+ul.champs > li {
+  height: 15vw;
+  display: flex;
+  align-items: center;
+  background-color: #101317;
+  color: #fff;
+  padding: 0 5vw;
+}
+
+.sportsbook-tree ul.regions > li .item-name.regionname {
+  position: relative;
+  background-color: #151a21;
+  padding: 0 5vw;
+  height: 14.5vw;
+  display: flex;
+  align-items: center;
+}
+
+ul.regions > li .item-name.regionname .flag {
+  transform: scale(0.9);
+  margin-right: 4vw;
+}
+
+ul.regions .count {
+  margin-left: auto;
+  width: 10vw;
+  text-align: right;
+}
+
+ul.champs > li .arrow {
+  font-size: 5vw;
+  padding-right: 1.5vw;
+}

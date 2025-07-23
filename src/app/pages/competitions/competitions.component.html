@@ -1,0 +1,74 @@
+<app-header></app-header>
+<app-sports-nav></app-sports-nav>
+
+<div class="wrapper pb-[66.84px]">
+    <ul class="tabs tm-or-cmp overflow-hidden font-semibold bg-[#151a21]">
+        <li class="material-icons">home</li>
+        <li class="active">Competitions</li>
+        <li>Upcoming Matches</li>
+    </ul>
+    <div class="sportsbook-tree capitalize select-none font-semibold">
+        <div (click)="toggle('time')" class="calendar">
+            <span class="material-icons icon">date_range</span>
+            <span class="title text-[3.5vw] -mt-[1px]">Calendar &nbsp; (All)</span>
+            <span class="material-icons arrow">
+                {{timeFilters ? 'keyboard_arrow_right' : 'keyboard_arrow_down'}}
+            </span>
+        </div>
+        <ul [ngClass]="{'hidden': timeFilters}" class="time-filters text-[3.5vw]">
+            <li class="active -mt-[1px]">All</li>
+            <li>1 Hour</li>
+            <li>2 Hours</li>
+            <li>4 Hours</li>
+            <li>8 Hours</li>
+            <li>12 Hours</li>
+            <li>1 Day</li>
+            <li>2 Days</li>
+            <li>4 Days</li>
+            <li>8 Days</li>
+        </ul>
+        <ul class="regions">
+            <li (click)="toggle('competitions')" class="text-[3.5vw]">
+                <div class="regionname item-name">
+                    <div country="worldcup" class="flag"></div>
+                    <span class="region-name">World Cup</span>
+                    <span class="count">37</span>
+                    <span class="material-icons arrow -mt-[1px]">{{!competitions ? 'keyboard_arrow_right' :
+                        'keyboard_arrow_down'}}</span>
+                </div>
+
+                @if (competitions) {
+                <ul class="champs">
+                    <li>
+                        <span class="champ-name">Qualification. Uefa. Group A</span>
+                        <span class="count">2</span>
+                        <span class="material-icons arrow pt-[2px]">arrow_forward</span>
+                    </li>
+                    <li>
+                        <span class="champ-name">Qualification. Uefa. Group A</span>
+                        <span class="count">2</span>
+                        <span class="material-icons arrow pt-[2px]">arrow_forward</span>
+                    </li>
+                    <li>
+                        <span class="champ-name">Qualification. Uefa. Group A</span>
+                        <span class="count">2</span>
+                        <span class="material-icons arrow pt-[2px]">arrow_forward</span>
+                    </li>
+                </ul>
+                }
+            </li>
+            <li class="text-[3.5vw]">
+                <div class="regionname item-name">
+                    <div country="uefachampionsleague" class="flag"></div>
+                    <span class="region-name">UEFA Champions League</span>
+                    <span class="count">15</span>
+                    <span class="material-icons arrow">keyboard_arrow_right</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="fixed left-0 bottom-0 w-full z-[999]">
+    <app-bottom-nav></app-bottom-nav>
+</div>
