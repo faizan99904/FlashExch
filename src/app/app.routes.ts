@@ -28,6 +28,7 @@ import { FreespinsComponent } from './pages/accont/freespins/freespins.component
 import { KycComponent } from './pages/accont/kyc/kyc.component';
 import { ChangePasswordComponent } from './pages/accont/change-password/change-password.component';
 import { AccountNavComponent } from './pages/account-nav/account-nav.component';
+import { ProfitLossComponent } from './pages/accont/profit-loss/profit-loss.component';
 import { CompetitionsComponent } from './pages/competitions/competitions.component';
 
 export const routes: Routes = [
@@ -79,6 +80,7 @@ export const routes: Routes = [
       { path: 'freespins', component: FreespinsComponent },
       { path: 'kyc', component: KycComponent },
       { path: 'change-password', component: ChangePasswordComponent },
+      { path: 'profit-loss', component: ProfitLossComponent },
       { path: 'nav', component: AccountNavComponent },
     ],
   },
