@@ -20,16 +20,22 @@
 
     <div class="game-list">
         <div class="card" style="--delay: 0s;">
-            <div class="card-inner">
+            <div #cardInner class="card-inner" [ngStyle]="cardInnerStyle">
                 <a href="" class="">
-                    <div class="images">
-                        <img src="https://static.inpcdn.com/101,19c35520096e35.webp" alt="Shooting range">
+                    <div #imageContainer class="images" (mousemove)="handleMouseMove($event)"
+                        (mouseleave)="resetTransforms()">
+                        <img #image [ngStyle]="imageStyle" src="https://static.inpcdn.com/101,19c35520096e35.webp"
+                            alt="Shooting range">
                     </div>
-                    <div class="title">
+                    <div #title class="title" [ngStyle]="titleStyle">
                         <span style="font-size: 0.3999999999999999em; --font-size: 1.2">Shooting range</span>
                     </div>
                 </a>
-
+                <div class="play-overlay">
+                    <button class="play-btn">
+                        <span>PLAY</span>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="card" style="--delay: 0.1s;">
@@ -42,7 +48,11 @@
                         <span style="font-size: 0.8em; --font-size: 1.6">Catchup</span>
                     </div>
                 </a>
-
+                <div class="play-overlay">
+                    <button class="play-btn">
+                        <span>PLAY</span>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="card" style="--delay: 0.2s;">
@@ -52,7 +62,11 @@
                         <span style="font-size: 0.8em; --font-size: 1.6">Wingz</span>
                     </div>
                 </a>
-
+                <div class="play-overlay">
+                    <button class="play-btn">
+                        <span>PLAY</span>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="card" style="--delay: 0.30000000000000004s;">
@@ -63,7 +77,11 @@
                         <span style="font-size: 1.2em; --font-size: 2">Dino</span>
                     </div>
                 </a>
-
+                <div class="play-overlay">
+                    <button class="play-btn">
+                        <span>PLAY</span>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="card" style="--delay: 0.4s;">
@@ -74,7 +92,11 @@
                         <span style="font-size: 0.8em; --font-size: 1.6">Limbo</span>
                     </div>
                 </a>
-
+                <div class="play-overlay">
+                    <button class="play-btn">
+                        <span>PLAY</span>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="card" style="--delay: 0.5s;">
@@ -85,7 +107,11 @@
                         <span style="font-size: 0.8em; --font-size: 1.6">Plinko</span>
                     </div>
                 </a>
-
+                <div class="play-overlay">
+                    <button class="play-btn">
+                        <span>PLAY</span>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="card" style="--delay: 0.6000000000000001s;">
@@ -95,7 +121,11 @@
                         <span style="font-size: 0.8em; --font-size: 1.6">Mines</span>
                     </div>
                 </a>
-
+                <div class="play-overlay">
+                    <button class="play-btn">
+                        <span>PLAY</span>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="card" style="--delay: 0.7000000000000001s;">
@@ -107,7 +137,11 @@
                         <span style="font-size: 0.3999999999999999em; --font-size: 1.2">Croco Dino</span>
                     </div>
                 </a>
-
+                <div class="play-overlay">
+                    <button class="play-btn">
+                        <span>PLAY</span>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="card" style="--delay: 0.8s;">
@@ -118,7 +152,11 @@
                         <span style="font-size: 0.8em; --font-size: 1.6">Icefield</span>
                     </div>
                 </a>
-
+                <div class="play-overlay">
+                    <button class="play-btn">
+                        <span>PLAY</span>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="card" style="--delay: 0.9s;">
@@ -129,7 +167,11 @@
                         <span style="font-size: 1.2em; --font-size: 2">Dice</span>
                     </div>
                 </a>
-
+                <div class="play-overlay">
+                    <button class="play-btn">
+                        <span>PLAY</span>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="card" style="--delay: 1s;">
@@ -140,7 +182,11 @@
                         <span style="font-size: 0.3999999999999999em; --font-size: 1.2">Aquarings</span>
                     </div>
                 </a>
-
+                <div class="play-overlay">
+                    <button class="play-btn">
+                        <span>PLAY</span>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="card" style="--delay: 1.1s;">
@@ -151,7 +197,11 @@
                         <span style="font-size: 0.8em; --font-size: 1.6">Teleport</span>
                     </div>
                 </a>
-
+                <div class="play-overlay">
+                    <button class="play-btn">
+                        <span>PLAY</span>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="card" style="--delay: 1.2000000000000002s;">
@@ -162,7 +212,11 @@
                         <span style="font-size: 1.2em; --font-size: 2">Hilo</span>
                     </div>
                 </a>
-
+                <div class="play-overlay">
+                    <button class="play-btn">
+                        <span>PLAY</span>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="card" style="--delay: 1.3s;">
@@ -173,7 +227,11 @@
                         <span style="font-size: 1.2em; --font-size: 2">Keno</span>
                     </div>
                 </a>
-
+                <div class="play-overlay">
+                    <button class="play-btn">
+                        <span>PLAY</span>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="card" style="--delay: 1.4000000000000001s;">
@@ -184,7 +242,11 @@
                         <span style="font-size: 0.3999999999999999em; --font-size: 1.2">BlackJack</span>
                     </div>
                 </a>
-
+                <div class="play-overlay">
+                    <button class="play-btn">
+                        <span>PLAY</span>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="card" style="--delay: 1.5s;">
@@ -195,7 +257,11 @@
                         <span style="font-size: 0.8em; --font-size: 1.6">Wheel</span>
                     </div>
                 </a>
-
+                <div class="play-overlay">
+                    <button class="play-btn">
+                        <span>PLAY</span>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="card" style="--delay: 1.6s;">
@@ -206,7 +272,11 @@
                         <span style="font-size: 0.8em; --font-size: 1.6">Roulette</span>
                     </div>
                 </a>
-
+                <div class="play-overlay">
+                    <button class="play-btn">
+                        <span>PLAY</span>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="card" style="--delay: 1.7000000000000002s;">
@@ -217,7 +287,11 @@
                         <span style="font-size: 1.2em; --font-size: 2">Frog</span>
                     </div>
                 </a>
-
+                <div class="play-overlay">
+                    <button class="play-btn">
+                        <span>PLAY</span>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="card" style="--delay: 1.8s;">
@@ -228,7 +302,11 @@
                         <span style="font-size: 1.2em; --font-size: 2">AERO</span>
                     </div>
                 </a>
-
+                <div class="play-overlay">
+                    <button class="play-btn">
+                        <span>PLAY</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>

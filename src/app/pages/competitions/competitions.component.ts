@@ -16,6 +16,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './competitions.component.css',
 })
 export class CompetitionsComponent {
+  active: boolean = true;
   timeFilters: boolean = true;
   competitions: boolean = true;
 
