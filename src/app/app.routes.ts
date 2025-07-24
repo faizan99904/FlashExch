@@ -35,6 +35,9 @@ import { BetHistoryComponent } from './pages/accont/bet-history/bet-history.comp
 import { ActivityLogComponent } from './pages/accont/activity-log/activity-log.component';
 import { AccountStatementComponent } from './pages/accont/account-statement/account-statement.component';
 import { PasswordHistoryComponent } from './pages/accont/password-history/password-history.component';
+import { ProfitlossEventComponent } from './pages/accont/profitloss-event/profitloss-event.component';
+import { ProfitlossMarketComponent } from './pages/accont/profitloss-market/profitloss-market.component';
+import { ProfitHistoryComponent } from './pages/accont/profit-history/profit-history.component';
 
 export const routes: Routes = [
   {
@@ -92,6 +95,9 @@ export const routes: Routes = [
       { path: 'account-statement', component: AccountStatementComponent },
       { path: 'password-history', component: PasswordHistoryComponent },
       { path: 'nav', component: AccountNavComponent },
+      { path: 'profitloss-event/:sportId/:startDate/:endDate', component: ProfitlossEventComponent },
+      { path:'profitloss-market/:eventId/:sportId', component:ProfitlossMarketComponent},
+      { path:'profit-history/:sportId/:eventId', component:ProfitHistoryComponent}
     ],
   },
 ];

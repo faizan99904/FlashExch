@@ -41,8 +41,8 @@ export class ProfitLossComponent {
   // startDate:any = { date: { year: this.today.getFullYear(), month: this.today.getMonth() + 1, day: this.today.getDate() -1 }};
   // endDate:any= { date: { year: this.today.getFullYear(), month: this.today.getMonth() + 1, day: this.today.getDate() }};
 
-  startDate: any;
-  endDate: any = { date: { year: this.today.getFullYear(), month: this.today.getMonth() + 1, day: this.today.getDate() }, isRange: false, singleDate: { jsDate: new Date() } };
+  startDate: any
+  endDate: any = this.formatDate(this.today);
 
   historyList: any;
   isLoader: boolean = false;
@@ -54,14 +54,10 @@ export class ProfitLossComponent {
   totalProfitLoss: any;
 
   constructor(private http: HttpClient, private router: Router, private backendService: NetworkService) {
-    const today = new Date();
-    const yesterday = new Date(today);
-    yesterday.setDate(today.getDate() - 1);
-    this.startDate = {
-      date: { year: this.today.getFullYear(), month: this.today.getMonth() + 1, day: this.today.getDate() - 1 },
-      isRange: false,
-      singleDate: { jsDate: yesterday },
-    };
+    let todayDate = new Date()
+    const yesterday = new Date(todayDate);
+    yesterday.setDate(yesterday.getDate() - 1);
+    this.startDate = yesterday.toISOString().slice(0, 10);
   }
   ngOnInit(): void {
     this.getProfitLoss();
@@ -90,6 +86,13 @@ export class ProfitLossComponent {
       this.startDate = { date: { year: this.today.getFullYear() - 1, month: this.today.getMonth() + 1, day: this.today.getDate() }, isRange: false, singleDate: { jsDate: d } };
       this.endDate = { isRange: false, singleDate: { jsDate: new Date() } };
     }
+  }
+
+  formatDate(date: Date): string {
+    const year = date.getFullYear();
+    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+    const day = ('0' + date.getDate()).slice(-2);
+    return `${year}-${month}-${day}`;
   }
 
   onDateChange(event: any, type: any) {
@@ -168,9 +171,10 @@ export class ProfitLossComponent {
   }
 
   goToEventPL(sportid: any) {
+    console.log('navigate', sportid);
     let startDate = this.backendService.getStartDate(this.startDate);
     let endDate = this.backendService.getEndDate(this.endDate);
-    let url = '/profitloss-event/' + sportid + '/' + startDate + '/' + endDate;
+    let url = '/account/profitloss-event/' + sportid + '/' + startDate + '/' + endDate;
     this.router.navigateByUrl(url);
   }
 

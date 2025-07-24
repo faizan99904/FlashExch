@@ -55,7 +55,8 @@
                         <th class="text-center">From/To</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngIf="statementList.length > 0">
+                    
                     <tr *ngFor="let statment of statementList;let i=index">
                         <td class="text-center">{{statment?.createdAt | date : 'dd-MM-YYYY H:mm:ss'}}
                         </td>
@@ -71,9 +72,9 @@
                             <span class="to ms-2">exchange</span>
                         </td>
                     </tr>
-                
+
                 </tbody>
-                
+
                 <tfoot *ngIf="statementList?.length == 0">
                     <tr>
                         <td colspan="6" style="text-align:center;">No data!</td>

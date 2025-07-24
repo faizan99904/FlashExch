@@ -43,7 +43,7 @@
 
         </form>
 
-        <div class="overflow-x-auto bg-white mt-5 table-container">
+        <div class="overflow-x-auto max-md:mt-5 bg-white table-container">
             <table datatable [dtOptions]="dtOptions" class="row-border no-footer table table-hover table-responsive">
                 <thead>
                     <tr>
@@ -55,17 +55,17 @@
                 </thead>
                 <tbody *ngIf="profitLossData.length > 0">
                     <tr *ngFor="let profit of profitLossData">
-                        <td class="text-center"> <a href="javascript:void(0)"
+                        <td class="text-center !text-[#2789ce]"> <a href="javascript:void(0)"
                                 style="color: var(--child-navigation-link);     font-weight: bold;"
                                 (click)="goToEventPL(profit.sportId)">{{profit.sportName}}</a></td>
 
                         <td class="text-center" style="font-weight: bold;"
-                            [ngClass]=" [ profit.pl <= 0 ? 'text-danger' : 'text-success'] ">
+                            [ngClass]=" [ profit.pl <= 0 ? 'text-red-500' : 'text-green-500'] ">
                             {{profit.pl}}</td>
 
                         <td class="text-center">{{profit.commission | number}}</td>
                         <td class="text-center" style="font-weight: bold;"
-                            [ngClass]=" [ (profit.pl - profit.commission) <= 0 ? 'text-danger' : 'text-success'] ">
+                            [ngClass]=" [ (profit.pl - profit.commission) <= 0 ? 'text-red-500' : 'text-green-500'] ">
                             {{profit.pl - profit.commission | number}}</td>
                     </tr>
                 </tbody>
@@ -79,6 +79,5 @@
         </div>
 
     </div>
-
 
 </div>

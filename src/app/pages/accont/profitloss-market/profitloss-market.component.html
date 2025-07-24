@@ -1,0 +1,52 @@
+<div class="bg-[#14161B] roboto-medium  page-wrapper">
+
+    <div class="page-title [@media(min-width:770px)]:!hidden ">
+        <a class="material-icons arrow">arrow_back</a>
+        <span class="title">Profit Loss Event</span>
+        <span class="material-icons icon">trending_up</span>
+    </div>
+
+    <div class="overflow-x-auto bg-white mt-5 table-container">
+        <table datatable [dtOptions]="dtOptions"
+            class="row-border no-footer table table-hover table-responsive table-bordered">
+            <thead>
+                <tr class="text-center">
+                    <th class="text-center">Sport Name</th>
+                    <th class="text-center" style="min-width: 230px;">Event Name</th>
+                    <th class="text-center eventName" *ngIf="_sportId=='66102'">Market Id</th>
+                    <th class="text-center eventName">Market Name</th>
+                    <th class="text-center">Result</th>
+                    <th class="text-center">Profit/Loss</th>
+                    <th class="text-center">Commission</th>
+                    <th class="text-center">Settle Time</th>
+                </tr>
+            </thead>
+
+            <tbody *ngIf="profitLossData.length > 0">
+                <tr class="text-center" *ngFor="let profit of profitLossData">
+                    <td class="text-center">{{profit.sportName}}</td>
+                    <td class="text-center">{{profit.eventName}}</td>
+                    <td class="text-center" *ngIf="_sportId=='66102'">{{profit.marketId}}</td>
+                    <td class="text-center"><a class="text-[#2789ce]" 
+                            routerLink="/account/profit-history/{{profit.sportId}}/{{profit.marketId}}">{{profit.marketName}}
+                        </a></td>
+                    <td class="text-center" *ngIf="profit.marketName == 'KBC'">{{removeQoute(profit.result)}}</td>
+                    <td class="text-center" *ngIf="profit.marketName !== 'KBC'">{{profit.result}}</td>
+
+                    <td class="text-center"><span class="font-weight-bold" [ngClass]=" [ profit.pl <= 0 ? 'text-red-500' : 'text-green-500'] ">{{profit.pl | number}}</span></td>
+                    <td class="text-center text-red-500 font-weight-bold">{{profit.commission | number}}</td>
+                    <td class="text-center">{{profit.createdAt | date : 'dd-MM-YYYY H:mm:ss'}}</td>
+                </tr>
+            </tbody>
+
+            <tfoot *ngIf="profitLossData?.length == 0">
+                <tr>
+                    <td colspan="7" class="text-center">No data!</td>
+                </tr>
+            </tfoot>
+
+        </table>
+    </div>
+
+
+</div>

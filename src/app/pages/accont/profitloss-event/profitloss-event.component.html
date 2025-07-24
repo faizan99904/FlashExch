@@ -1,0 +1,49 @@
+<div class="bg-[#14161B] roboto-medium  page-wrapper">
+
+    <div class="page-title [@media(min-width:770px)]:!hidden ">
+        <a class="material-icons arrow">arrow_back</a>
+        <span class="title">Profit Loss Event</span>
+        <span class="material-icons icon">trending_up</span>
+    </div>
+
+    <div class="overflow-x-auto bg-white mt-5 table-container">
+        <table datatable [dtOptions]="dtOptions" class="">
+            <thead>
+                <tr>
+                    <th class="text-center">Sport Name</th>
+                    <th class="text-center eventName">Event Name
+                    </th>
+                    <th class="text-center">Profit/Loss </th>
+                    <th class="text-center">Commission </th>
+                    <th class="text-center">Total P&L </th>
+                </tr>
+            </thead>
+            <tbody *ngIf="profitList.length > 0">
+                <tr *ngFor="let profit of profitList">
+                    <td class="text-center">{{profit.sportName}}</td>
+                    <td class="text-center text-[#2789ce]">
+                        <a (click)="goToMarkerPL(profit.eventId)">{{profit.eventName}}</a>
+                    </td>
+                    <td class="text-center font-weight-bold"
+                        [ngClass]=" [ profit.pl <= 0 ? 'text-red-500' : 'text-green-500'] ">
+                        {{profit.pl}}</td>
+                    <td class="text-center">
+                        {{profit.commission}}</td>
+
+                    <td class="text-center font-weight-bold"
+                        [ngClass]=" [ (profit.pl - profit.commission) <= 0 ? 'text-red-500' : 'text-green-500'] ">
+                        {{profit.pl - profit.commission | number}}</td>
+
+                </tr>
+            </tbody>
+            <tfoot *ngIf="profitList?.length == 0">
+                <tr>
+                    <td colspan="5" class="text-center">No data!</td>
+                </tr>
+            </tfoot>
+
+        </table>
+    </div>
+
+
+</div>

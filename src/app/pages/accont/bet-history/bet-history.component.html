@@ -16,7 +16,7 @@
 
                 <li>
                     <div class="title remove-element">End Date</div>
-                    <input name="from-date" type="date" [(ngModel)]="endDate">
+                    <input name="from-end-date" type="date" [(ngModel)]="endDate">
                 </li>
 
                 <li>
@@ -25,19 +25,19 @@
                         (ngModelChange)="onDataSourceChange($event)">
                         <option value="">Data Source</option>
 
-                        <option value="2">LIVE DATA</option>
+                        <option value="LIVE">LIVE DATA</option>
 
-                        <option value="3">BACKUP DATA</option>
+                        <option value="BACKUP">BACKUP DATA</option>
 
-                        <option value="4">OLD DATA</option>
+                        <option value="OLD">OLD DATA</option>
                     </select>
                 </li>
 
                 <li>
                     <div class="title remove-element">Bet Type</div>
                     <select name="operation-type " class="operation-type" [(ngModel)]="betStatus">
-                        <option value="" disabled="disabled">Bet Type</option>
-                        <option value="settle" [selected]="true">
+                        <option value="none">Bet Type</option>
+                        <option value="settle">
                             Settle</option>
                         <option value="void">
                             Void</option>
@@ -77,7 +77,7 @@
                         <th class="text-center">Selection</th>
                         <th class="text-center">Type</th>
                         <th class="text-center">Odds Req.</th>
-                        <th class="text-center">Stack</th>
+                        <th class="text-center">Stake</th>
                         <th class="text-center ">Place Time</th>
                         <th class="text-center ">Matched Time</th>
                     </tr>
@@ -92,10 +92,10 @@
                         <td class="text-center" [ngClass]=" [ history.type == 'L' ? 'lay-text' : 'back-text'] ">
                             <b>{{history.type == 'L' ? 'Lay' : 'Back'}}</b>
                         </td>
-                        <td class="text-center">
+                        <td class="!text-center">
                             {{history.oddsPrice }}/{{(history.oddsRate != 0 ? history.oddsRate : 1)}}
                         </td>
-                        <td class="text-center"> <b>{{history.stake}}</b> </td>
+                        <td class="!text-center"> <b>{{history.stake}}</b> </td>
                         <td class="text-center">{{history.createdAt | date : 'dd-MM-YYYY H:mm:ss a'}}</td>
                         <td class="text-center">{{history.matchedTime | date : 'dd-MM-YYYY H:mm:ss a'}}</td>
                     </tr>

@@ -271,7 +271,7 @@
 
 .table-container {
   background-color: #000;
-  color: white;
+  color: rgba(255,255,255,.6);
   padding: 10px;
 }
 
@@ -282,4 +282,35 @@ th,
 td {
   border-color: #afafaf !important ;
   white-space: nowrap;
+  text-align: left;
+}
+
+::ng-deep .dt-empty {
+  display: none;
+}
+
+::ng-deep div.dt-container .dt-paging .dt-paging-button.disabled,
+div.dt-container .dt-paging .dt-paging-button.disabled:hover,
+div.dt-container
+  .dt-paging
+  .dt-paging-button.disabled:active
+  .dt-paging-button {
+  background-color: #000000 !important;
+  color: rgba(255,255,255,.6) !important;
+ 
+  border: 1px solid #aaaaaa;
+}
+
+::ng-deep div.dt-container .dt-paging .dt-paging-button.current {
+  background-color: #000000 !important;
+  color: rgba(255,255,255,.6) !important;
+ 
+  border: 1px solid #aaaaaa;
+}
+
+::ng-deep div.dt-container .dt-paging .dt-paging-button {
+  background-color: #000000 !important;
+  color: rgba(255,255,255,.6) !important;
+ 
+  border: 1px solid #aaaaaa;
 }

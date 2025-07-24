@@ -1,3 +1,54 @@
+.lay {
+  background-color: #faa9ba;
+}
+
+.back {
+  background-color: #72bbef;
+}
+
+.indicators {
+  border: 1px solid black;
+  padding: 5px 5px;
+}
+
+.table-container {
+  background-color: #000;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 10px 6px;
+}
+
+table {
+  width: 100%;
+}
+
+th,
+td {
+  padding: 8px;
+}
+
+th:not(:last-child),
+td:not(:last-child) {
+  border-right: solid 1px rgba(255, 255, 255, 0.1);
+}
+
+thead tr th {
+  background-color: #272d33;
+  /* border: none !important; */
+}
+
+tbody,
+thead,
+th,
+td {
+  /* border: 1px solid rgba(255,255,255,.1); */
+  white-space: nowrap;
+}
+
+thead {
+  background-color: #15191e;
+  height: 50.63px;
+}
+
 @media (max-width: 769px) {
   .page-title {
     height: 14vw;
@@ -102,7 +153,6 @@
 
   .filters .btn {
     display: block;
-    outline: none;
     width: 100%;
     position: relative;
     height: 12vw;
@@ -264,83 +314,4 @@
   .remove-element {
     display: none;
   }
-}
-
-.table-container {
-  background-color: #000;
-  color: rgba(255, 255, 255, 0.8);
-  padding: 10px;
-  font-size: 12.1875px;
-}
-
-::ng-deep table,
-tbody,
-thead,
-th,
-td {
-  white-space: nowrap;
-  text-align: center !important;
-}
-
-::ng-deep .dt-empty {
-  display: none;
-}
-
-::ng-deep div.dt-container .dt-paging .dt-paging-button,
-::ng-deep div.dt-container .dt-paging .dt-paging-button:hover,
-::ng-deep div.dt-container .dt-paging .dt-paging-button:active {
-  background-color: #000000 !important;
-  color: rgba(255, 255, 255, 0.8) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-
-::ng-deep div.dt-container .dt-paging .dt-paging-button.current,
-::ng-deep div.dt-container .dt-paging .dt-paging-button.current:hover {
-  background-color: #000000 !important;
-  color: rgba(255, 255, 255, 0.8) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-
-::ng-deep div.dt-container .dt-paging .dt-paging-button.disabled,
-::ng-deep div.dt-container .dt-paging .dt-paging-button.disabled:hover,
-::ng-deep div.dt-container .dt-paging .dt-paging-button.disabled:active {
-  background-color: #000000 !important;
-  color: rgba(255, 255, 255, 0.8) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-
-
-::ng-deep tfoot tr td .dt-column-title {
-  text-align: center;
-}
-
-thead {
-  background-color: #15191e;
-  height: 50.63px;
-}
-
-tbody,
-tfoot {
-  height: 50.63px;
-}
-
-::ng-deep table,
-tbody,
-thead,
-tr,
-th,
-td {
-  border: solid 1px rgba(255, 255, 255, 0.1) !important;
-}
-
-::ng-deep div.dt-container div.dt-layout-row {
-  margin: 1.5rem 0px;
-}
-
-::ng-deep div.dt-container div.dt-layout-row:first-child {
-  margin-top: 0.75rem !important;
-}
-
-::ng-deep div.dt-container div.dt-layout-row:last-child {
-  margin-bottom: 0.75rem !important;
 }
