@@ -1,0 +1,84 @@
+<div class="bg-[#14161B] roboto-medium  page-wrapper">
+
+    <div class="page-title [@media(min-width:770px)]:!hidden ">
+        <a class="material-icons arrow">arrow_back</a>
+        <span class="title">Profit Loss</span>
+        <span class="material-icons icon">trending_up</span>
+    </div>
+
+    <div class="content">
+        <form class="filters w-full">
+            <ul>
+                <li>
+                    <div class="title remove-element">Start Date</div>
+                    <input name="from-date" type="date" [(ngModel)]="startDate">
+                </li>
+
+                <li>
+                    <div class="title remove-element">End Date</div>
+                    <input name="from-date" type="date" [(ngModel)]="endDate">
+                </li>
+
+                <li>
+                    <div class="title remove-element">Data Type</div>
+                    <select name="operation-type " class="operation-type" [(ngModel)]="selectedDataSource"
+                        (ngModelChange)="onDataSourceChange($event)">
+                        <option value="">Data Source</option>
+
+                        <option value="2">LIVE DATA</option>
+
+                        <option value="3">BACKUP DATA</option>
+
+                        <option value="4">OLD DATA</option>
+                    </select>
+                </li>
+
+                <li>
+                    <div class="title"></div>
+                    <button type="submit" class="btn" (click)="rerender()">Get P&L</button>
+                </li>
+
+            </ul>
+
+
+        </form>
+
+        <div class="overflow-x-auto bg-white mt-5 table-container">
+            <table datatable [dtOptions]="dtOptions" class="row-border no-footer table table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th class="text-center">Sport Name</th>
+                        <th class="text-center">Profit/Loss</th>
+                        <th class="text-center">Commission</th>
+                        <th class="text-center">Total P&L</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="profitLossData.length > 0">
+                    <tr *ngFor="let profit of profitLossData">
+                        <td class="text-center"> <a href="javascript:void(0)"
+                                style="color: var(--child-navigation-link);     font-weight: bold;"
+                                (click)="goToEventPL(profit.sportId)">{{profit.sportName}}</a></td>
+
+                        <td class="text-center" style="font-weight: bold;"
+                            [ngClass]=" [ profit.pl <= 0 ? 'text-danger' : 'text-success'] ">
+                            {{profit.pl}}</td>
+
+                        <td class="text-center">{{profit.commission | number}}</td>
+                        <td class="text-center" style="font-weight: bold;"
+                            [ngClass]=" [ (profit.pl - profit.commission) <= 0 ? 'text-danger' : 'text-success'] ">
+                            {{profit.pl - profit.commission | number}}</td>
+                    </tr>
+                </tbody>
+                <tfoot *ngIf="profitLossData?.length == 0">
+                    <tr>
+                        <td colspan="4" class="text-center">No data!</td>
+                    </tr>
+                </tfoot>
+
+            </table>
+        </div>
+
+    </div>
+
+
+</div>
