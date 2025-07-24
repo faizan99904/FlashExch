@@ -5,7 +5,8 @@ import { DataTableDirective, DataTablesModule } from 'angular-datatables';
 import { Config } from 'datatables.net';
 import { Subscription } from 'rxjs';
 import { CONFIG } from '../../../../../config';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-profitloss-market',
@@ -24,7 +25,7 @@ export class ProfitlossMarketComponent {
   _eventId: any;
   _sportId: any;
 
-  constructor(private http: HttpClient, private route: ActivatedRoute,) {
+  constructor(private http: HttpClient, private route: ActivatedRoute, private location:Location) {
     this.routeSub = this.route.params.subscribe(params => {
       this._eventId = params['eventId'];
       this._sportId = params['sportId'];
@@ -33,6 +34,10 @@ export class ProfitlossMarketComponent {
 
   ngOnInit() {
     this.profitLossByMarket();
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 

@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { CONFIG } from '../../../../../config';
 import { Config } from 'datatables.net';
 import { CommonModule } from '@angular/common';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-profitloss-event',
@@ -26,7 +27,7 @@ export class ProfitlossEventComponent {
   _endDate: any;
   _dataSource: any;
 
-  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router, private location: Location) {
     this.routeSub = this.route.params.subscribe(params => {
       this._sportId = params['sportId'];
       this._startDate = params['startDate'];
@@ -39,6 +40,11 @@ export class ProfitlossEventComponent {
 
   ngOnInit() {
     this.profitLossByEvent();
+  }
+
+
+  goBack(): void {
+    this.location.back();
   }
 
 

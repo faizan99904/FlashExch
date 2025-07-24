@@ -1,12 +1,12 @@
 <div class="bg-[#14161B] roboto-medium  page-wrapper">
 
     <div class="page-title [@media(min-width:770px)]:!hidden ">
-        <a class="material-icons arrow">arrow_back</a>
+        <a class="material-icons arrow" (click)="goBack()">arrow_back</a>
         <span class="title">Profit Loss Event</span>
         <span class="material-icons icon">trending_up</span>
     </div>
 
-    <div class="overflow-x-auto bg-white mt-5 table-container">
+    <div class="overflow-x-auto bg-white md:mt-5 w-full table-container">
         <table datatable [dtOptions]="dtOptions"
             class="row-border no-footer table table-hover table-responsive table-bordered">
             <thead>
@@ -27,7 +27,7 @@
                     <td class="text-center">{{profit.sportName}}</td>
                     <td class="text-center">{{profit.eventName}}</td>
                     <td class="text-center" *ngIf="_sportId=='66102'">{{profit.marketId}}</td>
-                    <td class="text-center"><a class="text-[#2789ce]" 
+                    <td class="text-center"><a class="text-[#fff] hover:underline" 
                             routerLink="/account/profit-history/{{profit.sportId}}/{{profit.marketId}}">{{profit.marketName}}
                         </a></td>
                     <td class="text-center" *ngIf="profit.marketName == 'KBC'">{{removeQoute(profit.result)}}</td>

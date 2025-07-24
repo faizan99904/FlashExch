@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { DataTableDirective, DataTablesModule } from 'angular-datatables';
 import { Config } from 'datatables.net';
 import { NetworkService } from '../../../service/network.service';
@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-profit-loss',
-  imports: [DataTablesModule, FormsModule, CommonModule],
+  imports: [DataTablesModule, FormsModule, CommonModule, RouterLink],
   templateUrl: './profit-loss.component.html',
   styleUrl: './profit-loss.component.css'
 })
