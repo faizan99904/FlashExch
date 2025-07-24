@@ -30,6 +30,7 @@ import { ChangePasswordComponent } from './pages/accont/change-password/change-p
 import { AccountNavComponent } from './pages/account-nav/account-nav.component';
 import { ProfitLossComponent } from './pages/accont/profit-loss/profit-loss.component';
 import { CompetitionsComponent } from './pages/competitions/competitions.component';
+import { MinigamesComponent } from './pages/minigames/minigames.component';
 import { BetHistoryComponent } from './pages/accont/bet-history/bet-history.component';
 import { ActivityLogComponent } from './pages/accont/activity-log/activity-log.component';
 import { AccountStatementComponent } from './pages/accont/account-statement/account-statement.component';
@@ -70,6 +71,7 @@ export const routes: Routes = [
   { path: 'promos', component: PromosComponent },
   { path: 'affliate', component: AffliateComponent },
   { path: 'competitions', component: CompetitionsComponent },
+  { path: 'minigames', component: MinigamesComponent },
 
   {
     path: 'account',
