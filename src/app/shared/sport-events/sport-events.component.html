@@ -102,44 +102,23 @@
     </div>
 
     <ul class="max-[820px]:hidden ml-auto flex items-center whitespace-nowrap overflow-hidden pr-[28px]">
-        <li class="tabs ml-4 h-[35px] basis-auto p-[.5rem] text-white flex items-center justify-center shrink-0 text-center text-[.9rem] overflow-hidden cursor-pointer "
-            (click)="selectTab('soccer')" [ngClass]="{'active-tab':activeTab == 'soccer'}">
-            <i class="sport-icon text-[#05AA30] text-[1.3rem]" [attr.sport]="'soccer'"> </i>
-            <span class="m-[0_.7rem]  text-[12.6px] hidden">Soccer</span>
+        <li *ngFor="let item of mainService.sportsList(); let i = index" class="tabs ml-4 h-[35px] basis-auto p-[.5rem] text-white flex items-center justify-center shrink-0 text-center text-[.9rem] overflow-hidden cursor-pointer "
+            (click)="changeSport(item.sportId)" [ngClass]="{'active-tab':activeSportId == item.sportId}">
+            <i class="sport-icon text-[#05AA30] text-[1.3rem]" [attr.sport]="item.sportName.toLowerCase()"> </i>
+            <span class="m-[0_.7rem]  text-[12.6px] hidden">{{item.sportName}}</span>
         </li>
 
-        <li class="tabs ml-4 h-[35px] basis-auto p-[.5rem] text-white flex items-center justify-center shrink-0 text-center text-[.9rem] overflow-hidden cursor-pointer "
-            (click)="selectTab('basketball')" [ngClass]="{'active-tab':activeTab == 'basketball'}">
-            <i class="sport-icon text-[#05AA30] text-[1.3rem]" [attr.sport]="'basketball'"> </i>
-            <span class="m-[0_.7rem]  text-[12.6px] hidden">Basketball</span>
-        </li>
-
-
-        <li class="tabs ml-4 h-[35px] basis-auto p-[.5rem] text-white flex items-center justify-center shrink-0 text-center text-[.9rem] overflow-hidden cursor-pointer "
-            (click)="selectTab('tennis')" [ngClass]="{'active-tab':activeTab == 'tennis'}">
-            <i class="sport-icon text-[#05AA30] text-[1.3rem]" [attr.sport]="'tennis'"> </i>
-            <span class="m-[0_.7rem]  text-[12.6px] hidden">Tennis</span>
-        </li>
-
-        <li class="tabs ml-4 h-[35px] basis-auto p-[.5rem] text-white flex items-center justify-center shrink-0 text-center text-[.9rem] overflow-hidden cursor-pointer "
-            (click)="selectTab('baseball')" [ngClass]="{'active-tab':activeTab == 'baseball'}">
-            <i class="sport-icon text-[#05AA30] text-[1.3rem]" [attr.sport]="'baseball'"> </i>
-            <span class="m-[0_.7rem]  text-[12.6px] hidden">Baseball</span>
-        </li>
-
-
-        <li class="tabs ml-4 h-[35px] basis-auto p-[.5rem] text-white flex items-center justify-center shrink-0 text-center text-[.9rem] overflow-hidden cursor-pointer "
-            (click)="selectTab('formula1')" [ngClass]="{'active-tab':activeTab == 'formula1'}">
-            <i class="sport-icon text-[#05AA30] text-[1.3rem]" [attr.sport]="'formula1'"> </i>
-            <span class="m-[0_.7rem]  text-[12.6px] hidden">Formula 1</span>
-        </li>
-
-
-        <li class="tabs ml-4 h-[35px] basis-auto p-[.5rem] text-white flex items-center justify-center shrink-0 text-center text-[.9rem] overflow-hidden cursor-pointer "
-            (click)="selectTab('leagueoflegends')" [ngClass]="{'active-tab':activeTab == 'leagueoflegends'}">
-            <i class="sport-icon text-[#05AA30] text-[1.3rem]" [attr.sport]="'leagueoflegends'"> </i>
-            <span class="m-[0_.7rem]  text-[12.6px] hidden">League of Legends</span>
-        </li>
+    
     </ul>
 
 </div>
+
+<app-sportslist ></app-sportslist>
+
+    <div class="main-wrapper w-full">
+        <app-market  *ngFor="let item of markets;trackBy: trackByFn;" [isMobile]="true" [market]="item"></app-market>
+    </div>
+    <div class="top-events mt-[1rem]">
+        <app-market  *ngFor="let item of markets;index as i;trackBy: trackByFn;" [isMobile]="false" [market]="item" [index]="i"></app-market>
+    </div>
+

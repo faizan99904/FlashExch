@@ -167,3 +167,18 @@
     @apply text-[1.4rem] mt-[-11px] left-[1.3rem];
   }
 }
+
+@media (min-width: 820px) {
+  .market-wrapper {
+    @apply hidden;
+  }
+}
+
+@media (max-width:819px){
+    .top-events{
+        @apply hidden
+    }
+    .main-wrapper{
+        @apply pb-[100px]
+    }
+}
