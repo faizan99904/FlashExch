@@ -136,8 +136,8 @@
                 <div class="flex items-center h-full gap-3">
                        <span class="material-icons text-[hsla(0,0%,100%,.6)] hover:text-[#11E311]">star_border</span>
                        <div class="text-[hsla(0,0%,100%,.6)] flex flex-col py-1 marketType">
-                          <div class="text-[12.32]">Even</div>
-                           <div class="text-[12.32]">Odd</div>
+                          <div class="text-[12.32] text-center"> {{market?.eventTime | date: 'EEE'}}</div>
+                           <div class="text-[12.32]"> {{market?.eventTime | date: 'HH:mm'}}</div>
                        </div>
 
                         <div class="text-[hsla(0,0%,100%,.6)] flex flex-col py-1 marketName" *ngIf="market.marketName=='Ball By Ball'">
