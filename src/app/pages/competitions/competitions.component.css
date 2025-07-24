@@ -102,6 +102,22 @@ ul.champs > li {
   background-color: #101317;
   color: #fff;
   padding: 0 5vw;
+  position: relative;
+  overflow: hidden;
+}
+
+ul.champs > li::after {
+  content: "";
+  background: black;
+  height: 2px;
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+ul.champs > li:last-child:after {
+  display: none;
 }
 
 .sportsbook-tree ul.regions > li .item-name.regionname {
