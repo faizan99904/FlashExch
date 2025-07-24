@@ -14,21 +14,17 @@ import { MainService } from '../../service/main.service';
 export class SportEventsComponent {
 
   activeSportId:any;
-  activeTab: string = 'soccer';
+ 
   isOddType:boolean = false
   searchTab:string = 'list'
   markets:any;
-  constructor(private mainService:MainService){
+  constructor(public mainService:MainService){
     effect(() => {
       const id = this.mainService.getActiveSport();
       this.changeSport(id);
     });
   }
   
-  selectTab(tab: any) {
-    this.activeTab = tab
-  }
-
   searchEvent(tab:any){
     this.searchTab = tab
   }
@@ -41,10 +37,15 @@ export class SportEventsComponent {
   }
 
   changeSport(sportId:any){
+    this.activeSportId = sportId;
     let allevents = this.mainService.getAllEvents();
     if(allevents){
       this.markets = allevents[sportId];
+      // console.log('markets',this.markets)
     }
    
+  }
+  trackByFn(index: any, item: any) {
+    return index;
   }
 }
