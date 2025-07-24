@@ -32,6 +32,8 @@ export class MainService {
 
   logout: WritableSignal<any>                  = signal(null);
 
+  activeSport: WritableSignal<string|null>  = signal(null);
+
   constructor(
     private networkService: NetworkService,
     private indexedDBService: IndexedDbService
@@ -68,6 +70,14 @@ export class MainService {
     return this.eventId();
   }
 
+  // Active Sport 
+  
+  setActiveSport(sport:any){
+    this.activeSport.set(sport);
+  }
+  getActiveSport(): any {
+    return this.activeSport();
+  }
   // ─── Casino Events ─────────────────────────────────────
   setCasinoEvents(list: any|null): void {
     this.casinoEvents.set(list);

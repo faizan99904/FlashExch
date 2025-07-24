@@ -143,3 +143,13 @@
     </ul>
 
 </div>
+
+<app-sportslist ></app-sportslist>
+
+    <div class="main-wrapper w-full">
+        <app-market  *ngFor="let item of markets" [isMobile]="true" [market]="item"></app-market>
+    </div>
+    <div class="top-events mt-[1rem]">
+        <app-market  *ngFor="let item of markets" [isMobile]="false" [market]="item"></app-market>
+    </div>
+

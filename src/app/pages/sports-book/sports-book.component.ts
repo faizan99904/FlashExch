@@ -7,7 +7,7 @@ import { MarketComponent } from '../../component/market/market.component';
 
 @Component({
   selector: 'app-sports-book',
-  imports: [SwiperCardHomeComponent, SportEventsComponent, SportslistComponent, MarketComponent],
+  imports: [SwiperCardHomeComponent, SportEventsComponent],
   templateUrl: './sports-book.component.html',
   styleUrl: './sports-book.component.css',
 })

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, effect, Input, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { MainService } from '../../service/main.service';
 
 @Component({
   selector: 'app-market',
@@ -8,6 +9,12 @@ import { RouterLink } from '@angular/router';
   templateUrl: './market.component.html',
   styleUrl: './market.component.css'
 })
-export class MarketComponent {
-  arr = [1,2,3,5,6,6,7,8,9,4,5,7]
+export class MarketComponent implements OnInit{
+  @Input() isMobile:boolean=false;
+  @Input() market:any=[];
+
+  ngOnInit(): void {
+     
+  }
+  
 }
