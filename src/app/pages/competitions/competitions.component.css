@@ -307,3 +307,19 @@ ul.champs > li .arrow {
 .prematch-matches .match-list .match-line + .match-line {
   margin-top: 2px;
 }
+
+@media screen and (min-width: 430px) {
+  .coef {
+    position: relative;
+    bottom: 0px;
+  }
+
+  .league-name .sport-icon {
+    padding-top: 1px;
+  }
+
+  .league-name .name {
+    padding-left: 8.2px;
+    bottom: 0;
+  }
+}
