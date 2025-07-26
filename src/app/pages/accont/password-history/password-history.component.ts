@@ -26,6 +26,21 @@ export class PasswordHistoryComponent {
   ngOnInit(): void {
     this.getAccountStatement();
   }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      const emptyTds = document.querySelectorAll('td.dt-empty');
+      emptyTds.forEach(td => {
+        const tbody = td.closest('tbody');
+        if (tbody) {
+          tbody.remove(); // or use: tbody.style.display = 'none';
+        }
+      });
+    });
+  }
+
+
+
   getAccountStatement() {
 
     const that = this;
@@ -52,7 +67,7 @@ export class PasswordHistoryComponent {
               });
             });
       },
-      columns: [{ data: 'userName', orderable: false }, { data: 'remark', orderable: false }, { data: 'updatedAt', orderable: true }]
+      columns: [ { data: 'remark', orderable: false }, { data: 'updatedAt', orderable: true }]
     };
   }
   rerender(): void {
