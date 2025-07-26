@@ -272,3 +272,7 @@
 .market-odds .odd-rect:not(:first-child) {
   margin-left: 1.5vw;
 }
+
+.market-wrapper {
+  margin-top: 2px;
+}
