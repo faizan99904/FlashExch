@@ -20,75 +20,34 @@
             <h2>User Profile</h2>
             <ul class="fields">
                 <li>
-                    <div class="username">Username</div>
-                    <div class="info">jackey501</div>
+                    <div class="username">Name</div>
+                    <div class="info">{{user.userName}}</div>
+                    <span class="material-icons locked">lock_outline</span>
+                </li>
+
+                <li>
+                    <div class="username">Commission</div>
+                    <div class="info">{{user.rollingBookmakerCommission}}</div>
+                    <span class="material-icons locked">lock_outline</span>
+                </li>
+
+                <li>
+                    <div class="username">Exposure Limit</div>
+                    <div class="info">{{user.exposureLimit}}</div>
                     <span class="material-icons locked">lock_outline</span>
                 </li>
 
                 <li>
                     <div class="username">Password</div>
                     <div class="info">************</div>
-                    <span class="material-icons locked editable">edit</span>
-                </li>
-
-                <li>
-                    <div class="username">First Name</div>
-                    <div class="info">Jackey</div>
-                    <span class="material-icons locked">lock_outline</span>
-                </li>
-
-
-                <li>
-                    <div class="username">Last Name</div>
-                    <div class="info">Chain</div>
-                    <span class="material-icons locked">lock_outline</span>
-                </li>
-
-                <li>
-                    <div class="username">Date of Birth</div>
-                    <span class="material-icons locked editable">edit</span>
-                </li>
-            </ul>
-        </div>
-
-        <div class="half !pr-0">
-            <h2>User Profile</h2>
-            <ul class="fields">
-                <li>
-                    <div class="username">Username</div>
-                    <div class="info">jackey501</div>
-                    <span class="material-icons locked">lock_outline</span>
-                </li>
-
-                <li>
-                    <div class="username">Password</div>
-                    <div class="info">************</div>
-                    <span class="material-icons locked editable">edit</span>
-                </li>
-
-                <li>
-                    <div class="username">First Name</div>
-                    <div class="info">Jackey</div>
-                    <span class="material-icons locked">lock_outline</span>
-                </li>
-
-
-                <li>
-                    <div class="username">Last Name</div>
-                    <div class="info">Chain</div>
-                    <span class="material-icons locked">lock_outline</span>
-                </li>
-
-                <li>
-                    <div class="username">Date of Birth</div>
-                    <span class="material-icons locked editable">edit</span>
+                    <span (click)="navigate()" class="material-icons locked editable">edit</span>
                 </li>
             </ul>
         </div>
     </div>
 </div>
 
-<div class="bg-[#14161B] roboto-medium [@media(min-width:769px)]:!hidden " >
+<div class="bg-[#14161B] roboto-medium [@media(min-width:769px)]:!hidden min-h-screen">
     <div class="page-title">
         <a class="material-icons arrow" (click)="goBack()">arrow_back</a>
         <span class="title">PERSONAL INFO</span>
@@ -97,55 +56,34 @@
     <div class="mb-content">
         <h2>User Profile</h2>
         <ul class="filled mb-fields">
+
             <li>
-                <div class="desc">Username</div>
-                <div class="info" field="username">jackey501</div>
+                <div class="desc">Name</div>
+                <div class="info" field="username">{{user.userName}}</div>
             </li>
             <li>
-                <div class="desc">FIRSTNAME</div>
-                <div class="info">Jackey</div>
+                <div class="desc">Commission</div>
+                <div class="info">{{user.rollingBookmakerCommission}}</div>
             </li>
             <li>
-                <div class="desc">LASTNAME</div>
-                <div class="info">Chain</div>
+                <div class="desc">Exposure Limit</div>
+                <div class="info">{{user.exposureLimit}}</div>
             </li>
             <li class="password">
                 <div class="desc">Password</div>
                 <div class="info">*****************</div>
-                <span class="material-icons editable changepass">border_color</span>
+                <span routerLink="/account/change-password"
+                    class="material-icons editable changepass">border_color</span>
             </li>
-            <li>
-                <div class="desc">Email</div>
-                <div class="info">{{'info@chiraagonline.com'}}</div>
-            </li>
-            <li>
-                <div class="desc">Country</div>
-                <div class="info">India</div>
-            </li>
-            <li>
-                <div class="desc">Mobile Number</div>
-                <div class="info">8792065967</div>
-            </li>
+
         </ul>
+        <div class="save btn">SAVE_DETAILS</div>
+    </div>
+</div>
 
-        <h2>ADD_YOUR_DETAILS</h2>
-
-        <ul class="fill mb-fields">
-            <li class="edit-mode">
-                <div class="desc">Date of Birth</div>
-                <input type="date" name="birthdate" placeholder="Date of Birth">
-            </li>
-
-            <li class="edit-mode">
-                <div class="desc">City</div>
-                <input type="text" name="city" placeholder="City">
-            </li>
-
-            <li class="edit-mode">
-                <div class="desc">Address</div>
-                <input type="text" name="address" placeholder="Address">
-            </li>
-        </ul>
-        <div class="save btn"  bis_skin_checked="1">SAVE_DETAILS</div>
+<div [ngClass]="{'!flex': passModal}" class="hidden overlay">
+    <div class="relative">
+        <app-change-pass></app-change-pass>
+        <span (click)="passModal = false" class="material-icons close">close</span>
     </div>
 </div>
