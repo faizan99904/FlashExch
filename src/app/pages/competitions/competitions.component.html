@@ -1,0 +1,132 @@
+<app-header></app-header>
+<app-sports-nav></app-sports-nav>
+
+<div class="wrapper pb-[66.84px]">
+    <ul class="tabs tm-or-cmp overflow-hidden font-semibold bg-[#151a21]">
+        <li class="material-icons">home</li>
+        <li (click)="active = !active" [ngClass]="{'active': active}">Competitions</li>
+        <li (click)="active = !active" [ngClass]="{'active': !active}">Upcoming Matches</li>
+    </ul>
+    <div class="sportsbook-tree capitalize select-none font-semibold">
+        @if (active) {
+        <div (click)="toggle('time')" class="calendar">
+            <span class="material-icons icon">date_range</span>
+            <span class="title text-[3.5vw] -mt-[1px]">Calendar &nbsp; (All)</span>
+            <span class="material-icons arrow">
+                {{timeFilters ? 'keyboard_arrow_right' : 'keyboard_arrow_down'}}
+            </span>
+        </div>
+        <ul [ngClass]="{'hidden': timeFilters}" class="time-filters text-[3.5vw]">
+            <li class="active -mt-[1px]">All</li>
+            <li>1 Hour</li>
+            <li>2 Hours</li>
+            <li>4 Hours</li>
+            <li>8 Hours</li>
+            <li>12 Hours</li>
+            <li>1 Day</li>
+            <li>2 Days</li>
+            <li>4 Days</li>
+            <li>8 Days</li>
+        </ul>
+        <ul class="regions">
+            <li (click)="toggle('competitions')" class="text-[3.5vw]">
+                <div class="regionname item-name">
+                    <div country="worldcup" class="flag"></div>
+                    <span class="region-name">World Cup</span>
+                    <span class="count">37</span>
+                    <span class="material-icons arrow -mt-[1px]">{{!competitions ? 'keyboard_arrow_right' :
+                        'keyboard_arrow_down'}}</span>
+                </div>
+
+                @if (competitions) {
+                <ul class="champs">
+                    <li>
+                        <span class="champ-name">Qualification. Uefa. Group A</span>
+                        <span class="count">2</span>
+                        <span class="material-icons arrow pt-[2px]">arrow_forward</span>
+                    </li>
+                    <li>
+                        <span class="champ-name">Qualification. Uefa. Group A</span>
+                        <span class="count">2</span>
+                        <span class="material-icons arrow pt-[2px]">arrow_forward</span>
+                    </li>
+                    <li>
+                        <span class="champ-name">Qualification. Uefa. Group A</span>
+                        <span class="count">2</span>
+                        <span class="material-icons arrow pt-[2px]">arrow_forward</span>
+                    </li>
+                </ul>
+                }
+            </li>
+            <li class="text-[3.5vw]">
+                <div class="regionname item-name">
+                    <div country="uefachampionsleague" class="flag"></div>
+                    <span class="region-name">UEFA Champions League</span>
+                    <span class="count">15</span>
+                    <span class="material-icons arrow">keyboard_arrow_right</span>
+                </div>
+            </li>
+        </ul>
+        }
+
+        @if(!active){
+        <div class="upcoming-matches overflow-hidden">
+            <div class="league-name flex">
+                <span sport="soccer" class="sport-icon"></span>
+                <span country="eadriaticleague" class="flag"></span>
+                <span class="name">EAdriatic League, Champions League</span>
+            </div>
+            <div class="prematch-matches relative !roboto">
+                <div class="match-list">
+                    <div class="match-line text-[3.5vw]">
+                        <div class="first-line">
+                            <div class="stats flex items-center pt-[2px]">
+                                <span class="material-icons text-[4.5vw]">equalizer</span>
+                            </div>
+                            <div class="date !roboto">
+                                <span>24/07</span>
+                                <span>12:35</span>
+                            </div>
+                            <div class="champ-name">
+                                <span class="material-icons">error_outline</span>
+                            </div>
+                            <div class="market-count">
+                                <span>+4</span>
+                                <span class="material-icons">keyboard_arrow_right</span>
+                            </div>
+                        </div>
+                        <div class="second-line flex items-center font-normal">
+                            <div class="star-wrapper flex">
+                                <span class="material-icons text-[5vw]">star_border</span>
+                            </div>
+                            <div class="match-name">
+                                <div class="truncate team">
+                                    <span class="truncate name">
+                                        Liverpool FC (Thomas)
+                                    </span>
+                                </div>
+                                <div class="truncate team">
+                                    <span class="truncate name">
+                                        FC Barcelona (Popeye)
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="odds-wrapper ml-auto">
+                                <div column-count="3" class="market-odds flex justify-between">
+                                    <div class="odd-rect"><span class="coef">2.55</span></div>
+                                    <div class="odd-rect"><span class="coef">6.40</span></div>
+                                    <div class="odd-rect"><span class="coef">1.75</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+
+<div class="fixed left-0 bottom-0 w-full z-[999]">
+    <app-bottom-nav></app-bottom-nav>
+</div>

@@ -1,0 +1,345 @@
+@media (max-width: 769px) {
+  .page-title {
+    height: 14vw;
+    line-height: 14vw;
+    padding: 0 6vw;
+    font-size: 4.5vw;
+    background-color: #111317;
+    color: #fff;
+    font-weight: 400;
+  }
+
+  .page-title .arrow {
+    float: left;
+    font-size: 24px;
+    line-height: 14vw;
+  }
+
+  .page-title * {
+    vertical-align: middle;
+    align-content: center;
+  }
+
+  .page-title .title {
+    float: right;
+  }
+
+  .page-title .icon {
+    float: right;
+    line-height: 14vw;
+    font-size: 24px;
+    max-height: 6vw;
+    margin-right: 1.1vw;
+    color: #fff;
+  }
+
+  .content {
+    padding: 0 6vw;
+    min-height: calc(100vh - 45vw);
+    font-size: 3.5vw;
+  }
+
+  .filters {
+    overflow: hidden;
+  }
+
+  .filters ul {
+    overflow: hidden;
+  }
+
+  .filters ul li {
+    float: left;
+    width: calc(50% - 1vw);
+    padding-top: 1vw;
+  }
+
+  .filters ul li .title {
+    height: 8vw;
+    line-height: 8vw;
+    color: #fff;
+  }
+
+  .filters ul li input,
+  .filters ul li select,
+  .filters ul li textarea {
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    color: inherit;
+    height: 12vw;
+    background-color: #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 9.438px !important;
+    color: #000;
+    font-size: 3.5vw !important;
+    border-radius: 1vw;
+    padding-left: 4vw;
+    width: 100%;
+  }
+
+  .filters ul li:nth-child(even) {
+    margin-left: 2vw;
+  }
+
+  .filters ul li select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url(https://m.velobet.win/assets/images/select_arrow.png) !important;
+    background-repeat: no-repeat !important;
+    background-size: 2vw auto !important;
+    background-position: right 2vw center !important;
+
+    padding-right: 3vw;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+
+  .filters ul li input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: brightness(0);
+    cursor: pointer;
+  }
+
+  .filters .btn {
+    display: block;
+    width: 100%;
+    position: relative;
+    height: 12vw;
+    line-height: normal;
+    border: 0;
+    outline: 0;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.5vw;
+    padding: 0 4vw;
+    border-radius: 9.438px;
+    background: #11e311;
+    color: #030303;
+
+    user-select: none;
+    transition: 0.2s ease;
+  }
+}
+
+@media (min-width: 770px) {
+  .page-wrapper {
+    position: relative;
+    float: left;
+    width: calc(100% - 253.125px);
+    overflow: hidden;
+    margin-left: 253.125px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .content {
+    padding: 0;
+  }
+
+  .page-wrapper .content .filters {
+    padding: 24.375px 33.75px;
+    background: #101317;
+  }
+
+  .filters ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+  }
+
+  ul li:first-child,
+  .page-wrapper .content .filters ul li:nth-child(2) {
+    width: calc(23% - 37.5px);
+  }
+
+  ul li {
+    position: relative;
+  }
+
+  .operation-type {
+    width: 100%;
+    height: 35.625px;
+    color: rgba(255, 255, 255, 0.5);
+    border-radius: 0;
+    line-height: 35.625px;
+    background: 0 0;
+    border-bottom: 0.9375px solid #afafaf;
+    outline: none;
+    padding: 0px 9.45px;
+  }
+
+  .filters ul li select option {
+    color: #222;
+  }
+
+  .filters ul li:not(:first-child) {
+    margin-left: 37.5px;
+  }
+
+  .filters ul li:nth-child(3):nth-child(3),
+  .page-wrapper .content .filters ul li:nth-child(4):nth-child(3) {
+    margin-left: 56.25px;
+  }
+
+  .page-wrapper .content .filters ul li input {
+    width: 100%;
+    padding: 0px 9.45px;
+    height: 35.625px;
+    color: rgba(255, 255, 255, 0.5);
+    border-radius: 0;
+    line-height: 35.625px;
+    background: 0 0;
+    border-bottom: 0.9375px solid #afafaf;
+    outline: none;
+  }
+
+  .calendar {
+    position: absolute;
+    width: 32.8125px;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+    background-image: url(https://velobet.win/assets/images/calendar.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto 20.625px;
+    -webkit-filter: brightness(2);
+    filter: brightness(2);
+    cursor: pointer;
+  }
+
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: brightness(0) invert(1);
+    opacity: 1;
+  }
+
+  .datepicker {
+    width: calc(18% - 37.5px);
+  }
+
+  .btn {
+    width: 100%;
+    height: 35.625px;
+    line-height: 35.625px;
+    float: right;
+    background: #11e311;
+    border-radius: 46.875px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .page-wrapper .content .filters ul li:last-child {
+    width: calc(20% - 37.5px);
+  }
+
+  .transactions-list {
+    height: 534.375px;
+  }
+
+  .transactions-list table {
+    border-collapse: collapse;
+    width: 100%;
+    display: none;
+  }
+
+  .transactions-list table thead {
+    background-color: #15191e;
+  }
+
+  .transactions-list table thead tr th:nth-child(1) {
+    padding-left: 3.5rem;
+    width: 22%;
+  }
+
+  .transactions-list table thead tr th:nth-child(2) {
+    width: 14%;
+  }
+
+  .remove-element {
+    display: none;
+  }
+}
+
+.table-container {
+  background-color: #000;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  font-size: 12.1875px;
+}
+
+::ng-deep table,
+tbody,
+thead,
+th,
+td {
+  white-space: nowrap;
+  text-align: center !important;
+}
+
+::ng-deep .dt-empty {
+  display: none;
+}
+
+::ng-deep div.dt-container .dt-paging .dt-paging-button,
+::ng-deep div.dt-container .dt-paging .dt-paging-button:hover,
+::ng-deep div.dt-container .dt-paging .dt-paging-button:active {
+  background-color: #000000 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+::ng-deep div.dt-container .dt-paging .dt-paging-button.current,
+::ng-deep div.dt-container .dt-paging .dt-paging-button.current:hover {
+  background-color: #000000 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+::ng-deep div.dt-container .dt-paging .dt-paging-button.disabled,
+::ng-deep div.dt-container .dt-paging .dt-paging-button.disabled:hover,
+::ng-deep div.dt-container .dt-paging .dt-paging-button.disabled:active {
+  background-color: #000000 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+
+::ng-deep tfoot tr td .dt-column-title {
+  text-align: center;
+}
+
+thead {
+  background-color: #15191e;
+  height: 50.63px;
+}
+
+tbody,
+tfoot {
+  height: 50.63px;
+}
+
+::ng-deep table,
+tbody,
+thead,
+tr,
+th,
+td {
+  border: solid 1px rgba(255, 255, 255, 0.1) !important;
+}
+
+::ng-deep div.dt-container div.dt-layout-row {
+  margin: 1.5rem 0px;
+}
+
+::ng-deep div.dt-container div.dt-layout-row:first-child {
+  margin-top: 0.75rem !important;
+}
+
+::ng-deep div.dt-container div.dt-layout-row:last-child {
+  margin-bottom: 0.75rem !important;
+}

@@ -1,0 +1,103 @@
+<div class="bg-[#14161B] roboto-medium  page-wrapper">
+
+    <div class="page-title [@media(min-width:770px)]:!hidden ">
+        <a class="material-icons arrow">arrow_back</a>
+        <span class="title">Profit Loss Event</span>
+        <span class="material-icons icon">trending_up</span>
+    </div>
+
+
+    <div class="overflow-x-auto bg-white mt-5 max-md:mt-5 table-container">
+        
+        <div class="flex justify-end w-full mb-2 text-black">
+            <div class="back indicators ms-1 ">
+                Back
+            </div>
+            <div class="lay indicators ms-1 ">
+                Lay
+            </div>
+            <div class="voidBet indicators ms-1 bg-[#FFFFFF]">
+                Void
+            </div>
+        </div>
+
+
+        <table class="table table-bordered">
+
+            <thead>
+
+                <tr>
+                    <th class="text-center">Sport Name
+                    </th>
+                    <th class="text-center" style="min-width: 200px;">Event Name
+                    </th>
+                    <th class="text-center" style="min-width: 120px;">Market Name
+                    </th>
+                    <th class="text-center" style="min-width: 120px;">Selection Name
+                    </th>
+                    <th class="text-center">Bet Type
+                    </th>
+                    <th class="text-center">User Price
+                    </th>
+                    <th class="text-center">Amount</th>
+                    <th class="text-center">Profit/Loss
+                    </th>
+                    <th class="text-center" style="min-width: 100px;">Place Date
+                    </th>
+                    <th class="text-center " style="min-width: 100px;">Match Date
+                    </th>
+                </tr>
+            </thead>
+            <tbody *ngIf="historyList.length > 0">
+
+                <tr *ngFor="let history of historyList" [ngClass]="{
+                          'back':history.type=='B',
+                          'lay':history.type=='L' ,
+                          'voidBet':history.isVoid==1
+                          }">
+                    <td class="text-center">{{history.sportName}}</td>
+                    <td aria-colindex="1" role="cell" class="text-center">{{history.eventName}}
+                    </td>
+                    <td class="text-center">{{history.marketName}}</td>
+
+                    <td aria-colindex="2" role="cell" class="text-center">
+                        {{history.selectionName}}</td>
+                    <td aria-colindex="3" role="cell" class="text-center">
+                        {{history.type === 'L' ? 'LAY' : 'BACK'}}</td>
+                    <td aria-colindex="4" role="cell" class="text-center">
+                        {{history.oddsPrice}}<span *ngIf="history.oddsRate != 0">/{{history.oddsRate}}</span>
+                    </td>
+                    <td aria-colindex="5" role="cell" class="text-center">
+                        {{history.stake}}
+                    </td>
+                    <td aria-colindex="6" role="cell" class="text-center">
+
+                        <span *ngIf="history.betPl"
+                            [ngClass]="{'text-danger': getPlValueFirst(history.betPl) < 0 ,'text-success': getPlValueFirst(history.betPl) > 0 }">
+                            {{getPlValueFirst(history.betPl)}}
+                        </span>
+                        <span *ngIf="history.betPl" style="margin-left: 5px;"
+                            [ngClass]="{'text-danger': getPlValueSecond(history.betPl) < 0 ,'text-success': getPlValueSecond(history.betPl) > 0 }">
+                            ({{getPlValueSecond(history.betPl)}})
+                        </span>
+
+                    </td>
+                    <td class="text-center">
+                        {{history.createdAt | date : 'dd-MM-YYYY H:mm:ss'}}</td>
+                    <td class="text-center">
+                        {{history.matchedTime | date : 'dd-MM-YYYY H:mm:ss'}}</td>
+                </tr>
+
+            </tbody>
+
+            <tfoot *ngIf="historyList?.length == 0">
+                <tr>
+                    <td colspan="10" style="text-align:center;">No data!</td>
+                </tr>
+            </tfoot>
+        </table>
+
+    </div>
+
+
+</div>

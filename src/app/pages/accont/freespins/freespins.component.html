@@ -1,0 +1,176 @@
+<div class="page-wrapper [@media(max-width:769px)]:!hidden">
+    <ul class="tabs">
+        <li (click)="changeTab('Freespins')" [ngClass]="{'active': tab === 'Freespins'}">
+            <span>Freespins</span>
+            <span class="total-count visible disabled">0</span>
+        </li>
+
+        <li (click)="changeTab('FreeBets')" [ngClass]="{'active': tab === 'FreeBets'}">
+            <span>FreeBets</span>
+            <span class="total-count visible disabled">0</span>
+        </li>
+
+        <li (click)="changeTab('Mini-game')" [ngClass]="{'active': tab === 'Mini-game'}">
+            <span>Mini Games</span>
+            <span class="total-count visible disabled">0</span>
+        </li>
+
+        <li (click)="changeTab('Bonus')" [ngClass]="{'active': tab === 'Bonus'}">
+            <span>Bonus</span>
+            <span class="total-count visible disabled">0</span>
+        </li>
+    </ul>
+
+    <section class="freespins" *ngIf="tab === 'Freespins'">
+        <table>
+            <thead>
+                <tr>
+                    <th>Create Time</th>
+                    <th>FreeSpin Count</th>
+                    <th>Expiration Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div class="no-data" style="display: block;">
+            <div class="material-icons icon">assignment</div>
+            <div class="text">NO FREESPINS AVAILABLE</div>
+        </div>
+    </section>
+
+    <section class="freespins" *ngIf="tab === 'FreeBets'">
+        <table>
+            <thead>
+                <tr>
+                    <th>Create Time</th>
+                    <th>FreeBet Amount</th>
+                    <th>Expiration Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div class="no-data" style="display: block;">
+            <div class="material-icons icon">assignment</div>
+            <div class="text">No Freebets Available</div>
+        </div>
+    </section>
+
+    <section class="freespins" *ngIf="tab === 'Mini-game'">
+        <table>
+            <thead>
+                <tr>
+                    <th>Create Time</th>
+                    <th>Total Amount</th>
+                    <th>Spent Amount</th>
+                    <th>Expiration Date</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div class="no-data" style="display: block;">
+            <div class="material-icons icon">assignment</div>
+            <div class="text">No Freebets Available</div>
+        </div>
+    </section>
+
+    <section class="bonus visible" *ngIf="tab === 'Bonus'">
+        <div class="bonus-code">
+            <form class="bonus_code">
+                <div class="fields">
+                    <input type="text" name="code" required="" autocomplete="off" placeholder="Bonus Code">
+                    <button class="btn">Use</button>
+                </div>
+                <div class="txt">Please Enter bonus code</div>
+            </form>
+        </div>
+        <div class="bonus-filters ">
+            <ul class="bonus-tabs">
+                <li class="active">All</li>
+                <li>Active</li>
+                <li>Pending</li>
+                <li>Completed</li>
+                <li>Canceled</li>
+            </ul>
+        </div>
+    </section>
+</div>
+
+<div class="[@media(min-width:769px)]:!hidden p-[3vw] h-[calc(100vh-40vw)] bg-[#14161B] roboto-medium">
+    <div class="page-title">
+        <a class="material-icons arrow" routerLink="/account/nav">arrow_back</a>
+        <span class="title">My Gifts</span>
+        <span class="material-icons icon">card_giftcard</span>
+    </div>
+    <ul class="tabs-mb">
+        <li class="active-tab" (click)="changeTab('Freespins')" [ngClass]="{'active-tab': tab === 'Freespins'}">
+            <span>Freespins</span>
+            <span class="total-count visible disabled">0</span>
+        </li>
+
+        <li class="" (click)="changeTab('FreeBets')" [ngClass]="{'active-tab': tab === 'FreeBets'}">
+            <span>FreeBets</span>
+            <span class="total-count visible disabled">0</span>
+        </li>
+
+
+        <li class="" (click)="changeTab('Mini-game')" [ngClass]="{'active-tab': tab === 'Mini-game'}">
+            <span>Mini Games</span>
+            <span class="total-count visible disabled">0</span>
+        </li>
+
+        <li class="" (click)="changeTab('Bonus')" [ngClass]="{'active-tab': tab === 'Bonus'}">
+            <span>Bonus</span>
+            <span class="total-count visible disabled">0</span>
+        </li>
+
+
+    </ul>
+
+    <section class="freespins-mb visible" *ngIf="tab != 'Bonus'">
+        <table>
+            <thead>
+                <tr>
+                    <th *ngIf="tab === 'Freespins'">FreeSpin Count</th>
+                    <th *ngIf="tab === 'FreeBets'">FreeBet Amount</th>
+                    <th *ngIf="tab === 'Mini-game'">Total Amount</th>
+                    <th *ngIf="tab === 'Mini-game'">Spent Amount</th>
+                    <th>Expiration Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div class="no-data" style="display: block;">
+            <div class="material-icons icon">assignment</div>
+            <div class="text" *ngIf="tab === 'Freespins'">NO FREESPINS AVAILABLE</div>
+            <div class="text" *ngIf="tab === 'FreeBets' || tab === 'Mini-game'">No Freebets Available</div>
+
+        </div>
+    </section>
+
+    <section class="bonus-mb " *ngIf="tab === 'Bonus'">
+        <div class="bonus-code-mb">
+            <form class="bonus_code_mb">
+                <h2>Please Enter bonus code</h2>
+                <div class="fields-mb">
+                    <input type="text" placeholder="Bonus Code">
+                    <button class="btn">Use</button>
+                </div>
+            </form>
+        </div>
+        <div class="bonus-filters-mb">
+            <ul class="mobile-tabs">
+                <li class="mobile-tab-active">All</li>
+                <li>Active</li>
+                <li>Pending</li>
+                <li>Completed</li>
+                <li>Canceled</li>
+            </ul>
+        </div>
+    </section>
+
+
+</div>
+<app-footer class="[@media(min-width:769px)]:!hidden"></app-footer>

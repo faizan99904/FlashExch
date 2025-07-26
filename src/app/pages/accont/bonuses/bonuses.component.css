@@ -1,0 +1,973 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+.page-wrapper {
+  position: relative;
+  float: left;
+  width: calc(100% - 253.125px);
+  overflow: hidden;
+  margin-left: 253.125px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 18.75px;
+}
+
+.promo-code {
+  position: relative;
+  background: linear-gradient(47deg, #2c2c35, #3a4155);
+  line-height: initial;
+  text-align: initial;
+  border-radius: 4.65px;
+  padding-left: 15px;
+  height: 68.4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-top: 18.75px;
+  display: flex;
+}
+
+.promo-code form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.fields {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 37.5px;
+  overflow: hidden;
+}
+
+.fields input {
+  height: 100%;
+  width: 209.1px;
+  background: rgba(255, 255, 255, 0.17);
+  color: #fff;
+  font-size: 14.1px;
+  border: none;
+  border-radius: 4.65px;
+  padding: 0 9.45px;
+}
+
+.fields button {
+  font-size: 15px;
+  min-width: 112.5px;
+  height: 100%;
+  margin-left: 9.45px;
+  background: #11e311;
+  border-radius: 7.0005px;
+  font-weight: bold;
+  width: 124px;
+}
+
+.promo-code form:last-child {
+  margin-left: 9.375px;
+}
+.active-freespins {
+  height: 570px;
+  margin-top: 30px !important;
+}
+
+.table-wrapper table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-wrapper table thead {
+  background-color: #16161b;
+}
+
+table thead tr th {
+  font-weight: 400;
+  color: #fff;
+}
+
+.table-wrapper table thead tr th:nth-child(1) {
+  padding-left: 30px;
+  width: 20%;
+}
+
+.table-wrapper table thead tr th:nth-child(2) {
+  width: 20%;
+}
+
+.table-wrapper table thead tr th:nth-child(3) {
+  width: 14%;
+}
+
+.table-wrapper table thead tr th:nth-child(4) {
+  width: 20%;
+}
+
+.page-wrapper table th {
+  text-align: left;
+  height: 40px;
+}
+
+@media (max-width: 390px) {
+  .page-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 3vw;
+    margin-left: 0;
+  }
+
+  .active-freespins {
+    height: 100%;
+    margin-top: 30px !important;
+  }
+
+  .promo-code {
+    background: #101317;
+    border-radius: 4px;
+    margin: 3vw 0;
+    padding: 3vw;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .fields input {
+    width: calc(100% - 37vw);
+    margin-right: 2vw;
+    color: #fff;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.17);
+    font-family: "Roboto";
+    border: none;
+    font-size: 3.5vw;
+    padding-left: 4vw;
+    padding-right: 0;
+    border-radius: 9.075px;
+    min-width: 191.25px;
+  }
+
+  .promo-code form:last-child {
+    margin-left: 0;
+  }
+
+  .fields button {
+    width: 35vw;
+    height: 100%;
+    line-height: 10vw;
+    font-size: 16.875px;
+    margin-left: 0;
+    font-family: "Roboto";
+    border-radius: 9.075px;
+    font-weight: 500;
+  }
+
+  input::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  .page-title {
+    height: 14vw;
+    line-height: 14vw;
+    padding: 0 6vw;
+    font-size: 4.5vw;
+    background-color: #101317;
+    color: #fff;
+    font-family: "Roboto";
+    display: flex;
+    align-items: center;
+  }
+
+  .page-title * {
+    vertical-align: middle;
+  }
+
+  .page-title .arrow {
+    float: left;
+    font-size: 8vw;
+    margin-top: -1px;
+  }
+
+  .page-title .title {
+    float: right;
+  }
+
+  .page-title .icon {
+    float: right;
+    font-size: 6vw;
+    max-height: 6vw;
+    margin-right: 3vw;
+    color: #fff;
+  }
+
+  .fields {
+    margin-top: 3vw;
+  }
+
+  .table-wrapper {
+    margin: 4vw;
+    padding-right: 8vw;
+  }
+
+  .table-wrapper table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .table-wrapper table thead tr {
+    color: #ffffffb3;
+  }
+
+  .table-wrapper table thead tr th {
+    text-align: left;
+    padding-left: 10px !important;
+    font-weight: 200;
+    width: auto !important;
+    height: auto;
+  }
+
+  .table-wrapper table thead tr th:nth-child(1) {
+    padding-left: 10px;
+    width: 103.75px !important;
+  }
+
+  .active-freespins {
+    height: 100%;
+    margin-top: -4px !important;
+  }
+
+  .loader-wrapper {
+    height: 141px;
+    display: flex;
+    align-items: center;
+    padding-top: 1.5rem;
+  }
+
+  .loader-wrapper .loader {
+    margin-top: 50px;
+    animation-delay: -0.16s !important;
+    background: #fff;
+    animation: loaderAnim 1s infinite ease-in-out;
+    width: 6px;
+    transform: translateY(5px);
+    position: relative;
+    color: #fff;
+    text-indent: -9999em;
+    margin: 0 auto;
+  }
+
+  .loader:before {
+    position: absolute;
+    top: 0;
+    content: "";
+    left: -10px;
+    animation-delay: -0.32s !important;
+    background: #fff;
+    animation: loaderAnim 1s infinite ease-in-out;
+    width: 6px;
+  }
+
+  .loader:after {
+    position: absolute;
+    top: 0;
+    content: "";
+    left: 10px;
+    background: #fff;
+    animation: loaderAnim 1s infinite ease-in-out;
+    width: 6px;
+  }
+
+  ::ng-deep .payment-methods {
+    padding-top: 19.0962px !important;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 414px) {
+  .page-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 3vw;
+    margin-left: 0;
+  }
+
+  .active-freespins {
+    height: 100%;
+    margin-top: 30px !important;
+  }
+
+  .promo-code {
+    background: #101317;
+    border-radius: 4px;
+    margin: 3vw 0;
+    padding: 3vw;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .fields input {
+    width: calc(100% - 37vw);
+    margin-right: 2vw;
+    color: #fff;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.17);
+    font-family: "Roboto";
+    border: none;
+    font-size: 3.5vw;
+    padding-left: 4vw;
+    padding-right: 0;
+    border-radius: 9.075px;
+    min-width: 191.25px;
+  }
+
+  .promo-code form:last-child {
+    margin-left: 0;
+  }
+
+  .fields button {
+    width: 35vw;
+    height: 100%;
+    line-height: 10vw;
+    font-size: 16.875px;
+    margin-left: 0;
+    font-family: "Roboto";
+    border-radius: 9.075px;
+    font-weight: 500;
+  }
+
+  input::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  .page-title {
+    height: 14vw;
+    line-height: 14vw;
+    padding: 0 6vw;
+    font-size: 4.5vw;
+    background-color: #101317;
+    color: #fff;
+    font-family: "Roboto";
+    display: flex;
+    align-items: center;
+  }
+
+  .page-title * {
+    vertical-align: middle;
+  }
+
+  .page-title .arrow {
+    float: left;
+    font-size: 8vw;
+    margin-top: -1px;
+  }
+
+  .page-title .title {
+    float: right;
+  }
+
+  .page-title .icon {
+    float: right;
+    font-size: 6vw;
+    max-height: 6vw;
+    margin-right: 3vw;
+    color: #fff;
+  }
+
+  .fields {
+    margin-top: 3vw;
+  }
+
+  .table-wrapper {
+    margin: 4vw;
+    padding-right: 8vw;
+  }
+
+  .table-wrapper table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .table-wrapper table thead tr {
+    color: #ffffffb3;
+  }
+
+  .table-wrapper table thead tr th {
+    text-align: left;
+    padding-left: 10px !important;
+    font-weight: 200;
+    width: auto !important;
+    height: auto;
+  }
+
+  .table-wrapper table thead tr th:nth-child(1) {
+    padding-left: 10px;
+    width: 103.75px !important;
+  }
+
+  .active-freespins {
+    height: 100%;
+    margin-top: -4px !important;
+  }
+
+  .loader-wrapper {
+    height: 141px;
+    display: flex;
+    align-items: center;
+    padding-top: 1.5rem;
+  }
+
+  .loader-wrapper .loader {
+    margin-top: 50px;
+    animation-delay: -0.16s !important;
+    background: #fff;
+    animation: loaderAnim 1s infinite ease-in-out;
+    width: 6px;
+    transform: translateY(5px);
+    position: relative;
+    color: #fff;
+    text-indent: -9999em;
+    margin: 0 auto;
+  }
+
+  .loader:before {
+    position: absolute;
+    top: 0;
+    content: "";
+    left: -10px;
+    animation-delay: -0.32s !important;
+    background: #fff;
+    animation: loaderAnim 1s infinite ease-in-out;
+    width: 6px;
+  }
+
+  .loader:after {
+    position: absolute;
+    top: 0;
+    content: "";
+    left: 10px;
+    background: #fff;
+    animation: loaderAnim 1s infinite ease-in-out;
+    width: 6px;
+  }
+
+  ::ng-deep .payment-methods {
+    padding-top: 19.0962px !important;
+  }
+
+  .page-title .icon {
+    float: right;
+    font-size: 6vw;
+    max-height: 6vw;
+    margin-right: 3vw;
+    color: #fff;
+  }
+
+  .page-title .arrow {
+    float: left;
+    font-size: 8vw;
+    margin-top: -1px;
+  }
+
+  .fields {
+    height: 39px;
+    margin-top: 3vw;
+  }
+
+  .fields input {
+    width: 198.94px !important;
+    min-width: 198.94px !important;
+  }
+
+  .fields button {
+    font-size: 4.5vw;
+    font-weight: 600;
+  }
+
+  .table-wrapper {
+    margin-top: 16px;
+  }
+
+  .table-wrapper table thead tr th {
+    font-size: 3.5vw;
+  }
+
+  .table-wrapper table thead tr th:nth-child(1) {
+    width: 107.5px !important;
+  }
+
+  .footer {
+    margin-top: 25.05rem;
+  }
+
+  .loader-wrapper {
+    height: 142px;
+  }
+}
+
+@media (min-width: 414px) and (max-width: 430px) {
+  .page-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 3vw;
+    margin-left: 0;
+  }
+
+  .active-freespins {
+    height: 100%;
+    margin-top: 30px !important;
+  }
+
+  .promo-code {
+    background: #101317;
+    border-radius: 4px;
+    margin: 3vw 0;
+    padding: 3vw;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .fields input {
+    width: calc(100% - 37vw);
+    margin-right: 2vw;
+    color: #fff;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.17);
+    font-family: "Roboto";
+    border: none;
+    font-size: 3.5vw;
+    padding-left: 4vw;
+    padding-right: 0;
+    border-radius: 9.075px;
+    min-width: 191.25px;
+  }
+
+  .promo-code form:last-child {
+    margin-left: 0;
+  }
+
+  .fields button {
+    width: 35vw;
+    height: 100%;
+    line-height: 10vw;
+    font-size: 16.875px;
+    margin-left: 0;
+    font-family: "Roboto";
+    border-radius: 9.075px;
+    font-weight: 500;
+  }
+
+  input::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  .page-title {
+    height: 14vw;
+    line-height: 14vw;
+    padding: 0 6vw;
+    font-size: 4.5vw;
+    background-color: #101317;
+    color: #fff;
+    font-family: "Roboto";
+    display: flex;
+    align-items: center;
+  }
+
+  .page-title * {
+    vertical-align: middle;
+  }
+
+  .page-title .arrow {
+    float: left;
+    font-size: 8vw;
+    margin-top: -1px;
+  }
+
+  .page-title .title {
+    float: right;
+  }
+
+  .page-title .icon {
+    float: right;
+    font-size: 6vw;
+    max-height: 6vw;
+    margin-right: 3vw;
+    color: #fff;
+  }
+
+  .fields {
+    margin-top: 3vw;
+  }
+
+  .table-wrapper {
+    margin: 4vw;
+    padding-right: 8vw;
+  }
+
+  .table-wrapper table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .table-wrapper table thead tr {
+    color: #ffffffb3;
+  }
+
+  .table-wrapper table thead tr th {
+    text-align: left;
+    padding-left: 10px !important;
+    font-weight: 200;
+    width: auto !important;
+    height: auto;
+  }
+
+  .table-wrapper table thead tr th:nth-child(1) {
+    padding-left: 10px;
+    width: 103.75px !important;
+  }
+
+  .active-freespins {
+    height: 100%;
+    margin-top: -4px !important;
+  }
+
+  .loader-wrapper {
+    height: 141px;
+    display: flex;
+    align-items: center;
+    padding-top: 1.5rem;
+  }
+
+  .loader-wrapper .loader {
+    margin-top: 50px;
+    animation-delay: -0.16s !important;
+    background: #fff;
+    animation: loaderAnim 1s infinite ease-in-out;
+    width: 6px;
+    transform: translateY(5px);
+    position: relative;
+    color: #fff;
+    text-indent: -9999em;
+    margin: 0 auto;
+  }
+
+  .loader:before {
+    position: absolute;
+    top: 0;
+    content: "";
+    left: -10px;
+    animation-delay: -0.32s !important;
+    background: #fff;
+    animation: loaderAnim 1s infinite ease-in-out;
+    width: 6px;
+  }
+
+  .loader:after {
+    position: absolute;
+    top: 0;
+    content: "";
+    left: 10px;
+    background: #fff;
+    animation: loaderAnim 1s infinite ease-in-out;
+    width: 6px;
+  }
+
+  ::ng-deep .payment-methods {
+    padding-top: 19.0962px !important;
+  }
+
+  .page-title .icon {
+    float: right;
+    font-size: 6vw;
+    max-height: 6vw;
+    margin-right: 3vw;
+    color: #fff;
+  }
+
+  .page-title .arrow {
+    float: left;
+    font-size: 8vw;
+    margin-top: -1px;
+  }
+
+  .fields {
+    height: 41.39px;
+    margin-top: 3vw;
+  }
+
+  .fields input {
+    width: 211.19px !important;
+    min-width: 211.19px !important;
+  }
+
+  .fields button {
+    font-size: 4.5vw;
+    font-weight: 600;
+  }
+
+  .table-wrapper {
+    margin-top: 19px;
+  }
+
+  .table-wrapper table thead tr th {
+    font-size: 3.5vw;
+  }
+
+  .table-wrapper table thead tr th:nth-child(1) {
+    width: 113.5px !important;
+  }
+
+  .footer {
+    margin-top: 26.22rem;
+  }
+
+  .loader-wrapper {
+    height: 142px;
+  }
+}
+
+@media (min-width: 430px) and (max-width: 768px) {
+  .page-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 3vw;
+    margin-left: 0;
+  }
+
+  .active-freespins {
+    height: 100%;
+    margin-top: 30px !important;
+  }
+
+  .promo-code {
+    background: #101317;
+    border-radius: 4px;
+    margin: 3vw 0;
+    padding: 3vw;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .fields input {
+    width: calc(100% - 37vw);
+    margin-right: 2vw;
+    color: #fff;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.17);
+    font-family: "Roboto";
+    border: none;
+    font-size: 3.5vw;
+    padding-left: 4vw;
+    padding-right: 0;
+    border-radius: 9.075px;
+    min-width: 191.25px;
+  }
+
+  .promo-code form:last-child {
+    margin-left: 0;
+  }
+
+  .fields button {
+    width: 35vw;
+    height: 100%;
+    line-height: 10vw;
+    font-size: 16.875px;
+    margin-left: 0;
+    font-family: "Roboto";
+    border-radius: 9.075px;
+    font-weight: 500;
+  }
+
+  input::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  .page-title {
+    height: 14vw;
+    line-height: 14vw;
+    padding: 0 6vw;
+    font-size: 4.5vw;
+    background-color: #101317;
+    color: #fff;
+    font-family: "Roboto";
+    display: flex;
+    align-items: center;
+  }
+
+  .page-title * {
+    vertical-align: middle;
+  }
+
+  .page-title .arrow {
+    float: left;
+    font-size: 8vw;
+    margin-top: -1px;
+  }
+
+  .page-title .title {
+    float: right;
+  }
+
+  .page-title .icon {
+    float: right;
+    font-size: 6vw;
+    max-height: 6vw;
+    margin-right: 3vw;
+    color: #fff;
+  }
+
+  .fields {
+    margin-top: 3vw;
+  }
+
+  .table-wrapper {
+    margin: 4vw;
+    padding-right: 8vw;
+  }
+
+  .table-wrapper table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .table-wrapper table thead tr {
+    color: #ffffffb3;
+  }
+
+  .table-wrapper table thead tr th {
+    text-align: left;
+    padding-left: 10px !important;
+    font-weight: 200;
+    width: auto !important;
+    height: auto;
+  }
+
+  .table-wrapper table thead tr th:nth-child(1) {
+    padding-left: 10px;
+    width: 103.75px !important;
+  }
+
+  .active-freespins {
+    height: 100%;
+    margin-top: -4px !important;
+  }
+
+  .loader-wrapper {
+    height: 141px;
+    display: flex;
+    align-items: center;
+    padding-top: 1.5rem;
+  }
+
+  .loader-wrapper .loader {
+    margin-top: 50px;
+    animation-delay: -0.16s !important;
+    background: #fff;
+    animation: loaderAnim 1s infinite ease-in-out;
+    width: 6px;
+    transform: translateY(5px);
+    position: relative;
+    color: #fff;
+    text-indent: -9999em;
+    margin: 0 auto;
+  }
+
+  .loader:before {
+    position: absolute;
+    top: 0;
+    content: "";
+    left: -10px;
+    animation-delay: -0.32s !important;
+    background: #fff;
+    animation: loaderAnim 1s infinite ease-in-out;
+    width: 6px;
+  }
+
+  .loader:after {
+    position: absolute;
+    top: 0;
+    content: "";
+    left: 10px;
+    background: #fff;
+    animation: loaderAnim 1s infinite ease-in-out;
+    width: 6px;
+  }
+
+  ::ng-deep .payment-methods {
+    padding-top: 19.0962px !important;
+  }
+
+  .page-title .icon {
+    float: right;
+    font-size: 6vw;
+    max-height: 6vw;
+    margin-right: 3vw;
+    color: #fff;
+    padding-top: 1px;
+  }
+
+  .page-title .arrow {
+    float: left;
+    font-size: 8vw;
+    margin-top: -1px;
+    padding-top: 1px;
+  }
+
+  .fields {
+    height: 43px;
+    margin-top: 3vw;
+  }
+
+  .fields input {
+    width: 219.33px !important;
+    min-width: 219.33px !important;
+  }
+
+  .fields button {
+    font-size: 4.5vw;
+    font-weight: 600;
+  }
+
+  .table-wrapper table thead tr th {
+    font-size: 3.5vw;
+  }
+
+  .table-wrapper table thead tr th:nth-child(1) {
+    width: 117.75px !important;
+  }
+
+  .footer {
+    margin-top: 26.95rem;
+  }
+
+  .loader-wrapper {
+    height: 144px;
+  }
+}
+
+@keyframes loaderAnim {
+  0%,
+  100%,
+  80% {
+    box-shadow: 0 0;
+    height: 24px;
+  }
+
+  40% {
+    box-shadow: 0 -10px;
+    height: 30px;
+  }
+}

@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.popup {
+  padding: 40.625px 0;
+  border-radius: 2.4375px;
+  position: relative;
+  width: 406.25px;
+  background-color: #030303;
+  max-height: 327.72px;
+  height: 100%;
+}
+
+form.new ul.fields li {
+  width: 27%;
+  overflow: unset !important;
+  flex-shrink: 0;
+  margin-top: 8.19px;
+  margin-bottom: 32.5px !important;
+}
+
+.popup form.new ul.fields li {
+  position: relative;
+  width: 55%;
+}
+
+form.new ul.fields li p {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100% !important;
+  font-size: 11.44px;
+  pointer-events: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: "Poppins";
+  font-weight: normal;
+  transition: all 0.2s ease-in-out;
+  height: 28.47px;
+  display: flex;
+  align-items: center;
+}
+
+form.new ul.fields li.fucused p {
+  top: -20.28px;
+  font-size: 10.53px;
+}
+
+form.new ul.fields li input {
+  width: 100% !important;
+  background: 0 0 !important;
+  border: none;
+  font-size: 12.22px;
+  font-family: Poppins-Light;
+  height: 28.47px;
+  padding: 0 8.19px;
+  border-bottom: 0.78px solid rgba(255, 255, 255, 0.1);
+  transition: 0.2s;
+  border-radius: 6.0671px;
+  color: white;
+}
+
+form.new ul.fields li input:focus {
+  border-bottom: 0.78px solid rgba(255, 255, 255, 0.7);
+}
+
+span.done {
+  position: absolute;
+  pointer-events: none;
+  font-size: 16.25px;
+  right: 4.0625px;
+  top: 50%;
+  margin-top: -8.125px;
+  color: #3cb251;
+  display: none;
+}
+
+.popup form.new .btn {
+  width: 55%;
+  height: 39px;
+  border-radius: 2.4375px;
+}
+
+.btn[disabled] {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.btn {
+  position: relative;
+  outline: 0;
+  border: 0;
+  text-align: center;
+  font-weight: 400;
+  background: #11e311;
+  color: #030303;
+  line-height: normal;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: 120ms ease !important;
+  cursor: pointer;
+  padding: 0 8.19px;
+  font-weight: bold;
+}

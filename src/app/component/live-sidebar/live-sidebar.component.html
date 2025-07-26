@@ -1,0 +1,730 @@
+<div class="live-tree font-['Roboto'] text-[14px] h-full overflow-y-auto">
+    <div class="h-[30px] overflow-hidden flex items-center">
+        <div class="flex items-center justify-center h-full w-[60px] bg-[#101317] rounded-[3px] cursor-pointer">
+            <img src="/assets/images/live-navbar/eye.png" alt="">
+        </div>
+        <div class="w-[calc(100%_-_130px)] mx-[5px] h-full rounded-[3px] font-['Roboto']">
+            <input
+                class="pl-[10px] bg-transparent border border-solid border-[#151515] text-white rounded-[3px] h-full w-full text-[13.3333px]"
+                type="text" placeholder="Search Event...">
+        </div>
+        <div
+            class="flex items-center justify-center h-full w-[60px] bg-[#101317] rounded-[3px] cursor-pointer text-[18.2px] text-white">
+            <span class="material-icons opacity-60">live_tv</span>
+        </div>
+    </div>
+    <div class="favs max-h-[106px]">
+        <div class="text-white cursor-pointer flex justify-between items-center">
+            <div class="flex items-center gap-1">
+                <span class="material-icons text-[#ffd200] mr-[5px] text-[21px]">star</span>
+                <span class="text-[14px]">My Favourites</span>
+            </div>
+            <span (click)="toggle('fav')" class="material-icons opacity-60 transition-all delay-[.12s] text-[21px]">{{
+                fav ? 'keyboard_arrow_down' : 'keyboard_arrow_right' }}</span>
+        </div>
+
+        <div [ngClass]="{'hidden': !fav}" class="my-[10px]">
+            <div class="p-[14px] text-center text-[hsl(0deg_0%_100%_/_50%)] m-[10px] bg-[#131313]">
+                <span class="text-center text-[hsl(0deg_0%_100%_/_50%)] relative bottom-[2px]">Not Selected</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="sport">
+        <div class="g-title !pt-[1px]">
+            <span sport="soccer" class="sport-icon"></span>
+            <span>Soccer</span>
+            <span class="match-count ml-2.5">(68)</span>
+            <span (click)="toggle('soccer')"
+                class="material-icons flex items-center h-full pb-[2px] float-right text-[21px] text-white cursor-pointer ">{{soccer
+                ? 'keyboard_arrow_down' : 'keyboard_arrow_right'}}</span>
+        </div>
+        <ul [ngClass]="{'hidden': !soccer}" class="liv-champs">
+            <li>
+                <div class="live-champ-name !pt-[2px]">
+                    <div country="international" class="flag"></div>
+                    <div title="International - OFC Nations Cup, Women" class="name truncate">International - OFC
+                        Nations Cup,
+                        Women</div>
+                </div>
+                <ul class="matches">
+                    <li class="live-tree-match active">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="live-tree-match">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="live-tree-match">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="live-champ-name !pt-[2px]">
+                    <div country="international" class="flag"></div>
+                    <div title="International - OFC Nations Cup, Women" class="name truncate">International - OFC
+                        Nations Cup,
+                        Women</div>
+                </div>
+                <ul class="matches">
+                    <li class="live-tree-match">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon active">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="live-tree-match">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon active">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="live-tree-match">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon active">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="live-tree-match">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon active">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="live-tree-match">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon active">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="sport">
+        <div class="g-title !pt-[1px]">
+            <span sport="tennis" class="sport-icon"></span>
+            <span>Tennis</span>
+            <span class="match-count ml-2.5">(68)</span>
+            <span (click)="toggle('tennis')"
+                class="material-icons flex items-center h-full pb-[2px] float-right text-[21px] text-white cursor-pointer ">{{tennis
+                ? 'keyboard_arrow_down' : 'keyboard_arrow_right'}}</span>
+        </div>
+        <ul [ngClass]="{'hidden': !tennis}" class="liv-champs">
+            <li>
+                <div class="live-champ-name !pt-[2px]">
+                    <div country="international" class="flag"></div>
+                    <div title="International - OFC Nations Cup, Women" class="name truncate">International - OFC
+                        Nations Cup,
+                        Women</div>
+                </div>
+                <ul class="matches">
+                    <li class="live-tree-match">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="live-tree-match">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="live-tree-match">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="live-champ-name !pt-[2px]">
+                    <div country="international" class="flag"></div>
+                    <div title="International - OFC Nations Cup, Women" class="name truncate">International - OFC
+                        Nations Cup,
+                        Women</div>
+                </div>
+                <ul class="matches">
+                    <li class="live-tree-match">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon active">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="live-tree-match">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon active">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="live-tree-match">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon active">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="live-tree-match">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon active">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="live-tree-match">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon active">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="sport">
+        <div class="g-title !pt-[1px]">
+            <span sport="cricket" class="sport-icon"></span>
+            <span>Cricket</span>
+            <span class="match-count ml-2.5">(68)</span>
+            <span (click)="toggle('cricket')"
+                class="material-icons flex items-center h-full pb-[2px] float-right text-[21px] text-white cursor-pointer ">{{cricket
+                ? 'keyboard_arrow_down' : 'keyboard_arrow_right'}}</span>
+        </div>
+        <ul [ngClass]="{'hidden': !cricket}" class="liv-champs">
+            <li>
+                <div class="live-champ-name !pt-[2px]">
+                    <div country="international" class="flag"></div>
+                    <div title="International - OFC Nations Cup, Women" class="name truncate">International - OFC
+                        Nations Cup,
+                        Women</div>
+                </div>
+                <ul class="matches">
+                    <li class="live-tree-match">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon active">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="live-tree-match">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon active">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="live-tree-match">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon active">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="live-champ-name !pt-[2px]">
+                    <div country="international" class="flag"></div>
+                    <div title="International - OFC Nations Cup, Women" class="name truncate">International - OFC
+                        Nations Cup,
+                        Women</div>
+                </div>
+                <ul class="matches">
+                    <li class="live-tree-match">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon active">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="live-tree-match">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon active">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="live-tree-match">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon active">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="live-tree-match">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon active">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="live-tree-match">
+                        <div class="fav flex">
+                            <span class="material-icons">star_border</span>
+                        </div>
+                        <div class="match-name">
+                            <p class="truncate leading-[21px]" title="Papua New Guinea">
+                                <span>Papua New Guinea</span>
+                            </p>
+                            <p class="truncate leading-[21px]" title="Solomon Islands W.">
+                                <span>Solomon Islands W.</span>
+                            </p>
+                        </div>
+                        <div class="live-info ml-auto pt-1">
+                            <p>
+                                <span class="material-icons stream-icon active">center_focus_strong</span>
+                                <span>1:2</span>
+                            </p>
+                            <p title="1st half 45">
+                                <span>
+                                    1st half
+                                </span>
+                                <span class="time">45'</span>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="prevent-select h-full w-full">
+    <app-header></app-header>
+
+    <app-sports-nav class="max-[820px]:hidden"></app-sports-nav>
+
+    <div class="flex lg:gap-[11px] xl:gap-[14px] layout-wrapper lg:px-[1vw] lg:mt-[0.875rem]">
+
+        <div class="lg:min-w-[242px]  xl:min-w-[308px] max-h-[calc(100dvh-128px)] overflow-hidden
+ hidden lg:block whitespace-nowrap">
+            <app-live-sidebar></app-live-sidebar>
+        </div>
+        <div class="lg:hidden">
+            <app-mobile-sidebar></app-mobile-sidebar>
+        </div>
+        <div
+            class="mainRouter w-[100vw] flex-auto lg:w-full xl:w-[calc(100vw-608.5px)] max-h-[calc(100dvh-128px)] overflow-hidden">
+            <div class="h-full overflow-y-auto">
+                <div class="hidden xl:block">
+                    <app-live-page-navbar></app-live-page-navbar>
+                </div>
+
+                <div class="block xl:hidden">
+                    <app-sports-nav></app-sports-nav>
+                </div>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+        <div *ngIf="showMatchTracker()" [ngClass]="{'!min-w-[462px]': toggle.extended()}"
+            class="max-lg:hidden lg:min-w-[242px] lg:max-w-[242px] xl:min-w-[308px] xl:max-w-[308px] overflow-hidden relative max-h-[calc(100dvh-128px)]">
+            <app-match-tracker></app-match-tracker>
+        </div>
+
+        <div *ngIf="!showMatchTracker()"
+            class="max-lg:hidden lg:min-w-[242px] lg:max-w-[242px] xl:min-w-[308px] xl:max-w-[308px]">
+            <app-betslip></app-betslip>
+        </div>
+
+    </div>
+    <div class="fixed left-0 bottom-0 w-full z-[999]">
+        <app-bottom-nav></app-bottom-nav>
+    </div>
+</div>

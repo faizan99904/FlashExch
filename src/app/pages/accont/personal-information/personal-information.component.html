@@ -1,0 +1,89 @@
+<div class="page-wrapper [@media(max-width:769px)]:!hidden">
+    <div class="nav">
+        <div class="rect">
+            <div class="flex items-center">
+                <span class="material-icons-outlined">account_balance_wallet</span>
+                <span>Balance</span>
+            </div>
+            <div>
+                <span class="amount">0.00</span>
+                <span class="currency-str">USD</span>
+            </div>
+        </div>
+        <a class="deposit rect ">
+            <span class="material-icons-outlined">payment</span>
+            <span class="font-bold">Deposit</span>
+        </a>
+    </div>
+    <div class="content">
+        <div class="half">
+            <h2>User Profile</h2>
+            <ul class="fields">
+                <li>
+                    <div class="username">Name</div>
+                    <div class="info">{{user.userName}}</div>
+                    <span class="material-icons locked">lock_outline</span>
+                </li>
+
+                <li>
+                    <div class="username">Commission</div>
+                    <div class="info">{{user.rollingBookmakerCommission}}</div>
+                    <span class="material-icons locked">lock_outline</span>
+                </li>
+
+                <li>
+                    <div class="username">Exposure Limit</div>
+                    <div class="info">{{user.exposureLimit}}</div>
+                    <span class="material-icons locked">lock_outline</span>
+                </li>
+
+                <li>
+                    <div class="username">Password</div>
+                    <div class="info">************</div>
+                    <span (click)="navigate()" class="material-icons locked editable">edit</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="bg-[#14161B] roboto-medium [@media(min-width:769px)]:!hidden min-h-screen">
+    <div class="page-title">
+        <a class="material-icons arrow" (click)="goBack()">arrow_back</a>
+        <span class="title">PERSONAL INFO</span>
+        <span class="material-icons icon">assignment_ind</span>
+    </div>
+    <div class="mb-content">
+        <h2>User Profile</h2>
+        <ul class="filled mb-fields">
+
+            <li>
+                <div class="desc">Name</div>
+                <div class="info" field="username">{{user.userName}}</div>
+            </li>
+            <li>
+                <div class="desc">Commission</div>
+                <div class="info">{{user.rollingBookmakerCommission}}</div>
+            </li>
+            <li>
+                <div class="desc">Exposure Limit</div>
+                <div class="info">{{user.exposureLimit}}</div>
+            </li>
+            <li class="password">
+                <div class="desc">Password</div>
+                <div class="info">*****************</div>
+                <span routerLink="/account/change-password"
+                    class="material-icons editable changepass">border_color</span>
+            </li>
+
+        </ul>
+        <div class="save btn">SAVE_DETAILS</div>
+    </div>
+</div>
+
+<div [ngClass]="{'!flex': passModal}" class="hidden overlay">
+    <div class="relative">
+        <app-change-pass></app-change-pass>
+        <span (click)="passModal = false" class="material-icons close">close</span>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="popup">
+    <form [formGroup]="changePassword" (ngSubmit)="onSubmit()" class="new flex w-full flex-col items-center">
+        <ul class="fields flex items-center justify-center flex-col w-full h-full">
+            <li [ngClass]=" {'fucused' : isOld}">
+                <p>Old Password</p>
+                <input
+                    [ngClass]="{'!border-[#d62700]': changePassword.get('oldPassword')?.invalid && changePassword.get('oldPassword')?.touched}"
+                    formControlName="oldPassword" (focus)="focused('oldPassword')" type="password" name="currPass"
+                    required="">
+            </li>
+            <li [ngClass]=" {'fucused' : isNew}">
+                <p>New Password</p>
+                <input
+                    [ngClass]="{'border-[#d62700]': changePassword.get('newPassword')?.invalid && changePassword.get('newPassword')?.touched}"
+                    formControlName="newPassword" (focus)="focused('newPassword')" type="password" name="newPass"
+                    required="">
+                <span class="material-icons done">done</span>
+            </li>
+            <li [ngClass]=" {'fucused' : isConfirm}">
+                <p>Confirm Password</p>
+                <input type="password" formControlName="confirmPassword" (focus)="focused('confirmPassword')"
+                    name="confPass" required="">
+                <span class="material-icons done">done</span>
+            </li>
+        </ul>
+        <button type="submit" class="btn poppins-bold" disabled="disabled">Change Password</button>
+        <p class="success-text">Password Changed
+            Successfully
+        </p>
+        <p class="err-text"></p>
+    </form>
+</div>

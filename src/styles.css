@@ -8,6 +8,11 @@
   --back-txt-clr: Black;
   --lay-txt-clr: Black;
 }
+@media screen and (min-width: 1200px) {
+  html {
+    font-size: 14px;
+  }
+}
 html,
 body {
   font-family: Roboto, sans-serif;
@@ -164,7 +169,7 @@ body {
 .sport-icon[sport="golf"]:before {
   content: "\e827";
 } /* '' */
-.sport-icon[sport="greyhoundraicing"]:before {
+.sport-icon[sport="greyhound racing"]:before {
   content: "\e828";
 } /* '' */
 .sport-icon[sport="gymnastics"]:before {
@@ -185,7 +190,7 @@ body {
 .sport-icon[sport="heroesofthestorm"]:before {
   content: "\e82e";
 } /* '' */
-.sport-icon[sport="horseracing"]:before {
+.sport-icon[sport="horse racing"]:before {
   content: "\e82f";
 } /* '' */
 .sport-icon[sport="icehockey"]:before {
@@ -395,6 +400,9 @@ body {
 .sport-icon[sport="canoekayak"]:before {
   content: "\e80f";
 } /* '' */
+.sport-icon[sport="lottery"]:before {
+  content: "\e833";
+}
 
 .prevent-select {
   -webkit-user-select: none;
@@ -458,4 +466,1190 @@ body {
   ::-webkit-scrollbar-thumb {
     background: #3d3d3d !important;
   }
+}
+
+.flag[country] {
+  background-image: url("/assets/images/flags.png");
+}
+
+.flag {
+  display: inline-block;
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+  background-image: url("/assets/images/flags.png");
+  background-repeat: no-repeat;
+  background-position: 100px 0;
+  transform: scale(0.8);
+  transform-origin: left center;
+}
+
+.flag[country^="home"] {
+  background-image: none;
+}
+
+.flag[country^="worldcup"] {
+  background-position: -287px -411px;
+}
+
+.flag[country^="international"] {
+  background-position: -239px -384px;
+}
+
+.flag[country^="uefachampionsleague"] {
+  background-position: -47px -72px;
+  -webkit-filter: invert(0);
+  filter: invert(0);
+}
+
+.flag[country^="uefaeuropaleague"] {
+  background-position: -336px -96px;
+}
+
+.flag[country^="copaamericacnt"] {
+  background-position: -264px -72px;
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+}
+
+.flag[country^="wta"] {
+  background-position: -1px -405px;
+}
+
+.flag[country^="atp"] {
+  background-position: -25px -405px;
+}
+
+.flag[country^="itf"] {
+  background-position: -50px -405px;
+  transform: scale(0.8);
+}
+
+.flag[country^="challenger"] {
+  background-position: -74px -405px;
+}
+
+.flag[country^="daviscup"] {
+  background-position: -149px -405px;
+}
+
+.flag[country^="euro"] {
+  background-position: -198px -407px;
+}
+
+.flag[country^="eurobasket"] {
+  background-position: -226px -412px;
+}
+
+.flag[country^="uefaeuropaconferenceleague"] {
+  background-position: -312px -409px;
+}
+
+.flag[country^="uefasupercup"] {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjcyLjcgMzcwLjgiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDpub25lO30uY2xzLTJ7ZmlsbDojMjMxODE1O30uY2xzLTN7Y2xpcC1wYXRoOnVybCgjY2xpcC1wYXRoKTt9LmNscy00e2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aC0yKTt9LmNscy01e2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aC0zKTt9LmNscy02e2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aC00KTt9LmNscy03e2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aC01KTt9LmNscy04e2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aC02KTt9LmNscy05e2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aC03KTt9LmNscy0xMHtjbGlwLXBhdGg6dXJsKCNjbGlwLXBhdGgtOCk7fS5jbHMtMTF7Y2xpcC1wYXRoOnVybCgjY2xpcC1wYXRoLTkpO308L3N0eWxlPjxjbGlwUGF0aCBpZD0iY2xpcC1wYXRoIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTIyLjQgLTQ5LjMpIj48cmVjdCBjbGFzcz0iY2xzLTEiIHg9IjEyMi40IiB5PSIzODEuOCIgd2lkdGg9IjI4LjUiIGhlaWdodD0iMzguMjkiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iY2xpcC1wYXRoLTIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMjIuNCAtNDkuMykiPjxyZWN0IGNsYXNzPSJjbHMtMSIgeD0iMTUyLjEiIHk9IjM4MS44IiB3aWR0aD0iMzEuMSIgaGVpZ2h0PSIzOC4yOSIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSJjbGlwLXBhdGgtMyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMi40IC00OS4zKSI+PHJlY3QgY2xhc3M9ImNscy0xIiB4PSIxODUuOCIgeT0iMzgxLjgiIHdpZHRoPSIyOS44IiBoZWlnaHQ9IjM4LjI5Ii8+PC9jbGlwUGF0aD48Y2xpcFBhdGggaWQ9ImNsaXAtcGF0aC00IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTIyLjQgLTQ5LjMpIj48cmVjdCBjbGFzcz0iY2xzLTEiIHg9IjIxNi44IiB5PSIzODEuOCIgd2lkdGg9IjI3LjIiIGhlaWdodD0iMzguMjkiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iY2xpcC1wYXRoLTUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMjIuNCAtNDkuMykiPjxyZWN0IGNsYXNzPSJjbHMtMSIgeD0iMjQ2LjYiIHk9IjM4MS44IiB3aWR0aD0iMzQuOSIgaGVpZ2h0PSIzOC4yOSIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSJjbGlwLXBhdGgtNiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMi40IC00OS4zKSI+PHJlY3QgY2xhc3M9ImNscy0xIiB4PSIyODQuMSIgeT0iMzgxLjgiIHdpZHRoPSIzMi4zIiBoZWlnaHQ9IjM4LjI5Ii8+PC9jbGlwUGF0aD48Y2xpcFBhdGggaWQ9ImNsaXAtcGF0aC03IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTIyLjQgLTQ5LjMpIj48cmVjdCBjbGFzcz0iY2xzLTEiIHg9IjMxOSIgeT0iMzgxLjgiIHdpZHRoPSIzMS4xIiBoZWlnaHQ9IjM4LjI5Ii8+PC9jbGlwUGF0aD48Y2xpcFBhdGggaWQ9ImNsaXAtcGF0aC04IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTIyLjQgLTQ5LjMpIj48cmVjdCBjbGFzcz0iY2xzLTEiIHg9IjM1MS40IiB5PSIzODEuOCIgd2lkdGg9IjMxLjEiIGhlaWdodD0iMzguMjkiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iY2xpcC1wYXRoLTkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMjIuNCAtNDkuMykiPjxyZWN0IGNsYXNzPSJjbHMtMSIgeD0iMzg3LjYiIHk9IjM4MS44IiB3aWR0aD0iNy40IiBoZWlnaHQ9IjcuNzYiLz48L2NsaXBQYXRoPjwvZGVmcz48ZyBpZD0ic3VyZmFjZTEiPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTI5MC42LDIwOS4zYzIwLTM3LjMsMzEuMy03OC4xLDkuMy0xMDYuMiwxLDcuMSwxLjIsMTMuMSwxLjIsMTMuMSwyNi4xLDM4LjQtMjMuNywxMTEuMi0yMy43LDExMS4yLDQuOS02LjMsOS4zLTEyLjMsMTMuMi0xOC4xIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTIyLjQgLTQ5LjMpIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMzA2LjcsMTgwLjNjMjUuNC01Ny42LTQuNC04NS41LTkuMi04OS42YTYyLjEsNjIuMSwwLDAsMSwxLjMsNi44Yy4zLDEuMi42LDIuNC44LDMuNywyMy4zLDI4LDEyLDY4LjItMy4zLDk5LjEuNy0xLjMsMS44LTMsMS44LTMsNDguMS03NS42LTIuNy0xMTQuNi0yLjctMTE0LjYuNiwxLjUsMS4yLDQuMiwxLjcsNS45LDUuMyw1LjEsMzcuMywzNS4yLDkuNiw5MS43IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTIyLjQgLTQ5LjMpIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMjA0LDEwMy4xYy0yMiwyOC4xLTEwLjgsNjguOSw5LjMsMTA2LjIsMy45LDUuOCw4LjIsMTEuOCwxMy4yLDE4LjEsMCwwLTQ5LjgtNzIuOC0yMy43LTExMS4yLDAsMCwuMi02LDEuMi0xMy4xIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTIyLjQgLTQ5LjMpIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMjA3LjYsMjAwLjNjLTE1LjMtMzAuOS0yNi43LTcxLjEtMy4zLTk5LjEuMi0xLjMuNS0yLjUuNy0zLjdzLjgtNC40LDEuNC02LjhjLTQuOSw0LjEtMzQuNiwzMi05LjIsODkuNi0yNy43LTU2LjUsNC4zLTg2LjYsOS42LTkxLjcuNS0xLjcsMS4xLTQuNCwxLjctNS45LDAsMC01MC44LDM5LTIuNywxMTQuNiwwLDAsMS4xLDEuNywxLjgsMyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMi40IC00OS4zKSIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTIzMy40LDIzMS4xYy0yMC0yMy4zLTIxLjMtODEuNy0yMS4zLTgxLjcsNS43LDgzLjcsMzQuMiw5MSwzOS43LDkxaDBjNS40LDAsMzMuOS03LjMsMzkuNy05MSwwLDAtMS4zLDU4LjQtMjEuNCw4MS43LDE1LjgtMTYuOCwyNi44LTU0LjUsMjYuOC05OC40LDAtMzMuNS02LjQtNjMuNy0xNi40LTgzLjRoLTkuOGM5LjIsMTYuOCwxNS41LDQ0LjksMTUuNSw3Ni4zLDAsMjUuOS0zLjcsNDkuMy0xMCw2Ni4ybDEuOS0yLjljLTUuOCwyMS4xLTE2LjQsMzMtMjYuMywzM3MtMjAuNi0xMS45LTI2LjQtMzNsMS45LDIuOWMtNi4yLTE2LjktOS45LTQwLjMtOS45LTY2LjIsMC0zMS40LDYuMi01OS41LDE1LjUtNzYuM0gyMjNjLTEwLDE5LjctMTYuNCw0OS45LTE2LjQsODMuNCwwLDQzLjksMTEuMSw4MS42LDI2LjgsOTguNCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMi40IC00OS4zKSIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTI1MS43LDIyMWguMWM5LjgtLjIsMTkuOS0xMy43LDI0LTI4LTUuOCwxNS4xLTE0LjIsMjQuNS0yNCwyNC41cy0xOC4yLTkuNC0yNC4xLTI0LjVjNC4xLDE0LjMsMTQuMiwyNy44LDI0LDI4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTIyLjQgLTQ5LjMpIi8+PGcgY2xhc3M9ImNscy0zIj48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xNDAuNywzOTcuMWE3Ny4yLDc3LjIsMCwwLDEtOS4xLTQuOWMtMS0uNi0xLjctMS40LTEuNC0yLjJzMi0xLjUsNi44LTEuNWwxMi4yLjd2LTYuNHMtOC44LS45LTEyLjItLjljLTEwLDAtMTQuNiwyLjgtMTQuNiw4LjlzMy41LDYuNSw4LjQsOWw1LjQsMi44YzUsMi42LDYsMy45LDYuMiw1LjVhNS4xLDUuMSwwLDAsMS00LjUsNS4yYy0zLjMuNS0xNS4xLS41LTE1LjEtLjV2Ni40czguOS45LDEyLjIuOWMxNS41LDAsMTUuMy0xMC4zLDE1LjMtMTIuMiwwLTQuNC0yLjYtNy4zLTkuNi0xMC44IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTIyLjQgLTQ5LjMpIi8+PC9nPjxnIGNsYXNzPSJjbHMtNCI+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTc1LjYsMzg3Ljh2MTUuOGExOC44LDE4LjgsMCwwLDEtLjgsNi4zLDUuNCw1LjQsMCwwLDEtMi4zLDIuNywxMi40LDEyLjQsMCwwLDEtNC44LjksMTEuOCwxMS44LDAsMCwxLTQuOC0uOSw2LjIsNi4yLDAsMCwxLTIuNC0yLjcsMTkuNCwxOS40LDAsMCwxLS43LTYuM1YzODcuOGE1LjcsNS43LDAsMCwwLTUuOC01LjRoLTEuMnYyMS4yYTI1LDI1LDAsMCwwLDEuNCw5LjIsMTEuMSwxMS4xLDAsMCwwLDUsNS41LDE2LjcsMTYuNywwLDAsMCw2LjQsMS43aDQuMWExNy4yLDE3LjIsMCwwLDAsNi41LTEuNywxMC45LDEwLjksMCwwLDAsNC45LTUuNWMxLTIuMiwxLjQtNS4zLDEuNC05LjJWMzgyLjRoLTEuMmE1LjYsNS42LDAsMCwwLTUuNyw1LjQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMjIuNCAtNDkuMykiLz48L2c+PGcgY2xhc3M9ImNscy01Ij48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yMTAuOCwzODQuNmExMywxMywwLDAsMC00LjgtMS45LDM4LjIsMzguMiwwLDAsMC01LjUtLjNoLTkuMmMtNS4yLDAtNS4yLDQuMi01LjIsNi4zdjMwLjhoN1YzODguOWg3LjhhMjMuMSwyMy4xLDAsMCwxLDQsLjIsNCw0LDAsMCwxLDIuMiwxLjYsNS40LDUuNCwwLDAsMSwuOSwzLjEsNC41LDQuNSwwLDAsMS0xLjUsMy43Yy0xLC45LTMuNCwxLjQtNi44LDEuNHMtNC45LDIuNi01LjIsNS4xdjEuM2g2LjVjNS4zLDAsOS0xLjIsMTEuMS0zLjVhMTEuNiwxMS42LDAsMCwwLDMuMS04LjMsMTIuNywxMi43LDAsMCwwLTEuMS01LjIsMTAsMTAsMCwwLDAtMy4yLTMuOCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMi40IC00OS4zKSIvPjwvZz48ZyBjbGFzcz0iY2xzLTYiPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTIyNC44LDM4OC45SDI0M3YtNi41SDIyMi45Yy01LjEsMC01LjEsNC4yLTUuMSw2LjN2MjQuNWMwLDIuMiwwLDYuMyw1LjEsNi4zaDIwLjJWNDEzSDIyNC44di05LjdoMTguM3YtNi40SDIyNC44IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTIyLjQgLTQ5LjMpIi8+PC9nPjxnIGNsYXNzPSJjbHMtNyI+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMjc0LjUsNDEzYy0yLjctLjMtOS42LTItMTEuOS03LjcsNC42LS4xLDgtMS4zLDkuOS0zLjRhMTEuNiwxMS42LDAsMCwwLDMuMS04LjMsMTIuNywxMi43LDAsMCwwLTEuMS01LjIsMTAsMTAsMCwwLDAtMy4yLTMuOCwxMywxMywwLDAsMC00LjgtMS45LDM3LjIsMzcuMiwwLDAsMC01LjUtLjNoLTkuMmMtNS4yLDAtNS4xLDQuMi01LjEsNi4zdjMwLjhoNi45VjM4OC45aDcuOGEyMy4xLDIzLjEsMCwwLDEsNCwuMiw0LDQsMCwwLDEsMi4yLDEuNiw1LjQsNS40LDAsMCwxLC45LDMuMSw1LDUsMCwwLDEtMS40LDMuN2MtMi4xLDItMTIuMiwxLjYtMTIuMiwxLjYtMSw3LjUsNC42LDIwLjQsMjIuMSwyMC40aDMuOWwuMi0uOGExNSwxNSwwLDAsMS02LjYtNS43IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTIyLjQgLTQ5LjMpIi8+PC9nPjxnIGNsYXNzPSJjbHMtOCI+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMjg5LjcsMzg3LjlhMTkuOCwxOS44LDAsMCwwLTQuOSwxMy41LDIwLjQsMjAuNCwwLDAsMCwxLjgsOC42LDE0LjYsMTQuNiwwLDAsMCw0LjgsNiwxNi45LDE2LjksMCwwLDAsNy41LDMsNTcuMSw1Ny4xLDAsMCwwLDkuNC41aDcuM3YtNi40aC04YTMzLjMsMzMuMywwLDAsMS03LjgtLjYsOS44LDkuOCwwLDAsMS01LjUtNC4xLDEyLjIsMTIuMiwwLDAsMS0yLTcuMmMwLTQsMS4xLTYuOSwzLjUtOS4xczUuOS0yLjcsMTEtMi44aDMuNGMyLjksMCw1LjMtMi42LDUuNC01Ljh2LTEuMWgtOC44Yy04LjMsMC0xNCwxLjktMTcuMSw1LjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMjIuNCAtNDkuMykiLz48L2c+PGcgY2xhc3M9ImNscy05Ij48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0zNDIsMzg3Ljh2MTUuOGExOC44LDE4LjgsMCwwLDEtLjgsNi4zLDUuNyw1LjcsMCwwLDEtMi40LDIuNywxMS4xLDExLjEsMCwwLDEtNC43LjksMTEuOCwxMS44LDAsMCwxLTQuOC0uOSw2LjIsNi4yLDAsMCwxLTIuNC0yLjcsMTkuNCwxOS40LDAsMCwxLS43LTYuM1YzODcuOGE1LjcsNS43LDAsMCwwLTUuOC01LjRoLTEuMnYyMS4yYTI1LDI1LDAsMCwwLDEuNCw5LjIsMTEuMSwxMS4xLDAsMCwwLDUsNS41QTE2LjcsMTYuNywwLDAsMCwzMzIsNDIwaDQuMWExNy43LDE3LjcsMCwwLDAsNi41LTEuNywxMC45LDEwLjksMCwwLDAsNC45LTUuNWMxLTIuMiwxLjQtNS4zLDEuNC05LjJWMzgyLjRoLTEuMmE1LjYsNS42LDAsMCwwLTUuNyw1LjQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMjIuNCAtNDkuMykiLz48L2c+PGcgY2xhc3M9ImNscy0xMCI+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMzgwLjMsMzg4LjRhOSw5LDAsMCwwLTMuMS0zLjgsMTMsMTMsMCwwLDAtNC44LTEuOSwzOC4yLDM4LjIsMCwwLDAtNS41LS4zaC05LjJjLTUuMiwwLTUuMiw0LjItNS4yLDYuM3YzMC44aDdWMzg4LjloNy44YTIzLjEsMjMuMSwwLDAsMSw0LC4yLDQsNCwwLDAsMSwyLjIsMS42LDUuNCw1LjQsMCwwLDEsLjksMy4xLDQuNSw0LjUsMCwwLDEtMS41LDMuN2MtMSwuOS0zLjQsMS40LTYuOCwxLjRzLTQuOSwyLjYtNS4yLDUuMWwtLjIsMS4zaDYuNmM1LjMsMCw5LTEuMiwxMS4xLTMuNWExMS42LDExLjYsMCwwLDAsMy4xLTguMywxMS40LDExLjQsMCwwLDAtMS4yLTUuMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMi40IC00OS4zKSIvPjwvZz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0zODEuNywzODMuMnYtLjhoNS42di44SDM4NXY2LjJoLTF2LTYuMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMi40IC00OS4zKSIvPjxnIGNsYXNzPSJjbHMtMTEiPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTM4OS40LDM4Mi40bDIuMiw1LjksMi4yLTUuOWgxLjN2N2gtLjl2LTUuOGgwbC0yLjIsNS44aC0uOGwtMi4yLTUuOGgwdjUuOGgtLjl2LTciIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMjIuNCAtNDkuMykiLz48L2c+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTkzLjIsMzQxLjNsLTIuNC0yLjNhODUuMSw4NS4xLDAsMCwxLDEyMS43LDBsLTIuMywyLjNhODEuOSw4MS45LDAsMCwwLTExNywwbTIzLjIsMjYuMy0yLjUtMi4yYTUwLjIsNTAuMiwwLDAsMSw3NS41LDBsLTIuNSwyLjJhNDYuOCw0Ni44LDAsMCwwLTcwLjUsMG04Mi4xLTMwLjFhMS44LDEuOCwwLDAsMSwuNywyLjNMMjkzLDM2MS4xbC0zLjQtMy4yLDEuMS00LjEtNC4xLTMuMiwzLjYtMi4zLDEuNywxLjQsMi4xLTcuM0wyODAuNiwzNTFsLTMuOS0yLjEsMTguNi0xMi4xYTEuOSwxLjksMCwwLDEsMi40LDBabS04NS44LDE1LjNjLTEuNS0uMi0yLjUtLjgtMy45LTIuNmwtNy40LTkuMS0zLjMsMi43LDguMSw5LjlhOC4zLDguMywwLDAsMCw1LjgsMy40LDEwLjMsMTAuMywwLDAsMCwxMC44LTguOCw4LjIsOC4yLDAsMCwwLTIuMS02LjRsLTguMS05LjktMy4zLDIuNiw3LjQsOS4xYzEuNSwxLjgsMS45LDIuOSwxLjcsNC40YTQuOSw0LjksMCwwLDEtMiwzLjQsNS40LDUuNCwwLDAsMS0zLjcsMS4zbTMxLjgtMjYuOS0uOC0zLjktMTMsMi42YTEuNiwxLjYsMCwwLDAtMS4zLDEuOWwyLjgsMTMuNGMuOSw0LjYsNC4yLDUuNiw3LjksNC45bDcuOS0xLjYtLjgtMy45LTcuNywxLjVjLTIsLjQtMi44LDAtMy4zLTIuMmwtLjQtMiw5LjYtMS45LS44LTMuOS05LjYsMi0xLTQuOFptMjAuMiwxMCw5LjUsMi41LDEtMy44LTkuNS0yLjQuNS0yYy42LTIuMiwxLjUtMi42LDMuNS0ybDcuNiwyLDEtMy45LTcuOC0yLjFjLTMuNy0uOS03LDAtOC4yLDQuNWwtMy41LDEzLjJhMS41LDEuNSwwLDAsMCwxLjEsMmwyLjYuNiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMi40IC00OS4zKSIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTMxMC4xLDMwMy4yYy0xMy41LTcuMy0yMi40LTkuMy0zMi45LTEwLDEzLjksMy4xLDM2LjYsMTAuNSw0Ny4xLDI3LjMtNC43LTguOC03LjctMTIuNi0xNC4yLTE3LjMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMjIuNCAtNDkuMykiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yMzEuNSwyODUuNWMtMTgsNC43LTM2LjcsMTEuMS01Ny4yLDQ1LjlBODUuMSw4NS4xLDAsMCwxLDE4OS42LDMxN2E4MS41LDgxLjUsMCwwLDEsNDEuOS0zMS41IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTIyLjQgLTQ5LjMpIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMjU1LjYsMjc3LjJjNi43LTEuNSwyMC40LTYuNy0xLjQtMjQuNyw1LjgsNS45LDguNSwxMS4yLDcuOSwxNS45cy0zLjksNy4yLTYuNSw4LjgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMjIuNCAtNDkuMykiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0zMjUuMywzMjIuN2wtLjYtMS4yYy0xMC41LTE2LjctMzQuOC0yNC44LTQ3LjctMjcuN2wtNS41LTEuNCw4LjIuM2MtMTAuMS0xLjktMjMuNy00LjQtMzItOS40LTMuNi0yLjItNS43LTUuMi02LTkuMWE1LjcsNS43LDAsMCwxLS4xLTEuM2MwLTUuMywzLjEtMTIuMSw5LjQtMTkuMWwuMy40Yy03LjYsOS4yLTEzLjYsMjItMy4xLDI4LjMsMTcsMTAuMiwzOSw3LDYwLjIsMTlDMjg2LDI4NCwyNTYsMjg2LjgsMjQ5LjYsMjc0LjNjLTMuOC03LjItMS43LTE0LjEsMi0xOS42bC40LjZjNCw2LjMsNS45LDE0LjEuOCwyMS43bC40LjRjMy41LTEuNiwxNS44LTguNS41LTI0bC0uNi0uN2gwYTUyLjcsNTIuNywwLDAsMSwzLjctNC4yLDQ5LjcsNDkuNywwLDAsMC0zLjksNGwtLjMtLjNBNzcuNSw3Ny41LDAsMCwxLDI2NC45LDI0MmExNTIuMywxNTIuMywwLDAsMC0xMyw5LjZBOTUuNSw5NS41LDAsMCwwLDIzOC4yLDI0MWE1Ny4zLDU3LjMsMCwwLDEsMTIuMiwxMS45Yy0zNC4yLDI5LjctMS4zLDQwLjgsMjcsNDYuNSwzMy41LDYuOCw1MS4zLDMxLjQsNTEuMywzMS40YTUwLjYsNTAuNiwwLDAsMC0zLjQtOC4xIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTIyLjQgLTQ5LjMpIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMjM4LjYsMjg0LjJsLS4zLS40LTIuNi43Yy0xMi4xLDMuOC0zMS4yLDE0LjEtNDMuNywzMC43YTEwNi43LDEwNi43LDAsMCwxLDE1LjMtOC45YzE1LjItMTcuMywyOC0yMS4zLDMxLjMtMjIuMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMi40IC00OS4zKSIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTIwOS40LDMwNS4zYTEwNy4zLDEwNy4zLDAsMCwxLDE3LjQtNmM4LjYtMi4xLDE3LTMuNiwyNC40LTYuOC00LjgtMi4xLTktNC42LTExLjgtNy41LTIsLjQtMTQuNiwzLjUtMzAsMjAuMyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMi40IC00OS4zKSIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTI2NC4zLDI4Mi45YTEzLjgsMTMuOCwwLDAsMCwyLjYtMTQuOWMwLC4yLjEuNS4xLjcsMCw2LjktOC44LDktMTIuNiw5LjdhMzguMSwzOC4xLDAsMCwwLDkuOSw0LjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMjIuNCAtNDkuMykiLz48L2c+PC9zdmc+);
+  background-position: 0 0;
+  background-size: cover;
+  -webkit-filter: invert(1);
+  filter: invert(1);
+}
+
+.flag[country^="unitedcup"] {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAhCAYAAAC803lsAAAACXBIWXMAAAsTAAALEwEAmpwYAAAGemlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDIgNzkuMTY0NDYwLCAyMDIwLzA1LzEyLTE2OjA0OjE3ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtbG5zOnN0RXZ0PSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VFdmVudCMiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RUNBQzBDRUE4NUYyMTFFREExMDBBMTdBNTU3NUQ0NUMiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ZWM5OGYyNmItMDFiNi0wZDQ1LTg3NWItYmQyNjQyM2ZjOTI4IiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6RUNBQzBDRUE4NUYyMTFFREExMDBBMTdBNTU3NUQ0NUMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDIwMjMgV2luZG93cyIgeG1wOkNyZWF0ZURhdGU9IjIwMjItMTItMjlUMTU6MTA6NTArMDQ6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDIyLTEyLTI5VDE1OjE1OjA5KzA0OjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDIyLTEyLTI5VDE1OjE1OjA5KzA0OjAwIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgcGhvdG9zaG9wOkNvbG9yTW9kZT0iMyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSI1MDg5NUExRkFBMUI3QTM2NzdBNzBGMDg3MUVCQjhDNyIgc3RSZWY6ZG9jdW1lbnRJRD0iNTA4OTVBMUZBQTFCN0EzNjc3QTcwRjA4NzFFQkI4QzciLz4gPHhtcE1NOkhpc3Rvcnk+IDxyZGY6U2VxPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6Y2FkN2MxNmQtYWM0My0xYzQ1LTk2YzItYmJlZDFjM2UyMzJiIiBzdEV2dDp3aGVuPSIyMDIyLTEyLTI5VDE1OjEzOjQ2KzA0OjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjEuMiAoV2luZG93cykiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmVjOThmMjZiLTAxYjYtMGQ0NS04NzViLWJkMjY0MjNmYzkyOCIgc3RFdnQ6d2hlbj0iMjAyMi0xMi0yOVQxNToxNTowOSswNDowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjIgKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PtXdrzwAAAgsSURBVFiFrZZrcF1VFcd/+5xz3/c2yb3pTUPahrQhTQspklqoLSXFFiqFUqulihWHVgV1ZPgiKPpB0XHGGRUUGamvTzpSQESK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);
+  background-position: 0 0;
+  background-size: cover;
+  -webkit-filter: invert(0);
+  filter: invert(0);
+}
+
+.flag[country^="olympicgames"] {
+  background-position: 0 0;
+  background-size: 100% 100%;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMy4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDE4IDE4IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxOCAxODsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MC45NTtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0MXtmaWxsOiM2MDYwNjA7fQ0KCS5zdDJ7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjk4MjY7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDN7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDoxLjAwNTM7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDR7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjkyMztzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NXtmaWxsOiNGRkZGRkY7fQ0KCS5zdDZ7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjk1O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0N3tmaWxsOm5vbmU7c3Ryb2tlOiMxQkEyRkY7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDh7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjY4MDg7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDl7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9DQoJLnN0MTB7Y2xpcC1wYXRoOnVybCgjU1ZHSURfNF8pO30NCgkuc3QxMXtjbGlwLXBhdGg6dXJsKCNTVkdJRF8xMl8pO30NCgkuc3QxMntjbGlwLXBhdGg6dXJsKCNTVkdJRF8xOF8pO30NCgkuc3QxM3tjbGlwLXBhdGg6dXJsKCNTVkdJRF8yNl8pO30NCgkuc3QxNHtmaWxsOm5vbmU7c3Ryb2tlOiNBMDAwMDA7c3Ryb2tlLXdpZHRoOjAuOTU7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDE1e2ZpbGw6bm9uZTtzdHJva2U6I0EwMDAwMDtzdHJva2Utd2lkdGg6MC40MDEzO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3QxNntmaWxsOm5vbmU7c3Ryb2tlOiNBMDAwMDA7c3Ryb2tlLXdpZHRoOjAuNDc2NztzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0MTd7ZmlsbDpub25lO3N0cm9rZTojQTAwMDAwO3N0cm9rZS13aWR0aDowLjU2NjQ7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDE4e2ZpbGw6bm9uZTtzdHJva2U6I0EwMDAwMDtzdHJva2Utd2lkdGg6MC42NzM7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDE5e2ZpbGw6bm9uZTtzdHJva2U6I0EwMDAwMDtzdHJva2Utd2lkdGg6MC43OTk2O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3QyMHtmaWxsOm5vbmU7c3Ryb2tlOiNERDBBMjQ7c3Ryb2tlLXdpZHRoOjAuODE0NDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0MjF7ZmlsbDpub25lO3N0cm9rZTojREQwQTI0O3N0cm9rZS13aWR0aDowLjg0Njk7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDIye2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MC44O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3QyM3tmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuNjtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0MjR7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjE1NTQ7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDI1e2ZpbGw6bm9uZTt9DQoJLnN0MjZ7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjg2NzM7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDI3e2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0Mjh7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjg4MDI7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3QyOXtmaWxsOiNGNUY1RjU7fQ0KCS5zdDMwe2ZpbGw6I0ZBRkFGQTt9DQoJLnN0MzF7b3BhY2l0eTowLjM5O2ZpbGw6I0ZGRkZGRjt9DQoJLnN0MzJ7ZmlsbDojMkMzODRDO30NCgkuc3QzM3tmaWxsOiNGM0JGMkM7fQ0KCS5zdDM0e2ZpbGw6I0ZFRkVGRDt9DQoJLnN0MzV7ZmlsbDojRkRGREZEO30NCgkuc3QzNntmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuNTtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0Mzd7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjk4O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3QzOHtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjEuMTI5MjtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0Mzl7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDoxLjU4Mzk7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDQwe2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MS4xMjgxO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q0MXtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuOTE5MTtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NDJ7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjc5Mzg7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDQze2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MC43MjYxO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q0NHtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuODQyODtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NDV7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjg1Mzg7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDQ2e2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MjtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NDd7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjc3MTM7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDQ4e2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MS41NDI3O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q0OXtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuODMxO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q1MHtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuODc4NTtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NTF7ZmlsbDojRkZGRkZGO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjk1O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q1MntmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuODQxNTtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NTN7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjg0Njk7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDU0e2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MC44NDY7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDU1e2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MC40MzEyO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q1NntmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuNDIyMTtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NTd7ZmlsbDpub25lO3N0cm9rZTojNjA2MDYwO3N0cm9rZS13aWR0aDowLjM7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDU4e2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MC42ODY5O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q1OXtmaWxsOm5vbmU7c3Ryb2tlOiM2MDYwNjA7c3Ryb2tlLXdpZHRoOjAuNTtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NjB7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjkyOTI7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDYxe2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MC44NTcxO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q2MntmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuNjY4ODtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NjN7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDoxLjMzNzU7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDY0e29wYWNpdHk6MC44NjtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuNjE4NjtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NjV7b3BhY2l0eTowLjg2O2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MC42MzAzO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q2NntvcGFjaXR5OjAuODY7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjQ4NDQ7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDY3e2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MC40ODQ0O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q2OHtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuNTYyODtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0Njl7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDoxLjM5NzU7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDcwe2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MS4wMjgzO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q3MXtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuNzc0O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q3MntjbGlwLXBhdGg6dXJsKCNTVkdJRF8zMF8pO30NCgkuc3Q3M3tjbGlwLXBhdGg6dXJsKCNTVkdJRF8zMl8pO30NCgkuc3Q3NHtjbGlwLXBhdGg6dXJsKCNTVkdJRF8zNF8pO30NCgkuc3Q3NXtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGMDA7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDc2e2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MC40NTA4O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q3N3tmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuNTgzNTtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0Nzh7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjg4NjtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0Nzl7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjg1NDI7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDgwe2ZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MC43NTU4O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3Q4MXtmaWxsOiNGRkZGRkY7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuMjU7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KPC9zdHlsZT4NCjxzeW1ib2wgIGlkPSJOZXdfU3ltYm9sIiB2aWV3Qm94PSItOC4zIC03LjYgMTcuOSAxMi41Ij4NCgk8Zz4NCgkJPGc+DQoJCQk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTgtNC41bDMuMS0yLjJjMC43LTAuNSwxLjYtMC41LDIuMy0wLjFsMi40LDEuNmMwLjcsMC40LDEuNSwwLjQsMi4yLDBsMi40LTEuNkM1LjEtNy4yLDYtNy4yLDYuNy02LjYNCgkJCQlsMi42LDIuMSIvPg0KCQk8L2c+DQoJCTxnPg0KCQkJPHBhdGggY2xhc3M9InN0MCIgZD0iTS04LTEuNWwzLjEtMi4yYzAuNy0wLjUsMS42LTAuNSwyLjMtMC4xbDIuNCwxLjZjMC43LDAuNCwxLjUsMC40LDIuMiwwbDIuNC0xLjZDNS4xLTQuMiw2LTQuMiw2LjctMy42DQoJCQkJbDIuNiwyLjEiLz4NCgkJPC9nPg0KCQk8Zz4NCgkJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0tOCwxLjVsMy4xLTIuMmMwLjctMC41LDEuNi0wLjUsMi4zLTAuMWwyLjQsMS42YzAuNywwLjQsMS41LDAuNCwyLjIsMGwyLjQtMS42QzUuMS0xLjIsNi0xLjIsNi43LTAuNg0KCQkJCWwyLjYsMi4xIi8+DQoJCTwvZz4NCgkJPGc+DQoJCQk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTgsNC41bDMuMS0yLjJjMC43LTAuNSwxLjYtMC41LDIuMy0wLjFsMi40LDEuNmMwLjcsMC40LDEuNSwwLjQsMi4yLDBsMi40LTEuNkM1LjEsMS44LDYsMS44LDYuNywyLjQNCgkJCQlsMi42LDIuMSIvPg0KCQk8L2c+DQoJPC9nPg0KPC9zeW1ib2w+DQo8ZyBpZD0iTGF5ZXJfMSI+DQoJPHBhdGggY2xhc3M9InN0NSIgZD0iTTE1LDQuOWMtMS40LDAtMi42LDEuMS0yLjgsMi41YzAsMCwwLDAsMCwwYy0wLjEsMC0wLjIsMC0wLjMsMEMxMS42LDYsMTAuNSw0LjksOSw0LjlDNy42LDQuOSw2LjQsNiw2LjIsNy40DQoJCWMtMC4xLDAtMC4yLDAtMC4zLDBjMCwwLTAuMSwwLTAuMSwwQzUuNiw2LDQuNCw0LjksMyw0LjljLTEuNiwwLTIuOCwxLjMtMi44LDIuOWMwLDEuNiwxLjMsMi44LDIuOCwyLjhjMCwwLDAuMSwwLDAuMSwwDQoJCWMwLjIsMS40LDEuNCwyLjUsMi44LDIuNWMxLjQsMCwyLjYtMS4xLDIuOC0yLjVjMC4xLDAsMC4yLDAsMC4zLDBjMC4xLDAsMC4yLDAsMC4zLDBjMC4yLDEuNCwxLjQsMi41LDIuOCwyLjUNCgkJYzEuNCwwLDIuNi0xLjEsMi44LTIuNWMwLDAsMCwwLDAsMGMxLjYsMCwyLjgtMS4zLDIuOC0yLjhDMTcuOCw2LjIsMTYuNiw0LjksMTUsNC45eiBNMC45LDcuOGMwLTEuMSwwLjktMi4xLDIuMS0yLjENCgkJYzEuMSwwLDEuOSwwLjgsMi4xLDEuOEM0LDcuOSwzLjMsOC43LDMuMSw5LjhjMCwwLTAuMSwwLTAuMSwwQzEuOSw5LjgsMC45LDguOSwwLjksNy44eiBNNSw4LjRjLTAuMiwwLjUtMC41LDEtMSwxLjINCgkJQzQuMSw5LjEsNC41LDguNiw1LDguNHogTTUuOSwxMi4zYy0xLjEsMC0xLjktMC44LTIuMS0xLjhjMS0wLjMsMS44LTEuMiwxLjktMi4zYzAsMCwwLjEsMCwwLjEsMGMwLjEsMCwwLjIsMCwwLjMsMA0KCQljMC4yLDEsMC44LDEuOSwxLjgsMi4yQzcuOSwxMS41LDcsMTIuMyw1LjksMTIuM3ogTTcuMSw4LjVjMC40LDAuMiwwLjYsMC42LDAuOCwxQzcuNSw5LjMsNy4yLDguOSw3LjEsOC41eiBNOC43LDkuOA0KCQljLTAuMi0xLTAuOC0xLjktMS44LTIuMkM3LDYuNSw3LjksNS43LDksNS43YzEuMSwwLDIsMC44LDIuMSwxLjlDMTAuMSw4LDkuNSw4LjgsOS4zLDkuOGMtMC4xLDAtMC4yLDAtMC4zLDANCgkJQzguOSw5LjgsOC44LDkuOCw4LjcsOS44eiBNMTAuOSw4LjZjLTAuMSwwLjQtMC40LDAuNy0wLjcsMC45QzEwLjQsOS4xLDEwLjYsOC44LDEwLjksOC42eiBNMTIuMSwxMi4zYy0xLjEsMC0yLTAuOC0yLjEtMS45DQoJCWMwLjktMC40LDEuNi0xLjIsMS43LTIuMmMwLjEsMCwwLjIsMCwwLjMsMGMwLDAsMCwwLDAsMGMwLjIsMS4xLDEsMiwyLDIuM0MxNC4xLDExLjUsMTMuMiwxMi4zLDEyLjEsMTIuM3ogTTEzLDguNA0KCQljMC41LDAuMiwwLjksMC43LDEuMSwxLjNDMTMuNiw5LjQsMTMuMiw4LjksMTMsOC40eiBNMTUsOS44QzE1LDkuOCwxNSw5LjgsMTUsOS44Yy0wLjItMS4xLTEtMi0yLjEtMi4zYzAuMS0xLDEtMS44LDIuMS0xLjgNCgkJYzEuMSwwLDIuMSwwLjksMi4xLDIuMUMxNy4xLDguOSwxNi4xLDkuOCwxNSw5Ljh6Ii8+DQo8L2c+DQo8ZyBpZD0iTGF5ZXJfMiI+DQo8L2c+DQo8L3N2Zz4NCg==);
+}
+
+.flag[country^="fedcup"],
+.flag[country^="federationcup"] {
+  background-position: -338px -409px;
+}
+
+.flag[country^="asean"] {
+  background-position: 0 0;
+}
+
+.flag[country^="afghanistan"] {
+  background-position: -24px 0;
+}
+
+.flag[country^="africa"] {
+  background-position: -48px 0;
+}
+
+.flag[country^="african-union-oas"] {
+  background-position: -72px 0;
+}
+
+.flag[country^="albania"] {
+  background-position: -96px 0;
+}
+
+.flag[country^="algeria"] {
+  background-position: -120px 0;
+}
+
+.flag[country^="america"] {
+  background-position: -144px 0;
+}
+
+.flag[country^="american-samoa"] {
+  background-position: -168px 0;
+}
+
+.flag[country^="andorra"] {
+  background-position: -192px 0;
+}
+
+.flag[country^="angola"] {
+  background-position: -216px 0;
+}
+
+.flag[country^="anguilla"] {
+  background-position: -240px 0;
+}
+
+.flag[country^="antarctica"] {
+  background-position: -264px 0;
+}
+
+.flag[country^="antiguaandbarbuda"] {
+  background-position: -288px 0;
+}
+
+.flag[country^="arab-league"] {
+  background-position: -312px 0;
+}
+
+.flag[country^="argentina"] {
+  background-position: -336px 0;
+}
+
+.flag[country^="armenia"] {
+  background-position: -360px 0;
+}
+
+.flag[country^="aruba"] {
+  background-position: 0 -24px;
+}
+
+.flag[country^="asia"] {
+  background-position: -24px -24px;
+}
+
+.flag[country^="australia"] {
+  background-position: -48px -24px;
+}
+
+.flag[country^="austria"] {
+  background-position: -72px -24px;
+}
+
+.flag[country^="azerbaijan"] {
+  background-position: -96px -24px;
+}
+
+.flag[country^="bahamas"] {
+  background-position: -120px -24px;
+}
+
+.flag[country^="bahrain"] {
+  background-position: -144px -24px;
+}
+
+.flag[country^="bangladesh"] {
+  background-position: -168px -24px;
+}
+
+.flag[country^="barbados"] {
+  background-position: -192px -24px;
+}
+
+.flag[country^="belarus"] {
+  background-position: -216px -24px;
+}
+
+.flag[country^="belgium"] {
+  background-position: -240px -24px;
+}
+
+.flag[country^="belize"] {
+  background-position: -264px -24px;
+}
+
+.flag[country^="benin"] {
+  background-position: -288px -24px;
+}
+
+.flag[country^="bermuda"] {
+  background-position: -312px -24px;
+}
+
+.flag[country^="bhutan"] {
+  background-position: -336px -24px;
+}
+
+.flag[country^="bolivia"] {
+  background-position: -360px -24px;
+}
+
+.flag[country^="bosnia&herzegovina"] {
+  background-position: 0 -48px;
+}
+
+.flag[country^="bosnia"],
+.flag[country^="bosniaandherzegovina"] {
+  background-position: -24px -48px;
+}
+
+.flag[country^="botswana"] {
+  background-position: -48px -48px;
+}
+
+.flag[country^="brazil"] {
+  background-position: -72px -48px;
+}
+
+.flag[country^="brunei"] {
+  background-position: -96px -48px;
+}
+
+.flag[country^="bulgaria"] {
+  background-position: -120px -48px;
+}
+
+.flag[country^="burkina-faso"] {
+  background-position: -144px -48px;
+}
+
+.flag[country^="burundi"] {
+  background-position: -168px -48px;
+}
+
+.flag[country^="caricom"] {
+  background-position: -192px -48px;
+}
+
+.flag[country^="cis"] {
+  background-position: -216px -48px;
+}
+
+.flag[country^="cambodia"] {
+  background-position: -240px -48px;
+}
+
+.flag[country^="cambodja"] {
+  background-position: -264px -48px;
+}
+
+.flag[country^="cameroon"] {
+  background-position: -288px -48px;
+}
+
+.flag[country^="canada"] {
+  background-position: -312px -48px;
+}
+
+.flag[country^="cape-verde"] {
+  background-position: -336px -48px;
+}
+
+.flag[country^="cayman-islands"] {
+  background-position: -360px -48px;
+}
+
+.flag[country^="central-african-republic"] {
+  background-position: 0 -72px;
+}
+
+.flag[country^="chad"] {
+  background-position: -24px -72px;
+}
+
+.flag[country^="championsleague"] {
+  background-position: -48px -72px;
+}
+
+.flag[country^="chile"] {
+  background-position: -72px -72px;
+}
+
+.flag[country^="china"] {
+  background-position: -96px -72px;
+}
+
+.flag[country^="colombia"] {
+  background-position: -120px -72px;
+}
+
+.flag[country^="commonwealth"] {
+  background-position: -144px -72px;
+}
+
+.flag[country^="comoros"] {
+  background-position: -168px -72px;
+}
+
+.flag[country^="congo-brazzaville"] {
+  background-position: -192px -72px;
+}
+
+.flag[country^="congo-kinshasa"] {
+  background-position: -216px -72px;
+}
+
+.flag[country^="cook-islands"] {
+  background-position: -240px -72px;
+}
+
+.flag[country^="copaamerica"] {
+  background-position: -264px -72px;
+}
+
+.flag[country^="costarica"] {
+  background-position: -288px -72px;
+}
+
+.flag[country^="cote-divoire"] {
+  background-position: -312px -72px;
+}
+
+.flag[country^="croatia"] {
+  background-position: -336px -72px;
+}
+
+.flag[country^="cuba"] {
+  background-position: -360px -72px;
+}
+
+.flag[country^="cyprus"] {
+  background-position: 0 -96px;
+}
+
+.flag[country^="czechrepublic"] {
+  background-position: -24px -96px;
+}
+
+.flag[country^="denmark"] {
+  background-position: -48px -96px;
+}
+
+.flag[country^="djibouti"] {
+  background-position: -72px -96px;
+}
+
+.flag[country^="dominica"] {
+  background-position: -96px -96px;
+}
+
+.flag[country^="dominicanrepublic"] {
+  background-position: -120px -96px;
+}
+
+.flag[country^="ecuador"] {
+  background-position: -144px -96px;
+}
+
+.flag[country^="egypt"] {
+  background-position: -168px -96px;
+}
+
+.flag[country^="elsalvador"] {
+  background-position: -192px -96px;
+}
+
+.flag[country^="england"] {
+  background-position: -216px -96px;
+}
+
+.flag[country^="equatorial-guinea"] {
+  background-position: -240px -96px;
+}
+
+.flag[country^="eritrea"] {
+  background-position: -264px -96px;
+}
+
+.flag[country^="estonia"] {
+  background-position: -288px -96px;
+}
+
+.flag[country^="ethiopia"] {
+  background-position: -312px -96px;
+}
+
+.flag[country^="europaleague"] {
+  background-position: -336px -96px;
+}
+
+.flag[country^="europe"] {
+  background-position: -360px -96px;
+}
+
+.flag[country^="faroeislands"] {
+  background-position: -24px -120px;
+}
+
+.flag[country^="fiji"] {
+  background-position: -48px -120px;
+}
+
+.flag[country^="finland"] {
+  background-position: -72px -120px;
+}
+
+.flag[country^="france"] {
+  background-position: -96px -120px;
+}
+
+.flag[country^="gabon"] {
+  background-position: -120px -120px;
+}
+
+.flag[country^="gambia"] {
+  background-position: -144px -120px;
+}
+
+.flag[country^="georgia"] {
+  background-position: -168px -120px;
+}
+
+.flag[country^="germany"] {
+  background-position: -192px -120px;
+}
+
+.flag[country^="ghana"] {
+  background-position: -216px -120px;
+}
+
+.flag[country^="gibraltar"] {
+  background-position: -240px -120px;
+}
+
+.flag[country^="greatbritain"] {
+  background-position: -264px -120px;
+}
+
+.flag[country^="greece"] {
+  background-position: -288px -120px;
+}
+
+.flag[country^="greenland"] {
+  background-position: -312px -120px;
+}
+
+.flag[country^="grenada"] {
+  background-position: -336px -120px;
+}
+
+.flag[country^="guadeloupe"] {
+  background-position: -360px -120px;
+}
+
+.flag[country^="guam"] {
+  background-position: 0 -144px;
+}
+
+.flag[country^="guatemala"] {
+  background-position: -24px -144px;
+}
+
+.flag[country^="guernsey"] {
+  background-position: -48px -144px;
+}
+
+.flag[country^="guinea-bissau"] {
+  background-position: -72px -144px;
+}
+
+.flag[country^="guinea"] {
+  background-position: -96px -144px;
+}
+
+.flag[country^="guyana"] {
+  background-position: -120px -144px;
+}
+
+.flag[country^="haiti"] {
+  background-position: -144px -144px;
+}
+
+.flag[country^="honduras"] {
+  background-position: -168px -144px;
+}
+
+.flag[country^="hongkong"] {
+  background-position: -192px -144px;
+}
+
+.flag[country^="hungary"] {
+  background-position: -216px -144px;
+}
+
+.flag[country^="iceland"] {
+  background-position: -240px -144px;
+}
+
+.flag[country^="india"] {
+  background-position: -264px -144px;
+}
+
+.flag[country^="indonesia"] {
+  background-position: -288px -144px;
+}
+
+.flag[country^="iran"] {
+  background-position: -336px -144px;
+}
+
+.flag[country^="iraq"] {
+  background-position: -360px -144px;
+}
+
+.flag[country^="ireland"] {
+  background-position: 0 -168px;
+}
+
+.flag[country^="islamic-conference"] {
+  background-position: -24px -168px;
+}
+
+.flag[country^="isle-of-man"] {
+  background-position: -48px -168px;
+}
+
+.flag[country^="israel"] {
+  background-position: -72px -168px;
+}
+
+.flag[country^="italy"] {
+  background-position: -96px -168px;
+}
+
+.flag[country^="jamaica"] {
+  background-position: -120px -168px;
+}
+
+.flag[country^="jersey"] {
+  background-position: -144px -168px;
+}
+
+.flag[country^="jordan"] {
+  background-position: -168px -168px;
+}
+
+.flag[country^="kazakhstan"] {
+  background-position: -192px -168px;
+}
+
+.flag[country^="kenya"] {
+  background-position: -216px -168px;
+}
+
+.flag[country^="kiribati"] {
+  background-position: -240px -168px;
+}
+
+.flag[country^="korea-south"] {
+  background-position: -264px -168px;
+}
+
+.flag[country^="korea-republic"],
+.flag[country^="koreasouth"],
+.flag[country^="republic-of-korea"],
+.flag[country^="south-korea"],
+.flag[country^="southkorea"] {
+  background-position: -288px -168px;
+}
+
+.flag[country^="kosovo"] {
+  background-position: -312px -168px;
+}
+
+.flag[country^="kuwait"] {
+  background-position: -336px -168px;
+}
+
+.flag[country^="kyrgyzstan"] {
+  background-position: -360px -168px;
+}
+
+.flag[country^="laos"] {
+  background-position: 0 -192px;
+}
+
+.flag[country^="latvia"] {
+  background-position: -24px -192px;
+}
+
+.flag[country^="lebanon"] {
+  background-position: -48px -192px;
+}
+
+.flag[country^="lesotho"] {
+  background-position: -72px -192px;
+}
+
+.flag[country^="liberia"] {
+  background-position: -96px -192px;
+}
+
+.flag[country^="libya"] {
+  background-position: -120px -192px;
+}
+
+.flag[country^="liechtenstein"] {
+  background-position: -144px -192px;
+}
+
+.flag[country^="lithuania"] {
+  background-position: -168px -192px;
+}
+
+.flag[country^="luxembourg"] {
+  background-position: -192px -192px;
+}
+
+.flag[country^="macao"],
+.flag[country^="macau"] {
+  background-position: -216px -192px;
+}
+
+.flag[country^="macedonia"] {
+  background-position: -240px -192px;
+}
+
+.flag[country^="madagascar"] {
+  background-position: -264px -192px;
+}
+
+.flag[country^="malawi"] {
+  background-position: -288px -192px;
+}
+
+.flag[country^="malaysia"] {
+  background-position: -312px -192px;
+}
+
+.flag[country^="maldives"] {
+  background-position: -336px -192px;
+}
+
+.flag[country^="mali"] {
+  background-position: -360px -192px;
+}
+
+.flag[country^="malta"] {
+  background-position: 0 -216px;
+}
+
+.flag[country^="marshall-islands"] {
+  background-position: -24px -216px;
+}
+
+.flag[country^="martinique"] {
+  background-position: -48px -216px;
+}
+
+.flag[country^="mauritania"] {
+  background-position: -72px -216px;
+}
+
+.flag[country^="mauritius"] {
+  background-position: -96px -216px;
+}
+
+.flag[country^="mexico"] {
+  background-position: -120px -216px;
+}
+
+.flag[country^="micronesia"] {
+  background-position: -144px -216px;
+}
+
+.flag[country^="moldova"] {
+  background-position: -168px -216px;
+}
+
+.flag[country^="monaco"] {
+  background-position: -192px -216px;
+}
+
+.flag[country^="mongolia"] {
+  background-position: -216px -216px;
+}
+
+.flag[country^="montenegro"] {
+  background-position: -240px -216px;
+}
+
+.flag[country^="montserrat"] {
+  background-position: -264px -216px;
+}
+
+.flag[country^="morocco"] {
+  background-position: -288px -216px;
+}
+
+.flag[country^="mozambique"] {
+  background-position: -312px -216px;
+}
+
+.flag[country^="myanmar"] {
+  background-position: -336px -216px;
+}
+
+.flag[country^="nato"] {
+  background-position: -360px -216px;
+}
+
+.flag[country^="namibia"] {
+  background-position: 0 -240px;
+}
+
+.flag[country^="nauru"] {
+  background-position: -24px -240px;
+}
+
+.flag[country^="nepal"] {
+  background-position: -48px -240px;
+}
+
+.flag[country^="netherlands-antilles"] {
+  background-position: -72px -240px;
+}
+
+.flag[country^="holland"],
+.flag[country^="netherlands"] {
+  background-position: -96px -240px;
+}
+
+.flag[country^="newcaledonia"] {
+  background-position: -120px -240px;
+}
+
+.flag[country^="newzealand"] {
+  background-position: -144px -240px;
+}
+
+.flag[country^="nicaragua"] {
+  background-position: -168px -240px;
+}
+
+.flag[country^="niger"] {
+  background-position: -192px -240px;
+}
+
+.flag[country^="nigeria"] {
+  background-position: -216px -240px;
+}
+
+.flag[country^="north-korea"] {
+  background-position: -240px -240px;
+}
+
+.flag[country^="northamerica"] {
+  background-position: -264px -240px;
+}
+
+.flag[country^="northern-cyprus"] {
+  background-position: -288px -240px;
+}
+
+.flag[country^="northernireland"] {
+  background-position: -312px -240px;
+}
+
+.flag[country^="norway"] {
+  background-position: -336px -240px;
+}
+
+.flag[country^="opec"] {
+  background-position: -360px -240px;
+}
+
+.flag[country^="olimpic-movement"] {
+  background-position: 0 -264px;
+}
+
+.flag[country^="olympicgames"] {
+  background-position: -24px -264px;
+}
+
+.flag[country^="oman"] {
+  background-position: -48px -264px;
+}
+
+.flag[country^="pakistan"] {
+  background-position: -72px -264px;
+}
+
+.flag[country^="palau"] {
+  background-position: -96px -264px;
+}
+
+.flag[country^="palestine"] {
+  background-position: -120px -264px;
+}
+
+.flag[country^="panama"] {
+  background-position: -144px -264px;
+}
+
+.flag[country^="papua-new-guinea"] {
+  background-position: -168px -264px;
+}
+
+.flag[country^="paraguay"] {
+  background-position: -192px -264px;
+}
+
+.flag[country^="peru"] {
+  background-position: -216px -264px;
+}
+
+.flag[country^="philippines"] {
+  background-position: -240px -264px;
+}
+
+.flag[country^="poland"] {
+  background-position: -264px -264px;
+}
+
+.flag[country^="portugal"] {
+  background-position: -288px -264px;
+}
+
+.flag[country^="puertorico"] {
+  background-position: -312px -264px;
+}
+
+.flag[country^="qatar"] {
+  background-position: -336px -264px;
+}
+
+.flag[country^="red-cross"] {
+  background-position: -360px -264px;
+}
+
+.flag[country^="republicofireland"] {
+  background-position: 0 -288px;
+}
+
+.flag[country^="reunion"] {
+  background-position: -24px -288px;
+}
+
+.flag[country^="romania"] {
+  background-position: -48px -288px;
+}
+
+.flag[country^="russia"] {
+  background-position: -72px -288px;
+}
+
+.flag[country^="rwanda"] {
+  background-position: -96px -288px;
+}
+
+.flag[country^="saint-lucia"] {
+  background-position: -120px -288px;
+}
+
+.flag[country^="samoa"] {
+  background-position: -144px -288px;
+}
+
+.flag[country^="sanmarino"] {
+  background-position: -168px -288px;
+}
+
+.flag[country^="sao-tome-principe"] {
+  background-position: -192px -288px;
+}
+
+.flag[country^="saudiarabia"] {
+  background-position: -216px -288px;
+}
+
+.flag[country^="scotland"] {
+  background-position: -240px -288px;
+}
+
+.flag[country^="senegal"] {
+  background-position: -264px -288px;
+}
+
+.flag[country^="serbia"] {
+  background-position: -288px -288px;
+}
+
+.flag[country^="seyshelles"] {
+  background-position: -312px -288px;
+}
+
+.flag[country^="sierra-leone"] {
+  background-position: -336px -288px;
+}
+
+.flag[country^="singapore"] {
+  background-position: -360px -288px;
+}
+
+.flag[country^="slovakia"] {
+  background-position: 0 -312px;
+}
+
+.flag[country^="slovenia"] {
+  background-position: -24px -312px;
+}
+
+.flag[country^="solomon-islands"] {
+  background-position: -48px -312px;
+}
+
+.flag[country^="somalia"] {
+  background-position: -72px -312px;
+}
+
+.flag[country^="somaliland"] {
+  background-position: -96px -312px;
+}
+
+.flag[country^="southafrica"] {
+  background-position: -120px -312px;
+}
+
+.flag[country^="southkorea-copy"] {
+  background-position: -144px -312px;
+}
+
+.flag[country^="southkorea"] {
+  background-position: -168px -312px;
+}
+
+.flag[country^="spain"] {
+  background-position: -192px -312px;
+}
+
+.flag[country^="sri-lanka"] {
+  background-position: -216px -312px;
+}
+
+.flag[country^="st-kitts-nevis"] {
+  background-position: -240px -312px;
+}
+
+.flag[country^="st-vincent-the-grenadines"] {
+  background-position: -264px -312px;
+}
+
+.flag[country^="sudan"] {
+  background-position: -288px -312px;
+}
+
+.flag[country^="suriname"] {
+  background-position: -312px -312px;
+}
+
+.flag[country^="swaziland"] {
+  background-position: -336px -312px;
+}
+
+.flag[country^="sweden"] {
+  background-position: -360px -312px;
+}
+
+.flag[country^="switzerland"] {
+  background-position: 0 -336px;
+}
+
+.flag[country^="syria"] {
+  background-position: -24px -336px;
+}
+
+.flag[country^="tahiti-french-polinesia"] {
+  background-position: -48px -336px;
+}
+
+.flag[country^="taiwan"] {
+  background-position: -72px -336px;
+}
+
+.flag[country^="tajikistan"] {
+  background-position: -96px -336px;
+}
+
+.flag[country^="tanzania"] {
+  background-position: -120px -336px;
+}
+
+.flag[country^="thailand"] {
+  background-position: -144px -336px;
+}
+
+.flag[country^="timor-leste"] {
+  background-position: -168px -336px;
+}
+
+.flag[country^="togo"] {
+  background-position: -192px -336px;
+}
+
+.flag[country^="tonga"] {
+  background-position: -216px -336px;
+}
+
+.flag[country^="trinidadtobago"] {
+  background-position: -240px -336px;
+}
+
+.flag[country^="trinidadandtobago"] {
+  background-position: -264px -336px;
+}
+
+.flag[country^="tunisia"] {
+  background-position: -288px -336px;
+}
+
+.flag[country^="turkey"],
+.flag[country^="turkishpolitics"],
+.flag[country^="turkiye"] {
+  background-position: -312px -336px;
+}
+
+.flag[country^="turkmenistan"] {
+  background-position: -336px -336px;
+}
+
+.flag[country^="turks-and-caicos-islands"] {
+  background-position: -360px -336px;
+}
+
+.flag[country^="tuvalu"] {
+  background-position: 0 -360px;
+}
+
+.flag[country^="uae"] {
+  background-position: -24px -360px;
+}
+
+.flag[country^="uk"] {
+  background-position: -48px -360px;
+}
+
+.flag[country^="unitedstates"],
+.flag[country^="usa"] {
+  background-position: -72px -360px;
+}
+
+.flag[country^="uganda"] {
+  background-position: -96px -360px;
+}
+
+.flag[country^="ukraine"] {
+  background-position: -120px -360px;
+}
+
+.flag[country^="united-nations"] {
+  background-position: -144px -360px;
+}
+
+.flag[country^="unitedarabemirates"] {
+  background-position: -168px -360px;
+}
+
+.flag[country^="britishgrandprix"],
+.flag[country^="unitedkingdom"] {
+  background-position: -192px -360px;
+}
+
+.flag[country^="uruguay"] {
+  background-position: -216px -360px;
+}
+
+.flag[country^="uzbekistan"] {
+  background-position: -240px -360px;
+}
+
+.flag[country^="vtb"] {
+  background-position: -264px -360px;
+}
+
+.flag[country^="vanuatu"] {
+  background-position: -288px -360px;
+}
+
+.flag[country^="vatican-city"] {
+  background-position: -312px -360px;
+}
+
+.flag[country^="venezuela"] {
+  background-position: -336px -360px;
+}
+
+.flag[country^="vietnam"] {
+  background-position: -360px -360px;
+}
+
+.flag[country^="virgin-islands-british"] {
+  background-position: 0 -384px;
+}
+
+.flag[country^="virgin-islands-us"] {
+  background-position: -24px -384px;
+}
+
+.flag[country^="wales"] {
+  background-position: -48px -384px;
+}
+
+.flag[country^="western-sahara"] {
+  background-position: -72px -384px;
+}
+
+.flag[country^="yemen"] {
+  background-position: -120px -384px;
+}
+
+.flag[country^="zambia"] {
+  background-position: -144px -384px;
+}
+
+.flag[country^="zimbabwe"] {
+  background-position: -168px -384px;
+}
+
+.flag[country^="japan"] {
+  background-position: -192px -384px;
+}
+
+.flag[country^="atp-roland-garros"],
+.flag[country^="rolandgarros"],
+.flag[country^="wta-roland-garros"] {
+  background-position: -216px -384px;
+}
+
+.flag[country^="undefined"] {
+  background-position: -240px -384px;
+}
+
+.flag[country^="wimbledon"] {
+  background-position: -264px -384px;
+}
+
+.flag[country^="zanzibar"] {
+  background-position: -362px -410px;
+}
+
+.flag[country^="seychelles"] {
+  background-position: 3px -434px;
 }

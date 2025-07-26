@@ -1,0 +1,47 @@
+<div class="bg-[#14161B] roboto-medium  page-wrapper">
+
+    <div class="page-title [@media(min-width:770px)]:!hidden ">
+        <a class="material-icons arrow">arrow_back</a>
+        <span class="title">Activity Log</span>
+        <span class="material-icons icon">event_note</span>
+    </div>
+
+    <div class="content">
+        <div class="overflow-x-auto bg-white mt-5 table-container">
+            <table  class="datatable row-border no-footer table table-hover table-responsive">
+                <thead>
+                    <tr style="border: 0px !important;">
+                        <th class="text-center" style=" border-top-left-radius: 5px;">Login Date & Time</th>
+                        <th class="text-center eventName">Login Status
+                        </th>
+                        <th class="text-center">IP Address</th>
+                        <th class="text-center">ISP </th>
+                        <th class="text-center" style="border-top-right-radius: 5px;">City / State / Country </th>
+                    </tr>
+                </thead>
+                
+                
+                
+                <tbody>
+                    <tr *ngFor="let log of activityList">
+                        <td class="text-center">{{log?.createdAt | date}}</td>
+                        <td class="text-center"
+                            [ngClass]="{'text-red-500':log?.logMessage === 'Login Failed', 'text-green-500':log?.logMessage === 'Login Successful'}">
+                            {{log?.logMessage}}
+                        </td>
+                        <td class="text-center font-weight-bold">
+                            {{log?.ip?log?.ip:'-'}}</td>
+                        <td class="text-center">
+                            {{log?.isp?log?.isp:'-'}}</td>
+                
+                        <td class="text-center font-weight-bold">
+                            {{log.city?log.city:'-' + '/' + log.state?log.state:'-' + '/' + log.country?log.country:'-'}}</td>
+                
+                
+                    </tr>
+                    </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

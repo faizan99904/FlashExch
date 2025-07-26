@@ -1,0 +1,133 @@
+.live-header .actions ul li.enabled {
+  opacity: 1;
+}
+
+.live-header {
+  height: calc(3 * 0.875rem);
+  line-height: calc(3 * 0.875rem);
+  margin-bottom: 0.875rem;
+  background-color: #101317;
+  border-radius: 3px;
+  overflow: hidden;
+  border: none;
+  box-sizing: border-box;
+  font-size: 0.875rem !important;
+  color: #ffffff99;
+}
+.live-header div.tabs {
+  float: left;
+  height: 100%;
+}
+.live-header div.tabs a {
+  float: left;
+  height: 100%;
+  padding: 0 calc(1.2 * 0.875rem);
+  box-sizing: border-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.live-header div.tabs a.active,
+.live-header div.tabs a:hover {
+  color: #fff;
+  background-color: #1e242b;
+  border-bottom: 3px solid #00aa30;
+}
+
+.live-header div.tabs a.active img,
+.live-header div.tabs a:hover img {
+  opacity: 1;
+}
+
+.live-header .actions {
+  float: right;
+  height: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+ul {
+  list-style-type: none;
+}
+live-header .actions ul li.active {
+  opacity: 1;
+}
+.live-header .actions ul li {
+  float: left;
+  width: 21px;
+  height: 21px;
+  border-radius: 2px;
+  background-color: #b2b2b2;
+  padding: 4px 3px;
+  box-sizing: border-box;
+  overflow: hidden;
+  opacity: 0.6;
+  transition: opacity 0.12s ease-in;
+  cursor: pointer;
+}
+
+.live-header .actions ul li .line {
+  height: 3px;
+  background-color: #393939;
+}
+
+.live-header .actions ul li:first-child .line + .line {
+  margin-top: 2px;
+}
+
+.live-header .actions ul li:nth-child(2) .line {
+  float: left;
+  width: calc(50% - 1px);
+}
+
+.live-header .actions ul li:nth-child(2) .line:nth-child(2n) {
+  margin-left: 2px;
+}
+
+.live-header .actions ul li:nth-child(2) .line:nth-child(n + 3) {
+  margin-top: 2px;
+}
+
+.live-header .actions ul li:nth-child(2) .line:nth-child(2n) {
+  margin-left: 2px;
+}
+
+.live-header .actions ul li + li {
+  margin-left: 8.4px;
+}
+
+.live-header .actions ul li:nth-child(3) .line {
+  float: left;
+  width: calc(33.33% - 0.67px);
+}
+
+.live-header .actions ul li:nth-child(3) .line:not(:nth-child(3n + 1)) {
+  margin-left: 1px;
+}
+
+.live-header .actions ul li:nth-child(3) .line:nth-child(n + 4) {
+  margin-top: 2px;
+}
+
+.live-header .actions .toggle-markets {
+  margin: 0 calc(1 * 0.875rem) 0 calc(2 * 0.875rem);
+  cursor: pointer;
+}
+.live-header .actions .toggle-markets span {
+  font-size: 13px;
+  font-weight: 350;
+}
+.live-header .actions .toggle-markets img {
+  margin-left: 4px;
+  height: 12px;
+}

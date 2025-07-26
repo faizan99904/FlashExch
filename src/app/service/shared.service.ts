@@ -15,15 +15,15 @@ export class SharedService {
 
   private passToggle = signal(false);
   readonly isPassVisible = this.passToggle.asReadonly();
+  readonly extended = signal(false);
 
-
-  getToken(){
+  getToken() {
     return this.isLogin;
   }
 
-  setToken(value:any){
-    const token = localStorage.getItem('token')
-    this.isLogin.next(value)
+  setToken(value: any) {
+    const token = localStorage.getItem('token');
+    this.isLogin.next(value);
   }
 
   togglePass(): void {
@@ -56,5 +56,17 @@ export class SharedService {
 
   mobileSidebarClose() {
     this.mobileSidebarToggleSource.next(false);
+  }
+
+  toggle() {
+    this.extended.set(!this.extended());
+  }
+
+  setState(value: boolean) {
+    this.extended.set(value);
+  }
+
+  getState(): boolean {
+    return this.extended();
   }
 }

@@ -1,0 +1,325 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,700&display=swap");
+
+.roboto {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.sportsbook-tree {
+  color: hsl(0deg 0% 100% / 60%);
+}
+
+.tabs.tm-or-cmp li:first-child {
+  width: 14%;
+  color: #fff;
+  font-size: 6vw;
+  background-color: #070707;
+}
+
+ul.tabs li {
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 5vw;
+  height: 12vw;
+  line-height: 12vw;
+  color: #ffffff99;
+}
+
+.tabs.tm-or-cmp li {
+  float: left;
+  text-align: center;
+  padding: 0;
+}
+
+ul.tabs li.active {
+  background-color: #23282a;
+  color: #fff;
+  border-bottom: 1vw solid #00aa30;
+}
+
+.tabs.tm-or-cmp li + li {
+  width: 43%;
+  font-size: 3vw;
+}
+
+ul.tabs li.active:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  bottom: -0.1vw;
+  left: 50%;
+  margin-left: -1vw;
+  border-bottom: 1vw solid #00aa30;
+  border-left: 1.2vw solid transparent;
+  border-right: 1.2vw solid transparent;
+}
+
+.sportsbook-tree div.calendar {
+  position: relative;
+  height: 14.5vw;
+  display: flex;
+  align-items: center;
+  background-color: #101317;
+  color: #fff;
+  padding-left: 4vw;
+}
+
+.sportsbook-tree div.calendar .icon {
+  font-size: 7vw;
+  margin-right: 4vw;
+  color: hsl(0deg 0% 100% / 60%);
+}
+
+.sportsbook-tree .arrow {
+  width: 10vw;
+  margin-left: 2vw;
+  font-size: 7vw;
+  text-align: right;
+  box-sizing: border-box;
+}
+
+.sportsbook-tree div.calendar .arrow {
+  margin-left: auto;
+  margin-right: 5.5vw;
+}
+
+.sportsbook-tree ul.time-filters li {
+  height: 14vw;
+  line-height: 14vw;
+  padding-left: 15vw;
+  background-color: #151a21;
+}
+
+ul.time-filters li.active {
+  color: #fff;
+}
+
+ul.time-filters li:not(:first-child) {
+  margin-top: 2px;
+}
+
+.sportsbook-tree ul.regions > li {
+  margin-top: 2px;
+}
+
+ul.champs > li {
+  height: 15vw;
+  display: flex;
+  align-items: center;
+  background-color: #101317;
+  color: #fff;
+  padding: 0 5vw;
+}
+
+ul.champs > li:not(:first-child) {
+  margin-top: 3px;
+}
+
+.sportsbook-tree ul.regions > li .item-name.regionname {
+  position: relative;
+  background-color: #151a21;
+  padding: 0 5vw;
+  height: 14.5vw;
+  display: flex;
+  align-items: center;
+}
+
+ul.regions > li .item-name.regionname .flag {
+  transform: scale(0.9);
+  margin-right: 4vw;
+}
+
+ul.regions .count {
+  margin-left: auto;
+  width: 10vw;
+  text-align: right;
+}
+
+ul.champs > li .arrow {
+  font-size: 5vw;
+  padding-right: 1.5vw;
+}
+
+.league-name {
+  height: 10vw;
+  line-height: 10vw;
+  font-size: 4vw;
+  color: #fff;
+  padding-left: 4vw;
+  border-left: 1vw solid #00aa30;
+  background-color: #272727;
+  margin-top: 1vw;
+}
+
+.match-line .first-line .champ-name {
+  position: relative;
+  margin-left: 2.1vw;
+}
+
+.league-name .sport-icon {
+  margin-right: 1.5vw;
+  font-size: 4.5vw;
+}
+
+.league-name .flag {
+  transform: none;
+  margin-right: 1.5vw;
+}
+
+.league-name .name {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 75vw;
+  font-size: 3vw;
+  padding-left: 7.4px;
+  font-weight: 400;
+  position: relative;
+  bottom: 1px;
+}
+
+.match-line {
+  padding: 2vw 2.5vw;
+  background-color: #101317;
+  overflow: hidden;
+  min-height: 87.38px;
+}
+
+.match-line .first-line {
+  display: flex;
+  align-items: center;
+  height: 6vw;
+}
+
+.match-line .first-line > div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.first-line .stats {
+  font-size: 4.5vw;
+  margin-right: 1.2vw;
+}
+
+.match-line .first-line .date span:last-child {
+  margin-left: 0.8vw;
+}
+
+.match-line .first-line .date {
+  font-weight: 200;
+  font-size: 3vw;
+  color: #00aa30 !important;
+}
+
+.match-line .first-line .champ-name span.material-icons {
+  font-size: 4vw;
+  font-weight: 700;
+  transform: rotate(180deg);
+}
+
+.match-line .first-line .market-count {
+  font-size: 3vw;
+  color: #fff;
+  margin-left: auto;
+}
+
+.match-line .second-line {
+  margin-top: 0.5vw;
+}
+
+.match-line .second-line .star-wrapper {
+  float: left;
+  font-size: 5vw;
+  line-height: 12vw;
+  margin-right: 1vw;
+  margin-left: -1px;
+}
+
+.match-line .second-line .star-wrapper span.material-icons {
+  color: #00aa30;
+}
+
+.match-line .second-line .match-name {
+  float: left;
+  width: calc(50% - 7vw);
+  padding: 1vw 0;
+  box-sizing: border-box;
+}
+
+.second-line .match-name .team {
+  height: 5vw;
+  line-height: 5vw;
+  color: white;
+}
+
+.match-line .second-line .odds-wrapper {
+  position: relative;
+  float: right;
+  width: 50%;
+  height: 12vw;
+}
+
+.market-odds {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.market-odds .odd-rect {
+  position: relative;
+  display: inline-block;
+  background-color: #23282a;
+  color: #fff;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.market-odds .odd-rect {
+  position: relative;
+  height: 12vw;
+  line-height: 12vw;
+  border-radius: 0.8vw;
+  font-size: 4.5vw;
+  width: calc(33.33% - 1vw);
+  text-align: center;
+}
+
+.market-odds .odd-rect:not(:first-child) {
+  margin-left: 1.5vw;
+}
+
+.match-line .first-line .market-count span:last-child {
+  font-size: 4.5vw;
+  padding-top: 2px;
+}
+
+.coef {
+  position: relative;
+  bottom: 1px;
+}
+
+.prematch-matches .match-list .match-line + .match-line {
+  margin-top: 2px;
+}
+
+@media screen and (min-width: 430px) {
+  .coef {
+    position: relative;
+    bottom: 0px;
+  }
+
+  .league-name .sport-icon {
+    padding-top: 1px;
+  }
+
+  .league-name .name {
+    padding-left: 8.2px;
+    bottom: 0;
+  }
+}

@@ -1,0 +1,11 @@
+::ng-deep .sport-item {
+  padding: 0 2vw;
+}
+
+::ng-deep .sport-score {
+  top: 4.5px;
+}
+
+::ng-deep .mobile-nav {
+  background-color: #101317;
+}
