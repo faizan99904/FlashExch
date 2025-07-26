@@ -16,7 +16,7 @@ export class SportEventsComponent {
   activeSportId:any;
  
   isOddType:boolean = false
-  searchTab:string = 'list'
+  searchTab: string = 'line_style'
   markets:any;
   constructor(public mainService:MainService){
     effect(() => {

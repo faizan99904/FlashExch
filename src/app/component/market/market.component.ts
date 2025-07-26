@@ -9,14 +9,16 @@ import { MainService } from '../../service/main.service';
   templateUrl: './market.component.html',
   styleUrl: './market.component.css'
 })
-export class MarketComponent implements OnInit{
-  @Input() isMobile:boolean=false;
-  @Input() market:any=[];
-  @Input() index:any;
-  
+export class MarketComponent implements OnInit {
+  @Input() isMobile: boolean = false;
+  @Input() market: any = [];
+  @Input() index: any;
+  @Input() searchTab!: string
+
+
 
   ngOnInit(): void {
-     
+
   }
   getEventName(first: boolean, eventName: any) {
     let splitArray = eventName.split(' v ');

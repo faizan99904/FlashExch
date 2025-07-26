@@ -12,7 +12,8 @@
                 class="flex items-center justify-center text-[2.7vw] whitespace-nowrap leading-[1.159] min-[429]:!leading-[1.206] font-semibold text-[rgb(255_255_255_/_0.6)]">Casino</span>
         </span>
 
-        <span class="relative h-full w-[calc(20%_-_.8vw)] px-[4vw] bg-[#151a21] rounded-[3px]" routerLink="/live-casino">
+        <span class="relative h-full w-[calc(20%_-_.8vw)] px-[4vw] bg-[#151a21] rounded-[3px]"
+            routerLink="/live-casino">
             <span class="live-casino block h-[10vw] w-full bg-no-repeat bg-[50%] bg-auto brightness-[6]"></span>
             <span
                 class="flex items-center justify-center text-[2.7vw] whitespace-nowrap leading-[1.159] min-[429]:!leading-[1.206] font-semibold text-[rgb(255_255_255_/_0.6)]">Live
@@ -102,23 +103,25 @@
     </div>
 
     <ul class="max-[820px]:hidden ml-auto flex items-center whitespace-nowrap overflow-hidden pr-[28px]">
-        <li *ngFor="let item of mainService.sportsList(); let i = index" class="tabs ml-4 h-[35px] basis-auto p-[.5rem] text-white flex items-center justify-center shrink-0 text-center text-[.9rem] overflow-hidden cursor-pointer "
+        <li *ngFor="let item of mainService.sportsList(); let i = index"
+            class="tabs ml-4 h-[35px] basis-auto p-[.5rem] text-white flex items-center justify-center shrink-0 text-center text-[.9rem] overflow-hidden cursor-pointer "
             (click)="changeSport(item.sportId)" [ngClass]="{'active-tab':activeSportId == item.sportId}">
             <i class="sport-icon text-[#05AA30] text-[1.3rem]" [attr.sport]="item.sportName.toLowerCase()"> </i>
             <span class="m-[0_.7rem]  text-[12.6px] hidden">{{item.sportName}}</span>
         </li>
 
-    
+
     </ul>
 
 </div>
 
-<app-sportslist ></app-sportslist>
+<app-sportslist></app-sportslist>
 
-    <div class="main-wrapper w-full">
-        <app-market  *ngFor="let item of markets;trackBy: trackByFn;" [isMobile]="true" [market]="item"></app-market>
-    </div>
-    <div class="top-events mt-[1rem]">
-        <app-market  *ngFor="let item of markets;index as i;trackBy: trackByFn;" [isMobile]="false" [market]="item" [index]="i"></app-market>
-    </div>
-
+<div class="main-wrapper w-full">
+    <app-market *ngFor="let item of markets; index as i; trackBy: trackByFn;" [isMobile]="true" [searchTab]="searchTab"
+        [market]="item" [index]="i"></app-market>
+</div>
+<div class="top-events mt-[1rem]">
+    <app-market *ngFor="let item of markets;index as i;trackBy: trackByFn;" [isMobile]="false" [market]="item"
+        [index]="i"></app-market>
+</div>

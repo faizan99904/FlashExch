@@ -1,6 +1,6 @@
 <!-- Mobile -->
 
-<div class=" market-wrapper p-[2vw_2.5vw] bg-[#101317] overflow-hidden" *ngIf="isMobile">
+<div class=" market-wrapper p-[2vw_2.5vw] bg-[#101317] overflow-hidden" *ngIf="isMobile && searchTab === 'line_style'">
     <div class="first-line flex items-center h-[6vw]">
         <div class="start text-[4.5vw] mr-[1.2vw] h-full items-center">
             <span class="material-icons text-[#A0A1A2] text-[4vw]">equalizer</span>
@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="second-line mb-[-2vw] overflow-hidden flex items-center mt-[.5vw]">
-        <div class="star-wrapper leading-[6vw] mr-[1vw] ml-[-1px] text-[5vw]">
+        <div class="star-wrapper leading-[6vw] mr-[1vw] ml-[-1px] text-[5vw] flex">
             <span class="material-icons text-[#00aa30]">star_border</span>
         </div>
         <div class="match-name w-[calc(100%-7vw)] p-0 text-white leading-[6vw] text-[3.5vw]"
@@ -85,6 +85,83 @@
     </div>
 </div>
 
+<div *ngIf="isMobile && searchTab === 'list'">
+
+    <div class="header"  *ngIf="index === 0">
+        <select>
+            <option value="448">
+
+                Match result
+            </option>
+            <option value="476">
+
+                Double chance
+            </option>
+            <option value="451">
+
+                Handicap
+            </option>
+            <option value="537">
+
+                Total
+            </option>
+            <option value="422">
+
+                1st half - Total
+            </option>
+        </select>
+        <div column-count="3" class="position-names">
+            <div class="name">1</div>
+            <div class="name">X</div>
+            <div class="name">2</div>
+        </div>
+    </div>
+
+    <div class=" market-wrapper p-[2vw_2.5vw] bg-[#101317] overflow-hidden">
+        <div class="first-line flex items-center h-[6vw]">
+            <div class="start text-[4.5vw] mr-[1.2vw] h-full items-center">
+                <span class="material-icons text-[#A0A1A2] text-[4vw]">equalizer</span>
+            </div>
+            <div class="date text-[#00aa30] text-[3vw] font-[200] h-full items-center flex">
+                <span>{{market.eventTime | date:'dd/MM'}}</span>
+                <span class="ml-[.8vw] ">{{market.eventTime | date:'HH:mm'}}</span>
+            </div>
+            <div class="champ-name relative ml-[2vw] h-full items-center flex">
+                <span class="material-icons text-[#A0A1A2] text-[4vw]">error_outline</span>
+                <div class="text hidden">{{market.tournamentName}}</div>
+            </div>
+            <div class="market-count text-[3vw] text-white ml-auto">
+                <span class="[vertical-align:middle]">+407</span>
+                <span class="material-icons text-[4.5vw] [vertical-align:middle]">keyboard_arrow_right</span>
+            </div>
+        </div>
+
+
+        <div class="second-line">
+            <div class="star-wrapper">
+                <span icon="star_border" class="material-icons">star_border</span>
+            </div>
+            <div class="match-name p-[1vw_0px] !text-[3.5vw]">
+                <div class="dotted-hidden team"><span class="dotted-hidden name">
+                        Botafogo RJ
+                    </span></div>
+                <div class="dotted-hidden team"><span class="dotted-hidden name">Corinthians SP</span>
+                </div>
+            </div>
+            <div class="odds-wrapper">
+                <div column-count="3" class="market-odds">
+                    <div class="odd-rect"><span class="coef">1.60</span></div>
+                    <div class="odd-rect"><span class="coef">3.70</span></div>
+                    <div class="odd-rect"><span class="coef">6.25</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Mobile -->
 
 <!-- Desktop -->
 

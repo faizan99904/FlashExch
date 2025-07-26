@@ -143,3 +143,132 @@
 .market-name .desc-icon:hover + .desc {
   display: block;
 }
+
+.header {
+  height: 9vw;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 2px;
+  background-color: #151a21;
+  color: #fff;
+  overflow: hidden;
+}
+
+.header select {
+  background-color: #101317;
+  height: 80%;
+  width: 35vw;
+  margin-left: 2vw;
+  outline: 0;
+  box-sizing: border-box;
+  line-height: 4vw;
+  border: 1px solid #404040;
+  color: #fff;
+  font-weight: 200;
+  font-size: 3.5vw;
+  padding-left: 2vw;
+}
+
+.header select {
+  -webkit-appearance: none;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCiA8Zz4KICA8dGl0bGU+YmFja2dyb3VuZDwvdGl0bGU+CiAgPHJlY3QgZmlsbD0ibm9uZSIgaWQ9ImNhbnZhc19iYWNrZ3JvdW5kIiBoZWlnaHQ9IjQwMiIgd2lkdGg9IjU4MiIgeT0iLTEiIHg9Ii0xIi8+CiA8L2c+CiA8Zz4KICA8dGl0bGU+TGF5ZXIgMTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzk5OTk5OSIgaWQ9InN2Z18xIiBkPSJtOTguOSwxODQuN2wxLjgsMi4xbDEzNiwxNTYuNWM0LjYsNS4zIDExLjUsOC42IDE5LjIsOC42YzcuNywwIDE0LjYsLTMuNCAxOS4yLC04LjZsMTM1LjksLTE1Ni4ybDIuMywtMi42YzEuNywtMi41IDIuNywtNS41IDIuNywtOC43YzAsLTguNyAtNy40LC0xNS44IC0xNi42LC0xNS44bDAsMGwtMjg2LjgsMGwwLDBjLTkuMiwwIC0xNi42LDcuMSAtMTYuNiwxNS44YzAsMy4zIDEuMSw2LjQgMi45LDguOXoiLz4KIDwvZz4KPC9zdmc+);
+  background-repeat: no-repeat;
+  background-size: 2vw auto;
+  background-position: right 2vw center;
+}
+
+.header .position-names {
+  overflow: hidden;
+  padding-right: 2.5vw;
+  width: 50%;
+  box-sizing: border-box;
+  margin-left: auto;
+}
+
+.header .position-names .name {
+  float: left;
+  width: 33.33%;
+  text-align: center;
+}
+
+.second-line .star-wrapper {
+  float: left;
+  font-size: 5vw;
+  line-height: 12vw;
+  margin-right: 1vw;
+  margin-left: -1px;
+}
+
+.star-wrapper span.material-icons {
+  color: #00aa30;
+  font-size: inherit;
+}
+
+.second-line .match-name {
+  float: left;
+  width: calc(50% - 7vw);
+  /* padding: 1vw 0; */
+  box-sizing: border-box;
+}
+
+.second-line .match-name .team {
+  color: #fff;
+  height: 5vw;
+  line-height: 5vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.second-line .match-name .team * {
+  vertical-align: middle;
+}
+
+.second-line .odds-wrapper {
+  position: relative;
+  float: right;
+  width: 50%;
+  height: 12vw;
+}
+
+.market-odds {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.market-odds .odd-rect {
+  position: relative;
+  height: 12vw;
+  line-height: 12vw;
+  border-radius: 0.8vw;
+  font-size: 4.5vw;
+  width: calc(33.33% - 1vw);
+  text-align: center;
+}
+
+.market-odds .odd-rect,
+#sportsbook .market-odds .odd-rect-wide {
+  position: relative;
+  display: inline-block;
+  float: left;
+  background-color: #23282a;
+  color: #fff;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.market-odds .odd-rect {
+  line-height: 12vw;
+  font-size: 4.5vw;
+  text-align: center;
+}
+
+.market-odds .odd-rect:not(:first-child) {
+  margin-left: 1.5vw;
+}
