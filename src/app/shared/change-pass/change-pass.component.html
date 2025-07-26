@@ -1,0 +1,25 @@
+<div class="popup">
+    <form class="new flex w-full flex-col items-center">
+        <ul class="fields flex items-center justify-center flex-col w-full h-full">
+            <li>
+                <p>Old Password</p>
+                <input type="password" name="currPass" required="">
+            </li>
+            <li>
+                <p>New Password</p>
+                <input type="password" name="newPass" required="">
+                <span class="material-icons done">done</span>
+            </li>
+            <li>
+                <p>Confirm Password</p>
+                <input type="password" name="confPass" required="">
+                <span class="material-icons done">done</span>
+            </li>
+        </ul>
+        <button type="submit" class="btn poppins-bold" disabled="disabled">Change Password</button>
+        <p class="success-text">Password Changed
+            Successfully
+        </p>
+        <p class="err-text"></p>
+    </form>
+</div>
