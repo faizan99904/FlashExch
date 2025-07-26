@@ -26,12 +26,13 @@
     <div class="log h-auto">
         <h2 class="title poppins-medium">Log In</h2>
 
-        <form class="px-[1.17045rem]">
-            <input class="poppins-regular" type="text" name="username" placeholder="Username">
-            <input class="poppins-regular" type="password" name="password" placeholder="Password">
-            <span routerLink="/passwordrecovery" class="forget flex justify-end poppins-medium">Forgot
-                Password?</span>
-            <button class="login-btn btn roboto-medium">Log In</button>
+        <form class="px-[1.17045rem]" [formGroup]="loginForm" (submit)="onSubmit()">
+            <input class="poppins-regular" formControlName="userName" type="text" name="username" placeholder="Username">
+            <div class="err-text text-red-500 text-sm mt-1 pl-[6px]" *ngIf="loginForm.get('userName')?.invalid && loginForm.get('userName')?.touched">Username is required</div>
+            <input class="poppins-regular" formControlName="password" type="password" name="password" placeholder="Password">
+            <div class="err-text text-red-500 text-sm mt-1 pl-[6px]" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">Password is required</div>
+            <span routerLink="/passwordrecovery" class="forget flex justify-end poppins-medium">Forgot Password?</span>
+            <button type="submit" class="login-btn btn roboto-medium" [disabled]="loginForm.invalid" [ngClass]="{'opacity-[.5]':loginForm.invalid}">Log In</button>
             <p class="have-account">
                 <span class="poppins-regular">Do not have an account?</span>
                 <a class="poppins-medium text-[#11e311] ml-1">Sign Up</a>
