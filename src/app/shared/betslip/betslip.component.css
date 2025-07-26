@@ -1,0 +1,124 @@
+input::placeholder {
+  color: white;
+}
+
+.border-layBtn {
+  border-color: #f1bed2;
+}
+
+.border-backBtn {
+  border-color: #aed8ff;
+}
+
+.text-text_color_primary1 {
+  color: white;
+}
+
+.bg-bg_color_betSlipBgColor {
+  background-color: #374151;
+}
+
+.bg-bg_color_input_bg {
+  background-color: #101827;
+}
+
+.border-border_color_primary {
+  border-color: #545454;
+}
+
+.text-text_brand_primary {
+  color: #d80162;
+}
+
+.active\:border-oddInputBorderActive:active {
+  border-color: #d80162;
+}
+
+.focus\:bg-bg_color_input_bg:focus {
+  background-color: #101827;
+  border-color: #d80162 !important;
+}
+
+.text-text_color_primary2 {
+  color: white;
+}
+
+.border-border_color_primary4 {
+  border-color: #bd3725;
+}
+
+.border-border_color_brand_secondary {
+  border-color: #d80162;
+}
+
+.border-border_color_brand_primary {
+  border-color: #d80162;
+}
+
+.bg-bg_color_placeBetBtnGrd {
+  background-image: linear-gradient(90deg, #d80162, #d80162);
+}
+
+.border-border_color_brand_primary {
+  border-color: #d80162;
+}
+
+.sr-only {
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  clip: rect(0, 0, 0, 0);
+  border-width: 0;
+  white-space: nowrap;
+}
+
+.bg-bg_color_primary {
+  background-color: #1f2c3d;
+}
+
+.border-border_color_primary1 {
+  border-color: #676767;
+}
+
+.bg-bg_SwitchBtnRound {
+  background-color: #fff;
+}
+
+.peer:checked ~ .peer-checked\:bg-bg_color_switchAfterCheck {
+  background-color: #01a950;
+}
+
+.bg-bg_color_disableBackGroundColorfForPlaceBetBtn {
+  background-color: #979797;
+}
+
+.bg-bg_color_minBtn {
+  background-image: linear-gradient(90deg, #44b5d9, #2c8ba9);
+}
+
+.bg-bg_color_maxBtn {
+  background-image: linear-gradient(90deg, #2e924b, #40af52);
+}
+
+.bg-bg_color_editStakes {
+  background-image: linear-gradient(90deg, #b0b0b0, #747474);
+}
+
+.bg-bg_color_clearBtn {
+  background-image: linear-gradient(90deg, #8d1d35, #cd3c5b);
+}
+
+.bg-bg_color_input_bg {
+  background-color: #101827;
+}
+
+.bg-bg_color_betSlipOddIncDecrBtnsGrd {
+  background-image: linear-gradient(62.57deg, #d80162 34.17%, #6d261d 104.5%);
+}
+
+.border-border_color_primary4 {
+  border-color: #bd3725;
+}
