@@ -53,8 +53,8 @@ export class BetHistoryComponent {
   // startDate:any = { date: { year: this.today.getFullYear(), month: this.today.getMonth() + 1, day: this.today.getDate() -1 }};
   // endDate:any= { date: { year: this.today.getFullYear(), month: this.today.getMonth() + 1, day: this.today.getDate() }};
 
-  startDate: any;
-  endDate: any = { date: { year: this.today.getFullYear(), month: this.today.getMonth() + 1, day: this.today.getDate() }, isRange: false, singleDate: { jsDate: new Date() } };
+  startDate: any
+  endDate: any = this.formatDate(this.today);
 
 
   historyList: any = [];
@@ -64,20 +64,21 @@ export class BetHistoryComponent {
   popularSportList: any;
   reqForBets = {};
   constructor(private mainService: MainService, private http: HttpClient, private deviceService: DeviceDetectorService, private backendService: NetworkService,) {
-    const today = new Date();
-    const yesterday = new Date(today);
-    yesterday.setDate(today.getDate() - 1);
-    this.startDate = {
-      date: { year: this.today.getFullYear(), month: this.today.getMonth() + 1, day: this.today.getDate() - 1 },
-      isRange: false,
-      singleDate: { jsDate: yesterday },
-    };
+    let todayDate = new Date()
+    const yesterday = new Date(todayDate);
+    yesterday.setDate(yesterday.getDate() - 1);
+    this.startDate = yesterday.toISOString().slice(0, 10);
 
     this.isDesktop = this.deviceService.isDesktop();
     this.isMobile = this.deviceService.isMobile();
   }
 
   ngOnInit(): void {
+
+
+    console.log(' this.startDate', this.startDate)
+    console.log(' end Date', this.endDate)
+
     this.getBetHistoryUser();
     this.getAllSportList();
 
@@ -85,6 +86,14 @@ export class BetHistoryComponent {
     //   this.getBetListData();
     // }
   }
+
+  formatDate(date: Date): string {
+    const year = date.getFullYear();
+    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+    const day = ('0' + date.getDate()).slice(-2);
+    return `${year}-${month}-${day}`;
+  }
+
 
   getAllSportList() {
     this.mainService.getDataFromServices(CONFIG.SportsList, CONFIG.SportsListTime, { key: CONFIG.siteKey }).subscribe((data: any) => {
@@ -200,6 +209,7 @@ export class BetHistoryComponent {
   onDataSourceChange(newValue: string) {
     this.startDate = this.backendService.dateManager(newValue);
   }
+
   onSourceChange() {
 
     if (this.selectedDataSource == 'LIVE') {
@@ -222,8 +232,6 @@ export class BetHistoryComponent {
     }
   }
 
-
-
   rerender(): void {
     this.reqForBets = {
       startDate: this.backendService.getStartDate(this.startDate),
@@ -244,6 +252,8 @@ export class BetHistoryComponent {
   hideLoading() {
     this.isLoader = false;
   }
+
+  
 }
 
 

@@ -28,10 +28,10 @@ export class AccountStatementComponent {
   isLoader: boolean = false;
   statementList: any = [];
   selectedDataSource = '';
- 
 
-  startDate :any
-  todayString = new Date().toISOString().slice(0,10); // "YYYY-MM-DD"
+
+  startDate: any
+  todayString = new Date().toISOString().slice(0, 10); // "YYYY-MM-DD"
   endDate = this.todayString;
 
   constructor(private http: HttpClient, private backendService: NetworkService) {
@@ -55,7 +55,7 @@ export class AccountStatementComponent {
     this.startDate = this.backendService.dateManager(newValue);
     console.log(' this.startDate', this.startDate)
   }
- 
+
 
   getAccountStatement() {
     this.reqForBets = {
@@ -114,10 +114,10 @@ export class AccountStatementComponent {
   }
 
   rerender(): void {
-    console.log('startDate ',this.backendService.getStartDate(this.startDate))
-    console.log('startDate New',this.backendService.getStartDate(this.startDate))
-    console.log('endDate',this.endDate)
-    console.log('endDate New',this.backendService.getEndDate(this.endDate),)
+    console.log('startDate ', this.backendService.getStartDate(this.startDate))
+    console.log('startDate New', this.backendService.getStartDate(this.startDate))
+    console.log('endDate', this.endDate)
+    console.log('endDate New', this.backendService.getEndDate(this.endDate),)
     this.reqForBets = {
       startDate: this.backendService.getStartDate(this.startDate),
       endDate: this.backendService.getEndDate(this.endDate),
