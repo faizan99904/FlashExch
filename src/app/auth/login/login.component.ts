@@ -93,6 +93,8 @@ export class LoginComponent {
       this.http.post(CONFIG.userLogin, req).subscribe({
         next: (res: any) => {
           localStorage.setItem('token', res.data.accessToken);
+          localStorage.setItem('userDetail', JSON.stringify(res.data.userDetail));
+          localStorage.setItem('intCasino', res.data.intCasino)
           this.router.navigate(['/']);
           if (res.data.userDetail.isLogin == 0) {
             this.router.navigate(['/account/change-password']);
