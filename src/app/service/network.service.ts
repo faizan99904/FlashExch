@@ -1,6 +1,6 @@
 import { DatePipe } from "@angular/common";
 import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { Injectable, signal } from "@angular/core";
 import { Router } from "@angular/router";
 
 import {
@@ -23,7 +23,7 @@ export class NetworkService {
   private deletedMarket = new Subject<any>();
   private betPlaceObj = new Subject<any>();
   private betslipOpened = new Subject<any>();
-  private userBalance = new Subject<any>();
+  userBalance = signal<any>(null);
   private roundData = new Subject<string>();
   private resultData = new Subject<string>();
 
@@ -213,25 +213,21 @@ export class NetworkService {
       // this.http.post(CONFIG.videoStreamURL, params)
     });
   }
-  getUserBalanceFromApi(): Observable<any> {
-    return new Observable<any>((observer) => {
-      this.getAllRecordsByPost(CONFIG.userBalance, {})
-        .then((res: any) => {
-          this.userBalance.next(res);
-          observer.next(res);
-          observer.complete();
-        })
-        .catch((error) => {
-          // Handle error as needed
-          console.error("Error:", error);
-          observer.error(error); // If you want to propagate the error to the observer
-          observer.complete();
-        });
-    });
+
+  async getUserBalanceFromApi(): Promise<void> {
+    try {
+      const res = await this.getAllRecordsByPost(CONFIG.userBalance, {});
+      this.userBalance.set(res);
+    } catch (error) {
+      console.error('Error fetching balance:', error);
+    }
   }
-  getUserBalance(): Observable<any> {
-    return this.userBalance.asObservable();
+
+
+  getUserBalanceSignal() {
+    return this.userBalance;
   }
+
   SetFancyChanged(change: any) {
     this.fancyChange.next(change);
   }

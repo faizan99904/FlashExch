@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { SharedService } from '../../service/shared.service';
 import { CommonModule } from '@angular/common';
+import { NetworkService } from '../../service/network.service';
 
 @Component({
   selector: 'app-header',
@@ -12,13 +13,15 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent {
   token: any;
-  constructor(private router: Router, private toggle: SharedService) {
+  constructor(private router: Router, private toggle: SharedService, public networkService:NetworkService) {
     this.toggle.getToken().subscribe((value: any) => {
       if (value) {
         this.token = value;
       }
     });
     this.token = localStorage.getItem('token');
+    this.networkService.getUserBalanceFromApi();
+    console.log('networkService.getUserBalanceSignal()', this.networkService.getUserBalanceSignal);
   }
 
   gotoLogin() {
@@ -50,4 +53,5 @@ export class HeaderComponent {
     );
     this.toggle.setToken('resolveallconflictsmanuallymarkthemasresolvedwith');
   }
+
 }
