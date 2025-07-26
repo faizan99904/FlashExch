@@ -6,24 +6,26 @@
                 <input
                     [ngClass]="{'!border-[#d62700]': changePassword.get('oldPassword')?.invalid && changePassword.get('oldPassword')?.touched}"
                     formControlName="oldPassword" (focus)="focused('oldPassword')" type="password" name="currPass"
-                    required="">
+                        (blur)="blurred('oldPassword')">
             </li>
             <li [ngClass]=" {'fucused' : isNew}">
                 <p>New Password</p>
                 <input
-                    [ngClass]="{'border-[#d62700]': changePassword.get('newPassword')?.invalid && changePassword.get('newPassword')?.touched}"
+                    [ngClass]="{'!border-[#d62700]': changePassword.get('newPassword')?.invalid && changePassword.get('newPassword')?.touched}"
                     formControlName="newPassword" (focus)="focused('newPassword')" type="password" name="newPass"
-                    required="">
+                     (blur)="blurred('newPassword')">
                 <span class="material-icons done">done</span>
             </li>
             <li [ngClass]=" {'fucused' : isConfirm}">
                 <p>Confirm Password</p>
-                <input type="password" formControlName="confirmPassword" (focus)="focused('confirmPassword')"
-                    name="confPass" required="">
+                <input 
+                [ngClass]="{'!border-[#d62700]': changePassword.get('confirmPassword')?.invalid && changePassword.get('confirmPassword')?.touched || confirmPasswordMatch}"
+                type="password" formControlName="confirmPassword" (focus)="focused('confirmPassword')"
+                    name="confPass" (input)="checkMatchPassword()"  (blur)="blurred('confirmPassword')">
                 <span class="material-icons done">done</span>
             </li>
         </ul>
-        <button type="submit" class="btn poppins-bold" disabled="disabled">Change Password</button>
+        <button type="submit" class="btn poppins-bold" [disabled]="confirmPasswordMatch || changePassword.invalid" [ngClass]="{'opacity-[.5]':changePassword.invalid}">Change Password</button>
         <p class="success-text">Password Changed
             Successfully
         </p>

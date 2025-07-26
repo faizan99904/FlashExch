@@ -47,6 +47,8 @@ export class ChangePassComponent {
     }
   }
 
+  
+
   checkMatchPassword() {
     const confirm = this.changePassword.get('confirmPassword')?.value;
     const newPass = this.changePassword.get('newPassword')?.value;
@@ -54,6 +56,15 @@ export class ChangePassComponent {
       this.confirmPasswordMatch = true;
     } else {
       this.confirmPasswordMatch = false;
+    }
+  }
+
+  blurred(field: string) {
+    const control = this.changePassword.get(field);
+    if (control && !control.value) {
+      if (field === 'oldPassword') this.isOld = false;
+      else if (field === 'newPassword') this.isNew = false;
+      else if (field === 'confirmPassword') this.isConfirm = false;
     }
   }
 
