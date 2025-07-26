@@ -1,18 +1,25 @@
 <div class="popup">
-    <form class="new flex w-full flex-col items-center">
+    <form [formGroup]="changePassword" (ngSubmit)="onSubmit()" class="new flex w-full flex-col items-center">
         <ul class="fields flex items-center justify-center flex-col w-full h-full">
-            <li>
+            <li [ngClass]=" {'fucused' : isOld}">
                 <p>Old Password</p>
-                <input type="password" name="currPass" required="">
+                <input
+                    [ngClass]="{'!border-[#d62700]': changePassword.get('oldPassword')?.invalid && changePassword.get('oldPassword')?.touched}"
+                    formControlName="oldPassword" (focus)="focused('oldPassword')" type="password" name="currPass"
+                    required="">
             </li>
-            <li>
+            <li [ngClass]=" {'fucused' : isNew}">
                 <p>New Password</p>
-                <input type="password" name="newPass" required="">
+                <input
+                    [ngClass]="{'border-[#d62700]': changePassword.get('newPassword')?.invalid && changePassword.get('newPassword')?.touched}"
+                    formControlName="newPassword" (focus)="focused('newPassword')" type="password" name="newPass"
+                    required="">
                 <span class="material-icons done">done</span>
             </li>
-            <li>
+            <li [ngClass]=" {'fucused' : isConfirm}">
                 <p>Confirm Password</p>
-                <input type="password" name="confPass" required="">
+                <input type="password" formControlName="confirmPassword" (focus)="focused('confirmPassword')"
+                    name="confPass" required="">
                 <span class="material-icons done">done</span>
             </li>
         </ul>
