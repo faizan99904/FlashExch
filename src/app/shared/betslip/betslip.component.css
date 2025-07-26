@@ -122,3 +122,15 @@ input::placeholder {
 .border-border_color_primary4 {
   border-color: #bd3725;
 }
+
+.edit-bg {
+  background-image: linear-gradient(
+    95deg,
+    #d80162 -8.6%,
+    #d80162 110.45%
+  ) !important;
+}
+
+.editable-inp:focus {
+  outline: #d80162;
+}
