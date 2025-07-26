@@ -16,12 +16,14 @@ export class HeaderComponent {
   constructor(private router: Router, private toggle: SharedService, public networkService:NetworkService) {
     this.toggle.getToken().subscribe((value: any) => {
       if (value) {
+        this.networkService.getUserBalanceFromApi();
         this.token = value;
+
       }
     });
     this.token = localStorage.getItem('token');
-    this.networkService.getUserBalanceFromApi();
-    console.log('networkService.getUserBalanceSignal()', this.networkService.getUserBalanceSignal);
+
+
   }
 
   gotoLogin() {
