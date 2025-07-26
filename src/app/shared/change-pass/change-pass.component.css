@@ -50,7 +50,7 @@ form.new ul.fields li p {
   align-items: center;
 }
 
-form.new ul.fields li p.fucused {
+form.new ul.fields li.fucused p {
   top: -20.28px;
   font-size: 10.53px;
 }
@@ -65,6 +65,12 @@ form.new ul.fields li input {
   padding: 0 8.19px;
   border-bottom: 0.78px solid rgba(255, 255, 255, 0.1);
   transition: 0.2s;
+  border-radius: 6.0671px;
+  color: white;
+}
+
+form.new ul.fields li input:focus {
+  border-bottom: 0.78px solid rgba(255, 255, 255, 0.7);
 }
 
 span.done {
