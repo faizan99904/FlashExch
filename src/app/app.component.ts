@@ -9,17 +9,18 @@ import { MainService } from './service/main.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit{
- 
+export class AppComponent implements OnInit {
+
   title = 'FlashExch';
 
-  constructor( private mainService: MainService){
+  constructor(private mainService: MainService) {
 
   }
 
   ngOnInit(): void {
     this.allEventsList();
     this.sportsList();
+    this.allRacing()
   }
 
 
@@ -27,7 +28,7 @@ export class AppComponent implements OnInit{
     this.mainService.getDataFromServices(CONFIG.SportsList, CONFIG.SportsListTime, { key: CONFIG.siteKey }).subscribe((data: any) => {
       const filteredData = data?.data.filter((item: any) => item.sportId !== "66103");
       data.data = filteredData;
-     
+
     });
   }
   allEventsList() {
@@ -36,4 +37,13 @@ export class AppComponent implements OnInit{
       this.mainService.checkSports();
     });
   }
+
+  allRacing() {
+    this.mainService.getDataFromServices(CONFIG.racingEventsList, CONFIG.getAllEventsListTime, { key: CONFIG.siteKey }).subscribe((data: any) => {
+      this.mainService.setAllRacingEvents(data?.data);
+      // this.mainService.checkSports();
+      console.log(data);
+    });
+  }
+  
 }

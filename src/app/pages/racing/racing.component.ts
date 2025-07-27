@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, effect } from '@angular/core';
 import { LiveStreemComponent } from '../../component/live-streem/live-streem.component';
+import { MainService } from '../../service/main.service';
 
 @Component({
   selector: 'app-racing',
@@ -10,8 +11,28 @@ import { LiveStreemComponent } from '../../component/live-streem/live-streem.com
 })
 export class RacingComponent {
   isWithOdds = false;
+  racingData: any;
+  filterRacing: any = []
+
   // Store toggle state for each region
   collapsedRegions: { [key: number]: boolean } = {};
+
+  constructor(private mainService: MainService) {
+    effect(() => {
+      this.racingData = this.mainService.getAllRacingEvents();
+      if (this.racingData && this.racingData.events && this.racingData.tournaments) {
+        this.groupEventsByTournament(this.racingData.tournaments, this.racingData.events)
+      }
+
+    })
+  }
+
+  groupEventsByTournament(tournaments: any[], events: any[]) {
+    this.filterRacing = events.filter(tournament =>
+      events.some(event => event.tournamentId === tournament.tournamentId)
+    );
+    console.log('Matching tournaments:', this.filterRacing);
+  }
 
   expandedChamps: { [champKey: string]: boolean } = {};
   isToggleVideoStream = false;
@@ -25,11 +46,14 @@ export class RacingComponent {
   toggleVideoStream(): void {
     this.isToggleVideoStream = !this.isToggleVideoStream;
   }
+
   toggleChampExpansion(regionIndex: number, champIndex: number): boolean {
     const key = `${regionIndex}_${champIndex}`;
     this.expandedChamps[key] = !this.expandedChamps[key];
     return this.expandedChamps[key];
   }
+
+
 
   isChampExpanded(regionIndex: number, champIndex: number): boolean {
     return !!this.expandedChamps[`${regionIndex}_${champIndex}`];
@@ -127,4 +151,5 @@ export class RacingComponent {
   toggleOdds() {
     this.isWithOdds = !this.isWithOdds;
   }
+
 }
