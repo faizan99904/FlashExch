@@ -1,6 +1,7 @@
 <!-- Mobile -->
 
-<div class=" market-wrapper p-[2vw_2.5vw] bg-[#101317] overflow-hidden" *ngIf="isMobile && searchTab === 'line_style'" [ngClass]="{'!mt-0':index === 0}">
+<div class=" market-wrapper p-[2vw_2.5vw] bg-[#101317] overflow-hidden" *ngIf="isMobile && searchTab === 'line_style'"
+    [ngClass]="{'!mt-0':index === 0}">
     <div class="first-line flex items-center h-[6vw]">
         <div class="start text-[4.5vw] mr-[1.2vw] h-full items-center">
             <span class="material-icons text-[#A0A1A2] text-[4vw]">equalizer</span>
@@ -87,7 +88,7 @@
 
 <div *ngIf="isMobile && searchTab === 'list'">
 
-    <div class="header"  *ngIf="index === 0">
+    <div class="header" *ngIf="index === 0">
         <select>
             <option value="448">
 
@@ -141,36 +142,39 @@
             <div class="star-wrapper">
                 <span icon="star_border" class="material-icons">star_border</span>
             </div>
-            <div class="match-name p-[1vw_0px] !text-[3.5vw]"  *ngIf="market.marketName!='Ball By Ball'">
+            <div class="match-name p-[1vw_0px] !text-[3.5vw]" *ngIf="market.marketName!='Ball By Ball'">
                 <div class="dotted-hidden team"><span class="dotted-hidden name">
-                    {{ getEventName(true,
+                        {{ getEventName(true,
                         market?.eventName)
                         }}
                     </span></div>
                 <div class="dotted-hidden team"><span class="dotted-hidden name"> {{ getEventName(false,
-                    market?.eventName)
-                    }}</span>
+                        market?.eventName)
+                        }}</span>
                 </div>
             </div>
-            <div class="match-name p-[1vw_0px] !text-[3.5vw]"  *ngIf="market.marketName=='Ball By Ball'">
+            <div class="match-name p-[1vw_0px] !text-[3.5vw]" *ngIf="market.marketName=='Ball By Ball'">
                 <div class="dotted-hidden team">
                     <span class="dotted-hidden name">
-                    {{ market?.eventName  }}
+                        {{ market?.eventName }}
                     </span>
                 </div>
-              
+
             </div>
             <div class="odds-wrapper">
                 <div column-count="3" class="market-odds">
                     <div class="odd-rect"><span class="coef"> {{market?.oddsData?.runners[0]?.price?.back[0] ?
-                        market?.oddsData?.runners[0]?.price?.back[0]?.price : '0'}}/{{market?.oddsData?.runners[0]?.price?.lay[0] ?
-                        market?.oddsData?.runners[0]?.price?.lay[0]?.price : '0'}} </span></div>
+                            market?.oddsData?.runners[0]?.price?.back[0]?.price :
+                            '0'}}/{{market?.oddsData?.runners[0]?.price?.lay[0] ?
+                            market?.oddsData?.runners[0]?.price?.lay[0]?.price : '0'}} </span></div>
                     <div class="odd-rect"><span class="coef">{{market?.oddsData?.runners[2]?.price?.back[0] ?
-                        market?.oddsData?.runners[2]?.price?.back[0]?.price : '0'}}/{{market?.oddsData?.runners[2]?.price?.lay[0] ?
-                        market?.oddsData?.runners[2]?.price?.lay[0]?.price : '0'}}</span></div>
+                            market?.oddsData?.runners[2]?.price?.back[0]?.price :
+                            '0'}}/{{market?.oddsData?.runners[2]?.price?.lay[0] ?
+                            market?.oddsData?.runners[2]?.price?.lay[0]?.price : '0'}}</span></div>
                     <div class="odd-rect"><span class="coef">{{market?.oddsData?.runners[1]?.price?.back[0] ?
-                        market?.oddsData?.runners[1]?.price?.back[0]?.price : '0'}}/{{market?.oddsData?.runners[1]?.price?.lay[0] ?
-                        market.oddsData?.runners[1]?.price?.lay[0]?.price : '0'}}</span></div>
+                            market?.oddsData?.runners[1]?.price?.back[0]?.price :
+                            '0'}}/{{market?.oddsData?.runners[1]?.price?.lay[0] ?
+                            market.oddsData?.runners[1]?.price?.lay[0]?.price : '0'}}</span></div>
                 </div>
             </div>
         </div>
@@ -264,7 +268,7 @@
                     <div class="text-[12.32] text-nowrap truncate">{{ getEventName(true,
                         market?.eventName)
                         }}</div>
-                    <div class="text-[12.32]">{{ getEventName(false,
+                    <div class="text-[12.32] truncate">{{ getEventName(false,
                         market?.eventName)
                         }}</div>
                 </div>

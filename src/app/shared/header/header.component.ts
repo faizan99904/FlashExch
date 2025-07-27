@@ -18,12 +18,9 @@ export class HeaderComponent {
       if (value) {
         this.networkService.getUserBalanceFromApi();
         this.token = value;
-
       }
     });
     this.token = localStorage.getItem('token');
-
-
   }
 
   gotoLogin() {
