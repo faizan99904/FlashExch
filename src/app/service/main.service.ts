@@ -108,7 +108,7 @@ export class MainService {
         const isLottery     = item.sportId === '66104';
   
         // keep if (hasEntries & not excluded) OR casino OR lottery
-        const keep = (hasEntries && isNotExcluded) || isCasino || isLottery;
+        const keep = (hasEntries && isNotExcluded && isCasino)  || isLottery;
         if (keep) {
           item.total = entries.length;
         }
