@@ -1,45 +1,82 @@
-.bg-bg_inputBgColor{
-    background-color: #272D33;
-    color: white;
-   
+.bg-bg_inputBgColor {
+  background-color: #272d33;
+  color: white;
 }
 
 .bg-bg_backBtnBgColor {
-    background: var(--back-bg-clr);
-    color: var(--back-txt-clr);
+  background: var(--back-bg-clr);
+  color: var(--back-txt-clr);
 }
 
 .bg-bg_layBtnBgColor {
-    background:  var(--lay-bg-clr);
-    color: var(--lay-txt-clr);
+  background: var(--lay-bg-clr);
+  color: var(--lay-txt-clr);
 }
 
 .bg-giftBoxGradient {
-    background-image:linear-gradient(133deg, #31e61496, #048206 51.04%, #065a07);
-    /* No visual effect, parent color shows through */
+  background-image: linear-gradient(133deg, #31e61496, #048206 51.04%, #065a07);
+  /* No visual effect, parent color shows through */
 }
 
-.bg-cricketHeaderGradient{
-         background-color:#22272A;
-        color: white;
+.bg-cricketHeaderGradient {
+  background-color: #22272a;
+  color: white;
 }
-.bg-bg_cashoutBtnGrad{
-background: linear-gradient(98deg, #10e312 0.98%, #f4f490);
-    color: #101318;
-}
-
-.stop-watch{
-    background-color: rgba(0, 0, 0, .3);
-}
-.border-solid{
-    border-color: #525253;
+.bg-bg_cashoutBtnGrad {
+  background: linear-gradient(98deg, #10e312 0.98%, #f4f490);
+  color: #101318;
 }
 
-@media screen and (min-width:819px) {
-    .bg-bg_inputBgColor{
-        background-color: #202225;
-        color: white;
-       
-    }
+.stop-watch {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.border-solid {
+  border-color: #525253;
 }
 
+@media screen and (min-width: 819px) {
+  .bg-bg_inputBgColor {
+    background-color: #202225;
+    color: white;
+  }
+}
+
+.text-text_color_primary2 {
+  color: #fff !important;
+}
+
+.bg-bg_text_brand_primary {
+  background-image: linear-gradient(95deg, #d80162 -8.6%, #d80162 110.45%);
+}
+
+.border-border_color_brand_primary {
+  border-color: #d80162 !important;
+}
+
+.bg-bg_color_primary {
+  background-color: #1f2c3d;
+}
+
+.border-border_color_primary {
+  border-color: #545454;
+}
+
+.text-text_color_tertiary2 {
+  color: #9c9c9c;
+}
+
+.text-text_color_primary1 {
+  color: white;
+}
+
+.text-text_color_oddValue {
+  color: #000;
+}
+
+.bg-bg_color_layBtnBg {
+  background-color: #f9c9d4;
+}
+
+.bg-bg_color_backBtnBg {
+  background-color: #a7d8fd;
+}
