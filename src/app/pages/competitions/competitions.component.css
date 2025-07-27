@@ -167,6 +167,10 @@ ul.champs > li .arrow {
 .league-name .flag {
   transform: none;
   margin-right: 1.5vw;
+ 
+}
+.sport-icon{
+  color: #11e311;
 }
 
 .league-name .name {

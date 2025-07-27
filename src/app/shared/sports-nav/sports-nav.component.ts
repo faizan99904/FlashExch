@@ -10,7 +10,7 @@ import { MainService } from '../../service/main.service';
   styleUrl: './sports-nav.component.css',
 })
 export class SportsNavComponent {
-  activeIndex: number | null = null;
+  activeIndex: any ;
 
   // sportsList!: any[];
 
@@ -25,5 +25,7 @@ export class SportsNavComponent {
    
     
   }
-  
+  changeSport(sportId:any){
+    this.mainService.setActiveSport(sportId);
+  }
 }

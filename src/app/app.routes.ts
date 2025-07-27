@@ -73,7 +73,7 @@ export const routes: Routes = [
   { path: 'live-casino', component: LiveCasinoComponent },
   { path: 'promos', component: PromosComponent },
   { path: 'affliate', component: AffliateComponent },
-  { path: 'competitions', component: CompetitionsComponent },
+  { path: 'competitions/:id', component: CompetitionsComponent },
   { path: 'minigames', component: MinigamesComponent },
 
   {
