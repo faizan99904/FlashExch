@@ -4,13 +4,13 @@
 <div class="wrapper pb-[66.84px]">
     <ul class="tabs tm-or-cmp overflow-hidden font-semibold bg-[#151a21]">
         <li routerLink="/"   class="material-icons">home</li>
-        <li *ngIf="sportId=='ALL'" (click)="activeTab ='filter'" [ngClass]="{'active': activeTab=='filter'}">Filter</li>
-        <li *ngIf="sportId!='ALL'" (click)="activeTab ='comp'" [ngClass]="{'active': activeTab=='comp'}">Competitions</li>
-        <li (click)="activeTab = 'upcoming'" [ngClass]="{'active': activeTab=='upcoming'}">Upcoming Matches</li>
+        <li *ngIf="sportId=='ALL'" (click)="changeTabs('filter')" [ngClass]="{'active': activeTab=='filter'}">Filter</li>
+        <li *ngIf="sportId!='ALL'" (click)="changeTabs('comp')" [ngClass]="{'active': activeTab=='comp'}">Competitions</li>
+        <li (click)="changeTabs('upcoming')" [ngClass]="{'active': activeTab=='upcoming'}">Upcoming Matches</li>
     </ul>
     <div class="sportsbook-tree capitalize select-none font-semibold">
         @if (activeTab=='comp') {
-        <div (click)="toggle('time')" class="calendar">
+        <div (click)="toggle()" class="calendar">
             <span class="material-icons icon">date_range</span>
             <span class="title text-[3.5vw] -mt-[1px]">Calendar &nbsp; ({{filter}})</span>
             <span class="material-icons arrow">
@@ -19,7 +19,7 @@
         </div>
         <ul [ngClass]="{'hidden': timeFilters}" class="time-filters text-[3.5vw]">
             <li *ngFor="let item of timeFilter"
-             class="-mt-[1px]" [ngClass]="filter==item?'active':''" (click)="changeCompetitonTimeFilter(item)">{{item}}</li>
+             class="-mt-[1px]" [ngClass]="filter==item?'active':''" (click)="changeCompetitionTimeFilter(item)">{{item}}</li>
            
         </ul>
         <ul class="regions">

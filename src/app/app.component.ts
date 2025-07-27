@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
     this.mainService.getDataFromServices(CONFIG.racingEventsList, CONFIG.getAllEventsListTime, { key: CONFIG.siteKey }).subscribe((data: any) => {
       this.mainService.setAllRacingEvents(data?.data);
       // this.mainService.checkSports();
-      console.log(data);
+      // console.log(data);
     });
   }
   

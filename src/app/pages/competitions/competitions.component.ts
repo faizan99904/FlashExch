@@ -18,14 +18,14 @@ import { MainService } from '../../service/main.service';
   templateUrl: './competitions.component.html',
   styleUrl: './competitions.component.css',
 })
-export class CompetitionsComponent implements OnInit{
+export class CompetitionsComponent implements OnInit {
   activeTab: any
   timeFilters: boolean = true;
-  competitions:any=[];
-  sportId:any;
-  filter:any='ALL';
-  AllEvents:any=[];
-  competitionsArr:any=[];
+  competitions: any = [];
+  sportId: any;
+  filter: any = 'ALL';
+  AllEvents: any = [];
+  competitionsArr: any = [];
   timeFilter = [
     'ALL',
     '1 Hour',
@@ -39,7 +39,7 @@ export class CompetitionsComponent implements OnInit{
     '8 Days',
   ]
 
-  constructor(private route:ActivatedRoute,private mainService:MainService){
+  constructor(private route: ActivatedRoute, private mainService: MainService) {
     this.route.params.subscribe(params => {
       this.sportId = params['id'];
       this.mainService.setActiveSport(this.sportId)
@@ -47,50 +47,116 @@ export class CompetitionsComponent implements OnInit{
     })
     effect(() => {
       this.sportId = this.mainService.getActiveSport();
-      
+
       this.AllEvents = this.mainService.getAllEvents();
-      if(this.AllEvents){
-        console.log('all events',this.AllEvents)
+      if (this.AllEvents) {
+        console.log('all events', this.AllEvents)
         this.getAllEvents();
       }
-     
+
     });
-   
+
   }
   ngOnInit(): void {
     // this.getAllEvents();
   }
-  checkTabs(){
-    if(this.sportId!='ALL'){
-      this.activeTab='comp'
+  checkTabs() {
+    if (this.sportId != 'ALL') {
+      this.activeTab = 'comp'
     }
-    else{
-      this.activeTab='upcoming'
+    else {
+      this.activeTab = 'upcoming'
     }
   }
-  getAllEvents(){
-   
-    if(this.activeTab=='comp' && this.AllEvents){
+  getAllEvents() {
+
+    if (this.activeTab == 'comp' && this.AllEvents) {
       this.competitionsArr = this.RearrangingData(this.AllEvents[this.sportId])
-      console.log('comp',this.competitionsArr)
+      console.log('comp', this.competitionsArr)
     }
   }
-  toggle(state: string) {
-    if (state === 'time') {
+  toggle() {
+   
       this.timeFilters = !this.timeFilters;
-    } 
+    
   }
-  openCompetition(index:any){
-    if(!this.competitions[index]){
-      this.competitions[index]=true;
+  openCompetition(index: any) {
+    if (!this.competitions[index]) {
+      this.competitions[index] = true;
     }
-    else{
-      this.competitions[index]=false;
+    else {
+      this.competitions[index] = false;
     }
   }
-  changeCompetitonTimeFilter(filter:any){
+  changeTabs(tab:any){
+    this.activeTab = tab;
+    if(this.activeTab=='upcoming'){
+      this.changeCompetitionTimeFilter('ALL');
+    }
+  }
+  changeCompetitionTimeFilter(filter: any): void {
     this.filter = filter;
-    this.toggle('time')
+    this.timeFilters =true;
+    const allEvents: any[] = this.AllEvents[this.sportId] ?? [];
+
+    let slice: any[];
+
+    switch (filter) {
+      case 'ALL':
+        slice = allEvents;
+        break;
+
+      case '1 Hour':
+        slice = this.filterByHours(allEvents, 1);
+        break;
+
+      case '2 Hour':
+        slice = this.filterByHours(allEvents, 2);
+        break;
+
+      case '4 Hour':
+        slice = this.filterByHours(allEvents, 4);
+        break;
+
+      case '8 Hour':
+        slice = this.filterByHours(allEvents, 8);
+        break;
+
+      case '12 Hour':
+        slice = this.filterByHours(allEvents, 12);
+        break;
+
+      case '1 Day':
+        slice = this.filterByHours(allEvents, 24);
+        break;
+
+      case '2 Days':
+        slice = this.filterByHours(allEvents, 48);
+        break;
+
+      case '4 Days':
+        slice = this.filterByHours(allEvents, 96);
+        break;
+
+      case '8 Days':
+        slice = this.filterByHours(allEvents, 192);
+        break;
+
+      default:
+        slice = allEvents;
+    }
+
+    this.competitionsArr = this.RearrangingData(slice);
+  }
+
+  filterByHours(events: any[], hoursAhead: number): any[] {
+    const now = Date.now();
+    const cutOff = now + hoursAhead * 60 * 60 * 1000;
+
+    return events.filter(ev => {
+      const ts = new Date(ev.eventTime).getTime();
+      return ts >= now && ts <= cutOff;
+    });
   }
   RearrangingData(data: any) {
     const uniqueSportsArray = data.reduce((acc: any[], item: any) => {
