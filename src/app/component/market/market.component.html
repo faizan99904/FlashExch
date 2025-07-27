@@ -194,7 +194,7 @@
             class="rect-title bg-[unset] w-[240px]  pl-[1rem] h-[100%] flex items-center text-[.9rem] text-[#fff] truncate">
             <div class="title">{{market?.sportName}}</div>
         </div>
-        <div class="flex justify-end h-full items-center w-full !max-w-[calc(100%-200px)]">
+        <div class="flex justify-end h-full items-center w-full max-w-[calc(100%-210px)] xl:!max-w-[calc(100%-232px)]">
             <div class="flex justify-between w-full  text-[#7B7D7F] pr-[3rem]">
                 <div class="w-[33.33%] gap-2 px-5 text-center flex justify-center items-center flex-col">
                     <div class="market-name flex items-center gap-2 relative">
@@ -268,13 +268,13 @@
                     <div class="text-[12.32] text-nowrap truncate">{{ getEventName(true,
                         market?.eventName)
                         }}</div>
-                    <div class="text-[12.32] truncate">{{ getEventName(false,
+                    <div class="text-[12.32] truncate max-w-[125px] xl:max-w-[150px]">{{ getEventName(false,
                         market?.eventName)
                         }}</div>
                 </div>
             </div>
         </div>
-        <div class=" flex items-center w-[calc(100%-200px)]">
+        <div class=" flex items-center w-[calc(100%-210px)] xl:w-[calc(100%-232px)]">
 
             <div class="w-full flex items-center justify-center gap-x-[0.44rem]">
                 <div title="1.12--" class="w-full relative cursor-pointer">
