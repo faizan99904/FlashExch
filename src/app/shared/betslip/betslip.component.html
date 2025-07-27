@@ -1,6 +1,6 @@
 <div class="col-span-12 h-max w-full">
     <div [ngStyle]="{ 'border-color': color }"
-        class="w-full h-max bg-bg_color_betSlipBgColor font-lato origin-top flex flex-col p-2 pb-3 rounded-sm border-[2px] border-b-[5px] border-layBtn transition-all duration-300 ease-in-out overflow-hidden transform-gpu"
+        class="w-full h-max bg-bg_color_betSlipBgColor font-lato origin-top flex flex-col p-2 pb-3 rounded-sm border-[2px] border-b-[5px] border-layBtn transition-all duration-300 ease-in-out overflow-hidden transform-gpu min-h-fit"
         style="height: 291px;">
         <div class="w-full grid grid-cols-12 gap-2">
             <div title="Odds: 100" class="col-span-5 flex flex-col gap-1">
@@ -22,9 +22,11 @@
                                 fill="#fff"></path>
                         </svg>
                     </button>
+
                     <input placeholder="Enter Odds" inputmode="numeric"
                         class="w-full focus:outline-none  text-sm h-full py-2 text-center flex items-center justify-center text-text_color_primary1 bg-bg_color_input_bg  border border-border_color_primary border-l-0 border-r-0"
-                        autocomplete="off" pattern="^[+-ed]+$" type="number" [(ngModel)]="odds">
+                        autocomplete="off" pattern="^[+-ed]+$" type="text" readonly [(ngModel)]="odds">
+
                     <button (click)="increaseOdds()"
                         class="relative overflow-hidden w-full h-full flex items-center justify-center bg-bg_color_betSlipOddIncDecrBtnsGrd text-xl font-normal text-center border border-border_color_primary4 border-l-0"
                         type="button">
