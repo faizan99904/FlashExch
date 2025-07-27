@@ -3,11 +3,12 @@ import { HeaderComponent } from '../../shared/header/header.component';
 import { SportsNavComponent } from '../../shared/sports-nav/sports-nav.component';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from '../../shared/footer/footer.component';
+import { BottomNavComponent } from "../../shared/bottom-nav/bottom-nav.component";
 declare var Swiper: any;
 
 @Component({
   selector: 'app-live-casino',
-  imports: [CommonModule, HeaderComponent, SportsNavComponent, FooterComponent],
+  imports: [CommonModule, HeaderComponent, SportsNavComponent, FooterComponent, BottomNavComponent],
   templateUrl: './live-casino.component.html',
   styleUrl: './live-casino.component.css',
 })
