@@ -10,6 +10,7 @@ import { BetslipComponent } from '../../shared/betslip/betslip.component';
 })
 export class MarketDetailComponent {
   selectedColor: string = '';
+  fancyMarket: boolean = true;
   constructor(private location: Location) {}
 
   navigateBack() {
