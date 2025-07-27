@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="add-circle" transform="translate(-108 -252)">
+    <path id="Vector" d="M20,10A10,10,0,1,1,10,0,10,10,0,0,1,20,10Z" transform="translate(110 254)" fill="#11e311" opacity="0.4"/>
+    <path id="Vector-2" data-name="Vector" d="M8.75,4H5.5V.75A.75.75,0,0,0,4,.75V4H.75a.75.75,0,0,0,0,1.5H4V8.75a.75.75,0,0,0,1.5,0V5.5H8.75a.75.75,0,0,0,0-1.5Z" transform="translate(115.25 259.25)" fill="#11e311"/>
+    <path id="Vector-3" data-name="Vector" d="M0,0H24V24H0Z" transform="translate(108 252)" fill="none" opacity="0"/>
+  </g>
+</svg>
