@@ -167,9 +167,8 @@ ul.champs > li .arrow {
 .league-name .flag {
   transform: none;
   margin-right: 1.5vw;
- 
 }
-.sport-icon{
+.sport-icon {
   color: #11e311;
 }
 
@@ -289,7 +288,7 @@ ul.champs > li .arrow {
   height: 12vw;
   line-height: 12vw;
   border-radius: 0.8vw;
-  font-size: 4.5vw;
+  font-size: 3vw;
   width: calc(33.33% - 1vw);
   text-align: center;
 }

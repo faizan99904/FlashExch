@@ -184,3 +184,7 @@ li {
   background: #3d3d3d;
   border-radius: 5px;
 }
+
+.mobile-nav {
+  scrollbar-width: none;
+}
