@@ -4,7 +4,8 @@
 <div class="wrapper pb-[66.84px]">
     <ul class="tabs tm-or-cmp overflow-hidden font-semibold bg-[#151a21]">
         <li routerLink="/"   class="material-icons">home</li>
-        <li (click)="activeTab ='comp'" [ngClass]="{'active': activeTab=='comp'}">Competitions</li>
+        <li *ngIf="sportId=='ALL'" (click)="activeTab ='filter'" [ngClass]="{'active': activeTab=='filter'}">Filter</li>
+        <li *ngIf="sportId!='ALL'" (click)="activeTab ='comp'" [ngClass]="{'active': activeTab=='comp'}">Competitions</li>
         <li (click)="activeTab = 'upcoming'" [ngClass]="{'active': activeTab=='upcoming'}">Upcoming Matches</li>
     </ul>
     <div class="sportsbook-tree capitalize select-none font-semibold">
@@ -55,7 +56,7 @@
                 <!-- <span country="eadriaticleague" class="flag"></span> -->
                 <span class="name">{{comp.competitionName}}</span>
             </div>
-            <div class="prematch-matches relative !roboto" *ngFor="let market of comp.data">
+            <div class="prematch-matches relative !roboto border-b-2 border-[black]" *ngFor="let market of comp.data">
                 <div class="match-list">
                     <div class="match-line text-[3.5vw]">
                         <div class="first-line">
