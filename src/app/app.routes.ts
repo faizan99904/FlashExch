@@ -53,7 +53,7 @@ export const routes: Routes = [
     children: [
       { path: '', component: SportsBookComponent },
       { path: 'market-detail', component: MarketDetailComponent },
-      { path: 'racing', component: RacingComponent },
+      { path: 'racing/:id', component: RacingComponent },
     ],
   },
 

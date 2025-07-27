@@ -209,9 +209,9 @@ section.filters .with-odds .switcher {
 }
 
 .matches .region-block ul.champs ul.matches > li a.active {
-  background-color: #42cf9a;
-  color: #101015;
-  font-weight: 700;
+  background-color: #42cf9a !important;
+  color: #101015 !important;
+  font-weight: 700 !important;
 }
 
 section.matches .region-block ul.champs ul.matches > li a.finished {
@@ -290,11 +290,11 @@ section.matches .region-block .region-title .flag {
 }
 
 /* Per-country flag offsets */
-.flag[country="greatbritain"] {
+.flag[country="GB"] {
   background-position: -264px -120px;
 }
 
-.flag[country^="ireland"] {
+.flag[country^="IRE"] {
   background-position: 0px -168px;
 }
 

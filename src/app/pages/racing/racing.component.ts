@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, effect } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { LiveStreemComponent } from '../../component/live-streem/live-streem.component';
 import { MainService } from '../../service/main.service';
 
@@ -13,26 +14,51 @@ export class RacingComponent {
   isWithOdds = false;
   racingData: any;
   filterRacing: any = []
-
+  sportId:any;
   // Store toggle state for each region
   collapsedRegions: { [key: number]: boolean } = {};
 
-  constructor(private mainService: MainService) {
+  constructor(private mainService: MainService,private route:ActivatedRoute) {
+    this.route.params.subscribe(params => {
+      this.sportId = params['id'];
+     
+    })
     effect(() => {
       this.racingData = this.mainService.getAllRacingEvents();
-      if (this.racingData && this.racingData.events && this.racingData.tournaments) {
-        this.groupEventsByTournament(this.racingData.tournaments, this.racingData.events)
+      if (this.racingData) {
+        console.log('racingData tournaments:', this.racingData);
+        this.filterRacing = this.groupEventsByTournament(this.racingData.tournaments, this.racingData.events);
+        console.log('racingData tournaments:', this.filterRacing);
       }
 
     })
   }
 
-  groupEventsByTournament(tournaments: any[], events: any[]) {
-    this.filterRacing = events.filter(tournament =>
-      events.some(event => event.tournamentId === tournament.tournamentId)
+  groupEventsByTournament(
+    tournaments: any[],
+    events: any[]
+  ): any[] {
+    const currentSportId = this.sportId;           
+  
+   
+    const filteredTournaments = tournaments
+      .filter(t => t.sportId === currentSportId)
+      .map(t => ({ ...t, events: t.events ?? [] }));
+  
+   
+    const byId = new Map<number, any>(
+      filteredTournaments.map(t => [t.tournamentId, t])
     );
-    console.log('Matching tournaments:', this.filterRacing);
+  
+   
+    events.forEach(ev => {
+      if (ev.sportId !== currentSportId) return;           
+      byId.get(ev.tournamentId)?.events.push(ev);
+    });
+  
+    return filteredTournaments;
   }
+
 
   expandedChamps: { [champKey: string]: boolean } = {};
   isToggleVideoStream = false;

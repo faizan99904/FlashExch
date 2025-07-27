@@ -53,10 +53,10 @@
         </select>
     </section>
     <section class="matches">
-        <div class="region-block rounded-sm" *ngFor="let region of regions; let i = index">
+        <div class="region-block rounded-sm" *ngFor="let region of filterRacing; let i = index">
             <div class="region-title" (click)="toggleRegion(i)">
-                <div [attr.country]="region.country" class="flag"></div>
-                <span class="!text-[3.5vw] !text-[#ffffff99] ">{{ region.title}}<span
+                <div [attr.country]="region.tournamentName" class="flag"></div>
+                <span class="!text-[3.5vw] !text-[#ffffff99] ">{{ region.tournamentName}}<span
                         class="startTime">(Today)</span></span>
 
                 <ul class="time-filters !hidden lg:!flex" (click)="$event.stopPropagation()">
@@ -77,35 +77,35 @@
             </div>
 
             <ul class="champs " *ngIf="this.collapsedRegions[i]">
-                <li *ngFor="let champ of region.champs; let champIdx = index">
+                <li *ngFor="let champ of region.events; let champIdx = index">
                     <div class="list-wrapper">
-                        <span class="champ-name">{{ champ.name }}</span>
+                        <span class="champ-name">{{ champ.eventName }}</span>
 
                         <ul class="matches">
-                            <li *ngFor="let match of champ.matches.slice(0,4)">
+                            <li *ngFor="let match of champ.eventsData.slice(0,4)">
                                 <a [href]="match.link" class="rect" [ngClass]="{
                                                   'finished': champ.state === 'finished',
-                                                  'active': champ.state === 'active',
+                                                  'active': champ.inPlay,
                                                   'empty': champ.state === ''
                                                 }">
-                                    {{ match.time }}
+                                    {{ match.eventTime| date :'H:mm' }}
                                 </a>
                             </li>
-                            @if (isChampExpanded(i, champIdx)) {<li *ngFor="let match of champ.matches.slice(4) "
+                            @if (isChampExpanded(i, champIdx)) {<li *ngFor="let match of champ.eventsData.slice(4) "
                                 class="expand-container">
                                 <a [href]="match.link" class="rect mt-[5.5px]" [ngClass]="{
                                                   'finished': champ.state === 'finished',
-                                                  'active': champ.state === 'active',
+                                                  'active': champ.inPlay,
                                                   'empty': champ.state === ''
                                                 }">
-                                    {{ match.time }}
+                                    {{ match.eventTime| date :'H:mm' }}
                                 </a>
                             </li>}
                         </ul>
                     </div>
 
                     <!-- Toggle Button (if needed for mobile logic or show more/less) -->
-                    <span class="material-icons toggle" (click)="toggleChampExpansion(i, champIdx)">
+                    <span *ngIf="champ.eventsData.length>4" class="material-icons toggle" (click)="toggleChampExpansion(i, champIdx)">
                         {{ isChampExpanded(i, champIdx) ? 'remove' : 'add' }}
                     </span>
                 </li>
