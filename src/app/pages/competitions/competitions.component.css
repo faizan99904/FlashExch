@@ -326,3 +326,79 @@ ul.champs > li .arrow {
     bottom: 0;
   }
 }
+
+.filter-show-all {
+  font-size: 4vw;
+  height: 10vw;
+  line-height: 10vw;
+  display: block;
+  margin: 4vw auto;
+  width: 40vw;
+  font-weight: 600;
+  position: relative;
+  border: 0;
+  outline: 0;
+  text-align: center;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0 4vw;
+  background: #00aa30;
+  color: #fff;
+}
+
+.filter-wrapper ul li {
+  position: relative;
+  height: 11vw;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-left: 4vw;
+  font-size: 4vw;
+  border-left: 4px solid transparent;
+}
+
+.filter-wrapper ul li .chbx-wrapper input {
+  border: 0;
+  vertical-align: middle;
+  outline: 0;
+  box-sizing: border-box;
+  height: 12vw;
+  line-height: 4vw;
+  background-color: var(--leagueTitleBgColor);
+  border: 1px solid var(--lighterBgColor);
+  color: var(--activeTextColor);
+  font-family: Roboto;
+  font-weight: 200;
+  font-size: 3.5vw;
+  -webkit-touch-callout: default !important;
+  -webkit-user-select: text !important;
+  padding-left: 2vw;
+}
+
+/* .filter-wrapper ul li .sport-icon {
+  margin: 0 4vw;
+  color: #9f9f9f !important;
+} */
+
+.filter-wrapper ul li:nth-child(odd) {
+  background-color: #0e0e0e;
+}
+
+.filter-wrapper ul li:nth-child(2n) {
+  background-color: #060606;
+}
+
+
+.filter-wrapper ul li .arrow {
+  position: absolute;
+  right: 4vw;
+  width: 8vw;
+  height: 8vw;
+  text-align: center;
+  line-height: 8vw;
+  border-radius: 50%;
+  background-color: #00aa30;
+  color: #fff;
+  font-size: 5vw;
+}

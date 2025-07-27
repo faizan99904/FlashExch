@@ -20,6 +20,7 @@ import { MainService } from '../../service/main.service';
 })
 export class CompetitionsComponent implements OnInit {
   activeTab: any
+  sportName:any
   timeFilters: boolean = true;
   competitions: any = [];
   sportId: any;
@@ -39,7 +40,7 @@ export class CompetitionsComponent implements OnInit {
     '8 Days',
   ]
 
-  constructor(private route: ActivatedRoute, private mainService: MainService) {
+  constructor(private route: ActivatedRoute, public mainService: MainService) {
     this.route.params.subscribe(params => {
       this.sportId = params['id'];
       this.mainService.setActiveSport(this.sportId)
@@ -192,5 +193,9 @@ export class CompetitionsComponent implements OnInit {
     else {
       return splitArray[1];
     }
+  }
+
+  selectSport(sportName:any){
+    this.sportName = sportName
   }
 }

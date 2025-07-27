@@ -3,9 +3,11 @@
 
 <div class="wrapper pb-[66.84px]">
     <ul class="tabs tm-or-cmp overflow-hidden font-semibold bg-[#151a21]">
-        <li routerLink="/"   class="material-icons">home</li>
-        <li *ngIf="sportId=='ALL'" (click)="changeTabs('filter')" [ngClass]="{'active': activeTab=='filter'}">Filter</li>
-        <li *ngIf="sportId!='ALL'" (click)="changeTabs('comp')" [ngClass]="{'active': activeTab=='comp'}">Competitions</li>
+        <li routerLink="/" class="material-icons">home</li>
+        <li *ngIf="sportId=='ALL'" (click)="changeTabs('filter')" [ngClass]="{'active': activeTab=='filter'}">Filter
+        </li>
+        <li *ngIf="sportId!='ALL'" (click)="changeTabs('comp')" [ngClass]="{'active': activeTab=='comp'}">Competitions
+        </li>
         <li (click)="changeTabs('upcoming')" [ngClass]="{'active': activeTab=='upcoming'}">Upcoming Matches</li>
     </ul>
     <div class="sportsbook-tree capitalize select-none font-semibold">
@@ -18,9 +20,9 @@
             </span>
         </div>
         <ul [ngClass]="{'hidden': timeFilters}" class="time-filters text-[3.5vw]">
-            <li *ngFor="let item of timeFilter"
-             class="-mt-[1px]" [ngClass]="filter==item?'active':''" (click)="changeCompetitionTimeFilter(item)">{{item}}</li>
-           
+            <li *ngFor="let item of timeFilter" class="-mt-[1px]" [ngClass]="filter==item?'active':''"
+                (click)="changeCompetitionTimeFilter(item)">{{item}}</li>
+
         </ul>
         <ul class="regions">
             <li (click)="openCompetition(i)" class="text-[3.5vw]" *ngFor="let comp of competitionsArr;index as i">
@@ -36,16 +38,16 @@
                 @if (competitions[i]==true) {
                 <ul class="champs">
                     <li *ngFor="let item of comp.data" routerLink="/market-detail">
-                        
+
                         <span class="champ-name">{{item.eventName}}</span>
                         <span class="count"></span>
                         <span class="material-icons arrow pt-[2px]">arrow_forward</span>
                     </li>
-                    
+
                 </ul>
                 }
             </li>
-           
+
         </ul>
         }
 
@@ -83,29 +85,32 @@
                                 <div class="truncate team">
                                     <span class="truncate name">
                                         {{ getEventName(true,
-                                            market?.eventName)
-                                            }}
+                                        market?.eventName)
+                                        }}
                                     </span>
                                 </div>
                                 <div class="truncate team">
                                     <span class="truncate name">
                                         {{ getEventName(false,
-                                            market?.eventName)
-                                            }}
+                                        market?.eventName)
+                                        }}
                                     </span>
                                 </div>
                             </div>
                             <div class="odds-wrapper ml-auto">
                                 <div column-count="3" class="market-odds flex justify-between">
-                                    <div class="odd-rect"><span class="coef"> {{market?.oddsData?.runners[0]?.price?.back[0] ?
+                                    <div class="odd-rect"><span class="coef">
+                                            {{market?.oddsData?.runners[0]?.price?.back[0] ?
                                             market?.oddsData?.runners[0]?.price?.back[0]?.price :
                                             '0'}}/{{market?.oddsData?.runners[0]?.price?.lay[0] ?
                                             market?.oddsData?.runners[0]?.price?.lay[0]?.price : '0'}} </span></div>
-                                    <div class="odd-rect"><span class="coef">{{market?.oddsData?.runners[2]?.price?.back[0] ?
+                                    <div class="odd-rect"><span
+                                            class="coef">{{market?.oddsData?.runners[2]?.price?.back[0] ?
                                             market?.oddsData?.runners[2]?.price?.back[0]?.price :
                                             '0'}}/{{market?.oddsData?.runners[2]?.price?.lay[0] ?
                                             market?.oddsData?.runners[2]?.price?.lay[0]?.price : '0'}}</span></div>
-                                    <div class="odd-rect"><span class="coef">{{market?.oddsData?.runners[1]?.price?.back[0] ?
+                                    <div class="odd-rect"><span
+                                            class="coef">{{market?.oddsData?.runners[1]?.price?.back[0] ?
                                             market?.oddsData?.runners[1]?.price?.back[0]?.price :
                                             '0'}}/{{market?.oddsData?.runners[1]?.price?.lay[0] ?
                                             market.oddsData?.runners[1]?.price?.lay[0]?.price : '0'}}</span></div>
@@ -118,6 +123,26 @@
         </div>
         }
     </div>
+
+
+    <!-- filter wrapper -->
+    <div class="filter-wrapper" *ngIf="activeTab=='filter'">
+        <div class="flex justify-center items-center">
+            <div class="btn filter-show-all">Show All</div>
+        </div>
+        <ul>
+            <li *ngFor="let item of mainService.sportsList(); let i = index" (click)="selectSport(item.sportName)"
+                [ngClass]="{'!border-[#05AA30]':sportName === item.sportName}">
+                <div class="chbx-wrapper"><input type="checkbox"></div>
+                <div class="sport-icon mx-[4vw]"><span [attr.sport]="item.sportName.toLowerCase()" name="Soccer"
+                        class="sport-icon !text-[#9f9f9f]"></span></div>
+                <div class="name text-[hsla(0,0%,100%,.6)] text-[4vw]">{{item.sportName}}</div>
+                <div class="material-icons arrow" *ngIf="sportName === item.sportName">arrow_forward</div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- filter wrapper -->
 </div>
 
 <div class="fixed left-0 bottom-0 w-full z-[999]">
