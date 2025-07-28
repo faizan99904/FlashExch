@@ -30,7 +30,6 @@ export class RacingComponent {
         this.filterRacing = this.groupEventsByTournament(this.racingData.tournaments, this.racingData.events);
         console.log('racingData tournaments:', this.filterRacing);
       }
-
     })
   }
 

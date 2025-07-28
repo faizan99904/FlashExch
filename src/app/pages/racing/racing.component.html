@@ -122,7 +122,7 @@
 
 <!-- desktop view  -->
 <section class="racing mt-[1.033em] px-[0.32em] md:px-[0.8em] lg:px-0   overflow-x-hidden hidden lg:block">
-    <section class="main-banner default"><!----></section>
+    <section class="main-banner default"></section>
     <section class="filters">
         <div class="search"><input type="text" name="search" placeholder="Search Event"> <span
                 class="material-icons">search</span></div>
@@ -137,7 +137,7 @@
     <section class="matches">
         <div class="region-block" *ngFor="let region of filterRacing; let i = index">
             <div class="region-title" (click)="toggleRegion(i)">
-                <div [attr.country]="region.country" class="flag"></div> <span class="start-time">(Today)</span>
+                <div [attr.country]="region.tournamentName" class="flag"></div> <span class="start-time">(Today)</span>
                 <ul class="time-filters" (click)="$event.stopPropagation()">
                     <li class="active">All</li>
                     <li class="">Upcoming</li>
