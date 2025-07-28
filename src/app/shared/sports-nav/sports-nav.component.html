@@ -1,12 +1,15 @@
 <div class="font-['Roboto'] h-[15vw] mob-nav text-white bg-black">
     <ul class="mobile-nav block whitespace-nowrap overflow-x-scroll w-full h-full">
-        <li [class.li-active]="activeIndex == 'ALL'" (click)="activeIndex = 'ALL';changeSport('ALL')" [routerLink]="'/competitions/ALL'" routerLinkActive="li-active"
+        <li [class.li-active]="activeIndex == 'ALL'" (click)="activeIndex = 'ALL';changeSport('ALL')"
+            [routerLink]="'/competitions/ALL'" routerLinkActive="li-active"
             class="sport-item !mr-[3px] min-[429px]:!mr-1 sport-all">
             All
         </li>
 
-        <li *ngFor="let item of mainService.sportsList(); let i = index" (click)="activeIndex = item.sportId;changeSport(item.sportId)"
-            [class.li-active]="item.sportId === activeIndex" class="sport-item" [routerLink]="'/competitions/'+item.sportId" routerLinkActive="li-active">
+        <li *ngFor="let item of mainService.sportsList(); let i = index"
+            (click)="activeIndex = item.sportId;changeSport(item.sportId)"
+            [class.li-active]="item.sportId === activeIndex" class="sport-item"
+            (click)="navigateMarket(item.sportName,item.sportId )" routerLinkActive="li-active">
 
             <div class="h-[11vw] leading-[11vw] relative opacity-60 sport-img">
                 <!-- <i [ngClass]="item.icon" class="text-[6.5vw]"></i> -->

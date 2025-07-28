@@ -21,10 +21,12 @@ export class RacingComponent {
   collapsedRegions: { [key: number]: boolean } = {};
 
   constructor(private mainService: MainService, private route: ActivatedRoute) {
+    
     this.route.params.subscribe(params => {
       this.sportId = params['id'];
 
     })
+
     effect(() => {
       this.racingData = this.mainService.getAllRacingEvents();
       if (this.racingData) {

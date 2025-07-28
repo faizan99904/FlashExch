@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Route, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { MainService } from '../../service/main.service';
 
@@ -12,26 +12,28 @@ import { MainService } from '../../service/main.service';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
+  sportId: any;
+  activeRoute: any
   dropdowns: { [key: string]: boolean } = {
     topLeagues: false,
     topLive: false,
     topEsport: false
   };
-  showSidebarContent = true; // This will control visibility
+  showSidebarContent = true; 
 
-  constructor(private router: Router, public mainService: MainService) {
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe((event: NavigationEnd) => {
-      this.updateSidebarVisibility(event.urlAfterRedirects);
-    });
+  constructor(private router: Router, public mainService: MainService, private route: ActivatedRoute) {
+    const routeUrl = this.router.url.split('/');
+    const routeNameOne = routeUrl[1];
+    this.activeRoute = routeNameOne
+    this.router.events.subscribe((event: any) => {
+      if (event instanceof NavigationEnd) {
+        const urlSegments = event.urlAfterRedirects.split('/');
+        const routeName = urlSegments[1];
+        this.activeRoute = routeName
+      }
+    })
   }
 
-  updateSidebarVisibility(currentUrl: string) {
-    // Example: Hide sidebar content on '/login' and '/register' routes
-    const hiddenRoutes = ['/racing'];
-    this.showSidebarContent = !hiddenRoutes.includes(currentUrl);
-  }
 
   timeFilter = 'All';
   topLiveGames = {
@@ -46,8 +48,6 @@ export class SidebarComponent {
       { team1: 'Los Angeles Lakers', team2: 'Oklahoma City Thunder', odds: ['1.73', '1.95'] }
     ]
   };
-
-
 
 
   toggleDropdown(name: string) {

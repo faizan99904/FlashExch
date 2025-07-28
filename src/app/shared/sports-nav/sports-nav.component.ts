@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { MainService } from '../../service/main.service';
 
 @Component({
@@ -10,11 +10,11 @@ import { MainService } from '../../service/main.service';
   styleUrl: './sports-nav.component.css',
 })
 export class SportsNavComponent {
-  activeIndex: any ;
+  activeIndex: any;
 
   // sportsList!: any[];
 
-  constructor(public mainService: MainService) {
+  constructor(public mainService: MainService, private router: Router) {
     // effect(() => {
     //   const list = this.mainService.sportsList();
     //   console.log('sportsList updated:', list);
@@ -22,10 +22,19 @@ export class SportsNavComponent {
   }
 
   ngOnInit() {
-   
-    
+
+
   }
-  changeSport(sportId:any){
+  changeSport(sportId: any) {
     this.mainService.setActiveSport(sportId);
   }
+  navigateMarket(sportName: any, sportId: any) {
+    if (sportName === 'Horse Racing' || sportName === 'Greyhound Racing'){
+      this.router.navigateByUrl(`racing/${sportId}`)
+    }else{
+      this.router.navigateByUrl(`competitions/${sportId}`)
+    }
+  }
 }
+
+// [routerLink] = "'/competitions/'+item.sportId"

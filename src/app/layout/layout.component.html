@@ -9,7 +9,7 @@
             <app-mobile-sidebar></app-mobile-sidebar>
         </div>
         <div class="mainRouter w-[100vw] flex-auto lg:w-full xg:w-[calc(100vw-608.5px)] max-md:h-[calc(100dvh-52px)] overflow-y-auto">
-            <app-sports-nav class="sport-nav-mobile" [ngClass]="{'hidden': activeRoute === 'market-detail' || activeRoute === 'racing' }"></app-sports-nav>
+            <app-sports-nav class="sport-nav-mobile" [ngClass]="{'hidden': activeRoute === 'market-detail'}"></app-sports-nav>
             <router-outlet></router-outlet>
             @if(signUp()){
             <app-signup></app-signup>
