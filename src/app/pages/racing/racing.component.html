@@ -72,11 +72,11 @@
                     <option value="FINISHED" class="bg-[#151a21] border-none outline-none">Finished</option>
                 </select>
                 <span class="material-icons cursor-pointer">
-                    {{ isCollapsed(i) ? 'keyboard_arrow_down' :'keyboard_arrow_right'}}
+                    {{ isCollapsed(i) ? 'keyboard_arrow_right' : 'keyboard_arrow_down'}}
                 </span>
             </div>
 
-            <ul class="champs " *ngIf="this.collapsedRegions[i]">
+            <ul class="champs " *ngIf="!this.collapsedRegions[i]">
                 <li *ngFor="let champ of region.events; let champIdx = index">
                     <div class="list-wrapper">
                         <span class="champ-name">{{ champ.eventName }}</span>
@@ -123,19 +123,23 @@
 <!-- desktop view  -->
 <section class="racing mt-[1.033em] px-[0.32em] md:px-[0.8em] lg:px-0   overflow-x-hidden hidden lg:block">
     <section class="main-banner default"></section>
+
     <section class="filters">
-        <div class="search"><input type="text" name="search" placeholder="Search Event"> <span
-                class="material-icons">search</span></div>
+        <div class="search">
+            <input type="text" name="search" placeholder="Search Event" #searchInput
+                (input)="searchRacing(searchInput.value)"> <span class="material-icons">search</span>
+        </div>
         <ul class="time-filters">
-            <li class="active">All</li>
-            <li class="">Today</li>
-            <li class="">Tomorrow</li>
+            <li  (click)="daysFilter('all')" [ngClass]="{'active': dayValue === 'all'}">All</li>
+            <li class="" (click)="daysFilter('today')" [ngClass]="{'active':dayValue === 'today'}">Today</li>
+            <li class="" (click)="daysFilter('tomorrow')" [ngClass]="{'active':dayValue === 'tomorrow'}">Tomorrow</li>
         </ul>
         <div class="with-odds" (click)="toggleOdds()" [class.active]="isWithOdds"><span>With Odds</span> <span
                 class="switcher"></span></div>
     </section>
+
     <section class="matches">
-        <div class="region-block" *ngFor="let region of filterRacing; let i = index">
+        <div class="region-block" *ngFor="let region of searchFilter; let i = index">
             <div class="region-title" (click)="toggleRegion(i)">
                 <div [attr.country]="region.tournamentName" class="flag"></div> <span
                     class="!text-[14px] !text-[#ffffff99] ">{{region.tournamentName}}</span> <span
@@ -146,10 +150,10 @@
                     <li class="">Race Off</li>
                     <li class="">Finished</li>
                 </ul> <span class="material-icons cursor-pointer">
-                    {{ isCollapsed(i) ? 'keyboard_arrow_down' :'keyboard_arrow_right'}}
+                    {{ isCollapsed(i) ? 'keyboard_arrow_right' : 'keyboard_arrow_down'}}
                 </span>
             </div>
-            <ul class="champs" *ngIf="this.collapsedRegions[i]">
+            <ul class="champs" *ngIf="!this.collapsedRegions[i]">
                 <li *ngFor="let champ of region.events; let champIdx = index">
 
                     <span class="champ-name">{{ champ.eventName }}</span>

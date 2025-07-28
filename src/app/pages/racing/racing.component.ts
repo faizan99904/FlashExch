@@ -13,16 +13,20 @@ import { MainService } from '../../service/main.service';
 export class RacingComponent {
   isWithOdds = false;
   racingData: any;
-  filterRacing: any = []
-  sportId:any;
+  filterRacing: any = [];
+  searchFilter: any = [];
+  dayValue: string = 'all'
+  sportId: any;
   // Store toggle state for each region
   collapsedRegions: { [key: number]: boolean } = {};
 
-  constructor(private mainService: MainService,private route:ActivatedRoute) {
+  constructor(private mainService: MainService, private route: ActivatedRoute) {
+    
     this.route.params.subscribe(params => {
       this.sportId = params['id'];
-     
+
     })
+
     effect(() => {
       this.racingData = this.mainService.getAllRacingEvents();
       if (this.racingData) {
@@ -30,31 +34,33 @@ export class RacingComponent {
         this.filterRacing = this.groupEventsByTournament(this.racingData.tournaments, this.racingData.events);
         console.log('racingData tournaments:', this.filterRacing);
       }
-    })
+      this.searchRacing('');
+    });
+
   }
 
   groupEventsByTournament(
     tournaments: any[],
     events: any[]
   ): any[] {
-    const currentSportId = this.sportId;           
-  
-   
+    const currentSportId = this.sportId;
+
+
     const filteredTournaments = tournaments
       .filter(t => t.sportId === currentSportId)
       .map(t => ({ ...t, events: t.events ?? [] }));
-  
-   
+
+
     const byId = new Map<number, any>(
       filteredTournaments.map(t => [t.tournamentId, t])
     );
-  
-   
+
+
     events.forEach(ev => {
-      if (ev.sportId !== currentSportId) return;           
+      if (ev.sportId !== currentSportId) return;
       byId.get(ev.tournamentId)?.events.push(ev);
     });
-  
+
     return filteredTournaments;
   }
 
@@ -175,6 +181,54 @@ export class RacingComponent {
   }
   toggleOdds() {
     this.isWithOdds = !this.isWithOdds;
+  }
+
+  searchRacing(value: string) {
+    if (value.length > 1) {
+      const searchValue = value.trim().toLowerCase();
+      this.searchFilter = this.filterRacing.filter((tournament: any) => {
+        if (tournament.tournamentName.toLowerCase().includes(searchValue)) {
+          return true;
+        }
+        return tournament.events.some((event: any) => {
+          return event.eventName.toLowerCase().includes(searchValue)
+        });
+      });
+    } else {
+      this.searchFilter = [...this.filterRacing];
+    }
+  }
+
+  daysFilter(day: string) {
+    this.dayValue = day;
+    if (day === 'all') {
+      this.searchFilter = [...this.filterRacing];
+      return;
+    }
+    const targetDate = new Date();
+    if (day === 'tomorrow') {
+      targetDate.setDate(targetDate.getDate() + 1);
+    }
+    const dateString = targetDate.toISOString().split('T')[0];
+
+    this.searchFilter = this.filterRacing
+      .map((tournament:any) => {
+        const filteredEvents = tournament.events
+          .map((event:any) => {
+
+            const filteredEventsData = event.eventsData
+              .filter((eventData:any) => eventData.eventTime.includes(dateString));
+            return filteredEventsData.length > 0
+              ? { ...event, eventsData: filteredEventsData }
+              : null;
+          })
+          .filter((event:any) => event !== null); 
+
+        return filteredEvents.length > 0
+          ? { ...tournament, events: filteredEvents }
+          : null;
+      })
+      .filter((tournament:any) => tournament !== null); 
   }
 
 }
