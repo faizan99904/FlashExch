@@ -137,7 +137,9 @@
     <section class="matches">
         <div class="region-block" *ngFor="let region of filterRacing; let i = index">
             <div class="region-title" (click)="toggleRegion(i)">
-                <div [attr.country]="region.tournamentName" class="flag"></div> <span class="start-time">(Today)</span>
+                <div [attr.country]="region.tournamentName" class="flag"></div> <span
+                    class="!text-[14px] !text-[#ffffff99] ">{{region.tournamentName}}</span> <span
+                    class="start-time">(Today)</span>
                 <ul class="time-filters" (click)="$event.stopPropagation()">
                     <li class="active">All</li>
                     <li class="">Upcoming</li>
