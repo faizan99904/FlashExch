@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, effect } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { MainService } from '../../service/main.service';
 
@@ -15,10 +15,10 @@ export class SportsNavComponent {
   // sportsList!: any[];
 
   constructor(public mainService: MainService, private router: Router) {
-    // effect(() => {
-    //   const list = this.mainService.sportsList();
-    //   console.log('sportsList updated:', list);
-    // });
+    effect(() => {
+     this.activeIndex = this.mainService.getActiveSport();
+     console.log('active',this.activeIndex)
+    });
   }
 
   ngOnInit() {

@@ -8,7 +8,7 @@
 
         <li *ngFor="let item of mainService.sportsList(); let i = index"
             (click)="activeIndex = item.sportId;changeSport(item.sportId)"
-            [class.li-active]="item.sportId === activeIndex" class="sport-item"
+            [class.li-active]="item.sportId == activeIndex" class="sport-item"
             (click)="navigateMarket(item.sportName,item.sportId )" routerLinkActive="li-active">
 
             <div class="h-[11vw] leading-[11vw] relative opacity-60 sport-img">
