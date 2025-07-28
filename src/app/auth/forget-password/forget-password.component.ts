@@ -11,6 +11,7 @@ import {
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { CONFIG } from '../../../../config';
+import { MainService } from '../../service/main.service';
 
 @Component({
   selector: 'app-forget-password',
@@ -45,22 +46,13 @@ export class ForgetPasswordComponent {
   constructor(
     private toaster: ToastrService,
     private http: HttpClient,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private backendService: MainService
   ) {
     this.passForm = this.fb.group({
-      userName: ['', Validators.required],
-      mobileNo: ['', Validators.required],
-      areaCode: ['91', Validators.required],
-      password: [
-        '',
-        Validators.compose([
-          Validators.required,
-          Validators.minLength(8),
-          Validators.pattern(
-            '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[\\W_]).{8,15}$'
-          ),
-        ]),
-      ],
+      userName: ['', [Validators.required]],
+      mobileNo: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
+      areaCode: ['91', [Validators.required]],
     });
 
     this.otpForm = this.fb.group({
@@ -70,9 +62,21 @@ export class ForgetPasswordComponent {
       digit3: ['', [Validators.required, Validators.pattern('[0-9]')]],
       digit4: ['', [Validators.required, Validators.pattern('[0-9]')]],
       digit5: ['', [Validators.required, Validators.pattern('[0-9]')]],
+      password: [
+        '',
+        [
+          Validators.compose([
+            Validators.required,
+            Validators.minLength(8),
+            Validators.pattern(
+              '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[\\W_]).{8,15}$'
+            ),
+          ]),
+        ],
+      ],
     });
 
-    this.passForm
+    this.otpForm
       .get('password')
       ?.valueChanges.subscribe(() => this.onPasswordInput());
     this.passForm
@@ -88,35 +92,36 @@ export class ForgetPasswordComponent {
       userName: formValue.userName,
       mobileNo: fullNum,
     };
+
+    if (this.passForm.valid) {
+      this.http.post(CONFIG.sendForgotPasswordOtp, payload).subscribe({
+        next: (res) => {
+          this.toaster.success('OTP sent successfully!');
+          this.otpSent = true;
+
+          setTimeout(() => {
+            if (this.otpInput0) {
+              this.otpInput0.nativeElement.focus();
+            }
+          });
+        },
+        error: (err) => {
+          this.toaster.error('Failed to send OTP.');
+          this.otpSent = true;
+        },
+      });
+    }
     console.log(payload);
-
-    this.http.post(CONFIG.sendUserRegisterOtp, payload).subscribe({
-      next: (res) => {
-        this.toaster.success('OTP sent successfully!');
-        this.otpSent = true;
-
-        setTimeout(() => {
-          if (this.otpInput0) {
-            this.otpInput0.nativeElement.focus();
-          }
-        });
-      },
-      error: (err) => {
-        this.toaster.error('Failed to send OTP.');
-        console.error(err);
-        this.otpSent = true;
-      },
-    });
   }
 
   getClass(isValid: boolean): string {
-    const password = this.passForm.get('password')?.value;
+    const password = this.otpForm.get('password')?.value;
     if (!password) return 'text-white';
     return isValid ? 'text-green-500' : 'text-red-500';
   }
 
   onPasswordInput() {
-    const password = this.passForm.get('password')?.value || '';
+    const password = this.otpForm.get('password')?.value || '';
     const username = this.passForm.get('userName')?.value || '';
 
     this.passwordChecks.lengthValid = /^[^\s]{8,15}$/.test(password);
@@ -178,25 +183,41 @@ export class ForgetPasswordComponent {
   }
 
   onSubmit() {
-    if (this.passForm.valid && this.otpForm.valid) {
-      const formValue = this.passForm.value;
-      const fullNumber = `+${formValue.areaCode}${formValue.mobileNo}`;
-      const otpCode = Object.values(this.otpForm.value).join('');
+    const isOtpValid = this.otpForm.valid;
+    const isPassFormValid = this.passForm.valid;
+    const passwordControl = this.otpForm.get('password');
+    const isPasswordValid = passwordControl?.valid;
 
+    if (isPassFormValid && isOtpValid && isPasswordValid) {
+      const formValue = this.passForm.value;
+      const otpValue = this.otpForm.value;
+      const fullNumber = `+${formValue.areaCode}${formValue.mobileNo}`;
+      const otpCode = Object.values(otpValue).slice(0, 6).join('');
+      const password = otpValue.password;
       const payload = {
         userName: formValue.userName,
-        password: formValue.password,
+        password: password,
         mobileNo: fullNumber,
         code: otpCode,
       };
-      this.http.post(CONFIG.verifyUserRegisterOtp, payload).subscribe({
+
+      console.log(payload);
+
+      this.http.post(CONFIG.verifyForgotPassword, payload).subscribe({
         next: (res) => {
           this.toaster.success('Registered Successfully!');
         },
+        error: (err) => {
+          this.toaster.error('Something went wrong!');
+        },
       });
-      console.log(payload);
     } else {
-      console.log('Form is invalid');
+      this.toaster.warning(
+        'Please enter the 6-digit OTP, password, and complete all fields'
+      );
+
+      this.otpForm.markAllAsTouched();
+      this.passForm.markAllAsTouched();
     }
   }
 }
