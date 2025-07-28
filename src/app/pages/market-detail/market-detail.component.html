@@ -176,6 +176,10 @@
             </div>
         </div>
 
+        <div class="lg:hidden w-full">
+            <app-betslip *ngIf="selectedColor" [color]="selectedColor"></app-betslip>
+        </div>
+
         <div class="text-base font-medium text-center py-1.5 w-full mt-4">
             <ul class="w-full flex flex-wrap items-center justify-start gap-x-3">
                 <li (click)="fancyMarket = true"
@@ -386,9 +390,5 @@
             </div>
         </div>
         }
-
-        <div class="lg:hidden">
-            <app-betslip *ngIf="selectedColor" [color]="selectedColor"></app-betslip>
-        </div>
     </div>
 </div>

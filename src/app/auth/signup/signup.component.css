@@ -136,6 +136,7 @@ form ul li:not(.accept-terms) .currency-cont {
 @media screen and (max-width: 380px) {
   .content-wrapper {
     bottom: 1.1311rem;
+    height: calc(100% - 2.2rem);
   }
 }
 
@@ -150,13 +151,15 @@ form ul li:not(.accept-terms) .currency-cont {
     height: calc(100dvh - 170px);
     justify-content: space-between;
     flex-direction: column;
+    max-height: fit-content;
   }
 
   ul li:not(.accept-terms) {
     margin-bottom: 0.675rem !important;
   }
 
-  ul li input {
+  ul li input,
+  .pass-input {
     height: 1.8rem !important;
     border-radius: 8px !important;
     border: 1px solid #11e31233 !important;
@@ -166,6 +169,23 @@ form ul li:not(.accept-terms) .currency-cont {
     padding-left: 5.67px;
     font-size: 0.456rem !important;
     color: RGBA(255, 255, 255, 0.6);
+  }
+
+  .otp-input-group {
+    gap: 8px;
+  }
+
+  .otp-input-group .otp-box {
+    padding: 0 !important;
+    max-width: 40px !important;
+    max-height: 35px !important;
+    background: transparent;
+    border: 1px solid #11e31233;
+    border-radius: 4px !important;
+    color: white !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    font-size: 10px !important;
   }
 
   select {
@@ -207,4 +227,16 @@ form ul li:not(.accept-terms) .currency-cont {
     padding-left: 16.875px !important;
     margin: 0;
   }
+}
+
+.otp-input-group input {
+  width: 40px;
+  height: 35px;
+  background: transparent;
+  border: 1px solid #11e31233;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 0;
 }

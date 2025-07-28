@@ -1,3 +1,9 @@
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 input::placeholder {
   color: white;
 }
@@ -27,16 +33,16 @@ input::placeholder {
 }
 
 .text-text_brand_primary {
-  color: #d80162;
+  color: #00aa30;
 }
 
 .active\:border-oddInputBorderActive:active {
-  border-color: #d80162;
+  border-color: #00aa30;
 }
 
 .focus\:bg-bg_color_input_bg:focus {
   background-color: #101827;
-  border-color: #d80162 !important;
+  border-color: #00aa30 !important;
 }
 
 .text-text_color_primary2 {
@@ -44,23 +50,23 @@ input::placeholder {
 }
 
 .border-border_color_primary4 {
-  border-color: #bd3725;
+  border-color: #008c2b;
 }
 
 .border-border_color_brand_secondary {
-  border-color: #d80162;
+  border-color: #00aa30;
 }
 
 .border-border_color_brand_primary {
-  border-color: #d80162;
+  border-color: #00aa30;
 }
 
 .bg-bg_color_placeBetBtnGrd {
-  background-image: linear-gradient(90deg, #d80162, #d80162);
+  background-image: linear-gradient(90deg, #00aa30, #00aa30);
 }
 
 .border-border_color_brand_primary {
-  border-color: #d80162;
+  border-color: #00aa30;
 }
 
 .sr-only {
@@ -116,21 +122,21 @@ input::placeholder {
 }
 
 .bg-bg_color_betSlipOddIncDecrBtnsGrd {
-  background-image: linear-gradient(62.57deg, #d80162 34.17%, #6d261d 104.5%);
+  background-image: linear-gradient(62.57deg, #00aa30 34.17%, #1e4f36 104.5%);
 }
 
 .border-border_color_primary4 {
-  border-color: #bd3725;
+  border-color: #00aa30;
 }
 
 .edit-bg {
   background-image: linear-gradient(
     95deg,
-    #d80162 -8.6%,
-    #d80162 110.45%
+    #00aa30 -8.6%,
+    #00aa30 110.45%
   ) !important;
 }
 
 .editable-inp:focus {
-  outline: #d80162;
+  outline: #00aa30;
 }
