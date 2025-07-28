@@ -10,6 +10,10 @@
                     <li>
                         <input formControlName="username" class="input" type="text" placeholder="Username"
                             name="UserName" autocomplete="off">
+                        <div *ngIf="signupForm.get('username')?.touched && signupForm.get('username')?.hasError('required')"
+                            class="text-red-500 text-[11px] mt-0.5 pl-2">
+                            Username is required
+                        </div>
                     </li>
 
                     <li class="flex gap-[0.28rem]">
@@ -474,6 +478,10 @@
                         <input formControlName="mobileNumber" class="input" type="text" name="MobileNumber"
                             placeholder="Mobile Number">
                     </li>
+                    <div *ngIf="signupForm.get('mobileNumber')?.touched && signupForm.get('mobileNumber')?.hasError('required')"
+                        class="text-red-500 text-[11px] mt-0.5 pl-2">
+                        Mobile Number is required
+                    </div>
                     <li>
                         <div (click)="this.havePromo = !this.havePromo" class="flex items-center mt-2.5 cursor-pointer">
                             <img class="!h-[17px] mr-2 sm:mr-[4.800px]" src="/assets/images/promocode.png" alt="">
@@ -526,7 +534,7 @@
                     <div *ngIf="otpSent" class="mt-2">
                         <input formControlName="password" class="input pass-input" type="password"
                             placeholder="Password" name="Password" autocomplete="off">
-                        <ul class="password-rules text-[10px] mt-2 space-y-1 list-disc pl-4">
+                        <ul class="password-rules text-[10px] lg:text-[8px] mt-2 space-y-1 list-disc pl-4">
                             <li [ngClass]="getClass(passwordChecks.lengthValid)">
                                 Password must have 8 to 15 alphanumeric without white space.
                             </li>
