@@ -290,6 +290,15 @@ section.matches .region-block .region-title .flag {
 }
 
 /* Per-country flag offsets */
+
+.flag[country^="PAK"] {
+  background-position: -72px -264px;
+}
+
+.flag[country^="PAL"] {
+  background-position: -120px -264px;
+}
+
 .flag[country="GB"] {
   background-position: -264px -120px;
 }
@@ -298,9 +307,697 @@ section.matches .region-block .region-title .flag {
   background-position: 0px -168px;
 }
 
-.flag[country="turkey"] {
+.flag[country="TUR"] {
   background-position: -24px -72px;
 }
+
+.flag[country^="FRA"] {
+  background-position: -96px -120px;
+}
+
+.flag[country^="AUS"] {
+  background-position: -48px -24px;
+}
+.flag[country^="USA"] {
+  background-position: -72px -360px;
+}
+
+.flag[country^="PAN"] {
+  background-position: -144px -264px;
+}
+
+.flag[country^="OMN"] {
+  background-position: -48px -264px;
+}
+
+.flag[country^="PNG"] {
+  background-position: -168px -264px;
+}
+.flag[country^="PRY"] {
+  background-position: -192px -264px;
+}
+.flag[country^="PER"] {
+  background-position: -216px -264px;
+}
+.flag[country^="PHI"] {
+  background-position: -240px -264px;
+}
+.flag[country^="POL"] {
+  background-position: -264px -264px;
+}
+.flag[country^="POR"] {
+  background-position: -288px -264px;
+}
+.flag[country^="PUR"] {
+  background-position: -312px -264px;
+}
+
+.flag[country^="QAT"] {
+  background-position: -336px -264px;
+}
+.flag[country^="RDC"] {
+  background-position: -360px -264px;
+}
+/*  .flag[country^="IRE"] {
+  background-position: 0px -288px;
+} */
+.flag[country^="REU"] {
+  background-position: -24px -288px;
+}
+.flag[country^="ROU"] {
+  background-position: -48px -288px;
+}
+.flag[country^="RUS"] {
+  background-position: -72px -288px;
+}
+.flag[country^="RWA"] {
+  background-position: -96px -288px;
+}
+.flag[country^="LCA"] {
+  background-position: -120px -288px;
+}
+.flag[country^="SAM"] {
+  background-position: -144px -288px;
+}
+.flag[country^="SMR"] {
+  background-position: -168px -288px;
+}
+
+.flag[country^="STP"] {
+  background-position: -192px -288px;
+}
+.flag[country^="KSA"] {
+  background-position: -216px -288px;
+}
+.flag[country^="SCO"] {
+  background-position: -240px -288px;
+}
+.flag[country^="SEN"] {
+  background-position: -264px -288px;
+}
+.flag[country^="SRB"] {
+  background-position: -288px -288px;
+}
+.flag[country^="SYC"] {
+  background-position: -312px -288px;
+}
+.flag[country^="SLE"] {
+  background-position: -336px -288px;
+}
+.flag[country^="SGP"] {
+  background-position: -360px -288px;
+}
+.flag[country^="SVK"] {
+  background-position: 0px -312px;
+}
+.flag[country^="SVN"] {
+  background-position: -24px -312px;
+}
+.flag[country^="SLB"] {
+  background-position: -48px -312px;
+}
+.flag[country^="SOM"] {
+  background-position: -72px -312px;
+}
+.flag[country^="SOL"] {
+  background-position: -96px -312px;
+}
+
+ .flag[country^="SA"] { /* South Africa */
+  background-position: -120px -312px;
+}
+ .flag[country^="ROC"] { /* South Korea Copy (custom) */
+  background-position: -144px -312px;
+}
+ .flag[country^="KOR"] { /* South Korea */
+  background-position: -168px -312px;
+}
+ .flag[country^="SPA"] { /* Spain */
+  background-position: -192px -312px;
+}
+ .flag[country^="SRI"] { /* Sri Lanka */
+  background-position: -216px -312px;
+}
+ .flag[country^="KNA"] { /* St. Kitts and Nevis */
+  background-position: -240px -312px;
+}
+ .flag[country^="VCT"] { /* St. Vincent and the Grenadines */
+  background-position: -264px -312px;
+}
+ .flag[country^="SDN"] { /* Sudan */
+  background-position: -288px -312px;
+}
+ .flag[country^="SUR"] { /* Suriname */
+  background-position: -312px -312px;
+}
+ .flag[country^="SWZ"] { /* Swaziland (now Eswatini, code retained) */
+  background-position: -336px -312px;
+}
+ .flag[country^="SWE"] { /* Sweden */
+  background-position: -360px -312px;
+}
+ .flag[country^="CHE"] { /* Switzerland */
+  background-position: 0px -336px;
+}
+ .flag[country^="SYR"] { /* Syria */
+  background-position: -24px -336px;
+}
+ .flag[country^="PYF"] { /* Tahiti (French Polynesia) */
+  background-position: -48px -336px;
+}
+
+
+.flag[country^="TWN"] { /* Taiwan */
+  background-position: -72px -336px;
+}
+.flag[country^="TJK"] { /* Tajikistan */
+  background-position: -96px -336px;
+}
+.flag[country^="TZA"] { /* Tanzania */
+  background-position: -120px -336px;
+}
+.flag[country^="THA"] { /* Thailand */
+  background-position: -144px -336px;
+}
+.flag[country^="TLS"] { /* Timor-Leste (East Timor) */
+  background-position: -168px -336px;
+}
+.flag[country^="TGO"] { /* Togo */
+  background-position: -192px -336px;
+}
+.flag[country^="TON"] { /* Tonga */
+  background-position: -216px -336px;
+}
+.flag[country^="TTO1"] { /* TrinidadTobago (custom code for duplicate) */
+  background-position: -240px -336px;
+}
+.flag[country^="TTO"] { /* Trinidad and Tobago */
+  background-position: -264px -336px;
+}
+.flag[country^="TUN"] { /* Tunisia */
+  background-position: -288px -336px;
+}
+
+.flag[country^="TKM"] { /* Turkmenistan */
+  background-position: -336px -336px;
+}
+.flag[country^="TCA"] { /* Turks and Caicos Islands */
+  background-position: -360px -336px;
+}
+
+
+
+.flag[country^="TUV"] { /* Tuvalu */
+  background-position: 0px -360px;
+}
+.flag[country^="ARE"] { /* UAE - United Arab Emirates */
+  background-position: -24px -360px;
+}
+.flag[country^="GBR1"] { /* UK (custom: separate from United Kingdom block) */
+  background-position: -48px -360px;
+}
+.flag[country^="USA"],
+.flag[country^="USA2"] { /* USA / United States */
+  background-position: -72px -360px;
+}
+.flag[country^="UGA"] { /* Uganda */
+  background-position: -96px -360px;
+}
+.flag[country^="UKR"] { /* Ukraine */
+  background-position: -120px -360px;
+}
+.flag[country^="UNO"] { /* United Nations (custom code) */
+  background-position: -144px -360px;
+}
+.flag[country^="ARE2"] { /* United Arab Emirates (duplicate) */
+  background-position: -168px -360px;
+}
+.flag[country^="GBR"],
+.flag[country^="GBR2"] { /* United Kingdom / British Grand Prix */
+  background-position: -192px -360px;
+}
+.flag[country^="URY"] { /* Uruguay */
+  background-position: -216px -360px;
+}
+.flag[country^="UZB"] { /* Uzbekistan */
+  background-position: -240px -360px;
+}
+
+
+.flag[country^="VTB"] { /* VTB (custom, likely a league or sponsor) */
+  background-position: -264px -360px;
+}
+.flag[country^="VUT"] { /* Vanuatu */
+  background-position: -288px -360px;
+}
+.flag[country^="VAT"] { /* Vatican City */
+  background-position: -312px -360px;
+}
+.flag[country^="VEN"] { /* Venezuela */
+  background-position: -336px -360px;
+}
+.flag[country^="VNM"] { /* Vietnam */
+  background-position: -360px -360px;
+}
+.flag[country^="VGB"] { /* Virgin Islands (British) */
+  background-position: 0px -384px;
+}
+.flag[country^="VIR"] { /* Virgin Islands (U.S.) */
+  background-position: -24px -384px;
+}
+.flag[country^="WAL"] { /* Wales (not ISO, but common in sports) */
+  background-position: -48px -384px;
+}
+.flag[country^="ESH"] { /* Western Sahara */
+  background-position: -72px -384px;
+}
+.flag[country^="YEM"] { /* Yemen */
+  background-position: -120px -384px;
+}
+.flag[country^="ZMB"] { /* Zambia */
+  background-position: -144px -384px;
+}
+.flag[country^="ZWE"] { /* Zimbabwe */
+  background-position: -168px -384px;
+}
+.flag[country^="JPN"] { /* Japan */
+  background-position: -192px -384px;
+}
+.flag[country^="RG"],
+.flag[country^="ATP-RG"],
+.flag[country^="WTA-RG"] { /* Roland Garros (custom codes) */
+  background-position: -216px -384px;
+}
+.flag[country^="UNDEFINED"] { /* Undefined (fallback, not a real country) */
+  background-position: -240px -384px;
+}
+.flag[country^="WIM"] { /* Wimbledon (custom) */
+  background-position: -264px -384px;
+}
+
+
+
+.flag[country^="MNG"] { /* Mongolia */
+  background-position: -216px -216px;
+}
+.flag[country^="MNE"] { /* Montenegro */
+  background-position: -240px -216px;
+}
+.flag[country^="MSR"] { /* Montserrat */
+  background-position: -264px -216px;
+}
+.flag[country^="MAR"] { /* Morocco */
+  background-position: -288px -216px;
+}
+.flag[country^="MOZ"] { /* Mozambique */
+  background-position: -312px -216px;
+}
+.flag[country^="MMR"] { /* Myanmar */
+  background-position: -336px -216px;
+}
+.flag[country^="NATO"] { /* NATO (custom entity) */
+  background-position: -360px -216px;
+}
+.flag[country^="NAM"] { /* Namibia */
+  background-position: 0px -240px;
+}
+.flag[country^="NRU"] { /* Nauru */
+  background-position: -24px -240px;
+}
+.flag[country^="NPL"] { /* Nepal */
+  background-position: -48px -240px;
+}
+.flag[country^="ANT"] { /* Netherlands Antilles (deprecated code) */
+  background-position: -72px -240px;
+}
+.flag[country^="NLD"],
+.flag[country^="HOL"],
+.flag[country^="DUT"] { /* Netherlands / Holland */
+  background-position: -96px -240px;
+}
+.flag[country^="NCL"] { /* New Caledonia */
+  background-position: -120px -240px;
+}
+.flag[country^="NZL"] { /* New Zealand */
+  background-position: -144px -240px;
+}
+.flag[country^="NIC"] { /* Nicaragua */
+  background-position: -168px -240px;
+}
+.flag[country^="NER"] { /* Niger */
+  background-position: -192px -240px;
+}
+.flag[country^="NGA"] { /* Nigeria */
+  background-position: -216px -240px;
+}
+.flag[country^="PRK"] { /* North Korea */
+  background-position: -240px -240px;
+}
+.flag[country^="NAMER"] { /* North America (region, custom) */
+  background-position: -264px -240px;
+}
+.flag[country^="NCY"] { /* Northern Cyprus (custom) */
+  background-position: -288px -240px;
+}
+.flag[country^="NIR"] { /* Northern Ireland (custom / IOC code) */
+  background-position: -312px -240px;
+}
+.flag[country^="NOR"] { /* Norway */
+  background-position: -336px -240px;
+}
+.flag[country^="OPEC"] { /* OPEC (custom entity) */
+  background-position: -360px -240px;
+}
+.flag[country^="OLY"] { /* Olympic Movement (custom) */
+  background-position: 0px -264px;
+}
+
+
+
+ .flag[country^="DMA"] { /* Dominica */
+  background-position: -96px -96px;
+}
+ .flag[country^="DOM"] { /* Dominican Republic */
+  background-position: -120px -96px;
+}
+ .flag[country^="ECU"] { /* Ecuador */
+  background-position: -144px -96px;
+}
+ .flag[country^="EGY"] { /* Egypt */
+  background-position: -168px -96px;
+}
+ .flag[country^="SLV"] { /* El Salvador */
+  background-position: -192px -96px;
+}
+ .flag[country^="ENG"] { /* England (non-ISO, sports entity) */
+  background-position: -216px -96px;
+}
+ .flag[country^="GNQ"] { /* Equatorial Guinea */
+  background-position: -240px -96px;
+}
+ .flag[country^="ERI"] { /* Eritrea */
+  background-position: -264px -96px;
+}
+ .flag[country^="EST"] { /* Estonia */
+  background-position: -288px -96px;
+}
+ .flag[country^="ETH"] { /* Ethiopia */
+  background-position: -312px -96px;
+}
+ .flag[country^="UEFA"] { /* Europa League (custom) */
+  background-position: -336px -96px;
+}
+ .flag[country^="EUR"] { /* Europe (region/custom) */
+  background-position: -360px -96px;
+}
+ .flag[country^="FRO"] { /* Faroe Islands */
+  background-position: -24px -120px;
+}
+ .flag[country^="FJI"] { /* Fiji */
+  background-position: -48px -120px;
+}
+ .flag[country^="FIN"] { /* Finland */
+  background-position: -72px -120px;
+}
+ .flag[country^="GAB"] { /* Gabon */
+  background-position: -120px -120px;
+}
+ .flag[country^="GMB"] { /* Gambia */
+  background-position: -144px -120px;
+}
+ .flag[country^="GEO"] { /* Georgia */
+  background-position: -168px -120px;
+}
+ .flag[country^="DEU"] { /* Germany */
+  background-position: -192px -120px;
+}
+ .flag[country^="GHA"] { /* Ghana */
+  background-position: -216px -120px;
+}
+ .flag[country^="GIB"] { /* Gibraltar */
+  background-position: -240px -120px;
+}
+ .flag[country^="GBR"] { /* Great Britain (ISO: UK, but used GBR in sports) */
+  background-position: -264px -120px;
+}
+ .flag[country^="GRC"] { /* Greece */
+  background-position: -288px -120px;
+}
+ .flag[country^="GRL"] { /* Greenland */
+  background-position: -312px -120px;
+}
+ .flag[country^="GRD"] { /* Grenada */
+  background-position: -336px -120px;
+}
+ .flag[country^="GLP"] { /* Guadeloupe */
+  background-position: -360px -120px;
+}
+ .flag[country^="GUM"] { /* Guam */
+  background-position: 0px -144px;
+}
+ .flag[country^="GTM"] { /* Guatemala */
+  background-position: -24px -144px;
+}
+ .flag[country^="GGY"] { /* Guernsey */
+  background-position: -48px -144px;
+}
+ .flag[country^="GNB"] { /* Guinea-Bissau */
+  background-position: -72px -144px;
+}
+ .flag[country^="GIN"] { /* Guinea */
+  background-position: -96px -144px;
+}
+ .flag[country^="GUY"] { /* Guyana */
+  background-position: -120px -144px;
+}
+ .flag[country^="HTI"] { /* Haiti */
+  background-position: -144px -144px;
+}
+ .flag[country^="HND"] { /* Honduras */
+  background-position: -168px -144px;
+}
+ .flag[country^="HKG"] { /* Hong Kong */
+  background-position: -192px -144px;
+}
+ .flag[country^="HUN"] { /* Hungary */
+  background-position: -216px -144px;
+}
+ .flag[country^="ISL"] { /* Iceland */
+  background-position: -240px -144px;
+}
+ .flag[country^="IND"] { /* India */
+  background-position: -264px -144px;
+}
+ .flag[country^="IDN"] { /* Indonesia */
+  background-position: -288px -144px;
+}
+ .flag[country^="IRN"] { /* Iran */
+  background-position: -336px -144px;
+}
+ .flag[country^="IRQ"] { /* Iraq */
+  background-position: -360px -144px;
+}
+ .flag[country^="IRL"] { /* Ireland */
+  background-position: 0px -168px;
+}
+ .flag[country^="ICO"] { /* Islamic Conference (custom) */
+  background-position: -24px -168px;
+}
+ .flag[country^="IMN"] { /* Isle of Man */
+  background-position: -48px -168px;
+}
+ .flag[country^="ISR"] { /* Israel */
+  background-position: -72px -168px;
+}
+ .flag[country^="ITA"] { /* Italy */
+  background-position: -96px -168px;
+}
+ .flag[country^="JAM"] { /* Jamaica */
+  background-position: -120px -168px;
+}
+ .flag[country^="JEY"] { /* Jersey */
+  background-position: -144px -168px;
+}
+ .flag[country^="JOR"] { /* Jordan */
+  background-position: -168px -168px;
+}
+ .flag[country^="KAZ"] { /* Kazakhstan */
+  background-position: -192px -168px;
+}
+ .flag[country^="KEN"] { /* Kenya */
+  background-position: -216px -168px;
+}
+ .flag[country^="KIR"] { /* Kiribati */
+  background-position: -240px -168px;
+}
+ .flag[country^="KOR"] { /* South Korea */
+  background-position: -264px -168px;
+}
+ .flag[country^="KORS"] { /* South Korea alt (custom) */
+  background-position: -288px -168px;
+}
+ .flag[country^="XKX"] { /* Kosovo (not officially ISO but widely used) */
+  background-position: -312px -168px;
+}
+ .flag[country^="KWT"] { /* Kuwait */
+  background-position: -336px -168px;
+}
+ .flag[country^="KGZ"] { /* Kyrgyzstan */
+  background-position: -360px -168px;
+}
+ .flag[country^="LAO"] { /* Laos */
+  background-position: 0px -192px;
+}
+ .flag[country^="LVA"] { /* Latvia */
+  background-position: -24px -192px;
+}
+ .flag[country^="LBN"] { /* Lebanon */
+  background-position: -48px -192px;
+}
+ .flag[country^="LSO"] { /* Lesotho */
+  background-position: -72px -192px;
+}
+ .flag[country^="LBR"] { /* Liberia */
+  background-position: -96px -192px;
+}
+ .flag[country^="LBY"] { /* Libya */
+  background-position: -120px -192px;
+}
+ .flag[country^="LIE"] { /* Liechtenstein */
+  background-position: -144px -192px;
+}
+ .flag[country^="LTU"] { /* Lithuania */
+  background-position: -168px -192px;
+}
+ .flag[country^="LUX"] { /* Luxembourg */
+  background-position: -192px -192px;
+}
+ .flag[country^="MAC"] { /* Macao */
+  background-position: -216px -192px;
+}
+ .flag[country^="MKD"] { /* Macedonia (North Macedonia) */
+  background-position: -240px -192px;
+}
+ .flag[country^="MDG"] { /* Madagascar */
+  background-position: -264px -192px;
+}
+ .flag[country^="MWI"] { /* Malawi */
+  background-position: -288px -192px;
+}
+ .flag[country^="MYS"] { /* Malaysia */
+  background-position: -312px -192px;
+}
+ .flag[country^="MDV"] { /* Maldives */
+  background-position: -336px -192px;
+}
+ .flag[country^="MLI"] { /* Mali */
+  background-position: -360px -192px;
+}
+ .flag[country^="MLT"] { /* Malta */
+  background-position: 0px -216px;
+}
+ .flag[country^="MHL"] { /* Marshall Islands */
+  background-position: -24px -216px;
+}
+ .flag[country^="MTQ"] { /* Martinique */
+  background-position: -48px -216px;
+}
+ .flag[country^="MRT"] { /* Mauritania */
+  background-position: -72px -216px;
+}
+ .flag[country^="MUS"] { /* Mauritius */
+  background-position: -96px -216px;
+}
+ .flag[country^="MEX"] { /* Mexico */
+  background-position: -120px -216px;
+}
+ .flag[country^="FSM"] { /* Micronesia */
+  background-position: -144px -216px;
+}
+ .flag[country^="MDA"] { /* Moldova */
+  background-position: -168px -216px;
+}
+ .flag[country^="MCO"] { /* Monaco */
+  background-position: -192px -216px;
+}
+
+
+
+.flag[country^="AFG"] { background-position: -24px 0px; }         /* Afghanistan */
+.flag[country^="AFR"] { background-position: -48px 0px; }         /* Africa (region) */
+.flag[country^="AUO"] { background-position: -72px 0px; }         /* African Union OAS */
+.flag[country^="ALB"] { background-position: -96px 0px; }         /* Albania */
+.flag[country^="DZA"] { background-position: -120px 0px; }        /* Algeria */
+.flag[country^="AME"] { background-position: -144px 0px; }        /* America (region) */
+.flag[country^="ASM"] { background-position: -168px 0px; }        /* American Samoa */
+.flag[country^="AND"] { background-position: -192px 0px; }        /* Andorra */
+.flag[country^="AGO"] { background-position: -216px 0px; }        /* Angola */
+.flag[country^="AIA"] { background-position: -240px 0px; }        /* Anguilla */
+.flag[country^="ATA"] { background-position: -264px 0px; }        /* Antarctica */
+.flag[country^="ATG"] { background-position: -288px 0px; }        /* Antigua and Barbuda */
+.flag[country^="LEA"] { background-position: -312px 0px; }        /* Arab League */
+.flag[country^="ARG"] { background-position: -336px 0px; }        /* Argentina */
+.flag[country^="ARM"] { background-position: -360px 0px; }        /* Armenia */
+
+.flag[country^="ABW"] { background-position: 0px -24px; }         /* Aruba */
+.flag[country^="ASI"] { background-position: -24px -24px; }       /* Asia (region) */
+.flag[country^="AUT"] { background-position: -72px -24px; }       /* Austria */
+.flag[country^="AZE"] { background-position: -96px -24px; }       /* Azerbaijan */
+.flag[country^="BHS"] { background-position: -120px -24px; }      /* Bahamas */
+.flag[country^="BHR"] { background-position: -144px -24px; }      /* Bahrain */
+.flag[country^="BAN"] { background-position: -168px -24px; }      /* Bangladesh */
+.flag[country^="BRB"] { background-position: -192px -24px; }      /* Barbados */
+.flag[country^="BLR"] { background-position: -216px -24px; }      /* Belarus */
+.flag[country^="BEL"] { background-position: -240px -24px; }      /* Belgium */
+.flag[country^="BLZ"] { background-position: -264px -24px; }      /* Belize */
+.flag[country^="BEN"] { background-position: -288px -24px; }      /* Benin */
+.flag[country^="BMU"] { background-position: -312px -24px; }      /* Bermuda */
+.flag[country^="BTN"] { background-position: -336px -24px; }      /* Bhutan */
+.flag[country^="BOL"] { background-position: -360px -24px; }      /* Bolivia */
+
+.flag[country^="BIH"] { background-position: 0px -48px; }         /* Bosnia & Herzegovina */
+.flag[country^="BIH2"] { background-position: -24px -48px; }      /* Alt Bosnia formats */
+.flag[country^="BWA"] { background-position: -48px -48px; }       /* Botswana */
+.flag[country^="BRA"] { background-position: -72px -48px; }       /* Brazil */
+.flag[country^="BRN"] { background-position: -96px -48px; }       /* Brunei */
+.flag[country^="BGR"] { background-position: -120px -48px; }      /* Bulgaria */
+.flag[country^="BFA"] { background-position: -144px -48px; }      /* Burkina Faso */
+.flag[country^="BDI"] { background-position: -168px -48px; }      /* Burundi */
+.flag[country^="CAR"] { background-position: -192px -48px; }      /* Caricom */
+.flag[country^="CIS"] { background-position: -216px -48px; }      /* CIS */
+.flag[country^="KHM"] { background-position: -240px -48px; }      /* Cambodia */
+.flag[country^="KHM2"] { background-position: -264px -48px; }     /* Cambodja (alt) */
+.flag[country^="CMR"] { background-position: -288px -48px; }      /* Cameroon */
+.flag[country^="CAN"] { background-position: -312px -48px; }      /* Canada */
+.flag[country^="CPV"] { background-position: -336px -48px; }      /* Cape Verde */
+.flag[country^="CYM"] { background-position: -360px -48px; }      /* Cayman Islands */
+
+.flag[country^="CAF"] { background-position: 0px -72px; }         /* Central African Republic */
+.flag[country^="TCD"] { background-position: -24px -72px; }       /* Chad */
+.flag[country^="UCL"] { background-position: -48px -72px; }       /* Champions League */
+.flag[country^="CHL"] { background-position: -72px -72px; }       /* Chile */
+.flag[country^="CHN"] { background-position: -96px -72px; }       /* China / Chinese Taipei */
+.flag[country^="COL"] { background-position: -120px -72px; }      /* Colombia */
+.flag[country^="CWL"] { background-position: -144px -72px; }      /* Commonwealth */
+.flag[country^="COM"] { background-position: -168px -72px; }      /* Comoros */
+.flag[country^="COG"] { background-position: -192px -72px; }      /* Congo (Brazzaville) */
+.flag[country^="COD"] { background-position: -216px -72px; }      /* Congo (Kinshasa) */
+.flag[country^="COK"] { background-position: -240px -72px; }      /* Cook Islands */
+.flag[country^="COP"] { background-position: -264px -72px; }      /* Copa America */
+.flag[country^="CRI"] { background-position: -288px -72px; }      /* Costa Rica */
+.flag[country^="CIV"] { background-position: -312px -72px; }      /* Côte d'Ivoire */
+.flag[country^="HRV"] { background-position: -336px -72px; }      /* Croatia */
+.flag[country^="CUB"] { background-position: -360px -72px; }      /* Cuba */
+
+.flag[country^="CYP"] { background-position: 0px -96px; }         /* Cyprus */
+.flag[country^="CZE"] { background-position: -24px -96px; }       /* Czech Republic */
+.flag[country^="DNK"] { background-position: -48px -96px; }       /* Denmark */
+.flag[country^="DJI"] { background-position: -72px -96px; }       /* Djibouti */
+
+
+
+
+
 
 /* Add more countries here */
 
