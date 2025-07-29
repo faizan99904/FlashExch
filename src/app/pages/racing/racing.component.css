@@ -245,7 +245,7 @@ section.filters .with-odds.active .switcher {
 section.matches .region-block {
   background-color: #151a21;
   padding: 0 3.2vw !important;
-  margin-top: 2.66667vw !important;
+  margin-top: 2.66667vw ;
   color: #ffffff99 !important;
 }
 
@@ -423,7 +423,7 @@ section.matches .region-block .region-title .flag {
   background-position: -96px -312px;
 }
 
- .flag[country^="SA"] { /* South Africa */
+ .flag[country^="RSA"] { /* South Africa */
   background-position: -120px -312px;
 }
  .flag[country^="ROC"] { /* South Korea Copy (custom) */

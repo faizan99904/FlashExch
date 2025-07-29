@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, effect } from '@angular/core';
+import { Component, effect, Input, input } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, RouterLink } from '@angular/router';
 import { LiveStreemComponent } from '../../component/live-streem/live-streem.component';
 import { MainService } from '../../service/main.service';
+import { elementAt } from 'rxjs';
 
 @Component({
   selector: 'app-racing',
@@ -12,6 +13,7 @@ import { MainService } from '../../service/main.service';
 })
 export class RacingComponent {
   isWithOdds = false;
+  @Input() getSportId: any
   racingData: any;
   filterRacing: any = [];
   searchFilter: any = [];
@@ -26,7 +28,11 @@ export class RacingComponent {
   constructor(private mainService: MainService, private route: ActivatedRoute, private router: Router) {
 
     this.route.params.subscribe(params => {
-      this.sportId = params['id'];
+      if (params && params['id']) {
+        this.sportId = params['id'];
+      } else if (this.getSportId) {
+        this.sportId = this.getSportId;
+      }
     })
 
     this.router.events.subscribe((event: any) => {
@@ -34,11 +40,18 @@ export class RacingComponent {
         this.racingData = this.mainService.getAllRacingEvents();
         this.filterRacing = this.groupEventsByTournament(this.racingData.tournaments, this.racingData.events);
         this.searchRacing('');
+
       }
     })
 
+
     effect(() => {
       this.racingData = this.mainService.getAllRacingEvents();
+      const id = this.mainService.getActiveSport();
+      if (this.getSportId) {
+        this.sportId = this.getSportId;
+      }
+     
       if (this.racingData) {
         console.log('racingData tournaments:', this.racingData);
         this.filterRacing = this.groupEventsByTournament(this.racingData.tournaments, this.racingData.events);
@@ -104,7 +117,7 @@ export class RacingComponent {
       .filter(event => event.sportId === '7')
       .flatMap(item => item.eventsData || []);
   }
-  
+
 
 
 

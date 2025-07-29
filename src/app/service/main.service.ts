@@ -12,32 +12,32 @@ export class MainService {
   private allSportsStatic: any;
 
   // ─── Signals ───────────────────────────────────────────
-  allSports: WritableSignal<any>               = signal(null);
-  exchangeMode: WritableSignal<any>            = signal(null);
-  loggedIn: WritableSignal<boolean>            = signal(false);
-  eventId: WritableSignal<any>                 = signal(null);
+  allSports: WritableSignal<any> = signal(null);
+  exchangeMode: WritableSignal<any> = signal(null);
+  loggedIn: WritableSignal<boolean> = signal(false);
+  eventId: WritableSignal<any> = signal(null);
 
-  casinoEvents: WritableSignal<any|null>       = signal(null);
-  sportsList: WritableSignal<any|null>         = signal(null);
-  searchEventList: WritableSignal<any|null>    = signal(null);
-  exchangeTypeList: WritableSignal<any|null>   = signal(null);
-  customerSupport: WritableSignal<any|null>    = signal(null);
+  casinoEvents: WritableSignal<any | null> = signal(null);
+  sportsList: WritableSignal<any | null> = signal(null);
+  searchEventList: WritableSignal<any | null> = signal(null);
+  exchangeTypeList: WritableSignal<any | null> = signal(null);
+  customerSupport: WritableSignal<any | null> = signal(null);
 
-  allEventList: WritableSignal<any|null>       = signal(null);
-  allRacingEventList: WritableSignal<any|null> = signal(null);
+  allEventList: WritableSignal<any | null> = signal(null);
+  allRacingEventList: WritableSignal<any | null> = signal(null);
 
-  miniCasinoOpened: WritableSignal<boolean>    = signal(false);
-  autoDepositURL: WritableSignal<string|null>  = signal(null);
+  miniCasinoOpened: WritableSignal<boolean> = signal(false);
+  autoDepositURL: WritableSignal<string | null> = signal(null);
   showChangePasswordModal: WritableSignal<boolean> = signal(false);
+  SideBarEvents: WritableSignal<any | null> = signal(null);
+  logout: WritableSignal<any> = signal(null);
 
-  logout: WritableSignal<any>                  = signal(null);
-
-  activeSport: WritableSignal<string|null>  = signal(null);
+  activeSport: WritableSignal<string | null> = signal(null);
 
   constructor(
     private networkService: NetworkService,
     private indexedDBService: IndexedDbService
-  ) {}
+  ) { }
 
   // ─── Show Change-Password Modal ────────────────────────
   setShowChangePasswordModal(value: boolean): void {
@@ -71,18 +71,18 @@ export class MainService {
   }
 
   // Active Sport 
-  
-  setActiveSport(sport:any){
+
+  setActiveSport(sport: any) {
     this.activeSport.set(sport);
   }
   getActiveSport(): any {
     return this.activeSport();
   }
   // ─── Casino Events ─────────────────────────────────────
-  setCasinoEvents(list: any|null): void {
+  setCasinoEvents(list: any | null): void {
     this.casinoEvents.set(list);
   }
-  getCasinoEvents(): any|null {
+  getCasinoEvents(): any | null {
     return this.casinoEvents();
   }
 
@@ -91,34 +91,34 @@ export class MainService {
       .split('/')
       .filter(Boolean)
       .pop()!;
-  
+
     this.indexedDBService.getRecord(path).subscribe((res: any) => {
       const allData = res?.data ?? {};
-  
+
       // default value → empty array
       const list = value ?? [];
-  
+
       const filtered = list.filter((item: any) => {
         const entries = Array.isArray(allData[item.sportId])
           ? allData[item.sportId]
           : [];
-        const hasEntries    = entries.length > 0;
+        const hasEntries = entries.length > 0;
         const isNotExcluded = item.sportId !== '66103';
-        const isCasino      = item.sportId !== '66102';
-        const isLottery     = item.sportId === '66104';
-  
+        const isCasino = item.sportId !== '66102';
+        const isLottery = item.sportId === '66104';
+
         // keep if (hasEntries & not excluded) OR casino OR lottery
-        const keep = (hasEntries && isNotExcluded && isCasino)  || isLottery;
+        const keep = (hasEntries && isNotExcluded && isCasino) || isLottery;
         if (keep) {
           item.total = entries.length;
         }
         return keep;
       });
-  
+
       this.sportsList.set(filtered);
     });
   }
-  getSportsList(): any|null {
+  getSportsList(): any | null {
     return this.sportsList();
   }
   checkSports(): void {
@@ -129,26 +129,26 @@ export class MainService {
   }
 
   // ─── Search Event List ─────────────────────────────────
-  setSearchEventList(value: any|null): void {
+  setSearchEventList(value: any | null): void {
     this.searchEventList.set(value);
   }
-  getSearchEventList(): any|null {
+  getSearchEventList(): any | null {
     return this.searchEventList();
   }
 
   // ─── Exchange Type List ────────────────────────────────
-  setExchangeTypeList(value: any|null): void {
+  setExchangeTypeList(value: any | null): void {
     this.exchangeTypeList.set(value);
   }
-  getExchangeTypeList(): any|null {
+  getExchangeTypeList(): any | null {
     return this.exchangeTypeList();
   }
 
   // ─── Customer Support ──────────────────────────────────
-  setCustomerSupport(value: any|null): void {
+  setCustomerSupport(value: any | null): void {
     this.customerSupport.set(value);
   }
-  getCustomerSupport(): any|null {
+  getCustomerSupport(): any | null {
     return this.customerSupport();
   }
 
@@ -156,16 +156,82 @@ export class MainService {
   setAllEvents(value: any): void {
     this.allEventList.set(value);
   }
-  getAllEvents(): any|null {
+  getAllEvents(): any | null {
     return this.allEventList();
   }
 
   setAllRacingEvents(value: any): void {
     this.allRacingEventList.set(value);
   }
-  getAllRacingEvents(): any|null {
+  getAllRacingEvents(): any | null {
     return this.allRacingEventList();
   }
+  getSideBarEvent(): any | null {
+    return this.SideBarEvents();
+  }
+  setSideBarEvent(record: any) {
+    let sidebarEvents: any = [];
+  
+    Object.entries(record).forEach(([key, value]) => {
+      const organizedData = record[key].reduce((acc: any, item: any) => {
+        const { tournamentName, tournamentId } = item;
+        let tournament = acc.find((t: any) => t.tournamentName === tournamentName);
+  
+        if (!tournament) {
+          tournament = {
+            tournamentName,
+            tournamentId,
+            data: [],
+          };
+          acc.push(tournament);
+        }
+  
+        tournament.data.push(item);
+        return acc;
+      }, []);
+  
+      let obj = {
+        sportId: key,
+        sportName: record[key][0]?.sportName,
+        data: organizedData,
+      };
+      sidebarEvents.push(obj);
+    });
+  
+    // Custom order sorting
+    const sportOrder = ['Cricket', 'Soccer', 'Tennis' ,'Horse Racing','Greyhound Racing'];
+    sidebarEvents.sort((a: any, b: any) => {
+      const indexA = sportOrder.indexOf(a.sportName);
+      const indexB = sportOrder.indexOf(b.sportName);
+  
+      if (indexA === -1 && indexB === -1) {
+        // If both are not in the defined order, sort alphabetically
+        return a.sportName.localeCompare(b.sportName);
+      }
+      if (indexA === -1) return 1;
+      if (indexB === -1) return -1;
+      return indexA - indexB;
+    });
+  
+    this.SideBarEvents.set({
+      data: sidebarEvents,
+    });
+  
+    this.indexedDBService
+      .createRecord(CONFIG.sidebarEvents, {
+        data: sidebarEvents,
+      })
+      .subscribe((res: any) => { });
+  }
+
+  pingSidebarEvents() {
+    this.indexedDBService
+        .getRecord(CONFIG.sidebarEvents)
+        .subscribe((res: any) => {
+            this.SideBarEvents.set(res);
+        });
+}
+
 
   // ─── Mini Casino & Auto-Deposit ────────────────────────
   setMiniCasinoOpened(opened: boolean): void {
@@ -175,22 +241,22 @@ export class MainService {
     return this.miniCasinoOpened();
   }
 
-  setAutoDepositURL(url: string|null): void {
+  setAutoDepositURL(url: string | null): void {
     this.autoDepositURL.set(url);
   }
-  getAutoDepositURL(): string|null {
+  getAutoDepositURL(): string | null {
     return this.autoDepositURL();
   }
 
-  private createtimestamp(key: any): Observable<Boolean> {    
+  private createtimestamp(key: any): Observable<Boolean> {
     return this.indexedDBService.createRecord(key, Date());
   }
 
-  private getRecordsFromNetwork(key: any, payload?: any,path?:any): Observable<any> {
+  private getRecordsFromNetwork(key: any, payload?: any, path?: any): Observable<any> {
     return new Observable<any>((observer) => {
-      
+
       this.networkService.getAllRecordsByPost(key, payload).then((record: any) => {
-        if(record?.meta){
+        if (record?.meta) {
           delete record.meta;
         }
         this.indexedDBService.createRecord(path, record).subscribe(() => {
@@ -200,6 +266,9 @@ export class MainService {
           }, (error) => {
             observer.error(error);
           });
+          if (path == 'allEventsList') {
+            this.setSideBarEvent(record?.data);
+        }
         }, (error) => {
           observer.error(error);
         });
@@ -209,7 +278,7 @@ export class MainService {
     });
   }
 
-  private getRecordsFromDB(key: any, payload?: any,path?:any): Observable<any> {
+  private getRecordsFromDB(key: any, payload?: any, path?: any): Observable<any> {
     return new Observable<any>((observer) => {
       this.indexedDBService.getRecord(path).subscribe(
         (data: any) => {
@@ -218,7 +287,7 @@ export class MainService {
             observer.complete();
           }
           else {
-            this.getRecordsFromNetwork(key, payload,path).subscribe((data: any) => {
+            this.getRecordsFromNetwork(key, payload, path).subscribe((data: any) => {
               observer.next(data);
               observer.complete();
             }, (error) => {
@@ -234,7 +303,7 @@ export class MainService {
     });
   }
   getDataFromServices(key: any, timeLimit: any, payload?: any,
-    IncomingPath?:any,): Observable<any> {
+    IncomingPath?: any,): Observable<any> {
     const resultSubject = new Subject<any>();
 
     // const url = new URL(key);
@@ -242,11 +311,11 @@ export class MainService {
       payload = {};
     }
 
-    let path:any;
-    if(IncomingPath){
+    let path: any;
+    if (IncomingPath) {
       path = IncomingPath
     }
-    else{
+    else {
       path = key.split('/').filter(Boolean).pop();
     }
 
@@ -263,6 +332,7 @@ export class MainService {
               (dbData: any) => {
                 if (path == 'allEventsList') {
                   this.setAllEvents(dbData.data)
+                  this.setSideBarEvent(dbData?.data);
                 }
                 if (path == 'racingEventsList') {
                   this.setAllRacingEvents(dbData)
@@ -272,10 +342,11 @@ export class MainService {
                 resultSubject.next(dbData);
                 resultSubject.complete();
                 // debugger
-                this.getRecordsFromNetwork(key, payload,path).subscribe(
+                this.getRecordsFromNetwork(key, payload, path).subscribe(
                   (networkData: any) => {
                     if (path == 'allEventsList') {
                       this.setAllEvents(networkData.data);
+                      this.setSideBarEvent(networkData?.data);
                     }
                     if (path == 'racingEventsList') {
                       this.setAllRacingEvents(networkData);
@@ -293,7 +364,7 @@ export class MainService {
               }
             );
           } else {
-            this.getRecordsFromDB(key, payload,path).subscribe(
+            this.getRecordsFromDB(key, payload, path).subscribe(
               (data: any) => {
                 resultSubject.next(data);
                 resultSubject.complete();
@@ -305,7 +376,7 @@ export class MainService {
           }
         } else {
           // debugger
-          this.getRecordsFromNetwork(key, payload,path).subscribe(
+          this.getRecordsFromNetwork(key, payload, path).subscribe(
             (data: any) => {
               resultSubject.next(data);
               resultSubject.complete();
@@ -320,5 +391,6 @@ export class MainService {
 
     return resultSubject.asObservable();
   }
+
 
 }

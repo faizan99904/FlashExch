@@ -36,12 +36,12 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit(): void {
     const routeUrl = this.router.url.split('/');
-    const routeNameOne = routeUrl[1] || '';
+    const routeNameOne = routeUrl[1] || '/';
     this.activeRoute = routeNameOne;
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const urlSegments = event.urlAfterRedirects.split('/');
-        const routeName = urlSegments[1] || '';
+        const routeName = urlSegments[1] || '/';
         this.activeRoute = routeName;
         console.log('Updated route:', this.activeRoute);
         setTimeout(() => {
