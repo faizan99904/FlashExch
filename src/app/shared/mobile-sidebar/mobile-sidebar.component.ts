@@ -54,13 +54,14 @@ export class MobileSidebarComponent {
     }
   }
 
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
-    const mainRouterEl = document.querySelector('.mainRouter');
-    if (mainRouterEl) {
-      mainRouterEl.classList.remove('prevent-scroll');
-    }
-  }
+  // ngOnDestroy(): void {
+  //   this.sub.unsubscribe();
+  //   const mainRouterEl = document.querySelector('.mainRouter');
+  //   if (mainRouterEl) {
+  //     mainRouterEl.classList.remove('prevent-scroll');
+  //   }
+  // }
+  
   toggleDropdown(): void {
     this.dropdownOpen = !this.dropdownOpen;
     setTimeout(() => {
