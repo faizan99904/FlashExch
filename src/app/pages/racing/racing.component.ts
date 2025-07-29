@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, effect } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router, RouterLink } from '@angular/router';
 import { LiveStreemComponent } from '../../component/live-streem/live-streem.component';
 import { MainService } from '../../service/main.service';
 
 @Component({
   selector: 'app-racing',
-  imports: [CommonModule, LiveStreemComponent],
+  imports: [CommonModule, LiveStreemComponent, RouterLink],
   templateUrl: './racing.component.html',
   styleUrl: './racing.component.css'
 })
@@ -16,15 +16,25 @@ export class RacingComponent {
   filterRacing: any = [];
   searchFilter: any = [];
   dayValue: string = 'all'
+  getCount: any = []
+  greyhoundLength: any = []
+  horseLength: any = []
   sportId: any;
   // Store toggle state for each region
   collapsedRegions: { [key: number]: boolean } = {};
 
-  constructor(private mainService: MainService, private route: ActivatedRoute) {
-    
+  constructor(private mainService: MainService, private route: ActivatedRoute, private router: Router) {
+
     this.route.params.subscribe(params => {
       this.sportId = params['id'];
+    })
 
+    this.router.events.subscribe((event: any) => {
+      if (event instanceof NavigationEnd) {
+        this.racingData = this.mainService.getAllRacingEvents();
+        this.filterRacing = this.groupEventsByTournament(this.racingData.tournaments, this.racingData.events);
+        this.searchRacing('');
+      }
     })
 
     effect(() => {
@@ -32,6 +42,7 @@ export class RacingComponent {
       if (this.racingData) {
         console.log('racingData tournaments:', this.racingData);
         this.filterRacing = this.groupEventsByTournament(this.racingData.tournaments, this.racingData.events);
+        this.getCount = this.sportCount(this.racingData.events)
         console.log('racingData tournaments:', this.filterRacing);
       }
       this.searchRacing('');
@@ -83,6 +94,17 @@ export class RacingComponent {
     this.expandedChamps[key] = !this.expandedChamps[key];
     return this.expandedChamps[key];
   }
+
+  sportCount(events: any[]) {
+    this.greyhoundLength = events
+      .filter(event => event.sportId === '4339')
+      .flatMap(item => item.eventsData || []);
+
+    this.horseLength = events
+      .filter(event => event.sportId === '7')
+      .flatMap(item => item.eventsData || []);
+  }
+  
 
 
 
@@ -212,23 +234,23 @@ export class RacingComponent {
     const dateString = targetDate.toISOString().split('T')[0];
 
     this.searchFilter = this.filterRacing
-      .map((tournament:any) => {
+      .map((tournament: any) => {
         const filteredEvents = tournament.events
-          .map((event:any) => {
+          .map((event: any) => {
 
             const filteredEventsData = event.eventsData
-              .filter((eventData:any) => eventData.eventTime.includes(dateString));
+              .filter((eventData: any) => eventData.eventTime.includes(dateString));
             return filteredEventsData.length > 0
               ? { ...event, eventsData: filteredEventsData }
               : null;
           })
-          .filter((event:any) => event !== null); 
+          .filter((event: any) => event !== null);
 
         return filteredEvents.length > 0
           ? { ...tournament, events: filteredEvents }
           : null;
       })
-      .filter((tournament:any) => tournament !== null); 
+      .filter((tournament: any) => tournament !== null);
   }
 
 }

@@ -11,14 +11,15 @@
     <div class="racing-events lg:!hidden">
         <section class="sport-tabs lg:!hidden">
             <ul>
-                <li class="" [ngClass]="{'selected':sportId === '7'}">
-                    <div sport="horseracing" class="img"></div> <span>Horse Racing</span> <span
-                        class="match-count">(210)</span>
+                <li class="" [ngClass]="{'selected':sportId === '7'}" routerLink="/racing/7">
+                    <div sport="horseracing" class="img"></div> <span class="text-[#ffffff66]"
+                        [ngClass]="{'!text-white':sportId === '7'}">Horse Racing</span> <span
+                        class="match-count">({{horseLength.length}})</span>
                 </li>
-                <li class="" [ngClass]="{'selected':sportId === '4339'}">
+                <li class="" [ngClass]="{'selected':sportId === '4339'}" routerLink="/racing/4339">
                     <div sport="greyhound" class="img"></div> <span
                         [ngClass]="{'text-white':sportId === '4339'}">Greyhound</span> <span
-                        class="match-count">(101)</span>
+                        class="match-count">({{greyhoundLength.length}})</span>
                 </li>
             </ul>
         </section>
@@ -118,8 +119,6 @@
     </section>
 
 </section>
-
-
 
 
 <!-- desktop view  -->
