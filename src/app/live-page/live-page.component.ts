@@ -1,6 +1,5 @@
 import { Component, computed, signal, Signal } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
-import { HeaderComponent } from '../shared/header/header.component';
 import { SportsNavComponent } from '../shared/sports-nav/sports-nav.component';
 import { BottomNavComponent } from '../shared/bottom-nav/bottom-nav.component';
 import { MobileSidebarComponent } from '../shared/mobile-sidebar/mobile-sidebar.component';
@@ -11,15 +10,10 @@ import { CommonModule } from '@angular/common';
 import { MatchTrackerComponent } from '../component/match-tracker/match-tracker.component';
 import { SharedService } from '../service/shared.service';
 
-
-
-
-
 @Component({
   selector: 'app-live-page',
-  standalone:true,
+  standalone: true,
   imports: [
-    HeaderComponent,
     SportsNavComponent,
     BottomNavComponent,
     MobileSidebarComponent,

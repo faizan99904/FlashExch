@@ -1,6 +1,4 @@
 import { Component, effect, OnInit } from '@angular/core';
-import { HeaderComponent } from '../../shared/header/header.component';
-import { SportsNavComponent } from '../../shared/sports-nav/sports-nav.component';
 import { BottomNavComponent } from '../../shared/bottom-nav/bottom-nav.component';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
@@ -10,8 +8,6 @@ import { MainService } from '../../service/main.service';
   selector: 'app-competitions',
   imports: [
     CommonModule,
-    HeaderComponent,
-    SportsNavComponent,
     BottomNavComponent,
     RouterLink
   ],

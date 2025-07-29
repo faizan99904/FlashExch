@@ -1,39 +1,34 @@
 import { CommonModule } from '@angular/common';
-import { Component, effect, Input, OnInit } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
-import { MainService } from '../../service/main.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-market',
-  imports: [RouterLink, CommonModule],
+  imports: [CommonModule],
   templateUrl: './market.component.html',
-  styleUrl: './market.component.css'
+  styleUrl: './market.component.css',
 })
 export class MarketComponent implements OnInit {
   @Input() isMobile: boolean = false;
   @Input() market: any = [];
   @Input() index: any;
-  @Input() searchTab!: string
+  @Input() searchTab!: string;
 
+  constructor(private router: Router) {}
 
-  constructor(private router:Router){
-
-  }
-
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
   getEventName(first: boolean, eventName: any) {
     let splitArray = eventName.split(' v ');
     if (first) {
       return splitArray[0];
-    }
-    else {
+    } else {
       return splitArray[1];
     }
   }
-  gotoMarket(market:any){
-    localStorage.setItem('competitionName',market.tournamentName);
-    this.router.navigateByUrl('/market-detail/'+market.sportId+'/'+market.exEventId)
+  gotoMarket(market: any) {
+    localStorage.setItem('competitionName', market.tournamentName);
+    this.router.navigateByUrl(
+      '/market-detail/' + market.sportId + '/' + market.exEventId
+    );
   }
 }
