@@ -35,6 +35,7 @@ export class AppComponent implements OnInit {
     this.mainService.getDataFromServices(CONFIG.getAllEventsList, CONFIG.getAllEventsListTime, { key: CONFIG.siteKey }).subscribe((data: any) => {
       this.mainService.setAllEvents(data?.data);
       this.mainService.checkSports();
+      this.mainService.pingSidebarEvents();
     });
   }
 

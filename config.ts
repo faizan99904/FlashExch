@@ -24,7 +24,7 @@ export const CONFIG = {
   specialEventsTime: 20,
   casinoEvents: BASE_URL + "/api/exchange/navigations/casinoEvents",
   casinoEventsTime: 120,
-
+  sidebarEvents:"sidebarEvents",
   sendUserRegisterOtp: BASE_URL + '/app/user/userRegisterOtpSent',
   verifyUserRegisterOtp: BASE_URL + "/app/user/userRegisterVerify",
   sendForgotPasswordOtp: BASE_URL + "/app/users/sendForgotPasswordOtp",

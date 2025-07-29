@@ -176,7 +176,7 @@
         <!-- Sports List -->
         <ul class="space-y-2">
 
-            <li class="text-[#FFFFFF99] hover:text-white text-[0.9vw]" *ngFor="let item of mainService.sportsList(); let i = index" >
+            <li class="text-[#FFFFFF99] hover:text-white text-[0.9vw]" *ngFor="let item of mainService.getSideBarEvent().data; let i = index" >
                 <div
                     class="flex items-center justify-between tracking-tighter  hover:bg-[#151a21] px-[0.6vw] pt-[.2vw] cursor-pointer h-[2vw] ">
                     <div class="flex items-center gap-[0.78vw]">
@@ -184,7 +184,7 @@
                         <span class="pt-[0.1vw]">{{item.sportName}}</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <span class="text-[#ffffff71]">{{item.total}}</span>
+                        <span class="text-[#ffffff71]">{{item.data.length}}</span>
                         <label
                             class="w-3.5 h-3.5 border border-transparent rounded-sm flex items-center justify-center cursor-pointer">
                             <input type="checkbox"
