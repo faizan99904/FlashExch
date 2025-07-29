@@ -3,7 +3,7 @@ import { HeaderComponent } from "../../shared/header/header.component";
 
 @Component({
   selector: 'app-affliate',
-  imports: [HeaderComponent],
+  imports: [],
   templateUrl: './affliate.component.html',
   styleUrl: './affliate.component.css'
 })

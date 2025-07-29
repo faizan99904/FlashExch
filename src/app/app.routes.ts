@@ -55,27 +55,29 @@ export const routes: Routes = [
       { path: 'market-detail', component: MarketDetailComponent },
       { path: 'market-detail/:gameId/:eventId', component: MarketDetailComponent },
       { path: 'racing/:id', component: RacingComponent },
-    ],
-  },
-
-  {
-    path: 'live',
-    component: LivePageComponent,
-
-    children: [
+      { path: 'competitions/:id', component: CompetitionsComponent },
+      
       {
-        path: 'event-view',
-        component: EventViewComponent,
+        path: 'live',
+        component: LivePageComponent,
+
+        children: [
+          {
+            path: 'event-view',
+            component: EventViewComponent,
+          },
+        ],
       },
+      { path: 'casino', component: CasinoComponent },
+      { path: 'live-casino', component: LiveCasinoComponent },
+      { path: 'promos', component: PromosComponent },
+      { path: 'affliate', component: AffliateComponent },
+      { path: 'minigames', component: MinigamesComponent },
     ],
   },
 
-  { path: 'casino', component: CasinoComponent },
-  { path: 'live-casino', component: LiveCasinoComponent },
-  { path: 'promos', component: PromosComponent },
-  { path: 'affliate', component: AffliateComponent },
-  { path: 'competitions/:id', component: CompetitionsComponent },
-  { path: 'minigames', component: MinigamesComponent },
+
+  
 
   {
     path: 'account',

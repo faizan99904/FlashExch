@@ -26,23 +26,25 @@ import { CommonModule } from '@angular/common';
     SignupComponent,
     ForgetModalComponent,
     CommonModule
-],
+  ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css',
 })
 export class LayoutComponent {
-  activeRoute:any
-  constructor(private toggle: SharedService, private router:Router) {
+  activeRoute: any
+  constructor(private toggle: SharedService, private router: Router) {
     const routeUrl = this.router.url.split('/');
-    const routeNameOne = routeUrl[1];
+    const routeNameOne = routeUrl[1] || '/';
     this.activeRoute = routeNameOne
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         const urlSegments = event.urlAfterRedirects.split('/');
-        const routeName = urlSegments[1];
+        const routeName = urlSegments[1] || '/';
         this.activeRoute = routeName
+        console.log('Updated route:', this.activeRoute);
       }
     })
+
   }
   signUp = computed(() => this.toggle.isSignupVisible());
   forgetPass = computed(() => this.toggle.isPassVisible());

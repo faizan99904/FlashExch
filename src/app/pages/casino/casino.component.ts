@@ -7,7 +7,7 @@ import { BottomNavComponent } from '../../shared/bottom-nav/bottom-nav.component
 declare var Swiper: any;
 @Component({
   selector: 'app-casino',
-  imports: [HeaderComponent, CommonModule, SportsNavComponent, FooterComponent, BottomNavComponent],
+  imports: [ CommonModule, FooterComponent, BottomNavComponent],
   templateUrl: './casino.component.html',
   styleUrl: './casino.component.css',
   // encapsulation: ViewEncapsulation.None
