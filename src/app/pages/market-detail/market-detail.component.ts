@@ -88,7 +88,8 @@ export class MarketDetailComponent {
   firebaseResposesportBook: any = [];
   selectedColor: string = '';
   fancyMarket: boolean = true;
- 
+  competitionName:any;
+
   constructor(private route: ActivatedRoute,
     private router: Router,
     private backendService: NetworkService,
@@ -104,9 +105,9 @@ export class MarketDetailComponent {
       this.onOpenPage = true;
       this.onOpenPageSportbook = true;
     this.route.params.subscribe(params => {
-      this.sportId = params['gameId'];
+      this.sportId = params['sportId'];
       this.event_id = params['eventId'];
-      this.gameName = params['gameName'];
+      // this.gameName = params['gameName'];
       this.sportObj = {
         event_id: this.event_id,
         sportId: this.sportId,
@@ -126,6 +127,7 @@ export class MarketDetailComponent {
 
   }
   ngOnInit(): void {
+    this.competitionName = localStorage.getItem('competitionName');
     this.getfancyMarketList();
     setTimeout(() => {
       this.checkUserForStream();
@@ -188,6 +190,89 @@ export class MarketDetailComponent {
   }
 
   betfairSubscription: any;
+
+  getMarketList() {
+    // getMarketList
+    var req = {
+      "eventId": this.event_id,
+      "sportId": this.sportId,
+      "key": CONFIG.siteKey
+    }
+    this.backendService.getAllRecordsByPost(CONFIG.getMarketsEventList, req).then((record:any) =>{
+
+      this.MarketData = record.data;
+
+      this.isScore = this.MarketData?.isScore;
+
+      this.isOPenCard = this.isScore;
+      this.loader = false;
+      this.matchOddsData = this.MarketData.matchOddsData;
+      if (this.sportId == 1) {
+        this.matchOddsData = this.matchOddsData.sort(this.customSortByMarketType)
+      }
+      this.AllMarketList = [...this.matchOddsData, ...this.MarketData.bookmakersData];
+      this.AllFancyMarkets = [...this.MarketData.fancyData, ...this.MarketData.binaryData, ...this.MarketData.sportsbookData];
+
+      this.bookmakersData = this.MarketData.bookmakersData;
+      this.AllMarketList.sort((a: any, b: any) => a.sequence - b.sequence);
+      let runFirebaseCall = false;
+      if (this.AllFancyMarkets.length == 0 && this.AllMarketList.length == 0) {
+        this.toaster.error('No Markets are active', "Sorry");
+        if (this.sportId == '7' || this.sportId == '4339') {
+          this.mainService.getDataFromServices(CONFIG.racingEventsList, -1, { key: CONFIG.siteKey }).subscribe((data: any) => {
+          });
+        } else {
+          this.mainService.getDataFromServices(CONFIG.getAllEventsList, -1, { key: CONFIG.siteKey }).subscribe((data: any) => {
+          });
+        }
+        this.router.navigateByUrl('/');
+        runFirebaseCall = false;
+      }
+      else {
+        this.InitialStartupApiCalls();
+        runFirebaseCall = true;
+      }
+
+      this.changeOddsMarket('All', '')
+      this.changeFancyMarket('popular', false);
+      let token = localStorage.getItem('token')
+      if (token && runFirebaseCall) {
+        if (this.sportId == '4') {
+          this.getBetfairDataFirebase(this.cricketFirestore);
+          this.getBookmakerDataFirebase(this.cricketFirestore);
+          this.getFancyDataFirebase(this.cricketFirestore);
+          this.getSportbookDataFirebase(this.cricketFirestore);
+
+        }
+        else if (this.sportId == '2') {
+          this.getBetfairDataFirebase(this.tennisFirestore);
+          this.getBookmakerDataFirebase(this.tennisFirestore);
+          this.getFancyDataFirebase(this.tennisFirestore);
+          this.getSportbookDataFirebase(this.tennisFirestore);
+
+        }
+        else if (this.sportId == '1') {
+          this.getBetfairDataFirebase(this.soccerFirestore);
+          this.getBookmakerDataFirebase(this.soccerFirestore);
+          this.getFancyDataFirebase(this.soccerFirestore);
+          this.getSportbookDataFirebase(this.soccerFirestore);
+
+        }
+
+        else {
+          this.getBetfairDataFirebase(this.otherFirestore);
+          this.getBookmakerDataFirebase(this.otherFirestore);
+          this.getFancyDataFirebase(this.otherFirestore);
+          this.getSportbookDataFirebase(this.otherFirestore);
+
+        }
+      }
+
+
+    }, (error: any) => {
+      this.loader = false;
+    })
+  }
 
   getBetfairDataFirebase(projectDynamic?: any) {
 
@@ -495,97 +580,6 @@ export class MarketDetailComponent {
         });
       });
   }
-
-  getMarketList() {
-    // getMarketList
-    var req = {
-      "eventId": this.event_id,
-      "sportId": this.sportId,
-      "key": CONFIG.siteKey
-    }
-    this.backendService.getAllRecordsByPost(CONFIG.getMarketsEventList, req).then((record:any) =>{
-
-      this.MarketData = record.data;
-
-      this.isScore = this.MarketData?.isScore;
-
-      this.isOPenCard = this.isScore;
-      this.loader = false;
-      this.matchOddsData = this.MarketData.matchOddsData;
-      if (this.sportId == 1) {
-        this.matchOddsData = this.matchOddsData.sort(this.customSortByMarketType)
-      }
-      this.AllMarketList = [...this.matchOddsData, ...this.MarketData.bookmakersData];
-      this.AllFancyMarkets = [...this.MarketData.fancyData, ...this.MarketData.binaryData, ...this.MarketData.sportsbookData];
-
-      this.bookmakersData = this.MarketData.bookmakersData;
-      this.AllMarketList.sort((a: any, b: any) => a.sequence - b.sequence);
-      let runFirebaseCall = false;
-      if (this.AllFancyMarkets.length == 0 && this.AllMarketList.length == 0) {
-        this.toaster.error('No Markets are active', "Sorry");
-        if (this.sportId == '7' || this.sportId == '4339') {
-          this.mainService.getDataFromServices(CONFIG.racingEventsList, -1, { key: CONFIG.siteKey }).subscribe((data: any) => {
-          });
-        } else {
-          this.mainService.getDataFromServices(CONFIG.getAllEventsList, -1, { key: CONFIG.siteKey }).subscribe((data: any) => {
-          });
-        }
-        this.router.navigateByUrl('/');
-        runFirebaseCall = false;
-      }
-      else {
-        this.InitialStartupApiCalls();
-        runFirebaseCall = true;
-      }
-
-
-      // if (this.isMobile) {
-      //   //   this.changeOddsMarket('Popular', '');//default filter
-      //   // }
-      //   // else {
-      //   this.changeOddsMarket('All', '');//default filter
-      // }
-      this.changeOddsMarket('All', '')
-      this.changeFancyMarket('popular', false);
-      let token = localStorage.getItem('token')
-      if (token && runFirebaseCall) {
-        if (this.sportId == '4') {
-          this.getBetfairDataFirebase(this.cricketFirestore);
-          this.getBookmakerDataFirebase(this.cricketFirestore);
-          this.getFancyDataFirebase(this.cricketFirestore);
-          this.getSportbookDataFirebase(this.cricketFirestore);
-
-        }
-        else if (this.sportId == '2') {
-          this.getBetfairDataFirebase(this.tennisFirestore);
-          this.getBookmakerDataFirebase(this.tennisFirestore);
-          this.getFancyDataFirebase(this.tennisFirestore);
-          this.getSportbookDataFirebase(this.tennisFirestore);
-
-        }
-        else if (this.sportId == '1') {
-          this.getBetfairDataFirebase(this.soccerFirestore);
-          this.getBookmakerDataFirebase(this.soccerFirestore);
-          this.getFancyDataFirebase(this.soccerFirestore);
-          this.getSportbookDataFirebase(this.soccerFirestore);
-
-        }
-
-        else {
-          this.getBetfairDataFirebase(this.otherFirestore);
-          this.getBookmakerDataFirebase(this.otherFirestore);
-          this.getFancyDataFirebase(this.otherFirestore);
-          this.getSportbookDataFirebase(this.otherFirestore);
-
-        }
-      }
-
-
-    }, (error: any) => {
-      this.loader = false;
-    })
-  }
-
   customSortByMarketType = (a: any, b: any) => {
     const marketTypeA = a.createdAt.toUpperCase();
     const marketTypeB = b.createdAt.toUpperCase();
@@ -640,20 +634,6 @@ export class MarketDetailComponent {
   }
 
   checkUserForStream() {
-    // this.backendService.getBalanceExpo().pipe(first()).subscribe((data: any) => {
-
-    //   let exposure =  data.exposure < 0 ? (data.exposure * -1) : data.exposure ;
-    //   this.userBalance = data.balance + exposure
-
-
-    //   // if (this.userBalance < 100 ) {
-    //   //   this.streamShowValidation = false;
-    //   // }
-
-    // },
-    // (error) => {
-    //   console.error("Error fetching balance:", error);
-    // },)
 
     this.userDetail = JSON.parse(localStorage.getItem('userDetail') as string);
     if (this.userDetail?.userName == 'diamonddemo') {
@@ -662,7 +642,6 @@ export class MarketDetailComponent {
     else {
       this.streamShowValidation = true;
     }
-
 
   }
 
@@ -679,18 +658,7 @@ export class MarketDetailComponent {
       });
       return
     }
-    // if (this.userBalance < 100) {
-    //   this.toaster.error('To watch streaming, a minimum balance of 100 is required.', '', {
-    //     positionClass: 'toast-top-right',
-    //   });
-    //   return
-    // }
-    // else {
-    //   this.streamShowValidation = true;
-    //   if (!this.isOPenCard) {
-    //     this.isOPenCard = !this.isOPenCard;
-    //   }
-    // }
+   
   }
 
   openBetslip(marketId: any, selectionId: any, betType: any, price: any, min: any, max: any, marketType: any, eventName?: any, size?: any, index?: any, mType?: any, isSuperFancy?: any) {
@@ -961,18 +929,7 @@ export class MarketDetailComponent {
     this.selectedFancyMarket = tableFlag;
 
     if ((tableFlag == 'SPORTSBOOK' || tableFlag == 'Sportsbook')) {
-      // if (!onChangeData) {
-      //   if (this.sportId == '4') {
-      //     this.getSportbookDataFirebase(this.cricketFirestore);
-      //   } else if (this.sportId == '2') {
-      //     this.getSportbookDataFirebase(this.tennisFirestore);
-      //   } else if (this.sportId == '1') {
-      //     this.getSportbookDataFirebase(this.soccerFirestore);
-      //   } else {
-      //     this.getSportbookDataFirebase(this.otherFirestore);
-      //   }
-      // }
-
+     
       this.AllFancyMarketsFiltered = this.AllFancyMarkets.filter((market: any) => {
         if (market.tableFlag == 'SPORTSBOOK' && market?.oddsData?.status != 'CLOSED' && !market?.popular) {
           return market
@@ -1040,18 +997,7 @@ export class MarketDetailComponent {
       return
     }
     if (marketid == 'All') {
-      // this.matchOddsDataUpdated = this.AllMarketList.filter((market: any) => {
-      //   if (market?.oddsData?.status == 'CLOSED') {
-      //     return null
-      //   }
-      //   else {
-      //     return market
-      //   }
-      // }).sort((a: any, b: any) => a.sequence - b.sequence).sort((a: any, b: any) => {
-      //   const marketTypeOrder = ['MATCH_ODDS', 'Bookmakers'];
-      //   return marketTypeOrder.indexOf(a.marketType) - marketTypeOrder.indexOf(b.marketType);
-      // });
-
+     
       const matchOddsData = this.AllMarketList
         .filter((market: any) => market?.oddsData?.status !== 'CLOSED');
 

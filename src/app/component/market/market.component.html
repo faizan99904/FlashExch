@@ -24,7 +24,7 @@
             <span class="material-icons text-[#00aa30]">star_border</span>
         </div>
         <div class="match-name marketWidth w-[calc(100%-7vw)] p-0 text-white leading-[6vw] text-[3.5vw]"
-            routerLink="/market-detail">
+            (click)="gotoMarket(market)">
             <span>{{market.eventName}}</span>
         </div>
     </div>
@@ -131,7 +131,7 @@
                 <span class="material-icons text-[#A0A1A2] text-[4vw]">error_outline</span>
                 <div class="text hidden">{{market.tournamentName}}</div>
             </div>
-            <div class="market-count text-[3vw] text-white ml-auto" routerLink="/market-detail">
+            <div class="market-count text-[3vw] text-white ml-auto" (click)="gotoMarket(market)">
                 <span class="[vertical-align:middle]"></span>
                 <span class="material-icons text-[4.5vw] [vertical-align:middle]">keyboard_arrow_right</span>
             </div>
@@ -142,7 +142,7 @@
             <div class="star-wrapper">
                 <span icon="star_border" class="material-icons">star_border</span>
             </div>
-            <div class="match-name p-[1vw_0px] !text-[3.5vw]" routerLink="/market-detail" *ngIf="market.marketName!='Ball By Ball'">
+            <div class="match-name p-[1vw_0px] !text-[3.5vw]" (click)="gotoMarket(market)" *ngIf="market.marketName!='Ball By Ball'">
                 <div class="dotted-hidden team"><span class="dotted-hidden name">
                         {{ getEventName(true,
                         market?.eventName)
@@ -153,7 +153,7 @@
                         }}</span>
                 </div>
             </div>
-            <div class="match-name p-[1vw_0px] !text-[3.5vw]" routerLink="/market-detail" *ngIf="market.marketName=='Ball By Ball'">
+            <div class="match-name p-[1vw_0px] !text-[3.5vw]"  *ngIf="market.marketName=='Ball By Ball'">
                 <div class="dotted-hidden team">
                     <span class="dotted-hidden name">
                         {{ market?.eventName }}
@@ -247,7 +247,7 @@
             </div>
         </div>
     </div>
-    <div class="bg-[#121519]  w-full flex justify-between items-center px-2" routerLink="/market-detail">
+    <div class="bg-[#121519]  w-full flex justify-between items-center px-2" (click)="gotoMarket(market)">
         <div class="max-w-[140px]">
             <!-- <span class="text-[#7B7D7F] mr-2 truncate " routerLink="/market-detail">Ball By Ball</span>
                 <span class="text-[#00A930] truncate">In-Paly</span> -->

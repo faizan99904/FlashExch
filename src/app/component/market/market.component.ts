@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, effect, Input, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { MainService } from '../../service/main.service';
 
 @Component({
@@ -16,6 +16,9 @@ export class MarketComponent implements OnInit {
   @Input() searchTab!: string
 
 
+  constructor(private router:Router){
+
+  }
 
   ngOnInit(): void {
 
@@ -28,5 +31,9 @@ export class MarketComponent implements OnInit {
     else {
       return splitArray[1];
     }
+  }
+  gotoMarket(market:any){
+    localStorage.setItem('competitionName',market.tournamentName);
+    this.router.navigateByUrl('/market-detail/'+market.sportId+'/'+market.exEventId)
   }
 }
