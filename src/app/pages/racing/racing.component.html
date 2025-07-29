@@ -1,14 +1,16 @@
-<section class="racing  p-[1.33333vw] md:px-[0.8em] lg:mt-[1.033em]  lg:!p-0 !mb-[75px]   overflow-x-hidden lg:hidden">
+<section class="racing  p-[1.33333vw] md:px-[0.8em] lg:mt-[1.033em]  lg:!p-0 !mb-[75px]   overflow-x-hidden home-padding lg:hidden">
 
 
     <section class="main-banner hidden default lg:block"><!----></section>
-    <section class="page-title lg:!hidden"><span>Racing</span>
+
+    <section class="page-title lg:!hidden remove-home"><span>Racing</span>
         <div class="toggle-stream">
             <img [src]="imageSrc" alt="Toggle Image" class="cursor-pointer" (click)="toggleVideoStream()" />
         </div>
     </section>
+
     <app-live-streem *ngIf="isToggleVideoStream"></app-live-streem>
-    <div class="racing-events lg:!hidden">
+    <div class="racing-events lg:!hidden remove-home">
         <section class="sport-tabs lg:!hidden">
             <ul>
                 <li class="" [ngClass]="{'selected':sportId === '7'}" routerLink="/racing/7">
@@ -25,7 +27,7 @@
         </section>
     </div>
 
-    <section class="filters tracking-tight  !hidden lg:!flex text-nowrap">
+    <section class="filters tracking-tight  !hidden lg:!flex text-nowrap ">
         <div class="search"><input type="text" name="search" placeholder="Search Event" autocomplete="off">
             <span class="material-icons">search</span>
         </div>
@@ -41,7 +43,8 @@
         </div>
 
     </section>
-    <section class="filters lg:!hidden flex text-nowrap justify-between items-center ">
+
+    <section class="filters lg:!hidden flex text-nowrap justify-between items-center remove-home">
 
 
         <div class="with-odds  !text-[#ffffff99] tracking-normal" (click)="toggleOdds()" [class.active]="isWithOdds">
@@ -54,8 +57,9 @@
             <option value="tomorrow">Tomorrow</option>
         </select>
     </section>
+
     <section class="matches">
-        <div class="region-block rounded-sm" *ngFor="let region of searchFilter; let i = index">
+        <div class="region-block rounded-sm home-spacing" *ngFor="let region of searchFilter; let i = index">
             <div class="region-title" (click)="toggleRegion(i)">
                 <div [attr.country]="region.tournamentName" class="flag"></div>
                 <span class="!text-[3.5vw] !text-[#ffffff99] ">{{ region.tournamentName}}
@@ -123,9 +127,9 @@
 
 <!-- desktop view  -->
 <section class="racing mt-[1.033em] px-[0.32em] md:px-[0.8em] lg:px-0   overflow-x-hidden hidden lg:block">
-    <section class="main-banner default"></section>
+    <section class="main-banner default remove-home"></section>
 
-    <section class="filters">
+    <section class="filters remove-home">
         <div class="search">
             <input type="text" name="search" placeholder="Search Event" #searchInput
                 (input)="searchRacing(searchInput.value)"> <span class="material-icons">search</span>
@@ -145,12 +149,13 @@
                 <div [attr.country]="region.tournamentName" class="flag"></div> <span
                     class="!text-[14px] !text-[#ffffff99] ">{{region.tournamentName}}</span>
                 <!-- <span  class="start-time">(Today)</span> -->
-                <ul class="time-filters" (click)="$event.stopPropagation()">
+                <!-- <ul class="time-filters" (click)="$event.stopPropagation()">
                     <li class="active">All</li>
                     <li class="">Upcoming</li>
                     <li class="">Race Off</li>
                     <li class="">Finished</li>
-                </ul> <span class="material-icons cursor-pointer">
+                </ul> -->
+                 <span class="material-icons cursor-pointer">
                     {{ isCollapsed(i) ? 'keyboard_arrow_right' : 'keyboard_arrow_down'}}
                 </span>
             </div>

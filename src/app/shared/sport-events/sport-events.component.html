@@ -117,11 +117,23 @@
 
 <app-sportslist></app-sportslist>
 
-<div class="main-wrapper w-full">
+<div class="main-wrapper w-full"
+    *ngIf="this.activeSportId !== '7' && this.activeSportId !==  '4339' && this.activeSportId !== '66104'">
     <app-market *ngFor="let item of markets; index as i; trackBy: trackByFn;" [isMobile]="true" [searchTab]="searchTab"
         [market]="item" [index]="i"></app-market>
 </div>
-<div class="top-events mt-[1rem]">
+
+<div class="top-events mt-[1rem]"
+    *ngIf="this.activeSportId !== '7' && this.activeSportId !==  '4339' && this.activeSportId !== '66104'">
     <app-market *ngFor="let item of markets;index as i;trackBy: trackByFn;" [isMobile]="false" [market]="item"
         [index]="i"></app-market>
+</div>
+
+<div class="main-wrapper w-full lg:mt-[-8px]" *ngIf="this.activeSportId === '7' || this.activeSportId ===  '4339'">
+    <app-racing [getSportId]="activeSportId"
+        class="[&_.remove-home]:!hidden [&_.home-spacing]:!mt-0.5 [&_.home-padding]:!p-0"></app-racing>
+</div>
+
+<div *ngIf="this.activeSportId === '66104'">
+    <app-lottery></app-lottery>
 </div>
