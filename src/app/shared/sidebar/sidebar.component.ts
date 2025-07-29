@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, effect } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, NavigationEnd, Route, Router } from '@angular/router';
 import { filter } from 'rxjs';
@@ -13,13 +13,16 @@ import { MainService } from '../../service/main.service';
 })
 export class SidebarComponent {
   sportId: any;
-  activeRoute: any
+  parentIndex: any
+  childIndex: any
+  activeRoute: any;
+  sidebarEvent: any = []
   dropdowns: { [key: string]: boolean } = {
     topLeagues: false,
     topLive: false,
     topEsport: false
   };
-  showSidebarContent = true; 
+  showSidebarContent = true;
 
   constructor(private router: Router, public mainService: MainService, private route: ActivatedRoute) {
     const routeUrl = this.router.url.split('/');
@@ -31,6 +34,11 @@ export class SidebarComponent {
         const routeName = urlSegments[1];
         this.activeRoute = routeName
       }
+    })
+
+    effect(() => {
+      this.sidebarEvent = mainService.getSideBarEvent()
+      console.log(this.sidebarEvent)
     })
   }
 
@@ -58,5 +66,23 @@ export class SidebarComponent {
     this.timeFilter = filter;
   }
 
+  sidebarSportToggle(index: any) {
+    if (this.parentIndex === index) {
+      this.parentIndex = null
+      this.childIndex = null
+    } else {
+      this.parentIndex = index
+    }
+    console.log(this.childIndex)
+  }
+
+  subChildIndex(index: any) {
+    if (this.childIndex === index) {
+      this.childIndex = null
+    } else {
+      this.childIndex = index
+    }
+
+  }
 
 }
