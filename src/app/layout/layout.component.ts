@@ -1,4 +1,4 @@
-import { Component, computed } from '@angular/core';
+import { Component, computed, OnInit } from '@angular/core';
 import { HeaderComponent } from '../shared/header/header.component';
 import { SidebarComponent } from '../shared/sidebar/sidebar.component';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
@@ -10,7 +10,7 @@ import { MobileSidebarComponent } from '../shared/mobile-sidebar/mobile-sidebar.
 import { SignupComponent } from '../auth/signup/signup.component';
 import { SharedService } from '../service/shared.service';
 import { ForgetModalComponent } from '../shared/forget-modal/forget-modal.component';
-import { AccountNavComponent } from "../pages/account-nav/account-nav.component";
+import { AccountNavComponent } from '../pages/account-nav/account-nav.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -25,27 +25,32 @@ import { CommonModule } from '@angular/common';
     MobileSidebarComponent,
     SignupComponent,
     ForgetModalComponent,
-    CommonModule
+    CommonModule,
   ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css',
 })
-export class LayoutComponent {
-  activeRoute: any
-  constructor(private toggle: SharedService, private router: Router) {
+export class LayoutComponent implements OnInit {
+  activeRoute: any;
+  constructor(private toggle: SharedService, private router: Router) {}
+
+  ngOnInit(): void {
     const routeUrl = this.router.url.split('/');
-    const routeNameOne = routeUrl[1] || '/';
-    this.activeRoute = routeNameOne
-    this.router.events.subscribe(event => {
+    const routeNameOne = routeUrl[1] || '';
+    this.activeRoute = routeNameOne;
+    this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const urlSegments = event.urlAfterRedirects.split('/');
-        const routeName = urlSegments[1] || '/';
-        this.activeRoute = routeName
+        const routeName = urlSegments[1] || '';
+        this.activeRoute = routeName;
         console.log('Updated route:', this.activeRoute);
+        setTimeout(() => {
+          this.activeRoute = routeName;
+        }, 0);
       }
-    })
-
+    });
   }
+
   signUp = computed(() => this.toggle.isSignupVisible());
   forgetPass = computed(() => this.toggle.isPassVisible());
 }
