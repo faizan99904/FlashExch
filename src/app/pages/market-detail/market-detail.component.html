@@ -15,21 +15,25 @@
                                 d="M13.1213 17.0759L6.25 10.2046L13.1213 3.33325L14.0833 4.31242L8.19115 10.2046L14.0833 16.0968L13.1213 17.0759Z"
                                 fill="#11E311" class="ng-tns-c191-0"></path>
                         </svg></span>
-                    <div *ngIf="matchOddsData[0]?.oddsData?.inPlay" class="flex items-center justify-center px-1.5 py-1.5 rounded-full gap-0.5 pr-2.5 bg-giftBoxGradient shadow-sm">
+                    <div *ngIf="matchOddsData[0]?.oddsData?.inPlay"
+                        class="flex items-center justify-center px-1.5 py-1.5 rounded-full gap-0.5 pr-2.5 bg-giftBoxGradient shadow-sm">
                         <div class="relative w-max flex items-center justify-center">
                             <span class="inline-block w-2.5 h-2.5 z-0 rounded-full bg-red-600 animate-pulse "></span>
-                            <span class=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 inline-block z-2 rounded-full bg-red-600"></span>
+                            <span
+                                class=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 inline-block z-2 rounded-full bg-red-600"></span>
                         </div>
                         <span class="font-roboto text-xs font-medium leading-120 text-text_secondary">
                             In Play</span>
                     </div>
-                    <div *ngIf="!matchOddsData[0]?.oddsData?.inPlay" class="flex items-center justify-center px-1.5 py-1.5 rounded-full gap-0.5 pr-2.5 bg-giftBoxGradient shadow-sm">
-                        
+                    <div *ngIf="!matchOddsData[0]?.oddsData?.inPlay"
+                        class="flex items-center justify-center px-1.5 py-1.5 rounded-full gap-0.5 pr-2.5 bg-giftBoxGradient shadow-sm">
+
                         <span class="font-roboto text-xs font-medium leading-120 text-text_secondary">
                             {{matchOddsData[0]?.eventTime | date:'YYYY-MM-dd hh:mm:a'}}
                         </span>
                     </div>
-                </div><button
+                </div>
+                <button (click)="rules = true"
                     class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out cursor-pointer active:scale-90 transition-all duration-300 ease-in-out cursor-pointer"
                     type="button">
                     <svg width="18" fill="white" height="18" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg">
@@ -49,15 +53,16 @@
                                 <rect width="16" height="16" fill="white" transform="translate(0.5 0.5)"></rect>
                             </clipPath>
                         </defs>
-                    </svg></button>
+                    </svg>
+                </button>
             </div>
             <div class=" w-full flex items-start justify-between gap-x-2 min-h-max">
                 <div class=" w-full  h-max">
                     <div class="flex items-start justify-start gap-y-[2px] flex-col w-full h-max"><span
                             class="font-roboto leading-120 text-text_secondary text-[#e1d7d7] text-base font-semibold w-full break-words whitespace-normal">
                             {{matchOddsData[0]?.eventName? matchOddsData[0]?.eventName :
-                                ''}}
-                                </span><span
+                            ''}}
+                        </span><span
                             class="font-roboto leading-120 text-[13px] text-[#99a3ac] text-text_secondary5 font-medium">
                             {{competitionName}}</span></div>
                 </div>
@@ -68,10 +73,10 @@
     <div class="w-full border-b border-solid border-border_tertiary23 bg-bg_appBackgroundColor">
         <div
             class=" flex flex-row font-manrope-regular items-center justify-start overflow-x-auto gap-0 text-nowrap capitalize text-[12px] px-1 relative bg-black">
-            <div
-                class="cursor-pointer w-full flex flex-row items-center justify-center border-b-[2px] border-[#11E311]">
+            <div [ngClass]="{'active-item': !openBets}" (click)="toggleBets()"
+                class="cursor-pointer w-full flex flex-row items-center justify-center">
                 <span
-                    class=" text-text_secondary  py-2.5 px-1.5 text-[12px] text-[#888A8C] md:text-[13px] lg:text-base font-bold leading-4 active:scale-95 flex items-center justify-center gap-x-1 block z-10 ">Market</span>
+                    class="text-text_secondary  py-2.5 px-1.5 text-[12px] text-[#888A8C] md:text-[13px] lg:text-base font-bold leading-4 active:scale-95 flex items-center justify-center gap-x-1 block z-10 ">Market</span>
             </div>
             <div class="cursor-pointer w-full flex flex-row items-center justify-center"><span
                     class=" text-text_tertiary8  text-[12px] py-2.5 px-1.5 text-[12px] text-[#888A8C] md:text-[13px] lg:text-base font-bold leading-4 active:scale-95 flex items-center justify-center gap-x-1 block z-10 ">Match
@@ -79,7 +84,8 @@
             <div class="cursor-pointer w-full flex flex-row items-center justify-center"><span
                     class=" text-text_tertiary8  text-[12px] py-2.5 px-1.5 text-[12px] text-[#888A8C] md:text-[13px] lg:text-base font-bold leading-4 active:scale-95 flex items-center justify-center gap-x-1 block z-10 ">Live
                     Video</span></div>
-            <div class="cursor-pointer w-full flex flex-row items-center justify-center"><span
+            <div [ngClass]="{'active-item': openBets}" (click)="toggleBets()"
+                class="cursor-pointer w-full flex flex-row items-center justify-center"><span
                     class=" text-text_tertiary8  text-[12px] py-2.5 px-1.5 text-[12px] text-[#888A8C] md:text-[13px] lg:text-base font-bold leading-4 active:scale-95 flex items-center justify-center gap-x-1 block z-10 ">Open
                     Bets</span></div>
             <div class="w-full h-1  absolute bottom-0 z-1 transition-all ease-in-out duration-150 bg-bg_eventTopActiveTab"
@@ -88,17 +94,65 @@
     </div>
 </div>
 
+@if (openBets) {
+<div title="Open Bets" class="">
+    <div class=" flex items-start justify-start flex-col w-full px-2 py-1">
+        <div (click)="unmatchedBets = !unmatchedBets" id="unmatched_0"
+            class=" w-full flex items-center justify-between bg-[#00aa30] transition-all ease-in-out my-1 py-1 rounded-[6px] origin-center active:opacity-95">
+            <div class="head pl-2"><span class=" text-text_color_primary2 font-lato-bold">Unmatched
+                    Bets</span></div>
+            <div [ngClass]="{'rotate-180': unmatchedBets}"
+                class=" cursor-pointer mr-2 transform transition-transform ease-in-out flex items-center justify-center w-max origin-center  active:scale-90 active:opacity-85">
+                <svg xmlns="http://www.w3.org/2000/svg" transform="rotate(180)" viewBox="0 0 512 512" height="16"
+                    width="16" fill="#fff">
+                    <path
+                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z">
+                    </path>
+                </svg>
+            </div>
+        </div>
+        <div [ngClass]="{'overflow-hidden h-0': unmatchedBets}"
+            class="transition-all BetSections w-full origin-top scaleVerticalOpen">
+            <div
+                class=" w-full text-start font-lato font-medium text-sm bg-[#22272a] rounded-md mb-1 px-4  py-3 [box-shadow:_0_20px_25px_-5px_rgba(0,0,0,0.1),_0_8px_10px_-6px_rgba(0,0,0,0.1);] text-text_color_primary1 ">
+                You have no Unmatched Bets.</div>
+        </div>
+        <div (click)="matchedBets = !matchedBets" id="matched_1"
+            class=" w-full flex items-center justify-between bg-[#00aa30] transition-all ease-in-out my-1 py-1 rounded-[6px] origin-center active:opacity-95">
+            <div class="head pl-2"><span class=" text-text_color_primary2 font-lato-bold">Matched
+                    Bets</span></div>
+            <div [ngClass]="{'rotate-180': matchedBets}"
+                class=" cursor-pointer mr-2 transform transition-transform ease-in-out flex items-center justify-center w-max origin-center  active:scale-90 active:opacity-85">
+                <svg xmlns="http://www.w3.org/2000/svg" transform="rotate(180)" viewBox="0 0 512 512" height="16"
+                    width="16" fill="#fff">
+                    <path
+                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z">
+                    </path>
+                </svg>
+            </div>
+        </div>
+        <div [ngClass]="{'overflow-hidden h-0': matchedBets}"
+            class="BetSections w-full origin-top scaleVerticalOpen transition-all">
+            <div
+                class=" w-full text-start font-lato font-medium text-sm bg-[#22272a] rounded-md mb-1 px-4  py-3 [box-shadow:_0_20px_25px_-5px_rgba(0,0,0,0.1),_0_8px_10px_-6px_rgba(0,0,0,0.1);] text-text_color_primary1">
+                You have no Matched Bets.</div>
+        </div>
+    </div>
+</div>
+}
+
+@if (!openBets) {
 <div class="px-2 bg-black pt-2 border-solid">
     <div class="flex items-start justify-start flex-col w-full pb-20">
         <!-- match odds -->
-        <div class="flex items-center justify-center flex-col border text-text_secondary border-solid border-border_tertiary20 border-b-0 w-full rounded-md font-roboto"
-        *ngFor="let market of matchOddsDataUpdated ; trackBy: trackByFn;index as i" [ngClass]="i!=0?'mt-2':''">
+        <div class="flex items-center justify-center flex-col text-text_secondary border-solid border-border_tertiary20 border w-full rounded-md font-roboto"
+            *ngFor="let market of matchOddsDataUpdated ; trackBy: trackByFn;index as i" [ngClass]="i!=0?'mt-2':''">
             <div
-                class="flex items-center justify-between py-1.5 px-2 w-full bg-cricketHeaderGradient relative rounded-tl-md rounded-tr-md">
+                class="flex items-center justify-between py-1.5 px-2 w-full bg-cricketHeaderGradient relative rounded-tr-[4px] rounded-tl-[4px]">
                 <div class="absolute top-0 left-0 h-full w-[88%] border-tl-xl vector one-cricket-bg"></div>
                 <div class="absolute top-0 right-[7%] h-full w-[29%] vector2 circket-2-bg"></div>
-                <div class="flex items-center justify-between relative z-1 gap-1 w-[60%]"><span
-                        class="font-roboto text-xs font-medium leading-150 capitalize">{{market.marketName}}</span>
+                <div class="flex items-center justify-between relative z-1 gap-1 w-[60%] md:w-[40%]">
+                    <span class="font-roboto text-xs font-medium leading-150 capitalize">{{market.marketName}}</span>
                     <div class="flex items-center justify-center gap-[3px]"><button type="button"
                             class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out bg-bg_cashoutBtnGrad rounded-md px-1.5 py-0.5 text-center shadow-[inset_-12px_-8px_40px_#46464620] flex items-center justify-center flex-col flex-wrap w-max h-max mr-1 text-text_secondary2  active:scale-[98%] transition-all duration-300 ease-in-out cursor-pointer">
                             <div class="text-[10px] md:text-[12px] text-text_secondary2  whitespace-nowrap">Cashout
@@ -120,41 +174,82 @@
                                     </g>
                                 </svg>
                             </span>
-                            <span 
+                            <span
                                 class="font-roboto text-xs font-medium leading-150 text-text_secondary tracking-widest">{{market.oddsData.betDelay}}s</span>
                         </div>
                     </div>
                 </div>
-                <div class="flex items-center justify-around relative z-1 gap-1 w-[40%]"><span
-                        class="font-roboto text-center font-normal leading-150 uppercase w-[50%] text-text_secondary text-[10px] text-x">Back</span><span
-                        class="font-roboto text-center font-normal leading-150 uppercase w-[50%] text-text_secondary  text-[10px] text-x">Lay</span>
+                <div class="col-span-5 md:col-span-7 grid grid-cols-2 md:grid-cols-6 pb-[2px] w-[40%] md:w-[60%]">
+                    <span
+                        class=" hidden md:flex col-span-1 text-center  font-semibold h-full  items-end justify-center"></span>
+                    <span
+                        class=" col-span-1 text-center  font-semibold h-full  hidden md:flex  items-end justify-center"></span>
+                    <span
+                        class=" col-span-1 text-center text-[10px] sm:text-xs md:text-sm leading-3  font-bold h-full flex items-end justify-center">BACK</span>
+                    <span
+                        class=" col-span-1 text-center text-[10px] sm:text-xs md:text-sm  leading-3 font-bold h-full flex items-end justify-center">LAY</span>
+                    <span
+                        class=" col-span-1 text-center font-semibold  h-full  hidden md:flex  items-end justify-center"></span>
+                    <span
+                        class=" col-span-1 text-center font-semibold  h-full  hidden md:flex  items-end justify-center"></span>
                 </div>
             </div>
-            <div *ngFor="let runner of market?.oddsData?.runners; trackBy: trackByFn;index as i" class="flex items-center justify-between w-full border-b border-solid border-b-border_tertiary20 py-0.5 pr-0.5 pl-2">
-                <div class="w-[60%] grid grid-cols-3 items-center">
+            <div *ngFor="let runner of market?.oddsData?.runners; trackBy: trackByFn;index as i"
+                class="flex items-center justify-between w-full border-b-border_tertiary20 md:py-0.5 pr-0.5 pl-2">
+                <div class="md:w-[40%] w-[60%] grid grid-cols-3 items-center">
                     <div class="flex items-start justify-start gap-y-[1px] flex-col w-full col-span-3">
                         <div
                             class="font-roboto text-md text-[13px] font-medium leading-120 capitalize text-text_secondary text-[#888a8c]  w-full truncate">
                             {{market.runnersData[runner.selectionId]}}</div>
                     </div>
                 </div>
-                <div class="flex items-start gap-[1px] w-[40%]">
+                <div class="md:w-[60%] flex items-start gap-[1px] w-[40%]">
                     <div title="1.24-1.27" class="w-full relative opacity-70 cursor-not-allowed">
-                        <div
-                            class=" rounded-none rounded-sm w-full rounded-[0.375rem] grid grid-cols-2 text-[13px] text-text_secondary overflow-hidden">
-                            <button title="leftOption-1.24" scaleclass="active:scale-[98%]" class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full flex items-center justify-center bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4 disabled:opacity-80 font-bold   
-      cursor-pointer
-      active:scale-[98%]
-      " type="button"><span class=" text-sm">1.24</span><span class="text-x">23.65</span></button><button
-                                title="rightOption-1.27" scaleclass="active:scale-[98%]" class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full flex items-center justify-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold  
-      cursor-pointer
-      active:scale-[98%]
-      " type="button"><span class="text-sm">1.27</span><span class="text-x">3.56</span></button>
+                        <div class="rounded-none rounded-sm w-full rounded-[0.375rem] grid grid-cols-2 text-[13px] text-text_secondary overflow-hidden"
+                            style="display: flex; gap: 1px;">
+                            <button title="leftOption-1.24" scaleclass="active:scale-[98%]"
+                                class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4 disabled:opacity-80 font-bold  cursor-pointer active:scale-[98%] max-lg:hidden md:flex"
+                                type="button">
+                                <span class=" text-sm">1.24</span>
+                                <span class="text-x">23.65</span>
+                            </button>
+                            <button title="leftOption-1.24" scaleclass="active:scale-[98%]"
+                                class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_backBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4 disabled:opacity-80 font-bold  cursor-pointer active:scale-[98%] max-lg:hidden md:flex"
+                                type="button">
+                                <span class=" text-sm">1.24</span>
+                                <span class="text-x">23.65</span>
+                            </button>
+                            <button title="leftOption-1.24" scaleclass="active:scale-[98%]"
+                                class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4 disabled:opacity-80 font-bold  cursor-pointer active:scale-[98%]"
+                                type="button">
+                                <span class=" text-sm">1.24</span>
+                                <span class="text-x">23.65</span>
+                            </button>
+
+
+                            <button title="rightOption-1.27" scaleclass="active:scale-[98%]"
+                                class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold cursor-pointer active:scale-[98%] flex"
+                                type="button">
+                                <span class="text-sm">1.27</span>
+                                <span class="text-x">3.56</span>
+                            </button>
+                            <button title="rightOption-1.27" scaleclass="active:scale-[98%]"
+                                class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold cursor-pointer active:scale-[98%] max-lg:hidden md:flex"
+                                type="button">
+                                <span class="text-sm">1.27</span>
+                                <span class="text-x">3.56</span>
+                            </button>
+                            <button title="rightOption-1.27" scaleclass="active:scale-[98%]"
+                                class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold cursor-pointer active:scale-[98%] max-lg:hidden md:flex"
+                                type="button">
+                                <span class="text-sm">1.27</span>
+                                <span class="text-x">3.56</span>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-          
+
         </div>
 
         <div class="lg:hidden w-full">
@@ -166,15 +261,16 @@
                 <li (click)="fancyMarket = true"
                     [ngClass]="{'border-border_color_brand_primary bg-bg_text_brand_primary text-text_color_primary2' : fancyMarket}"
                     class="px-[15px] py-2 rounded-[100px] flex items-center justify-center  cursor-pointer active:scale-95 transition-all ease-in-out duration-100 
-                              bg-bg_color_primary text-text_color_tertiary2  border-border_color_primary
-                            ">
+                                  bg-bg_color_primary text-text_color_tertiary2  border-border_color_primary
+                                ">
                     <span class="inline-block font-bold  text-xs sm:text-sm md:text-base leading-4 ">Fancy
                         Market</span>
                 </li>
                 <li [ngClass]="{'border-border_color_brand_primary bg-bg_text_brand_primary text-text_color_primary2' : !fancyMarket}"
                     (click)="fancyMarket = false" class="px-[15px] py-2 border rounded-[100px] flex items-center justify-center cursor-pointer active:scale-95 transition-all ease-in-out duration-100 
-                             bg-bg_color_primary text-text_color_tertiary2  border-border_color_primary
-                            "><span class="inline-block font-bold text-xs sm:text-sm md:text-base leading-4 ">Premium
+                                 bg-bg_color_primary text-text_color_tertiary2  border-border_color_primary
+                                "><span
+                        class="inline-block font-bold text-xs sm:text-sm md:text-base leading-4 ">Premium
                         Market</span>
                 </li>
             </ul>
@@ -269,23 +365,29 @@
             </div>
         </div>
         }
+
         @if (!fancyMarket) {
         <div class="w-full py-1.5">
             <div class=" grid grid-flow-col grid-cols-12 text-text_color_primary1 text-xs font-[500] mb-1.5">
                 <div class="pl-1 flex items-center justify-start gap-x-1 md:gap-x-1
-         col-span-7 md:col-span-5 
-      ">
+             col-span-7 md:col-span-5 
+          ">
                     <div class=" capitalize font-bold text-xs sm:text-sm md:text-[15px] flex items-start justify-start flex-col"
                         title="Any player to score 50"><span>Any player to score 50 </span><span
                             class="text-x font-normal text-text_color_info"> </span></div>
                 </div>
-                <div class=" col-span-5 md:col-span-7 grid grid-cols-2 md:grid-cols-6 pb-[2px]">
+                <div class="col-span-5 md:col-span-7 grid grid-cols-2 md:grid-cols-6 pb-[2px] w-full">
                     <span
-                        class=" hidden md:flex col-span-1 text-center  font-semibold h-full  items-end justify-center"></span><span
-                        class=" col-span-1 text-center  font-semibold h-full  hidden md:flex  items-end justify-center"></span><span
-                        class=" col-span-1 text-center text-[10px] sm:text-xs md:text-sm leading-3  font-bold h-full flex items-end justify-center">BACK</span><span
-                        class=" col-span-1 text-center text-[10px] sm:text-xs md:text-sm  leading-3 font-bold h-full flex items-end justify-center">LAY</span><span
-                        class=" col-span-1 text-center font-semibold  h-full  hidden md:flex  items-end justify-center"></span><span
+                        class=" hidden md:flex col-span-1 text-center  font-semibold h-full  items-end justify-center"></span>
+                    <span
+                        class=" col-span-1 text-center  font-semibold h-full  hidden md:flex  items-end justify-center"></span>
+                    <span
+                        class=" col-span-1 text-center text-[10px] sm:text-xs md:text-sm leading-3  font-bold h-full flex items-end justify-center">BACK</span>
+                    <span
+                        class=" col-span-1 text-center text-[10px] sm:text-xs md:text-sm  leading-3 font-bold h-full flex items-end justify-center">LAY</span>
+                    <span
+                        class=" col-span-1 text-center font-semibold  h-full  hidden md:flex  items-end justify-center"></span>
+                    <span
                         class=" col-span-1 text-center font-semibold  h-full  hidden md:flex  items-end justify-center"></span>
                 </div>
             </div>
@@ -306,18 +408,46 @@
                         <div class="w-full h-full col-span-6">
                             <div id="hideScrollBar" class="w-full overflow-x-auto flex h-full sm:px-[2px]">
                                 <div class="w-full h-full grid grid-cols-2 gap-x-0.5 py-[1px] pr-[2px]">
-                                    <div class="w-full h-full">
+                                    <div class="w-full h-full flex gap-[1px]">
                                         <div
-                                            class=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue">
+                                            class=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center bg-bg_color_backBtnBg text-text_color_oddValue">
+                                            <span id="oddBtnPrice"
+                                                class="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold">1.35</span><span
+                                                id="oddBtnSize"
+                                                class=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal">100</span>
+                                        </div>
+                                        <div
+                                            class=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm hidden md:flex flex-col transition-colors duration-300 ease-in-out items-center justify-center bg-bg_color_backBtnBg text-text_color_oddValue">
+                                            <span id="oddBtnPrice"
+                                                class="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold">1.35</span><span
+                                                id="oddBtnSize"
+                                                class=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal">100</span>
+                                        </div>
+                                        <div
+                                            class=" overflow-hidden relative opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm hidden md:flex flex-col transition-colors duration-300 ease-in-out items-center justify-center bg-bg_color_backBtnBg text-text_color_oddValue">
                                             <span id="oddBtnPrice"
                                                 class="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold">1.35</span><span
                                                 id="oddBtnSize"
                                                 class=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal">100</span>
                                         </div>
                                     </div>
-                                    <div class="w-full h-full">
+                                    <div class="w-full h-full flex gap-[1px]">
                                         <div
-                                            class=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
+                                            class=" overflow-hidden relative opacity-100 cursor-pointer active:scale-95 px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
+                                            <span id="oddBtnPrice"
+                                                class="relative z-10 transition-all ease-in-out duration-300 origin-center hidden md:flex items-center justify-center w-full leading-5 text-sm md:text-[15px] font-semibold">1.51</span><span
+                                                id="oddBtnSize"
+                                                class=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal">100</span>
+                                        </div>
+                                        <div
+                                            class=" overflow-hidden relative opacity-100 cursor-pointer active:scale-95 px-1 py-[1px] rounded-sm hidden md:flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
+                                            <span id="oddBtnPrice"
+                                                class="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold">1.51</span><span
+                                                id="oddBtnSize"
+                                                class=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal">100</span>
+                                        </div>
+                                        <div
+                                            class=" overflow-hidden relative opacity-100 cursor-pointer active:scale-95 px-1 py-[1px] rounded-sm hidden md:flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
                                             <span id="oddBtnPrice"
                                                 class="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold">1.51</span><span
                                                 id="oddBtnSize"
@@ -345,20 +475,48 @@
                         <div class="w-full h-full col-span-6">
                             <div id="hideScrollBar" class="w-full overflow-x-auto flex h-full sm:px-[2px]">
                                 <div class="w-full h-full grid grid-cols-2 gap-x-0.5 py-[1px] pr-[2px]">
-                                    <div class="w-full h-full">
+                                    <div class="w-full h-full flex gap-[1px]">
                                         <div
-                                            class=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue">
+                                            class=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center bg-bg_color_backBtnBg text-text_color_oddValue">
                                             <span id="oddBtnPrice"
-                                                class="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold">2.95</span><span
+                                                class="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold">1.35</span><span
+                                                id="oddBtnSize"
+                                                class=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal">100</span>
+                                        </div>
+                                        <div
+                                            class=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm hidden md:flex flex-col transition-colors duration-300 ease-in-out items-center justify-center bg-bg_color_backBtnBg text-text_color_oddValue">
+                                            <span id="oddBtnPrice"
+                                                class="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold">1.35</span><span
+                                                id="oddBtnSize"
+                                                class=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal">100</span>
+                                        </div>
+                                        <div
+                                            class=" overflow-hidden relative opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm hidden md:flex flex-col transition-colors duration-300 ease-in-out items-center justify-center bg-bg_color_backBtnBg text-text_color_oddValue">
+                                            <span id="oddBtnPrice"
+                                                class="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold">1.35</span><span
                                                 id="oddBtnSize"
                                                 class=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal">100</span>
                                         </div>
                                     </div>
-                                    <div class="w-full h-full">
+                                    <div class="w-full h-full flex gap-[1px]">
                                         <div
-                                            class=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
+                                            class=" overflow-hidden relative opacity-100 cursor-pointer active:scale-95 px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
                                             <span id="oddBtnPrice"
-                                                class="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold">3.86</span><span
+                                                class="relative z-10 transition-all ease-in-out duration-300 origin-center hidden md:flex items-center justify-center w-full leading-5 text-sm md:text-[15px] font-semibold">1.51</span><span
+                                                id="oddBtnSize"
+                                                class=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal">100</span>
+                                        </div>
+                                        <div
+                                            class=" overflow-hidden relative opacity-100 cursor-pointer active:scale-95 px-1 py-[1px] rounded-sm hidden md:flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
+                                            <span id="oddBtnPrice"
+                                                class="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold">1.51</span><span
+                                                id="oddBtnSize"
+                                                class=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal">100</span>
+                                        </div>
+                                        <div
+                                            class=" overflow-hidden relative opacity-100 cursor-pointer active:scale-95 px-1 py-[1px] rounded-sm hidden md:flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
+                                            <span id="oddBtnPrice"
+                                                class="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold">1.51</span><span
                                                 id="oddBtnSize"
                                                 class=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal">100</span>
                                         </div>
@@ -373,3 +531,162 @@
         }
     </div>
 </div>
+}
+
+@if (rules) {
+<div
+    class="fixed bottom-0 transform-gpu  left-0 right-0 top-0 overflow-hidden flex bg-bg_color_popUpParentBg overflow-y-hidden z-[10000] h-[100dvh] w-dvw  items-center justify-center">
+
+    <div class="fixed inset-0 w-full h-full bg-black/10 backdrop-blur-sm"></div>
+    <div
+        class="relative bg-[#22272a] w-[94%] h-[70%]  max-w-[550px] flex justify-start overflow-y-auto flex-col rounded-lg py-4  popUpOpenAnimation1">
+        <div class="flex items-center justify-between sticky top-0 z-10 px-4 py-2">
+            <h2 class="text-xl md:text-2xl text-text_color_primary1 font-semibold font-lato">
+                Rules-Cricket</h2>
+            <button (click)="rules = false" type="button" class="" aria-label="Close" title="Close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 16 16" fill="#fff"
+                    class="cursor-pointer rounded-full p-1 size-7 active:scale-95 transition-all duration-300">
+                    <g clip-path="url(#clip0_406_1676)">
+                        <path
+                            d="M9.46585 8.01314L15.6959 1.78287C16.1014 1.37762 16.1014 0.722377 15.6959 0.317124C15.2907 -0.0881297 14.6354 -0.0881297 14.2302 0.317124L7.99991 6.5474L1.76983 0.317124C1.36438 -0.0881297 0.709336 -0.0881297 0.304082 0.317124C-0.101361 0.722377 -0.101361 1.37762 0.304082 1.78287L6.53416 8.01314L0.304082 14.2434C-0.101361 14.6487 -0.101361 15.3039 0.304082 15.7092C0.506045 15.9113 0.771595 16.0129 1.03695 16.0129C1.30232 16.0129 1.56768 15.9113 1.76983 15.7092L7.99991 9.47889L14.2302 15.7092C14.4323 15.9113 14.6977 16.0129 14.9631 16.0129C15.2284 16.0129 15.4938 15.9113 15.6959 15.7092C16.1014 15.3039 16.1014 14.6487 15.6959 14.2434L9.46585 8.01314Z"
+                            fill="#fff"></path>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_406_1676">
+                            <rect width="16" height="16" fill="#fff"></rect>
+                        </clipPath>
+                    </defs>
+                </svg>
+            </button>
+        </div>
+        <div class="flex-1 overflow-y-auto [scrollbar-width:none]">
+            <div class="w-full space-y-4 px-2 py-2 md:px-4">
+                <div class="flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between"></div>
+                <div
+                    class="flex items-center w-full flex-1 border border-border_color_primary1 py-2 pl-1.5 pr-2 rounded-md focus-within:border-[#00aa30] transition-all">
+                    <div class="flex-shrink-0 w-max">
+                        <svg fill="#fff" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z">
+                            </path>
+                        </svg>
+                    </div><input
+                        class="text-text_color_primary1 pl-2 flex-grow min-w-0 border-none focus:outline-none bg-transparent"
+                        placeholder="Search rules..." value="">
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-sm text-[#626262]">2
+                        rules
+                    </span>
+                    <button (click)="openRules = !openRules"
+                        class="px-3 py-1.5 text-xs bg-[#374151] text-text_color_primary1 rounded-md hover:bg-[#374151] transition-colors focus:outline-none focus:ring-2 focus:ring-bg_text_brand_primary">
+                        {{openRules ? 'Collapse All' : 'Expand All'}}
+                    </button>
+                </div>
+
+                <div class="space-y-2 mt-4">
+                    <div
+                        class="group bg-[#22272a] border border-border_color_primary1 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-border_color_brand_primary">
+                        <button (click)="openRules = !openRules"
+                            class="w-full flex items-center justify-between p-4 text-left transition-colors duration-200 hover:bg-bg_color_quaternary focus:outline-none"
+                            aria-expanded="false" aria-controls="rules-content-0"
+                            aria-label="Toggle rules for General Rules"><span
+                                class="font-semibold text-text_color_primary1 text-base leading-6 flex-1 text-left">General
+                                Rules</span>
+                            <span [ngClass]="{'rotate-180': openRules}"
+                                class="ml-3 flex-shrink-0 transition-transform duration-300 ease-in-out "
+                                aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <mask id="path-1-inside-1_3039_16413" fill="white">
+                                        <path
+                                            d="M30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15ZM2.08392 15C2.08392 22.1334 7.86664 27.9161 15 27.9161C22.1334 27.9161 27.9161 22.1334 27.9161 15C27.9161 7.86664 22.1334 2.08392 15 2.08392C7.86664 2.08392 2.08392 7.86664 2.08392 15Z">
+                                        </path>
+                                    </mask>
+                                    <path
+                                        d="M30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15ZM2.08392 15C2.08392 22.1334 7.86664 27.9161 15 27.9161C22.1334 27.9161 27.9161 22.1334 27.9161 15C27.9161 7.86664 22.1334 2.08392 15 2.08392C7.86664 2.08392 2.08392 7.86664 2.08392 15Z"
+                                        fill="#fff" stroke="#fff" stroke-width="2" mask="#fff"></path>
+                                    <path
+                                        d="M15.7071 9.29289C15.3166 8.90237 14.6834 8.90237 14.2929 9.29289L7.92893 15.6569C7.53841 16.0474 7.53841 16.6805 7.92893 17.0711C8.31946 17.4616 8.95262 17.4616 9.34315 17.0711L15 11.4142L20.6569 17.0711C21.0474 17.4616 21.6805 17.4616 22.0711 17.0711C22.4616 16.6805 22.4616 16.0474 22.0711 15.6569L15.7071 9.29289ZM16 11V10H14V11H16Z"
+                                        fill="#fff"></path>
+                                </svg>
+                            </span>
+                        </button>
+
+                        <div [ngClass]="{'!max-h-0 overflow-hidden': !openRules}" id="rules-content-0"
+                            class="overflow-hidden transition-all duration-300 ease-in-out max-h-[1708px]"
+                            aria-labelledby="rules-header-0">
+                            <div class="px-4 pb-4">
+                                <div class="pt-3 border-t border-border_color_primary1">
+                                    <article title="Rules for General Rules"
+                                        class="prose prose-sm max-w-none text-text_color_primary1 leading-relaxed [&amp;>*:first-child]:mt-0 [&amp;>*:last-child]:mb-0">
+                                        <div>➢ General</div>
+                                        <div></div>
+                                        <div>If a ball is not bowled during a competition, series
+                                            or match then all bets will be void except for those on any market that has
+                                            been unconditionally determined (e.g. in the 'Completed Match' market).
+                                        </div>
+                                        <div></div>
+                                        <div>If a match is shortened by weather, all bets will be
+                                            settled according to the official result (including for limited overs
+                                            matches, the result determined by the Duckworth Lewis method).</div>
+                                        <div></div>
+                                        <div>In the event of a match being decided by a bowl-off or
+                                            toss of the coin, all bets will be void except for those on markets that
+                                            have been unconditionally determined.</div>
+                                        <div></div>
+                                        <div>➢ Test matches</div>
+                                        <div></div>
+                                        <div>If a match starts but is later abandoned for any
+                                            reason other than weather (which may include but is not limited to:
+                                            dangerous or unplayable wicket or outfield; pitch vandalism; strike or
+                                            boycott; crowd protests/violence; stadium damage; acts of terrorism; and
+                                            acts of God), It reserves the right to void all bets, except for those on
+                                            markets that have been unconditionally determined.</div>
+                                        <div></div>
+                                        <div>If the match is not scheduled to be completed within
+                                            five days after the original scheduled completion date, then all bets on
+                                            markets for this event will be void, except for bets on any markets that
+                                            have been unconditionally determined.</div>
+                                        <div></div>
+                                        <div>➢ Limited Over matches</div>
+                                        <div></div>
+                                        <div>If a match is declared "No Result'', bets will be void
+                                            on all markets for the event except for those markets which have been
+                                            unconditionally determined or where the minimum number of overs have been
+                                            bowled as laid out in the market specific information.</div>
+                                        <div></div>
+                                        <div>In the event of a new toss taking place on a scheduled
+                                            reserve day for a limited over match all bets that were placed after 30
+                                            minutes before the original scheduled start of play on the first day will be
+                                            made void. This rule relates to all markets except those that have been
+                                            unconditionally determined (e.g. in the win the toss and toss combination
+                                            markets).</div>
+                                        <div></div>
+                                        <div>➢ Super Over rule</div>
+                                        <div></div>
+                                        <div>Which team will win this Super Over? This market will
+                                            be suspended on site and activated once Betfair are aware a Super Over is to
+                                            be played. The market will be turned in-play at the start of the Super Over.
+                                            This market will not be actively managed therefore it is the responsibility
+                                            of all customers to manage their positions. This market will be settled
+                                            based on the number of runs scored by each team in the initial Super Over.
+                                            For the avoidance of doubt, if scores are tied at the completion of both
+                                            innings in the Super Over then the market will be settled as a Dead Heat
+                                            except in cases where more than one Super Over is played, where it will be
+                                            settled on the winner of the final over. Any tie breaker that may be used to
+                                            determine a winner including but not limited to higher number of boundaries,
+                                            higher number of sixes, losing fewer wickets, coin toss etc. do not count
+                                            for the purposes of this market.</div>
+                                        <div></div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}

@@ -80,3 +80,22 @@
 .bg-bg_color_backBtnBg {
   background-color: #a7d8fd;
 }
+
+.active-item {
+  @apply border-b-[2px] border-[#11E311];
+}
+
+.popUpOpenAnimation1 {
+  animation: popUpOpenAnimation1 0.31s ease-in-out;
+}
+
+@keyframes popUpOpenAnimation1 {
+  0% {
+    opacity: 0.5;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
