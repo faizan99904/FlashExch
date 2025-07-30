@@ -38,6 +38,7 @@ import { PasswordHistoryComponent } from './pages/accont/password-history/passwo
 import { ProfitlossEventComponent } from './pages/accont/profitloss-event/profitloss-event.component';
 import { ProfitlossMarketComponent } from './pages/accont/profitloss-market/profitloss-market.component';
 import { ProfitHistoryComponent } from './pages/accont/profit-history/profit-history.component';
+import { LotteryComponent } from './shared/lottery/lottery.component';
 
 export const routes: Routes = [
   {
@@ -53,10 +54,13 @@ export const routes: Routes = [
     children: [
       { path: '', component: SportsBookComponent },
       { path: 'market-detail', component: MarketDetailComponent },
-      { path: 'market-detail/:sportId/:eventId', component: MarketDetailComponent },
+      {
+        path: 'market-detail/:sportId/:eventId',
+        component: MarketDetailComponent,
+      },
       { path: 'racing/:id', component: RacingComponent },
       { path: 'competitions/:id', component: CompetitionsComponent },
-      
+
       {
         path: 'live',
         component: LivePageComponent,
@@ -68,16 +72,15 @@ export const routes: Routes = [
           },
         ],
       },
+
       { path: 'casino', component: CasinoComponent },
       { path: 'live-casino', component: LiveCasinoComponent },
       { path: 'promos', component: PromosComponent },
       { path: 'affliate', component: AffliateComponent },
       { path: 'minigames', component: MinigamesComponent },
+      { path: 'lottery', component: LotteryComponent },
     ],
   },
-
-
-  
 
   {
     path: 'account',
@@ -98,10 +101,18 @@ export const routes: Routes = [
       { path: 'account-statement', component: AccountStatementComponent },
       { path: 'password-history', component: PasswordHistoryComponent },
       { path: 'nav', component: AccountNavComponent },
-      { path: 'profitloss-event/:sportId/:startDate/:endDate', component: ProfitlossEventComponent },
-      { path:'profitloss-market/:eventId/:sportId', component:ProfitlossMarketComponent},
-      { path:'profit-history/:sportId/:eventId', component:ProfitHistoryComponent}
+      {
+        path: 'profitloss-event/:sportId/:startDate/:endDate',
+        component: ProfitlossEventComponent,
+      },
+      {
+        path: 'profitloss-market/:eventId/:sportId',
+        component: ProfitlossMarketComponent,
+      },
+      {
+        path: 'profit-history/:sportId/:eventId',
+        component: ProfitHistoryComponent,
+      },
     ],
   },
 ];
-
