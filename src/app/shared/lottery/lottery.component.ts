@@ -2,14 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CONFIG } from '../../../../config';
 import { CommonModule } from '@angular/common';
+import { LoaderComponent } from "../loader/loader.component";
 
 @Component({
   selector: 'app-lottery',
-  imports: [CommonModule],
+  imports: [CommonModule, LoaderComponent],
   templateUrl: './lottery.component.html',
   styleUrl: './lottery.component.css',
 })
 export class LotteryComponent implements OnInit {
+  loader: boolean = false;
   data: any = [];
   constructor(private http: HttpClient) {}
 
@@ -18,6 +20,7 @@ export class LotteryComponent implements OnInit {
   }
 
   lotterySportList() {
+    this.loader = true;
     const payload = {
       key: '2',
     };
@@ -25,6 +28,7 @@ export class LotteryComponent implements OnInit {
     this.http.post<any>(CONFIG.lotterySportList, payload).subscribe({
       next: (res) => {
         this.data = res?.data || [];
+        this.loader = false;
         console.log('data', this.data);
       },
       error: (err) => {

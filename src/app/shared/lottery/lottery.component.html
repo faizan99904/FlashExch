@@ -7,6 +7,9 @@
         </div>
     </div>
 
+    @if (loader) {
+    <app-loader></app-loader>
+    }
     <ul class="p-[10.406px] grid grid-cols-3 md:grid-cols-5 gap-[10.406px]">
         @for (item of data; track $index) {
         <li>
