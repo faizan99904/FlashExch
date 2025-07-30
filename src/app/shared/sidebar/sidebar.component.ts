@@ -84,5 +84,12 @@ export class SidebarComponent {
     }
 
   }
+  
+  gotoMarket(market: any) {
+    localStorage.setItem('competitionName', market.tournamentName);
+    this.router.navigateByUrl(
+      '/market-detail/' + market.sportId + '/' + market.exEventId
+    );
+  }
 
 }

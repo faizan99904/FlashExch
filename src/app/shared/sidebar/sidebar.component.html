@@ -205,7 +205,7 @@
                     </div>
                     @if(childIndex == ii){
                     <div class="flex items-center justify-between tracking-tighter bg-[#000] px-[0.6vw] pt-[.2vw] cursor-pointer mt-[1px] h-[2vw] "
-                        *ngFor="let marketTournament of tournament?.data; let i = index">
+                        *ngFor="let marketTournament of tournament?.data; let i = index" (click)="gotoMarket(marketTournament)">
                         <div class="flex items-center gap-[0.78vw]">
                             <span class="pt-[0.1vw] text-[11.2px] truncate">{{marketTournament?.eventName}}</span>
                         </div>
