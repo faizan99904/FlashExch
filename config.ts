@@ -1,4 +1,5 @@
-const BASE_URL = 'https://betever365.com';
+// const BASE_URL = 'https://betever365.com';
+const BASE_URL = 'https://infiexch.com';
 
 // const BASE_URL = ''
 
@@ -25,7 +26,7 @@ export const CONFIG = {
   verifyUserRegisterOtp: BASE_URL + '/app/user/userRegisterVerify',
   sendForgotPasswordOtp: BASE_URL + '/app/users/sendForgotPasswordOtp',
   verifyForgotPassword: BASE_URL + '/app/user/userForgotPasswordVerify',
-
+  livCasinoList: BASE_URL + '/api/exchange/navigations/casinoEvents',
   userLogin: BASE_URL + '/app/users/userLogin',
   userAccountStatement: BASE_URL + '/app/exchange/users/userAccountStatement',
   userBalance: BASE_URL + '/app/exchange/users/balance/getUserBalance',

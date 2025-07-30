@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
     this.allEventsList();
     this.sportsList();
     this.allRacing()
+    this.livCasinoList()
   }
 
 
@@ -46,5 +47,14 @@ export class AppComponent implements OnInit {
       // console.log(data);
     });
   }
-  
+
+
+  livCasinoList() {
+    this.mainService.getDataFromServices(CONFIG.livCasinoList, CONFIG.getAllEventsListTime, { key: CONFIG.siteKey }).subscribe((data: any) => {
+      this.mainService.setCasinoEvents(data?.data)
+    });
+  }
+
+
+  // livCasinoList
 }
