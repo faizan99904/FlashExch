@@ -194,57 +194,59 @@
                         class=" col-span-1 text-center font-semibold  h-full  hidden md:flex  items-end justify-center"></span>
                 </div>
             </div>
-            <div *ngFor="let runner of market?.oddsData?.runners; trackBy: trackByFn;index as i"
-                class="flex items-center justify-between w-full border-b-border_tertiary20 md:py-0.5 pr-0.5 pl-2">
-                <div class="md:w-[40%] w-[60%] grid grid-cols-3 items-center">
-                    <div class="flex items-start justify-start gap-y-[1px] flex-col w-full col-span-3">
-                        <div
-                            class="font-roboto text-md text-[13px] font-medium leading-120 capitalize text-text_secondary text-[#888a8c]  w-full truncate">
-                            {{market.runnersData[runner.selectionId]}}</div>
+            <div class="flex flex-col w-full gap-[1px]">
+                <div *ngFor="let runner of market?.oddsData?.runners; trackBy: trackByFn;index as i"
+                    class="flex items-center justify-between w-full border-b-border_tertiary20 pr-0.5 pl-2">
+                    <div class="md:w-[40%] w-[60%] grid grid-cols-3 items-center">
+                        <div class="flex items-start justify-start gap-y-[1px] flex-col w-full col-span-3">
+                            <div
+                                class="font-roboto text-md text-[13px] font-medium leading-120 capitalize text-text_secondary text-[#888a8c]  w-full truncate">
+                                {{market.runnersData[runner.selectionId]}}</div>
+                        </div>
                     </div>
-                </div>
-                <div class="md:w-[60%] flex items-start gap-[1px] w-[40%]">
-                    <div title="1.24-1.27" class="w-full relative opacity-70 cursor-not-allowed">
-                        <div class="rounded-none rounded-sm w-full rounded-[0.375rem] grid grid-cols-2 text-[13px] text-text_secondary overflow-hidden"
-                            style="display: flex; gap: 1px;">
-                            <button title="leftOption-1.24" scaleclass="active:scale-[98%]"
-                                class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4 disabled:opacity-80 font-bold  cursor-pointer active:scale-[98%] max-lg:hidden md:flex"
-                                type="button">
-                                <span class=" text-sm">1.24</span>
-                                <span class="text-x">23.65</span>
-                            </button>
-                            <button title="leftOption-1.24" scaleclass="active:scale-[98%]"
-                                class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_backBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4 disabled:opacity-80 font-bold  cursor-pointer active:scale-[98%] max-lg:hidden md:flex"
-                                type="button">
-                                <span class=" text-sm">1.24</span>
-                                <span class="text-x">23.65</span>
-                            </button>
-                            <button title="leftOption-1.24" scaleclass="active:scale-[98%]"
-                                class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4 disabled:opacity-80 font-bold  cursor-pointer active:scale-[98%]"
-                                type="button">
-                                <span class=" text-sm">1.24</span>
-                                <span class="text-x">23.65</span>
-                            </button>
+                    <div class="md:w-[60%] flex items-start gap-[1px] w-[40%]">
+                        <div title="1.24-1.27" class="w-full relative opacity-70 cursor-not-allowed">
+                            <div class="rounded-none rounded-sm w-full rounded-[0.375rem] grid grid-cols-2 text-[13px] text-text_secondary overflow-hidden"
+                                style="display: flex; gap: 1px;">
+                                <button title="leftOption-1.24" scaleclass="active:scale-[98%]"
+                                    class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4 disabled:opacity-80 font-bold  cursor-pointer active:scale-[98%] max-lg:hidden md:flex"
+                                    type="button">
+                                    <span class=" text-sm">1.24</span>
+                                    <span class="text-x">23.65</span>
+                                </button>
+                                <button title="leftOption-1.24" scaleclass="active:scale-[98%]"
+                                    class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_backBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4 disabled:opacity-80 font-bold  cursor-pointer active:scale-[98%] max-lg:hidden md:flex"
+                                    type="button">
+                                    <span class=" text-sm">1.24</span>
+                                    <span class="text-x">23.65</span>
+                                </button>
+                                <button title="leftOption-1.24" scaleclass="active:scale-[98%]"
+                                    class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4 disabled:opacity-80 font-bold  cursor-pointer active:scale-[98%]"
+                                    type="button">
+                                    <span class=" text-sm">1.24</span>
+                                    <span class="text-x">23.65</span>
+                                </button>
 
 
-                            <button title="rightOption-1.27" scaleclass="active:scale-[98%]"
-                                class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold cursor-pointer active:scale-[98%] flex"
-                                type="button">
-                                <span class="text-sm">1.27</span>
-                                <span class="text-x">3.56</span>
-                            </button>
-                            <button title="rightOption-1.27" scaleclass="active:scale-[98%]"
-                                class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold cursor-pointer active:scale-[98%] max-lg:hidden md:flex"
-                                type="button">
-                                <span class="text-sm">1.27</span>
-                                <span class="text-x">3.56</span>
-                            </button>
-                            <button title="rightOption-1.27" scaleclass="active:scale-[98%]"
-                                class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold cursor-pointer active:scale-[98%] max-lg:hidden md:flex"
-                                type="button">
-                                <span class="text-sm">1.27</span>
-                                <span class="text-x">3.56</span>
-                            </button>
+                                <button title="rightOption-1.27" scaleclass="active:scale-[98%]"
+                                    class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold cursor-pointer active:scale-[98%] flex"
+                                    type="button">
+                                    <span class="text-sm">1.27</span>
+                                    <span class="text-x">3.56</span>
+                                </button>
+                                <button title="rightOption-1.27" scaleclass="active:scale-[98%]"
+                                    class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold cursor-pointer active:scale-[98%] max-lg:hidden md:flex"
+                                    type="button">
+                                    <span class="text-sm">1.27</span>
+                                    <span class="text-x">3.56</span>
+                                </button>
+                                <button title="rightOption-1.27" scaleclass="active:scale-[98%]"
+                                    class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold cursor-pointer active:scale-[98%] max-lg:hidden md:flex"
+                                    type="button">
+                                    <span class="text-sm">1.27</span>
+                                    <span class="text-x">3.56</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
