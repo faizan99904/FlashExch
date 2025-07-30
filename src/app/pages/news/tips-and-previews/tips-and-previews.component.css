@@ -1,0 +1,141 @@
+.card {
+  @apply rounded-lg shadow-sm overflow-hidden;
+}
+
+.card-header {
+  @apply px-4 py-3 font-semibold;
+}
+
+.newsHeader {
+  background: transparent;
+  border-bottom: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.mostreadheader {
+  font-weight: bold;
+}
+
+.width-img {
+  width: 33%;
+  max-width: 33%;
+  min-width: 33%;
+  overflow: hidden;
+}
+
+.width-content {
+  width: 66%;
+  max-width: 66%;
+  min-width: 66%;
+  margin-left: 3%;
+}
+
+.NewsImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  min-height: 140px;
+  object-fit: cover;
+  transition: 0.5s all ease-in-out;
+}
+
+.news-heading {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.news-description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgb(72, 73, 74);
+  margin-bottom: 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+
+.newsdate {
+  font-size: 12px;
+  color: rgb(108, 109, 111);
+}
+
+.mainNews {
+  border-bottom: 1px solid rgb(237, 238, 240);
+  cursor: pointer;
+}
+
+.most-read-title {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.most-read-time {
+  font-size: 10px;
+  color: rgb(108, 109, 111);
+}
+
+@media only screen and (min-width: 768px) {
+  .mostReadContainer {
+    padding-right: 0px;
+    padding-left: 10px;
+  }
+
+  .newsContainer {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .news-heading {
+    font-size: 14px;
+  }
+
+  .news-description {
+    font-size: 13px;
+  }
+
+  .newsdate {
+    font-size: 12px;
+    color: rgb(108, 109, 111);
+  }
+}
+
+.NewsImg:hover {
+  transform: scale(1.1);
+}
+
+.news-heading {
+  color: white;
+}
+
+.mainNews:last-child {
+  border-bottom: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .width-img {
+    width: 17%;
+    max-width: 17%;
+    min-width: 17%;
+    overflow: hidden;
+  }
+
+  .mainNews {
+    border-bottom: none;
+  }
+
+  .newsHeader {
+    font-size: 36px;
+    margin-bottom: 1rem;
+  }
+}
