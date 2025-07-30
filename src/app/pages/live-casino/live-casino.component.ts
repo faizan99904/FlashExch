@@ -1,7 +1,8 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, effect, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { BottomNavComponent } from '../../shared/bottom-nav/bottom-nav.component';
+import { MainService } from '../../service/main.service';
 declare var Swiper: any;
 
 @Component({
@@ -13,11 +14,24 @@ declare var Swiper: any;
 export class LiveCasinoComponent implements AfterViewInit {
   @ViewChild('slide') elementRef!: ElementRef;
   isSearch: boolean = false;
+  SeeAlFilter: any
   seeAll: boolean = false;
+  casinoList: any = [];
+  searchFilter: any
+  filterMenuList: any
   isProvider: boolean = false;
   isDeskProvider: boolean = false;
   swiperImages = ['https://static.inpcdn.com/105,1ae716b55fe8f0.webp'];
   largeSwiperImages = ['https://static.inpcdn.com/107,1ae6fcf953adfb.webp'];
+
+  constructor(private mainService: MainService) {
+    effect(() => {
+      this.casinoList = this.mainService.getCasinoEvents();
+
+      this.filterMenu(this.casinoList.menu, this.casinoList.lobby);
+      this.searchFilter = [...this.casinoList.lobby]
+    })
+  }
 
   mobItems = [
     { img: 'https://static.inpcdn.com/122,233301ff497b69.webp' },
@@ -71,8 +85,9 @@ export class LiveCasinoComponent implements AfterViewInit {
     this.isSearch = !this.isSearch;
   }
 
-  seeToggle() {
-    this.seeAll = !this.seeAll;
+  seeToggle(data: any) {
+    this.seeAll = true;
+    this.SeeAlFilter = data;
   }
 
   toggleProvider() {
@@ -85,4 +100,53 @@ export class LiveCasinoComponent implements AfterViewInit {
       this.isDeskProvider = !this.isDeskProvider;
     }
   }
+
+  filterMenu(menu: any[], lobby: any[]) {
+    const menuMap = new Map<string, any>();
+    menu.forEach(menuItem => {
+      menuItem.items = [];
+      menuMap.set(menuItem.menuId, menuItem);
+    });
+    const sortedLobby = [...lobby].sort((a, b) => a.sequence - b.sequence);
+
+    sortedLobby.forEach(lobbyItem => {
+      const menuId = lobbyItem.menuId;
+      if (menuMap.has(menuId)) {
+        menuMap.get(menuId).items.push(lobbyItem);
+      }
+    });
+
+
+    this.filterMenuList = menu.sort((a, b) => a.sequence - b.sequence);
+    console.log('final', this.filterMenuList)
+  }
+
+  searchGame(value: string) {
+    if (value.length >= 1) {
+      this.SeeAlFilter = 'all';
+      this.seeAll = true;
+      let inputValue = value.toLowerCase();
+      this.searchFilter = [...this.casinoList.lobby].filter((item: any) => {
+        return item.eventName.toLowerCase().includes(inputValue)
+      })
+    } else {
+      this.searchFilter = [...this.casinoList.lobby]
+    }
+  }
+
+  desktopFilter(menuId: any) {
+    if (menuId) {
+      let inputValue = menuId.toLowerCase();
+      this.searchFilter = [...this.casinoList.lobby].filter((item: any) => {
+        if (item.menuId == inputValue) {
+          return item
+        }
+      })
+    }
+    else {
+      this.searchFilter = [...this.casinoList.lobby]
+    }
+  }
+
 }
+

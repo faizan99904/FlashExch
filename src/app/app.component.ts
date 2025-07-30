@@ -52,6 +52,7 @@ export class AppComponent implements OnInit {
   livCasinoList() {
     this.mainService.getDataFromServices(CONFIG.livCasinoList, CONFIG.getAllEventsListTime, { key: CONFIG.siteKey }).subscribe((data: any) => {
       this.mainService.setCasinoEvents(data?.data)
+      console.log(data?.data);
     });
   }
 

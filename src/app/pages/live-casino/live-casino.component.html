@@ -1,4 +1,4 @@
-<div class="w-full [@media(min-width:820px)]:hidden bg-[#14161B]">
+<div class="w-full lg:hidden bg-[#14161B]">
     <div class="swiper mySwiper  max-w-[calc(100vw)] [375px]:max-h-[227.9px]
             [@media(min-width:820px)]:mt-2 [@media(min-width:820px)]:rounded-md">
         <div class="swiper-wrapper forMedia max-h-[227.9px]">
@@ -45,36 +45,18 @@
                             </div>
                             <ul class="flex w-full h-full items-center  overflow-x-auto overflow-y-hidden 
                                 min-[375]:mt-[2.5px] tab-menu">
-                                <li
+                                <li (click)="seeToggle('all')"
                                     class="text-center relative shrink-0 p-[0.2723rem_0.6806rem] cursor-pointer border-b border-transparent w-[3.5723rem]">
                                     <div class="text-[0.6806rem] text-white ">All</div>
                                 </li>
 
-                                <li
+                                <li *ngFor="let menu of filterMenuList" (click)="seeToggle(menu)"
                                     class="text-center relative shrink-0 p-[0.2723rem_0.6806rem] cursor-pointer border-b border-transparent">
-                                    <div class="text-[0.6806rem] text-white ">Popular Casino</div>
+                                    <div class="text-[0.6806rem] text-white ">{{menu.menuName}}</div>
                                 </li>
 
-                                <li
-                                    class="text-center relative shrink-0 p-[0.2723rem_0.6806rem] cursor-pointer border-b border-transparent">
-                                    <div class="text-[0.6806rem] text-white ">Live Roulette</div>
-                                </li>
-                                <li
-                                    class="text-center relative shrink-0 p-[0.2723rem_0.6806rem] cursor-pointer border-b border-transparent">
-                                    <div class="text-[0.6806rem] text-white ">Live Blackjack</div>
-                                </li>
-                                <li
-                                    class="text-center relative shrink-0 p-[0.2723rem_0.6806rem] cursor-pointer border-b border-transparent">
-                                    <div class="text-[0.6806rem] text-white ">Game Shows</div>
-                                </li>
-                                <li
-                                    class="text-center relative shrink-0 p-[0.2723rem_0.6806rem] cursor-pointer border-b border-transparent">
-                                    <div class="text-[0.6806rem] text-white ">Live Baccarat</div>
-                                </li>
-                                <li
-                                    class="text-center relative shrink-0 p-[0.2723rem_0.6806rem] cursor-pointer border-b border-transparent">
-                                    <div class="text-[0.6806rem] text-white uppercase">Live Baccarat</div>
-                                </li>
+
+
                             </ul>
                         </div>
 
@@ -83,119 +65,85 @@
                 </div>
                 <div class="relative h-[30.492px]  px-[4.994px]  overflow-hidden  max-h-0 !duration-300 transition-all mt-0"
                     [ngClass]="{'!duration-300 transition-all !max-h-[30.492px] mt-[13.068px] ':isSearch}">
-                    <input class="search-input" placeholder="Search games...">
+                    <input class="search-input" #searchValue placeholder="Search games..."
+                        (input)="searchGame(searchValue.value)">
                 </div>
             </div>
         </div>
     </div>
 
     <div class="game-tabs bg-[#13161B] overflow-hidden px-[4.356px]" *ngIf="!seeAll">
-        <div class="mt-[10.890px]">
+        <div class="mt-[10.890px]" *ngFor="let lobby of filterMenuList">
+            @if(lobby?.items?.length>0){
             <div class="heading mx-[0.5431rem]">
-                <h1 class="font-bold"> <span class="text-[#11e311] mr-[2.49744px]">Popular</span>Casino</h1>
-                <div class="see-more " (click)="seeToggle()">
+                <h1 class="font-bold"> <span class="text-[#11e311] mr-[2.49744px]">{{lobby.menuName}}</span>Casino</h1>
+                <div class="see-more " (click)="seeToggle(lobby)">
                     <span>See More</span>
                 </div>
             </div>
             <div class="games-wrapper !px-[0.4844rem]">
-                <div class="game">
-                    <img src="https://static.inpcdn.com/111,1d7a88759e186c.webp" alt="">
-                </div>
-                <div class="game">
-                    <img src="https://static.inpcdn.com/114,1f79551a5aca19.webp" alt="">
-                </div>
-                <div class="game">
-                    <img src="https://static.inpcdn.com/112,1d7a8e08c09717.webp" alt="">
-                </div>
-                <div class="game">
-                    <img src="https://static.inpcdn.com/114,1f78e35853f05e.webp" alt="">
-                </div>
-                <div class="game">
-                    <img src="https://static.inpcdn.com/114,1f92ba7c93beb7.webp" alt="">
-                </div>
-                <div class="game">
-                    <img src="https://static.inpcdn.com/108,1b50483ec4e582.webp" alt="">
+                <div class="game" *ngFor="let menu of lobby?.items">
+                    <img src="/assets/images/120,2298db8202d603.webp" alt="">
                 </div>
             </div>
-        </div>
-
-
-        <div class="mt-[12.4872px]">
-            <div class="heading mx-[9.98px] ">
-                <h1 class="font-bold"> <span class="text-[#11e311] mr-[2.49744px]">Popular </span> Slots</h1>
-                <div class="see-more ">
-                    See More
-                </div>
-            </div>
-            <div class="games-wrapper">
-                <div class="game">
-                    <img src="/assets/images/24,077b1a7b66f435.gif" alt="">
-                </div>
-                <div class="game">
-                    <img src="/assets/images/24,077b1a7b66f435.gif" alt="">
-                </div>
-                <div class="game">
-                    <img src="/assets/images/24,077b1a7b66f435.gif" alt="">
-                </div>
-                <div class="game">
-                    <img src="/assets/images/24,077b1a7b66f435.gif" alt="">
-                </div>
-                <div class="game">
-                    <img src="/assets/images/24,077b1a7b66f435.gif" alt="">
-                </div>
-            </div>
+            }
         </div>
     </div>
 
 
     <div class="bg-[#13161B]" *ngIf="seeAll">
-        <div class="flex justify-center items-center py-[9.98976px] text-white">
-            <div class="absolute left-[12.4872px] cursor-pointer text-[17.4821px] items-center" (click)="seeToggle()">
-                <span class="material-icons !text-[17.4821px] [vertical-align:middle;]">arrow_back </span>
-                <span class="ml-[1.78411px] text-[12.4872px] uppercase">Back</span>
+        @if (SeeAlFilter == 'all') {
+        <div>
+            <div class="flex justify-center items-center py-[9.98976px] text-white">
+                <div class="absolute left-[12.4872px] cursor-pointer text-[17.4821px] items-center"
+                    (click)="seeAll = false">
+                    <span class="material-icons !text-[17.4821px] [vertical-align:middle;]">arrow_back </span>
+                    <span class="ml-[1.78411px] text-[12.4872px] uppercase">Back</span>
+                </div>
+                <div>
+                    <h1 class="text-[21.4062px]  font-bold"> <span *ngIf="SeeAlFilter == 'all'" class="text-[#11e311]">All</span> Slots </h1>
+                </div>
             </div>
-            <div>
-                <h1 class="text-[21.4062px]  font-bold"> <span class="text-[#11e311]">Popular </span> Slots </h1>
-            </div>
+
+            <ul class="p-[10.406px] overflow-hidden grid [grid-template-columns:repeat(3,_1fr);] gap-[10.406px]">
+                <li class="rounded-[7.49232px] overflow-hidden" *ngFor="let menu of searchFilter">
+                    <div class="relative pt-[81%] bg-cover bg-center overflow-hidden cursor-pointer "
+                        [ngStyle]="{'background-image': 'url(/assets/images/120,2298db8202d603.webp)'}">
+                    </div>
+                    <div class="footer-game">
+                        <span class="slot-name  truncate">{{menu?.eventName}}</span>
+                    </div>
+                </li>
+            </ul>
         </div>
-
-        <ul class="p-[10.406px] overflow-hidden grid [grid-template-columns:repeat(3,_1fr);] gap-[10.406px]">
-            <li class="rounded-[7.49232px] overflow-hidden">
-                <div
-                    class="relative pt-[81%] bg-cover bg-center overflow-hidden cursor-pointer [background-image:url('/assets/images/24,077b1a7b66f435.gif')]">
+        }@else {
+        <div>
+            <div class="flex justify-center items-center py-[9.98976px] text-white">
+                <div class="absolute left-[12.4872px] cursor-pointer text-[17.4821px] items-center"
+                    (click)="seeAll = false">
+                    <span class="material-icons !text-[17.4821px] [vertical-align:middle;]">arrow_back </span>
+                    <span class="ml-[1.78411px] text-[12.4872px] uppercase">Back</span>
                 </div>
-            </li>
-
-            <li class="rounded-[7.49232px] overflow-hidden">
-                <div
-                    class="relative pt-[81%] bg-cover bg-center overflow-hidden cursor-pointer [background-image:url('/assets/images/24,077b1a7b66f435.gif')]">
+                <div>
+                    <h1 class="text-[21.4062px]  font-bold"> <span class="text-[#11e311]">{{SeeAlFilter?.menuName}}
+                        </span>
+                        Slots </h1>
                 </div>
-            </li>
+            </div>
 
-            <li class="rounded-[7.49232px] overflow-hidden">
-                <div
-                    class="relative pt-[81%] bg-cover bg-center overflow-hidden cursor-pointer [background-image:url('/assets/images/24,077b1a7b66f435.gif')]">
-                </div>
-            </li>
+            <ul class="p-[10.406px] overflow-hidden grid [grid-template-columns:repeat(3,_1fr);] gap-[10.406px]">
+                <li class="rounded-[7.49232px] overflow-hidden" *ngFor="let item of SeeAlFilter.items">
+                    <div class="relative pt-[81%] bg-cover bg-center overflow-hidden cursor-pointer "
+                        [ngStyle]="{'background-image': 'url(/assets/images/120,2298db8202d603.webp)'}">
+                    </div>
+                    <div class="footer-game">
+                        <span class="slot-name  truncate">{{item?.eventName}}</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        }
 
-            <li class="rounded-[7.49232px] overflow-hidden">
-                <div
-                    class="relative pt-[81%] bg-cover bg-center overflow-hidden cursor-pointer [background-image:url('/assets/images/24,077b1a7b66f435.gif')]">
-                </div>
-            </li>
-
-            <li class="rounded-[7.49232px] overflow-hidden">
-                <div
-                    class="relative pt-[81%] bg-cover bg-center overflow-hidden cursor-pointer [background-image:url('/assets/images/24,077b1a7b66f435.gif')]">
-                </div>
-            </li>
-
-            <li class="rounded-[7.49232px] overflow-hidden">
-                <div
-                    class="relative pt-[81%] bg-cover bg-center overflow-hidden cursor-pointer [background-image:url('/assets/images/24,077b1a7b66f435.gif')]">
-                </div>
-            </li>
-        </ul>
     </div>
 
 
@@ -203,7 +151,9 @@
 
 </div>
 
-<div class="[@media(max-width:1024px)]:hidden mx-auto">
+
+
+<div class="max-lg:hidden mx-auto">
     <div class="desk-swiper swiper mySwiper relative  max-w-[calc(100vw)] [375px]:max-h-[346px]
         [@media(min-width:820px)]:mt-2">
         <div class="swiper-wrapper forMedia max-h-[290.66px]">
@@ -250,7 +200,7 @@
 
             <div class="flex flex-col items-center gap-[4.875px]">
                 <div class="desktop-search">
-                    <input type="text" name="" id="" placeholder="Search games">
+                    <input type="text" (input)="searchGame(inputVal.value)" #inputVal name="" id="" placeholder="Search games">
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M10.6333 17.6C14.4809 17.6 17.6 14.4809 17.6 10.6333C17.6 6.78571 14.4809 3.66663 10.6333 3.66663C6.78571 3.66663 3.66663 6.78571 3.66663 10.6333C3.66663 14.4809 6.78571 17.6 10.6333 17.6Z"
@@ -261,32 +211,17 @@
                     </svg>
                 </div>
             </div>
+
             <div
                 class="desktop-categories gap-[0.4258rem] h-[2.5434rem] w-full text-[0.6352rem] flex items-center justify-center">
-                <div
-                    class="flex items-center justify-center bg-[#1f242b] border border-solid border-[#1f242b] text-[#e8e8e8] h-full  grow poppins-medium p-[0_ 0.9367rem] cursor-pointer text-center rounded-[0.5109rem] desktop-category-item">
-                    Popular Casino</div>
-                <div
-                    class="flex items-center justify-center bg-[#1f242b] border border-solid border-[#1f242b] text-[#e8e8e8] h-full  grow poppins-medium p-[0_ 0.9367rem] cursor-pointer text-center rounded-[0.5109rem] desktop-category-item">
-                    Live Roulette</div>
-                <div
-                    class="flex items-center justify-center bg-[#1f242b] border border-solid border-[#1f242b] text-[#e8e8e8] h-full  grow poppins-medium p-[0_ 0.9367rem] cursor-pointer text-center rounded-[0.5109rem] desktop-category-item">
-                    Blackjack</div>
-                <div
-                    class="flex items-center justify-center bg-[#1f242b] border border-solid border-[#1f242b] text-[#e8e8e8] h-full  grow poppins-medium p-[0_ 0.9367rem] cursor-pointer text-center rounded-[0.5109rem] desktop-category-item">
-                    GAME SHOWS</div>
-                <div
-                    class="flex items-center justify-center bg-[#1f242b] border border-solid border-[#1f242b] text-[#e8e8e8] h-full  grow poppins-medium p-[0_ 0.9367rem] cursor-pointer text-center rounded-[0.5109rem] desktop-category-item">
-                    Live Baccarat</div>
-                <div
-                    class="flex items-center justify-center bg-[#1f242b] border border-solid border-[#1f242b] text-[#e8e8e8] h-full  grow poppins-medium p-[0_ 0.9367rem] cursor-pointer text-center rounded-[0.5109rem] desktop-category-item">
-                    Live Poker</div>
+
+                <div class="flex items-center justify-center bg-[#1f242b] border border-solid border-[#1f242b] text-[#e8e8e8] h-full  grow poppins-medium p-[0_ 0.9367rem] cursor-pointer text-center rounded-[0.5109rem] desktop-category-item" (click)="desktopFilter(menu?.menuId)" *ngFor="let menu of filterMenuList" (click)="seeToggle(menu)"> {{menu.menuName}}
+                </div>
             </div>
         </div>
-
         <div>
             <ul class="desktop-games">
-                <li>
+                <li *ngFor="let games of searchFilter">
                     <div class="bg group [background-image:url('https://static.inpcdn.com/112,1d7a87faf80b9b.webp')]">
                         <div class="slot-hover">
                             <img src="/assets/images/play.svg" alt="">
@@ -296,173 +231,7 @@
                         </div>
                         <div
                             class="game-title absolute h-[1.7031rem] flex items-center justify-center px-[0.6387rem] bottom-0 w-full z-[1] pointer-events-none">
-                            <h1 class="truncate text-[0.6813rem] poppins-regular !font-bold text-white">Live Roulette
-                                European</h1>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="bg group [background-image:url('https://static.inpcdn.com/112,1d7a87faf80b9b.webp')]">
-                        <div class="slot-hover">
-                            <img src="/assets/images/play.svg" alt="">
-                            <div class="star-wrapper">
-                                <span class="material-icons text-[24px] float-right ">favorite_border</span>
-                            </div>
-                        </div>
-                        <div
-                            class="game-title absolute h-[1.7031rem] flex items-center justify-center px-[0.6387rem] bottom-0 w-full z-[1] pointer-events-none">
-                            <h1 class="truncate text-[0.6813rem] poppins-regular !font-bold text-white">Live Roulette
-                                European</h1>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="bg group [background-image:url('https://static.inpcdn.com/112,1d7a87faf80b9b.webp')]">
-                        <div class="slot-hover">
-                            <img src="/assets/images/play.svg" alt="">
-                            <div class="star-wrapper">
-                                <span class="material-icons text-[24px] float-right ">favorite_border</span>
-                            </div>
-                        </div>
-                        <div
-                            class="game-title absolute h-[1.7031rem] flex items-center justify-center px-[0.6387rem] bottom-0 w-full z-[1] pointer-events-none">
-                            <h1 class="truncate text-[0.6813rem] poppins-regular !font-bold text-white">Live Roulette
-                                European</h1>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="bg group [background-image:url('https://static.inpcdn.com/112,1d7a87faf80b9b.webp')]">
-                        <div class="slot-hover">
-                            <img src="/assets/images/play.svg" alt="">
-                            <div class="star-wrapper">
-                                <span class="material-icons text-[24px] float-right ">favorite_border</span>
-                            </div>
-                        </div>
-                        <div
-                            class="game-title absolute h-[1.7031rem] flex items-center justify-center px-[0.6387rem] bottom-0 w-full z-[1] pointer-events-none">
-                            <h1 class="truncate text-[0.6813rem] poppins-regular !font-bold text-white">Live Roulette
-                                European</h1>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="bg group [background-image:url('https://static.inpcdn.com/112,1d7a87faf80b9b.webp')]">
-                        <div class="slot-hover">
-                            <img src="/assets/images/play.svg" alt="">
-                            <div class="star-wrapper">
-                                <span class="material-icons text-[24px] float-right ">favorite_border</span>
-                            </div>
-                        </div>
-                        <div
-                            class="game-title absolute h-[1.7031rem] flex items-center justify-center px-[0.6387rem] bottom-0 w-full z-[1] pointer-events-none">
-                            <h1 class="truncate text-[0.6813rem] poppins-regular !font-bold text-white">Live Roulette
-                                European</h1>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="bg group [background-image:url('https://static.inpcdn.com/112,1d7a87faf80b9b.webp')]">
-                        <div class="slot-hover">
-                            <img src="/assets/images/play.svg" alt="">
-                            <div class="star-wrapper">
-                                <span class="material-icons text-[24px] float-right ">favorite_border</span>
-                            </div>
-                        </div>
-                        <div
-                            class="game-title absolute h-[1.7031rem] flex items-center justify-center px-[0.6387rem] bottom-0 w-full z-[1] pointer-events-none">
-                            <h1 class="truncate text-[0.6813rem] poppins-regular !font-bold text-white">Live Roulette
-                                European</h1>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="bg group [background-image:url('https://static.inpcdn.com/112,1d7a87faf80b9b.webp')]">
-                        <div class="slot-hover">
-                            <img src="/assets/images/play.svg" alt="">
-                            <div class="star-wrapper">
-                                <span class="material-icons text-[24px] float-right ">favorite_border</span>
-                            </div>
-                        </div>
-                        <div
-                            class="game-title absolute h-[1.7031rem] flex items-center justify-center px-[0.6387rem] bottom-0 w-full z-[1] pointer-events-none">
-                            <h1 class="truncate text-[0.6813rem] poppins-regular !font-bold text-white">Live Roulette
-                                European</h1>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="bg group [background-image:url('https://static.inpcdn.com/112,1d7a87faf80b9b.webp')]">
-                        <div class="slot-hover">
-                            <img src="/assets/images/play.svg" alt="">
-                            <div class="star-wrapper">
-                                <span class="material-icons text-[24px] float-right ">favorite_border</span>
-                            </div>
-                        </div>
-                        <div
-                            class="game-title absolute h-[1.7031rem] flex items-center justify-center px-[0.6387rem] bottom-0 w-full z-[1] pointer-events-none">
-                            <h1 class="truncate text-[0.6813rem] poppins-regular !font-bold text-white">Live Roulette
-                                European</h1>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="bg group [background-image:url('https://static.inpcdn.com/112,1d7a87faf80b9b.webp')]">
-                        <div class="slot-hover">
-                            <img src="/assets/images/play.svg" alt="">
-                            <div class="star-wrapper">
-                                <span class="material-icons text-[24px] float-right ">favorite_border</span>
-                            </div>
-                        </div>
-                        <div
-                            class="game-title absolute h-[1.7031rem] flex items-center justify-center px-[0.6387rem] bottom-0 w-full z-[1] pointer-events-none">
-                            <h1 class="truncate text-[0.6813rem] poppins-regular !font-bold text-white">Live Roulette
-                                European</h1>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="bg group [background-image:url('https://static.inpcdn.com/112,1d7a87faf80b9b.webp')]">
-                        <div class="slot-hover">
-                            <img src="/assets/images/play.svg" alt="">
-                            <div class="star-wrapper">
-                                <span class="material-icons text-[24px] float-right ">favorite_border</span>
-                            </div>
-                        </div>
-                        <div
-                            class="game-title absolute h-[1.7031rem] flex items-center justify-center px-[0.6387rem] bottom-0 w-full z-[1] pointer-events-none">
-                            <h1 class="truncate text-[0.6813rem] poppins-regular !font-bold text-white">Live Roulette
-                                European</h1>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="bg group [background-image:url('https://static.inpcdn.com/112,1d7a87faf80b9b.webp')]">
-                        <div class="slot-hover">
-                            <img src="/assets/images/play.svg" alt="">
-                            <div class="star-wrapper">
-                                <span class="material-icons text-[24px] float-right ">favorite_border</span>
-                            </div>
-                        </div>
-                        <div
-                            class="game-title absolute h-[1.7031rem] flex items-center justify-center px-[0.6387rem] bottom-0 w-full z-[1] pointer-events-none">
-                            <h1 class="truncate text-[0.6813rem] poppins-regular !font-bold text-white">Live Roulette
-                                European</h1>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="bg group [background-image:url('https://static.inpcdn.com/112,1d7a87faf80b9b.webp')]">
-                        <div class="slot-hover">
-                            <img src="/assets/images/play.svg" alt="">
-                            <div class="star-wrapper">
-                                <span class="material-icons text-[24px] float-right ">favorite_border</span>
-                            </div>
-                        </div>
-                        <div
-                            class="game-title absolute h-[1.7031rem] flex items-center justify-center px-[0.6387rem] bottom-0 w-full z-[1] pointer-events-none">
-                            <h1 class="truncate text-[0.6813rem] poppins-regular !font-bold text-white">Live Roulette
-                                European</h1>
+                            <h1 class="truncate text-[0.6813rem] poppins-regular !font-bold text-white">{{games.eventName}}</h1>
                         </div>
                     </div>
                 </li>
