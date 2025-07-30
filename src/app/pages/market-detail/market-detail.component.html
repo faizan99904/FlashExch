@@ -145,8 +145,9 @@
 <div class="px-2 bg-black pt-2 border-solid">
     <div class="flex items-start justify-start flex-col w-full pb-20">
         <!-- match odds -->
+        <ng-container  *ngFor="let market of matchOddsDataUpdated ; trackBy: trackByFn;index as i" >
         <div class="flex items-center justify-center flex-col text-text_secondary border-solid border-border_tertiary20 border w-full rounded-md font-roboto"
-            *ngFor="let market of matchOddsDataUpdated ; trackBy: trackByFn;index as i" [ngClass]="i!=0?'mt-2':''">
+         [ngClass]="i!=0?'mt-2':''"  >
             <div
                 class="flex items-center justify-between py-1.5 px-2 w-full bg-cricketHeaderGradient relative rounded-tr-[4px] rounded-tl-[4px]">
                 <div class="absolute top-0 left-0 h-full w-[88%] border-tl-xl vector one-cricket-bg"></div>
@@ -211,40 +212,40 @@
                                 <button title="leftOption-1.24" scaleclass="active:scale-[98%]"
                                     class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4 disabled:opacity-80 font-bold  cursor-pointer active:scale-[98%] max-lg:hidden md:flex"
                                     type="button">
-                                    <span class=" text-sm">1.24</span>
-                                    <span class="text-x">23.65</span>
+                                    <span class=" text-sm">{{(runner.price.back[2].price)| number}}</span>
+                                    <span class="text-x">{{(runner.price.back[2].size) |shortNumber}}</span>
                                 </button>
                                 <button title="leftOption-1.24" scaleclass="active:scale-[98%]"
                                     class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_backBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4 disabled:opacity-80 font-bold  cursor-pointer active:scale-[98%] max-lg:hidden md:flex"
                                     type="button">
-                                    <span class=" text-sm">1.24</span>
-                                    <span class="text-x">23.65</span>
+                                    <span class=" text-sm">{{(runner.price.back[1].price)| number}}</span>
+                                    <span class="text-x">{{(runner.price.back[1].size) |shortNumber}}</span>
                                 </button>
                                 <button title="leftOption-1.24" scaleclass="active:scale-[98%]"
                                     class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4 disabled:opacity-80 font-bold  cursor-pointer active:scale-[98%]"
                                     type="button">
-                                    <span class=" text-sm">1.24</span>
-                                    <span class="text-x">23.65</span>
+                                    <span class=" text-sm">{{(runner.price.back[0].price)| number}}</span>
+                                    <span class="text-x">{{(runner.price.back[0].size) |shortNumber}}</span>
                                 </button>
 
 
                                 <button title="rightOption-1.27" scaleclass="active:scale-[98%]"
                                     class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold cursor-pointer active:scale-[98%] flex"
                                     type="button">
-                                    <span class="text-sm">1.27</span>
-                                    <span class="text-x">3.56</span>
+                                    <span class="text-sm">{{(runner.price.lay[0].price)| number}}</span>
+                                    <span class="text-x">{{(runner.price.lay[0].size) |shortNumber}}</span>
                                 </button>
                                 <button title="rightOption-1.27" scaleclass="active:scale-[98%]"
                                     class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold cursor-pointer active:scale-[98%] max-lg:hidden md:flex"
                                     type="button">
-                                    <span class="text-sm">1.27</span>
-                                    <span class="text-x">3.56</span>
+                                    <span class="text-sm">{{(runner.price.lay[1].price)| number}}</span>
+                                    <span class="text-x">{{(runner.price.lay[1].size) |shortNumber}}</span>
                                 </button>
                                 <button title="rightOption-1.27" scaleclass="active:scale-[98%]"
                                     class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex items-center justify-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold cursor-pointer active:scale-[98%] max-lg:hidden md:flex"
                                     type="button">
-                                    <span class="text-sm">1.27</span>
-                                    <span class="text-x">3.56</span>
+                                    <span class="text-sm">{{(runner.price.lay[2].price)| number}}</span>
+                                    <span class="text-x">{{(runner.price.lay[2].size) |shortNumber}}</span>
                                 </button>
                             </div>
                         </div>
@@ -253,7 +254,7 @@
             </div>
 
         </div>
-
+    </ng-container>
         <div class="lg:hidden w-full">
             <app-betslip *ngIf="selectedColor" [color]="selectedColor"></app-betslip>
         </div>
