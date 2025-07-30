@@ -1,0 +1,76 @@
+<app-loader *ngIf="loader"></app-loader>
+<div class="w-full px-4 md:px-6 lg:px-8 mt-2 pb-[75px]">
+  <div class="flex" *ngIf="!isDetailsOpen">
+    <div class="w-full newsContainer">
+      <div class="card">
+        <div class="card-header newsHeader text-[#00aa30]">NEWS</div>
+        <div class="card-body p-0 flex flex-col gap-4">
+          <!-- item -->
+          <div class="p-2 mainNews lg:border-none" *ngFor="let item of PreviewDataList">
+            <a (click)="openDetails(item)">
+              <div class="flex lg:justify-center">
+                <div class="width-img">
+                  <img class="NewsImg" [src]="item.url">
+                </div>
+                <div class="width-content">
+                  <div class="">
+                    <h2 class="news-heading">{{item.title}}</h2>
+                    <p class="news-description mt-1">
+                      {{ item.description}}
+                    </p>
+                    <!-- <div class="newsdate">
+                        <span class="">
+                          <span>02-Dec-2023 • 3 hrs ago</span>
+                        </span>
+                        <span class="ms-1 me-1">
+                          <span>•</span>
+                        </span>
+                        <span class="">
+                          <span>Shashank Kishore</span>
+                        </span>
+                      </div> -->
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-md-4 mostReadContainer">
+      <div class="card">
+        <div class="card-header mostreadheader">Most Read</div>
+        <div class="card-body p-0">
+
+            <div class="py-1 ps-2 pe-2 d-flex"  *ngFor="let item of news">
+              <div class="width-img">
+                <img class="NewsImg" src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_160,q_50/lsci/db/PICTURES/CMS/372000/372090.10.jpg"  >
+              </div>
+              <div class="width-content">
+                <div class="">
+                  <h2 class="most-read-title">Salman Butt, Kamran Akmal and Rao Iftikhar to assist chief selector Wahab Riaz</h2>
+                  <div class="most-read-time">
+                    <span class="">
+                      <span>01-Dec-2023</span>
+                    </span>
+                    <span class="ms-1 me-1">
+                      <span>•</span>
+                    </span>
+                    <span class="">
+                      <span>ESPNcricinfo staff</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+
+  <div *ngIf="isDetailsOpen">
+    <app-tips-and-previews-details (newItemEvent)="isDetailsOpen=false"
+      [item]="openNews"></app-tips-and-previews-details>
+  </div>
+
+</div>

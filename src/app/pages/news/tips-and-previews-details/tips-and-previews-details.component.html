@@ -1,0 +1,21 @@
+<div class="flex items-center w-full text-white lg:p-2" id="focusContainer">
+  <a (click)="gotoBack()" class="backIcon">
+    <i class="fas fa-arrow-circle-left lg:text-[32px]"></i>
+  </a>
+  <div class="ms-1 flex justify-end w-full lg:text-[18px] lg:gap-1">
+    <span><i class="far fa-calendar-alt me-2"></i></span>
+    {{date | date :'dd-MM-yyyy'}}
+  </div>
+</div>
+
+<div class="imgDiv relative mt-4">
+  <img class="img-fluid imgnews" [src]="item?.url">
+  <div class="titleNewsss">
+    {{item?.title}}
+  </div>
+</div>
+<div class="description mt-4">
+  <div *ngFor="let paragraph of item.paragraphs">
+    <p>{{ paragraph }}</p>
+  </div>
+</div>

@@ -39,6 +39,7 @@ import { ProfitlossEventComponent } from './pages/accont/profitloss-event/profit
 import { ProfitlossMarketComponent } from './pages/accont/profitloss-market/profitloss-market.component';
 import { ProfitHistoryComponent } from './pages/accont/profit-history/profit-history.component';
 import { LotteryComponent } from './shared/lottery/lottery.component';
+import { TipsAndPreviewsComponent } from './pages/news/tips-and-previews/tips-and-previews.component';
 
 export const routes: Routes = [
   {
@@ -79,6 +80,8 @@ export const routes: Routes = [
       { path: 'affliate', component: AffliateComponent },
       { path: 'minigames', component: MinigamesComponent },
       { path: 'lottery', component: LotteryComponent },
+      { path: 'news', component: TipsAndPreviewsComponent },
+
     ],
   },
 
