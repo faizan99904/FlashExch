@@ -26,7 +26,10 @@
   background: linear-gradient(98deg, #10e312 0.98%, #f4f490);
   color: #101318;
 }
-
+.text-x{
+  font-weight: 400;
+  font-size: 10px;
+}
 .stop-watch {
   background-color: rgba(0, 0, 0, 0.3);
 }
