@@ -21,17 +21,18 @@ import * as _ from 'lodash';
 import { ToastrService } from 'ngx-toastr';
 
 import { CommonModule, Location } from '@angular/common';
-import { BetslipComponent } from '../../shared/betslip/betslip.component';
+
 import { NetworkService } from '../../service/network.service';
 import { MainService } from '../../service/main.service';
 import { CONFIG } from '../../../../config';
 import { ShortNumberPipe } from "../../shared/pipes/short-number.pipe";
+import { BetslipComponent } from "../../shared/betslip/betslip.component";
 
 declare var $: any;
 
 @Component({
   selector: 'app-market-detail',
-  imports: [BetslipComponent, CommonModule, ShortNumberPipe],
+  imports: [CommonModule, ShortNumberPipe, BetslipComponent],
   templateUrl: './market-detail.component.html',
   styleUrl: './market-detail.component.css',
 })

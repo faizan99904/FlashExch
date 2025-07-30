@@ -33,7 +33,10 @@
 .border-solid {
   border-color: #525253;
 }
-
+.runnerBox{
+  border-bottom: 1px solid #37383a;
+  background: linear-gradient(90deg, #000000 -13.95%, #1a1e24 83.91%);
+}
 @media screen and (min-width: 819px) {
   .bg-bg_inputBgColor {
     background-color: #202225;
