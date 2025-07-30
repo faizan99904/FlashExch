@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from '../../shared/footer/footer.component';
-import { BottomNavComponent } from "../../shared/bottom-nav/bottom-nav.component";
+import { BottomNavComponent } from '../../shared/bottom-nav/bottom-nav.component';
 declare var Swiper: any;
 
 @Component({
@@ -36,7 +36,7 @@ export class LiveCasinoComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     const swiper = new Swiper('.mySwiper', {
-      loop: true,
+      loop: false,
       slidesPerView: 1,
       pagination: {
         el: '.swiper-pagination',

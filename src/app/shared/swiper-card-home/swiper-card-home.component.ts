@@ -7,15 +7,22 @@ declare var Swiper: any; // 👈️ this is required to use Swiper from CDN
   standalone: true,
   imports: [NgFor],
   templateUrl: './swiper-card-home.component.html',
-  styleUrl: './swiper-card-home.component.css'
+  styleUrl: './swiper-card-home.component.css',
 })
 export class SwiperCardHomeComponent implements AfterViewInit {
-  swiperImages: any = ["swiper-home/1.webp", "swiper-home/2.webp", "swiper-home/1.webp", "swiper-home/2.webp", "swiper-home/1.webp", "swiper-home/2.webp"]
+  swiperImages: any = [
+    'swiper-home/1.webp',
+    'swiper-home/2.webp',
+    'swiper-home/1.webp',
+    'swiper-home/2.webp',
+    'swiper-home/1.webp',
+    'swiper-home/2.webp',
+  ];
 
   ngAfterViewInit(): void {
     // @ts-ignore — using Swiper from CDN
     const swiper = new Swiper('.mySwiper', {
-      loop: true,
+      loop: false,
       slidesPerView: 2.1,
       navigation: {
         nextEl: '.swiper-button-next',
@@ -38,5 +45,4 @@ export class SwiperCardHomeComponent implements AfterViewInit {
       },
     });
   }
-
 }

@@ -7,7 +7,7 @@ import { BottomNavComponent } from '../../shared/bottom-nav/bottom-nav.component
 declare var Swiper: any;
 @Component({
   selector: 'app-casino',
-  imports: [ CommonModule, FooterComponent, BottomNavComponent],
+  imports: [CommonModule, FooterComponent, BottomNavComponent],
   templateUrl: './casino.component.html',
   styleUrl: './casino.component.css',
   // encapsulation: ViewEncapsulation.None
@@ -425,7 +425,7 @@ export class CasinoComponent {
 
   ngAfterViewInit(): void {
     const swiper = new Swiper('.mySwiper', {
-      loop: true,
+      loop: false,
       slidesPerView: 1,
       pagination: {
         el: '.swiper-pagination',
