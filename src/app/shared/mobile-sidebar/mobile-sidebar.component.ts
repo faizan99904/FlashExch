@@ -1,7 +1,9 @@
 import { CommonModule, NgIf } from '@angular/common';
-import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { Component, effect, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SharedService } from '../../service/shared.service';
+import { MainService } from '../../service/main.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mobile-sidebar',
@@ -12,7 +14,7 @@ import { SharedService } from '../../service/shared.service';
 export class MobileSidebarComponent {
   dropdownOpen = false;
   dropdownHeight = '0px';
-
+  activeIndex: any
   @ViewChild('dropdownList') dropdownList!: ElementRef;
 
   languages = [
@@ -31,7 +33,12 @@ export class MobileSidebarComponent {
   isVisible = false;
   private sub!: Subscription;
 
-  constructor(private sharedService: SharedService, private renderer: Renderer2) { }
+  constructor(private sharedService: SharedService, private renderer: Renderer2, public mainService: MainService, private router:Router) {
+    effect(() => {
+      this.activeIndex = this.mainService.getActiveSport();
+      console.log(this.mainService.sportsList())
+    });
+  }
 
   ngOnInit(): void {
     this.sub = this.sharedService.mobileSidebarToggle$.subscribe(show => {
@@ -46,6 +53,7 @@ export class MobileSidebarComponent {
       }
     });
   }
+
   closeSidebar() {
     this.sharedService.mobileSidebarClose();
     const mainRouterEl = document.querySelector('.mainRouter');
@@ -61,7 +69,7 @@ export class MobileSidebarComponent {
   //     mainRouterEl.classList.remove('prevent-scroll');
   //   }
   // }
-  
+
   toggleDropdown(): void {
     this.dropdownOpen = !this.dropdownOpen;
     setTimeout(() => {
@@ -80,4 +88,14 @@ export class MobileSidebarComponent {
     this.selectedLanguage = lang;
     this.toggleDropdown();
   }
+
+  navigateMarket(sportName: any, sportId: any) {
+    if (sportName === 'Horse Racing' || sportName === 'Greyhound Racing') {
+      this.router.navigateByUrl(`racing/${sportId}`)
+    } else {
+      this.router.navigateByUrl(`competitions/${sportId}`)
+    }
+    this.closeSidebar()
+  }
+  
 }
