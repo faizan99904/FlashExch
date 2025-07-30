@@ -15,8 +15,8 @@ export class SidebarComponent {
   sportId: any;
   parentIndex: any
   childIndex: any
-  lastChild:any
   activeRoute: any;
+  currentRoute:any
   sidebarEvent: any = []
   dropdowns: { [key: string]: boolean } = {
     topLeagues: false,
@@ -27,6 +27,7 @@ export class SidebarComponent {
 
   constructor(private router: Router, public mainService: MainService, private route: ActivatedRoute) {
     const routeUrl = this.router.url.split('/');
+    this.currentRoute = this.router.url
     const routeNameOne = routeUrl[1];
     this.activeRoute = routeNameOne
     this.router.events.subscribe((event: any) => {
@@ -34,6 +35,7 @@ export class SidebarComponent {
         const urlSegments = event.urlAfterRedirects.split('/');
         const routeName = urlSegments[1];
         this.activeRoute = routeName
+        this.currentRoute = event.url
       }
     })
 
@@ -92,7 +94,6 @@ export class SidebarComponent {
     this.router.navigateByUrl(
       '/market-detail/' + market.sportId + '/' + market.exEventId
     );
-    this.lastChild = index
   }
 
   
