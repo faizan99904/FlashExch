@@ -777,8 +777,11 @@ export class MarketDetailComponent {
 
   changeFancyMarket(tableFlag: any, onChangeData?: any) {
     const element = document.getElementById(tableFlag);
-    if (element && !onChangeData) {
+    if (element && (!onChangeData)) {
+
       setTimeout(() => {
+
+
         const elementRect = element.getBoundingClientRect();
         const isElementVisible = (
           elementRect.top >= 0 &&
@@ -789,29 +792,69 @@ export class MarketDetailComponent {
           this.centerScrollableDiv(tableFlag);
           // element.scrollIntoView({ behavior: "smooth", block: "center", inline: 'center' });
         }
+
       }, 0);
+    }
+    if(this.isDesktop){
+      this.AllFancyMarketsFiltered = this.AllFancyMarkets.filter((market: any) => {
+        if (market?.oddsData?.status != 'CLOSED') {
+          return market
+        }
+        else {
+          return null
+        }
+      }).sort((a: any, b: any) => a.sequence - b.sequence);
+
+      return
     }
 
     this.selectedFancyMarket = tableFlag;
 
-    if (tableFlag == 'SPORTSBOOK' || tableFlag == 'Sportsbook') {
-      if (!onChangeData) {
-        this.getSportbookDataFirebase(this.getFirestoreBySportId(this.sportId));
-      }
+    if ((tableFlag == 'SPORTSBOOK' || tableFlag == 'Sportsbook')) {
+     
 
-      this.AllFancyMarketsFiltered = this.filterAndSortFancyMarkets('SPORTSBOOK');
-    } else {
-      if (this.sportbookSubscription) {
-        this.sportbookSubscription.unsubscribe();
-      }
+      this.AllFancyMarketsFiltered = this.AllFancyMarkets.filter((market: any) => {
+        if (market.tableFlag == 'SPORTSBOOK' && market?.oddsData?.status != 'CLOSED' && !market?.popular) {
+          return market
+        }
+        else {
+          return null
+        }
+      }).sort((a: any, b: any) => a.sequence - b.sequence);
 
+    } else
+
+    {
+      
       if (tableFlag == 'popular') {
-        this.AllFancyMarketsFiltered = this.filterAndSortFancyMarkets('FANCY', 'FANCY');
-        return;
-      } else {
-        this.AllFancyMarketsFiltered = this.filterAndSortFancyMarkets(tableFlag);
+        this.AllFancyMarketsFiltered = this.AllFancyMarkets.filter((market: any) => {
+          if (market.oddsType == 'FANCY' && market?.oddsData?.status != 'CLOSED') {
+            return market
+          }
+          else {
+            return null
+          }
+        }).sort((a: any, b: any) => a.sequence - b.sequence);
+        return
+      }
+
+      else {
+        this.AllFancyMarketsFiltered = this.AllFancyMarkets.filter((market: any) => {
+          if (market.marketType !== "Linemarket" && market.oddsType == 'FANCY'
+            && tableFlag == 'Fancy' && market?.oddsData?.status != 'CLOSED') {
+            return market
+          }
+          if (market.marketType !== "Fancy" && market.marketType == tableFlag && market?.oddsData?.status != 'CLOSED') {
+            return market
+          }
+          else {
+            return null
+          }
+        }).sort((a: any, b: any) => a.sequence - b.sequence);
       }
     }
+
+
   }
 
   private getFirestoreBySportId(sportId: string): any {
@@ -827,21 +870,7 @@ export class MarketDetailComponent {
     }
   }
 
-  private filterAndSortFancyMarkets(type: string, subType?: string): any[] {
-    return this.AllFancyMarkets
-      .filter((market: any) => {
-        const isClosed = market?.oddsData?.status === 'CLOSED';
-        if (type === 'SPORTSBOOK') {
-          return market.tableFlag === type && !isClosed;
-        } else if (type === 'FANCY' && subType === 'FANCY') {
-          return market.oddsType === type && !isClosed;
-        } else {
-          return market.marketType !== 'Linemarket' && market.oddsType === type &&
-            (subType === 'Fancy' ? market.marketType === type : market.marketType === subType) && !isClosed;
-        }
-      })
-      .sort((a: any, b: any) => a.sequence - b.sequence);
-  }
+ 
 
   changeOddsMarket(marketid: any, tableFlag: any, onChangeOddData?: any) {
     const element = document.getElementById(marketid);

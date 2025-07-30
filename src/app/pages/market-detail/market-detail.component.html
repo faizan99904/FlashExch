@@ -323,7 +323,7 @@
             <ng-container *ngFor="let market of AllFancyMarketsFiltered ;index as i; trackBy: trackByFn">
 
             
-        <div class="w-full py-1.5">
+        <div class="w-full py-1.5" *ngIf="market.oddsType!='SPORTSBOOK'">
             <div class=" bg-bg_color_primary rounded-[3px] shadow-[0_8px_30px_rgb(0,0,0,0.12)] py-[1px] cursor-pointer">
                 <div title="Match 1st Over" id="1" class="grid grid-cols-12 ">
                     <div
@@ -377,20 +377,27 @@
                                 <div class="w-full h-full grid grid-cols-2 gap-x-0.5 py-[1px] pr-[2px]">
                                     <div class="w-full h-full">
                                         <div
+                                        (click)="openBetslip(market.exMarketId,market.oddsData.runners[0].selectionId,'lay',market.oddsData.runners[0].price.lay[0].price,
+                                        market.min, market.max,market.oddsType, market.marketName,market.oddsData.runners[0].price.lay[0].size,0,market.marketType,market.isSuperFancy)"
                                             class=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
                                             <span id="oddBtnPrice"
-                                                class="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold">5</span><span
+                                                class="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold">{{(market.oddsData.runners[0].price.lay[0].price)|
+                                                    number}}</span><span
                                                 id="oddBtnSize"
-                                                class=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal">100</span>
+                                                class=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal">{{market.oddsData.runners[0].price.lay[0].size |
+                                                    shortNumber}}</span>
                                         </div>
                                     </div>
                                     <div class="w-full h-full">
-                                        <div
+                                        <div (click)="openBetslip(market.exMarketId,market.oddsData.runners[0].selectionId,'back',market.oddsData.runners[0].price.back[0].price,
+                                        market.min, market.max,market.oddsType, market.marketName,market.oddsData.runners[0].price.back[0].size,0,market.marketType,market.isSuperFancy)"
                                             class=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue">
                                             <span id="oddBtnPrice"
-                                                class="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold">6</span><span
+                                                class="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold">{{(market.oddsData.runners[0].price.back[0].price)|
+                                                    number}}</span><span
                                                 id="oddBtnSize"
-                                                class=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal">100</span>
+                                                class=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal">{{market.oddsData.runners[0].price.back[0].size |
+                                                    shortNumber}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -399,28 +406,26 @@
                             <div
                                 class=" flex flex-col gap-y-1 items-center h-full w-full  justify-center  px-1 text-text_color_tertiary2">
                                 <div class=" flex items-center justify-center"><span
-                                        class=" text-[10px] text-center ">Max Bet :</span><span
-                                        class=" text-[10px] text-center">3,600</span></div>
+                                        class=" text-[10px] text-center ">Min Bet :</span><span
+                                        class=" text-[10px] text-center">{{market.min}}</span></div>
                                 <div class=" flex items-center justify-start"><span
-                                        class=" text-[10px] text-center ">Max Mkt :</span><span
-                                        class=" text-[10px] text-center">30,000</span></div>
+                                        class=" text-[10px] text-center ">Max Bet :</span><span
+                                        class=" text-[10px] text-center">{{market.max}}</span></div>
                             </div>
                         </span>
                     </div>
                 </div>
             </div>
         </div>
-    </ng-container>
-        }
 
-        @if (!fancyMarket) {
-        <div class="w-full py-1.5">
+        <!-- sportsbook -->
+        <div class="w-full py-1.5" *ngIf="market.oddsType=='SPORTSBOOK'">
             <div class=" grid grid-flow-col grid-cols-12 text-text_color_primary1 text-xs font-[500] mb-1.5">
                 <div class="pl-1 flex items-center justify-start gap-x-1 md:gap-x-1
              col-span-7 md:col-span-5 
           ">
                     <div class=" capitalize font-bold text-xs sm:text-sm md:text-[15px] flex items-start justify-start flex-col"
-                        title="Any player to score 50"><span>Any player to score 50 </span><span
+                        title="Any player to score 50"><span>{{market.marketName}} </span><span
                             class="text-x font-normal text-text_color_info"> </span></div>
                 </div>
                 <div class="col-span-5 md:col-span-7 grid grid-cols-2 md:grid-cols-6 pb-[2px] w-full">
@@ -456,20 +461,7 @@
                             <div id="hideScrollBar" class="w-full overflow-x-auto flex h-full sm:px-[2px]">
                                 <div class="w-full h-full grid grid-cols-2 gap-x-0.5 py-[1px] pr-[2px]">
                                     <div class="w-full h-full flex gap-[1px]">
-                                        <div
-                                            class=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center bg-bg_color_backBtnBg text-text_color_oddValue">
-                                            <span id="oddBtnPrice"
-                                                class="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold">1.35</span><span
-                                                id="oddBtnSize"
-                                                class=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal">100</span>
-                                        </div>
-                                        <div
-                                            class=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm hidden md:flex flex-col transition-colors duration-300 ease-in-out items-center justify-center bg-bg_color_backBtnBg text-text_color_oddValue">
-                                            <span id="oddBtnPrice"
-                                                class="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold">1.35</span><span
-                                                id="oddBtnSize"
-                                                class=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal">100</span>
-                                        </div>
+                                        
                                         <div
                                             class=" overflow-hidden relative opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm hidden md:flex flex-col transition-colors duration-300 ease-in-out items-center justify-center bg-bg_color_backBtnBg text-text_color_oddValue">
                                             <span id="oddBtnPrice"
@@ -486,20 +478,7 @@
                                                 id="oddBtnSize"
                                                 class=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal">100</span>
                                         </div>
-                                        <div
-                                            class=" overflow-hidden relative opacity-100 cursor-pointer active:scale-95 px-1 py-[1px] rounded-sm hidden md:flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
-                                            <span id="oddBtnPrice"
-                                                class="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold">1.51</span><span
-                                                id="oddBtnSize"
-                                                class=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal">100</span>
-                                        </div>
-                                        <div
-                                            class=" overflow-hidden relative opacity-100 cursor-pointer active:scale-95 px-1 py-[1px] rounded-sm hidden md:flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
-                                            <span id="oddBtnPrice"
-                                                class="relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full  leading-5 text-sm md:text-[15px] font-semibold">1.51</span><span
-                                                id="oddBtnSize"
-                                                class=" relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal">100</span>
-                                        </div>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -575,6 +554,11 @@
                 </div>
             </div>
         </div>
+    </ng-container>
+        }
+
+        @if (!fancyMarket) {
+        
         }
     </div>
 </div>
