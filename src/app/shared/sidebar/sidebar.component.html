@@ -205,17 +205,14 @@
                     </div>
                     @if(childIndex == ii){
                     <div class="flex items-center justify-between tracking-tighter bg-[#000] px-[0.6vw] pt-[.2vw] cursor-pointer mt-[1px] h-[2vw] "
-                        *ngFor="let marketTournament of tournament?.data; let i = index" (click)="gotoMarket(marketTournament)">
+                        *ngFor="let marketTournament of tournament?.data; let iii = index"
+                        (click)="gotoMarket(marketTournament, iii)">
                         <div class="flex items-center gap-[0.78vw]">
                             <span class="pt-[0.1vw] text-[11.2px] truncate">{{marketTournament?.eventName}}</span>
                         </div>
                         <div class="flex items-center gap-2">
                             <!-- <span class="text-[#ffffff71]">{{tournament?.data?.length}}</span> -->
-                            <!-- <label
-                                class="w-3.5 h-3.5 border border-transparent rounded-sm flex items-center justify-center cursor-pointer">
-                                <input type="checkbox"
-                                    class="peer appearance-none w-3 h-3 bg-black rounded-sm checked:bg-[#00aa30]" />
-                            </label> -->
+                            <!-- <div class="chbx  !bg-[#292929]" [ngClass]="{'lastChild':lastChild == iii && childIndex == ii}" ></div> -->
                         </div>
                     </div>
                     }

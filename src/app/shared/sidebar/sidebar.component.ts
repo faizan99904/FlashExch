@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, effect } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, NavigationEnd, Route, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Route, Router, RouterLinkActive } from '@angular/router';
 import { filter } from 'rxjs';
 import { MainService } from '../../service/main.service';
 
@@ -15,6 +15,7 @@ export class SidebarComponent {
   sportId: any;
   parentIndex: any
   childIndex: any
+  lastChild:any
   activeRoute: any;
   sidebarEvent: any = []
   dropdowns: { [key: string]: boolean } = {
@@ -79,17 +80,19 @@ export class SidebarComponent {
   subChildIndex(index: any) {
     if (this.childIndex === index) {
       this.childIndex = null
+      
     } else {
       this.childIndex = index
     }
 
   }
 
-  gotoMarket(market: any) {
+  gotoMarket(market: any, index:any) {
     localStorage.setItem('competitionName', market.tournamentName);
     this.router.navigateByUrl(
       '/market-detail/' + market.sportId + '/' + market.exEventId
     );
+    this.lastChild = index
   }
 
   
