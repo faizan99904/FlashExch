@@ -1,0 +1,54 @@
+.loader-wrapper {
+  height: 141px;
+  display: flex;
+  align-items: center;
+  padding-top: 10rem;
+}
+
+.loader-wrapper .loader {
+  margin-top: 50px;
+  animation-delay: -0.16s !important;
+  background: #fff;
+  animation: loaderAnim 1s infinite ease-in-out;
+  width: 6px;
+  transform: translateY(5px);
+  position: relative;
+  color: #fff;
+  text-indent: -9999em;
+  margin: 0 auto;
+}
+
+.loader:before {
+  position: absolute;
+  top: 0;
+  content: "";
+  left: -10px;
+  animation-delay: -0.32s !important;
+  background: #fff;
+  animation: loaderAnim 1s infinite ease-in-out;
+  width: 6px;
+}
+
+.loader:after {
+  position: absolute;
+  top: 0;
+  content: "";
+  left: 10px;
+  background: #fff;
+  animation: loaderAnim 1s infinite ease-in-out;
+  width: 6px;
+}
+
+@keyframes loaderAnim {
+  0%,
+  100%,
+  80% {
+    box-shadow: 0 0;
+    height: 24px;
+  }
+
+  40% {
+    box-shadow: 0 -10px;
+    height: 30px;
+  }
+}

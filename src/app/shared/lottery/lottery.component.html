@@ -8,9 +8,7 @@
     </div>
 
     @if (loader) {
-    <div class="loader-wrapper w-full lg:hidden justify-center">
-        <div class="loader"></div>
-    </div>
+    <app-loader></app-loader>
     }
     <ul class="p-[10.406px] grid grid-cols-3 md:grid-cols-5 gap-[10.406px]">
         @for (item of data; track $index) {

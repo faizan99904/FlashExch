@@ -2,10 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CONFIG } from '../../../../config';
 import { CommonModule } from '@angular/common';
+import { LoaderComponent } from "../loader/loader.component";
 
 @Component({
   selector: 'app-lottery',
-  imports: [CommonModule],
+  imports: [CommonModule, LoaderComponent],
   templateUrl: './lottery.component.html',
   styleUrl: './lottery.component.css',
 })
