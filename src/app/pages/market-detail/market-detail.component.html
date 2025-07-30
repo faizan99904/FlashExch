@@ -319,7 +319,8 @@
         </div>
      
 
-        @if (fancyMarket) {
+        
+        <!-- fancu market -->
             <ng-container *ngFor="let market of AllFancyMarketsFiltered ;index as i; trackBy: trackByFn">
 
             
@@ -581,11 +582,9 @@
             </div>
         </div>
     </ng-container>
-        }
-
-        @if (!fancyMarket) {
         
-        }
+
+      
     </div>
 </div>
 }

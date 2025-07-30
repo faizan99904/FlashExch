@@ -776,6 +776,7 @@ export class MarketDetailComponent {
 
 
   changeFancyMarket(tableFlag: any, onChangeData?: any) {
+   
     const element = document.getElementById(tableFlag);
     if (element && (!onChangeData)) {
 
@@ -795,18 +796,7 @@ export class MarketDetailComponent {
 
       }, 0);
     }
-    if(this.isDesktop){
-      this.AllFancyMarketsFiltered = this.AllFancyMarkets.filter((market: any) => {
-        if (market?.oddsData?.status != 'CLOSED') {
-          return market
-        }
-        else {
-          return null
-        }
-      }).sort((a: any, b: any) => a.sequence - b.sequence);
-
-      return
-    }
+   
 
     this.selectedFancyMarket = tableFlag;
 
@@ -822,9 +812,7 @@ export class MarketDetailComponent {
         }
       }).sort((a: any, b: any) => a.sequence - b.sequence);
 
-    } else
-
-    {
+    } else{
       
       if (tableFlag == 'popular') {
         this.AllFancyMarketsFiltered = this.AllFancyMarkets.filter((market: any) => {
