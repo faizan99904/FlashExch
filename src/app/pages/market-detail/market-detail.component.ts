@@ -27,12 +27,13 @@ import { MainService } from '../../service/main.service';
 import { CONFIG } from '../../../../config';
 import { ShortNumberPipe } from '../../shared/pipes/short-number.pipe';
 import { BetslipComponent } from '../../shared/betslip/betslip.component';
+import { InplayComponent } from "../../shared/inplay/inplay.component";
 
 declare var $: any;
 
 @Component({
   selector: 'app-market-detail',
-  imports: [CommonModule, ShortNumberPipe, BetslipComponent],
+  imports: [CommonModule, ShortNumberPipe, BetslipComponent, InplayComponent],
   templateUrl: './market-detail.component.html',
   styleUrl: './market-detail.component.css',
 })

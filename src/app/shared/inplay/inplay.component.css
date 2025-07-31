@@ -1,0 +1,80 @@
+.bg-bg_competetionInPlayUpComingBg {
+  background-image: linear-gradient(90deg, #22272a, #22272a);
+}
+
+.border-border_color_primary {
+  border-color: #545454;
+}
+
+.text-text_color_primary2,
+.text-text_color_primary1 {
+  color: white;
+}
+
+.bg-bg_color_primary {
+  background-color: #1f2c3d;
+}
+
+.text-text_color_InPlayEventsScoreAndTime {
+  color: #4cae50;
+}
+
+.inplay-heading {
+  @apply w-full flex items-center justify-between border-b rounded-t-[10px] py-1.5 px-[7px];
+}
+
+.img-wrapper {
+  @apply flex items-center  font-semibold text-[18px] tracking-wide justify-start w-full gap-[5px];
+}
+
+.inplay-content {
+  @apply border border-b-0 shadow-lg border-t-0 rounded-b;
+}
+
+.event-title {
+  @apply px-2 h-full py-2.5 col-span-6 lg:col-span-5 pl-2 flex items-center justify-start w-full gap-x-2;
+}
+
+.event-name {
+  @apply mt-0.5 md:text-[18px] text-base font-semibold leading-3 tracking-wide text-center;
+}
+
+.event-score {
+  @apply col-span-6 py-2.5 lg:col-span-7 grid grid-cols-12 h-full;
+}
+
+.score {
+  @apply mt-0.5 text-xs font-semibold col-span-4 text-center flex items-center justify-center tracking-[0.3];
+}
+
+.market-title {
+  @apply col-span-6 h-12 lg:col-span-5 grid grid-cols-7 border-t;
+}
+
+.market-date {
+  @apply flex items-center justify-center flex-col col-span-2 pl-[1px] pr-[1px] active:scale-[94%] transition-all ease-in-out duration-100;
+}
+
+.date {
+  @apply text-[8px] sm:text-[9px] md:text-[10px] font-semibold w-full text-center;
+}
+
+.market-name {
+  @apply cursor-pointer select-none flex items-center justify-start col-span-5 px-1 relative border-l border-r active:scale-[94%] transition-all ease-in-out duration-100;
+}
+
+.market-text {
+  @apply flex flex-col items-center justify-start w-[92%] md:w-[89%] mr-1;
+}
+
+.text-wrapper {
+  @apply select-none w-full flex items-center justify-start;
+}
+
+.brand {
+  @apply w-[5px] h-[5px] p-[1px] mr-[2px];
+}
+
+.brand-text {
+  @apply text-[11px] font-bold text-text_color_primary1  truncate sm:text-xs md:text-sm;
+}
