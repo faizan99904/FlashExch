@@ -330,7 +330,7 @@
         <!-- fancu market -->
         <ng-container *ngFor="let market of AllFancyMarketsFiltered ;index as i; trackBy: trackByFn">
             <div class="w-full py-1.5" *ngIf="market.oddsType!='SPORTSBOOK'">
-                <div *ngIf="market.oddsType!='SPORTSBOOK'" class="grid grid-cols-12 w-full">
+                <div *ngIf="i === 0" class="grid grid-cols-12 w-full">
                     <div class="w-full md:col-span-6 col-span-7 grid grid-cols-12 grid-flow-col">
                     </div>
                     <div class="col-span-5 md:col-span-6 grid grid-cols-2 md:grid-cols-6 relative">
@@ -448,9 +448,9 @@
                     </div>
                     <div class="col-span-5 md:col-span-6 grid grid-cols-2 md:grid-cols-6 pb-[2px] w-full">
                         <span
-                            class="md:col-span-2 col-span-1 text-center text-[10px] sm:text-xs md:text-sm leading-3  font-bold h-full flex items-end justify-center">BACK</span>
+                            class="md:col-span-2 col-span-1 text-center text-[10px] sm:text-xs md:text-sm leading-3  font-bold h-full flex items-end justify-center"></span>
                         <span
-                            class="md:col-span-2 col-span-1 text-center text-[10px] sm:text-xs md:text-sm  leading-3 font-bold h-full flex items-end justify-center">LAY</span>
+                            class="md:col-span-2 col-span-1 text-center text-[10px] sm:text-xs md:text-sm  leading-3 font-bold h-full flex items-end justify-center"></span>
                         <span
                             class="md:col-span-2 col-span-1 text-center text-[10px] sm:text-xs md:text-sm  leading-3 font-bold h-full items-end justify-center hidden md:flex"></span>
                     </div>
