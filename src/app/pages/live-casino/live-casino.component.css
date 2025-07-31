@@ -280,6 +280,28 @@
   text-wrap: nowrap;
 }
 
+.no-data {
+  background: #14171c;
+  text-align: center;
+  border-radius: 30px;
+  height: 234.375px;
+  font-size: 18.75px;
+  text-transform: capitalize;
+  color: rgba(255, 255, 255, 0.8);
+  width: 100%;
+}
+
+.no-data .icon {
+  position: relative;
+  width: calc(100% + 0.375rem);
+  margin-top: 5.625rem;
+  font-size: 39.375px;
+}
+.no-data .text {
+  font-size: 16.875px;
+  margin-top: 28.125px;
+}
+
 .search-input {
   border: 0;
   border-radius: 0.4rem;
@@ -329,6 +351,25 @@
   transition: 0.2s ease;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+.mb-no-data {
+  height: 50vw;
+  width: 100%;
+  color: #434343;
+  background-color: #000;
+  text-align: center;
+  overflow: hidden;
+}
+
+.mb-no-data .icon {
+  margin-top: 13vw;
+  font-size: 11vw;
+}
+
+.mb-no-data .text {
+  font-size: 4vw;
+  margin-top: 3vw;
 }
 
 .desk-pro:after {

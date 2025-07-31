@@ -101,7 +101,8 @@
                     <span class="ml-[1.78411px] text-[12.4872px] uppercase">Back</span>
                 </div>
                 <div>
-                    <h1 class="text-[21.4062px]  font-bold"> <span *ngIf="SeeAlFilter == 'all'" class="text-[#11e311]">All</span> Slots </h1>
+                    <h1 class="text-[21.4062px]  font-bold"> <span *ngIf="SeeAlFilter == 'all'"
+                            class="text-[#11e311]">All</span> Slots </h1>
                 </div>
             </div>
 
@@ -115,6 +116,11 @@
                     </div>
                 </li>
             </ul>
+
+            <div class="mb-no-data" style="display: block;" *ngIf="searchFilter.length <= 0"> 
+                <div class="material-icons icon" >assignment</div>
+                <p class="text" text_key="CASINO__NO_GAMES">games not found</p>
+            </div>
         </div>
         }@else {
         <div>
@@ -200,7 +206,8 @@
 
             <div class="flex flex-col items-center gap-[4.875px]">
                 <div class="desktop-search">
-                    <input type="text" (input)="searchGame(inputVal.value)" #inputVal name="" id="" placeholder="Search games">
+                    <input type="text" (input)="searchGame(inputVal.value)" #inputVal name="" id=""
+                        placeholder="Search games">
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M10.6333 17.6C14.4809 17.6 17.6 14.4809 17.6 10.6333C17.6 6.78571 14.4809 3.66663 10.6333 3.66663C6.78571 3.66663 3.66663 6.78571 3.66663 10.6333C3.66663 14.4809 6.78571 17.6 10.6333 17.6Z"
@@ -215,12 +222,20 @@
             <div
                 class="desktop-categories gap-[0.4258rem] h-[2.5434rem] w-full text-[0.6352rem] flex items-center justify-center">
 
-                <div class="flex items-center justify-center bg-[#1f242b] border border-solid border-[#1f242b] text-[#e8e8e8] h-full  grow poppins-medium p-[0_ 0.9367rem] cursor-pointer text-center rounded-[0.5109rem] desktop-category-item" (click)="desktopFilter(menu?.menuId)" *ngFor="let menu of filterMenuList" (click)="seeToggle(menu)"> {{menu.menuName}}
+                <div class="flex items-center justify-center bg-[#1f242b] border border-solid border-[#1f242b] text-[#e8e8e8] h-full  grow poppins-medium p-[0_ 0.9367rem] cursor-pointer text-center rounded-[0.5109rem] desktop-category-item"
+                    (click)="desktopFilter(menu?.menuId)" *ngFor="let menu of filterMenuList" (click)="seeToggle(menu)">
+                    {{menu.menuName}}
                 </div>
             </div>
         </div>
+
+        <div class="no-data" style="display: block;" *ngIf="searchFilter <= 0">
+            <div class="material-icons icon">assignment</div>
+            <div class="text">games not found</div>
+        </div>
+
         <div>
-            <ul class="desktop-games">
+            <ul class=" desktop-games">
                 <li *ngFor="let games of searchFilter">
                     <div class="bg group [background-image:url('https://static.inpcdn.com/112,1d7a87faf80b9b.webp')]">
                         <div class="slot-hover">
@@ -231,7 +246,8 @@
                         </div>
                         <div
                             class="game-title absolute h-[1.7031rem] flex items-center justify-center px-[0.6387rem] bottom-0 w-full z-[1] pointer-events-none">
-                            <h1 class="truncate text-[0.6813rem] poppins-regular !font-bold text-white">{{games.eventName}}</h1>
+                            <h1 class="truncate text-[0.6813rem] poppins-regular !font-bold text-white">
+                                {{games.eventName}}</h1>
                         </div>
                     </div>
                 </li>
