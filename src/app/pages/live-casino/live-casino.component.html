@@ -19,9 +19,7 @@
                     @for (item of mobItems; track $index) {
                     <li
                         class="cat-li flex items-center justify-center cursor-pointer p-[0.82em] bg-[#13161b] rounded-[0.3902rem] overflow-hidden">
-                        <img id="cate-img"
-                            class="h-[1.6259rem] max-h-[1.6259rem] max-sm:max-h-[1.41797rem] w-full block"
-                            [src]="item.img" alt="">
+                        <img id="cate-img" class="h-[1.6259rem] max-h-[1.6259rem] max-sm:max-h-[1.41797rem] w-full block" [src]="item.img" alt="">
                     </li>
                     }
                 </ul>
@@ -46,12 +44,12 @@
                             <ul class="flex w-full h-full items-center  overflow-x-auto overflow-y-hidden 
                                 min-[375]:mt-[2.5px] tab-menu">
                                 <li (click)="seeToggle('all')"
-                                    class="text-center relative shrink-0 p-[0.2723rem_0.6806rem] cursor-pointer border-b border-transparent w-[3.5723rem]">
+                                    class="mb-search-tab w-[3.5723rem]">
                                     <div class="text-[0.6806rem] text-white ">All</div>
                                 </li>
 
                                 <li *ngFor="let menu of filterMenuList" (click)="seeToggle(menu)"
-                                    class="text-center relative shrink-0 p-[0.2723rem_0.6806rem] cursor-pointer border-b border-transparent">
+                                    class="mb-search-tab">
                                     <div class="text-[0.6806rem] text-white ">{{menu.menuName}}</div>
                                 </li>
 
