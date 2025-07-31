@@ -1,87 +1,79 @@
 <!-- Mobile -->
 
-<div class=" market-wrapper p-[2vw_2.5vw] bg-[#101317] overflow-hidden" *ngIf="isMobile && searchTab === 'line_style'"
+<div class=" market-wrapper  mobile-main-container" *ngIf="isMobile && searchTab === 'line_style'"
     [ngClass]="{'!mt-0':index === 0}">
-    <div class="first-line flex items-center h-[6vw]">
-        <div class="start text-[4.5vw] mr-[1.2vw] h-full items-center">
-            <span class="material-icons text-[#A0A1A2] text-[4vw]">equalizer</span>
+    <div class="first-line  market-tournamentName-wrapper">
+        <div class="start mobile-star-wrapper">
+            <span class="material-icons equalizer-text">equalizer</span>
         </div>
-        <div class="date text-[#00aa30] text-[3vw] font-[200] h-full items-center flex">
+        <div class="date market-event-wrapper">
             <span>{{market.eventTime | date:'dd/MM'}}</span>
             <span class="ml-[.8vw] ">{{market.eventTime | date:'HH:mm'}}</span>
         </div>
-        <div class="champ-name relative ml-[2vw] h-full items-center flex">
-            <span class="material-icons text-[#A0A1A2] text-[4vw]">error_outline</span>
+        <div class="champ-name  error_outline_wrapper">
+            <span class="material-icons  error_outline_icon">error_outline</span>
             <div class="text hidden">{{market.tournamentName}}</div>
         </div>
-        <div class="market-count text-[3vw] text-white ml-auto">
+        <div class="market-count keyboard_arrow_wrapper">
             <span class="[vertical-align:middle]"></span>
-            <span class="material-icons text-[4.5vw] [vertical-align:middle]">keyboard_arrow_right</span>
+            <span class="material-icons keyboard_arrow_icon">keyboard_arrow_right</span>
         </div>
     </div>
-    <div class="second-line mb-[-2vw] overflow-hidden flex items-center mt-[.5vw]">
-        <div class="star-wrapper leading-[6vw] mr-[1vw] ml-[-1px] text-[5vw] flex">
+    <div class="second-line star-border-wrapper">
+        <div class="star-wrapper star-icon-mb">
             <span class="material-icons text-[#00aa30]">star_border</span>
         </div>
-        <div class="match-name marketWidth w-[calc(100%-7vw)] p-0 text-white leading-[6vw] text-[3.5vw]"
-            (click)="gotoMarket(market)">
+        <div class="match-name marketWidth market-event-name" (click)="gotoMarket(market)">
             <span>{{market.eventName}}</span>
         </div>
     </div>
 
-    <div class="w-full flex items-center mt-[0.56rem] justify-center gap-x-[0.44rem] ">
-        <div class="w-full relative opacity-70 cursor-not-allowed">
-            <div
-                class="undefined w-full rounded-[0.375rem] grid grid-cols-2 text-[13px] text-text_secondary overflow-hidden">
-                <button class=" relative overflow-hidden  transition duration-150 ease-in-out   col-span-1 w-full  bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4  font-bold   
-      cursor-pointer
-      active:scale-[98%]
-      " type="button"><span class=" text-[13px]">
+    <div class="mobile-market-box-wrapper">
+
+        <div class="mobile-box-container">
+            <div class="undefined text-text_secondary lay-back-box">
+
+                <button class="bg-bg_backBtnBgColor back-box" type="button"><span class=" text-[13px]">
                         {{market?.oddsData?.runners[0]?.price?.back[0] ?
                         market?.oddsData?.runners[0]?.price?.back[0]?.price : '0'}}
-                    </span></button><button class=" relative overflow-hidden  transition duration-150 ease-in-out  col-span-1 w-full  bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold  
-      cursor-pointer
-      active:scale-[98%]
-      " type="button"><span class="text-[13px]">{{market?.oddsData?.runners[0]?.price?.lay[0] ?
-                        market?.oddsData?.runners[0]?.price?.lay[0]?.price : '0'}}</span></button>
+                    </span>
+                </button>
+
+                <button class="bg-bg_layBtnBgColor back-box" type="button">
+                    <span class="text-[13px]">{{market?.oddsData?.runners[0]?.price?.lay[0] ?
+                        market?.oddsData?.runners[0]?.price?.lay[0]?.price : '0'}}</span>
+                </button>
+
             </div>
-            <div
-                class="absolute top-1/2 z-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bg_secondary w-[1.25rem] h-[1.25rem] rounded-full flex items-center justify-center text-text_secondary2 text-[13px] font-semibold">
-                0</div>
+            <div class="market-round-box bg-bg_secondary text-text_secondary2">0</div>
         </div>
-        <div class="w-full relative opacity-70 cursor-not-allowed">
-            <div
-                class="undefined w-full rounded-[0.375rem] grid grid-cols-2 text-[13px] text-text_secondary overflow-hidden">
-                <button class=" relative overflow-hidden  transition duration-150 ease-in-out   col-span-1 w-full bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4  font-bold   
-      cursor-pointer
-      active:scale-[98%]
-      " type="button"><span class=" text-[13px]">{{market?.oddsData?.runners[2]?.price?.back[0] ?
-                        market?.oddsData?.runners[2]?.price?.back[0]?.price : '0.0'}}</span></button><button class=" relative overflow-hidden  transition duration-150 ease-in-out col-span-1 w-full bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold  
-      cursor-pointer
-      active:scale-[98%]
-      " type="button"><span class="text-[13px]">{{market?.oddsData?.runners[2]?.price?.lay[0] ?
-                        market?.oddsData?.runners[2]?.price?.lay[0]?.price : '0.0'}}</span></button>
+
+        <div class="mobile-box-container">
+            <div class="undefined text-text_secondary lay-back-box">
+                <button class="bg-bg_backBtnBgColor back-box" type="button"><span
+                        class=" text-[13px]">{{market?.oddsData?.runners[2]?.price?.back[0] ?
+                        market?.oddsData?.runners[2]?.price?.back[0]?.price : '0.0'}}</span>
+                </button>
+                <button class=" bg-bg_layBtnBgColor back-box" type="button">
+                    <span class="text-[13px]">{{market?.oddsData?.runners[2]?.price?.lay[0] ?
+                        market?.oddsData?.runners[2]?.price?.lay[0]?.price : '0.0'}}</span>
+                </button>
             </div>
-            <div
-                class="absolute top-1/2 z-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bg_secondary w-[1.25rem] h-[1.25rem] rounded-full flex items-center justify-center text-text_secondary2 text-[13px] font-semibold">
-                2</div>
+            <div class="market-round-box bg-bg_secondary text-text_secondary2">2</div>
         </div>
-        <div class="w-full relative opacity-70 cursor-not-allowed">
-            <div
-                class="undefined w-full rounded-[0.375rem] grid grid-cols-2 text-[13px] text-text_secondary overflow-hidden">
-                <button class="relative overflow-hidden  transition duration-150 ease-in-out  col-span-1 w-full bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4  font-bold   
-      cursor-pointer
-      active:scale-[98%]
-      " type="button"><span class=" text-[13px]">{{market?.oddsData?.runners[1]?.price?.back[0] ?
-                        market?.oddsData?.runners[1]?.price?.back[0]?.price : '0'}}</span></button><button class="relative overflow-hidden  transition duration-150 ease-in-out col-span-1 w-full bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold  
-      cursor-pointer
-      active:scale-[98%]
-      " type="button"><span class="text-[13px]">{{market?.oddsData?.runners[1]?.price?.lay[0] ?
-                        market.oddsData?.runners[1]?.price?.lay[0]?.price : '0'}}</span></button>
+
+        <div class="mobile-box-container">
+            <div class="undefined text-text_secondary lay-back-box">
+                <button class="bg-bg_backBtnBgColor back-box" type="button">
+                    <span class=" text-[13px]">{{market?.oddsData?.runners[1]?.price?.back[0] ?
+                        market?.oddsData?.runners[1]?.price?.back[0]?.price : '0'}}</span>
+                </button>
+                <button class="bg-bg_layBtnBgColor back-box" type="button">
+                    <span class="text-[13px]">{{market?.oddsData?.runners[1]?.price?.lay[0] ?
+                        market.oddsData?.runners[1]?.price?.lay[0]?.price : '0'}}</span>
+                </button>
             </div>
-            <div
-                class="absolute top-1/2 z-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bg_secondary w-[1.25rem] h-[1.25rem] rounded-full flex items-center justify-center text-text_secondary2 text-[13px] font-semibold">
-                1</div>
+            <div class="market-round-box bg-bg_secondary text-text_secondary2"> 1</div>
         </div>
     </div>
 </div>
@@ -142,7 +134,8 @@
             <div class="star-wrapper">
                 <span icon="star_border" class="material-icons">star_border</span>
             </div>
-            <div class="match-name p-[1vw_0px] !text-[3.5vw]" (click)="gotoMarket(market)" *ngIf="market.marketName!='Ball By Ball'">
+            <div class="match-name p-[1vw_0px] !text-[3.5vw]" (click)="gotoMarket(market)"
+                *ngIf="market.marketName!='Ball By Ball'">
                 <div class="dotted-hidden team"><span class="dotted-hidden name">
                         {{ getEventName(true,
                         market?.eventName)
@@ -153,7 +146,7 @@
                         }}</span>
                 </div>
             </div>
-            <div class="match-name p-[1vw_0px] !text-[3.5vw]"  *ngIf="market.marketName=='Ball By Ball'">
+            <div class="match-name p-[1vw_0px] !text-[3.5vw]" *ngIf="market.marketName=='Ball By Ball'">
                 <div class="dotted-hidden team">
                     <span class="dotted-hidden name">
                         {{ market?.eventName }}
@@ -188,15 +181,15 @@
 <!-- Desktop -->
 
 <div class="prematch-matches relative p-0 border-none" *ngIf="!isMobile">
-    <div *ngIf="index==0"
-        class="g-title [border-bottom-left-radius:0] [border-bottom-right-radius:0;] bg-[#070b10] h-[4rem] flex items-center rounded-[3px] leading-[2.5rem]">
-        <div
-            class="rect-title bg-[unset] w-[240px]  pl-[1rem] h-[100%] flex items-center text-[.9rem] text-[#fff] truncate">
+    <div *ngIf="index==0" class="g-title match-result-container">
+        <div class="rect-title lg-sc-sport-wrapper">
             <div class="title">{{market?.sportName}}</div>
         </div>
-        <div class="flex justify-end h-full items-center w-full max-w-[calc(100%-210px)] xl:!max-w-[calc(100%-232px)]">
-            <div class="flex justify-between w-full  text-[#7B7D7F] pr-[3rem]">
-                <div class="w-[33.33%] gap-2 px-5 text-center flex justify-center items-center flex-col">
+        <div class="match-result-wrapper">
+            
+            <div class="sport-inner-container">
+
+                <div class="x12-wrapper">
                     <div class="market-name flex items-center gap-2 relative">
                         <svg class="cursor-pointer desc-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
                             viewBox="0 0 24 24">
@@ -206,136 +199,130 @@
                         </svg>
                         <div class="desc">The Regular Time result of the match is either win of one of the teams or a
                             draw.</div>
-                        <div class="text-[.8rem] text-[#7B7D7F] leading-[12px] ">Match result</div>
+                        <div class="match-result-text ">Match result</div>
                     </div>
                     <div class="flex justify-between items-center w-full">
-                        <div class="text-[.8rem] text-[#7B7D7F] leading-[12px]"></div>
-                        <div class="text-[.8rem] text-[#7B7D7F] leading-[12px]">1</div>
-                        <div class="text-[.8rem] text-[#7B7D7F] leading-[12px]"></div>
+                        <div class="match-result-text"></div>
+                        <div class="match-result-text">1</div>
+                        <div class="match-result-text"></div>
                     </div>
                 </div>
-                <div class="w-[33.33%] gap-2 px-5  text-center flex justify-center items-center flex-col">
+
+                <div class="x12-wrapper">
                     <div class="flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24">
                             <path fill="none" d="M0 0h24v24H0V0z" />
                             <path fill="white"
                                 d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" />
                         </svg>
-                        <div class="text-[.8rem] text-[#7B7D7F] leading-[12px]">Match result</div>
+                        <div class="match-result-text">Match result</div>
                     </div>
                     <div class="flex justify-between items-center w-full">
-                        <div class="text-[.8rem] text-[#7B7D7F] leading-[12px]"></div>
-                        <div class="text-[.8rem] text-[#7B7D7F] leading-[12px]">X</div>
-                        <div class="text-[.8rem] text-[#7B7D7F] leading-[12px]"></div>
+                        <div class="match-result-text"></div>
+                        <div class="match-result-text">X</div>
+                        <div class="match-result-text"></div>
                     </div>
                 </div>
-                <div class="w-[33.33%] gap-2 px-5   text-center flex justify-center items-center flex-col">
+
+                <div class="x12-wrapper">
                     <div class="flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24">
                             <path fill="none" d="M0 0h24v24H0V0z" />
                             <path fill="white"
                                 d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" />
                         </svg>
-                        <div class="text-[.8rem] text-[#7B7D7F] leading-[12px]">Match result</div>
+                        <div class="match-result-text">Match result</div>
                     </div>
                     <div class="flex justify-between items-center w-full">
-                        <div class="text-[.8rem] text-[#7B7D7F] leading-[12px]"></div>
-                        <div class="text-[.8rem] text-[#7B7D7F] leading-[12px]">2</div>
-                        <div class="text-[.8rem] text-[#7B7D7F] leading-[12px]"></div>
+                        <div class="match-result-text"></div>
+                        <div class="match-result-text">2</div>
+                        <div class="match-result-text"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="bg-[#121519]  w-full flex justify-between items-center px-2" (click)="gotoMarket(market)">
+
+    <div class="lg-market-wrapper" (click)="gotoMarket(market)">
+
         <div class="max-w-[140px]">
+
             <!-- <span class="text-[#7B7D7F] mr-2 truncate " routerLink="/market-detail">Ball By Ball</span>
                 <span class="text-[#00A930] truncate">In-Paly</span> -->
-            <div class="flex items-center h-full gap-3">
-                <span class="material-icons text-[hsla(0,0%,100%,.6)] hover:text-[#11E311]">star_border</span>
-                <div class="text-[hsla(0,0%,100%,.6)] flex flex-col py-1 marketType">
+            <div class="lg-market-name-wrapper">
+                <span class="material-icons lg-star-icon">star_border</span>
+
+                <div class="lg-market-event-name marketType">
                     <div class="text-[12.32] text-center"> {{market?.eventTime | date: 'EEE'}}</div>
                     <div class="text-[12.32] text-center"> {{market?.eventTime | date: 'HH:mm'}}</div>
                 </div>
 
-                <div class="text-[hsla(0,0%,100%,.6)] flex flex-col py-1 marketName"
-                    *ngIf="market.marketName=='Ball By Ball'">
+                <div class="lg-market-event-name marketName" *ngIf="market.marketName=='Ball By Ball'">
                     <div class="text-[12.32] text-nowrap truncate">{{market.eventName}}</div>
                     <div class="text-[12.32]">In-Paly</div>
                 </div>
-                <div class="text-[hsla(0,0%,100%,.6)] flex flex-col py-1 marketName"
-                    *ngIf="market.marketName!='Ball By Ball'">
+                <div class="lg-market-event-name marketName" *ngIf="market.marketName!='Ball By Ball'">
                     <div class="text-[12.32] text-nowrap truncate">{{ getEventName(true,
                         market?.eventName)
                         }}</div>
-                    <div class="text-[12.32] truncate max-w-[125px] xl:max-w-[150px]">{{ getEventName(false,
+                    <div class="lg-market-name">{{ getEventName(false,
                         market?.eventName)
                         }}</div>
                 </div>
+
             </div>
         </div>
-        <div class=" flex items-center w-[calc(100%-210px)] xl:w-[calc(100%-232px)]">
 
-            <div class="w-full flex items-center justify-center gap-x-[0.44rem]">
-                <div title="1.12--" class="w-full relative cursor-pointer">
-                    <div
-                        class="undefined w-full rounded-[0.375rem] grid grid-cols-2 text-[13px] text-text_secondary overflow-hidden">
-                        <button title="leftOption-1.12" scaleclass="active:scale-[98%]" class=" relative overflow-hidden  transition duration-150 ease-in-out   col-span-1 w-full  bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4 disabled:opacity-80 font-bold   
-      cursor-pointer
-      active:scale-[98%]
-      " type="button"><span class=" text-[13px]">
+        <div class="lg-market-box-wrapper">
+
+            <div class="lg-box-container">
+
+                <div class="lg-market-box">
+                    <div class="undefined lg-box-wrapper text-text_secondary">
+                        <button class="bg-bg_backBtnBgColor lg-market-box" type="button">
+                            <span class=" text-[13px]">
                                 {{market?.oddsData?.runners[0]?.price?.back[0] ?
                                 market?.oddsData?.runners[0]?.price?.back[0]?.price : '0'}}
-                            </span></button><button title="rightOption--" disabled="" scaleclass="active:scale-[98%]"
-                            class=" relative overflow-hidden  transition duration-150 ease-in-out  col-span-1 w-full  bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold  
-      cursor-pointer
-      active:scale-[98%]
-      " type="button"><span class="text-[13px]">
+                            </span>
+                        </button>
+                        <button class="bg-bg_layBtnBgColor lg-market-box" type="button">
+                            <span class="text-[13px]">
                                 {{market?.oddsData?.runners[0]?.price?.lay[0] ?
                                 market?.oddsData?.runners[0]?.price?.lay[0]?.price : '0'}}
-                            </span></button>
+                            </span>
+                        </button>
                     </div>
-                    <div
-                        class="absolute top-1/2 z-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bg_secondary w-[1.25rem] h-[1.25rem] rounded-full flex items-center justify-center text-text_secondary2 text-[13px] font-semibold">
-                        0</div>
+                    <div class="text-text_secondary2 bg-bg_secondary lg-market-rounded-box">0</div>
                 </div>
-                <div title="---" class="w-full relative cursor-pointer">
-                    <div
-                        class="undefined w-full rounded-[0.375rem] grid grid-cols-2 text-[13px] text-text_secondary overflow-hidden">
-                        <button title="leftOption--" disabled="" scaleclass="active:scale-[98%]" class=" relative overflow-hidden  transition duration-150 ease-in-out   col-span-1 w-full bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4 disabled:opacity-80 font-bold   
-      cursor-pointer
-      active:scale-[98%]
-      " type="button">
+
+                <div class="lg-market-box">
+                    <div class="undefined lg-box-wrapper text-text_secondary">
+                        <button class=" bg-bg_backBtnBgColor lg-market-box" type="button">
                             <span class=" text-[13px]">{{market?.oddsData?.runners[2]?.price?.back[0] ?
                                 market?.oddsData?.runners[2]?.price?.back[0]?.price : '0.0'}}</span>
-                        </button><button title="rightOption--" disabled="" scaleclass="active:scale-[98%]" class=" relative overflow-hidden  transition duration-150 ease-in-out   col-span-1 w-full  bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold  
-      cursor-pointer
-      active:scale-[98%]
-      " type="button"><span class="text-[13px]">{{market?.oddsData?.runners[2]?.price?.lay[0] ?
-                                market?.oddsData?.runners[2]?.price?.lay[0]?.price : '0.0'}}</span></button>
+                        </button>
+                        <button class="bg-bg_layBtnBgColor lg-market-box" type="button">
+                            <span class="text-[13px]">{{market?.oddsData?.runners[2]?.price?.lay[0] ?
+                                market?.oddsData?.runners[2]?.price?.lay[0]?.price : '0.0'}}</span>
+                        </button>
                     </div>
-                    <div
-                        class="absolute top-1/2 z-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bg_secondary w-[1.25rem] h-[1.25rem] rounded-full flex items-center justify-center text-text_secondary2 text-[13px] font-semibold">
-                        2</div>
+                    <div class="text-text_secondary2 bg-bg_secondary lg-market-rounded-box">2</div>
                 </div>
-                <div title="5.8--" class="w-full relative cursor-pointer">
-                    <div
-                        class="undefined w-full rounded-[0.375rem] grid grid-cols-2 text-[13px] text-text_secondary overflow-hidden">
-                        <button title="leftOption-5.8" scaleclass="active:scale-[98%]" class=" relative overflow-hidden  transition duration-150 ease-in-out col-span-1 w-full  bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4 disabled:opacity-80 font-bold   
-      cursor-pointer
-      active:scale-[98%]
-      " type="button"><span class=" text-[13px]">{{market?.oddsData?.runners[1]?.price?.back[0] ?
-                                market?.oddsData?.runners[1]?.price?.back[0]?.price : '0'}}</span></button><button
-                            title="rightOption--" disabled="" scaleclass="active:scale-[98%]" class=" relative overflow-hidden  transition duration-150 ease-in-out  col-span-1 w-full  bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold  
-      cursor-pointer
-      active:scale-[98%]
-      " type="button"><span class="text-[13px]">{{market?.oddsData?.runners[1]?.price?.lay[0] ?
-                                market.oddsData?.runners[1]?.price?.lay[0]?.price : '0'}}</span></button>
+
+                <div class="lg-market-box">
+                    <div class="undefined lg-box-wrapper text-text_secondary">
+                        <button class="bg-bg_backBtnBgColor lg-market-box" type="button">
+                            <span class=" text-[13px]">{{market?.oddsData?.runners[1]?.price?.back[0] ?
+                                market?.oddsData?.runners[1]?.price?.back[0]?.price : '0'}}</span>
+                        </button>
+                        <button class=" bg-bg_layBtnBgColor lg-market-box" type="button">
+                            <span class="text-[13px]">{{market?.oddsData?.runners[1]?.price?.lay[0] ?
+                                market.oddsData?.runners[1]?.price?.lay[0]?.price : '0'}}</span>
+                        </button>
                     </div>
-                    <div
-                        class="absolute top-1/2 z-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bg_secondary w-[1.25rem] h-[1.25rem] rounded-full flex items-center justify-center text-text_secondary2 text-[13px] font-semibold">
-                        1</div>
+                    <div class="text-text_secondary2 bg-bg_secondary lg-market-rounded-box">1</div>
                 </div>
+
             </div>
             <!-- <div class="w-full grid grid-cols-3 gap-2">
                        <div class="flex">
@@ -353,8 +340,8 @@
                           <span class="count back flex items-center justify-center">0</span>
                        </div>
                      </div> -->
-            <div class="w-[3rem] flex justify-center h-full items-center">
-                <span class="material-icons text-[#898A8C] hover:text-[#fff] text-[1.2rem]">equalizer</span>
+            <div class="lg-equalizer-wrapper">
+                <span class="material-icons lg-equalizer-text">equalizer</span>
             </div>
         </div>
 

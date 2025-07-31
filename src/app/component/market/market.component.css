@@ -72,9 +72,11 @@
   border-radius: 4px;
   font-size: 12px;
 }
+
 .marketName {
   font-size: 0.88rem;
 }
+
 .marketType {
   font-size: 0.7rem;
 }
@@ -220,9 +222,10 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.marketWidth{
+.marketWidth {
   width: calc(100% - 7vw) !important;
 }
+
 .second-line .match-name .team * {
   vertical-align: middle;
 }
@@ -277,4 +280,145 @@
 
 .market-wrapper {
   margin-top: 2px;
+}
+
+.mobile-main-container {
+  @apply p-[2vw_2.5vw] bg-[#101317] overflow-hidden;
+}
+
+.market-tournamentName-wrapper {
+  @apply flex items-center h-[6vw];
+}
+
+.mobile-star-wrapper {
+  @apply text-[4.5vw] mr-[1.2vw] h-full items-center;
+}
+.equalizer-text {
+  @apply text-[#A0A1A2] text-[4vw];
+}
+
+.market-event-wrapper {
+  @apply text-[#00aa30] text-[3vw] font-[200] h-full items-center flex;
+}
+
+.error_outline_wrapper {
+  @apply relative ml-[2vw] h-full items-center flex;
+}
+
+.error_outline_icon {
+  @apply text-[#A0A1A2] text-[4vw];
+}
+
+.keyboard_arrow_wrapper {
+  @apply text-[3vw] text-white ml-auto;
+}
+
+.keyboard_arrow_icon {
+  @apply text-[4.5vw] [vertical-align:middle];
+}
+
+.star-border-wrapper {
+  @apply mb-[-2vw] overflow-hidden flex items-center mt-[.5vw];
+}
+
+.star-icon-mb {
+  @apply leading-[6vw] mr-[1vw] ml-[-1px] text-[5vw] flex;
+}
+
+.market-event-name {
+  @apply w-[calc(100%-7vw)] p-0 text-white leading-[6vw] text-[3.5vw];
+}
+
+.mobile-market-box-wrapper {
+  @apply w-full flex items-center mt-[0.56rem] justify-center gap-x-[0.44rem];
+}
+.mobile-box-container {
+  @apply w-full relative opacity-70 cursor-not-allowed;
+}
+
+.lay-back-box {
+  @apply w-full rounded-[0.375rem] grid grid-cols-2 text-[13px]  overflow-hidden;
+}
+
+.back-box {
+  @apply relative overflow-hidden transition duration-150 ease-in-out col-span-1 w-full h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4 font-bold cursor-pointer active:scale-[98%];
+}
+.market-round-box {
+  @apply absolute top-1/2 z-[1] left-1/2 transform -translate-x-1/2 -translate-y-1/2  w-[1.25rem] h-[1.25rem] rounded-full flex items-center justify-center  text-[13px] font-semibold;
+}
+
+.match-result-container {
+  @apply [border-bottom-left-radius:0] [border-bottom-right-radius:0] bg-[#070b10] h-[4rem] flex items-center rounded-[3px] leading-[2.5rem];
+}
+
+.lg-sc-sport-wrapper {
+  @apply bg-[unset] w-[240px]  pl-[1rem] h-[100%] flex items-center text-[.9rem] text-[#fff] truncate;
+}
+
+.match-result-wrapper {
+  @apply flex justify-end h-full items-center w-full max-w-[calc(100%-210px)] xl:!max-w-[calc(100%-232px)];
+}
+
+.sport-inner-container {
+  @apply flex justify-between w-full  text-[#7B7D7F] pr-[3rem];
+}
+
+.x12-wrapper {
+  @apply w-[33.33%] gap-2 px-5 text-center flex justify-center items-center flex-col;
+}
+
+.match-result-text {
+  @apply text-[.8rem] text-[#7B7D7F] leading-[12px];
+}
+
+.lg-market-wrapper {
+  @apply bg-[#121519]  w-full flex justify-between items-center px-2;
+}
+
+.lg-market-name-wrapper {
+  @apply flex items-center h-full gap-3;
+}
+
+.lg-star-icon {
+  @apply text-[hsla(0,0%,100%,.6)] hover:text-[#11E311];
+}
+
+.lg-market-event-name {
+  @apply text-[hsla(0,0%,100%,.6)] flex flex-col py-1;
+}
+
+.lg-market-name {
+  @apply text-[12.32] truncate max-w-[125px] xl:max-w-[150px];
+}
+
+.lg-market-box-wrapper {
+  @apply flex items-center w-[calc(100%-210px)] xl:w-[calc(100%-232px)];
+}
+
+.lg-box-container {
+  @apply w-full flex items-center justify-center gap-x-[0.44rem];
+}
+
+.lg-market-box {
+  @apply w-full relative cursor-pointer;
+}
+
+.lg-box-wrapper {
+  @apply w-full rounded-[0.375rem] grid grid-cols-2 text-[13px]  overflow-hidden;
+}
+
+.lg-market-box {
+  @apply relative overflow-hidden transition duration-150 ease-in-out col-span-1 w-full h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4 font-bold cursor-pointer active:scale-[98%];
+}
+
+.lg-market-rounded-box {
+  @apply absolute top-1/2 z-[1] left-1/2 transform -translate-x-1/2 -translate-y-1/2  w-[1.25rem] h-[1.25rem] rounded-full flex items-center justify-center  text-[13px] font-semibold;
+}
+
+.lg-equalizer-wrapper {
+  @apply w-[3rem] flex justify-center h-full items-center;
+}
+
+.lg-equalizer-text {
+  @apply text-[#898A8C] hover:text-[#fff] text-[1.2rem];
 }
