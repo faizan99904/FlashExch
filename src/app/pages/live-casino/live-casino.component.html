@@ -117,8 +117,8 @@
                 </li>
             </ul>
 
-            <div class="mb-no-data" style="display: block;" *ngIf="searchFilter.length <= 0"> 
-                <div class="material-icons icon" >assignment</div>
+            <div class="mb-no-data" style="display: block;" *ngIf="searchFilter.length <= 0">
+                <div class="material-icons icon">assignment</div>
                 <p class="text" text_key="CASINO__NO_GAMES">games not found</p>
             </div>
         </div>
@@ -254,15 +254,15 @@
             </ul>
             <div class="mt-[24.375px] text-[12.1875px] px-[16.25px] mx-auto w-[113.75px]">
                 <div class="flex justify-center items-center">
-                    <span class="text-[9.75px] block text-[#9A9A9A] "> 42 </span>
+                    <span class="text-[9.75px] block text-[#9A9A9A] "> {{searchFilter.length}} </span>
                     <span class="text-[9.75px] block text-[#9A9A9A] mx-[4.0625px]"> OF </span>
-                    <span class="text-[9.75px] block text-[#9A9A9A]"> 7436</span>
+                    <span class="text-[9.75px] block text-[#9A9A9A]">{{searchFilter.length}}</span>
                 </div>
                 <div class="overflow-hidden bg-[#464b58] rounded-[16.25px] mt-[5.6875px] w-full h-[4.0625px]">
-                    <div class="bg-[#00f18c] rounded-[16.25px] h-full w-[10%]"></div>
+                    <div class="bg-[#00f18c] rounded-[16.25px] h-full w-[100%]"></div>
                 </div>
             </div>
-            <div class="desktop-show-more">
+            <!-- <div class="desktop-show-more">
                 <span class="text-[#18233A]">Show More</span>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_89_476)">
@@ -279,7 +279,7 @@
                         </clipPath>
                     </defs>
                 </svg>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
