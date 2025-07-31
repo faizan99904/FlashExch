@@ -16,6 +16,7 @@ export class LiveCasinoComponent implements AfterViewInit {
   isSearch: boolean = false;
   SeeAlFilter: any
   seeAll: boolean = false;
+  activeTab:any
   casinoList: any = [];
   searchFilter: any
   filterMenuList: any
@@ -123,6 +124,7 @@ export class LiveCasinoComponent implements AfterViewInit {
 
   searchGame(value: string) {
     if (value.length >= 1) {
+      this.activeTab = null
       this.SeeAlFilter = 'all';
       this.seeAll = true;
       let inputValue = value.toLowerCase();
@@ -136,6 +138,7 @@ export class LiveCasinoComponent implements AfterViewInit {
 
   desktopFilter(menuId: any) {
     if (menuId) {
+      this.activeTab = menuId
       let inputValue = menuId.toLowerCase();
       this.searchFilter = [...this.casinoList.lobby].filter((item: any) => {
         if (item.menuId == inputValue) {

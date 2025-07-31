@@ -223,7 +223,8 @@
                 class="desktop-categories gap-[0.4258rem] h-[2.5434rem] w-full text-[0.6352rem] flex items-center justify-center">
 
                 <div class="flex items-center justify-center bg-[#1f242b] border border-solid border-[#1f242b] text-[#e8e8e8] h-full  grow poppins-medium p-[0_ 0.9367rem] cursor-pointer text-center rounded-[0.5109rem] desktop-category-item"
-                    (click)="desktopFilter(menu?.menuId)" *ngFor="let menu of filterMenuList" (click)="seeToggle(menu)">
+                    (click)="desktopFilter(menu?.menuId)" *ngFor="let menu of filterMenuList" (click)="seeToggle(menu)"
+                    [ngClass]="{'!bg-[#11e311] !text-black': menu?.menuId === activeTab}">
                     {{menu.menuName}}
                 </div>
             </div>
