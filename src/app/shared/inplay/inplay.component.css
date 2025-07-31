@@ -15,6 +15,23 @@
   background-color: #1f2c3d;
 }
 
+.text-text_color_oddValue {
+  color: #000;
+}
+
+.bg-bg_color_backBtnBg {
+  background-color: #a7d8fd;
+}
+
+.bg-bg_color_suspendedBgColor {
+  background-color: #a7d8fd;
+  color: black;
+}
+
+.bg-bg_color_layBtnBg {
+  background-color: #f9c9d4;
+}
+
 .text-text_color_InPlayEventsScoreAndTime {
   color: #4cae50;
 }
@@ -77,4 +94,52 @@
 
 .brand-text {
   @apply text-[11px] font-bold text-text_color_primary1  truncate sm:text-xs md:text-sm;
+}
+
+.odd-boxes {
+  @apply col-span-6 h-12 lg:col-span-7 w-full overflow-auto border-t;
+}
+
+.odd-box-container {
+  @apply w-full grid grid-cols-12 grid-flow-col overflow-auto h-full gap-x-0.5 py-[1px] pr-[2px];
+}
+
+.odd-box-wrapper {
+  @apply overflow-hidden relative opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center;
+}
+
+#oddBtnPrice {
+  @apply relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full leading-5 text-sm md:text-[15px] font-semibold;
+}
+
+#oddBtnSize {
+  @apply relative z-10 transition-all ease-in-out duration-300 origin-center flex items-center justify-center w-full text-[10px] leading-3 text-center whitespace-normal font-normal;
+}
+
+.odd-wrapper {
+  @apply overflow-hidden relative opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center;
+}
+
+.suspended {
+  @apply col-span-6 h-12 lg:col-span-7 w-full overflow-auto border-t border-b;
+}
+
+.suspended-wrapper {
+  @apply w-full flex items-center justify-center h-full pr-[2px] py-[1px] cursor-not-allowed;
+}
+
+.suspended-text {
+  @apply text-xs text-center w-full h-full flex items-center font-bold justify-center rounded-sm;
+}
+
+.mob-odd-box {
+  @apply w-full overflow-x-auto flex h-full sm:px-[2px];
+}
+
+.mob-odd-wrapper {
+  @apply grid grid-cols-12 grid-flow-col overflow-auto h-full min-w-[100%] gap-x-[1px] px-[1px] py-[1px];
+}
+
+.mob-odd-container {
+  @apply overflow-hidden relative opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center;
 }
