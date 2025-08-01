@@ -1,7 +1,7 @@
 import { Component, effect, OnInit } from '@angular/core';
 import { BottomNavComponent } from '../../shared/bottom-nav/bottom-nav.component';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { MainService } from '../../service/main.service';
 
 @Component({
@@ -36,7 +36,7 @@ export class CompetitionsComponent implements OnInit {
     '8 Days',
   ]
 
-  constructor(private route: ActivatedRoute, public mainService: MainService) {
+  constructor(private route: ActivatedRoute, public mainService: MainService,private router:Router) {
     this.route.params.subscribe(params => {
       this.sportId = params['id'];
       this.mainService.setActiveSport(this.sportId)
@@ -193,5 +193,11 @@ export class CompetitionsComponent implements OnInit {
 
   selectSport(sportName:any){
     this.sportName = sportName
+  }
+  gotoMarket(market: any) {
+    localStorage.setItem('competitionName', market.tournamentName);
+    this.router.navigateByUrl(
+      '/market-detail/' + market.sportId + '/' + market.exEventId
+    );
   }
 }

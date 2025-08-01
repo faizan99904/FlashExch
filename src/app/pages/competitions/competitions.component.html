@@ -34,7 +34,7 @@
 
                 @if (competitions[i]==true) {
                 <ul class="champs">
-                    <li *ngFor="let item of comp.data" routerLink="/market-detail">
+                    <li *ngFor="let item of comp.data" (click)="gotoMarket(item)">
 
                         <span class="champ-name">{{item.eventName}}</span>
                         <span class="count"></span>
@@ -69,8 +69,14 @@
                             <div class="champ-name">
                                 <span class="material-icons">error_outline</span>
                             </div>
-                            <div class="market-count">
-                                <span></span>
+                            <div class="market-count flex items-center" (click)="gotoMarket(market)">
+                                <span class="[vertical-align:middle]" *ngIf="market.oddsData.inPlay">
+                                    <span  >
+                                        <svg  width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <path  d="M11.8182 0H1.18182C0.525909 0 0 0.543889 0 1.22222V8.55556C0 9.22778 0.525909 9.77778 1.18182 9.77778H4.13636V11H8.86364V9.77778H11.8182C12.4682 9.77778 12.9941 9.22778 12.9941 8.55556L13 1.22222C13 0.543889 12.4682 0 11.8182 0ZM11.8182 8.55556H1.18182V1.22222H11.8182V8.55556ZM8.86364 4.88889L4.72727 7.33333V2.44444L8.86364 4.88889Z" fill="#11e311"></path>
+                                        </svg>
+                                      </span>
+                                </span>
                                 <span class="material-icons">keyboard_arrow_right</span>
                             </div>
                         </div>
@@ -78,7 +84,7 @@
                             <div class="star-wrapper flex">
                                 <span class="material-icons text-[5vw]">star_border</span>
                             </div>
-                            <div class="match-name">
+                            <div class="match-name" (click)="gotoMarket(market)">
                                 <div class="truncate team">
                                     <span class="truncate name">
                                         {{ getEventName(true,
@@ -95,7 +101,7 @@
                                 </div>
                             </div>
                             <div class="odds-wrapper ml-auto">
-                                <div column-count="3" class="market-odds flex justify-between">
+                                <div column-count="3" class="market-odds flex justify-between" (click)="gotoMarket(market)">
                                     <div class="odd-rect"><span class="coef">
                                             {{market?.oddsData?.runners[0]?.price?.back[0] ?
                                             market?.oddsData?.runners[0]?.price?.back[0]?.price :
