@@ -1,0 +1,23 @@
+.text-text_color_primary1 {
+  color: #fff;
+}
+
+.flex-item-center {
+  @apply flex items-center justify-between;
+}
+
+.open-bet {
+  @apply flex items-start justify-start flex-col w-full px-2 py-1;
+}
+
+.bet-container {
+  @apply w-full bg-[#00aa30] transition-all ease-in-out my-1 py-1 rounded-[6px] origin-center active:opacity-95;
+}
+
+.ico {
+  @apply cursor-pointer mr-2 transform transition-transform ease-in-out w-max origin-center  active:scale-90 active:opacity-85;
+}
+
+.BetSections{
+    @apply w-full text-start font-lato font-medium text-sm bg-[#22272a] rounded-md mb-1 px-4  py-3 [box-shadow:_0_20px_25px_-5px_rgba(0,0,0,0.1),_0_8px_10px_-6px_rgba(0,0,0,0.1);] text-white;
+}

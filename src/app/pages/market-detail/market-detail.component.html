@@ -69,9 +69,10 @@
     <div class="page-tabs border-border_tertiary23 bg-bg_appBackgroundColor">
         <div class="tabs-wrapper">
             <div [ngClass]="{'active-item': openTab=='market'}" (click)="toggleBets('market')" class="tab-wrapper">
-                <span class="text-text_secondary  tab-title">Market</span>
+                <span class="text-text_secondary tab-title">Market</span>
             </div>
-            <div class="tab-wrapper" [ngClass]="{'active-item': openTab=='matchInfo'}" (click)="toggleBets('matchInfo')">
+            <div class="tab-wrapper" [ngClass]="{'active-item': openTab=='matchInfo'}"
+                (click)="toggleBets('matchInfo')">
                 <span class="text-text_tertiary8 tab-title">
                     Match Info
                 </span>
@@ -97,16 +98,15 @@
 
 @if (openTab=='market') {
 <div class="px-2 bg-black pt-2 border-solid">
-    <div class="flex items-start justify-start flex-col w-full pb-20">
+    <div class="marketContainer">
         <!-- match odds -->
         <ng-container *ngFor="let market of matchOddsDataUpdated ; trackBy: trackByFn;index as i">
             <div class="match-odds-wrapper text-text_secondary" [ngClass]="i!=0?'mt-2':''">
                 <div class="match-container bg-cricketHeaderGradient">
                     <div class="match-effect vector one-cricket-bg"></div>
-                    <div class="absolute top-0 right-[7%] h-full w-[29%] vector2 circket-2-bg"></div>
-                    <div class="flex-item relative z-1 gap-1 w-[60%] md:w-[40%]">
-                        <span
-                            class="font-roboto text-xs font-medium leading-150 capitalize">{{market.marketName}}</span>
+                    <div class="cricket-ico vector2 circket-2-bg"></div>
+                    <div class="matchcontainer">
+                        <span class="marketname">{{market.marketName}}</span>
                         <div class="flex-item-center gap-[3px]">
                             <ng-container
                                 *ngIf="(matchedOddsPl[market.exMarketId] && (market.marketType=='MATCH_ODDS' || market.oddsType == 'MATCH_ODDS')); else elseTemplate">
@@ -115,14 +115,13 @@
                                     <div *ngIf="market.oddsData.runners.length < 3"
                                         class="cashout-container active {{market.exMarketId}}">
                                         <span *ngIf="!cashoutValue[market.exMarketId]"
-                                            class="text-[10px] md:text-[12px] text-text_secondary2  whitespace-nowrap"
+                                            class="oddstype text-text_secondary2 sm-text"
                                             (click)="calculateCashOut(market.exMarketId,market.oddsType)">
 
                                             Cash Out
                                         </span>
                                         <span *ngIf="cashoutValue[market.exMarketId]"
-                                            class="text-[10px] md:text-[12px] text-text_secondary2  whitespace-nowrap"
-                                            (click)="onCashOutConfirm()">
+                                            class="text-text_secondary2 sm-text" (click)="onCashOutConfirm()">
                                             sd
                                             <strong style="display: inline-block;"
                                                 [ngClass]="{'minus-book': cashoutValue[market.exMarketId] < 0 , 'plus-book' : cashoutValue[market.exMarketId] > 0 }">
@@ -136,15 +135,15 @@
                             <ng-template #elseTemplate>
                                 <div type="button" *ngIf="market.oddsData.runners.length < 3"
                                     class="second-box bg-bg_cashoutBtnGrad text-text_secondary2">
-                                    <div class="text-[10px] md:text-[12px] text-text_secondary2  whitespace-nowrap">
+                                    <div class="text-text_secondary2 sm-text">
                                         Cashout
                                     </div>
                                 </div>
 
                             </ng-template>
-                            <div *ngIf="market.oddsData.betDelay"
-                                class="flex-item-center gap-0.5 py-0.5 px-1 bg-bg_primary5 rounded stop-watch">
-                                <span class="w-4 h-4"><svg width="14" height="14" viewBox="0 0 10 10" fill="white"
+                            <div *ngIf="market.oddsData.betDelay" class="bg-bg_primary5 rounded stop-watch">
+                                <span class="w-4 h-4">
+                                    <svg width="14" height="14" viewBox="0 0 10 10" fill="white"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <g id="Watch">
                                             <g id="62-Stopwatch">
@@ -158,45 +157,36 @@
                                         </g>
                                     </svg>
                                 </span>
-                                <span
-                                    class="font-roboto text-xs font-medium leading-150 text-text_secondary tracking-widest">{{market.oddsData.betDelay}}s</span>
+                                <span class="betdelay text-text_secondary">{{market.oddsData.betDelay}}s</span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-span-5 md:col-span-7 grid grid-cols-2 md:grid-cols-6 pb-[2px] w-[40%] md:w-[60%]">
-                        <span
-                            class=" hidden md:flex col-span-1 text-center  font-semibold h-full  items-end justify-center"></span>
-                        <span
-                            class=" col-span-1 text-center  font-semibold h-full  hidden md:flex  items-end justify-center"></span>
-                        <span
-                            class=" col-span-1 text-center text-[10px] sm:text-xs md:text-sm leading-3  font-bold h-full flex items-end justify-center">BACK</span>
-                        <span
-                            class=" col-span-1 text-center text-[10px] sm:text-xs md:text-sm  leading-3 font-bold h-full flex items-end justify-center">LAY</span>
-                        <span
-                            class=" col-span-1 text-center font-semibold  h-full  hidden md:flex  items-end justify-center"></span>
-                        <span
-                            class=" col-span-1 text-center font-semibold  h-full  hidden md:flex  items-end justify-center"></span>
+                    <div class="backlay">
+                        <span class="disable-btns"></span>
+                        <span class="disable-btns"></span>
+                        <span class="valued-btns">BACK</span>
+                        <span class="valued-btns">LAY</span>
+                        <span class="disable-btns"></span>
+                        <span class="disable-btns"></span>
                     </div>
                 </div>
-                <div class="flex flex-col w-full gap-[1px] md:gap-[1.2px]">
+                <div class="runnerContainer">
                     <ng-container *ngFor="let runner of market?.oddsData?.runners; trackBy: trackByFn;index as i">
-                        <div
-                            class="flex-item w-full border-b-border_tertiary20 pr-0.5 pl-2 runnerBox !border-none md:border">
-                            <div class="md:w-[40%] w-[60%] grid grid-cols-3 items-center">
-                                <div class="flex items-start justify-start gap-y-[1px] flex-col w-full col-span-3">
-                                    <div
-                                        class="font-roboto text-md text-[13px] font-medium leading-120 capitalize text-text_secondary text-[#888a8c]  w-full truncate">
-                                        {{market.runnersData[runner.selectionId]}}</div>
+                        <div class="border-b-border_tertiary20 runnerBox runner-container">
+                            <div class="runnerStarter">
+                                <div class="runnerId">
+                                    <div class="runnerId-text">
+                                        {{market.runnersData[runner.selectionId]}}
+                                    </div>
                                 </div>
                             </div>
-                            <div class="md:w-[60%] flex items-start gap-0 w-[40%]">
-                                <div title="1.24-1.27" class="w-full relative  cursor-not-allowed">
-                                    <div class="rounded-none rounded-sm w-full rounded-[0.375rem] grid grid-cols-2 text-[13px] text-text_secondary overflow-hidden"
-                                        style="display: flex; gap: 1.1px;">
+                            <div class="runnerBox-container">
+                                <div title="1.24-1.27" class="w-full relative cursor-not-allowed">
+                                    <div class="btns-wrapper">
                                         <button scaleclass="active:scale-[98%]"
                                             (click)="openBetslip(market.exMarketId,runner.selectionId,'back',runner.price.back[2].price,
                      market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[2].size,2,market.oddsType)"
-                                            class="inline-block leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex-item-center bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4 disabled:opacity-80 font-bold  cursor-pointer active:scale-[98%] !hidden md:!flex"
+                                            class="marketBox-wrapper !hidden md:!flex bg-bg_backBtnBgColor"
                                             type="button">
                                             <span class=" text-sm">{{(runner.price.back[2].price)| number}}</span>
                                             <span class="text-x">{{(runner.price.back[2].size) |shortNumber}}</span>
@@ -204,7 +194,7 @@
                                         <button scaleclass="active:scale-[98%]"
                                             (click)="openBetslip(market.exMarketId,runner.selectionId,'back',runner.price.back[1].price,
                    market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[1].size,1,market.oddsType)"
-                                            class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex-item-center bg-bg_backBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4 disabled:opacity-80 font-bold  cursor-pointer active:scale-[98%] !hidden md:!flex"
+                                            class="marketBox-wrapper !hidden md:!flex bg-bg_backBtnBgColor"
                                             type="button">
                                             <span class=" text-sm">{{(runner.price.back[1].price)| number}}</span>
                                             <span class="text-x">{{(runner.price.back[1].size) |shortNumber}}</span>
@@ -212,9 +202,8 @@
                                         <button scaleclass="active:scale-[98%]"
                                             (click)="openBetslip(market.exMarketId,runner.selectionId,'back',runner.price.back[0].price,
                    market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[0].size,0,market.oddsType)"
-                                            class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex-item-center bg-bg_backBtnBgColor  h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center  leading-4 disabled:opacity-80 font-bold  cursor-pointer active:scale-[98%]"
-                                            type="button">
-                                            <span class=" text-sm">{{(runner.price.back[0].price)| number}}</span>
+                                            class="marketBox-wrapper bg-bg_backBtnBgColor" type="button">
+                                            <span class="text-sm">{{(runner.price.back[0].price)| number}}</span>
                                             <span class="text-x">{{(runner.price.back[0].size) |shortNumber}}</span>
                                         </button>
 
@@ -222,15 +211,14 @@
                                         <button scaleclass="active:scale-[98%]"
                                             (click)="openBetslip(market.exMarketId,runner.selectionId,'lay',runner.price.lay[0].price,
                    market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[0].size,0,market.oddsType)"
-                                            class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex-item-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold cursor-pointer active:scale-[98%] flex"
-                                            type="button">
+                                            class="marketBox-wrapper bg-bg_layBtnBgColor" type="button">
                                             <span class="text-sm">{{(runner.price.lay[0].price)| number}}</span>
                                             <span class="text-x">{{(runner.price.lay[0].size) |shortNumber}}</span>
                                         </button>
                                         <button scaleclass="active:scale-[98%]"
                                             (click)="openBetslip(market.exMarketId,runner.selectionId,'lay',runner.price.lay[1].price,
                                 market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[1].size,1,market.oddsType)"
-                                            class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex-item-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold cursor-pointer active:scale-[98%] !hidden md:!flex"
+                                            class="marketBox-wrapper bg-bg_layBtnBgColor !hidden md:!flex"
                                             type="button">
                                             <span class="text-sm">{{(runner.price.lay[1].price)| number}}</span>
                                             <span class="text-x">{{(runner.price.lay[1].size) |shortNumber}}</span>
@@ -238,7 +226,7 @@
                                         <button scaleclass="active:scale-[98%]"
                                             (click)="openBetslip(market.exMarketId,runner.selectionId,'lay',runner.price.lay[2].price,
                   market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[2].size,2,market.oddsType)"
-                                            class="inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out h-[43px] col-span-1 w-full md:w-[20%] flex-item-center bg-bg_layBtnBgColor h-[2.1875rem] active:opacity-70 flex flex-col items-center justify-center leading-4  font-bold cursor-pointer active:scale-[98%] !hidden md:!flex"
+                                            class="marketBox-wrapper bg-bg_layBtnBgColor !hidden md:!flex"
                                             type="button">
                                             <span class="text-sm">{{(runner.price.lay[2].price)| number}}</span>
                                             <span class="text-x">{{(runner.price.lay[2].size) |shortNumber}}</span>
@@ -258,18 +246,15 @@
         </ng-container>
 
 
-        <div class="text-base font-medium text-center py-1.5 w-full mt-4">
-            <ul id="fancyul"
-                class="w-full flex flex-nowrap overflow-x-auto whitespace-nowrap items-center justify-start gap-x-2 [scrollbar-width:none]">
+        <div class="fancyul">
+            <ul id="fancyul">
                 <li *ngFor="let item of marketlistFancy" (click)="changeFancyMarket(item.id,false)" [attr.id]="item.id"
-                    [ngClass]="{'border-border_color_brand_primary bg-bg_text_brand_primary text-text_color_primary2' : selectedFancyMarket==item.id}"
-                    class="px-[15px] py-2 rounded-[100px] flex-item-center  cursor-pointer active:scale-95 transition-all ease-in-out duration-100 
-                                  bg-bg_color_primary text-text_color_tertiary2  border-border_color_primary
-                                ">
-                    <span class="inline-block font-bold  text-xs sm:text-sm md:text-base leading-4 ">{{item.mName ==
-                        "Popular" ? "ALL" : item.mName }}</span>
+                    [ngClass]="{'border-[#11e311] bg-bg_text_brand_primary !text-black' : selectedFancyMarket==item.id}"
+                    class="fancyItem">
+                    <span class="fancyText">
+                        {{item.mName == "Popular" ? "ALL" : item.mName }}
+                    </span>
                 </li>
-
             </ul>
         </div>
 
@@ -279,38 +264,30 @@
         <ng-container *ngFor="let market of AllFancyMarketsFiltered ;index as i; trackBy: trackByFn">
             <div class="w-full py-1.5" *ngIf="market.oddsType!='SPORTSBOOK'">
                 <div *ngIf="i === 0" class="grid grid-cols-12 w-full">
-                    <div class="w-full md:col-span-6 col-span-7 grid grid-cols-12 grid-flow-col">
-                    </div>
-                    <div class="col-span-5 md:col-span-6 grid grid-cols-2 md:grid-cols-6 relative">
-                        <span class="text-white flex items-end justify-center col-span-1 md:col-span-2">No</span>
-                        <span class="text-white flex items-end justify-center col-span-1 md:col-span-2">Yes</span>
+                    <div class="fancy-market"></div>
+                    <div class="market-status">
+                        <span class="fancy-text">No</span>
+                        <span class="fancy-text">Yes</span>
                         <span class="hidden md:flex md:col-span-2"></span>
                     </div>
                 </div>
-                <div
-                    class=" bg-bg_color_primary rounded-[3px] shadow-[0_8px_30px_rgb(0,0,0,0.12)] py-[1px] cursor-pointer">
-                    <div title="Match 1st Over" id="1" class="grid grid-cols-12 ">
-                        <div
-                            class="w-full  md:col-span-6 col-span-7 h-12 grid grid-cols-12 grid-flow-col pl-2.5 md:pl-2 py-0.5 pr-[3px]">
-                            <div class="col-span-8 md:col-span-10 h-full flex flex-col items-start justify-center">
-                                <div class="w-full sm:w-max flex flex-nowrap h-max relative">
-                                    <div
-                                        class="w-full flex-1 flex items-center text-start capitalize text-text_color_primary1 text-[13px] md:text-sm font-semibold truncate overflow-hidden text-ellipsis min-w-0 pr-0.5 md:pr-0">
+                <div class=" bg-bg_color_primary fancy-title">
+                    <div title="Match 1st Over" id="1" class="grid grid-cols-12">
+                        <div class="fancy-wrapper">
+                            <div class="fancyWrapper">
+                                <div class="fancyContent">
+                                    <div class="fancyMarketName">
                                         <span class="truncate block">{{market.marketName}}</span>
                                     </div>
-                                    <div class="absolute z-10 min-w-[120%] sm:min-w-max max-w-[300px] px-3 py-2 bg-bg_color_tooltip text-text_color_tooltip text-xs rounded-lg transition-all duration-300 ease-in-out shadow-lg opacity-0 scale-95 translate-y-1 pointer-events-none bottom-full mb-2 left-0"
-                                        style="left: 0px;">
-                                        <div class="leading-relaxed break-words font-bold text-xs md:text-sm">
+                                    <div class="marketName-wrapper">
+                                        <div class="spanMark">
                                             {{market.marketName}}
                                         </div>
-                                        <div
-                                            class="absolute w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent transition-all duration-300 top-full border-t-border_color_tooltip left-3">
-                                        </div>
+                                        <div class="spanOverlay"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div
-                                class=" col-span-2 md:col-span-1 flex flex-row items-center justify-center gap-x-[2px]">
+                            <div class="fancyDelay">
                                 <svg version="1.0" height="15" width="15" xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 840.000000 936.000000" preserveAspectRatio="xMidYMid meet">
                                     <g transform="translate(0.000000,936.000000) scale(0.100000,-0.100000)"
@@ -322,10 +299,12 @@
                                             d="M3960 5620 c0 -654 -3 -1010 -10 -1010 -5 0 -41 -30 -80 -66 -51 -49 -80 -86 -105 -138 -133 -272 18 -605 310 -681 132 -34 277 -11 391 63 202 131 276 400 169 618 -25 52 -54 89 -105 138 -39 36 -75 66 -80 66 -7 0 -10 356 -10 1010 l0 1010 -240 0 -240 0 0 -1010z">
                                         </path>
                                     </g>
-                                </svg><span *ngIf="market.oddsData.betDelay"
-                                    class=" font-[480] text-[14px] text-text_color_primary1 ">{{market.oddsData.betDelay}}s</span>
+                                </svg>
+                                <span *ngIf="market.oddsData.betDelay" class="font-[480] text-[14px] text-white">
+                                    {{market.oddsData.betDelay}}s
+                                </span>
                             </div>
-                            <div class="col-span-2 md:col-span-1 flex flex-row items-center justify-end pr-[3px]">
+                            <div class="minMax">
                                 <div class="relative group cursor-not-allowed text-white">
                                     <svg class="opacity-50" xmlns="http://www.w3.org/2000/svg" width="15" height="15"
                                         viewBox="0 0 15 15">
@@ -333,25 +312,24 @@
                                             d="M6.76 5.246V3.732h1.48v1.514H6.76zm.74 8.276a5.86 5.86 0 0 0 3.029-.83 5.839 5.839 0 0 0 2.163-2.163 5.86 5.86 0 0 0 .83-3.029 5.86 5.86 0 0 0-.83-3.029 5.839 5.839 0 0 0-2.163-2.163 5.86 5.86 0 0 0-3.029-.83 5.86 5.86 0 0 0-3.029.83A5.839 5.839 0 0 0 2.308 4.47a5.86 5.86 0 0 0-.83 3.029 5.86 5.86 0 0 0 .83 3.029 5.839 5.839 0 0 0 2.163 2.163 5.86 5.86 0 0 0 3.029.83zM7.5 0c1.37 0 2.638.343 3.804 1.028a7.108 7.108 0 0 1 2.668 2.668A7.376 7.376 0 0 1 15 7.5c0 1.37-.343 2.638-1.028 3.804a7.108 7.108 0 0 1-2.668 2.668A7.376 7.376 0 0 1 7.5 15a7.376 7.376 0 0 1-3.804-1.028 7.243 7.243 0 0 1-2.668-2.686A7.343 7.343 0 0 1 0 7.5c0-1.358.343-2.62 1.028-3.786a7.381 7.381 0 0 1 2.686-2.686A7.343 7.343 0 0 1 7.5 0zm-.74 11.268V6.761h1.48v4.507H6.76z">
                                         </path>
                                     </svg>
-                                    <div
-                                        class="w-[130px] group-hover:h-[32px] transition-all h-0 rounded-sm absolute top-4 right-[5px] bg-white text-black text-[12px] flex-item-center overflow-hidden">
+                                    <div class="minmax-text group-hover:h-[32px]">
                                         Min:{{market.min}} | Max:{{market.max}}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-span-5  md:col-span-6  h-12 grid grid-cols-2 md:grid-cols-6 relative">
+                        <div class="fancy-wrap">
                             <div class="w-full h-full col-span-2 md:col-span-4">
-                                <div class="w-full overflow-x-auto flex h-full sm:px-[2px]" id="hideScrollBar">
-                                    <div class="w-full h-full grid grid-cols-2 gap-x-0.5 py-[1px] pr-[2px]">
+                                <div id="hideScrollBar">
+                                    <div class="fancy-cont">
                                         <div class="w-full h-full">
                                             <div (click)="openBetslip(market.exMarketId,market.oddsData.runners[0].selectionId,'lay',market.oddsData.runners[0].price.lay[0].price,
                                         market.min, market.max,market.oddsType, market.marketName,market.oddsData.runners[0].price.lay[0].size,0,market.marketType,market.isSuperFancy)"
-                                                class=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_layBtnBg text-text_color_oddValue">
-                                                <span id="oddBtnPrice"
-                                                    class="relative z-10 transition-all ease-in-out duration-300 origin-center flex-item-center w-full  leading-5 text-sm md:text-[15px] font-semibold">{{(market.oddsData.runners[0].price.lay[0].price)|
-                                                    number}}</span><span id="oddBtnSize"
-                                                    class=" relative z-10 transition-all ease-in-out duration-300 origin-center flex-item-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal">{{market.oddsData.runners[0].price.lay[0].size
+                                                class="fancy-container bg-bg_color_layBtnBg">
+                                                <span id="oddBtnPrice" class="oddBtnPrice">
+                                                    {{(market.oddsData.runners[0].price.lay[0].price) | number}}
+                                                </span><span id="oddBtnSize"
+                                                    class="oddBtnSize">{{market.oddsData.runners[0].price.lay[0].size
                                                     |
                                                     shortNumber}}</span>
                                             </div>
@@ -359,25 +337,32 @@
                                         <div class="w-full h-full">
                                             <div (click)="openBetslip(market.exMarketId,market.oddsData.runners[0].selectionId,'back',market.oddsData.runners[0].price.back[0].price,
                                         market.min, market.max,market.oddsType, market.marketName,market.oddsData.runners[0].price.back[0].size,0,market.marketType,market.isSuperFancy)"
-                                                class=" overflow-hidden relative   opacity-100 cursor-pointer active:scale-95 px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full bg-bg_color_backBtnBg text-text_color_oddValue">
+                                                class="fancyBack py-[1px] bg-bg_color_backBtnBg">
                                                 <span id="oddBtnPrice"
-                                                    class="relative z-10 transition-all ease-in-out duration-300 origin-center flex-item-center w-full  leading-5 text-sm md:text-[15px] font-semibold">{{(market.oddsData.runners[0].price.back[0].price)|
-                                                    number}}</span><span id="oddBtnSize"
-                                                    class=" relative z-10 transition-all ease-in-out duration-300 origin-center flex-item-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal">{{market.oddsData.runners[0].price.back[0].size
-                                                    |
-                                                    shortNumber}}</span>
+                                                    class="oddBtnPrice">{{(market.oddsData.runners[0].price.back[0].price)|
+                                                    number}}</span>
+                                                <span id="oddBtnSize" class="oddBtnSize">
+                                                    {{market.oddsData.runners[0].price.back[0].size | shortNumber}}
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div><span class=" hidden md:block col-span-2 text-center min-h-12">
-                                <div
-                                    class=" flex flex-col gap-y-1 items-center h-full w-full  justify-center  px-1 text-text_color_tertiary2">
-                                    <div class=" flex-item-center"><span class=" text-[10px] text-center ">Min Bet
-                                            :</span><span class=" text-[10px] text-center">{{market.min}}</span></div>
-                                    <div class=" flex items-center justify-start"><span
-                                            class=" text-[10px] text-center ">Max Bet :</span><span
-                                            class=" text-[10px] text-center">{{market.max}}</span></div>
+                            </div>
+                            <span class="minBet">
+                                <div class="minBet-wrap">
+                                    <div class="flex-item-center">
+                                        <span class="text-[10px] text-center ">
+                                            Min Bet :
+                                        </span>
+                                        <span class="text-[10px] text-center">
+                                            {{market.min}}
+                                        </span>
+                                    </div>
+                                    <div class="flex items-center justify-start">
+                                        <span class="text-[10px] text-center ">Max Bet :</span>
+                                        <span class="text-[10px] text-center">{{market.max}}</span>
+                                    </div>
                                 </div>
                             </span>
                         </div>
@@ -387,91 +372,97 @@
 
             <!-- sportsbook -->
             <div class="w-full py-1.5" *ngIf="market.oddsType=='SPORTSBOOK'">
-                <div class=" grid grid-flow-col grid-cols-12 text-text_color_primary1 text-xs font-[500] mb-1.5">
-                    <div class="pl-1 flex items-center justify-start gap-x-1 md:gap-x-1 col-span-7 md:col-span-6">
-                        <div class=" capitalize font-bold text-xs sm:text-sm md:text-[15px] flex items-start justify-start flex-col"
-                            title="Any player to score 50"><span>{{market.marketName}} </span><span
-                                class="text-x font-normal text-text_color_info"> </span></div>
+                <div class="sportbook">
+                    <div class="sportbook-wrapper">
+                        <div class="sportbook-title" title="Any player to score 50">
+                            <span>{{market.marketName}} </span>
+                            <span class="text-x font-normal"> </span>
+                        </div>
                     </div>
-                    <div class="col-span-5 md:col-span-6 grid grid-cols-2 md:grid-cols-6 pb-[2px] w-full">
-                        <span
-                            class="md:col-span-2 col-span-1 text-center text-[10px] sm:text-xs md:text-sm leading-3  font-bold h-full flex items-end justify-center"></span>
-                        <span
-                            class="md:col-span-2 col-span-1 text-center text-[10px] sm:text-xs md:text-sm  leading-3 font-bold h-full flex items-end justify-center"></span>
-                        <span
-                            class="md:col-span-2 col-span-1 text-center text-[10px] sm:text-xs md:text-sm  leading-3 font-bold h-full items-end justify-center hidden md:flex"></span>
+                    <div class="sportbook-status">
+                        <span class="sport-space flex"></span>
+                        <span class="sport-space flex"></span>
+                        <span class="hidden md:flex"></span>
                     </div>
                 </div>
-                <div
-                    class=" bg-bg_color_primary rounded-[3px] shadow-[0_8px_30px_rgb(0,0,0,0.12)] py-[1px] cursor-pointer">
-                   
-
+                <div class=" bg-bg_color_primary sportRunner">
                     <ng-container *ngFor="let runner of market.oddsData.runners">
-                        <div title="yes" id="14" class="grid grid-cols-12 border-b border-black">
-                            <div
-                                class="w-full  md:col-span-6 col-span-7 h-12 grid grid-cols-12 grid-flow-col pl-2.5 md:pl-2 py-0.5 pr-[3px]">
-                                <div class="col-span-8 md:col-span-10 h-full flex flex-col items-start justify-center">
-                                    <div class="w-full sm:w-max flex flex-nowrap h-max relative">
-                                        <div
-                                            class="w-full flex-1 flex items-center text-start capitalize text-text_color_primary1 text-[13px] md:text-sm font-semibold truncate overflow-hidden text-ellipsis min-w-0 pr-0.5 md:pr-0">
-                                            <span class="truncate block">{{market.runnersData[runner.selectionId]}}</span>
+                        <div title="yes" id="14" class="sportWrap">
+                            <div class="sport-items">
+                                <div class="sport-items-wrapper">
+                                    <div class="sport-container">
+                                        <div class="sportId">
+                                            <span class="truncate block">
+                                                {{market.runnersData[runner.selectionId]}}
+                                            </span>
                                         </div>
-                                        <div class="absolute z-10 min-w-[120%] sm:min-w-max max-w-[300px] px-3 py-2 bg-bg_color_tooltip text-text_color_tooltip text-xs rounded-lg transition-all duration-300 ease-in-out shadow-lg opacity-0 scale-95 translate-y-1 pointer-events-none bottom-full mb-2 left-0"
-                                            style="left: 0px;">
+                                        <div class="sportData">
                                             <div class="leading-relaxed break-words font-bold text-xs md:text-sm">
                                                 {{market.runnersData[runner.selectionId]}}
                                             </div>
-                                            <div
-                                                class="absolute w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent transition-all duration-300 top-full border-t-border_color_tooltip left-3">
-                                            </div>
+                                            <div class="Subdata"></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div
-                                    class=" col-span-2 md:col-span-1 flex flex-row items-center justify-center gap-x-[2px]">
+                                <div class="sport-first">
                                 </div>
-                                <div class="col-span-2 md:col-span-1 flex flex-row items-center justify-end pr-[3px]">
+                                <div class="sport-second">
+                                </div>
+                                <div class="minMax">
+                                    <div class="relative group cursor-not-allowed text-white">
+                                        <svg class="opacity-50" xmlns="http://www.w3.org/2000/svg" width="15"
+                                            height="15" viewBox="0 0 15 15">
+                                            <path fill="currentColor" fill-rule="evenodd"
+                                                d="M6.76 5.246V3.732h1.48v1.514H6.76zm.74 8.276a5.86 5.86 0 0 0 3.029-.83 5.839 5.839 0 0 0 2.163-2.163 5.86 5.86 0 0 0 .83-3.029 5.86 5.86 0 0 0-.83-3.029 5.839 5.839 0 0 0-2.163-2.163 5.86 5.86 0 0 0-3.029-.83 5.86 5.86 0 0 0-3.029.83A5.839 5.839 0 0 0 2.308 4.47a5.86 5.86 0 0 0-.83 3.029 5.86 5.86 0 0 0 .83 3.029 5.839 5.839 0 0 0 2.163 2.163 5.86 5.86 0 0 0 3.029.83zM7.5 0c1.37 0 2.638.343 3.804 1.028a7.108 7.108 0 0 1 2.668 2.668A7.376 7.376 0 0 1 15 7.5c0 1.37-.343 2.638-1.028 3.804a7.108 7.108 0 0 1-2.668 2.668A7.376 7.376 0 0 1 7.5 15a7.376 7.376 0 0 1-3.804-1.028 7.243 7.243 0 0 1-2.668-2.686A7.343 7.343 0 0 1 0 7.5c0-1.358.343-2.62 1.028-3.786a7.381 7.381 0 0 1 2.686-2.686A7.343 7.343 0 0 1 7.5 0zm-.74 11.268V6.761h1.48v4.507H6.76z">
+                                            </path>
+                                        </svg>
+                                        <div class="minmax-text group-hover:!h-[32px]">
+                                            Min:{{market.min}} | Max:{{market.max}}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-span-5  md:col-span-6  h-12 grid grid-cols-2 md:grid-cols-6 relative">
+                            <div class="sport-wrapper">
                                 <div class="w-full h-full col-span-2 md:col-span-4">
-                                    <div class="w-full overflow-x-auto flex h-full sm:px-[2px]" id="hideScrollBar">
-                                        <div class="w-full h-full grid grid-cols-1 gap-x-0.5 pr-[2px]">
+                                    <div id="hideScrollBar">
+                                        <div class="sport-wrap">
                                             <div class="flex w-full bg-green-300">
                                                 <div class="w-full h-full">
-                                                    <div  (click)="openBetslip(market.exMarketId,runner.selectionId,'back',runner.price.back[0].price,
+                                                    <div (click)="openBetslip(market.exMarketId,runner.selectionId,'back',runner.price.back[0].price,
                                                     market.min, market.max,market.oddsType, market.marketName,runner.price.back[0].size,0)"
-                                                        class=" overflow-hidden relative opacity-100 cursor-pointer active:scale-95 px-1 rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full text-text_color_oddValue">
-                                                        <span id="oddBtnPrice"
-                                                            class="relative z-10 transition-all ease-in-out duration-300 origin-center flex-item-center w-full  leading-5 text-sm md:text-[15px] font-semibold">
+                                                        class="fancyBack">
+                                                        <span id="oddBtnPrice" class="oddBtnPrice">
                                                             {{(runner.price.back[0].price)| number}}
                                                         </span>
-                                                        <span id="oddBtnSize"
-                                                            class=" relative z-10 transition-all ease-in-out duration-300 origin-center flex-item-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal">
+                                                        <span id="oddBtnSize" class="oddBtnSize">
                                                             {{(runner.price.back[0].size) | shortNumber}}
                                                         </span>
                                                     </div>
                                                 </div>
-                                               
+
                                             </div>
                                         </div>
                                     </div>
-                                </div><span class=" hidden md:block col-span-2 text-center min-h-12">
-                                    <div
-                                        class=" flex flex-col gap-y-1 items-center h-full w-full  justify-center  px-1 text-text_color_tertiary2">
-                                        <div class=" flex-item-center"><span class=" text-[10px] text-center ">Min Bet
-                                                :</span><span class=" text-[10px] text-center">{{market.min}}</span></div>
-                                        <div class=" flex items-center justify-start"><span
-                                                class=" text-[10px] text-center ">Max Bet :</span><span
-                                                class=" text-[10px] text-center">{{market.max}}</span></div>
+                                </div>
+                                <span class="minBet">
+                                    <div class="minBet-wrap">
+                                        <div class="flex-item-center">
+                                            <span class="text-[10px] text-center ">
+                                                Min Bet :
+                                            </span>
+                                            <span class="text-[10px] text-center">
+                                                {{market.min}}
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center justify-start">
+                                            <span class="text-[10px] text-center ">Max Bet :</span>
+                                            <span class="text-[10px] text-center">{{market.max}}</span>
+                                        </div>
                                     </div>
                                 </span>
                             </div>
                         </div>
                     </ng-container>
-                   
-                  
-
                 </div>
             </div>
         </ng-container>
@@ -487,7 +478,7 @@
     <div class="rules-bg"></div>
 
     <div class="rule-wrapper popUpOpenAnimation1">
-        <div class="flex-item sticky top-0 z-10 px-4 py-2">
+        <div class="ruleas">
             <h2 class="rule-heading text-text_color_primary1">
                 Rules-Cricket
             </h2>
@@ -630,4 +621,3 @@
     </div>
 </div>
 }
-
