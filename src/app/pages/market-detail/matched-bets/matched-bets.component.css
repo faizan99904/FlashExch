@@ -19,5 +19,7 @@
 }
 
 .BetSections{
-    @apply w-full text-start font-lato font-medium text-sm bg-[#22272a] rounded-md mb-1 px-4  py-3 [box-shadow:_0_20px_25px_-5px_rgba(0,0,0,0.1),_0_8px_10px_-6px_rgba(0,0,0,0.1);] text-white;
+  /* below class is removed .... why we are using this'? */
+  /* font-lato */
+    @apply w-full text-start  font-medium text-sm bg-[#22272a] rounded-md mb-1 px-4  py-3 [box-shadow:_0_20px_25px_-5px_rgba(0,0,0,0.1),_0_8px_10px_-6px_rgba(0,0,0,0.1);] text-white;
 }

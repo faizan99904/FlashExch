@@ -242,7 +242,7 @@
 }
 
 .rule-text-container {
-  @apply overflow-hidden transition-all duration-300 ease-in-out max-h-[1708px];
+  @apply overflow-auto transition-all duration-300 ease-in-out max-h-[1708px];
 }
 
 .match-odds-wrapper {
@@ -526,4 +526,11 @@
     opacity: 1;
     transform: scale(1);
   }
+}
+.rules-container{
+  color: white !important;
+}
+:host ::ng-deep .rules-container p {
+  color: white !important;
+  margin-bottom: 1rem !important;
 }

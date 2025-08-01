@@ -1,3 +1,7 @@
+
+<app-loader *ngIf="loader"></app-loader>
+
+@if ( !loader) {
 <div class="title-wraper">
     <div class="w-full overflow-hidden bg-[#272D33]">
         <div class="game-title bg-bg_inputBgColor">
@@ -29,7 +33,7 @@
                         </span>
                     </div>
                 </div>
-                <button (click)="rules = true" class="info-btn" type="button">
+                <button (click)="gameRules(this.sportId);rules = true" class="info-btn" type="button">
                     <svg width="18" fill="white" height="18" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_1717_31141)">
                             <path
@@ -472,15 +476,15 @@
     </div>
 </div>
 }
-
+}
 @if (rules) {
 <div class="rules-overlay bg-bg_color_popUpParentBg">
     <div class="rules-bg"></div>
-
+    
     <div class="rule-wrapper popUpOpenAnimation1">
         <div class="ruleas">
             <h2 class="rule-heading text-text_color_primary1">
-                Rules-Cricket
+                Rules-{{rulesInfo?.sportName}}
             </h2>
             <button (click)="rules = false" type="button" aria-label="Close" title="Close">
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 16 16" fill="#fff"
@@ -501,7 +505,7 @@
         <div class="rule-text-wrapper">
             <div class="rule-container">
                 <div class="rule-item"></div>
-                <div class="rule-search-container border-border_color_primary1">
+                <!-- <div class="rule-search-container border-border_color_primary1">
                     <div class="flex-shrink-0 w-max">
                         <svg fill="#fff" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -510,14 +514,14 @@
                         </svg>
                     </div>
                     <input class="rule-searchbar text-text_color_primary1" placeholder="Search rules..." value="">
-                </div>
+                </div> -->
                 <div class="flex items-center gap-2">
-                    <span class="text-sm text-[#626262]">2
+                    <!-- <span class="text-sm text-[#626262]">2
                         rules
-                    </span>
-                    <button (click)="openRules = !openRules" class="expand-btn text-text_color_primary1">
+                    </span> -->
+                    <!-- <button (click)="openRules = !openRules" class="expand-btn text-text_color_primary1">
                         {{openRules ? 'Collapse All' : 'Expand All'}}
-                    </button>
+                    </button> -->
                 </div>
 
                 <div class="space-y-2 mt-4">
@@ -549,68 +553,7 @@
                             class="rule-text-container" aria-labelledby="rules-header-0">
                             <div class="px-4 pb-4">
                                 <div class="pt-3 border-t border-border_color_primary1">
-                                    <article title="Rules for General Rules"
-                                        class="prose prose-sm max-w-none text-text_color_primary1 leading-relaxed [&amp;>*:first-child]:mt-0 [&amp;>*:last-child]:mb-0">
-                                        <div>➢ General</div>
-                                        <div></div>
-                                        <div>If a ball is not bowled during a competition, series
-                                            or match then all bets will be void except for those on any market that has
-                                            been unconditionally determined (e.g. in the 'Completed Match' market).
-                                        </div>
-                                        <div></div>
-                                        <div>If a match is shortened by weather, all bets will be
-                                            settled according to the official result (including for limited overs
-                                            matches, the result determined by the Duckworth Lewis method).</div>
-                                        <div></div>
-                                        <div>In the event of a match being decided by a bowl-off or
-                                            toss of the coin, all bets will be void except for those on markets that
-                                            have been unconditionally determined.</div>
-                                        <div></div>
-                                        <div>➢ Test matches</div>
-                                        <div></div>
-                                        <div>If a match starts but is later abandoned for any
-                                            reason other than weather (which may include but is not limited to:
-                                            dangerous or unplayable wicket or outfield; pitch vandalism; strike or
-                                            boycott; crowd protests/violence; stadium damage; acts of terrorism; and
-                                            acts of God), It reserves the right to void all bets, except for those on
-                                            markets that have been unconditionally determined.</div>
-                                        <div></div>
-                                        <div>If the match is not scheduled to be completed within
-                                            five days after the original scheduled completion date, then all bets on
-                                            markets for this event will be void, except for bets on any markets that
-                                            have been unconditionally determined.</div>
-                                        <div></div>
-                                        <div>➢ Limited Over matches</div>
-                                        <div></div>
-                                        <div>If a match is declared "No Result'', bets will be void
-                                            on all markets for the event except for those markets which have been
-                                            unconditionally determined or where the minimum number of overs have been
-                                            bowled as laid out in the market specific information.</div>
-                                        <div></div>
-                                        <div>In the event of a new toss taking place on a scheduled
-                                            reserve day for a limited over match all bets that were placed after 30
-                                            minutes before the original scheduled start of play on the first day will be
-                                            made void. This rule relates to all markets except those that have been
-                                            unconditionally determined (e.g. in the win the toss and toss combination
-                                            markets).</div>
-                                        <div></div>
-                                        <div>➢ Super Over rule</div>
-                                        <div></div>
-                                        <div>Which team will win this Super Over? This market will
-                                            be suspended on site and activated once Betfair are aware a Super Over is to
-                                            be played. The market will be turned in-play at the start of the Super Over.
-                                            This market will not be actively managed therefore it is the responsibility
-                                            of all customers to manage their positions. This market will be settled
-                                            based on the number of runs scored by each team in the initial Super Over.
-                                            For the avoidance of doubt, if scores are tied at the completion of both
-                                            innings in the Super Over then the market will be settled as a Dead Heat
-                                            except in cases where more than one Super Over is played, where it will be
-                                            settled on the winner of the final over. Any tie breaker that may be used to
-                                            determine a winner including but not limited to higher number of boundaries,
-                                            higher number of sixes, losing fewer wickets, coin toss etc. do not count
-                                            for the purposes of this market.</div>
-                                        <div></div>
-                                    </article>
+                                    <div class="rules-container" [innerHTML]="rulesInfo?.rules"></div>
                                 </div>
                             </div>
                         </div>
