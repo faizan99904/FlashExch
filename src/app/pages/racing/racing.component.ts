@@ -265,5 +265,12 @@ export class RacingComponent {
       })
       .filter((tournament: any) => tournament !== null);
   }
+  gotoMarket(market: any) {
+    console.log(this.sportId,',maket',market)
+    localStorage.setItem('competitionName', market.eventName);
 
+    this.router.navigateByUrl(
+      '/market-detail/' + this.sportId + '/' + market.eventId
+    );
+  }
 }

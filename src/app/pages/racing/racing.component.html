@@ -95,7 +95,7 @@
 
                         <ul class="matches">
                             <li *ngFor="let match of champ.eventsData.slice(0,4)">
-                                <a [href]="match.link" class="rect" [ngClass]="{
+                                <a (click)="gotoMarket(match)" class="rect" [ngClass]="{
                                                   'finished': champ.state === 'finished',
                                                   'active': champ.inPlay,
                                                   'empty': champ.state === ''
@@ -105,7 +105,7 @@
                             </li>
                             @if (isChampExpanded(i, champIdx)) {<li *ngFor="let match of champ.eventsData.slice(4) "
                                 class="expand-container">
-                                <a [href]="match.link" class="rect mt-[5.5px]" [ngClass]="{
+                                <a (click)="gotoMarket(match)" class="rect mt-[5.5px]" [ngClass]="{
                                                   'finished': champ.state === 'finished',
                                                   'active': champ.inPlay,
                                                   'empty': champ.state === ''
@@ -170,7 +170,7 @@
                     <span class="champ-name">{{ champ.eventName }}</span>
                     <ul class="matches">
                         <li *ngFor="let match of champ.eventsData.slice(0,4)">
-                            <a [href]="match.link" class="rect" [ngClass]="{
+                            <a (click)="gotoMarket(match)" class="rect" [ngClass]="{
                                 'finished': champ.state === 'finished',
                                 'active': champ.inPlay,
                                 'empty': champ.state === ''

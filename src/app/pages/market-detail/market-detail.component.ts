@@ -118,9 +118,8 @@ export class MarketDetailComponent {
     private toaster: ToastrService
   ) {
     this.route.params.subscribe((params) => {
-      this.sportId = params['gameId'];
+      this.sportId = params['sportId'];
       this.event_id = params['eventId'];
-      this.gameName = params['gameName'];
       this.sportObj = {
         event_id: this.event_id,
         sportId: this.sportId,
@@ -128,8 +127,8 @@ export class MarketDetailComponent {
       if (
         this.previousSport != this.sportId ||
         this.previousEventId != this.event_id ||
-        !params['gameId'] ||
-        params['gameId'] != undefined
+        !params['sportId'] ||
+        params['sportId'] != undefined
       ) {
         this.unsubscribeFirebase();
       }
