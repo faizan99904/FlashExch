@@ -813,19 +813,22 @@ export class MarketDetailComponent {
   centerScrollableDiv(tableFlag: any) {
     const centeredDiv = document.getElementById(tableFlag);
     const container = document.getElementById('fancyul');
-
-    // Calculate the center position
+  
     if (centeredDiv && container) {
       const centerX = centeredDiv.offsetLeft + centeredDiv.offsetWidth / 2;
-
-      // Adjust the scrollLeft property to center the div horizontally
-      container.scrollLeft = centerX - container.offsetWidth / 2;
+      const targetScrollLeft = centerX - container.offsetWidth / 2;
+  
+      container.scrollTo({
+        left: targetScrollLeft,
+        behavior: 'smooth',
+      });
     }
   }
 
   changeFancyMarket(tableFlag: any, onChangeData?: any) {
     const element = document.getElementById(tableFlag);
     if (element && !onChangeData) {
+      debugger
       setTimeout(() => {
         const elementRect = element.getBoundingClientRect();
         const isElementVisible =

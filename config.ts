@@ -22,6 +22,7 @@ export const CONFIG = {
   casinoEvents: BASE_URL + '/api/exchange/navigations/casinoEvents',
   casinoEventsTime: 120,
   sidebarEvents: 'sidebarEvents',
+  inplayEvents:'inplayEvents',
   sendUserRegisterOtp: BASE_URL + '/app/user/userRegisterOtpSent',
   verifyUserRegisterOtp: BASE_URL + '/app/user/userRegisterVerify',
   sendForgotPasswordOtp: BASE_URL + '/app/users/sendForgotPasswordOtp',

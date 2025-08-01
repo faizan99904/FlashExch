@@ -1,7 +1,7 @@
 <div class="font-['Roboto'] h-[15vw] mob-nav text-white bg-black relative z-10">
     <ul class="mobile-nav block whitespace-nowrap overflow-x-scroll w-full h-full">
-        <li [class.li-active]="activeIndex == 'ALL'" (click)="activeIndex = 'ALL';changeSport('ALL')"
-            [routerLink]="'/competitions/ALL'" routerLinkActive="li-active"
+        <li  (click)="activeIndex = 'ALL';"
+            [routerLink]="'/'" 
             class="sport-item !mr-[3px] min-[429px]:!mr-1 sport-all">
             All
         </li>

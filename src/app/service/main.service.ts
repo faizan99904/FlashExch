@@ -23,6 +23,7 @@ export class MainService {
   exchangeTypeList: WritableSignal<any | null> = signal(null);
   customerSupport: WritableSignal<any | null> = signal(null);
 
+  allInplayEvents: WritableSignal<any | null> = signal(null);
   allEventList: WritableSignal<any | null> = signal(null);
   allRacingEventList: WritableSignal<any | null> = signal(null);
 
@@ -169,9 +170,41 @@ export class MainService {
   getSideBarEvent(): any | null {
     return this.SideBarEvents();
   }
+  setInplaySports(record: any) {
+  
+    let eventsList: any = [];
+
+    Object.entries(record.data).map(entry => {
+        let value: any = entry[1];
+        eventsList.push(...value)
+    });
+    // removing greyhound and horseracing from inplay list by there ids
+    let inplayRecords = eventsList.filter((item: any) => item.oddsData.inPlay === true && (item.sportId != '7' && item.sportId != '4339'));
+ 
+    const uniqueSportsArray = inplayRecords.reduce((acc: any, item: any) => {
+        // Check if the sport is already in the accumulator
+        const existingSport = acc.find((sport: any) => sport.sportName === item.sportName);
+        // If the sport is not found, add it to the accumulator
+        if (!existingSport) {
+            acc.push({
+                sportId: item?.sportId,
+                sportName: item?.sportName,
+                data: [item] // Start the 'data' array with the current item
+            });
+        } else {
+            // If the sport is found, add the current item to its 'data' array
+            existingSport.data.push(item);
+        }
+        return acc;
+    }, []);
+    // Saving Inplay events
+    this.allInplayEvents.set({ data: uniqueSportsArray, totalEvent: inplayRecords?.length })
+    this.indexedDBService.createRecord(CONFIG.inplayEvents, { data: uniqueSportsArray, totalEvent: inplayRecords?.length }).subscribe((res: any) => { });
+
+}
   setSideBarEvent(record: any) {
     let sidebarEvents: any = [];
-  
+    this.setInplaySports({ data: record });
     Object.entries(record).forEach(([key, value]) => {
       const organizedData = record[key].reduce((acc: any, item: any) => {
         const { tournamentName, tournamentId } = item;
@@ -230,6 +263,10 @@ export class MainService {
         .subscribe((res: any) => {
             this.SideBarEvents.set(res);
         });
+
+        this.indexedDBService.getRecord(CONFIG.inplayEvents).subscribe((res: any) => {
+          this.allInplayEvents.set(res);
+      })
 }
 
 
@@ -246,6 +283,10 @@ export class MainService {
   }
   getAutoDepositURL(): string | null {
     return this.autoDepositURL();
+  }
+
+  getInplayEvents(): any | null {
+    return this.allInplayEvents();
   }
 
   private createtimestamp(key: any): Observable<Boolean> {

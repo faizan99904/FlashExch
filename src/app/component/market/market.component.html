@@ -14,8 +14,14 @@
             <span class="material-icons  error_outline_icon">error_outline</span>
             <div class="text hidden">{{market.tournamentName}}</div>
         </div>
-        <div class="market-count keyboard_arrow_wrapper">
-            <span class="[vertical-align:middle]"></span>
+        <div class="market-count keyboard_arrow_wrapper flex items-center">
+            <span class="[vertical-align:middle]" *ngIf="market.oddsData.inPlay">
+                <span  >
+                    <svg  width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path  d="M11.8182 0H1.18182C0.525909 0 0 0.543889 0 1.22222V8.55556C0 9.22778 0.525909 9.77778 1.18182 9.77778H4.13636V11H8.86364V9.77778H11.8182C12.4682 9.77778 12.9941 9.22778 12.9941 8.55556L13 1.22222C13 0.543889 12.4682 0 11.8182 0ZM11.8182 8.55556H1.18182V1.22222H11.8182V8.55556ZM8.86364 4.88889L4.72727 7.33333V2.44444L8.86364 4.88889Z" fill="#11e311"></path>
+                    </svg>
+                  </span>
+            </span>
             <span class="material-icons keyboard_arrow_icon">keyboard_arrow_right</span>
         </div>
     </div>
@@ -123,8 +129,14 @@
                 <span class="material-icons text-[#A0A1A2] text-[4vw]">error_outline</span>
                 <div class="text hidden">{{market.tournamentName}}</div>
             </div>
-            <div class="market-count text-[3vw] text-white ml-auto" (click)="gotoMarket(market)">
-                <span class="[vertical-align:middle]"></span>
+            <div class="market-count text-[3vw] text-white ml-auto flex items-center" (click)="gotoMarket(market)">
+                <span class="[vertical-align:middle]" *ngIf="market.oddsData.inPlay">
+                    <span  >
+                        <svg  width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path  d="M11.8182 0H1.18182C0.525909 0 0 0.543889 0 1.22222V8.55556C0 9.22778 0.525909 9.77778 1.18182 9.77778H4.13636V11H8.86364V9.77778H11.8182C12.4682 9.77778 12.9941 9.22778 12.9941 8.55556L13 1.22222C13 0.543889 12.4682 0 11.8182 0ZM11.8182 8.55556H1.18182V1.22222H11.8182V8.55556ZM8.86364 4.88889L4.72727 7.33333V2.44444L8.86364 4.88889Z" fill="#11e311"></path>
+                        </svg>
+                      </span>
+                </span>
                 <span class="material-icons text-[4.5vw] [vertical-align:middle]">keyboard_arrow_right</span>
             </div>
         </div>

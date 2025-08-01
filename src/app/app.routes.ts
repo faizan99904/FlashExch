@@ -40,6 +40,7 @@ import { ProfitlossMarketComponent } from './pages/accont/profitloss-market/prof
 import { ProfitHistoryComponent } from './pages/accont/profit-history/profit-history.component';
 import { LotteryComponent } from './shared/lottery/lottery.component';
 import { TipsAndPreviewsComponent } from './pages/news/tips-and-previews/tips-and-previews.component';
+import { InplayComponent } from './shared/inplay/inplay.component';
 
 export const routes: Routes = [
   {
@@ -73,6 +74,7 @@ export const routes: Routes = [
           },
         ],
       },
+      { path: 'inplay', component: InplayComponent },
 
       { path: 'casino', component: CasinoComponent },
       { path: 'live-casino', component: LiveCasinoComponent },
