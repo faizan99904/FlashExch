@@ -27,13 +27,14 @@ import { MainService } from '../../service/main.service';
 import { CONFIG } from '../../../../config';
 import { ShortNumberPipe } from '../../shared/pipes/short-number.pipe';
 import { BetslipComponent } from '../../shared/betslip/betslip.component';
+import { MatchedBetsComponent } from "./matched-bets/matched-bets.component";
 
 
 declare var $: any;
 
 @Component({
   selector: 'app-market-detail',
-  imports: [CommonModule, ShortNumberPipe, BetslipComponent],
+  imports: [CommonModule, ShortNumberPipe, BetslipComponent, MatchedBetsComponent],
   templateUrl: './market-detail.component.html',
   styleUrl: './market-detail.component.css',
 })
@@ -95,9 +96,8 @@ export class MarketDetailComponent {
   selectedColor: string = '';
   fancyMarket: boolean = true;
   competitionName: any;
-  openBets: boolean = false;
-  unmatchedBets: boolean = false;
-  matchedBets: boolean = false;
+  openTab: any ='market';
+ 
   rules: boolean = false;
   openRules: boolean = false;
 
@@ -1321,5 +1321,7 @@ export class MarketDetailComponent {
   showBox(color: string) {
     this.selectedColor = color;
   }
-  toggleBets() {}
+  toggleBets(tabName:any) {
+    this.openTab=tabName;
+  }
 }
