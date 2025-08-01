@@ -1,11 +1,12 @@
 <div title="Open Bets">
-    <div class=" flex items-start justify-start flex-col w-full px-2 py-1">
-        <div (click)="unmatchedBets = !unmatchedBets" id="unmatched_0"
-            class=" w-full flex-item bg-[#00aa30] transition-all ease-in-out my-1 py-1 rounded-[6px] origin-center active:opacity-95">
-            <div class="head pl-2"><span class=" text-text_color_primary2 font-lato-bold">Unmatched
-                    Bets</span></div>
-            <div [ngClass]="{'rotate-180': unmatchedBets}"
-                class=" cursor-pointer mr-2 transform transition-transform ease-in-out flex-item-center w-max origin-center  active:scale-90 active:opacity-85">
+    <div class="open-bet">
+        <div (click)="unmatchedBets = !unmatchedBets" id="unmatched_0" class="bet-container flex-item-center">
+            <div class="head pl-2">
+                <span class=" text-white font-lato-bold">Unmatched
+                    Bets
+                </span>
+            </div>
+            <div [ngClass]="{'rotate-180': unmatchedBets}" class="ico flex-item-center">
                 <svg xmlns="http://www.w3.org/2000/svg" transform="rotate(180)" viewBox="0 0 512 512" height="16"
                     width="16" fill="#fff">
                     <path
@@ -14,18 +15,18 @@
                 </svg>
             </div>
         </div>
-        <div [ngClass]="{'overflow-hidden h-0': unmatchedBets}"
-            class="transition-all BetSections w-full origin-top scaleVerticalOpen">
-            <div
-                class=" w-full text-start font-lato font-medium text-sm bg-[#22272a] rounded-md mb-1 px-4  py-3 [box-shadow:_0_20px_25px_-5px_rgba(0,0,0,0.1),_0_8px_10px_-6px_rgba(0,0,0,0.1);] text-text_color_primary1 ">
-                You have no Unmatched Bets.</div>
+        <div [ngClass]="{'overflow-hidden h-0': unmatchedBets}" class="transition-all w-full origin-top">
+            <div class="BetSections">
+                You have no Unmatched Bets.
+            </div>
         </div>
-        <div (click)="matchedBets = !matchedBets" id="matched_1"
-            class=" w-full flex-item bg-[#00aa30] transition-all ease-in-out my-1 py-1 rounded-[6px] origin-center active:opacity-95">
-            <div class="head pl-2"><span class=" text-text_color_primary2 font-lato-bold">Matched
-                    Bets</span></div>
-            <div [ngClass]="{'rotate-180': matchedBets}"
-                class=" cursor-pointer mr-2 transform transition-transform ease-in-out flex-item-center w-max origin-center  active:scale-90 active:opacity-85">
+        <div (click)="matchedBets = !matchedBets" id="matched_1" class="bet-container flex-item-center">
+            <div class="head pl-2">
+                <span class="text-white font-lato-bold">
+                    Matched Bets
+                </span>
+            </div>
+            <div [ngClass]="{'rotate-180': matchedBets}" class="ico flex-item-center">
                 <svg xmlns="http://www.w3.org/2000/svg" transform="rotate(180)" viewBox="0 0 512 512" height="16"
                     width="16" fill="#fff">
                     <path
@@ -34,10 +35,8 @@
                 </svg>
             </div>
         </div>
-        <div [ngClass]="{'overflow-hidden h-0': matchedBets}"
-            class="BetSections w-full origin-top scaleVerticalOpen transition-all">
-            <div
-                class=" w-full text-start font-lato font-medium text-sm bg-[#22272a] rounded-md mb-1 px-4  py-3 [box-shadow:_0_20px_25px_-5px_rgba(0,0,0,0.1),_0_8px_10px_-6px_rgba(0,0,0,0.1);] text-text_color_primary1">
+        <div [ngClass]="{'overflow-hidden h-0': matchedBets}" class="w-full origin-top transition-all">
+            <div class="BetSections">
                 You have no Matched Bets.</div>
         </div>
     </div>

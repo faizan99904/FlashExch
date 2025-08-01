@@ -27,18 +27,23 @@ import { MainService } from '../../service/main.service';
 import { CONFIG } from '../../../../config';
 import { ShortNumberPipe } from '../../shared/pipes/short-number.pipe';
 import { BetslipComponent } from '../../shared/betslip/betslip.component';
-import { MatchedBetsComponent } from "./matched-bets/matched-bets.component";
-
+import { MatchedBetsComponent } from './matched-bets/matched-bets.component';
 
 declare var $: any;
 
 @Component({
   selector: 'app-market-detail',
-  imports: [CommonModule, ShortNumberPipe, BetslipComponent, MatchedBetsComponent],
+  imports: [
+    CommonModule,
+    ShortNumberPipe,
+    BetslipComponent,
+    MatchedBetsComponent,
+  ],
   templateUrl: './market-detail.component.html',
   styleUrl: './market-detail.component.css',
 })
 export class MarketDetailComponent {
+  myMark: any = [];
   opendInfoId: any = [];
   loader: boolean = true;
   selectedType = 'ODD';
@@ -96,8 +101,8 @@ export class MarketDetailComponent {
   selectedColor: string = '';
   fancyMarket: boolean = true;
   competitionName: any;
-  openTab: any ='market';
- 
+  openTab: any = 'market';
+
   rules: boolean = false;
   openRules: boolean = false;
 
@@ -812,11 +817,11 @@ export class MarketDetailComponent {
   centerScrollableDiv(tableFlag: any) {
     const centeredDiv = document.getElementById(tableFlag);
     const container = document.getElementById('fancyul');
-  
+
     if (centeredDiv && container) {
       const centerX = centeredDiv.offsetLeft + centeredDiv.offsetWidth / 2;
       const targetScrollLeft = centerX - container.offsetWidth / 2;
-  
+
       container.scrollTo({
         left: targetScrollLeft,
         behavior: 'smooth',
@@ -827,7 +832,7 @@ export class MarketDetailComponent {
   changeFancyMarket(tableFlag: any, onChangeData?: any) {
     const element = document.getElementById(tableFlag);
     if (element && !onChangeData) {
-      debugger
+      debugger;
       setTimeout(() => {
         const elementRect = element.getBoundingClientRect();
         const isElementVisible =
@@ -1320,7 +1325,7 @@ export class MarketDetailComponent {
   showBox(color: string) {
     this.selectedColor = color;
   }
-  toggleBets(tabName:any) {
-    this.openTab=tabName;
+  toggleBets(tabName: any) {
+    this.openTab = tabName;
   }
 }
