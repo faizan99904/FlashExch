@@ -1,5 +1,5 @@
 <div *ngIf="activeRoute !== 'racing'"
-    class="custom-scrollbar-content lg:min-w-[198px]  xl:min-w-[252px] max-w-[252px] bg-black text-white h-[calc(100dvh-114px)] max-lg:absolute left-[-100%] mt-[0.8vw] [@media(max-width:1512px)]:!mt-[1vw]  overflow-auto">
+    class="custom-scrollbar-content lg:min-w-[198px]  xl:min-w-[252px] max-w-[252px] bg-black text-white h-[calc(100dvh-114px)] max-lg:absolute left-[-100%] mt-[0.8vw] [@media(max-width:1512px)]:!mt-[1vw]  overflow-auto [scrollbar-width:none]">
 
 
 
@@ -153,7 +153,8 @@
                 }" class="text-[0.94vw]">
                     {{ time }}
                 </span>
-                <input type="radio" name="time" [value]="time" [(ngModel)]="timeFilter" class="hidden" />
+                <input type="radio" name="time" [value]="time" [(ngModel)]="timeFilter" (ngModelChange)="filterByTime()"
+                    class="hidden" />
             </label>
         </div>
     </div>
@@ -177,7 +178,7 @@
         <ul class="space-y-2">
 
             <li class="text-[#FFFFFF99] hover:text-white text-[0.9vw]"
-                *ngFor="let item of sidebarEvent?.data; let i = index">
+                *ngFor="let item of filteredSidebarEvent; let i = index">
                 <div (click)="sidebarSportToggle(i)"
                     class="flex items-center justify-between tracking-tighter  hover:bg-[#151a21] px-[0.6vw] pt-[.2vw] cursor-pointer h-[2vw] ">
                     <div class="flex items-center gap-[0.78vw]">
@@ -212,7 +213,9 @@
                         </div>
                         <div class="flex items-center gap-2">
                             <!-- <span class="text-[#ffffff71]">{{tournament?.data?.length}}</span> -->
-                            <div class="chbx  !bg-[#292929]" [ngClass]="{'lastChild':currentRoute === `/market-detail/${marketTournament.sportId}/${marketTournament.exEventId}`}"></div>
+                            <div class="chbx  !bg-[#292929]"
+                                [ngClass]="{'lastChild':currentRoute === `/market-detail/${marketTournament.sportId}/${marketTournament.exEventId}`}">
+                            </div>
                         </div>
                     </div>
                     }

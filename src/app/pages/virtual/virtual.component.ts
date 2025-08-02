@@ -34,7 +34,6 @@ export class VirtualComponent implements OnInit {
       (record: any) => {
         this.data = record?.data || [];
         this.loader = false;
-        console.log(this.data);
       },
       (error: any) => {
         console.log(error);
