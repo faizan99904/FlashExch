@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CONFIG } from '../../../../config';
 import { CommonModule } from '@angular/common';
-import { LoaderComponent } from "../loader/loader.component";
+import { LoaderComponent } from '../loader/loader.component';
+import { NetworkService } from '../../service/network.service';
 
 @Component({
   selector: 'app-lottery',
@@ -13,7 +13,11 @@ import { LoaderComponent } from "../loader/loader.component";
 export class LotteryComponent implements OnInit {
   loader: boolean = false;
   data: any = [];
-  constructor(private http: HttpClient) {}
+  constructor(private backend: NetworkService) {}
+
+  trackByFn(index: any) {
+    return index;
+  }
 
   ngOnInit(): void {
     this.lotterySportList();
@@ -25,14 +29,14 @@ export class LotteryComponent implements OnInit {
       key: '2',
     };
 
-    this.http.post<any>(CONFIG.lotterySportList, payload).subscribe({
-      next: (res) => {
+    this.backend.getAllRecordsByPost(CONFIG.lotterySportList, payload).then(
+      (res: any) => {
         this.data = res?.data || [];
         this.loader = false;
       },
-      error: (err) => {
-        console.log(err);
-      },
-    });
+      (error: any) => {
+        console.log(error);
+      }
+    );
   }
 }
