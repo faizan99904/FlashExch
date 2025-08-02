@@ -13,7 +13,6 @@ export class InplayComponent {
   constructor(private mainService: MainService) {
     effect(() => {
       this.inplayList = this.mainService.getInplayEvents();
-      console.log('this.inplayList', this.inplayList);
     })
   }
 }

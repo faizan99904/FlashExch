@@ -19,7 +19,7 @@
                 </div>
             </div>
 
-            <div class="inplay-content bg-bg_color_primary " *ngFor="let sport of inplayList?.data">
+            <div class="inplay-content bg-bg_color_primary " *ngFor="let sport of inplayList?.data; index as i" [ngClass]="{'!border-t':i != 0}">
                 <div class="eventHeadName grid grid-cols-12">
                     <div class="event-title text-text_color_primary1">
                         <svg width="18" height="18" viewBox="0 0 19 18" xmlns="http://www.w3.org/2000/svg"
@@ -43,113 +43,118 @@
                         <span class="score">X</span>
                         <span class="score">2</span>
                     </div>
-                    <div title="The Hundred" class="market-title border-border_color_primary1 ">
-                        <span id="inPlayTime" class="market-date">
-                            <span class="date text-text_color_InPlayEventsScoreAndTime">
-                                05-08-2025 10:30 PM
+                    <ng-container *ngFor="let market of sport?.data">
+                        <div title="The Hundred" class="market-title border-border_color_primary1 ">
+                            <span id="inPlayTime" class="market-date">
+                                <span class="date text-text_color_InPlayEventsScoreAndTime">
+                                    {{market.eventTime | date:'dd-MM-yyyy hh:mm a'}}
+                                </span>
                             </span>
-                        </span>
-                        <a title="The Hundred" id="inPlayTeamName" class="market-name border-border_color_primary"
-                            href="/cricket/The%20Hundred/4/29510526">
-                            <span class="market-text">
-                                <div class="text-wrapper">
-                                    <span class="brand"></span>
-                                    <span class="brand-text">
-                                        The Hundred
-                                    </span>
-                                </div>
-                            </span>
-                        </a>
-                    </div>
-                    <span class="odd-boxes border-border_color_primary1">
-                        <div class="lg:!grid !hidden odd-box-container">
-                            <div class="col-span-4 grid grid-cols-2 h-full">
-                                <div class="w-full h-full">
-                                    <div class="odd-box-wrapper bg-bg_color_backBtnBg text-text_color_oddValue">
-                                        <span id="oddBtnPrice">6.2</span>
-                                        <span id="oddBtnSize">1</span>
+                            <a title="The Hundred" id="inPlayTeamName" class="market-name border-border_color_primary"
+                                href="/cricket/The%20Hundred/4/29510526">
+                                <span class="market-text">
+                                    <div class="text-wrapper">
+                                        <span class="brand"></span>
+                                        <span class="brand-text">
+                                            {{market?.eventName}}
+                                        </span>
                                     </div>
-                                </div>
-                                <div class="w-full h-full">
-                                    <div class="odd-wrapper bg-bg_color_layBtnBg text-text_color_oddValue">
-                                        <span id="oddBtnPrice">6.4</span>
-                                        <span id="oddBtnSize">15</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-span-4 grid grid-cols-2 h-full">
-                                <div class="w-full h-full">
-                                    <div class="odd-wrapper bg-bg_color_backBtnBg text-text_color_oddValue">
-                                        <span id="oddBtnPrice">15.5</span>
-                                        <span id="oddBtnSize">2</span>
-                                    </div>
-                                </div>
-                                <div class="w-full h-full">
-                                    <div class="odd-wrapper bg-bg_color_layBtnBg text-text_color_oddValue">
-                                        <span id="oddBtnPrice">90</span>
-                                        <span id="oddBtnSize">5</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-span-4 grid grid-cols-2 h-full">
-                                <div class="w-full h-full">
-                                    <div class="odd-wrapper bg-bg_color_backBtnBg text-text_color_oddValue">
-                                        <span id="oddBtnPrice">11.5</span>
-                                        <span id="oddBtnSize">2</span>
-                                    </div>
-                                </div>
-                                <div class="w-full h-full">
-                                    <div class="odd-wrapper bg-bg_color_layBtnBg text-text_color_oddValue">
-                                        <span id="oddBtnPrice">12.5</span>
-                                        <span id="oddBtnSize">9</span>
-                                    </div>
-                                </div>
-                            </div>
+                                </span>
+                            </a>
                         </div>
+                        <span class="odd-boxes border-border_color_primary1">
+                            <div class="lg:!grid !hidden odd-box-container">
+                                <div class="col-span-4 grid grid-cols-2 h-full">
+                                    <div class="w-full h-full">
+                                        <div class="odd-box-wrapper bg-bg_color_backBtnBg text-text_color_oddValue">
+                                            <span id="oddBtnPrice">{{market.oddsData.runners[0].price.back[0] ? market.oddsData.runners[0].price.back[0].price : '0'}}</span>
+                                            <span id="oddBtnSize">{{market.oddsData.runners[0].price.back[0] ? market.oddsData.runners[0].price.back[0].size : '0'}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="w-full h-full">
+                                        <div class="odd-wrapper bg-bg_color_layBtnBg text-text_color_oddValue">
+                                            <span id="oddBtnPrice">{{market.oddsData.runners[0].price.lay[0] ? market.oddsData.runners[0].price.lay[0].price : '0'}}</span>
+                                            <span id="oddBtnSize">{{market.oddsData.runners[0].price.lay[0] ? market.oddsData.runners[0].price.lay[0].size : '0'}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-span-4 grid grid-cols-2 h-full">
+                                    <div class="w-full h-full">
+                                        <div class="odd-wrapper bg-bg_color_backBtnBg text-text_color_oddValue">
+                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[2]?.price?.back[0] ? market.oddsData.runners[2].price.back[0].price : '-'}}</span>
+                                            <span id="oddBtnSize">{{market?.oddsData?.runners[2]?.price?.back[0] ? market.oddsData.runners[2].price.back[0].size : '-'}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="w-full h-full">
+                                        <div class="odd-wrapper bg-bg_color_layBtnBg text-text_color_oddValue">
+                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[2]?.price?.lay[0] ? market?.oddsData?.runners[2]?.price?.lay[0]?.price : '-'}}</span>
+                                            <span id="oddBtnSize">{{market?.oddsData?.runners[2]?.price?.lay[0] ? market?.oddsData?.runners[2]?.price?.lay[0]?.size : '-'}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-span-4 grid grid-cols-2 h-full">
+                                    <div class="w-full h-full">
+                                        <div class="odd-wrapper bg-bg_color_backBtnBg text-text_color_oddValue">
+                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[1]?.price?.back[0] ? market?.oddsData?.runners[1]?.price?.back[0]?.price : '0'}}</span>
+                                            <span id="oddBtnSize">{{market?.oddsData?.runners[1]?.price?.back[0] ? market?.oddsData?.runners[1]?.price?.back[0]?.size : '0'}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="w-full h-full">
+                                        <div class="odd-wrapper bg-bg_color_layBtnBg text-text_color_oddValue">
+                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[1]?.price?.lay[0] ? market?.oddsData?.runners[1]?.price?.lay[0]?.price : '0'}}</span>
+                                            <span id="oddBtnSize">{{market?.oddsData?.runners[1]?.price?.lay[0] ? market?.oddsData?.runners[1]?.price?.lay[0]?.size : '0'}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <div class="mob-odd-box lg:!hidden" id="hideScrollBar">
-                            <div class="mob-odd-wrapper">
-                                <div class="col-span-4 w-full h-full">
-                                    <div class="mob-odd-container bg-bg_color_backBtnBg text-text_color_oddValue">
-                                        <span id="oddBtnPrice">6.2</span>
-                                        <span id="oddBtnSize">1</span>
+
+
+
+                            <div class="mob-odd-box lg:!hidden" id="hideScrollBar">
+                                <div class="mob-odd-wrapper">
+                                    <div class="col-span-4 w-full h-full">
+                                        <div class="mob-odd-container bg-bg_color_backBtnBg text-text_color_oddValue">
+                                            <span id="oddBtnPrice">{{market.oddsData.runners[0]?.price.back[0] ? market.oddsData.runners[0].price.back[0]?.price : '0'}}</span>
+                                            <span id="oddBtnSize">{{market.oddsData.runners[0]?.price.back[0] ? market.oddsData.runners[0].price.back[0]?.size : '0'}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-span-4 w-full h-full">
+                                        <div class="mob-odd-container bg-bg_color_backBtnBg text-text_color_oddValue">
+                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[2]?.price?.back[0] ? market.oddsData.runners[2].price.back[0]?.price : '-'}}</span>
+                                            <span id="oddBtnSize">{{market?.oddsData?.runners[2]?.price?.lay[0] ? market?.oddsData?.runners[2]?.price?.lay[0]?.size : '-'}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-span-4 w-full h-full">
+                                        <div class="mob-odd-container bg-bg_color_backBtnBg text-text_color_oddValue">
+                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[1]?.price?.back[0] ? market?.oddsData?.runners[1]?.price?.back[0]?.price : '0'}}</span>
+                                            <span id="oddBtnSize">{{market?.oddsData?.runners[1]?.price?.back[0] ? market?.oddsData?.runners[1]?.price?.back[0]?.size : '0'}}</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-span-4 w-full h-full">
-                                    <div class="mob-odd-container bg-bg_color_backBtnBg text-text_color_oddValue">
-                                        <span id="oddBtnPrice">15.5</span>
-                                        <span id="oddBtnSize">2</span>
+                                <div class="mob-odd-wrapper">
+                                    <div class="col-span-4 w-full h-full">
+                                        <div class="mob-odd-container bg-bg_color_layBtnBg text-text_color_oddValue">
+                                            <span id="oddBtnPrice">{{market.oddsData.runners[0]?.price.lay[0] ? market.oddsData.runners[0]?.price.lay[0].price : '0'}}</span>
+                                            <span id="oddBtnSize">{{market.oddsData.runners[0]?.price.lay[0] ? market.oddsData.runners[0]?.price.lay[0].size : '0'}}</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-span-4 w-full h-full">
-                                    <div class="mob-odd-container bg-bg_color_backBtnBg text-text_color_oddValue">
-                                        <span id="oddBtnPrice">11.5</span>
-                                        <span id="oddBtnSize">2</span>
+                                    <div class="col-span-4 w-full h-full">
+                                        <div class="mob-odd-container bg-bg_color_layBtnBg text-text_color_oddValue">
+                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[2]?.price?.lay[0] ? market?.oddsData?.runners[2]?.price?.lay[0]?.price : '-'}}</span>
+                                            <span id="oddBtnSize">{{market?.oddsData?.runners[2]?.price?.lay[0] ? market?.oddsData?.runners[2]?.price?.lay[0]?.size : '-'}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-span-4 w-full h-full">
+                                        <div class="mob-odd-container bg-bg_color_layBtnBg text-text_color_oddValue">
+                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[1]?.price?.lay[0] ? market?.oddsData?.runners[1]?.price?.lay[0]?.price : '0'}}</span>
+                                            <span id="oddBtnSize">{{market?.oddsData?.runners[1]?.price?.lay[0] ? market?.oddsData?.runners[1]?.price?.lay[0]?.size : '0'}}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="mob-odd-wrapper">
-                                <div class="col-span-4 w-full h-full">
-                                    <div class="mob-odd-container bg-bg_color_layBtnBg text-text_color_oddValue">
-                                        <span id="oddBtnPrice">6.4</span>
-                                        <span id="oddBtnSize">15</span>
-                                    </div>
-                                </div>
-                                <div class="col-span-4 w-full h-full">
-                                    <div class="mob-odd-container bg-bg_color_layBtnBg text-text_color_oddValue">
-                                        <span id="oddBtnPrice">90</span>
-                                        <span id="oddBtnSize">5</span>
-                                    </div>
-                                </div>
-                                <div class="col-span-4 w-full h-full">
-                                    <div class="mob-odd-container bg-bg_color_layBtnBg text-text_color_oddValue">
-                                        <span id="oddBtnPrice">12.5</span>
-                                        <span id="oddBtnSize">9</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </span>
+                        </span>
+                    </ng-container>
                     <div title="The Hundred" class="market-title border-border_color_primary1 ">
                         <span id="inPlayTime" class="market-date">
                             <span class="date text-text_color_InPlayEventsScoreAndTime">
@@ -184,6 +189,7 @@
                     </span>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
