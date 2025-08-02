@@ -1,4 +1,4 @@
-<div class="bg-[#13161B] pb-[75px] h-full overflow-x-hidden overflow-y-auto">
+<div class="relative bg-[#13161B] pb-[75px] h-full overflow-x-hidden overflow-y-auto">
     <div class="flex justify-center items-center py-[9.98976px] text-white">
         <div>
             <h1 class="text-[21.4062px] font-bold">
@@ -11,8 +11,7 @@
     <app-loader></app-loader>
     }
     <ul class="p-[10.406px] grid grid-cols-3 md:grid-cols-5 gap-[10.406px]">
-        @for (item of data; track $index) {
-        <li>
+        <li *ngFor="let item of data, trackBy: trackByFn;index as i">
             <div class="bg group" [ngStyle]="{'background-image': 'url(' + item.url + ')'}">
                 <div class="slot-hover">
                     <img src="/assets/images/play.svg" alt="">
@@ -28,6 +27,5 @@
                 </div>
             </div>
         </li>
-        }
     </ul>
 </div>

@@ -1,8 +1,12 @@
 .loader-wrapper {
-  height: 141px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
   display: flex;
   align-items: center;
-  padding-top: 10rem;
+  justify-content: center;
 }
 
 .loader-wrapper .loader {
