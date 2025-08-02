@@ -1,7 +1,7 @@
 <div class="min-h-[calc(100vh-120px)] relative bg-[#13161B] h-full overflow-x-hidden overflow-y-auto">
-    <div class="flex justify-center items-center py-[9.98976px] text-white">
+    <div class="flex justify-center items-center py-[9.98976px] text-white md:mt-4">
         <div>
-            <h1 class="text-[21.4062px] font-bold">
+            <h1 class="text-[21.4062px] font-bold md:text-[28px]">
                 <span class="text-[#11e311]">Virtual </span> Games
             </h1>
         </div>
@@ -10,7 +10,7 @@
     @if (loader) {
     <app-loader></app-loader>
     }
-    <ul class="p-[10.406px] grid grid-cols-3 md:grid-cols-5 gap-[10.406px]">
+    <ul class="md-view p-[10.406px] grid grid-cols-2 md:grid-cols-4 gap-[10.406px] md:mt-4">
         <li *ngFor="let item of data, trackBy: trackByFn;index as i">
             <div class="bg group" [ngStyle]="{'background-image': 'url(' + item.url + ')'}">
                 <div class="slot-hover">
