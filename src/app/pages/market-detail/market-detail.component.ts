@@ -837,7 +837,6 @@ export class MarketDetailComponent {
   changeFancyMarket(tableFlag: any, onChangeData?: any) {
     const element = document.getElementById(tableFlag);
     if (element && !onChangeData) {
-      debugger;
       setTimeout(() => {
         const elementRect = element.getBoundingClientRect();
         const isElementVisible =
