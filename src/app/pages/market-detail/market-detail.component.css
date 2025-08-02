@@ -362,7 +362,7 @@
 }
 
 .fancy-title {
-  @apply rounded-[3px] shadow-[0_8px_30px_rgb(0,0,0,0.12)] py-[1px] cursor-pointer;
+  @apply rounded-[3px] shadow-[0_8px_30px_rgb(0,0,0,0.12)] my-[0.6px] cursor-pointer;
 }
 
 .fancy-wrapper {
@@ -406,11 +406,11 @@
 }
 
 .fancy-cont {
-  @apply w-full h-full grid grid-cols-2 gap-x-0.5 py-[1px] pr-[2px];
+  @apply w-full h-full grid grid-cols-2 gap-x-[1px] pr-[2px];
 }
 
 .fancy-container {
-  @apply overflow-hidden relative opacity-100 cursor-pointer active:scale-95 px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full text-black;
+  @apply overflow-hidden relative opacity-100 cursor-pointer active:scale-95 px-1 rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center w-full h-full text-black;
 }
 
 .oddBtnPrice {

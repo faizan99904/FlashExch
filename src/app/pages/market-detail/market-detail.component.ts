@@ -430,6 +430,9 @@ export class MarketDetailComponent {
       sportId: this.sportId,
       key: CONFIG.siteKey,
     };
+
+    this.loader = true;
+    
     this.backendService
       .getAllRecordsByPost(CONFIG.getMarketsEventList, req)
       .then(
@@ -437,7 +440,6 @@ export class MarketDetailComponent {
           this.MarketData = record.data;
           this.isScore = this.MarketData?.isScore;
           this.isOPenCard = this.isScore;
-          this.loader = false;
           this.matchOddsData = this.MarketData.matchOddsData;
           if (this.sportId == 1) {
             this.matchOddsData = this.matchOddsData.sort(
@@ -498,9 +500,10 @@ export class MarketDetailComponent {
             this.getBookmakerDataFirebase(firestore);
             this.getFancyDataFirebase(firestore);
           }
+          this.loader = false;
         },
         (error: any) => {
-          this.loader = false;
+          this.loader = true;
         }
       );
   }
