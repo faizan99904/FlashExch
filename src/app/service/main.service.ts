@@ -35,6 +35,8 @@ export class MainService {
   navActiveItem: WritableSignal<any> = signal(null);
   activeSport: WritableSignal<string | null> = signal(null);
 
+  betslipData: WritableSignal<any | null> = signal(null);
+
   constructor(
     private networkService: NetworkService,
     private indexedDBService: IndexedDbService
@@ -47,7 +49,13 @@ export class MainService {
   getShowChangePasswordModal(): boolean {
     return this.showChangePasswordModal();
   }
-
+ // ─── Betslip ──────────────────────────────────────────
+  setbetslip(data: any): void {
+    this.betslipData.set(data);
+  }
+  getbetslip(): any {
+    return this.betslipData();
+  }
   // ─── Login / Logout ────────────────────────────────────
   setLoggedIn(state: boolean): void {
     this.loggedIn.set(state);

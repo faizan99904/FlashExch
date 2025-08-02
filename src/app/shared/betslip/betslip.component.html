@@ -25,7 +25,7 @@
 
                     <input placeholder="Enter Odds" inputmode="numeric"
                         class="w-full focus:outline-none  text-sm h-full py-2 text-center flex items-center justify-center text-text_color_primary1 bg-bg_color_input_bg  border border-border_color_primary border-l-0 border-r-0"
-                        autocomplete="off" pattern="^[+-ed]+$" type="text" readonly [(ngModel)]="odds">
+                        autocomplete="off" pattern="^[+-ed]+$" type="text" readonly [ngModel]="item?.price">
 
                     <button (click)="increaseOdds()"
                         class="relative overflow-hidden w-full h-full flex items-center justify-center bg-bg_color_betSlipOddIncDecrBtnsGrd text-xl font-normal text-center border border-border_color_primary4 border-l-0"
@@ -93,14 +93,16 @@
                 }
             </div>
         </div>
-        <div class=" w-full grid mt-[15px] grid-cols-12 gap-2"><button type="button" class="leading-normal relative overflow-hidden  transition duration-150 ease-in-out  col-span-6 py-1 w-full flex items-center justify-center  text-sm bg-transperent text-text_color_betSlipCancelBtnColor font-medium border border-border_color_brand_secondary rounded-md 
+        <div class=" w-full grid mt-[15px] grid-cols-12 gap-2">
+            <button type="button" class="leading-normal relative overflow-hidden  transition duration-150 ease-in-out  col-span-6 py-1 w-full flex items-center justify-center  text-sm bg-transperent text-text_color_betSlipCancelBtnColor font-medium border border-border_color_brand_secondary rounded-md 
       cursor-pointer
-      "><span class=" text-text_brand_primary font-bold text-sm md:text-base leading-5">Cancel
+      " (click)="cancelBet()"><span class=" text-text_brand_primary font-bold text-sm md:text-base leading-5">Cancel
                     Bet</span></button>
             <button
                 class="relative overflow-hidden text-text_color_primary2 active:scale-95 md:active:scale-[98%] disabled:cursor-not-allowed px-2 py-1 rounded-md w-full col-span-6 border flex items-center justify-between bg-bg_color_placeBetBtnGrd border-border_color_brand_primary cursor-pointer "
                 type="button">
-                <div class=" flex items-start justify-start flex-col"><span
+                <div class=" flex items-start justify-start flex-col" (click)="login ? placeBet() :'login'">
+                    <span
                         class=" text-text_color_primary2 text-sm font-bold">
                         {{login ? 'Place Bet' : 'Login'}}
                     </span>

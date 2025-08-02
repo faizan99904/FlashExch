@@ -458,7 +458,7 @@ export class MarketDetailComponent {
 
           this.bookmakersData = this.MarketData.bookmakersData;
           this.AllMarketList.sort((a: any, b: any) => a.sequence - b.sequence);
-
+// console.log('AllMarketList', this.AllMarketList);
           let runFirebaseCall =
             this.AllFancyMarkets.length > 0 || this.AllMarketList.length > 0;
 
@@ -682,6 +682,7 @@ export class MarketDetailComponent {
       marketTpe: mType,
       isSuperFancy: isSuperFancy,
     };
+     this.mainService.setbetslip(this.betplaceObj);
   }
   getLocalDateTime(date: Date) {
     var res = new Date(date);

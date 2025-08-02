@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, EventEmitter, Input, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, effect, ElementRef, EventEmitter, Input, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CONFIG, STACK_VALUE } from '../../../../config';
 import { IndexedDbService } from '../../service/indexed-db.service';
 import { NetworkService } from '../../service/network.service';
+import { MainService } from '../../service/main.service';
 
 @Component({
   selector: 'app-betslip',
@@ -27,7 +28,8 @@ export class BetslipComponent {
   // above code khtm krien gy
 
   selectedAmount: any;
-  @Input() item: any = [];
+  @Input() item: any = { price: '' };
+
   @Output() newItemEvent = new EventEmitter<string>();
   @Output() newItemEventPlaceBet = new EventEmitter<string>();
   @Output() loaderEventPlaceBet = new EventEmitter<boolean>();
@@ -91,14 +93,19 @@ export class BetslipComponent {
     private deviceService: DeviceDetectorService,
     private backendservice: NetworkService,
     private indexedDb: IndexedDbService,
+    private mainService: MainService,
     private toaster: ToastrService,
 
     private router: Router) {
     this.isDesktop = this.deviceService.isDesktop();
     // Check if the current device is a mobile
     this.isMobile = this.deviceService.isMobile();
-
-
+    effect(() => {
+      const betData = this.mainService.getbetslip();
+      this.item = betData;
+      // console.log('betslip data', betData);
+    });
+    // console.log('betslip component initialized',this.item);
   }
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['item'].previousValue && changes['item'].currentValue) {
@@ -117,6 +124,7 @@ export class BetslipComponent {
 
 
   ngOnInit(): void {
+
 
     // removalbel part 
     this.loginState();
@@ -227,37 +235,37 @@ export class BetslipComponent {
   placeBet() {
     const token = localStorage.getItem('token');
     this.matchMeSwitch = JSON.parse(localStorage.getItem('matchMe') as string);
-  
+
     if (!token) {
       this.toaster.error("Log In first", '', { positionClass: 'toast-top-right' });
       this.router.navigate(['/login']);
       return;
     }
-  
+
     this.showLoading();
     this.isbetPlacing = true;
-  
+
     let url = CONFIG.placebet;
     let data: any;
-  
+
     const item = this.item;
-  
+
     // Special handling for mobile
     if (this.isMobile) {
       this.placeBetObj.profitlossCall = false;
       this.placeBetObj.loader = true;
       this.backendservice.setBetPlace(this.placeBetObj);
     }
-  
+
     const commonFields = {
       marketId: item.marketId,
       sportId: item.sportId,
-      stake: this.selectedAmount,
+      stake: this.stake,
       price: item.price,
       side: (item.betType?.toString() || '').toUpperCase(),
       matchMe: !!this.matchMeSwitch
     };
-  
+
     switch (item?.type) {
       case 'FANCY':
       case 'MATCH_ODDS':
@@ -267,13 +275,13 @@ export class BetslipComponent {
           data = { ...commonFields, type: item.type, selectionId: item.selectionId, size: item.size };
         }
         break;
-  
+
       case 'LINEMARKET':
         data = item.isSuperFancy
           ? { ...commonFields, type: item.type, selectionId: item.selectionId, size: item.size, index: item.index }
           : { ...commonFields, type: item.type, selectionId: item.selectionId, size: item.size };
         break;
-  
+
       case 'Ballbyball':
         data = {
           ...commonFields,
@@ -282,7 +290,7 @@ export class BetslipComponent {
           size: item.size
         };
         break;
-  
+
       case 'Lottery':
         url = CONFIG.lotteryPlaceBet;
         data = {
@@ -294,7 +302,7 @@ export class BetslipComponent {
           type: item.oddsType
         };
         break;
-  
+
       default:
         data = {
           ...commonFields,
@@ -304,12 +312,12 @@ export class BetslipComponent {
         };
         break;
     }
-  
+
     this.backendservice.getAllRecordsByPost(url, data).then(
       (res: any) => {
         this.isbetPlacing = false;
         this.hideLoading();
-  
+
         if (res?.meta?.status) {
           this.toaster.success(res.meta.message, '', { positionClass: 'toast-top-right' });
           this.afterPlaceBet();
@@ -319,10 +327,10 @@ export class BetslipComponent {
           this.cancelBet();
         }
       },
-      (error:any) => {
+      (error: any) => {
         this.isbetPlacing = false;
         this.hideLoading();
-  
+
         const message = error?.error?.meta?.message || "Something went wrong, please try again.";
         this.toaster.error(message, '', { positionClass: 'toast-top-right' });
         this.cancelBet();
@@ -332,23 +340,23 @@ export class BetslipComponent {
   getBalance() {
     this.backendservice.getAllRecordsByPost(CONFIG.userBalance, {})
       .then(
-        (data:any) => {
+        (data: any) => {
 
           if (data.meta.status == true) {
             let availBalance = (data.data.bankBalance - data.data.exposure).toFixed(2)
             $('.userTotalBalance').text(availBalance);
             $('.userTotalExposure').text(data.data.exposure);
-            const Balance ={
-              balance : availBalance,
-              exposure :data.data.exposure
-             }
+            const Balance = {
+              balance: availBalance,
+              exposure: data.data.exposure
+            }
             // this.backendservice.setBalanceExpo(Balance);
           }
         },)
   }
 
   upValue() {
-    if (this.item.type == 'FANCY' || this.item.type == 'BOOKMAKERS' || this.item.type == 'SPORTSBOOK' ) {
+    if (this.item.type == 'FANCY' || this.item.type == 'BOOKMAKERS' || this.item.type == 'SPORTSBOOK') {
       return;
     }
 
@@ -383,7 +391,7 @@ export class BetslipComponent {
   }
 
   downValue() {
-    if (this.item.type == 'FANCY' || this.item.type == 'BOOKMAKERS' || this.item.type == 'SPORTSBOOK' ) {
+    if (this.item.type == 'FANCY' || this.item.type == 'BOOKMAKERS' || this.item.type == 'SPORTSBOOK') {
       return;
     }
 
@@ -507,5 +515,5 @@ export class BetslipComponent {
     const newOdds = this.odds - 0.01;
     this.odds = newOdds > 0 ? parseFloat(newOdds.toFixed(2)) : this.odds;
   }
-// 
+  // 
 }
