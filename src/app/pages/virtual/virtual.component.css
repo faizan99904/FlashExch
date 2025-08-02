@@ -70,9 +70,3 @@ li .bg {
   pointer-events: none;
   @apply md:h-[5rem];
 }
-
-@media screen and (min-width: 1024px) {
-  .md-view {
-    @apply max-w-[1213px] mx-auto py-7 px-24;
-  }
-}
