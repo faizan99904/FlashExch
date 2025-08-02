@@ -41,6 +41,7 @@ import { ProfitHistoryComponent } from './pages/accont/profit-history/profit-his
 import { LotteryComponent } from './shared/lottery/lottery.component';
 import { TipsAndPreviewsComponent } from './pages/news/tips-and-previews/tips-and-previews.component';
 import { InplayComponent } from './shared/inplay/inplay.component';
+import { VirtualComponent } from './pages/virtual/virtual.component';
 
 export const routes: Routes = [
   {
@@ -75,7 +76,6 @@ export const routes: Routes = [
         ],
       },
       { path: 'inplay', component: InplayComponent },
-
       { path: 'casino', component: CasinoComponent },
       { path: 'live-casino', component: LiveCasinoComponent },
       { path: 'promos', component: PromosComponent },
@@ -83,7 +83,7 @@ export const routes: Routes = [
       { path: 'minigames', component: MinigamesComponent },
       { path: 'lottery', component: LotteryComponent },
       { path: 'news', component: TipsAndPreviewsComponent },
-
+      { path: 'virtual', component: VirtualComponent },
     ],
   },
 

@@ -1,0 +1,72 @@
+ul li {
+  overflow: hidden;
+  position: relative;
+  @apply rounded-[12px] md:rounded-[26px];
+}
+
+li .bg {
+  position: relative;
+  padding-top: 80%;
+  background-size: cover;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-position: center;
+}
+
+.slot-hover {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #1f242bbf;
+  transform: translateY(101%);
+  transition: transform 180ms;
+  z-index: 1;
+}
+
+.group:hover .slot-hover {
+  transform: translateY(0);
+  transition: transform 180ms;
+  z-index: 1;
+}
+
+.star-wrapper {
+  position: absolute;
+  top: 0.4088rem;
+  right: 0;
+  height: 33.8px;
+  line-height: 33.8px;
+  padding: 0 13px;
+  color: #b1afa9;
+  user-select: none;
+}
+
+.slot-hover img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  cursor: pointer;
+}
+
+.game-title:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2.725rem;
+  background: linear-gradient(
+    to top,
+    #191f2bf7 34%,
+    #191f2bcf 50%,
+    transparent
+  );
+  z-index: -2;
+  pointer-events: none;
+  @apply md:h-[5rem];
+}
