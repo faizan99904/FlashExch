@@ -1,0 +1,31 @@
+<div class="min-h-[calc(100vh-120px)] relative bg-[#13161B] h-full overflow-x-hidden overflow-y-auto">
+    <div class="flex justify-center items-center py-[9.98976px] text-white">
+        <div>
+            <h1 class="text-[21.4062px] font-bold">
+                <span class="text-[#11e311]">Virtual </span> Games
+            </h1>
+        </div>
+    </div>
+
+    @if (loader) {
+    <app-loader></app-loader>
+    }
+    <ul class="p-[10.406px] grid grid-cols-3 md:grid-cols-5 gap-[10.406px]">
+        <li *ngFor="let item of data, trackBy: trackByFn;index as i">
+            <div class="bg group" [ngStyle]="{'background-image': 'url(' + item.url + ')'}">
+                <div class="slot-hover">
+                    <img src="/assets/images/play.svg" alt="">
+                    <div class="star-wrapper">
+                        <span class="material-icons text-[24px] float-right ">favorite_border</span>
+                    </div>
+                </div>
+                <div
+                    class="game-title absolute h-[1.7031rem] flex items-center justify-center px-[0.6387rem] bottom-0 w-full z-[1] pointer-events-none">
+                    <h1 class="pt-2 md:pt-0 truncate text-[12px] poppins-regular !font-bold text-white">
+                        {{item.eventName}}
+                    </h1>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
