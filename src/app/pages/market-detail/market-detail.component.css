@@ -202,7 +202,7 @@
 }
 
 .rule-text-wrapper {
-  @apply flex-1 overflow-y-auto [scrollbar-width:none];
+  @apply flex-1 overflow-y-hidden [scrollbar-width:none];
 }
 
 .rule-container {
@@ -226,11 +226,15 @@
 }
 
 .rule-btn-wrapper {
-  @apply bg-[#22272a] border border-[#676767] hover:border-[#11e311];
+  @apply bg-[#22272a] border border-[#676767] hover:border-[#11e311] max-h-[21.9rem] overflow-hidden;
 }
 
 .rule-text-heading {
-  @apply w-full flex-item p-4 text-left transition-colors duration-200 focus:outline-none;
+  @apply relative w-full flex-item p-4 text-left transition-colors duration-200 focus:outline-none;
+}
+
+.rule-after {
+  @apply after:content-[''] after:absolute after:h-[1px] after:w-[91%] after:bg-[#11e311] after:bottom-0 after:left-1/2 after:translate-x-[-50%];
 }
 
 .rule-text {

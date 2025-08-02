@@ -551,8 +551,9 @@
 
                 <div class="space-y-2 mt-4">
                     <div class="group rule-btn-wrapper">
-                        <button (click)="openRules = !openRules" class="rule-text-heading" aria-expanded="false"
-                            aria-controls="rules-content-0" aria-label="Toggle rules for General Rules">
+                        <button [ngClass]="{'rule-after': openRules}" (click)="openRules = !openRules"
+                            class="rule-text-heading" aria-expanded="false" aria-controls="rules-content-0"
+                            aria-label="Toggle rules for General Rules">
                             <span class="rule-text">General
                                 Rules
                             </span>
@@ -577,7 +578,7 @@
                         <div [ngClass]="{'!max-h-0 overflow-hidden': !openRules}" id="rules-content-0"
                             class="rule-text-container" aria-labelledby="rules-header-0">
                             <div class="px-4 pb-4">
-                                <div class="pt-3 border-t border-border_color_primary1">
+                                <div class="pt-3">
                                     <div class="rules-container" [innerHTML]="rulesInfo?.rules"></div>
                                 </div>
                             </div>
