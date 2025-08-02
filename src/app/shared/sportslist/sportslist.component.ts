@@ -9,15 +9,16 @@ import { MainService } from '../../service/main.service';
   styleUrl: './sportslist.component.css'
 })
 export class SportslistComponent {
- 
-  active='4'
+
+  active = '4'
   constructor(public mainService: MainService) {
     this.mainService.setActiveSport(this.active);
   }
-  
-  changeSport(sportId:any){
-  this.active = sportId
-  this.mainService.setActiveSport(this.active);
+
+  changeSport(sportId: any) {
+    this.active = sportId
+    this.mainService.setActiveSport(this.active);
+    this.mainService.setNavItem(null)
   }
 
 }

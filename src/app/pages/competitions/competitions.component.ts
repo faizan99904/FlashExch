@@ -16,7 +16,7 @@ import { MainService } from '../../service/main.service';
 })
 export class CompetitionsComponent implements OnInit {
   activeTab: any
-  sportName:any
+  sportName: any
   timeFilters: boolean = true;
   competitions: any = [];
   sportId: any;
@@ -36,7 +36,7 @@ export class CompetitionsComponent implements OnInit {
     '8 Days',
   ]
 
-  constructor(private route: ActivatedRoute, public mainService: MainService,private router:Router) {
+  constructor(private route: ActivatedRoute, public mainService: MainService, private router: Router) {
     this.route.params.subscribe(params => {
       this.sportId = params['id'];
       this.mainService.setActiveSport(this.sportId)
@@ -47,7 +47,6 @@ export class CompetitionsComponent implements OnInit {
 
       this.AllEvents = this.mainService.getAllEvents();
       if (this.AllEvents) {
-        console.log('all events', this.AllEvents)
         this.getAllEvents();
       }
 
@@ -69,13 +68,12 @@ export class CompetitionsComponent implements OnInit {
 
     if (this.activeTab == 'comp' && this.AllEvents) {
       this.competitionsArr = this.RearrangingData(this.AllEvents[this.sportId])
-      console.log('comp', this.competitionsArr)
     }
   }
   toggle() {
-   
-      this.timeFilters = !this.timeFilters;
-    
+
+    this.timeFilters = !this.timeFilters;
+
   }
   openCompetition(index: any) {
     if (!this.competitions[index]) {
@@ -85,15 +83,15 @@ export class CompetitionsComponent implements OnInit {
       this.competitions[index] = false;
     }
   }
-  changeTabs(tab:any){
+  changeTabs(tab: any) {
     this.activeTab = tab;
-    if(this.activeTab=='upcoming'){
+    if (this.activeTab == 'upcoming') {
       this.changeCompetitionTimeFilter('ALL');
     }
   }
   changeCompetitionTimeFilter(filter: any): void {
     this.filter = filter;
-    this.timeFilters =true;
+    this.timeFilters = true;
     const allEvents: any[] = this.AllEvents[this.sportId] ?? [];
 
     let slice: any[];
@@ -191,7 +189,7 @@ export class CompetitionsComponent implements OnInit {
     }
   }
 
-  selectSport(sportName:any){
+  selectSport(sportName: any) {
     this.sportName = sportName
   }
   gotoMarket(market: any) {

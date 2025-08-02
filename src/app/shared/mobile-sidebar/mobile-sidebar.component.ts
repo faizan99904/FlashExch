@@ -36,7 +36,6 @@ export class MobileSidebarComponent {
   constructor(private sharedService: SharedService, private renderer: Renderer2, public mainService: MainService, private router:Router) {
     effect(() => {
       this.activeIndex = this.mainService.getActiveSport();
-      console.log(this.mainService.sportsList())
     });
   }
 

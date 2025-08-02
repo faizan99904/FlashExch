@@ -32,7 +32,7 @@ import { CommonModule } from '@angular/common';
 })
 export class LayoutComponent implements OnInit {
   activeRoute: any;
-  constructor(private toggle: SharedService, private router: Router) {}
+  constructor(private toggle: SharedService, private router: Router) { }
 
   ngOnInit(): void {
     const routeUrl = this.router.url.split('/');
@@ -43,7 +43,6 @@ export class LayoutComponent implements OnInit {
         const urlSegments = event.urlAfterRedirects.split('/');
         const routeName = urlSegments[1] || '/';
         this.activeRoute = routeName;
-        console.log('Updated route:', this.activeRoute);
         setTimeout(() => {
           this.activeRoute = routeName;
         }, 0);

@@ -11,20 +11,23 @@ import { MainService } from '../../service/main.service';
 })
 export class SportsNavComponent {
   activeIndex: any;
+  NavItemIndex:any
 
   // sportsList!: any[];
 
   constructor(public mainService: MainService, private router: Router) {
     effect(() => {
       this.activeIndex = this.mainService.getActiveSport();
-      console.log('active', this.activeIndex);
+      this.NavItemIndex = this.mainService.getNavItem();
     });
   }
 
   ngOnInit() {}
   changeSport(sportId: any) {
     this.mainService.setActiveSport(sportId);
+    this.mainService.setNavItem(sportId)
   }
+
   navigateMarket(sportName: any, sportId: any) {
     if (sportName === 'Horse Racing' || sportName === 'Greyhound Racing') {
       this.router.navigateByUrl(`racing/${sportId}`);

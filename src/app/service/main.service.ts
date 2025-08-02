@@ -32,7 +32,7 @@ export class MainService {
   showChangePasswordModal: WritableSignal<boolean> = signal(false);
   SideBarEvents: WritableSignal<any | null> = signal(null);
   logout: WritableSignal<any> = signal(null);
-
+  navActiveItem: WritableSignal<any> = signal(null);
   activeSport: WritableSignal<string | null> = signal(null);
 
   constructor(
@@ -84,6 +84,15 @@ export class MainService {
     this.casinoEvents.set(list);
   }
   getCasinoEvents(): any | null {
+    return this.casinoEvents();
+  }
+
+  // ─── Nav item ─────────────────────────────────────
+
+  setNavItem(list: any | null): void {
+    this.casinoEvents.set(list);
+  }
+  getNavItem(): any | null {
     return this.casinoEvents();
   }
 

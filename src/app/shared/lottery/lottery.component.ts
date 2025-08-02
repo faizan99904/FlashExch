@@ -29,7 +29,6 @@ export class LotteryComponent implements OnInit {
       next: (res) => {
         this.data = res?.data || [];
         this.loader = false;
-        console.log('data', this.data);
       },
       error: (err) => {
         console.log(err);

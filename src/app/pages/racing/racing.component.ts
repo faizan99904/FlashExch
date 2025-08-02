@@ -53,10 +53,9 @@ export class RacingComponent {
       }
      
       if (this.racingData) {
-        console.log('racingData tournaments:', this.racingData);
+
         this.filterRacing = this.groupEventsByTournament(this.racingData.tournaments, this.racingData.events);
         this.getCount = this.sportCount(this.racingData.events)
-        console.log('racingData tournaments:', this.filterRacing);
       }
       this.searchRacing('');
     });
@@ -266,7 +265,6 @@ export class RacingComponent {
       .filter((tournament: any) => tournament !== null);
   }
   gotoMarket(market: any) {
-    console.log(this.sportId,',maket',market)
     localStorage.setItem('competitionName', market.eventName);
 
     this.router.navigateByUrl(

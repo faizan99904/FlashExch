@@ -41,7 +41,6 @@ export class SidebarComponent {
 
     effect(() => {
       this.sidebarEvent = mainService.getSideBarEvent()
-      console.log(this.sidebarEvent)
     })
   }
 
@@ -76,7 +75,6 @@ export class SidebarComponent {
     } else {
       this.parentIndex = index
     }
-    console.log(this.childIndex)
   }
 
   subChildIndex(index: any) {
