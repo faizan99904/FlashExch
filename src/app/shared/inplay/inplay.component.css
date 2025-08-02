@@ -45,7 +45,7 @@
 }
 
 .inplay-content {
-  @apply border border-b-0 shadow-lg border-t-0 rounded-b;
+  @apply border border-b-0 shadow-lg border-t-0 ;
 }
 
 .event-title {
