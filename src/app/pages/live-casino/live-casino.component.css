@@ -1175,5 +1175,5 @@
 }
 
 .mb-search-tab {
-  @apply flex justify-center items-center h-full  text-center relative shrink-0 p-[0.2723rem_0.6806rem] cursor-pointer border-b border-transparent;
+  @apply flex justify-center items-center h-full  text-center relative shrink-0 p-[0.2723rem_0.6806rem] cursor-pointer border-b-[4px] border-transparent;
 }

@@ -19,7 +19,7 @@
                 </div>
             </div>
 
-            <div class="inplay-content bg-bg_color_primary">
+            <div class="inplay-content bg-bg_color_primary " *ngFor="let sport of inplayList?.data">
                 <div class="eventHeadName grid grid-cols-12">
                     <div class="event-title text-text_color_primary1">
                         <svg width="18" height="18" viewBox="0 0 19 18" xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +35,7 @@
                                 fill="#11e311"></path>
                         </svg>
                         <div class="event-name text-text_color_primary1">
-                            Cricket
+                            {{sport.sportName}}
                         </div>
                     </div>
                     <div class="event-score">

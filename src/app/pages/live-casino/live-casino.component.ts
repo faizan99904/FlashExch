@@ -16,7 +16,7 @@ export class LiveCasinoComponent implements AfterViewInit {
   isSearch: boolean = false;
   SeeAlFilter: any
   seeAll: boolean = false;
-  activeTab:any
+  activeTab: any
   casinoList: any = [];
   searchFilter: any
   filterMenuList: any
@@ -29,7 +29,7 @@ export class LiveCasinoComponent implements AfterViewInit {
     effect(() => {
       this.casinoList = this.mainService.getCasinoEvents();
 
-      this.filterMenu(this.casinoList.menu, this.casinoList.lobby);
+      this.filterMenu(this.casinoList?.menu, this.casinoList?.lobby);
       this.searchFilter = [...this.casinoList.lobby]
     })
   }
@@ -89,10 +89,9 @@ export class LiveCasinoComponent implements AfterViewInit {
   seeToggle(data: any) {
     this.seeAll = true;
     this.SeeAlFilter = data;
-
   }
 
-  scrollItem(element: HTMLElement){
+  scrollItem(element: HTMLElement) {
     element.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
   }
 
@@ -109,13 +108,13 @@ export class LiveCasinoComponent implements AfterViewInit {
 
   filterMenu(menu: any[], lobby: any[]) {
     const menuMap = new Map<string, any>();
-    menu.forEach(menuItem => {
+    menu?.forEach(menuItem => {
       menuItem.items = [];
       menuMap.set(menuItem.menuId, menuItem);
     });
     const sortedLobby = [...lobby].sort((a, b) => a.sequence - b.sequence);
 
-    sortedLobby.forEach(lobbyItem => {
+    sortedLobby?.forEach(lobbyItem => {
       const menuId = lobbyItem.menuId;
       if (menuMap.has(menuId)) {
         menuMap.get(menuId).items.push(lobbyItem);
@@ -124,7 +123,6 @@ export class LiveCasinoComponent implements AfterViewInit {
 
 
     this.filterMenuList = menu.sort((a, b) => a.sequence - b.sequence);
-    console.log('final', this.filterMenuList)
   }
 
   searchGame(value: string) {

@@ -45,12 +45,16 @@
                             </div>
                             <ul class="flex w-full h-full items-center  overflow-x-auto overflow-y-hidden 
                                 min-[375]:mt-[2.5px] tab-menu">
-                                <li (click)="seeToggle('all')" #allRef class="mb-search-tab w-[3.5723rem]"  (click)="scrollItem(allRef)">
+                                <li (click)="seeToggle('all')" #allRef class="mb-search-tab w-[3.5723rem]"
+                                    (click)="scrollItem(allRef)" 
+                                    [ngClass]="{'!border-green-500':SeeAlFilter === 'all'}"
+                                    >
                                     <div class="text-[0.6806rem] text-white ">All</div>
                                 </li>
 
-                                <li *ngFor="let menu of filterMenuList" (click)="seeToggle(menu)"  #allRef
-                                    class="mb-search-tab" (click)="scrollItem(allRef)">
+                                <li *ngFor="let menu of filterMenuList" (click)="seeToggle(menu)" #allRef
+                                    class="mb-search-tab" (click)="scrollItem(allRef)"
+                                    [ngClass]="{'!border-green-500':SeeAlFilter?.menuId === menu?.menuId}">
                                     <div class="text-[0.6806rem] text-white ">{{menu.menuName}}</div>
                                 </li>
                             </ul>
@@ -72,7 +76,7 @@
         <div class="mt-[10.890px]" *ngFor="let lobby of filterMenuList">
             @if(lobby?.items?.length>0){
             <div class="heading mx-[0.5431rem]">
-                <h1 class="font-bold"> <span class="text-[#11e311] mr-[2.49744px]">{{lobby.menuName}}</span>Casino</h1>
+                <h1 class="font-bold"> <span class="text-[#11e311] mr-[2.49744px]">{{lobby?.menuName}}</span>Casino</h1>
                 <div class="see-more " (click)="seeToggle(lobby)">
                     <span>See More</span>
                 </div>
@@ -113,7 +117,7 @@
                 </li>
             </ul>
 
-            <div class="mb-no-data" style="display: block;" *ngIf="searchFilter.length <= 0">
+            <div class="mb-no-data" style="display: block;" *ngIf="searchFilter?.length <= 0">
                 <div class="material-icons icon">assignment</div>
                 <p class="text" text_key="CASINO__NO_GAMES">games not found</p>
             </div>
@@ -251,9 +255,9 @@
             </ul>
             <div class="mt-[24.375px] text-[12.1875px] px-[16.25px] mx-auto w-[113.75px]">
                 <div class="flex justify-center items-center">
-                    <span class="text-[9.75px] block text-[#9A9A9A] "> {{searchFilter.length}} </span>
+                    <span class="text-[9.75px] block text-[#9A9A9A] "> {{searchFilter?.length}} </span>
                     <span class="text-[9.75px] block text-[#9A9A9A] mx-[4.0625px]"> OF </span>
-                    <span class="text-[9.75px] block text-[#9A9A9A]">{{searchFilter.length}}</span>
+                    <span class="text-[9.75px] block text-[#9A9A9A]">{{searchFilter?.length}}</span>
                 </div>
                 <div class="overflow-hidden bg-[#464b58] rounded-[16.25px] mt-[5.6875px] w-full h-[4.0625px]">
                     <div class="bg-[#00f18c] rounded-[16.25px] h-full w-[100%]"></div>
