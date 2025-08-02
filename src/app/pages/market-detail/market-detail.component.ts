@@ -1,6 +1,7 @@
 import {
   AfterViewInit,
   Component,
+  effect,
   ElementRef,
   HostListener,
   Inject,
@@ -107,6 +108,7 @@ export class MarketDetailComponent {
 
   rules: boolean = false;
   openRules: boolean = false;
+  betData: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -144,6 +146,11 @@ export class MarketDetailComponent {
       this.getMarketList();
 
       // this.InitialStartupApiCalls();
+    });
+      effect(() => {
+      const betData = this.mainService.getExposureProfit();
+      this.betData = betData;
+      // console.log('betslip data', betData);
     });
     this.isMobile = this.deviceService.isMobile();
     this.isDesktop = this.deviceService.isDesktop();

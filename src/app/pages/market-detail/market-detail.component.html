@@ -186,8 +186,8 @@
                                     <div class="runnerId-text">
                                         {{market.runnersData[runner.selectionId]}}
                                     </div>
-                                    <div class="runnerId-text market-value">
-                                        (50 - 100)
+                                    <div class="runnerId-text market-value" *ngIf="betData?.exposure && betData?.stackValue">
+                                        {{betData?.exposure}} - {{betData?.stackValue}}
                                     </div>
                                 </div>
                             </div>
@@ -289,8 +289,8 @@
                                 <div class="fancyContent">
                                     <div class="fancyMarketName flex-col truncate !items-start">
                                         <div class="truncate block max-w-full">{{market.marketName}}</div>
-                                        <div class="runnerId-text market-value">
-                                            (50 - 100)
+                                        <div class="runnerId-text market-value" *ngIf="betData?.exposure && betData?.stackValue">
+                                             {{betData?.exposure}} - {{betData?.stackValue}}
                                         </div>
                                     </div>
                                     <div class="marketName-wrapper">
@@ -415,8 +415,8 @@
                                             <div class="truncate max-w-full">
                                                 {{market.runnersData[runner.selectionId]}}
                                             </div>
-                                            <div class="runnerId-text market-value">
-                                                (50 - 100)
+                                            <div class="runnerId-text market-value" *ngIf="betData?.exposure && betData?.stackValue">
+                                                {{betData?.exposure}} - {{betData?.stackValue}}
                                             </div>
                                         </div>
                                         <div class="sportData">

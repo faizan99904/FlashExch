@@ -16,7 +16,6 @@ import { MainService } from '../../service/main.service';
   styleUrl: './betslip.component.css',
 })
 export class BetslipComponent {
-  stake: string = '';
   profit!: number;
   editStakeMode = false;
   stakeButtonsBeforeLogin = [100, 200, 500, 1000, 2000, 5000];
@@ -26,7 +25,8 @@ export class BetslipComponent {
 
 
   // above code khtm krien gy
-
+  stake: any = '';
+  exposure: any;
   selectedAmount: any;
   @Input() item: any = { price: '' };
 
@@ -189,10 +189,15 @@ export class BetslipComponent {
 
   }
   cancelBet() {
+    let betData = {
+        exposure: '',
+        stackValue: ''
+      }
     this.item = null;
     this.placeBetObj.profitlossCall = false;
     this.placeBetObj.loader = false;
     this.backendservice.setBetPlace(this.placeBetObj);
+    this.mainService.setExposureProfit(betData);
   }
 
 
@@ -354,7 +359,26 @@ export class BetslipComponent {
           }
         },)
   }
+  betExposure() {
 
+    if (this.item?.marketType === 'Bookmakers-2') {
+      this.exposure = (this.item?.price / 100) * this.stake ? ((this.item?.price / 100) * this.stake) : null;
+      let betData = {
+        exposure: this.exposure,
+        stackValue: this.stake
+      }
+      this.mainService.setExposureProfit(betData);
+    } else {
+      this.exposure = (this.item?.price - 1) * this.stake ? ((this.item?.price - 1) * this.stake) : null;
+      let betData = {
+        exposure: this.exposure,
+        stackValue: this.stake
+      }
+      this.mainService.setExposureProfit(betData);
+    }
+
+
+  }
   upValue() {
     if (this.item.type == 'FANCY' || this.item.type == 'BOOKMAKERS' || this.item.type == 'SPORTSBOOK') {
       return;
@@ -387,6 +411,7 @@ export class BetslipComponent {
       stake: this.selectedAmount,
       price: this.item.price
     }
+    this.betExposure()
     this.valueEventPlaceBet.emit(emitObj);
   }
 
@@ -423,7 +448,7 @@ export class BetslipComponent {
       price: this.item.price
     }
     this.valueEventPlaceBet.emit(emitObj);
-
+    this.betExposure()
   }
 
   showLoading() {
@@ -453,16 +478,16 @@ export class BetslipComponent {
     const validCurrent = isNaN(current) ? 0 : current;
     const newStake = validCurrent + amount;
     this.stake = String(newStake);
-    this.updateProfit();
+    // this.updateProfit();
   }
 
-  updateProfit(): void {
-    setTimeout(() => {
-      const parsedStake = parseInt(this.stake || '0', 10);
-      const validStake = isNaN(parsedStake) ? 0 : parsedStake;
-      this.profit = validStake * 2;
-    });
-  }
+  // updateProfit(): void {
+  //   setTimeout(() => {
+  //     const parsedStake = parseInt(this.stake || '0', 10);
+  //     const validStake = isNaN(parsedStake) ? 0 : parsedStake;
+  //     this.profit = validStake * 2;
+  //   });
+  // }
 
   trackByIndex(index: number, item: any): number {
     return index;
@@ -507,13 +532,15 @@ export class BetslipComponent {
     this.editStakeMode = false;
   }
 
-  increaseOdds() {
-    this.odds = parseFloat((this.odds + 0.01).toFixed(2));
-  }
+  // increaseOdds() {
+  //   console.log('increaseOdds called');
+  //   this.odds = parseFloat((this.odds + 0.01).toFixed(2));
+  // }
 
-  decreaseOdds() {
-    const newOdds = this.odds - 0.01;
-    this.odds = newOdds > 0 ? parseFloat(newOdds.toFixed(2)) : this.odds;
-  }
+  // decreaseOdds() {
+  //    console.log('decreaseOdds called');
+  //   const newOdds = this.odds - 0.01;
+  //   this.odds = newOdds > 0 ? parseFloat(newOdds.toFixed(2)) : this.odds;
+  // }
   // 
 }
