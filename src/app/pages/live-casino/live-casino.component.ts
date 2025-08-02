@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, effect, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, effect, ElementRef, viewChild, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { BottomNavComponent } from '../../shared/bottom-nav/bottom-nav.component';
@@ -13,6 +13,8 @@ declare var Swiper: any;
 })
 export class LiveCasinoComponent implements AfterViewInit {
   @ViewChild('slide') elementRef!: ElementRef;
+  @ViewChild('mainContainer') mainContainer!: ElementRef;
+
   isSearch: boolean = false;
   SeeAlFilter: any
   seeAll: boolean = false;
@@ -22,6 +24,7 @@ export class LiveCasinoComponent implements AfterViewInit {
   filterMenuList: any
   isProvider: boolean = false;
   isDeskProvider: boolean = false;
+
   swiperImages = ['https://static.inpcdn.com/105,1ae716b55fe8f0.webp'];
   largeSwiperImages = ['https://static.inpcdn.com/107,1ae6fcf953adfb.webp'];
 
@@ -86,14 +89,24 @@ export class LiveCasinoComponent implements AfterViewInit {
     this.isSearch = !this.isSearch;
   }
 
-  seeToggle(data: any) {
+  seeToggle(data: any, element: HTMLElement | null) {
     this.seeAll = true;
     this.SeeAlFilter = data;
+    window.scrollTo({ top: 300, behavior: 'smooth' });
+    if (element === null) {
+      setTimeout(() => {
+        const scrollTab = document.querySelector('.scrollTab') as HTMLElement;
+        scrollTab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }, 500);
+    } else {
+      element.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+
+
+
   }
 
-  scrollItem(element: HTMLElement) {
-    element.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-  }
+
 
   toggleProvider() {
     this.isProvider = !this.isProvider;

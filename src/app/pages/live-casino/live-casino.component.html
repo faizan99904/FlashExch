@@ -1,4 +1,4 @@
-<div class="w-full lg:hidden bg-[#14161B]">
+<div class="w-full lg:hidden h-full bg-[#14161B]" #mainContainer>
     <div class="swiper mySwiper  max-w-[calc(100vw)] [375px]:max-h-[227.9px]
             [@media(min-width:820px)]:mt-2 [@media(min-width:820px)]:rounded-md">
         <div class="swiper-wrapper forMedia max-h-[227.9px]">
@@ -45,18 +45,19 @@
                             </div>
                             <ul class="flex w-full h-full items-center  overflow-x-auto overflow-y-hidden 
                                 min-[375]:mt-[2.5px] tab-menu">
-                                <li (click)="seeToggle('all')" #allRef class="mb-search-tab w-[3.5723rem]"
-                                    (click)="scrollItem(allRef)" 
-                                    [ngClass]="{'!border-green-500':SeeAlFilter === 'all'}"
+                                <li (click)="seeToggle('all', allRef)" #allRef class="mb-search-tab w-[3.5723rem]"
+                                  
+                                    [ngClass]="{'!border-green-500 scrollTab':SeeAlFilter === 'all'}"
                                     >
                                     <div class="text-[0.6806rem] text-white ">All</div>
                                 </li>
 
-                                <li *ngFor="let menu of filterMenuList" (click)="seeToggle(menu)" #allRef
-                                    class="mb-search-tab" (click)="scrollItem(allRef)"
-                                    [ngClass]="{'!border-green-500':SeeAlFilter?.menuId === menu?.menuId}">
+                                <li *ngFor="let menu of filterMenuList" (click)="seeToggle(menu, allRef)" #allRef
+                                    class="mb-search-tab" 
+                                    [ngClass]="{'!border-green-500 scrollTab':SeeAlFilter?.menuId === menu?.menuId}">
                                     <div class="text-[0.6806rem] text-white ">{{menu.menuName}}</div>
                                 </li>
+
                             </ul>
                         </div>
 
@@ -77,7 +78,7 @@
             @if(lobby?.items?.length>0){
             <div class="heading mx-[0.5431rem]">
                 <h1 class="font-bold"> <span class="text-[#11e311] mr-[2.49744px]">{{lobby?.menuName}}</span>Casino</h1>
-                <div class="see-more " (click)="seeToggle(lobby)">
+                <div class="see-more " (click)="seeToggle(lobby, null)">
                     <span>See More</span>
                 </div>
             </div>
@@ -102,7 +103,7 @@
                 </div>
                 <div>
                     <h1 class="text-[21.4062px]  font-bold"> <span *ngIf="SeeAlFilter == 'all'"
-                            class="text-[#11e311]">All</span> Slots </h1>
+                            class="text-[#11e311]">All</span> </h1>
                 </div>
             </div>
 
@@ -131,9 +132,9 @@
                     <span class="ml-[1.78411px] text-[12.4872px] uppercase">Back</span>
                 </div>
                 <div>
-                    <h1 class="text-[21.4062px]  font-bold"> <span class="text-[#11e311]">{{SeeAlFilter?.menuName}}
+                    <h1 class="text-[21.4062px]  font-bold"> <span class="text-[#11e311]">{{SeeAlFilter.menuName.split(' ')[0]}}
                         </span>
-                        Slots </h1>
+                        {{ ' ' + SeeAlFilter.menuName.split(' ').slice(1).join(' ') }}</h1>
                 </div>
             </div>
 
@@ -223,7 +224,7 @@
                 class="desktop-categories gap-[0.4258rem] h-[2.5434rem] w-full text-[0.6352rem] flex items-center justify-center">
 
                 <div class="flex items-center justify-center bg-[#1f242b] border border-solid border-[#1f242b] text-[#e8e8e8] h-full  grow poppins-medium p-[0_ 0.9367rem] cursor-pointer text-center rounded-[0.5109rem] desktop-category-item"
-                    (click)="desktopFilter(menu?.menuId)" *ngFor="let menu of filterMenuList" (click)="seeToggle(menu)"
+                    (click)="desktopFilter(menu?.menuId)" *ngFor="let menu of filterMenuList" (click)="seeToggle(menu, null)"
                     [ngClass]="{'!bg-[#11e311] !text-black': menu?.menuId === activeTab}">
                     {{menu.menuName}}
                 </div>
