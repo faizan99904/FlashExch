@@ -513,6 +513,10 @@
   @apply flex-item sticky top-0 z-10 px-4 py-2;
 }
 
+.market-value {
+  @apply !text-[10px] text-green-500;
+}
+
 .popUpOpenAnimation1 {
   animation: popUpOpenAnimation1 0.31s ease-in-out;
 }
@@ -527,7 +531,7 @@
     transform: scale(1);
   }
 }
-.rules-container{
+.rules-container {
   color: white !important;
 }
 :host ::ng-deep .rules-container p {
