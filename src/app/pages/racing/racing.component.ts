@@ -38,7 +38,7 @@ export class RacingComponent {
     this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
         this.racingData = this.mainService.getAllRacingEvents();
-        this.filterRacing = this.groupEventsByTournament(this.racingData.tournaments, this.racingData.events);
+        this.filterRacing = this.groupEventsByTournament(this.racingData?.data.tournaments, this.racingData?.data.events);
         this.searchRacing('');
 
       }
@@ -54,8 +54,8 @@ export class RacingComponent {
      
       if (this.racingData) {
 
-        this.filterRacing = this.groupEventsByTournament(this.racingData.tournaments, this.racingData.events);
-        this.getCount = this.sportCount(this.racingData.events)
+        this.filterRacing = this.groupEventsByTournament(this.racingData?.data.tournaments, this.racingData?.data.events);
+        this.getCount = this.sportCount(this.racingData?.data.events)
       }
       this.searchRacing('');
     });
