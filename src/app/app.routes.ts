@@ -63,6 +63,7 @@ export const routes: Routes = [
       },
       { path: 'racing/:id', component: RacingComponent },
       { path: 'competitions/:id', component: CompetitionsComponent },
+      { path: 'virtual', component: VirtualComponent },
 
       {
         path: 'live',
@@ -83,7 +84,6 @@ export const routes: Routes = [
       { path: 'minigames', component: MinigamesComponent },
       { path: 'lottery', component: LotteryComponent },
       { path: 'news', component: TipsAndPreviewsComponent },
-      { path: 'virtual', component: VirtualComponent },
     ],
   },
 

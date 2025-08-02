@@ -10,7 +10,7 @@
     @if (loader) {
     <app-loader></app-loader>
     }
-    <ul class="md-view p-[10.406px] grid grid-cols-2 md:grid-cols-4 gap-[10.406px] md:mt-4">
+    <ul class="p-[10.406px] grid grid-cols-2 md:grid-cols-4 gap-[10.406px] md:gap-[14px] md:mt-2">
         <li *ngFor="let item of data, trackBy: trackByFn;index as i">
             <div class="bg group" [ngStyle]="{'background-image': 'url(' + item.url + ')'}">
                 <div class="slot-hover">
