@@ -28,6 +28,7 @@ import { CONFIG } from '../../../../config';
 import { ShortNumberPipe } from '../../shared/pipes/short-number.pipe';
 import { BetslipComponent } from '../../shared/betslip/betslip.component';
 import { MatchedBetsComponent } from './matched-bets/matched-bets.component';
+import { LoaderComponent } from "../../shared/loader/loader.component";
 
 declare var $: any;
 
@@ -38,7 +39,8 @@ declare var $: any;
     ShortNumberPipe,
     BetslipComponent,
     MatchedBetsComponent,
-  ],
+    LoaderComponent
+],
   templateUrl: './market-detail.component.html',
   styleUrl: './market-detail.component.css',
 })
@@ -429,6 +431,9 @@ export class MarketDetailComponent {
       sportId: this.sportId,
       key: CONFIG.siteKey,
     };
+
+    this.loader = true;
+    
     this.backendService
       .getAllRecordsByPost(CONFIG.getMarketsEventList, req)
       .then(
@@ -436,7 +441,6 @@ export class MarketDetailComponent {
           this.MarketData = record.data;
           this.isScore = this.MarketData?.isScore;
           this.isOPenCard = this.isScore;
-          this.loader = false;
           this.matchOddsData = this.MarketData.matchOddsData;
           if (this.sportId == 1) {
             this.matchOddsData = this.matchOddsData.sort(
@@ -497,9 +501,10 @@ export class MarketDetailComponent {
             this.getBookmakerDataFirebase(firestore);
             this.getFancyDataFirebase(firestore);
           }
+          this.loader = false;
         },
         (error: any) => {
-          this.loader = false;
+          this.loader = true;
         }
       );
   }
