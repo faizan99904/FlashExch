@@ -89,6 +89,11 @@ export class LiveCasinoComponent implements AfterViewInit {
   seeToggle(data: any) {
     this.seeAll = true;
     this.SeeAlFilter = data;
+
+  }
+
+  scrollItem(element: HTMLElement){
+    element.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
   }
 
   toggleProvider() {

@@ -19,7 +19,9 @@
                     @for (item of mobItems; track $index) {
                     <li
                         class="cat-li flex items-center justify-center cursor-pointer p-[0.82em] bg-[#13161b] rounded-[0.3902rem] overflow-hidden">
-                        <img id="cate-img" class="h-[1.6259rem] max-h-[1.6259rem] max-sm:max-h-[1.41797rem] w-full block" [src]="item.img" alt="">
+                        <img id="cate-img"
+                            class="h-[1.6259rem] max-h-[1.6259rem] max-sm:max-h-[1.41797rem] w-full block"
+                            [src]="item.img" alt="">
                     </li>
                     }
                 </ul>
@@ -43,18 +45,14 @@
                             </div>
                             <ul class="flex w-full h-full items-center  overflow-x-auto overflow-y-hidden 
                                 min-[375]:mt-[2.5px] tab-menu">
-                                <li (click)="seeToggle('all')"
-                                    class="mb-search-tab w-[3.5723rem]">
+                                <li (click)="seeToggle('all')" #allRef class="mb-search-tab w-[3.5723rem]"  (click)="scrollItem(allRef)">
                                     <div class="text-[0.6806rem] text-white ">All</div>
                                 </li>
 
-                                <li *ngFor="let menu of filterMenuList" (click)="seeToggle(menu)"
-                                    class="mb-search-tab">
+                                <li *ngFor="let menu of filterMenuList" (click)="seeToggle(menu)"  #allRef
+                                    class="mb-search-tab" (click)="scrollItem(allRef)">
                                     <div class="text-[0.6806rem] text-white ">{{menu.menuName}}</div>
                                 </li>
-
-
-
                             </ul>
                         </div>
 
