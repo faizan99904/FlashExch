@@ -1,4 +1,3 @@
-
 <app-loader *ngIf="loader"></app-loader>
 
 @if ( !loader) {
@@ -187,6 +186,9 @@
                                     <div class="runnerId-text">
                                         {{market.runnersData[runner.selectionId]}}
                                     </div>
+                                    <div class="runnerId-text market-value">
+                                        (50 - 100)
+                                    </div>
                                 </div>
                             </div>
                             <div class="runnerBox-container">
@@ -285,8 +287,11 @@
                         <div class="fancy-wrapper">
                             <div class="fancyWrapper">
                                 <div class="fancyContent">
-                                    <div class="fancyMarketName">
-                                        <span class="truncate block">{{market.marketName}}</span>
+                                    <div class="fancyMarketName flex-col truncate !items-start">
+                                        <div class="truncate block max-w-full">{{market.marketName}}</div>
+                                        <div class="runnerId-text market-value">
+                                            (50 - 100)
+                                        </div>
                                     </div>
                                     <div class="marketName-wrapper">
                                         <div class="spanMark">
@@ -376,13 +381,13 @@
                             </span>
                         </div>
                     </div>
-                    
+
                 </div>
-                            <div class="lg:hidden w-full" id="betslip" *ngIf="isBetsSlipOpened == market.oddsData.runners[0].selectionId && marketId == market.exMarketId 
+                <div class="lg:hidden w-full" id="betslip" *ngIf="isBetsSlipOpened == market.oddsData.runners[0].selectionId && marketId == market.exMarketId 
                             && (market?.oddsData?.status=='OPEN' || market?.oddsData?.status=='ONLINE') ">
-                                        <app-betslip style="padding: 0;" (valueEventPlaceBet)="getValueBetSlip($event)"
-                                            [item]="betplaceObj"></app-betslip>
-                                    </div>
+                    <app-betslip style="padding: 0;" (valueEventPlaceBet)="getValueBetSlip($event)"
+                        [item]="betplaceObj"></app-betslip>
+                </div>
             </div>
 
             <!-- sportsbook -->
@@ -406,10 +411,13 @@
                             <div class="sport-items">
                                 <div class="sport-items-wrapper">
                                     <div class="sport-container">
-                                        <div class="sportId">
-                                            <span class="truncate block">
+                                        <div class="sportId flex-col truncate !items-start">
+                                            <div class="truncate max-w-full">
                                                 {{market.runnersData[runner.selectionId]}}
-                                            </span>
+                                            </div>
+                                            <div class="runnerId-text market-value">
+                                                (50 - 100)
+                                            </div>
                                         </div>
                                         <div class="sportData">
                                             <div class="leading-relaxed break-words font-bold text-xs md:text-sm">
@@ -431,7 +439,7 @@
                                                 d="M6.76 5.246V3.732h1.48v1.514H6.76zm.74 8.276a5.86 5.86 0 0 0 3.029-.83 5.839 5.839 0 0 0 2.163-2.163 5.86 5.86 0 0 0 .83-3.029 5.86 5.86 0 0 0-.83-3.029 5.839 5.839 0 0 0-2.163-2.163 5.86 5.86 0 0 0-3.029-.83 5.86 5.86 0 0 0-3.029.83A5.839 5.839 0 0 0 2.308 4.47a5.86 5.86 0 0 0-.83 3.029 5.86 5.86 0 0 0 .83 3.029 5.839 5.839 0 0 0 2.163 2.163 5.86 5.86 0 0 0 3.029.83zM7.5 0c1.37 0 2.638.343 3.804 1.028a7.108 7.108 0 0 1 2.668 2.668A7.376 7.376 0 0 1 15 7.5c0 1.37-.343 2.638-1.028 3.804a7.108 7.108 0 0 1-2.668 2.668A7.376 7.376 0 0 1 7.5 15a7.376 7.376 0 0 1-3.804-1.028 7.243 7.243 0 0 1-2.668-2.686A7.343 7.343 0 0 1 0 7.5c0-1.358.343-2.62 1.028-3.786a7.381 7.381 0 0 1 2.686-2.686A7.343 7.343 0 0 1 7.5 0zm-.74 11.268V6.761h1.48v4.507H6.76z">
                                             </path>
                                         </svg>
-                                        <div class="minmax-text group-hover:!h-[32px]">
+                                        <div class="minmax-text md:!hidden group-hover:!h-[32px]">
                                             Min:{{market.min}} | Max:{{market.max}}
                                         </div>
                                     </div>
@@ -477,11 +485,12 @@
                                 </span>
                             </div>
                         </div>
-                            <div class="lg:hidden w-full" id="betslip" *ngIf="isBetsSlipOpened == runner.selectionId && marketId == market.exMarketId 
+                        <div class="lg:hidden w-full" id="betslip" *ngIf="isBetsSlipOpened == runner.selectionId && marketId == market.exMarketId 
                 && (market?.oddsData?.status=='OPEN' || market?.oddsData?.status=='ONLINE') ">
                             <app-betslip style="padding: 0;" (valueEventPlaceBet)="getValueBetSlip($event)"
-                                [item]="betplaceObj"></app-betslip></div>
-                        
+                                [item]="betplaceObj"></app-betslip>
+                        </div>
+
                     </ng-container>
                 </div>
             </div>
@@ -496,7 +505,7 @@
 @if (rules) {
 <div class="rules-overlay bg-bg_color_popUpParentBg">
     <div class="rules-bg"></div>
-    
+
     <div class="rule-wrapper popUpOpenAnimation1">
         <div class="ruleas">
             <h2 class="rule-heading text-text_color_primary1">
