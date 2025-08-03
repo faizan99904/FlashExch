@@ -1,6 +1,7 @@
 import {
   AfterViewInit,
   Component,
+  effect,
   ElementRef,
   HostListener,
   Inject,
@@ -109,6 +110,7 @@ export class MarketDetailComponent {
 
   rules: boolean = false;
   openRules: boolean = false;
+  betData: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -146,6 +148,11 @@ export class MarketDetailComponent {
       this.getMarketList();
 
       // this.InitialStartupApiCalls();
+    });
+      effect(() => {
+      const betData = this.mainService.getExposureProfit();
+      this.betData = betData;
+      // console.log('betslip data', betData);
     });
     this.isMobile = this.deviceService.isMobile();
     this.isDesktop = this.deviceService.isDesktop();
@@ -196,6 +203,12 @@ export class MarketDetailComponent {
       this.sportbookSubscription.unsubscribe();
     }
     window.clearInterval(this.intrvlCashOut);
+  }
+    hasProfitAndLoss(value: any): boolean {
+    if (typeof value === 'object' && value !== null) {
+      return value.hasOwnProperty('PROFIT') && value.hasOwnProperty('LOSS');
+    }
+    return false;
   }
   getfancyMarketList() {
     this.mainService

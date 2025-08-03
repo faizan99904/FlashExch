@@ -1,4 +1,4 @@
-<div class="w-full mt-[15px] px-2 text-white pb-[75px]">
+<div class="w-full mt-[15px] px-2 text-white pb-[75px] relative z-1">
     <div title="In Play" class="w-full">
         <div title="In Play" class=" w-full font-helvetica">
             <div class="inplay-heading bg-bg_competetionInPlayUpComingBg border-border_color_primary">
@@ -19,7 +19,8 @@
                 </div>
             </div>
 
-            <div class="inplay-content bg-bg_color_primary " *ngFor="let sport of inplayList?.data; index as i" [ngClass]="{'!border-t':i != 0}">
+            <div class="inplay-content bg-bg_color_primary " *ngFor="let sport of inplayList?.data; index as i"
+                [ngClass]="{'!border-t':i != 0}">
                 <div class="eventHeadName grid grid-cols-12">
                     <div class="event-title text-text_color_primary1">
                         <svg width="18" height="18" viewBox="0 0 19 18" xmlns="http://www.w3.org/2000/svg"
@@ -62,47 +63,60 @@
                                 </span>
                             </a>
                         </div>
+                        @if(market?.oddsData?.status !== 'SUSPENDED'){
                         <span class="odd-boxes border-border_color_primary1">
                             <div class="lg:!grid !hidden odd-box-container">
                                 <div class="col-span-4 grid grid-cols-2 h-full">
                                     <div class="w-full h-full">
                                         <div class="odd-box-wrapper bg-bg_color_backBtnBg text-text_color_oddValue">
-                                            <span id="oddBtnPrice">{{market.oddsData.runners[0].price.back[0] ? market.oddsData.runners[0].price.back[0].price : '0'}}</span>
-                                            <span id="oddBtnSize">{{market.oddsData.runners[0].price.back[0] ? market.oddsData.runners[0].price.back[0].size : '0'}}</span>
+                                            <span id="oddBtnPrice">{{market.oddsData.runners[0].price.back[0] ?
+                                                market.oddsData.runners[0].price.back[0].price : '0'}}</span>
+                                            <span id="oddBtnSize">{{market.oddsData.runners[0].price.back[0] ?
+                                                market.oddsData.runners[0].price.back[0].size : '0'}}</span>
                                         </div>
                                     </div>
                                     <div class="w-full h-full">
                                         <div class="odd-wrapper bg-bg_color_layBtnBg text-text_color_oddValue">
-                                            <span id="oddBtnPrice">{{market.oddsData.runners[0].price.lay[0] ? market.oddsData.runners[0].price.lay[0].price : '0'}}</span>
-                                            <span id="oddBtnSize">{{market.oddsData.runners[0].price.lay[0] ? market.oddsData.runners[0].price.lay[0].size : '0'}}</span>
+                                            <span id="oddBtnPrice">{{market.oddsData.runners[0].price.lay[0] ?
+                                                market.oddsData.runners[0].price.lay[0].price : '0'}}</span>
+                                            <span id="oddBtnSize">{{market.oddsData.runners[0].price.lay[0] ?
+                                                market.oddsData.runners[0].price.lay[0].size : '0'}}</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-span-4 grid grid-cols-2 h-full">
                                     <div class="w-full h-full">
                                         <div class="odd-wrapper bg-bg_color_backBtnBg text-text_color_oddValue">
-                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[2]?.price?.back[0] ? market.oddsData.runners[2].price.back[0].price : '-'}}</span>
-                                            <span id="oddBtnSize">{{market?.oddsData?.runners[2]?.price?.back[0] ? market.oddsData.runners[2].price.back[0].size : '-'}}</span>
+                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[2]?.price?.back[0] ?
+                                                market.oddsData.runners[2].price.back[0].price : '-'}}</span>
+                                            <span id="oddBtnSize">{{market?.oddsData?.runners[2]?.price?.back[0] ?
+                                                market.oddsData.runners[2].price.back[0].size : '-'}}</span>
                                         </div>
                                     </div>
                                     <div class="w-full h-full">
                                         <div class="odd-wrapper bg-bg_color_layBtnBg text-text_color_oddValue">
-                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[2]?.price?.lay[0] ? market?.oddsData?.runners[2]?.price?.lay[0]?.price : '-'}}</span>
-                                            <span id="oddBtnSize">{{market?.oddsData?.runners[2]?.price?.lay[0] ? market?.oddsData?.runners[2]?.price?.lay[0]?.size : '-'}}</span>
+                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[2]?.price?.lay[0] ?
+                                                market?.oddsData?.runners[2]?.price?.lay[0]?.price : '-'}}</span>
+                                            <span id="oddBtnSize">{{market?.oddsData?.runners[2]?.price?.lay[0] ?
+                                                market?.oddsData?.runners[2]?.price?.lay[0]?.size : '-'}}</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-span-4 grid grid-cols-2 h-full">
                                     <div class="w-full h-full">
                                         <div class="odd-wrapper bg-bg_color_backBtnBg text-text_color_oddValue">
-                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[1]?.price?.back[0] ? market?.oddsData?.runners[1]?.price?.back[0]?.price : '0'}}</span>
-                                            <span id="oddBtnSize">{{market?.oddsData?.runners[1]?.price?.back[0] ? market?.oddsData?.runners[1]?.price?.back[0]?.size : '0'}}</span>
+                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[1]?.price?.back[0] ?
+                                                market?.oddsData?.runners[1]?.price?.back[0]?.price : '0'}}</span>
+                                            <span id="oddBtnSize">{{market?.oddsData?.runners[1]?.price?.back[0] ?
+                                                market?.oddsData?.runners[1]?.price?.back[0]?.size : '0'}}</span>
                                         </div>
                                     </div>
                                     <div class="w-full h-full">
                                         <div class="odd-wrapper bg-bg_color_layBtnBg text-text_color_oddValue">
-                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[1]?.price?.lay[0] ? market?.oddsData?.runners[1]?.price?.lay[0]?.price : '0'}}</span>
-                                            <span id="oddBtnSize">{{market?.oddsData?.runners[1]?.price?.lay[0] ? market?.oddsData?.runners[1]?.price?.lay[0]?.size : '0'}}</span>
+                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[1]?.price?.lay[0] ?
+                                                market?.oddsData?.runners[1]?.price?.lay[0]?.price : '0'}}</span>
+                                            <span id="oddBtnSize">{{market?.oddsData?.runners[1]?.price?.lay[0] ?
+                                                market?.oddsData?.runners[1]?.price?.lay[0]?.size : '0'}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -115,47 +129,66 @@
                                 <div class="mob-odd-wrapper">
                                     <div class="col-span-4 w-full h-full">
                                         <div class="mob-odd-container bg-bg_color_backBtnBg text-text_color_oddValue">
-                                            <span id="oddBtnPrice">{{market.oddsData.runners[0]?.price.back[0] ? market.oddsData.runners[0].price.back[0]?.price : '0'}}</span>
-                                            <span id="oddBtnSize">{{market.oddsData.runners[0]?.price.back[0] ? market.oddsData.runners[0].price.back[0]?.size : '0'}}</span>
+                                            <span id="oddBtnPrice">{{market.oddsData.runners[0]?.price.back[0] ?
+                                                market.oddsData.runners[0].price.back[0]?.price : '0'}}</span>
+                                            <span id="oddBtnSize">{{market.oddsData.runners[0]?.price.back[0] ?
+                                                market.oddsData.runners[0].price.back[0]?.size : '0'}}</span>
                                         </div>
                                     </div>
                                     <div class="col-span-4 w-full h-full">
                                         <div class="mob-odd-container bg-bg_color_backBtnBg text-text_color_oddValue">
-                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[2]?.price?.back[0] ? market.oddsData.runners[2].price.back[0]?.price : '-'}}</span>
-                                            <span id="oddBtnSize">{{market?.oddsData?.runners[2]?.price?.lay[0] ? market?.oddsData?.runners[2]?.price?.lay[0]?.size : '-'}}</span>
+                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[2]?.price?.back[0] ?
+                                                market.oddsData.runners[2].price.back[0]?.price : '-'}}</span>
+                                            <span id="oddBtnSize">{{market?.oddsData?.runners[2]?.price?.lay[0] ?
+                                                market?.oddsData?.runners[2]?.price?.lay[0]?.size : '-'}}</span>
                                         </div>
                                     </div>
                                     <div class="col-span-4 w-full h-full">
                                         <div class="mob-odd-container bg-bg_color_backBtnBg text-text_color_oddValue">
-                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[1]?.price?.back[0] ? market?.oddsData?.runners[1]?.price?.back[0]?.price : '0'}}</span>
-                                            <span id="oddBtnSize">{{market?.oddsData?.runners[1]?.price?.back[0] ? market?.oddsData?.runners[1]?.price?.back[0]?.size : '0'}}</span>
+                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[1]?.price?.back[0] ?
+                                                market?.oddsData?.runners[1]?.price?.back[0]?.price : '0'}}</span>
+                                            <span id="oddBtnSize">{{market?.oddsData?.runners[1]?.price?.back[0] ?
+                                                market?.oddsData?.runners[1]?.price?.back[0]?.size : '0'}}</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mob-odd-wrapper">
                                     <div class="col-span-4 w-full h-full">
                                         <div class="mob-odd-container bg-bg_color_layBtnBg text-text_color_oddValue">
-                                            <span id="oddBtnPrice">{{market.oddsData.runners[0]?.price.lay[0] ? market.oddsData.runners[0]?.price.lay[0].price : '0'}}</span>
-                                            <span id="oddBtnSize">{{market.oddsData.runners[0]?.price.lay[0] ? market.oddsData.runners[0]?.price.lay[0].size : '0'}}</span>
+                                            <span id="oddBtnPrice">{{market.oddsData.runners[0]?.price.lay[0] ?
+                                                market.oddsData.runners[0]?.price.lay[0].price : '0'}}</span>
+                                            <span id="oddBtnSize">{{market.oddsData.runners[0]?.price.lay[0] ?
+                                                market.oddsData.runners[0]?.price.lay[0].size : '0'}}</span>
                                         </div>
                                     </div>
                                     <div class="col-span-4 w-full h-full">
                                         <div class="mob-odd-container bg-bg_color_layBtnBg text-text_color_oddValue">
-                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[2]?.price?.lay[0] ? market?.oddsData?.runners[2]?.price?.lay[0]?.price : '-'}}</span>
-                                            <span id="oddBtnSize">{{market?.oddsData?.runners[2]?.price?.lay[0] ? market?.oddsData?.runners[2]?.price?.lay[0]?.size : '-'}}</span>
+                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[2]?.price?.lay[0] ?
+                                                market?.oddsData?.runners[2]?.price?.lay[0]?.price : '-'}}</span>
+                                            <span id="oddBtnSize">{{market?.oddsData?.runners[2]?.price?.lay[0] ?
+                                                market?.oddsData?.runners[2]?.price?.lay[0]?.size : '-'}}</span>
                                         </div>
                                     </div>
                                     <div class="col-span-4 w-full h-full">
                                         <div class="mob-odd-container bg-bg_color_layBtnBg text-text_color_oddValue">
-                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[1]?.price?.lay[0] ? market?.oddsData?.runners[1]?.price?.lay[0]?.price : '0'}}</span>
-                                            <span id="oddBtnSize">{{market?.oddsData?.runners[1]?.price?.lay[0] ? market?.oddsData?.runners[1]?.price?.lay[0]?.size : '0'}}</span>
+                                            <span id="oddBtnPrice">{{market?.oddsData?.runners[1]?.price?.lay[0] ?
+                                                market?.oddsData?.runners[1]?.price?.lay[0]?.price : '0'}}</span>
+                                            <span id="oddBtnSize">{{market?.oddsData?.runners[1]?.price?.lay[0] ?
+                                                market?.oddsData?.runners[1]?.price?.lay[0]?.size : '0'}}</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </span>
+                        }@else {
+                        <span class="suspended border-border_color_primary1">
+                            <div title="Suspended" class="suspended-wrapper">
+                                <span class="suspended-text bg-bg_color_suspendedBgColor">SUSPENDED</span>
+                            </div>
+                        </span>
+                        }
                     </ng-container>
-                    <div title="The Hundred" class="market-title border-border_color_primary1 ">
+                    <!-- <div title="The Hundred" class="market-title border-border_color_primary1 ">
                         <span id="inPlayTime" class="market-date">
                             <span class="date text-text_color_InPlayEventsScoreAndTime">
                                 05-08-2025 10:30 PM
@@ -181,12 +214,8 @@
                                 </svg>
                             </span>
                         </a>
-                    </div>
-                    <span class="suspended border-border_color_primary1">
-                        <div title="Suspended" class="suspended-wrapper">
-                            <span class="suspended-text bg-bg_color_suspendedBgColor">SUSPENDED</span>
-                        </div>
-                    </span>
+                    </div> -->
+
                 </div>
             </div>
 

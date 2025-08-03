@@ -45,7 +45,7 @@
 }
 
 .inplay-content {
-  @apply border border-b-0 shadow-lg border-t-0 ;
+  @apply border border-b-0 shadow-lg border-t-0;
 }
 
 .event-title {
@@ -121,11 +121,11 @@
 }
 
 .suspended {
-  @apply col-span-6 h-12 lg:col-span-7 w-full overflow-auto border-t border-b;
+  @apply col-span-6 h-12 lg:col-span-7 w-full overflow-auto border-t;
 }
 
 .suspended-wrapper {
-  @apply w-full flex items-center justify-center h-full pr-[2px] py-[1px] cursor-not-allowed;
+  @apply w-full flex items-center justify-center h-full max-lg:px-[1px] lg:pr-[2px] py-[1px] cursor-not-allowed;
 }
 
 .suspended-text {

@@ -36,6 +36,7 @@ export class MainService {
   activeSport: WritableSignal<string | null> = signal(null);
 
   betslipData: WritableSignal<any | null> = signal(null);
+  betExposure: WritableSignal<any | null> = signal(null);
 
   constructor(
     private networkService: NetworkService,
@@ -49,12 +50,18 @@ export class MainService {
   getShowChangePasswordModal(): boolean {
     return this.showChangePasswordModal();
   }
- // ─── Betslip ──────────────────────────────────────────
+  // ─── Betslip ──────────────────────────────────────────
   setbetslip(data: any): void {
     this.betslipData.set(data);
   }
   getbetslip(): any {
     return this.betslipData();
+  }
+  setExposureProfit(data: any): void {
+    this.betExposure.set(data);
+  }
+  getExposureProfit(): any {
+    return this.betExposure();
   }
   // ─── Login / Logout ────────────────────────────────────
   setLoggedIn(state: boolean): void {
@@ -188,37 +195,37 @@ export class MainService {
     return this.SideBarEvents();
   }
   setInplaySports(record: any) {
-  
+
     let eventsList: any = [];
 
     Object.entries(record.data).map(entry => {
-        let value: any = entry[1];
-        eventsList.push(...value)
+      let value: any = entry[1];
+      eventsList.push(...value)
     });
     // removing greyhound and horseracing from inplay list by there ids
     let inplayRecords = eventsList.filter((item: any) => item.oddsData.inPlay === true && (item.sportId != '7' && item.sportId != '4339'));
- 
+
     const uniqueSportsArray = inplayRecords.reduce((acc: any, item: any) => {
-        // Check if the sport is already in the accumulator
-        const existingSport = acc.find((sport: any) => sport.sportName === item.sportName);
-        // If the sport is not found, add it to the accumulator
-        if (!existingSport) {
-            acc.push({
-                sportId: item?.sportId,
-                sportName: item?.sportName,
-                data: [item] // Start the 'data' array with the current item
-            });
-        } else {
-            // If the sport is found, add the current item to its 'data' array
-            existingSport.data.push(item);
-        }
-        return acc;
+      // Check if the sport is already in the accumulator
+      const existingSport = acc.find((sport: any) => sport.sportName === item.sportName);
+      // If the sport is not found, add it to the accumulator
+      if (!existingSport) {
+        acc.push({
+          sportId: item?.sportId,
+          sportName: item?.sportName,
+          data: [item] // Start the 'data' array with the current item
+        });
+      } else {
+        // If the sport is found, add the current item to its 'data' array
+        existingSport.data.push(item);
+      }
+      return acc;
     }, []);
     // Saving Inplay events
     this.allInplayEvents.set({ data: uniqueSportsArray, totalEvent: inplayRecords?.length })
     this.indexedDBService.createRecord(CONFIG.inplayEvents, { data: uniqueSportsArray, totalEvent: inplayRecords?.length }).subscribe((res: any) => { });
 
-}
+  }
   setSideBarEvent(record: any) {
     let sidebarEvents: any = [];
     this.setInplaySports({ data: record });
@@ -226,7 +233,7 @@ export class MainService {
       const organizedData = record[key].reduce((acc: any, item: any) => {
         const { tournamentName, tournamentId } = item;
         let tournament = acc.find((t: any) => t.tournamentName === tournamentName);
-  
+
         if (!tournament) {
           tournament = {
             tournamentName,
@@ -235,11 +242,11 @@ export class MainService {
           };
           acc.push(tournament);
         }
-  
+
         tournament.data.push(item);
         return acc;
       }, []);
-  
+
       let obj = {
         sportId: key,
         sportName: record[key][0]?.sportName,
@@ -247,13 +254,13 @@ export class MainService {
       };
       sidebarEvents.push(obj);
     });
-  
+
     // Custom order sorting
-    const sportOrder = ['Cricket', 'Soccer', 'Tennis' ,'Horse Racing','Greyhound Racing'];
+    const sportOrder = ['Cricket', 'Soccer', 'Tennis', 'Horse Racing', 'Greyhound Racing'];
     sidebarEvents.sort((a: any, b: any) => {
       const indexA = sportOrder.indexOf(a.sportName);
       const indexB = sportOrder.indexOf(b.sportName);
-  
+
       if (indexA === -1 && indexB === -1) {
         // If both are not in the defined order, sort alphabetically
         return a.sportName.localeCompare(b.sportName);
@@ -262,11 +269,11 @@ export class MainService {
       if (indexB === -1) return -1;
       return indexA - indexB;
     });
-  
+
     this.SideBarEvents.set({
       data: sidebarEvents,
     });
-  
+
     this.indexedDBService
       .createRecord(CONFIG.sidebarEvents, {
         data: sidebarEvents,
@@ -276,15 +283,15 @@ export class MainService {
 
   pingSidebarEvents() {
     this.indexedDBService
-        .getRecord(CONFIG.sidebarEvents)
-        .subscribe((res: any) => {
-            this.SideBarEvents.set(res);
-        });
+      .getRecord(CONFIG.sidebarEvents)
+      .subscribe((res: any) => {
+        this.SideBarEvents.set(res);
+      });
 
-        this.indexedDBService.getRecord(CONFIG.inplayEvents).subscribe((res: any) => {
-          this.allInplayEvents.set(res);
-      })
-}
+    this.indexedDBService.getRecord(CONFIG.inplayEvents).subscribe((res: any) => {
+      this.allInplayEvents.set(res);
+    })
+  }
 
 
   // ─── Mini Casino & Auto-Deposit ────────────────────────
@@ -326,7 +333,7 @@ export class MainService {
           });
           if (path == 'allEventsList') {
             this.setSideBarEvent(record?.data);
-        }
+          }
         }, (error) => {
           observer.error(error);
         });
