@@ -317,18 +317,19 @@ export class MarketDetailComponent {
       })
       .stateChanges()
       .subscribe((changes: any) => {
-        let count = 1;
+        
         changes.forEach((change: any) => {
           const pt: any = change.payload.doc.data();
           switch (change.type) {
             case 'added':
-              if (count === 1) {
+              if (count == 1) {
                 this.closeFancyMarkets();
                 count++;
               }
               this.updateOrAddFancyMarket(pt);
               break;
             case 'modified':
+            
               this.updateFancyMarket(pt);
               break;
             case 'removed':
@@ -369,6 +370,7 @@ export class MarketDetailComponent {
     });
   }
   updateOrAddFancyMarket(pt: any) {
+   
     const index = this.AllFancyMarkets.findIndex(
       (obj: any) => obj.exMarketId === pt.exMarketId
     );

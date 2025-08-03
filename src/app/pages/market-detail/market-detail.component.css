@@ -423,11 +423,11 @@
 }
 
 .oddBtnPrice {
-  @apply relative z-[8] transition-all ease-in-out duration-300 origin-center flex-item-center w-full leading-5 text-sm md:text-[15px] font-semibold;
+  @apply relative z-[1] transition-all ease-in-out duration-300 origin-center flex-item-center w-full leading-5 text-sm md:text-[15px] font-semibold;
 }
 
 .oddBtnSize {
-  @apply relative z-[8] transition-all ease-in-out duration-300 origin-center flex-item-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal;
+  @apply relative z-[1] transition-all ease-in-out duration-300 origin-center flex-item-center w-full text-[10px]  leading-3 text-center whitespace-normal font-normal;
 }
 
 .fancyWrapper {
@@ -547,3 +547,22 @@
   color: white !important;
   margin-bottom: 1rem !important;
 }
+
+.suspended {
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  background: linear-gradient(90deg,#a7d8fd,#f9c9d4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px); 
+  color: #1e3f5a;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
