@@ -4,6 +4,7 @@ import {
   ElementRef,
   HostListener,
   Inject,
+  Input,
   OnDestroy,
   OnInit,
   Renderer2,
@@ -28,7 +29,7 @@ import { CONFIG } from '../../../../config';
 import { ShortNumberPipe } from '../../shared/pipes/short-number.pipe';
 import { BetslipComponent } from '../../shared/betslip/betslip.component';
 import { MatchedBetsComponent } from './matched-bets/matched-bets.component';
-import { LoaderComponent } from "../../shared/loader/loader.component";
+import { LoaderComponent } from '../../shared/loader/loader.component';
 
 declare var $: any;
 
@@ -39,8 +40,8 @@ declare var $: any;
     ShortNumberPipe,
     BetslipComponent,
     MatchedBetsComponent,
-    LoaderComponent
-],
+    LoaderComponent,
+  ],
   templateUrl: './market-detail.component.html',
   styleUrl: './market-detail.component.css',
 })
@@ -104,6 +105,7 @@ export class MarketDetailComponent {
   fancyMarket: boolean = true;
   competitionName: any;
   openTab: any = 'market';
+  color: string = '';
 
   rules: boolean = false;
   openRules: boolean = false;
@@ -251,6 +253,16 @@ export class MarketDetailComponent {
           }
         });
       });
+  }
+
+  slipColor(color: string) {
+    if (color == 'back') {
+      this.color = '#aed8ff';
+    } else if (color == 'lay') {
+      this.color = '#f1bed2';
+    } else {
+      this.color = '#86efac';
+    }
   }
 
   getBookmakerDataFirebase(projectDynamic: any) {
@@ -432,7 +444,7 @@ export class MarketDetailComponent {
     };
 
     this.loader = true;
-    
+
     this.backendService
       .getAllRecordsByPost(CONFIG.getMarketsEventList, req)
       .then(
@@ -458,7 +470,7 @@ export class MarketDetailComponent {
 
           this.bookmakersData = this.MarketData.bookmakersData;
           this.AllMarketList.sort((a: any, b: any) => a.sequence - b.sequence);
-// console.log('AllMarketList', this.AllMarketList);
+          // console.log('AllMarketList', this.AllMarketList);
           let runFirebaseCall =
             this.AllFancyMarkets.length > 0 || this.AllMarketList.length > 0;
 
@@ -682,7 +694,7 @@ export class MarketDetailComponent {
       marketTpe: mType,
       isSuperFancy: isSuperFancy,
     };
-     this.mainService.setbetslip(this.betplaceObj);
+    this.mainService.setbetslip(this.betplaceObj);
   }
   getLocalDateTime(date: Date) {
     var res = new Date(date);
