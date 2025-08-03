@@ -37,12 +37,13 @@ export class BetslipComponent {
   exposure: any;
   selectedAmount: any;
   @Input() item: any = { price: '' };
-  @Input() color: string = 'red';
   @Output() newItemEvent = new EventEmitter<string>();
   @Output() newItemEventPlaceBet = new EventEmitter<string>();
   @Output() loaderEventPlaceBet = new EventEmitter<boolean>();
   @Output() valueEventPlaceBet = new EventEmitter<any>();
   @ViewChild('betAmount') betAmount: ElementRef | undefined;
+  @Input() color: string = '';
+  colorType: string = '';
 
   // color: string = '';
   betStakes: any = [];
@@ -143,6 +144,20 @@ export class BetslipComponent {
       }
       // Access the input value when it changes
     }
+
+    if (changes['color'] && changes['color'].currentValue) {
+      const colorValue = changes['color'].currentValue;
+      console.log('Received color from parent:', colorValue);
+
+      // Convert color to type
+      if (colorValue === '#aed8ff') {
+        this.colorType = 'back';
+      } else if (colorValue === '#f1bed2') {
+        this.colorType = 'lay';
+      } else {
+        this.colorType = 'other';
+      }
+    }
   }
 
   borderChecker() {
@@ -204,9 +219,9 @@ export class BetslipComponent {
   }
   cancelBet() {
     let betData = {
-        exposure: '',
-        stackValue: ''
-      }
+      exposure: '',
+      stackValue: '',
+    };
     this.item = null;
     this.placeBetObj.profitlossCall = false;
     this.placeBetObj.loader = false;
@@ -382,41 +397,45 @@ export class BetslipComponent {
     );
   }
   getBalance() {
-    this.backendservice.getAllRecordsByPost(CONFIG.userBalance, {})
-      .then(
-        (data: any) => {
-
-          if (data.meta.status == true) {
-            let availBalance = (data.data.bankBalance - data.data.exposure).toFixed(2)
-            $('.userTotalBalance').text(availBalance);
-            $('.userTotalExposure').text(data.data.exposure);
-            const Balance = {
-              balance: availBalance,
-              exposure: data.data.exposure
-            }
-            // this.backendservice.setBalanceExpo(Balance);
-          }
-        },)
+    this.backendservice
+      .getAllRecordsByPost(CONFIG.userBalance, {})
+      .then((data: any) => {
+        if (data.meta.status == true) {
+          let availBalance = (
+            data.data.bankBalance - data.data.exposure
+          ).toFixed(2);
+          $('.userTotalBalance').text(availBalance);
+          $('.userTotalExposure').text(data.data.exposure);
+          const Balance = {
+            balance: availBalance,
+            exposure: data.data.exposure,
+          };
+          // this.backendservice.setBalanceExpo(Balance);
+        }
+      });
   }
   betExposure() {
-
     if (this.item?.marketType === 'Bookmakers-2') {
-      this.exposure = (this.item?.price / 100) * this.stake ? ((this.item?.price / 100) * this.stake) : null;
+      this.exposure =
+        (this.item?.price / 100) * this.stake
+          ? (this.item?.price / 100) * this.stake
+          : null;
       let betData = {
         exposure: this.exposure,
-        stackValue: this.stake
-      }
+        stackValue: this.stake,
+      };
       this.mainService.setExposureProfit(betData);
     } else {
-      this.exposure = (this.item?.price - 1) * this.stake ? ((this.item?.price - 1) * this.stake) : null;
+      this.exposure =
+        (this.item?.price - 1) * this.stake
+          ? (this.item?.price - 1) * this.stake
+          : null;
       let betData = {
         exposure: this.exposure,
-        stackValue: this.stake
-      }
+        stackValue: this.stake,
+      };
       this.mainService.setExposureProfit(betData);
     }
-
-
   }
   upValue() {
     if (
@@ -455,9 +474,9 @@ export class BetslipComponent {
 
     let emitObj = {
       stake: this.selectedAmount,
-      price: this.item.price
-    }
-    this.betExposure()
+      price: this.item.price,
+    };
+    this.betExposure();
     this.valueEventPlaceBet.emit(emitObj);
   }
 
@@ -501,7 +520,7 @@ export class BetslipComponent {
       price: this.item.price,
     };
     this.valueEventPlaceBet.emit(emitObj);
-    this.betExposure()
+    this.betExposure();
   }
 
   showLoading() {
@@ -595,5 +614,5 @@ export class BetslipComponent {
   //   const newOdds = this.odds - 0.01;
   //   this.odds = newOdds > 0 ? parseFloat(newOdds.toFixed(2)) : this.odds;
   // }
-  // 
+  //
 }

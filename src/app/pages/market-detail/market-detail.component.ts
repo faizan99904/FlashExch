@@ -149,7 +149,7 @@ export class MarketDetailComponent {
 
       // this.InitialStartupApiCalls();
     });
-      effect(() => {
+    effect(() => {
       const betData = this.mainService.getExposureProfit();
       this.betData = betData;
       // console.log('betslip data', betData);
@@ -204,7 +204,7 @@ export class MarketDetailComponent {
     }
     window.clearInterval(this.intrvlCashOut);
   }
-    hasProfitAndLoss(value: any): boolean {
+  hasProfitAndLoss(value: any): boolean {
     if (typeof value === 'object' && value !== null) {
       return value.hasOwnProperty('PROFIT') && value.hasOwnProperty('LOSS');
     }
@@ -268,14 +268,10 @@ export class MarketDetailComponent {
       });
   }
 
-  slipColor(color: string) {
-    if (color == 'back') {
-      this.color = '#aed8ff';
-    } else if (color == 'lay') {
-      this.color = '#f1bed2';
-    } else {
-      this.color = '#86efac';
-    }
+  slipColor(type: string) {
+    if (type === 'back') this.color = '#aed8ff';
+    else if (type === 'lay') this.color = '#f1bed2';
+    else this.color = '#86efac';
   }
 
   getBookmakerDataFirebase(projectDynamic: any) {
