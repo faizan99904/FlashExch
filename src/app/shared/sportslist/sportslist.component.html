@@ -1,6 +1,7 @@
-<ul class="sport-list menu-slide tabs">
-    <li  *ngFor="let item of mainService.sportsList(); let i = index" [ngClass]="active==item.sportId?'active':''" (click)="changeSport(item.sportId)">
-      <span [attr.sport]="item.sportName.toLowerCase()" class="sport-icon pr-[0.89vw]"></span>
-      <span>{{item.sportName}}</span>
-    </li>
+<ul class="sport-list menu-slide tabs" *ngIf="inputValue.length == 0">
+  <li *ngFor="let item of mainService.sportsList(); let i = index" [ngClass]="active==item.sportId?'active':''"
+    (click)="changeSport(item.sportId)">
+    <span [attr.sport]="item.sportName.toLowerCase()" class="sport-icon pr-[0.89vw]"></span>
+    <span>{{item.sportName}}</span>
+  </li>
 </ul>

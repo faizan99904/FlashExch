@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MainService } from '../../service/main.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { MainService } from '../../service/main.service';
   styleUrl: './sportslist.component.css'
 })
 export class SportslistComponent {
-
+  @Input() inputValue!:string
   active = '4'
   constructor(public mainService: MainService) {
     this.mainService.setActiveSport(this.active);

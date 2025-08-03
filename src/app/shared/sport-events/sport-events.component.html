@@ -63,7 +63,7 @@
     <div class="relative grow-[1] xl:max-w-[210px] h-full">
         <input type="text"
             class="bg-transparent placeholder:text-[13px] placeholder:text-[#88898B] border-0 h-full w-full [@media(min-width:420px)]:pl-[calc(12vw_+_6px)] [@media(min-width:375px)]:pl-[calc(12vw_+_3px)]  xl:!pl-[49px] leading-[12vw] outline-0 lg:text-base text-[3.5vw] text-white"
-            placeholder="Search games" #searchValue (input)="searchFilter(searchValue.value)" (focus)="changeColor()" (blur)="changeColor()">
+            placeholder="Search games" #searchValue (keyup)="searchFilter(searchValue.value)" (focus)="changeColor()" (blur)="changeColor()">
         <span
             class="material-icons text-[#999999] absolute left-[4vw] xl:left-[1vw] xl:-mt-[7px] pointer-events-none top-[50%]  xl:text-base text-[6vw] -mt-[3.1vw] search-icon" [ngClass]="{'text-white lg:text-[#05AA30]':isSearchActive}">search</span>
 
@@ -115,7 +115,7 @@
 
 </div>
 
-<app-sportslist></app-sportslist>
+<app-sportslist [inputValue]="searchValue.value"></app-sportslist>
 
 @if(searchValue.value.length >= 2 ){
 
