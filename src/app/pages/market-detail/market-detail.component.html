@@ -595,7 +595,7 @@
         <div class="fancyul">
             <ul id="fancyul">
                 <li *ngFor="let item of marketlistFancy" (click)="changeFancyMarket(item.id,false)" [attr.id]="item.id"
-                    [ngClass]="{'border-[#11e311] bg-bg_text_brand_primary !text-black' : selectedFancyMarket==item.id}"
+                    [ngClass]="{'border-[#11e311] bg-bg_text_brand_primary !text-white' : selectedFancyMarket==item.id}"
                     class="fancyItem">
                     <span class="fancyText">
                         {{item.mName == "Popular" ? "ALL" : item.mName }}
@@ -604,9 +604,8 @@
             </ul>
         </div>
 
-
-
-        <!-- fancu market -->
+    
+        <!-- fancy market -->
         <ng-container *ngFor="let market of AllFancyMarketsFiltered ;index as i; trackBy: trackByFn">
             <div class="w-full" *ngIf="market.oddsType!='SPORTSBOOK'">
                 <div *ngIf="i === 0" class="grid grid-cols-12 w-full py-1.5">
@@ -655,7 +654,7 @@
                                     {{market.oddsData.betDelay}}s
                                 </span>
                             </div>
-                            <div class="minMax">
+                            <div class="minMax showMobile">
                                 <div class="relative group cursor-not-allowed text-white">
                                     <svg class="opacity-50" xmlns="http://www.w3.org/2000/svg" width="15" height="15"
                                         viewBox="0 0 15 15">
@@ -803,7 +802,7 @@
                                 </div>
                                 <div class="sport-second">
                                 </div>
-                                <div class="minMax">
+                                <div class="minMax showMobile">
                                     <div class="relative group cursor-not-allowed text-white">
                                         <svg class="opacity-50" xmlns="http://www.w3.org/2000/svg" width="15"
                                             height="15" viewBox="0 0 15 15">
@@ -821,18 +820,17 @@
                                 <div class="w-full h-full col-span-2 md:col-span-4">
                                     <div id="hideScrollBar">
                                         <div class="sport-wrap">
-                                            <div class="flex w-full bg-green-300">
-                                                <div class="suspended"
-                                                    *ngIf="market?.oddsData?.status == 'BALLRUN' || market?.oddsData?.status === 'SUSPENDED' || market?.oddsData?.status == 'CLOSED'">
-                                                    <span class="stats-text">
-                                                        {{market?.oddsData?.status!= 'CLOSED' &&
-                                                        market?.oddsData.status!='SUSPENDED' && market?.oddsData?.status
-                                                        !=
-                                                        'BALLRUN' ? market.oddsData.runners[0]?.status :
-                                                        market?.oddsData.status}}
-                                                    </span>
-
-                                                </div>
+                                            <div class="flex w-full bg-green-300 relative">
+                                               
+                                                <div class="suspended-SportsBook"
+                                                *ngIf="market?.oddsData?.status === 'SUSPENDED' || market?.oddsData?.status == 'CLOSED'|| runner?.status == 'SUSPENDED' || runner?.status == 'CLOSED' || runner?.status == 'REMOVED' ">
+                                                <span class="stats-text">
+                                                    {{market?.oddsData?.status!= 'CLOSED' &&
+                                                    market?.oddsData.status!='SUSPENDED' ? runner?.status :
+                                                    market?.oddsData.status}}
+                                                </span>
+    
+                                            </div>
                                                 <div class="w-full h-full">
                                                     <div (click)="slipColor('sportbook'); openBetslip(market.exMarketId,runner.selectionId,'back',runner.price.back[0].price,
                                                     market.min, market.max,market.oddsType, market.marketName,runner.price.back[0].size,0)"

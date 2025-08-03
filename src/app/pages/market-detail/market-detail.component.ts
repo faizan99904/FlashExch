@@ -46,7 +46,7 @@ declare var $: any;
   templateUrl: './market-detail.component.html',
   styleUrl: './market-detail.component.css',
 })
-export class MarketDetailComponent {
+export class MarketDetailComponent implements OnInit,OnDestroy {
   myMark: any = [];
   opendInfoId: any = [];
   loader: boolean = true;
@@ -522,6 +522,7 @@ export class MarketDetailComponent {
             this.getBetfairDataFirebase(firestore);
             this.getBookmakerDataFirebase(firestore);
             this.getFancyDataFirebase(firestore);
+            this.getSportbookDataFirebase(firestore);
           }
           this.loader = false;
         },
