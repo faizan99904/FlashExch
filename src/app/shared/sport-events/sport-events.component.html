@@ -63,9 +63,9 @@
     <div class="relative grow-[1] xl:max-w-[210px] h-full">
         <input type="text"
             class="bg-transparent placeholder:text-[13px] placeholder:text-[#88898B] border-0 h-full w-full [@media(min-width:420px)]:pl-[calc(12vw_+_6px)] [@media(min-width:375px)]:pl-[calc(12vw_+_3px)]  xl:!pl-[49px] leading-[12vw] outline-0 lg:text-base text-[3.5vw] text-white"
-            placeholder="Search games">
+            placeholder="Search games" #searchValue (input)="searchFilter(searchValue.value)" (focus)="changeColor()" (blur)="changeColor()">
         <span
-            class="material-icons text-[#999999] absolute left-[4vw] xl:left-[1vw] xl:-mt-[7px] pointer-events-none top-[50%]  xl:text-base text-[6vw] -mt-[3.1vw] search-icon">search</span>
+            class="material-icons text-[#999999] absolute left-[4vw] xl:left-[1vw] xl:-mt-[7px] pointer-events-none top-[50%]  xl:text-base text-[6vw] -mt-[3.1vw] search-icon" [ngClass]="{'!text-[#05AA30]':isSearchActive}">search</span>
 
     </div>
 
@@ -117,6 +117,35 @@
 
 <app-sportslist></app-sportslist>
 
+@if(searchValue.value.length >= 2 ){
+
+
+<div class="top-events mt-[1rem]">
+    <div *ngFor="let item of searchFilterValue; index as i; trackBy: trackByFn;">
+        <app-search [market]="item" [isMobile]="false" [index]="i"
+            *ngIf="item.sportId != '7' || item.sportId != '4339'"></app-search>
+    </div>
+</div>
+
+<div class="main-wrapper !pb-0 w-full">
+    <div *ngFor="let item of searchFilterValue; index as i; trackBy: trackByFn;">
+        <app-search [isMobile]="true" [searchTab]="searchTab" [market]="item" [index]="i"
+            *ngIf="item.sportId != '7' || item.sportId != '4339'"></app-search>
+    </div>
+
+</div>
+
+<div class="main-wrapper w-full max-lg:!pb-0 lg:mt-[-8px]">
+    <app-racing [getSportId]="'7'" [homeSearch]="searchValue.value"
+        class="[&_.remove-home]:!hidden [&_.home-spacing]:!mt-0.5 [&_.home-padding]:!p-0"></app-racing>
+</div>
+
+<div class="main-wrapper w-full lg:mt-[-74px] mt-[-70px] max-lg:!pb-0">
+    <app-racing [getSportId]="'4339'" [homeSearch]="searchValue.value"
+        class="[&_.remove-home]:!hidden [&_.home-spacing]:!mt-0.5 [&_.home-padding]:!p-0"></app-racing>
+</div>
+
+}@else{
 <div class="main-wrapper w-full"
     *ngIf="this.activeSportId !== '7' && this.activeSportId !==  '4339' && this.activeSportId !== '66104'">
     <app-market *ngFor="let item of markets; index as i; trackBy: trackByFn;" [isMobile]="true" [searchTab]="searchTab"
@@ -137,3 +166,4 @@
 <div *ngIf="this.activeSportId === '66104'">
     <app-lottery></app-lottery>
 </div>
+}

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, effect, Input, input } from '@angular/core';
+import { Component, effect, Input, input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, RouterLink } from '@angular/router';
 import { LiveStreemComponent } from '../../component/live-streem/live-streem.component';
 import { MainService } from '../../service/main.service';
@@ -11,9 +11,10 @@ import { elementAt } from 'rxjs';
   templateUrl: './racing.component.html',
   styleUrl: './racing.component.css'
 })
-export class RacingComponent {
+export class RacingComponent implements OnChanges {
   isWithOdds = false;
   @Input() getSportId: any
+  @Input() homeSearch: any
   racingData: any;
   filterRacing: any = [];
   searchFilter: any = [];
@@ -26,7 +27,6 @@ export class RacingComponent {
   collapsedRegions: { [key: number]: boolean } = {};
 
   constructor(private mainService: MainService, private route: ActivatedRoute, private router: Router) {
-
     this.route.params.subscribe(params => {
       if (params && params['id']) {
         this.sportId = params['id'];
@@ -51,7 +51,7 @@ export class RacingComponent {
       if (this.getSportId) {
         this.sportId = this.getSportId;
       }
-     
+
       if (this.racingData) {
 
         this.filterRacing = this.groupEventsByTournament(this.racingData?.data.tournaments, this.racingData?.data.events);
@@ -61,6 +61,23 @@ export class RacingComponent {
     });
 
   }
+
+
+
+  ngOnChanges(): void {
+    if (this.homeSearch) {
+      const searchValue = this.homeSearch.trim().toLowerCase();
+      this.searchFilter = this.filterRacing.filter((tournament: any) => {
+        if (tournament.tournamentName.toLowerCase().includes(searchValue)) {
+          return true;
+        }
+        return tournament.events.some((event: any) => {
+          return event.eventName.toLowerCase().includes(searchValue)
+        });
+      });
+    }
+  }
+
 
   groupEventsByTournament(
     tournaments: any[],
