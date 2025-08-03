@@ -4,6 +4,7 @@ import {
   effect,
   ElementRef,
   EventEmitter,
+  inject,
   Input,
   Output,
   SimpleChanges,
@@ -17,6 +18,7 @@ import { CONFIG, STACK_VALUE } from '../../../../config';
 import { IndexedDbService } from '../../service/indexed-db.service';
 import { NetworkService } from '../../service/network.service';
 import { MainService } from '../../service/main.service';
+import { SharedService } from '../../service/shared.service';
 
 @Component({
   selector: 'app-betslip',
@@ -42,10 +44,7 @@ export class BetslipComponent {
   @Output() loaderEventPlaceBet = new EventEmitter<boolean>();
   @Output() valueEventPlaceBet = new EventEmitter<any>();
   @ViewChild('betAmount') betAmount: ElementRef | undefined;
-  @Input() color: string = '';
-  colorType: string = '';
-
-  // color: string = '';
+  color: string = '';
   betStakes: any = [];
   betslipRecord: any;
   isbetPlacing: boolean = false;
@@ -128,6 +127,10 @@ export class BetslipComponent {
     });
     // console.log('betslip component initialized',this.item);
   }
+
+  markColor = inject(SharedService);
+  colorType = this.markColor.colorType;
+
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['item'].previousValue && changes['item'].currentValue) {
       const currentvalue = changes['item'].currentValue;
@@ -144,24 +147,6 @@ export class BetslipComponent {
       }
       // Access the input value when it changes
     }
-
-    if (changes['color'] && changes['color'].currentValue) {
-      const colorValue = changes['color'].currentValue;
-      console.log('Received color from parent:', colorValue);
-
-      // Convert color to type
-      if (colorValue === '#aed8ff') {
-        this.colorType = 'back';
-      } else if (colorValue === '#f1bed2') {
-        this.colorType = 'lay';
-      } else {
-        this.colorType = 'other';
-      }
-    }
-  }
-
-  borderChecker() {
-    console.log('Border Checker:', this.color);
   }
 
   ngOnInit(): void {

@@ -584,7 +584,7 @@
                         <div class="lg:hidden w-full" id="betslip" *ngIf="isBetsSlipOpened == runner.selectionId && marketId == market.exMarketId 
                 && (market?.oddsData?.status=='OPEN' || market?.oddsData?.status=='ONLINE') ">
                             <app-betslip style="padding: 0;" (valueEventPlaceBet)="getValueBetSlip($event)"
-                                [item]="betplaceObj" [color]="color"></app-betslip>
+                                [item]="betplaceObj"></app-betslip>
                         </div>
                     </ng-container>
                 </div>
@@ -732,8 +732,8 @@
                 </div>
                 <div class="lg:hidden w-full" id="betslip" *ngIf="isBetsSlipOpened == market.oddsData.runners[0].selectionId && marketId == market.exMarketId 
                             && (market?.oddsData?.status=='OPEN' || market?.oddsData?.status=='ONLINE') ">
-                    <app-betslip style="padding: 0;" (valueEventPlaceBet)="getValueBetSlip($event)" [item]="betplaceObj"
-                        [color]="color"></app-betslip>
+                    <app-betslip style="padding: 0;" (valueEventPlaceBet)="getValueBetSlip($event)"
+                        [item]="betplaceObj"></app-betslip>
                 </div>
             </div>
 
@@ -870,7 +870,7 @@
                         <div class="lg:hidden w-full" id="betslip" *ngIf="isBetsSlipOpened == runner.selectionId && marketId == market.exMarketId 
                 && (market?.oddsData?.status=='OPEN' || market?.oddsData?.status=='ONLINE') ">
                             <app-betslip style="padding: 0;" (valueEventPlaceBet)="getValueBetSlip($event)"
-                                [item]="betplaceObj" [color]="color"></app-betslip>
+                                [item]="betplaceObj"></app-betslip>
                         </div>
 
                     </ng-container>

@@ -16,6 +16,10 @@ input::placeholder {
   border-color: #aed8ff;
 }
 
+.border-sportBtn {
+  border-color: #86efac;
+}
+
 .text-text_color_primary1 {
   color: white;
 }

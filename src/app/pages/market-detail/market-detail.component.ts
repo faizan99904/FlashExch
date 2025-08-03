@@ -31,6 +31,7 @@ import { ShortNumberPipe } from '../../shared/pipes/short-number.pipe';
 import { BetslipComponent } from '../../shared/betslip/betslip.component';
 import { MatchedBetsComponent } from './matched-bets/matched-bets.component';
 import { LoaderComponent } from '../../shared/loader/loader.component';
+import { SharedService } from '../../service/shared.service';
 
 declare var $: any;
 
@@ -106,7 +107,6 @@ export class MarketDetailComponent {
   fancyMarket: boolean = true;
   competitionName: any;
   openTab: any = 'market';
-  color: string = '';
 
   rules: boolean = false;
   openRules: boolean = false;
@@ -126,7 +126,8 @@ export class MarketDetailComponent {
     @Inject('firebaseProjectSoccer') private soccerFirestore: AngularFirestore,
     private location: Location,
     private mainService: MainService,
-    private toaster: ToastrService
+    private toaster: ToastrService,
+    private color: SharedService
   ) {
     this.route.params.subscribe((params) => {
       this.sportId = params['sportId'];
@@ -269,9 +270,7 @@ export class MarketDetailComponent {
   }
 
   slipColor(type: string) {
-    if (type === 'back') this.color = '#aed8ff';
-    else if (type === 'lay') this.color = '#f1bed2';
-    else this.color = '#86efac';
+    this.color.setColorByType(type);
   }
 
   getBookmakerDataFirebase(projectDynamic: any) {
@@ -325,7 +324,6 @@ export class MarketDetailComponent {
       })
       .stateChanges()
       .subscribe((changes: any) => {
-        
         changes.forEach((change: any) => {
           const pt: any = change.payload.doc.data();
           switch (change.type) {
@@ -337,7 +335,6 @@ export class MarketDetailComponent {
               this.updateOrAddFancyMarket(pt);
               break;
             case 'modified':
-            
               this.updateFancyMarket(pt);
               break;
             case 'removed':
@@ -378,7 +375,6 @@ export class MarketDetailComponent {
     });
   }
   updateOrAddFancyMarket(pt: any) {
-   
     const index = this.AllFancyMarkets.findIndex(
       (obj: any) => obj.exMarketId === pt.exMarketId
     );

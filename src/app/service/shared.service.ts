@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -16,6 +16,26 @@ export class SharedService {
   private passToggle = signal(false);
   readonly isPassVisible = this.passToggle.asReadonly();
   readonly extended = signal(false);
+
+  private colorSignal = signal<string>('#86efac');
+  readonly color = this.colorSignal.asReadonly();
+
+  readonly colorType = computed(() => {
+    const color = this.colorSignal();
+    if (color === '#aed8ff') return 'back';
+    if (color === '#f1bed2') return 'lay';
+    return 'sportbook';
+  });
+
+  setColorByType(type: string) {
+    const colorMap: Record<string, string> = {
+      back: '#aed8ff',
+      lay: '#f1bed2',
+      sportbook: '#86efac',
+    };
+
+    this.colorSignal.set(colorMap[type] || '#86efac');
+  }
 
   getToken() {
     return this.isLogin;
