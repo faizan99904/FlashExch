@@ -57,7 +57,6 @@ export class SportEventsComponent {
             }
           }
         });
-      console.log(' this.searchFilterValue', this.searchFilterValue)
     }
 
   }
