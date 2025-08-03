@@ -2,10 +2,10 @@
   background-color: #22272a;
   color: white;
 }
-.profit{
+.profit {
   color: #11e311;
 }
-.loss{
+.loss {
   color: #ff0000 !important;
 }
 .bg-bg_backBtnBgColor {
@@ -279,7 +279,7 @@
 }
 
 .marketname {
-  @apply font-[roboto] text-xs font-medium capitalize;
+  @apply font-[roboto] text-lg font-medium capitalize;
 }
 
 .sm-text {
@@ -415,7 +415,7 @@
 }
 
 .fancy-cont {
-  @apply w-full h-full grid grid-cols-2 gap-x-[1px] pr-[2px];
+  @apply w-full h-full grid grid-cols-2 gap-x-[1px];
 }
 
 .fancy-container {
@@ -555,9 +555,9 @@
   position: absolute;
   z-index: 5;
   pointer-events: none;
-  background: linear-gradient(90deg,#a7d8fd,#f9c9d4);
+  background: linear-gradient(90deg, #a7d8fd, #f9c9d4);
   backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px); 
+  -webkit-backdrop-filter: blur(6px);
   color: #1e3f5a;
   font-weight: 600;
   display: flex;
@@ -565,4 +565,3 @@
   align-items: center;
   font-size: 14px;
 }
-

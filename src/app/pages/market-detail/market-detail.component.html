@@ -130,7 +130,7 @@
                                         </span>
                                         <span *ngIf="cashoutValue[market.exMarketId]"
                                             class="text-text_secondary2 sm-text" (click)="onCashOutConfirm()">
-                                            
+
                                             <strong style="display: inline-block;"
                                                 [ngClass]="{'minus-book': cashoutValue[market.exMarketId] < 0 , 'plus-book' : cashoutValue[market.exMarketId] > 0 }">
                                                 {{cashoutValue[market.exMarketId]}}</strong>
@@ -507,20 +507,24 @@
                             <div class="runnerBox-container">
                                 <div title="1.24-1.27" class="w-full relative cursor-not-allowed">
                                     <div class="btns-wrapper relative">
-                                       
+
                                         <div class="suspended"
-                                        *ngIf="market?.oddsData?.status === 'SUSPENDED' || market?.oddsData?.status == 'CLOSED'|| runner?.status == 'SUSPENDED' || runner?.status == 'CLOSED' || runner?.status == 'REMOVED' ">
-                                        <span  class="stats-text">
-                                          {{market?.oddsData?.status!= 'CLOSED' && market?.oddsData.status!='SUSPENDED' ? runner?.status  : market?.oddsData.status}}
-                                        </span>
-                          
-                                      </div>
+                                            *ngIf="market?.oddsData?.status === 'SUSPENDED' || market?.oddsData?.status == 'CLOSED'|| runner?.status == 'SUSPENDED' || runner?.status == 'CLOSED' || runner?.status == 'REMOVED' ">
+                                            <span class="stats-text">
+                                                {{market?.oddsData?.status!= 'CLOSED' &&
+                                                market?.oddsData.status!='SUSPENDED' ? runner?.status :
+                                                market?.oddsData.status}}
+                                            </span>
+
+                                        </div>
                                         <button scaleclass="active:scale-[98%]"
                                             (click)="slipColor('back'); openBetslip(market.exMarketId,runner.selectionId,'back',runner.price.back[2].price,
                      market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[2].size,2,market.oddsType)"
                                             class="marketBox-wrapper !hidden md:!flex bg-bg_backBtnBgColor"
                                             type="button">
-                                            <span class=" text-sm">{{((runner.price.back[2].price)?(runner.price.back[2].price| number):'0' )}}</span>
+                                            <span
+                                                class=" text-sm">{{((runner.price.back[2].price)?(runner.price.back[2].price|
+                                                number):'0' )}}</span>
                                             <span class="text-x">{{(runner.price.back[2].size) |shortNumber}}</span>
                                         </button>
                                         <button scaleclass="active:scale-[98%]"
@@ -528,14 +532,18 @@
                    market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[1].size,1,market.oddsType)"
                                             class="marketBox-wrapper !hidden md:!flex bg-bg_backBtnBgColor"
                                             type="button">
-                                            <span class=" text-sm">{{((runner.price.back[1].price)?(runner.price.back[1].price| number):'0' )}}</span>
+                                            <span
+                                                class=" text-sm">{{((runner.price.back[1].price)?(runner.price.back[1].price|
+                                                number):'0' )}}</span>
                                             <span class="text-x">{{(runner.price.back[1].size) |shortNumber}}</span>
                                         </button>
                                         <button scaleclass="active:scale-[98%]"
                                             (click)="slipColor('back'); openBetslip(market.exMarketId,runner.selectionId,'back',runner.price.back[0].price,
                    market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[0].size,0,market.oddsType)"
                                             class="marketBox-wrapper bg-bg_backBtnBgColor" type="button">
-                                            <span class="text-sm">{{((runner.price.back[0].price)?(runner.price.back[0].price| number):'0' )}}</span>
+                                            <span
+                                                class="text-sm">{{((runner.price.back[0].price)?(runner.price.back[0].price|
+                                                number):'0' )}}</span>
                                             <span class="text-x">{{(runner.price.back[0].size) |shortNumber}}</span>
                                         </button>
 
@@ -544,7 +552,9 @@
                                             (click)="slipColor('lay'); openBetslip(market.exMarketId,runner.selectionId,'lay',runner.price.lay[0].price,
                    market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[0].size,0,market.oddsType)"
                                             class="marketBox-wrapper bg-bg_layBtnBgColor" type="button">
-                                            <span class="text-sm">{{((runner.price.lay[0].price)?(runner.price.lay[0].price| number):'0' )}}</span>
+                                            <span
+                                                class="text-sm">{{((runner.price.lay[0].price)?(runner.price.lay[0].price|
+                                                number):'0' )}}</span>
                                             <span class="text-x">{{(runner.price.lay[0].size) |shortNumber}}</span>
                                         </button>
                                         <button scaleclass="active:scale-[98%]"
@@ -552,7 +562,9 @@
                                 market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[1].size,1,market.oddsType)"
                                             class="marketBox-wrapper bg-bg_layBtnBgColor !hidden md:!flex"
                                             type="button">
-                                            <span class="text-sm">{{((runner.price.lay[1].price)?(runner.price.lay[1].price| number):'0' )}}</span>
+                                            <span
+                                                class="text-sm">{{((runner.price.lay[1].price)?(runner.price.lay[1].price|
+                                                number):'0' )}}</span>
                                             <span class="text-x">{{(runner.price.lay[1].size) |shortNumber}}</span>
                                         </button>
                                         <button scaleclass="active:scale-[98%]"
@@ -560,7 +572,9 @@
                   market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[2].size,2,market.oddsType)"
                                             class="marketBox-wrapper bg-bg_layBtnBgColor !hidden md:!flex"
                                             type="button">
-                                            <span class="text-sm">{{((runner.price.lay[2].price)?(runner.price.lay[2].price| number):'0' )}}</span>
+                                            <span
+                                                class="text-sm">{{((runner.price.lay[2].price)?(runner.price.lay[2].price|
+                                                number):'0' )}}</span>
                                             <span class="text-x">{{(runner.price.lay[2].size) |shortNumber}}</span>
                                         </button>
                                     </div>
@@ -597,7 +611,7 @@
             <div class="w-full" *ngIf="market.oddsType!='SPORTSBOOK'">
                 <div *ngIf="i === 0" class="grid grid-cols-12 w-full py-1.5">
                     <div class="fancy-market"></div>
-                    <div class="market-status">
+                    <div class="market-status text-sm">
                         <span class="fancy-text">No</span>
                         <span class="fancy-text">Yes</span>
                         <span class="hidden md:flex md:col-span-2"></span>
@@ -660,12 +674,15 @@
                                 <div id="hideScrollBar">
                                     <div class="fancy-cont">
                                         <div class="suspended"
-                                        *ngIf="market?.oddsData?.status == 'BALLRUN' || market?.oddsData?.status === 'SUSPENDED' || market?.oddsData?.status == 'CLOSED'|| market.oddsData.runners[0]?.status == 'SUSPENDED' || market.oddsData.runners[0]?.status == 'CLOSED' || market.oddsData.runners[0]?.status == 'REMOVED' || market.oddsData.runners[0]?.status == 'BALLRUN' ">
-                                        <span  class="stats-text">
-                                          {{market?.oddsData?.status!= 'CLOSED' && market?.oddsData.status!='SUSPENDED' && market?.oddsData?.status != 'BALLRUN' ? market.oddsData.runners[0]?.status  : market?.oddsData.status}}
-                                        </span>
-                          
-                                      </div>
+                                            *ngIf="market?.oddsData?.status == 'BALLRUN' || market?.oddsData?.status === 'SUSPENDED' || market?.oddsData?.status == 'CLOSED'|| market.oddsData.runners[0]?.status == 'SUSPENDED' || market.oddsData.runners[0]?.status == 'CLOSED' || market.oddsData.runners[0]?.status == 'REMOVED' || market.oddsData.runners[0]?.status == 'BALLRUN' ">
+                                            <span class="stats-text">
+                                                {{market?.oddsData?.status!= 'CLOSED' &&
+                                                market?.oddsData.status!='SUSPENDED' && market?.oddsData?.status !=
+                                                'BALLRUN' ? market.oddsData.runners[0]?.status :
+                                                market?.oddsData.status}}
+                                            </span>
+
+                                        </div>
                                         <div class="w-full h-full">
                                             <div (click)="slipColor('lay'); openBetslip(market.exMarketId,market.oddsData.runners[0].selectionId,'lay',market.oddsData.runners[0].price.lay[0].price,
                                         market.min, market.max,market.oddsType, market.marketName,market.oddsData.runners[0].price.lay[0].size,0,market.marketType,market.isSuperFancy)"
@@ -805,6 +822,17 @@
                                     <div id="hideScrollBar">
                                         <div class="sport-wrap">
                                             <div class="flex w-full bg-green-300">
+                                                <div class="suspended"
+                                                    *ngIf="market?.oddsData?.status == 'BALLRUN' || market?.oddsData?.status === 'SUSPENDED' || market?.oddsData?.status == 'CLOSED'">
+                                                    <span class="stats-text">
+                                                        {{market?.oddsData?.status!= 'CLOSED' &&
+                                                        market?.oddsData.status!='SUSPENDED' && market?.oddsData?.status
+                                                        !=
+                                                        'BALLRUN' ? market.oddsData.runners[0]?.status :
+                                                        market?.oddsData.status}}
+                                                    </span>
+
+                                                </div>
                                                 <div class="w-full h-full">
                                                     <div (click)="slipColor('sportbook'); openBetslip(market.exMarketId,runner.selectionId,'back',runner.price.back[0].price,
                                                     market.min, market.max,market.oddsType, market.marketName,runner.price.back[0].size,0)"
@@ -817,7 +845,6 @@
                                                         </span>
                                                     </div>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
