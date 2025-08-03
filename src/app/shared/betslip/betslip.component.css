@@ -9,7 +9,7 @@ input::placeholder {
 }
 
 .border-layBtn {
-  border-color: #f1bed2;
+  border-color: #f1bed2 !important;
 }
 
 .border-backBtn {

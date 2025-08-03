@@ -1,6 +1,6 @@
 <div class="col-span-12 h-max w-full" *ngIf="item && item?.price">
-    <div [ngStyle]="{ 'border-color': color }"
-        class="w-full h-max bg-bg_color_betSlipBgColor font-lato origin-top flex flex-col p-2 pb-3 rounded-sm border-[2px] border-b-[5px] border-layBtn transition-all duration-300 ease-in-out overflow-hidden transform-gpu min-h-fit lg:px-1.5 lg:!h-[282px] lg:py-1.5"
+    <div [ngClass]="{'border-layBtn': colorType === 'lay'}"
+        class="w-full h-max bg-bg_color_betSlipBgColor border-backBtn font-lato origin-top flex flex-col p-2 pb-3 rounded-sm border-[2px] border-b-[5px] transition-all duration-300 ease-in-out overflow-hidden transform-gpu min-h-fit lg:px-1.5 lg:!h-[282px] lg:py-1.5"
         style="height: 291px;">
         <div class="w-full grid grid-cols-12 gap-2">
             <div title="Odds: 100" class="col-span-5 flex flex-col gap-1">
@@ -25,7 +25,7 @@
 
                     <input placeholder="Enter Odds" inputmode="numeric"
                         class="w-full focus:outline-none  text-sm h-full py-2 text-center flex items-center justify-center text-text_color_primary1 bg-bg_color_input_bg  border border-border_color_primary border-l-0 border-r-0"
-                        autocomplete="off" pattern="^[+-ed]+$" type="text" readonly [ngModel]="item?.price">
+                        autocomplete="off" pattern="^[+-ed]+$" type="text" readonly [ngModel]="item?.price || 0">
 
                     <button (click)="downValue()"
                         class="relative overflow-hidden w-full h-full flex items-center justify-center bg-bg_color_betSlipOddIncDecrBtnsGrd text-xl font-normal text-center border border-border_color_primary4 border-l-0"
@@ -44,7 +44,9 @@
             </div>
             <div title="Max Mkt: 0-Stake: 0" class="col-span-7 flex flex-col gap-1">
                 <label for="stakeInput"
-                    class="text-text_color_primary1 sm:text-xs text-[10px] font-normal flex items-center justify-between"><span>STAKE</span><span>Max
+                    class="text-text_color_primary1 sm:text-xs text-[10px] font-normal flex items-center justify-between gap-1">
+                    <span>STAKE</span>
+                    <span [title]="'Max mkt : ' + (login ? '25,00,000' : '0')" class="truncate">Max
                         mkt : {{login ? '25,00,000' : '0'}}</span>
                 </label>
                 <input (input)="betExposure()" [ngClass]="{ '!bg-[#101827]': stake, 'bg-transparent': !stake }"
@@ -101,9 +103,8 @@
             <button (click)="login ? placeBet() :'login'"
                 class="relative overflow-hidden text-text_color_primary2 active:scale-95 md:active:scale-[98%] disabled:cursor-not-allowed px-2 py-1 rounded-md w-full col-span-6 border flex items-center justify-between bg-bg_color_placeBetBtnGrd border-border_color_brand_primary cursor-pointer "
                 type="button">
-                <div class=" flex items-start justify-start flex-col" >
-                    <span
-                        class=" text-text_color_primary2 text-sm font-bold">
+                <div class=" flex items-start justify-start flex-col">
+                    <span class=" text-text_color_primary2 text-sm font-bold">
                         {{login ? 'Place Bet' : 'Login'}}
                     </span>
                     <div class=" text-text_color_primary2 text-xs"><span>
