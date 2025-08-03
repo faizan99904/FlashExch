@@ -13,6 +13,10 @@ section.page-title {
   color: #ffffff99;
 }
 
+section.matches .region-block ul.champs > li .list-wrapper ul.matches > li:first-child {
+  margin-left: calc(33.33% + 1.33333vw);
+}
+
 section.page-title > span {
   margin: 0 auto;
   padding-left: 8vw;
