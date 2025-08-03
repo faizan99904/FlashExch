@@ -111,7 +111,7 @@ export class ForgetPasswordComponent {
         },
       });
     }
-    console.log(payload);
+    // console.log(payload);
   }
 
   getClass(isValid: boolean): string {
@@ -201,7 +201,7 @@ export class ForgetPasswordComponent {
         code: otpCode,
       };
 
-      console.log(payload);
+      // console.log(payload);
 
       this.http.post(CONFIG.verifyForgotPassword, payload).subscribe({
         next: (res) => {

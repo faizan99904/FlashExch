@@ -42,18 +42,12 @@ export class AccountStatementComponent {
   }
 
   ngOnInit(): void {
-    // this.dtOptions = {
-    //   searching: false,
-    //   // "dom": 'rtip'
-
-    // };
-    console.log(' this.startDate', this.startDate)
-    console.log(' end Date', this.endDate)
+  
     this.getAccountStatement()
   }
   onDataSourceChange(newValue: string) {
     this.startDate = this.backendService.dateManager(newValue);
-    console.log(' this.startDate', this.startDate)
+    // console.log(' this.startDate', this.startDate)
   }
 
 
@@ -114,10 +108,10 @@ export class AccountStatementComponent {
   }
 
   rerender(): void {
-    console.log('startDate ', this.backendService.getStartDate(this.startDate))
-    console.log('startDate New', this.backendService.getStartDate(this.startDate))
-    console.log('endDate', this.endDate)
-    console.log('endDate New', this.backendService.getEndDate(this.endDate),)
+    // console.log('startDate ', this.backendService.getStartDate(this.startDate))
+    // console.log('startDate New', this.backendService.getStartDate(this.startDate))
+    // console.log('endDate', this.endDate)
+    // console.log('endDate New', this.backendService.getEndDate(this.endDate),)
     this.reqForBets = {
       startDate: this.backendService.getStartDate(this.startDate),
       endDate: this.backendService.getEndDate(this.endDate),

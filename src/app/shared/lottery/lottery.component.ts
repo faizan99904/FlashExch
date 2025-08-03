@@ -35,7 +35,7 @@ export class LotteryComponent implements OnInit {
         this.loader = false;
       },
       (error: any) => {
-        console.log(error);
+        // console.log(error);
       }
     );
   }

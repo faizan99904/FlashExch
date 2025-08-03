@@ -672,7 +672,7 @@
                         <div class="fancy-wrap">
                             <div class="w-full h-full col-span-2 md:col-span-4">
                                 <div id="hideScrollBar">
-                                    <div class="fancy-cont">
+                                    <div class="fancy-cont relative">
                                         <div class="suspended"
                                             *ngIf="market?.oddsData?.status == 'BALLRUN' || market?.oddsData?.status === 'SUSPENDED' || market?.oddsData?.status == 'CLOSED'|| market.oddsData.runners[0]?.status == 'SUSPENDED' || market.oddsData.runners[0]?.status == 'CLOSED' || market.oddsData.runners[0]?.status == 'REMOVED' || market.oddsData.runners[0]?.status == 'BALLRUN' ">
                                             <span class="stats-text">

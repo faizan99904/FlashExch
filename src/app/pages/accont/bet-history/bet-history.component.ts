@@ -76,8 +76,8 @@ export class BetHistoryComponent {
   ngOnInit(): void {
 
 
-    console.log(' this.startDate', this.startDate)
-    console.log(' end Date', this.endDate)
+    // console.log(' this.startDate', this.startDate)
+    // console.log(' end Date', this.endDate)
 
     this.getBetHistoryUser();
     this.getAllSportList();

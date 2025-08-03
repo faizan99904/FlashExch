@@ -124,9 +124,9 @@ export class SignupComponent {
           this.toaster.success('Registered Successfully!');
         },
       });
-      console.log(payload);
+      // console.log(payload);
     } else {
-      console.log('Form is invalid');
+      // console.log('Form is invalid');
     }
   }
 
@@ -188,7 +188,7 @@ export class SignupComponent {
       userName: formValue.username,
     };
 
-    console.log(payload);
+    // console.log(payload);
 
     this.http.post(CONFIG.sendUserRegisterOtp, payload).subscribe({
       next: (res) => {

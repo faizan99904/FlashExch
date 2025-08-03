@@ -134,7 +134,7 @@ export class ProfitLossComponent {
               let data = resp.data['original'].data;
               if (resp.data) {
                 that.profitLossData = data;
-                console.log('that.profitLossData ', that.profitLossData);
+                // console.log('that.profitLossData ', that.profitLossData);
               }
               if (resp.total) {
                 that.totalProfitLoss = resp.total;
@@ -151,7 +151,7 @@ export class ProfitLossComponent {
   }
 
   rerender(): void {
-    console.log('this.startDate', this.startDate);
+    // console.log('this.startDate', this.startDate);
     this.reqForBets = {
       startDate: this.backendService.getStartDate(this.startDate),
       endDate: this.backendService.getEndDate(this.endDate),
@@ -171,7 +171,7 @@ export class ProfitLossComponent {
   }
 
   goToEventPL(sportid: any) {
-    console.log('navigate', sportid);
+    // console.log('navigate', sportid);
     let startDate = this.backendService.getStartDate(this.startDate);
     let endDate = this.backendService.getEndDate(this.endDate);
     let url = '/account/profitloss-event/' + sportid + '/' + startDate + '/' + endDate;

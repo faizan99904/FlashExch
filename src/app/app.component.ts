@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
     this.sportsList();
     this.allRacing()
     this.livCasinoList()
-    this.searchEvent()
+    
   }
 
 
@@ -56,11 +56,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  searchEvent() {
-    this.mainService.getDataFromServices(CONFIG.SearchEventList, CONFIG.getAllEventsListTime, { key: CONFIG.siteKey }).subscribe((data: any) => {
-      console.log(data?.data)
-    });
-  }
+ 
 
   
 

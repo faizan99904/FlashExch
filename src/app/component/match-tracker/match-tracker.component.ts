@@ -21,7 +21,7 @@ export class MatchTrackerComponent implements OnInit {
 
   extendScreen() {
     this.toggle.toggle();
-    console.log(this.extended());
+    // console.log(this.extended());
   }
 
   closeIframe() {

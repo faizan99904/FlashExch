@@ -32,9 +32,9 @@ export class ProfitlossEventComponent {
       this._sportId = params['sportId'];
       this._startDate = params['startDate'];
       this._endDate = params['endDate'];
-      console.log('Sport ID:', this._sportId);
-      console.log('Start Date:', this._startDate);
-      console.log('End Date:', this._endDate);
+      // console.log('Sport ID:', this._sportId);
+      // console.log('Start Date:', this._startDate);
+      // console.log('End Date:', this._endDate);
     });
   }
 

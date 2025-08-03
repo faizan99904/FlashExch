@@ -43,7 +43,7 @@ export class PersonalInformationComponent {
       .then((data: any) => {
         if (data.meta && data.meta.status === true) {
           this.user = data.data;
-          console.log(this.user);
+          // console.log(this.user);
         }
       })
       .catch((error) => {
