@@ -279,7 +279,7 @@
 }
 
 .marketname {
-  @apply font-[roboto] text-sm lg:text-lg font-medium capitalize;
+  @apply font-[roboto] text-sm lg:text-[13px] font-medium capitalize;
 }
 
 .sm-text {
