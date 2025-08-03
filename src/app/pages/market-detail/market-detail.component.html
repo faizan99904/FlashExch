@@ -186,9 +186,322 @@
                                     <div class="runnerId-text">
                                         {{market.runnersData[runner.selectionId]}}
                                     </div>
-                                    <div class="runnerId-text market-value" *ngIf="betData?.exposure && betData?.stackValue">
-                                        {{betData?.exposure}} - {{betData?.stackValue}}
-                                    </div>
+                                    <!-- ******* Local RESPONSE ProfitLOSS *********-->
+                                    <ng-container
+                                        *ngIf=" betData?.stackValue || (!BookmakersPl[market?.exMarketId] && !matchedOddsPl[market?.exMarketId])">
+                                        <div class="runnerId-text market-value profit"
+                                            *ngIf="isBetsSlipOpened == runner?.selectionId && marketId == market?.exMarketId && betData?.stackValue">
+
+                                            ({{betData?.exposure ? (betData?.exposure | number : '1.2-2') :'0.00' }})
+                                        </div>
+                                        <div class="runnerId-text market-value loss"
+                                            *ngIf="isBetsSlipOpened != runner?.selectionId && marketId == market?.exMarketId && betData?.stackValue">
+
+                                            ({{betData?.stackValue ? (betData?.stackValue | number : '1.2-2') :'0.00'
+                                            }})
+                                        </div>
+                                    </ng-container>
+                                    <!-- ******* API RESPONSE ProfitLOSS *********-->
+                                    <ng-container
+                                        *ngIf="hasProfitAndLoss(matchedOddsPl[market?.exMarketId]?.[runner?.selectionId])">
+                                        <span class="d-flex"
+                                            [ngClass]="[matchedOddsPl[market?.exMarketId][runner?.selectionId].PROFIT > 0  ? 'profit' : 'loss']"
+                                            *ngIf=" matchedOddsPl[market?.exMarketId]">
+                                            &nbsp;({{matchedOddsPl[market?.exMarketId][runner?.selectionId].PROFIT
+                                            ? (matchedOddsPl[market?.exMarketId][runner?.selectionId].PROFIT | number :
+                                            '1.2-2') : '0.00' }})
+                                            <span
+                                                [ngClass]="[matchedOddsPl[market?.exMarketId][runner?.selectionId].LOSS > 0  ? 'profit' : 'loss']"
+                                                *ngIf="matchedOddsPl[market?.exMarketId][runner?.selectionId].LOSS !== 0">
+                                                ({{matchedOddsPl[market?.exMarketId][runner?.selectionId].LOSS | number
+                                                :'1.2-2'}})</span>
+                                            <!-- BACK matchedOddsPl PL AFTER BET -->
+                                            <ng-container *ngIf="type=='Back'">
+
+                                                <span
+                                                    [ngClass]="(((runnerPrice -1) * betData?.stackValue) +
+                                            (matchedOddsPl[market?.exMarketId][runner?.selectionId].PROFIT ? matchedOddsPl[market?.exMarketId][runner?.selectionId].PROFIT : 0 )) > 0  ? 'profit' : 'loss'"
+                                                    *ngIf="isBetsSlipOpened == runner?.selectionId && marketId == market?.exMarketId && betData?.stackValue != 0 ">
+
+                                                    ( {{ ((runnerPrice -1) * betData?.stackValue) +
+                                                    (matchedOddsPl[market?.exMarketId][runner?.selectionId].PROFIT ?
+                                                    matchedOddsPl[market?.exMarketId][runner?.selectionId].PROFIT : 0) |
+                                                    number :
+                                                    '1.2-2'}} )
+                                                </span>
+
+
+                                                <span
+                                                    [ngClass]="((matchedOddsPl[market?.exMarketId][runner?.selectionId].PROFIT ) - betData?.stackValue ) > 0  ? 'profit' : 'loss'"
+                                                    *ngIf="  runnerPrice && betData?.stackValue && betData?.stackValue != 0 && isBetsSlipOpened != runner?.selectionId
+                                                     && marketId == market?.exMarketId">
+
+                                                    ( {{ ((matchedOddsPl[market?.exMarketId][runner?.selectionId].PROFIT
+                                                    ?
+                                                    matchedOddsPl[market?.exMarketId][runner?.selectionId].PROFIT : 0 )
+                                                    -
+                                                    betData?.stackValue)
+                                                    | number : '1.2-2' }})
+                                                </span>
+                                            </ng-container>
+
+                                            <!-- LAY matchedOddsPl PL AFTER BET -->
+                                            <ng-container *ngIf="type=='Lay'">
+
+                                                <span
+                                                    [ngClass]="(((runnerPrice -1) * betData?.stackValue) -
+                                            (matchedOddsPl[market?.exMarketId][runner?.selectionId].LOSS ? matchedOddsPl[market?.exMarketId][runner?.selectionId].LOSS : 0 )) > 0  ? 'loss' : 'profit'"
+                                                    *ngIf="isBetsSlipOpened == runner?.selectionId
+                                                && marketId == market?.exMarketId
+                                                && betData?.stackValue != 0 ">
+
+                                                    ( {{(((runnerPrice -1) * betData?.stackValue) -
+                                                    (matchedOddsPl[market?.exMarketId][runner?.selectionId].LOSS ?
+                                                    matchedOddsPl[market?.exMarketId][runner?.selectionId] : 0)) * (-1)
+                                                    |
+                                                    number : '1.2-2' }})
+                                                </span>
+
+
+                                                <span
+                                                    [ngClass]="((matchedOddsPl[market?.exMarketId][runner?.selectionId].LOSS ) + betData?.stackValue ) > 0  ? 'profit' : 'loss'"
+                                                    *ngIf="  runnerPrice  && betData?.stackValue && betData?.stackValue != 0 && isBetsSlipOpened != runner?.selectionId
+                                        && marketId == market?.exMarketId">
+
+                                                    ( {{ ((matchedOddsPl[market?.exMarketId][runner?.selectionId].LOSS ?
+                                                    (matchedOddsPl[market?.exMarketId][runner?.selectionId].LOSS ) : 0 )
+                                                    -
+                                                    (-betData?.stackValue)) | number : '1.2-2' }})
+                                                </span>
+                                            </ng-container>
+                                        </span>
+                                    </ng-container>
+                                    <ng-container
+                                        *ngIf="!hasProfitAndLoss(matchedOddsPl[market?.exMarketId]?.[runner?.selectionId])">
+                                        <span class="d-flex"
+                                            [ngClass]="[matchedOddsPl[market?.exMarketId][runner.selectionId] > 0  ? 'profit' : 'loss']"
+                                            *ngIf=" matchedOddsPl[market?.exMarketId]">
+                                            &nbsp;({{matchedOddsPl[market?.exMarketId][runner?.selectionId]
+                                            ? (matchedOddsPl[market?.exMarketId][runner?.selectionId] | number :
+                                            '1.2-2')
+                                            : '0.00' }})
+
+                                            <!-- BACK matchedOddsPl PL AFTER BET -->
+                                            <ng-container *ngIf="type=='Back'">
+
+                                                <span
+                                                    [ngClass]="(((runnerPrice -1) * betData?.stackValue) +
+                                            (matchedOddsPl[market?.exMarketId][runner?.selectionId] ? matchedOddsPl[market?.exMarketId][runner?.selectionId] : 0 )) > 0  ? 'profit' : 'loss'"
+                                                    *ngIf="isBetsSlipOpened == runner?.selectionId && marketId == market?.exMarketId && betData?.stackValue != 0 ">
+
+                                                    ( {{ ((runnerPrice -1) * betData?.stackValue) +
+                                                    (matchedOddsPl[market?.exMarketId][runner?.selectionId] ?
+                                                    matchedOddsPl[market?.exMarketId][runner?.selectionId] : 0) | number
+                                                    :
+                                                    '1.2-2'}} )
+                                                </span>
+
+
+                                                <span
+                                                    [ngClass]="((matchedOddsPl[market?.exMarketId][runner?.selectionId] ) - betData?.stackValue ) > 0  ? 'profit' : 'loss'"
+                                                    *ngIf="  runnerPrice && betData?.stackValue && betData?.stackValue != 0 && isBetsSlipOpened != runner?.selectionId
+                                                    && marketId == market?.exMarketId">
+
+                                                    ( {{ ((matchedOddsPl[market?.exMarketId][runner?.selectionId] ?
+                                                    matchedOddsPl[market?.exMarketId][runner?.selectionId] : 0 ) -
+                                                    betData?.stackValue)
+                                                    | number : '1.2-2' }})
+                                                </span>
+                                            </ng-container>
+
+                                            <!-- LAY matchedOddsPl PL AFTER BET -->
+                                            <ng-container *ngIf="type=='Lay'">
+
+                                                <span
+                                                    [ngClass]="(((runnerPrice -1) * betData?.stackValue) -
+                                            (matchedOddsPl[market?.exMarketId][runner?.selectionId] ? matchedOddsPl[market?.exMarketId][runner?.selectionId] : 0 )) > 0  ? 'loss' : 'profit'"
+                                                    *ngIf="isBetsSlipOpened == runner?.selectionId
+                                            && marketId == market?.exMarketId
+                                        && betData?.stackValue != 0 ">
+
+                                                    ( {{(((runnerPrice -1) * betData?.stackValue) -
+                                                    (matchedOddsPl[market?.exMarketId][runner?.selectionId] ?
+                                                    matchedOddsPl[market?.exMarketId][runner?.selectionId] : 0)) * (-1)
+                                                    |
+                                                    number : '1.2-2' }})
+                                                </span>
+
+
+                                                <span
+                                                    [ngClass]="((matchedOddsPl[market?.exMarketId][runner?.selectionId] ) + betData?.stackValue ) > 0  ? 'profit' : 'loss'"
+                                                    *ngIf="  runnerPrice  && betData?.stackValue && betData?.stackValue != 0 && isBetsSlipOpened != runner?.selectionId
+                                        && marketId == market?.exMarketId">
+
+                                                    ( {{ ((matchedOddsPl[market?.exMarketId][runner?.selectionId] ?
+                                                    (matchedOddsPl[market?.exMarketId][runner?.selectionId] ) : 0 ) -
+                                                    (-betData?.stackValue)) | number : '1.2-2' }})
+                                                </span>
+                                            </ng-container>
+                                        </span>
+                                    </ng-container>
+
+                                    <ng-container
+                                        *ngIf="hasProfitAndLoss(BookmakersPl[market?.exMarketId]?.[runner?.selectionId])">
+                                        <span class="d-flex"
+                                            [ngClass]="[BookmakersPl[market?.exMarketId][runner.selectionId].PROFIT > 0  ? 'profit' : 'loss']"
+                                            *ngIf=" BookmakersPl[market?.exMarketId]">
+                                            &nbsp;({{BookmakersPl[market?.exMarketId][runner?.selectionId].PROFIT
+                                            ? (BookmakersPl[market?.exMarketId][runner?.selectionId].PROFIT | number :
+                                            '1.2-2') :
+                                            '0.00' }})
+                                            <span
+                                                [ngClass]="[BookmakersPl[market?.exMarketId][runner.selectionId].LOSS > 0  ? 'profit' : 'loss']"
+                                                *ngIf="BookmakersPl[market?.exMarketId][runner?.selectionId].LOSS !== 0">
+                                                ({{BookmakersPl[market?.exMarketId][runner?.selectionId].LOSS | number
+                                                :'1.2-2'}})</span>
+                                            <!-- BACK BookmakersPl PL AFTER BET -->
+                                            <ng-container *ngIf="type=='Back'">
+
+                                                <span
+                                                    [ngClass]="(((runnerPrice -1) * betData?.stackValue) +
+                                            (BookmakersPl[market?.exMarketId][runner?.selectionId].PROFIT ? BookmakersPl[market?.exMarketId][runner?.selectionId].PROFIT : 0 )) > 0  ? 'profit' : 'loss'"
+                                                    *ngIf="isBetsSlipOpened == runner?.selectionId
+                                            && marketId == market?.exMarketId
+                                            && betData?.stackValue != 0 ">
+
+                                                    ( {{ ((runnerPrice -1) * betData?.stackValue) +
+                                                    (BookmakersPl[market?.exMarketId][runner?.selectionId].PROFIT ?
+                                                    BookmakersPl[market?.exMarketId][runner?.selectionId].PROFIT : 0) |
+                                                    number :
+                                                    '1.2-2'}} )
+                                                </span>
+
+
+                                                <span
+                                                    [ngClass]="((BookmakersPl[market?.exMarketId][runner?.selectionId].PROFIT ) - betData?.stackValue ) > 0  ? 'profit' : 'loss'"
+                                                    *ngIf="  runnerPrice
+                                        && betData?.stackValue
+                                        && betData?.stackValue != 0
+                                        && isBetsSlipOpened != runner?.selectionId
+                                        && marketId == market?.exMarketId">
+
+                                                    ( {{ ((BookmakersPl[market?.exMarketId][runner?.selectionId].PROFIT
+                                                    ?
+                                                    BookmakersPl[market?.exMarketId][runner?.selectionId].PROFIT : 0 ) -
+                                                    betData?.stackValue) | number : '1.2-2' }})
+                                                </span>
+                                            </ng-container>
+
+                                            <!-- LAY BookmakersPl PL AFTER BET -->
+                                            <ng-container *ngIf="type=='Lay'">
+                                                <span
+                                                    [ngClass]="(((runnerPrice -1) * betData?.stackValue) -
+                                            (BookmakersPl[market?.exMarketId][runner?.selectionId].LOSS ? BookmakersPl[market?.exMarketId][runner?.selectionId].LOSS : 0 )) > 0  ? 'loss' : 'profit'"
+                                                    *ngIf="isBetsSlipOpened == runner?.selectionId
+                                            && marketId == market?.exMarketId
+                                            && betData?.stackValue != 0 ">
+
+                                                    ( {{(((runnerPrice -1) * betData?.stackValue) -
+                                                    (BookmakersPl[market?.exMarketId][runner?.selectionId].LOSS ?
+                                                    BookmakersPl[market?.exMarketId][runner?.selectionId].LOSS : 0)) *
+                                                    (-1) |
+                                                    number :
+                                                    '1.2-2' }} )
+                                                </span>
+
+
+                                                <span
+                                                    [ngClass]="((BookmakersPl[market?.exMarketId][runner?.selectionId].LOSS ) + betData?.stackValue ) > 0  ? 'profit' : 'loss'"
+                                                    *ngIf="  runnerPrice
+                                        && betData?.stackValue
+                                        && betData?.stackValue != 0
+                                        && isBetsSlipOpened != runner?.selectionId
+                                        && marketId == market?.exMarketId">
+
+                                                    ( {{ ((BookmakersPl[market?.exMarketId][runner?.selectionId].LOSS ?
+                                                    (BookmakersPl[market?.exMarketId][runner?.selectionId].LOSS ) : 0 )
+                                                    -
+                                                    (-betData?.stackValue)) | number : '1.2-2' }})
+                                                </span>
+                                            </ng-container>
+                                        </span>
+                                    </ng-container>
+                                    <ng-container
+                                        *ngIf="!hasProfitAndLoss(BookmakersPl[market?.exMarketId]?.[runner?.selectionId])">
+                                        <span class="d-flex"
+                                            [ngClass]="[BookmakersPl[market?.exMarketId][runner.selectionId] > 0  ? 'profit' : 'loss']"
+                                            *ngIf=" BookmakersPl[market?.exMarketId]">
+                                            &nbsp;({{BookmakersPl[market?.exMarketId][runner?.selectionId]
+                                            ? (BookmakersPl[market?.exMarketId][runner?.selectionId] | number : '1.2-2')
+                                            :
+                                            '0.00' }})
+
+                                            <!-- BACK BookmakersPl PL AFTER BET -->
+                                            <ng-container *ngIf="type=='Back'">
+
+                                                <span
+                                                    [ngClass]="(((runnerPrice -1) * betData?.stackValue) +
+                                            (BookmakersPl[market?.exMarketId][runner?.selectionId] ? BookmakersPl[market?.exMarketId][runner?.selectionId] : 0 )) > 0  ? 'profit' : 'loss'"
+                                                    *ngIf="isBetsSlipOpened == runner?.selectionId
+                                            && marketId == market?.exMarketId
+                                        && betData?.stackValue != 0 ">
+
+                                                    ( {{ ((runnerPrice -1) * betData?.stackValue) +
+                                                    (BookmakersPl[market?.exMarketId][runner?.selectionId] ?
+                                                    BookmakersPl[market?.exMarketId][runner?.selectionId] : 0) | number
+                                                    :
+                                                    '1.2-2'}} )
+                                                </span>
+
+
+                                                <span
+                                                    [ngClass]="((BookmakersPl[market?.exMarketId][runner?.selectionId] ) - betData?.stackValue ) > 0  ? 'profit' : 'loss'"
+                                                    *ngIf="  runnerPrice
+                                        && betData?.stackValue
+                                        && betData?.stackValue != 0
+                                        && isBetsSlipOpened != runner?.selectionId
+                                        && marketId == market?.exMarketId">
+
+                                                    ( {{ ((BookmakersPl[market?.exMarketId][runner?.selectionId] ?
+                                                    BookmakersPl[market?.exMarketId][runner?.selectionId] : 0 ) -
+                                                    betData?.stackValue) | number : '1.2-2' }})
+                                                </span>
+                                            </ng-container>
+
+                                            <!-- LAY BookmakersPl PL AFTER BET -->
+                                            <ng-container *ngIf="type=='Lay'">
+                                                <span
+                                                    [ngClass]="(((runnerPrice -1) * betData?.stackValue) -
+                                            (BookmakersPl[market?.exMarketId][runner?.selectionId] ? BookmakersPl[market?.exMarketId][runner?.selectionId] : 0 )) > 0  ? 'loss' : 'profit'"
+                                                    *ngIf="isBetsSlipOpened == runner?.selectionId
+                                            && marketId == market?.exMarketId
+                                            && betData?.stackValue != 0 ">
+
+                                                    ( {{(((runnerPrice -1) * betData?.stackValue) -
+                                                    (BookmakersPl[market?.exMarketId][runner?.selectionId] ?
+                                                    BookmakersPl[market?.exMarketId][runner?.selectionId] : 0)) * (-1) |
+                                                    number :
+                                                    '1.2-2' }} )
+                                                </span>
+
+
+                                                <span
+                                                    [ngClass]="((BookmakersPl[market?.exMarketId][runner?.selectionId] ) + betData?.stackValue ) > 0  ? 'profit' : 'loss'"
+                                                    *ngIf="  runnerPrice
+                                        && betData?.stackValue
+                                        && betData?.stackValue != 0
+                                        && isBetsSlipOpened != runner?.selectionId
+                                        && marketId == market?.exMarketId">
+
+                                                    ( {{ ((BookmakersPl[market?.exMarketId][runner?.selectionId] ?
+                                                    (BookmakersPl[market?.exMarketId][runner?.selectionId] ) : 0 ) -
+                                                    (-betData?.stackValue)) | number : '1.2-2' }})
+                                                </span>
+                                            </ng-container>
+                                        </span>
+                                    </ng-container>
+
+
                                 </div>
                             </div>
                             <div class="runnerBox-container">
@@ -289,8 +602,10 @@
                                 <div class="fancyContent">
                                     <div class="fancyMarketName flex-col truncate !items-start">
                                         <div class="truncate block max-w-full">{{market.marketName}}</div>
-                                        <div class="runnerId-text market-value" *ngIf="betData?.exposure && betData?.stackValue">
-                                             {{betData?.exposure}} - {{betData?.stackValue}}
+                                        <div class="runnerId-text market-value"
+                                            *ngIf="betData?.exposure && betData?.stackValue && betData?.exposure?.[market.exMarketId]">
+                                            {{betData?.exposure}} - {{betData?.stackValue}}
+
                                         </div>
                                     </div>
                                     <div class="marketName-wrapper">
@@ -415,9 +730,34 @@
                                             <div class="truncate max-w-full">
                                                 {{market.runnersData[runner.selectionId]}}
                                             </div>
-                                            <div class="runnerId-text market-value" *ngIf="betData?.exposure && betData?.stackValue">
-                                                {{betData?.exposure}} - {{betData?.stackValue}}
+                                            <!-- ******* Local RESPONSE ProfitLOSS *********-->
+
+                                            <div class="runnerId-text market-value"
+                                                *ngIf="betData?.exposure && betData?.stackValue">
+                                                <span class="profit"
+                                                    *ngIf="isBetsSlipOpened == runner?.selectionId && marketId == market?.exMarketId ">
+                                                    ({{betData?.exposure ? (betData?.exposure | number : '1.2-2')
+                                                    :'0.00' }})
+                                                </span>
+                                                <span class="loss"
+                                                    *ngIf="isBetsSlipOpened != runner?.selectionId && marketId == market?.exMarketId ">
+                                                    ({{betData?.stackValue }})
+                                                </span>
                                             </div>
+                                            <!-- ******* API RESPONSE ProfitLOSS *********-->
+                                            <ng-container>
+                                                <div class="runnerId-text market-value">
+                                                    <span class="d-flex"
+                                                        [ngClass]="[SportsbookPl[market?.exMarketId][runner.selectionId] > 0  ? 'profit' : 'loss']"
+                                                        *ngIf=" SportsbookPl[market?.exMarketId]">
+                                                        &nbsp;({{SportsbookPl[market?.exMarketId][runner?.selectionId]
+                                                        ? (SportsbookPl[market?.exMarketId][runner?.selectionId] |
+                                                        number :
+                                                        '1.2-2') :
+                                                        '0.00' }})
+                                                    </span>
+                                                </div>
+                                            </ng-container>
                                         </div>
                                         <div class="sportData">
                                             <div class="leading-relaxed break-words font-bold text-xs md:text-sm">

@@ -202,6 +202,12 @@ export class MarketDetailComponent {
     }
     window.clearInterval(this.intrvlCashOut);
   }
+    hasProfitAndLoss(value: any): boolean {
+    if (typeof value === 'object' && value !== null) {
+      return value.hasOwnProperty('PROFIT') && value.hasOwnProperty('LOSS');
+    }
+    return false;
+  }
   getfancyMarketList() {
     this.mainService
       .getDataFromServices(CONFIG.fancyMarketList, CONFIG.fancyMarketListTime, {

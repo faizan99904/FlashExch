@@ -2,7 +2,12 @@
   background-color: #22272a;
   color: white;
 }
-
+.profit{
+  color: #11e311;
+}
+.loss{
+  color: #ff0000 !important;
+}
 .bg-bg_backBtnBgColor {
   background: var(--back-bg-clr);
   color: var(--back-txt-clr);
