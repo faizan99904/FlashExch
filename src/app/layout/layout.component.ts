@@ -43,6 +43,8 @@ export class LayoutComponent implements OnInit {
         const urlSegments = event.urlAfterRedirects.split('/');
         const routeName = urlSegments[1] || '/';
         this.activeRoute = routeName;
+        const mainRouter = document.querySelector('.mainRouter') as HTMLElement;
+        mainRouter.scrollTo({ top: 0, behavior: 'smooth' });
         setTimeout(() => {
           this.activeRoute = routeName;
         }, 0);
