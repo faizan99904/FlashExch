@@ -239,7 +239,7 @@
 }
 
 .rule-after {
-  @apply after:content-[''] after:absolute after:h-[1px] after:w-[91%] after:bg-[#11e311] after:bottom-0 after:left-1/2 after:translate-x-[-50%];
+  @apply after:content-[''] after:absolute after:h-[1px] after:w-[91%] lg:after:w-[95%] after:bg-[#11e311] after:bottom-0 after:left-1/2 after:translate-x-[-50%];
 }
 
 .rule-text {
