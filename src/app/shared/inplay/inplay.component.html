@@ -66,7 +66,7 @@
                         @if(market?.oddsData?.status !== 'SUSPENDED'){
                         <span class="odd-boxes border-border_color_primary1">
                             <div class="lg:!grid !hidden odd-box-container">
-                                <div class="col-span-4 grid grid-cols-2 h-full">
+                                <div class="col-span-4 grid grid-cols-2 h-full lg:gap-[2px]">
                                     <div class="w-full h-full">
                                         <div class="odd-box-wrapper bg-bg_color_backBtnBg text-text_color_oddValue">
                                             <span id="oddBtnPrice">{{market.oddsData.runners[0].price.back[0] ?
@@ -84,7 +84,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-span-4 grid grid-cols-2 h-full">
+                                <div class="col-span-4 grid grid-cols-2 h-full lg:gap-[2px]">
                                     <div class="w-full h-full">
                                         <div class="odd-wrapper bg-bg_color_backBtnBg text-text_color_oddValue">
                                             <span id="oddBtnPrice">{{market?.oddsData?.runners[2]?.price?.back[0] ?
@@ -102,7 +102,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-span-4 grid grid-cols-2 h-full">
+                                <div class="col-span-4 grid grid-cols-2 h-full lg:gap-[2px]">
                                     <div class="w-full h-full">
                                         <div class="odd-wrapper bg-bg_color_backBtnBg text-text_color_oddValue">
                                             <span id="oddBtnPrice">{{market?.oddsData?.runners[1]?.price?.back[0] ?
