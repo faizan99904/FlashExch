@@ -7,15 +7,16 @@ import { MainService } from '../../service/main.service';
 import { RacingComponent } from '../../pages/racing/racing.component';
 import { LotteryComponent } from '../lottery/lottery.component';
 import { SearchComponent } from '../search/search.component';
+import { InplayComponent } from '../inplay/inplay.component';
 
 @Component({
   selector: 'app-sport-events',
-  imports: [CommonModule, RouterLink, SportslistComponent, MarketComponent, RacingComponent, LotteryComponent, SearchComponent],
+  imports: [CommonModule, RouterLink, SportslistComponent, MarketComponent, RacingComponent, LotteryComponent, SearchComponent, InplayComponent],
   templateUrl: './sport-events.component.html',
   styleUrl: './sport-events.component.css'
 })
-export class SportEventsComponent {
-
+export class SportEventsComponent { 
+  marketType:any
   activeSportId: any;
   isSearchActive:boolean = false;
   filterEvent: any = [];
@@ -82,4 +83,9 @@ export class SportEventsComponent {
   trackByFn(index: any, item: any) {
     return index;
   }
+
+  markerNav(market:any){
+    this.marketType = market
+  }
+
 }
