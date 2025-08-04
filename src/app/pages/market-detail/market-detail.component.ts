@@ -47,7 +47,7 @@ declare var $: any;
   templateUrl: './market-detail.component.html',
   styleUrl: './market-detail.component.css',
 })
-export class MarketDetailComponent implements OnInit,OnDestroy {
+export class MarketDetailComponent implements OnInit, OnDestroy {
   myMark: any = [];
   opendInfoId: any = [];
   loader: boolean = true;
@@ -109,7 +109,7 @@ export class MarketDetailComponent implements OnInit,OnDestroy {
   openTab: any = 'market';
 
   rules: boolean = false;
-  openRules: boolean = false;
+  openRules: boolean = true;
   betData: any;
 
   constructor(

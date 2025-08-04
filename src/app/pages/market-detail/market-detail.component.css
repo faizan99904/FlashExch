@@ -62,7 +62,7 @@
 }
 
 .bg-bg_text_brand_primary {
-  background-image:  linear-gradient(133deg, #31e61496, #048206 51.04%, #065a07);
+  background-image: linear-gradient(133deg, #31e61496, #048206 51.04%, #065a07);
 }
 
 .border-border_color_brand_primary {
@@ -142,7 +142,7 @@
 }
 
 .info-btn {
-  @apply inline-block leading-normal relative overflow-hidden active:scale-90 transition-all duration-300 ease-in-out cursor-pointer;
+  @apply inline-block leading-normal relative overflow-hidden active:scale-90 transition-all duration-300 ease-in-out cursor-pointer px-1;
 }
 
 .match-eventname {
@@ -158,11 +158,11 @@
 }
 
 .competitionName {
-  @apply font-[roboto] text-[13px] text-[#99a3ac] font-medium;
+  @apply font-[roboto] text-[13px] text-[#99a3ac] font-medium lg:w-full lg:flex items-center justify-between;
 }
 
 .page-tabs {
-  @apply w-full border-b border-solid;
+  @apply w-full border-b border-solid lg:hidden;
 }
 
 .tabs-wrapper {
@@ -231,7 +231,7 @@
 }
 
 .rule-btn-wrapper {
-  @apply bg-[#22272a] border border-[#676767] hover:border-[#11e311] max-h-[21.9rem] overflow-hidden;
+  @apply bg-[#22272a] border border-[#676767] max-h-[calc(70dvh-117px)] overflow-hidden;
 }
 
 .rule-text-heading {
@@ -267,11 +267,11 @@
 }
 
 .match-box {
-  @apply inline-block leading-normal relative overflow-hidden  transition duration-150 ease-in-out rounded-md px-1.5 py-0.5 text-center shadow-[inset_-12px_-8px_40px_#46464620] flex-item-center flex-col flex-wrap w-max h-max mr-1  active:scale-[98%] transition-all duration-300 ease-in-out cursor-pointer;
+  @apply inline-block leading-normal relative overflow-hidden rounded-md px-1.5 py-0.5 text-center shadow-[inset_-12px_-8px_40px_#46464620] flex-item-center flex-col flex-wrap w-max h-max mr-1  active:scale-[98%] transition-all duration-300 ease-in-out cursor-pointer;
 }
 
 .second-box {
-  @apply inline-block  leading-normal relative overflow-hidden  transition duration-150 ease-in-out  rounded-md px-1.5 py-0.5 text-center shadow-[inset_-12px_-8px_40px_#46464620] flex-item-center flex-col flex-wrap w-max h-max mr-1 active:scale-[98%] transition-all duration-300 ease-in-out cursor-pointer;
+  @apply inline-block  leading-normal relative overflow-hidden rounded-md px-1.5 py-0.5 text-center shadow-[inset_-12px_-8px_40px_#46464620] flex-item-center flex-col flex-wrap w-max h-max mr-1 active:scale-[98%] transition-all duration-300 ease-in-out cursor-pointer;
 }
 
 .cricket-ico {
@@ -583,8 +583,8 @@
   font-size: 14px;
 }
 
-@media screen and (min-width:992px) {
-  .showMobile{
+@media screen and (min-width: 992px) {
+  .showMobile {
     display: none;
   }
 }

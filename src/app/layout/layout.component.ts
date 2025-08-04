@@ -12,6 +12,7 @@ import { SharedService } from '../service/shared.service';
 import { ForgetModalComponent } from '../shared/forget-modal/forget-modal.component';
 import { AccountNavComponent } from '../pages/account-nav/account-nav.component';
 import { CommonModule } from '@angular/common';
+import { MatchedBetsComponent } from "../pages/market-detail/matched-bets/matched-bets.component";
 
 @Component({
   selector: 'app-layout',
@@ -26,7 +27,8 @@ import { CommonModule } from '@angular/common';
     SignupComponent,
     ForgetModalComponent,
     CommonModule,
-  ],
+    MatchedBetsComponent
+],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css',
 })
