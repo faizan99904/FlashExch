@@ -31,10 +31,11 @@ export class LiveCasinoComponent implements AfterViewInit {
   constructor(private mainService: MainService) {
     effect(() => {
       this.casinoList = this.mainService.getCasinoEvents();
-
-      this.filterMenu(this.casinoList?.menu, this.casinoList?.lobby);
-      this.searchFilter = [...this.casinoList.lobby]
-    })
+      const menu = this.casinoList?.menu || [];
+      const lobby = this.casinoList?.lobby || [];
+      this.filterMenu(menu, lobby);
+      this.searchFilter = [...lobby];
+    });
   }
 
   mobItems = [
@@ -119,23 +120,27 @@ export class LiveCasinoComponent implements AfterViewInit {
     }
   }
 
-  filterMenu(menu: any[], lobby: any[]) {
+  filterMenu(menu: any[] | null | undefined, lobby: any[] | null | undefined) {
+
+    const safeMenu = Array.isArray(menu) ? menu : [];
+    const safeLobby = Array.isArray(lobby) ? lobby : [];
+
     const menuMap = new Map<string, any>();
-    menu?.forEach(menuItem => {
+    safeMenu.forEach(menuItem => {
       menuItem.items = [];
       menuMap.set(menuItem.menuId, menuItem);
     });
-    const sortedLobby = [...lobby].sort((a, b) => a.sequence - b.sequence);
 
-    sortedLobby?.forEach(lobbyItem => {
+    const sortedLobby = [...safeLobby].sort((a, b) => a.sequence - b.sequence);
+
+    sortedLobby.forEach(lobbyItem => {
       const menuId = lobbyItem.menuId;
       if (menuMap.has(menuId)) {
         menuMap.get(menuId).items.push(lobbyItem);
       }
     });
 
-
-    this.filterMenuList = menu.sort((a, b) => a.sequence - b.sequence);
+    this.filterMenuList = [...safeMenu].sort((a, b) => a.sequence - b.sequence);
   }
 
   searchGame(value: string) {
