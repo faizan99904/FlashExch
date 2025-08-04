@@ -8,7 +8,7 @@
 
 
     <div class="overflow-x-auto bg-white mt-5 max-md:mt-5 table-container">
-        
+
         <div class="flex justify-end w-full mb-2 text-black">
             <div class="back indicators ms-1 ">
                 Back
@@ -73,11 +73,11 @@
                     <td aria-colindex="6" role="cell" class="text-center">
 
                         <span *ngIf="history.betPl"
-                            [ngClass]="{'text-danger': getPlValueFirst(history.betPl) < 0 ,'text-success': getPlValueFirst(history.betPl) > 0 }">
+                            [ngClass]="{'text-[rgb(220,53,69)]': getPlValueFirst(history.betPl) < 0 ,'text-[rgb(25,135,84)]': getPlValueFirst(history.betPl) > 0 }">
                             {{getPlValueFirst(history.betPl)}}
                         </span>
                         <span *ngIf="history.betPl" style="margin-left: 5px;"
-                            [ngClass]="{'text-danger': getPlValueSecond(history.betPl) < 0 ,'text-success': getPlValueSecond(history.betPl) > 0 }">
+                            [ngClass]="{'text-[rgb(220,53,69)]': getPlValueSecond(history.betPl) < 0 ,'text-[rgb(25,135,84)]': getPlValueSecond(history.betPl) > 0 }">
                             ({{getPlValueSecond(history.betPl)}})
                         </span>
 
