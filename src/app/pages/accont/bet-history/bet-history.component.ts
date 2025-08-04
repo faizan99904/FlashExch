@@ -9,10 +9,11 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 import moment from 'moment';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-bet-history',
-  imports: [CommonModule, FormsModule, DataTablesModule],
+  imports: [CommonModule, FormsModule, DataTablesModule, RouterLink],
   templateUrl: './bet-history.component.html',
   styleUrl: './bet-history.component.css'
 })
@@ -74,10 +75,8 @@ export class BetHistoryComponent {
   }
 
   ngOnInit(): void {
-
-
-    // console.log(' this.startDate', this.startDate)
-    // console.log(' end Date', this.endDate)
+    console.log(' this.startDate', this.startDate)
+    console.log(' end Date', this.endDate)
 
     this.getBetHistoryUser();
     this.getAllSportList();

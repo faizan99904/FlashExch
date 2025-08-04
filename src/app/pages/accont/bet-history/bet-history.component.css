@@ -312,7 +312,6 @@ td {
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-
 ::ng-deep tfoot tr td .dt-column-title {
   text-align: center;
 }
@@ -346,4 +345,12 @@ td {
 
 ::ng-deep div.dt-container div.dt-layout-row:last-child {
   margin-bottom: 0.75rem !important;
+}
+
+.back-text {
+  color: #aed8ff;
+}
+
+.lay-text{
+  color: #f1bed2;
 }

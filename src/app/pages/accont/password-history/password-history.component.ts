@@ -5,10 +5,11 @@ import { Config } from 'datatables.net';
 import { Subject } from 'rxjs';
 import { CONFIG } from '../../../../../config';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-password-history',
-  imports: [CommonModule, DataTablesModule],
+  imports: [CommonModule, DataTablesModule, RouterLink],
   templateUrl: './password-history.component.html',
   styleUrl: './password-history.component.css'
 })

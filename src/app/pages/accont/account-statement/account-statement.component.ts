@@ -6,10 +6,11 @@ import { NetworkService } from '../../../service/network.service';
 import { CONFIG } from '../../../../../config';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-account-statement',
-  imports: [CommonModule, FormsModule, DataTablesModule],
+  imports: [CommonModule, FormsModule, DataTablesModule, RouterLink],
   templateUrl: './account-statement.component.html',
   styleUrl: './account-statement.component.css'
 })

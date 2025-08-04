@@ -5,7 +5,7 @@
     padding: 0 6vw;
     font-size: 4.5vw;
     background-color: #111317;
-    color: #fff;
+    color: #95999b;
     font-weight: 400;
   }
 
@@ -30,7 +30,7 @@
     font-size: 24px;
     max-height: 6vw;
     margin-right: 1.1vw;
-    color: #fff;
+    color: #95999b;
   }
 
   .content {
@@ -58,8 +58,8 @@
 
 .table-container {
   background-color: #000;
-  color: white;
-  padding: 10px;
+  color: #95999b;
+  @apply max-lg:p-[3vw];
 }
 
 table {
@@ -80,6 +80,6 @@ tbody,
 thead,
 th,
 td {
-  border: 1px solid #afafaf;
+  border: 1px solid #424546;
   white-space: nowrap;
 }

@@ -4,10 +4,11 @@ import { DataTablesModule } from 'angular-datatables';
 import { Config } from 'datatables.net';
 import { CONFIG } from '../../../../../config';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-activity-log',
-  imports: [DataTablesModule, CommonModule],
+  imports: [DataTablesModule, CommonModule, RouterLink],
   templateUrl: './activity-log.component.html',
   styleUrl: './activity-log.component.css'
 })
