@@ -62,6 +62,15 @@
                         </span>
                         <span class="competitionName text-text_secondary5">
                             {{competitionName}}
+                            <span class="hidden text-white lg:flex items-center gap-1.5">
+                                LIVE
+                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11.8182 0H1.18182C0.525909 0 0 0.543889 0 1.22222V8.55556C0 9.22778 0.525909 9.77778 1.18182 9.77778H4.13636V11H8.86364V9.77778H11.8182C12.4682 9.77778 12.9941 9.22778 12.9941 8.55556L13 1.22222C13 0.543889 12.4682 0 11.8182 0ZM11.8182 8.55556H1.18182V1.22222H11.8182V8.55556ZM8.86364 4.88889L4.72727 7.33333V2.44444L8.86364 4.88889Z"
+                                        fill="#11e311"></path>
+                                </svg>
+                            </span>
                         </span>
                     </div>
                 </div>
@@ -96,7 +105,7 @@
 </div>
 
 @if (openTab=='bets') {
-<app-matched-bets></app-matched-bets>
+<app-matched-bets class="lg:hidden"></app-matched-bets>
 }
 
 @if (openTab=='market') {
@@ -604,7 +613,7 @@
             </ul>
         </div>
 
-    
+
         <!-- fancy market -->
         <ng-container *ngFor="let market of AllFancyMarketsFiltered ;index as i; trackBy: trackByFn">
             <div class="w-full" *ngIf="market.oddsType!='SPORTSBOOK'">
@@ -638,7 +647,7 @@
                                 </div>
                             </div>
                             <div class="fancyDelay">
-                                <svg  version="1.0" height="15" width="15" xmlns="http://www.w3.org/2000/svg"
+                                <svg version="1.0" height="15" width="15" xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 840.000000 936.000000" preserveAspectRatio="xMidYMid meet">
                                     <g transform="translate(0.000000,936.000000) scale(0.100000,-0.100000)"
                                         fill="#d3d3d3" stroke="none">
@@ -650,7 +659,7 @@
                                         </path>
                                     </g>
                                 </svg>
-                                <span  class="font-[480] text-[14px] text-white">
+                                <span class="font-[480] text-[14px] text-white">
                                     {{market.oddsData.betDelay}}s
                                 </span>
                             </div>
@@ -821,16 +830,16 @@
                                     <div id="hideScrollBar">
                                         <div class="sport-wrap">
                                             <div class="flex w-full bg-green-300 relative">
-                                               
+
                                                 <div class="suspended-SportsBook"
-                                                *ngIf="market?.oddsData?.status === 'SUSPENDED' || market?.oddsData?.status == 'CLOSED'|| runner?.status == 'SUSPENDED' || runner?.status == 'CLOSED' || runner?.status == 'REMOVED' ">
-                                                <span class="stats-text">
-                                                    {{market?.oddsData?.status!= 'CLOSED' &&
-                                                    market?.oddsData.status!='SUSPENDED' ? runner?.status :
-                                                    market?.oddsData.status}}
-                                                </span>
-    
-                                            </div>
+                                                    *ngIf="market?.oddsData?.status === 'SUSPENDED' || market?.oddsData?.status == 'CLOSED'|| runner?.status == 'SUSPENDED' || runner?.status == 'CLOSED' || runner?.status == 'REMOVED' ">
+                                                    <span class="stats-text">
+                                                        {{market?.oddsData?.status!= 'CLOSED' &&
+                                                        market?.oddsData.status!='SUSPENDED' ? runner?.status :
+                                                        market?.oddsData.status}}
+                                                    </span>
+
+                                                </div>
                                                 <div class="w-full h-full">
                                                     <div (click)="slipColor('sportbook'); openBetslip(market.exMarketId,runner.selectionId,'back',runner.price.back[0].price,
                                                     market.min, market.max,market.oddsType, market.marketName,runner.price.back[0].size,0)"
@@ -930,7 +939,7 @@
                 </div>
 
                 <div class="space-y-2 mt-4">
-                    <div class="group rule-btn-wrapper">
+                    <div [ngClass]="{'!border-[#11e311]': openRules}" class="group rule-btn-wrapper">
                         <button [ngClass]="{'rule-after': openRules}" (click)="openRules = !openRules"
                             class="rule-text-heading" aria-expanded="false" aria-controls="rules-content-0"
                             aria-label="Toggle rules for General Rules">
