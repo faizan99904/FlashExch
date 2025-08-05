@@ -28,7 +28,6 @@ export class SportEventsComponent {
     effect(() => {
       const id = this.mainService.getActiveSport();
       this.filterEvent = this.mainService.getAllEvents();
-      console.log(this.filterEvent, 'filterEvent')
       this.changeSport(id);
     });
   }

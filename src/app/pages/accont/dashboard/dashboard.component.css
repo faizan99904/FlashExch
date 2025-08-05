@@ -1,3 +1,7 @@
+:host {
+  font-family: "Poppins", sans-serif;
+}
+
 .personal-info ul {
   display: flex;
 }
@@ -67,7 +71,6 @@
   box-sizing: border-box;
   display: inline-block;
   font-weight: 400;
-  font-family: Poppins-Bold;
   background: #11e311;
   color: #030303;
   width: 124.001px;
