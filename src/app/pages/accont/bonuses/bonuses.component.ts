@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-bonuses',
-  imports: [FooterComponent],
+  imports: [],
   templateUrl: './bonuses.component.html',
   styleUrl: './bonuses.component.css'
 })
