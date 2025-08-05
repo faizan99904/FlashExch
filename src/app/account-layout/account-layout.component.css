@@ -24,6 +24,27 @@
   font-style: normal;
 }
 
+@media (min-width: 820px) {
+  .layout-wrapper {
+    height: calc(100dvh - 117.32px);
+  }
+
+}
+
+
+@media (min-width: 1512px) {
+  .layout-wrapper {
+    height: calc(100dvh - 98.78px);
+  }
+}
+
+
+@media (min-width: 1601px) {
+  .layout-wrapper {
+    height: calc(100dvh - 117.32px);
+  }
+}
+
 .middle {
   position: relative;
   max-width: 1400px;

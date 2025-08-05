@@ -7,7 +7,8 @@ import {
   RouterLinkActive,
   RouterOutlet,
 } from '@angular/router';
-import { NgIf } from '@angular/common';
+import { NgIf,  } from '@angular/common';
+import { FooterComponent } from '../shared/footer/footer.component';
 
 @Component({
   selector: 'app-account-layout',
@@ -17,7 +18,8 @@ import { NgIf } from '@angular/common';
     RouterOutlet,
     RouterLink,
     RouterLinkActive,
-    NgIf
+    NgIf,
+    FooterComponent
   ],
   templateUrl: './account-layout.component.html',
   styleUrl: './account-layout.component.css',
