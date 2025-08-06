@@ -19,7 +19,7 @@
                                 fill="#11E311" class="ng-tns-c191-0"></path>
                         </svg>
                     </span>
-                    <div *ngIf="matchOddsData[0]?.oddsData?.inPlay" class="match-title bg-giftBoxGradient">
+                    <div *ngIf="this.AllMarketList[0]?.oddsData?.inPlay" class="match-title bg-giftBoxGradient">
                         <div class="relative w-max flex-item-center">
                             <span class="match-span animate-pulse"></span>
                             <span class="match-item"></span>
@@ -28,7 +28,7 @@
                     </div>
                     <div *ngIf="!matchOddsData[0]?.oddsData?.inPlay" class="match-title bg-giftBoxGradient">
                         <span class="match-status text-text_secondary">
-                            {{matchOddsData[0]?.eventTime | date:'YYYY-MM-dd hh:mm:a'}}
+                            {{ this.AllMarketList[0]?.eventTime | date:'YYYY-MM-dd hh:mm:a' }}
                         </span>
                     </div>
                 </div>
@@ -57,8 +57,7 @@
                 <div class="w-full h-max">
                     <div class="match-event-wrapper">
                         <span class="eventName text-text_secondary">
-                            {{matchOddsData[0]?.eventName? matchOddsData[0]?.eventName :
-                            ''}}
+                            {{this.AllMarketList[0]?.eventName? this.AllMarketList[0]?.eventName : ''}}
                         </span>
                         <span class="competitionName text-text_secondary5">
                             {{competitionName}}
