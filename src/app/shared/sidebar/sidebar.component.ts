@@ -23,7 +23,11 @@ export class SidebarComponent {
   childIndex: any;
   activeRoute: any;
   currentRoute: any;
+  inplayEventList: any
+  filterTopEvent: any = []
   sidebarEvent: any = [];
+  filterRacing: any = [];
+  racingData: any = [];
   filteredSidebarEvent: any = [];
   dropdowns: { [key: string]: boolean } = {
     topLeagues: false,
@@ -53,6 +57,11 @@ export class SidebarComponent {
     effect(() => {
       this.sidebarEvent = mainService.getSideBarEvent();
       this.filterByTime();
+      this.inplayEventList = mainService.getInplayEvents();
+      this.filterInplay();
+      this.racingData = this.mainService.getAllRacingEvents();
+      console.log(this.racingData);
+      this.filterRacingEvent()
     });
   }
 
@@ -93,6 +102,28 @@ export class SidebarComponent {
   toggleDropdown(name: string) {
     this.dropdowns[name] = !this.dropdowns[name];
   }
+
+  filterInplay() {
+    const allSubEvents: any[] = [];
+    this.inplayEventList?.data?.forEach((event: any) => {
+      if (Array.isArray(event?.data)) {
+        allSubEvents.push(...event.data);
+      }
+    });
+    const sorted = allSubEvents
+      .filter(sub => sub?.oddsData?.totalMatched != null)
+      .sort((a, b) => b.oddsData.totalMatched - a.oddsData.totalMatched);
+    this.filterTopEvent = sorted.slice(0, 5);
+  }
+
+  filterRacingEvent() {
+    [...this.racingData?.data?.events].forEach((event: any) => {
+     console.log('event', event);
+    })
+  }
+
+
+
 
   setTimeFilter(filter: string) {
     this.timeFilter = filter;
