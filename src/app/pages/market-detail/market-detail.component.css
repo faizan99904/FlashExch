@@ -4,9 +4,11 @@
 }
 .profit {
   color: #11e311;
+  font-size:12px;
 }
 .loss {
   color: #ff0000 !important;
+  font-size:12px;
 }
 .bg-bg_backBtnBgColor {
   background: var(--back-bg-clr);

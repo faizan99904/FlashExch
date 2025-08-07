@@ -111,7 +111,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
   rules: boolean = false;
   openRules: boolean = true;
   betData: any;
-  runs: boolean = true;
+  runs: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -1080,6 +1080,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
       .then(
         (data: any) => {
           let dataFancyPl = data.data;
+          this.runs=true;
           this.fancyBook = Object.entries(dataFancyPl).map(([key, value]) => ({
             key,
             value,

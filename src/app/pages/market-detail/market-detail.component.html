@@ -126,9 +126,9 @@
                         <div class="flex-item-center gap-[3px]">
                             <ng-container
                                 *ngIf="(matchedOddsPl[market.exMarketId] && (market.marketType=='MATCH_ODDS' || market.oddsType == 'MATCH_ODDS')); else elseTemplate">
-                                <div type="button" class="match-box bg-bg_cashoutBtnGrad text-text_secondary2">
+                                <div type="button" class="match-box bg-bg_cashoutBtnGrad text-text_secondary2" *ngIf="market.oddsData.runners.length < 3">
 
-                                    <div *ngIf="market.oddsData.runners.length < 3"
+                                    <div 
                                         class="cashout-container active {{market.exMarketId}}">
                                         <span *ngIf="!cashoutValue[market.exMarketId]"
                                             class="oddstype text-text_secondary2 sm-text"
@@ -631,6 +631,19 @@
                                 <div class="fancyContent">
                                     <div class="fancyMarketName flex-col truncate !items-start">
                                         <div class="truncate block max-w-full">{{market.marketName}}</div>
+
+                                        <a (click)="fancyPL(sportId, market.exMarketId)" class="p-0" style="display:flex; font-size:12px;font-weight:400"
+                                        *ngIf="FancyPl[market?.exMarketId]">
+                                        <span class="d-flex" [ngClass]="[FancyPl[market?.exMarketId] > 0  ? 'profit' : 'loss']"
+                                          *ngIf=" FancyPl[market?.exMarketId]">
+                                         
+                                          {{FancyPl[market?.exMarketId]
+                                          ? (FancyPl[market?.exMarketId]
+                                          | number :
+                                          '1.2-2') : '0.00'
+                                          }}
+                                        </span>
+                                    </a>
                                         <div class="runnerId-text market-value"
                                             *ngIf="betData?.exposure && betData?.stackValue && betData?.exposure?.[market.exMarketId]">
                                             {{betData?.exposure}} - {{betData?.stackValue}}
@@ -1004,9 +1017,9 @@
                 <div class="text-white flex justify-center">Runs</div>
                 <div class="text-white flex justify-center">Account</div>
             </div>
-            <div class="grid grid-cols-2 gap-1.5">
-                <div class="runs bg-bg_backBtnBgColor">1.5</div>
-                <div class="runs bg-bg_layBtnBgColor">100</div>
+            <div class="grid grid-cols-2 gap-1.5" *ngFor="let item of fancyBook"  [ngClass]="item?.value>0?'bg-bg_backBtnBgColor':'bg-bg_layBtnBgColor'">
+                <div class="runs " >{{item.key}}</div>
+                <div class="runs " >{{item.value}}</div>
             </div>
         </div>
     </div>
