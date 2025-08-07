@@ -928,6 +928,8 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
         ).sort((a: any, b: any) => a.sequence - b.sequence);
       }
     }
+
+    console.log('AllFancyMarketsFiltered', this.AllFancyMarketsFiltered);
   }
 
   private getFirestoreBySportId(sportId: string): any {
@@ -965,6 +967,8 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
         tableFlag
       );
     }
+
+    console.log('matchOddsDataUpdated', this.matchOddsDataUpdated);
   }
 
   private filterAndSortMatchOdds(marketid: any, tableFlag?: any): any[] {
@@ -1080,7 +1084,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
       .then(
         (data: any) => {
           let dataFancyPl = data.data;
-          this.runs=true;
+          this.runs = true;
           this.fancyBook = Object.entries(dataFancyPl).map(([key, value]) => ({
             key,
             value,
