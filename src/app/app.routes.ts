@@ -42,6 +42,7 @@ import { LotteryComponent } from './shared/lottery/lottery.component';
 import { TipsAndPreviewsComponent } from './pages/news/tips-and-previews/tips-and-previews.component';
 import { InplayComponent } from './shared/inplay/inplay.component';
 import { VirtualComponent } from './pages/virtual/virtual.component';
+import { LotteryDetailsComponent } from './shared/lottery-details/lottery-details.component';
 
 export const routes: Routes = [
   {
@@ -84,6 +85,10 @@ export const routes: Routes = [
       { path: 'minigames', component: MinigamesComponent },
       { path: 'lottery', component: LotteryComponent },
       { path: 'news', component: TipsAndPreviewsComponent },
+      {
+        path: 'lottery-details/:sportId/:eventId',
+        component: LotteryDetailsComponent,
+      },
     ],
   },
 

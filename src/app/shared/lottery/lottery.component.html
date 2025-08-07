@@ -13,7 +13,7 @@
     <ul class="p-[10.406px] grid grid-cols-3 md:grid-cols-5 gap-[10.406px]">
         <li *ngFor="let item of data, trackBy: trackByFn;index as i">
             <div class="bg group" [ngStyle]="{'background-image': 'url(' + item.url + ')'}">
-                <div class="slot-hover">
+                <div class="slot-hover" (click)="lotteryDetails(item)">
                     <img src="/assets/images/play.svg" alt="">
                     <div class="star-wrapper">
                         <span class="material-icons text-[24px] float-right ">favorite_border</span>

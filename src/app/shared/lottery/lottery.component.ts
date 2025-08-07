@@ -3,6 +3,7 @@ import { CONFIG } from '../../../../config';
 import { CommonModule } from '@angular/common';
 import { LoaderComponent } from '../loader/loader.component';
 import { NetworkService } from '../../service/network.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lottery',
@@ -13,7 +14,7 @@ import { NetworkService } from '../../service/network.service';
 export class LotteryComponent implements OnInit {
   loader: boolean = false;
   data: any = [];
-  constructor(private backend: NetworkService) {}
+  constructor(private backend: NetworkService, private router: Router) {}
 
   trackByFn(index: any) {
     return index;
@@ -37,6 +38,14 @@ export class LotteryComponent implements OnInit {
       (error: any) => {
         // console.log(error);
       }
+    );
+  }
+
+  lotteryDetails(game: any) {
+    console.log('game: ', game);
+
+    this.router.navigateByUrl(
+      `/lottery-details/66104/${game.eventId}`
     );
   }
 }
