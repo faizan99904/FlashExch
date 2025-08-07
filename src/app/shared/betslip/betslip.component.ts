@@ -45,7 +45,7 @@ export class BetslipComponent {
   @Output() valueEventPlaceBet = new EventEmitter<any>();
   @ViewChild('betAmount') betAmount: ElementRef | undefined;
   color: string = '';
-  betStakes: any = [];
+  stackButtonArry: any = [];
   betslipRecord: any;
   isbetPlacing: boolean = false;
   isMobile: any;
@@ -156,34 +156,48 @@ export class BetslipComponent {
     //
 
     this.item;
-    this.getBetStake();
+    this.getStackData();
 
     this.matchMeSwitch = JSON.parse(localStorage.getItem('matchMe') as string)
       ? JSON.parse(localStorage.getItem('matchMe') as string)
       : false;
   }
-  ngAfterViewInit() {}
-  getBetStake() {
+  ngAfterViewInit() { }
+
+  getStackData() {
+
     const path = CONFIG.userBetStakeList.split('/').filter(Boolean).pop();
     this.indexedDb.getRecord(path).subscribe((res: any) => {
-      if (res?.data && res?.data !== null) {
-        this.betStakes = res?.data?.stake;
+      if (res?.data?.stake) {
+        this.stackButtonArry = res.data.stake;
       } else {
-        if (
-          !this.betStakes ||
-          this.betStakes.length < 1 ||
-          this.betStakes == undefined
-        ) {
-          this.betStakes = STACK_VALUE;
-          let data1 = {
-            data: {
-              stake: STACK_VALUE,
-            },
-          };
-          this.indexedDb.createRecord(path, data1).subscribe((res: any) => {});
+        if (this.backendservice.checkDomain()) {
+          this.stackButtonArry = STACK_VALUE;
+
+        } else {
+          this.stackButtonArry = STACK_VALUE;
+
         }
       }
-    });
+      [...this.stackButtonArry].forEach((item) => {
+        this.editableStakes.push(item.stakeAmount);
+      })
+    })
+    // this.backService.getAllRecordsByPost(CONFIG.userBetStakeList, {})
+    //   .pipe(first())
+    //   .subscribe(
+    //     data => {
+    //       if (data.meta.status == true) {
+    //         if (data.data) {
+    //           if (data.data.stake) {
+    //             this.stackButtonArry = data.data.stake;
+    //           }
+    //         }
+    //       }
+    //     },
+    //     error => {
+    //       let responseData = error;
+    //     });
   }
 
   setStake(amount: any) {
@@ -304,18 +318,18 @@ export class BetslipComponent {
       case 'LINEMARKET':
         data = item.isSuperFancy
           ? {
-              ...commonFields,
-              type: item.type,
-              selectionId: item.selectionId,
-              size: item.size,
-              index: item.index,
-            }
+            ...commonFields,
+            type: item.type,
+            selectionId: item.selectionId,
+            size: item.size,
+            index: item.index,
+          }
           : {
-              ...commonFields,
-              type: item.type,
-              selectionId: item.selectionId,
-              size: item.size,
-            };
+            ...commonFields,
+            type: item.type,
+            selectionId: item.selectionId,
+            size: item.size,
+          };
         break;
 
       case 'Ballbyball':
@@ -600,4 +614,69 @@ export class BetslipComponent {
   //   this.odds = newOdds > 0 ? parseFloat(newOdds.toFixed(2)) : this.odds;
   // }
   //
+
+
+  updateBetSetting() {
+
+    let respRes: any = {};
+    let isDuplicateArry = [];
+
+    for (var i = 0; i < this.stackButtonArry.length; i++) {
+
+      if (this.stackButtonArry[i].stakeAmount == '' || this.stackButtonArry[i] == undefined) {
+        // this.toaster.error('Enter required values.', '', {
+        //   positionClass: 'toast-top-center',
+        // });
+        return;
+      }
+
+      respRes[this.stackButtonArry[i].stakeAmount] = this.stackButtonArry[i].stakeAmount;
+      isDuplicateArry[i] = parseInt(this.stackButtonArry[i].stakeAmount);
+    }
+
+
+    if (this.hasDuplicates(isDuplicateArry)) {
+      this.toaster.error('Duplicate values not allowed.', '', {
+        positionClass: 'toast-top-center',
+      });
+      return;
+    }
+    let data = {
+      data: {
+        stake: this.stackButtonArry
+      }
+    }
+    const path = CONFIG.userBetStakeList.split('/').filter(Boolean).pop();
+    this.indexedDb.updateRecord(path, data).subscribe((res: any) => {
+    });
+    this.backendservice.getAllRecordsByPost(CONFIG.updateUserBetStake, { stake: JSON.stringify(respRes) })
+      .then((data: any) => {
+        if (data.meta && data.meta.s2tatus === true) {
+          this.toaster.success(data.meta.message, '');
+          this.router.navigate(['/home']);
+        }
+      })
+      .catch((error) => {
+        if (error.meta) {
+          let errorObject = error.meta.message;
+          if (typeof errorObject === 'object') {
+            for (var key of Object.keys(errorObject)) {
+              // this.toaster.error(errorObject[key].message, '');
+              return;
+            }
+          } else {
+            // this.toaster.error(errorObject, '');
+            return;
+          }
+        } else {
+          // this.toaster.error('Hey, looks like something went wrong.', '');
+          return;
+        }
+      });
+
+  }
+
+  hasDuplicates(arr: any) {
+    return new Set(arr).size !== arr.length;
+  }
 }

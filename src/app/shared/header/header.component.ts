@@ -6,21 +6,25 @@ import { NetworkService } from '../../service/network.service';
 
 @Component({
   selector: 'app-header',
-  standalone:true,
+  standalone: true,
   imports: [RouterLink, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
   token: any;
-  constructor(private router: Router, private toggle: SharedService, public networkService:NetworkService) {
+  constructor(private router: Router, private toggle: SharedService, public networkService: NetworkService) {
+    this.token = localStorage.getItem('token');
     this.toggle.getToken().subscribe((value: any) => {
       if (value) {
-        this.networkService.getUserBalanceFromApi();
         this.token = value;
+        this.networkService.getUserBalanceFromApi();
       }
     });
-    this.token = localStorage.getItem('token');
+    if (this.token) {
+      this.networkService.getUserBalanceFromApi();
+    }
+
   }
 
   gotoLogin() {

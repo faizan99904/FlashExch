@@ -57,21 +57,24 @@
                    " placeholder="Max bet: 0" autocomplete="off" pattern="d*" type="number" value="">
             </div>
         </div>
+
         <div class=" w-full flex mt-[15px] items-center justify-center">
             <div title="Stakes"
                 class=" w-full p-2.5 rounded-md border bg-bg_color_input_bg border-border_color_primary ">
                 <div class="grid grid-cols-12 gap-[7px]">
-                    <ng-container *ngFor="let stake of editableStakes; let i = index; trackBy: trackByIndex">
-                        <input *ngIf="editStakeMode" type="number" [ngModel]="editableStakes[i]"
+                    <ng-container *ngFor="let stake of stackButtonArry; let i = index; trackBy: trackByIndex">
+                        <input *ngIf="editStakeMode && i < 6" type="number" [ngModel]="editableStakes[i]"
                             (ngModelChange)="updateStake(i, $event)" [ngClass]="{
                               'editable-inp col-span-4 text-center text-[12px] font-semibold rounded-[4px] py-1.5 bg-bg_color_primary border border-border_color_brand_primary text-text_brand_primary': true,
                               '!bg-[#1f2c3d] !border-[#60a3b3]': !editableStakes[i] && editableStakes[i] !== 0
                             }" placeholder="Enter Stakes" />
 
-                        <button *ngIf="!editStakeMode" (click)="addStake(stake);betExposure()"
+                     
+                        <button *ngIf="!editStakeMode && i < 6" 
                             class="col-span-4 text-[12px] font-semibold rounded-[4px] py-1.5 bg-transparent border border-border_color_primary4 text-text_color_primary2">
-                            + {{ stake }}
+                            + {{ stake.stakeAmount }}
                         </button>
+                     
                     </ng-container>
                 </div>
                 @if(login){
