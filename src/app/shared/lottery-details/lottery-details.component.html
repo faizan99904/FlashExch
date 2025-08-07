@@ -1,0 +1,350 @@
+<app-loader style="display: flex; justify-content: center;" *ngIf="isLoaderShown"></app-loader>
+<div class="marketDetailsList-container mt-1.5 pb-[75px] md:pb-0">
+    <!-- market  -->
+    <div class="w-100">
+        <marquee class="pull-right fancy-marquee p-0 hideMobileMarque " scrollamount="3" behavior="scroll"
+            *ngIf="lotteryList?.news">
+            <strong class="bookmakerNews">{{lotteryList?.news}} </strong>
+        </marquee>
+    </div>
+    <div class="lottery-card mb-2" *ngFor="let market of marketData; trackBy: trackByFn;">
+        <div class="marketName ">
+            {{market.marketName}}
+            <span class="marketinfo ms-1 cursor-pointer" data-bs-toggle="modal" data-bs-target="#exampleModal1"
+                (click)="gameRules(sportId)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+                    <path fill="currentColor" fill-rule="evenodd"
+                        d="M6.76 5.246V3.732h1.48v1.514H6.76zm.74 8.276a5.86 5.86 0 0 0 3.029-.83 5.839 5.839 0 0 0 2.163-2.163 5.86 5.86 0 0 0 .83-3.029 5.86 5.86 0 0 0-.83-3.029 5.839 5.839 0 0 0-2.163-2.163 5.86 5.86 0 0 0-3.029-.83 5.86 5.86 0 0 0-3.029.83A5.839 5.839 0 0 0 2.308 4.47a5.86 5.86 0 0 0-.83 3.029 5.86 5.86 0 0 0 .83 3.029 5.839 5.839 0 0 0 2.163 2.163 5.86 5.86 0 0 0 3.029.83zM7.5 0c1.37 0 2.638.343 3.804 1.028a7.108 7.108 0 0 1 2.668 2.668A7.376 7.376 0 0 1 15 7.5c0 1.37-.343 2.638-1.028 3.804a7.108 7.108 0 0 1-2.668 2.668A7.376 7.376 0 0 1 7.5 15a7.376 7.376 0 0 1-3.804-1.028 7.243 7.243 0 0 1-2.668-2.686A7.343 7.343 0 0 1 0 7.5c0-1.358.343-2.62 1.028-3.786a7.381 7.381 0 0 1 2.686-2.686A7.343 7.343 0 0 1 7.5 0zm-.74 11.268V6.761h1.48v4.507H6.76z" />
+                </svg>
+
+            </span>
+        </div>
+        <ng-container *ngIf="!market.marketName.includes('SP,DP,TP') else panaMarket">
+            <div class="position-relative">
+
+
+                <div class="marketRunners " [attr.data-title]="market?.status" [ngClass]="{
+      'suspended': market?.status=='CLOSED' || market?.status=='SUSPEND'
+      }">
+
+                    <!-- (click)="openBetslip(market?.marketId, runner,'back', runner, market?.min, market?.max);" -->
+                    <a [attr.data-title]="market?.status!='OPEN'?market?.status:runner?.status"
+                        (click)="openBetslip(market?.marketId, runner,'back', runner, market?.min, market?.max,market.marketName);"
+                        class="runner" *ngFor="let runner of market?.lotteryNumbers ; index as i ;trackBy: trackByFn;"
+                        [ngClass]="{
+        'back':i%2==0,'lay':i%2!=0,
+        'active':(isBetsSlipOpened ==runner  && marketId == market?.marketId)&& !(market?.status!='OPEN' && runner?.status!='OPEN')  ,
+
+        }">
+                        <span>{{ runner }}</span>
+                        <span class="d-flex">
+
+                            <!-- 123123 -->
+
+                            <!-- <span class="minus-book matchodds" *ngIf="!lotteryPl[market?.marketId]">
+            <i class="fa fa-arrow-right"></i> 0.00
+          </span> -->
+
+                            <span>
+                                <!-- pl -->
+                                <!-- <span class="float-start" *ngIf="!lotteryPl[market?.marketId]"> 0</span> -->
+
+
+                                <span class="p-0" style="display:flex; font-size:12px;font-weight:400"
+                                    *ngIf="lotteryPl[market?.marketId]">
+                                    <!-- api response -->
+                                    <span class="d-flex"
+                                        [ngClass]="[lotteryPl[market?.marketId][runner] > 0  ? 'plus-book matchodds' : 'minus-book matchodds']"
+                                        *ngIf=" lotteryPl[market?.marketId]">
+                                        <!-- &nbsp; <i class="fa fa-arrow-right marketplace-right-arrow"></i> -->
+                                        {{lotteryPl[market?.marketId][runner]
+                                        ? (lotteryPl[market?.marketId][runner] | number : '1.2-2') : '0.00'
+                                        }}
+                                        <!-- after api response --back  -->
+                                        <!-- <ng-container>
+                      <span
+                        [ngClass]="(((currentRunnerPrice -1) * isValueBetsSlip) +
+              (lotteryPl[market?.marketId][runner] ? lotteryPl[market?.marketId][runner] : 0 )) > 0  ? 'plus-book matchodds' : 'minus-book matchodds'"
+                        *ngIf="isBetsSlipOpened == runner
+              && marketId == market?.marketId
+              && isValueBetsSlip != 0 ">
+
+                        ( {{ ((currentRunnerPrice -1) * isValueBetsSlip) +
+                        (lotteryPl[market?.marketId][runner] ?
+                        lotteryPl[market?.marketId][runner] : 0) | number : '1.2-2' }} )
+                      </span>
+                      <span
+                        [ngClass]="((lotteryPl[market?.marketId][runner] ) - isValueBetsSlip ) > 0  ? 'plus-book matchodds' : 'minus-book matchodds'"
+                        *ngIf="  currentRunnerPrice
+            && isValueBetsSlip
+            && isValueBetsSlip != 0
+            && isBetsSlipOpened != runner
+            && marketId == market?.marketId">
+
+                        ( {{ ((lotteryPl[market?.marketId][runner] ?
+                        lotteryPl[market?.marketId][runner] : 0 ) -
+                        isValueBetsSlip) | number : '1.2-2' }})
+                      </span>
+                    </ng-container> -->
+
+
+
+                                    </span>
+
+                                </span>
+                                <!-- offline profile lose -->
+                                <span style="display: flex;padding: 0;font-size:12px;font-weight:400"
+                                    *ngIf="isValueBetsSlip && !lotteryPl[market?.marketId]  && (market.marketType!='Bookmakers')">
+                                    <span class=" d-flex" style="margin-right:5px ;font-size:12px;font-weight:400"
+                                        [ngClass]="type=='back' ? 'plus-book matchodds' : 'minus-book matchodds'"
+                                        *ngIf="isBetsSlipOpened == runner && marketId == market?.marketId">
+                                        <span class=""
+                                            [ngClass]="type=='back' ? 'plus-book matchodds' : 'minus-book matchodds'">
+                                            &nbsp;{{
+                                            ((currentRunnerPrice -1) *
+                                            isValueBetsSlip) | number : '1.2-2'}}</span>
+                                    </span>
+                                    <span class="d-flex"
+                                        [ngClass]="type=='lay' ? 'plus-book matchodds' : 'minus-book matchodds'"
+                                        *ngIf="isBetsSlipOpened != runner && marketId == market?.marketId">
+                                        <span class=""
+                                            [ngClass]="type=='lay' ? 'plus-book matchodds' : 'minus-book matchodds'">&nbsp;{{
+                                            isValueBetsSlip | number : '1.2-2' }}</span>
+                                    </span>
+                                </span>
+
+                            </span>
+                        </span>
+                    </a>
+
+                </div>
+                <div [id]="'betslip'+market?.marketId"
+                    [ngClass]="isBetsSlipOpened  && marketId == market?.marketId && (market?.status=='OPEN' || market?.status=='ONLINE' )?'':'d-none' ">
+                    <app-betslip (valueEventPlaceBet)="getValueBetSlip($event)" [id]="market?.marketId"
+                        [item]="betplaceObj"></app-betslip>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-template #panaMarket>
+            <div class="position-relative">
+
+
+                <div class="marketRunners " [attr.data-title]="market?.status" [ngClass]="{
+      'suspended': market?.status=='CLOSED' || market?.status=='SUSPEND'
+      }">
+
+                    <!-- (click)="openBetslip(market?.marketId, runner,'back', runner, market?.min, market?.max);" -->
+                    <a [attr.data-title]="market?.status!='OPEN'?market?.status:runner?.status"
+                        (click)="openPANABetslip(market?.marketId, runner,'back', runner, market?.min, market?.max,market.marketName);"
+                        class="runner" *ngFor="let runner of market?.lotteryNumbers ; index as i ;trackBy: trackByFn;"
+                        [ngClass]="{
+        'back':i%2==0,'lay':i%2!=0,
+        'active':(runnerIsPresentInPANA(runner) && marketId == market?.marketId)&& !(market?.status!='OPEN' && runner?.status!='OPEN')  ,
+
+        }">
+                        <span>{{ runner }}</span>
+                        <div class="d-flex align-items-center ">
+
+                            <!-- 123123 -->
+
+                            <!-- <span class="minus-book matchodds" *ngIf="!lotteryPl[market?.marketId]">
+            <i class="fa fa-arrow-right"></i> 0.00
+          </span> -->
+
+                            <span>
+                                <!-- pl -->
+                                <!-- <span class="float-start" *ngIf="!lotteryPl[market?.marketId]"> 0</span> -->
+
+
+                                <span class="p-0" style="display:flex; font-size:12px;font-weight:400"
+                                    *ngIf="lotteryPl[market?.marketId]">
+                                    <!-- api response -->
+                                    <span class="d-flex"
+                                        [ngClass]="[lotteryPl[market?.marketId][runner] > 0  ? 'plus-book matchodds' : 'minus-book matchodds']"
+                                        *ngIf=" lotteryPl[market?.marketId]">
+                                        <!-- &nbsp; <i class="fa fa-arrow-right marketplace-right-arrow"></i> -->
+                                        {{lotteryPl[market?.marketId][runner]
+                                        ? (lotteryPl[market?.marketId][runner] | number : '1.2-2') : '0.00'
+                                        }}
+                                        <!-- after api response  -->
+
+                                        <!-- <ng-container>
+                      <span
+                        [ngClass]="(((currentRunnerPrice -1) * isValueBetsSlip) +
+              (lotteryPl[market?.marketId][runner] ? lotteryPl[market?.marketId][runner] : 0 )) > 0  ? 'plus-book matchodds' : 'minus-book matchodds'"
+                        *ngIf="runnerIsPresentInPANA(runner)
+              && marketId == market?.marketId
+              && isValueBetsSlip != 0 ">
+
+                        ( {{ ((currentRunnerPrice -1) * isValueBetsSlip) +
+                        (lotteryPl[market?.marketId][runner] ?
+                        lotteryPl[market?.marketId][runner] : 0) | number : '1.2-2' }} )
+                      </span>
+                      <span
+                        [ngClass]="((lotteryPl[market?.marketId][runner] ) - isValueBetsSlip ) > 0  ? 'plus-book matchodds' : 'minus-book matchodds'"
+                        *ngIf="  currentRunnerPrice
+            && isValueBetsSlip
+            && isValueBetsSlip != 0
+            && !runnerIsPresentInPANA(runner)
+            && marketId == market?.marketId">
+
+                        ( {{ ((lotteryPl[market?.marketId][runner] ?
+                        lotteryPl[market?.marketId][runner] : 0 ) -
+                        isValueBetsSlip) | number : '1.2-2' }})
+                      </span>
+                    </ng-container> -->
+
+
+
+                                    </span>
+
+                                </span>
+                                <!-- offline profile lose -->
+                                <span style="display: flex;padding: 0;font-size:12px;font-weight:400"
+                                    *ngIf="isValueBetsSlip && !lotteryPl[market?.marketId]  && (market.marketType!='Bookmakers')">
+                                    <span class="d-flex" style="margin-right:5px ;font-size:12px;font-weight:400"
+                                        [ngClass]="type=='back' ? 'plus-book matchodds' : 'minus-book matchodds'"
+                                        *ngIf="runnerIsPresentInPANA(runner) && marketId == market?.marketId">
+                                        <span class=""
+                                            [ngClass]="type=='back' ? 'plus-book matchodds' : 'minus-book matchodds'">
+                                            &nbsp;{{
+                                            ((currentRunnerPrice -1) *
+                                            isValueBetsSlip) | number : '1.2-2'}}</span>
+                                    </span>
+                                    <span class="d-flex"
+                                        [ngClass]="type=='lay' ? 'plus-book matchodds' : 'minus-book matchodds'"
+                                        *ngIf="!runnerIsPresentInPANA(runner) && marketId == market?.marketId">
+                                        <span class=""
+                                            [ngClass]="type=='lay' ? 'plus-book matchodds' : 'minus-book matchodds'">&nbsp;{{
+                                            isValueBetsSlip | number : '1.2-2' }}</span>
+                                    </span>
+                                </span>
+
+                            </span>
+                        </div>
+                    </a>
+
+                </div>
+                <div [id]="'betslip'+market?.marketId"
+                    [ngClass]="isBetsSlipPANAOpened.length==3 && marketId == market?.marketId && (market?.status=='OPEN' || market?.status=='ONLINE' )?'':'d-none' ">
+                    <app-betslip (valueEventPlaceBet)="getValueBetSlip($event)" [id]="market?.marketId"
+                        [item]="betplaceObj"></app-betslip>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+    <div class="lottery-card mb-2 text-center no-markets" *ngIf="marketData.length==0">
+        No Markets are Currently Active
+    </div>
+    <!-- Results Portion -->
+
+    <!-- <div  class="recent-res">
+      <h5  style="font-weight: bold;">Recent Result</h5>
+      <ul  class="result">
+        <li class="casino-b" data-bs-toggle="modal" data-bs-target="#lotteryResultModal">
+          <a class="number"> 0 </a>
+        </li>
+        <li class="casino-a">
+          <a class="number"> 1 </a>
+        </li>
+        <li class="casino-b">
+          <a class="number"> 023 </a>
+        </li>
+        <li class="casino-a">
+          <a class="number"> 12 </a>
+        </li>
+        <li class="casino-b">
+          <a class="number"> 9 </a>
+        </li>
+        <li class="casino-a">
+          <a class="number"> 4 </a>
+        </li>
+        <li class="casino-b">
+          <a class="number"> 2 </a>
+        </li>
+        <li class="casino-a">
+          <a class="number"> 1 </a>
+        </li>
+        <li class="casino-b">
+          <a class="number"> 0 </a>
+        </li>
+        <li class="casino-a">
+          <a class="number"> 893 </a>
+        </li>
+      </ul>
+  </div> -->
+</div>
+
+
+@if (rules) {
+<div class="rules-overlay bg-bg_color_popUpParentBg">
+    <div class="rules-bg"></div>
+
+    <div class="rule-wrapper popUpOpenAnimation1">
+        <div class="ruleas">
+            <h2 class="rule-heading text-text_color_primary1">
+                Rules-{{rulesInfo?.sportName}}
+            </h2>
+            <button (click)="rules = false" type="button" aria-label="Close" title="Close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 16 16" fill="#fff"
+                    class="close-rules-btn">
+                    <g clip-path="url(#clip0_406_1676)">
+                        <path
+                            d="M9.46585 8.01314L15.6959 1.78287C16.1014 1.37762 16.1014 0.722377 15.6959 0.317124C15.2907 -0.0881297 14.6354 -0.0881297 14.2302 0.317124L7.99991 6.5474L1.76983 0.317124C1.36438 -0.0881297 0.709336 -0.0881297 0.304082 0.317124C-0.101361 0.722377 -0.101361 1.37762 0.304082 1.78287L6.53416 8.01314L0.304082 14.2434C-0.101361 14.6487 -0.101361 15.3039 0.304082 15.7092C0.506045 15.9113 0.771595 16.0129 1.03695 16.0129C1.30232 16.0129 1.56768 15.9113 1.76983 15.7092L7.99991 9.47889L14.2302 15.7092C14.4323 15.9113 14.6977 16.0129 14.9631 16.0129C15.2284 16.0129 15.4938 15.9113 15.6959 15.7092C16.1014 15.3039 16.1014 14.6487 15.6959 14.2434L9.46585 8.01314Z"
+                            fill="#fff"></path>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_406_1676">
+                            <rect width="16" height="16" fill="#fff"></rect>
+                        </clipPath>
+                    </defs>
+                </svg>
+            </button>
+        </div>
+        <div class="rule-text-wrapper">
+            <div class="rule-container">
+                <div class="flex items-center gap-2">
+                </div>
+
+                <div class="space-y-2 mt-4">
+                    <div [ngClass]="{'!border-[#11e311]': openRules}" class="group rule-btn-wrapper">
+                        <button [ngClass]="{'rule-after': openRules}" (click)="openRules = !openRules"
+                            class="rule-text-heading" aria-expanded="false" aria-controls="rules-content-0"
+                            aria-label="Toggle rules for General Rules">
+                            <span class="rule-text">General
+                                Rules
+                            </span>
+                            <span [ngClass]="{'rotate-180': openRules}" class="toggle-text" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <mask id="path-1-inside-1_3039_16413" fill="white">
+                                        <path
+                                            d="M30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15ZM2.08392 15C2.08392 22.1334 7.86664 27.9161 15 27.9161C22.1334 27.9161 27.9161 22.1334 27.9161 15C27.9161 7.86664 22.1334 2.08392 15 2.08392C7.86664 2.08392 2.08392 7.86664 2.08392 15Z">
+                                        </path>
+                                    </mask>
+                                    <path
+                                        d="M30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15ZM2.08392 15C2.08392 22.1334 7.86664 27.9161 15 27.9161C22.1334 27.9161 27.9161 22.1334 27.9161 15C27.9161 7.86664 22.1334 2.08392 15 2.08392C7.86664 2.08392 2.08392 7.86664 2.08392 15Z"
+                                        fill="#fff" stroke="#fff" stroke-width="2" mask="#fff"></path>
+                                    <path
+                                        d="M15.7071 9.29289C15.3166 8.90237 14.6834 8.90237 14.2929 9.29289L7.92893 15.6569C7.53841 16.0474 7.53841 16.6805 7.92893 17.0711C8.31946 17.4616 8.95262 17.4616 9.34315 17.0711L15 11.4142L20.6569 17.0711C21.0474 17.4616 21.6805 17.4616 22.0711 17.0711C22.4616 16.6805 22.4616 16.0474 22.0711 15.6569L15.7071 9.29289ZM16 11V10H14V11H16Z"
+                                        fill="#fff"></path>
+                                </svg>
+                            </span>
+                        </button>
+
+                        <div [ngClass]="{'!max-h-0 overflow-hidden': !openRules}" id="rules-content-0"
+                            class="rule-text-container" aria-labelledby="rules-header-0">
+                            <div class="px-4 pb-14">
+                                <div class="pt-3">
+                                    <div class="rules-container" [innerHTML]="rulesInfo?.rules"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
