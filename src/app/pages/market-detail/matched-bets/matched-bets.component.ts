@@ -5,9 +5,9 @@ import { Component } from '@angular/core';
   selector: 'app-matched-bets',
   imports: [CommonModule],
   templateUrl: './matched-bets.component.html',
-  styleUrl: './matched-bets.component.css'
+  styleUrl: './matched-bets.component.css',
 })
 export class MatchedBetsComponent {
-  unmatchedBets: boolean = false;
-  matchedBets: boolean = false;
+  unmatchedBets: boolean = true;
+  matchedBets: boolean = true;
 }
