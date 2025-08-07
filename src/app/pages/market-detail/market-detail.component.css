@@ -4,11 +4,11 @@
 }
 .profit {
   color: #11e311;
-  font-size:12px;
+  font-size: 12px;
 }
 .loss {
   color: #ff0000 !important;
-  font-size:12px;
+  font-size: 12px;
 }
 .bg-bg_backBtnBgColor {
   background: var(--back-bg-clr);
@@ -373,7 +373,7 @@
 }
 
 .fancy-title {
-  @apply rounded-[3px] shadow-[0_8px_30px_rgb(0,0,0,0.12)] my-[0.6px] cursor-pointer;
+  @apply rounded-[3px] shadow-[0_8px_30px_rgb(0,0,0,0.12)] my-0 cursor-pointer;
 }
 
 .fancy-wrapper {
@@ -587,6 +587,7 @@
   justify-content: center;
   align-items: center;
   font-size: 14px;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 992px) {

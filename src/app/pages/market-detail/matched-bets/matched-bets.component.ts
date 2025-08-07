@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, effect, Input } from '@angular/core';
 
 @Component({
   selector: 'app-matched-bets',
@@ -10,4 +10,10 @@ import { Component } from '@angular/core';
 export class MatchedBetsComponent {
   unmatchedBets: boolean = true;
   matchedBets: boolean = true;
+  @Input() matchedBet: any[] = [];
+  constructor() {
+    effect(() => {
+      console.log(this.matchedBet);
+    });
+  }
 }
