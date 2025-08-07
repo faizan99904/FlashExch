@@ -530,6 +530,10 @@
   animation: popUpOpenAnimation1 0.31s ease-in-out;
 }
 
+.runs {
+  @apply flex justify-center min-h-8 items-center rounded-sm font-semibold;
+}
+
 @keyframes popUpOpenAnimation1 {
   0% {
     opacity: 0.5;

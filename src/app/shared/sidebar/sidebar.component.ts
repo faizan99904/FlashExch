@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, effect } from '@angular/core';
+import { Component, effect, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
   ActivatedRoute,
@@ -23,11 +23,12 @@ export class SidebarComponent {
   childIndex: any;
   activeRoute: any;
   currentRoute: any;
-  inplayEventList: any
-  filterTopEvent: any = []
+  inplayEventList: any;
+  filterTopEvent: any = [];
   sidebarEvent: any = [];
   filterRacing: any = [];
   racingData: any = [];
+  raceEvents: any[] = [];
   filteredSidebarEvent: any = [];
   dropdowns: { [key: string]: boolean } = {
     topLeagues: false,
@@ -60,8 +61,7 @@ export class SidebarComponent {
       this.inplayEventList = mainService.getInplayEvents();
       this.filterInplay();
       this.racingData = this.mainService.getAllRacingEvents();
-      console.log(this.racingData);
-      this.filterRacingEvent()
+      this.filterRacingEvent();
     });
   }
 
@@ -111,19 +111,38 @@ export class SidebarComponent {
       }
     });
     const sorted = allSubEvents
-      .filter(sub => sub?.oddsData?.totalMatched != null)
+      .filter((sub) => sub?.oddsData?.totalMatched != null)
       .sort((a, b) => b.oddsData.totalMatched - a.oddsData.totalMatched);
     this.filterTopEvent = sorted.slice(0, 5);
   }
 
+  // filterRacingEvent() {
+  //   [...this.racingData?.data?.events].forEach((event: any) => {
+  //     console.log('event', event);
+  //   });
+  // }
+
   filterRacingEvent() {
-    [...this.racingData?.data?.events].forEach((event: any) => {
-     console.log('event', event);
-    })
-  }
+  const uniqueEventsMap = new Map<string, any>();
+  const events = this.racingData?.data?.events || [];
 
+  events.forEach((event: any) => {
+    if (event.inPlay === true) {
+      uniqueEventsMap.set(event.eventId, event);
+    }
 
+    if (Array.isArray(event.eventsData)) {
+      event.eventsData.forEach((subEvent: any) => {
+        if (subEvent.inPlay === true) {
+          uniqueEventsMap.set(subEvent.eventId, subEvent);
+        }
+      });
+    }
+  });
 
+  const inPlayEvents = Array.from(uniqueEventsMap.values());
+  this.raceEvents = inPlayEvents.length > 0 ? inPlayEvents : events.slice(0, 5);
+}
 
   setTimeFilter(filter: string) {
     this.timeFilter = filter;

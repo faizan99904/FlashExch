@@ -114,9 +114,19 @@
             <i class="text-white "
                 [ngClass]="dropdowns['topEsport'] ? 'fas fa-chevron-down text-[0.8vw] pb-[0.1vw]' : 'fas fa-chevron-right text-[0.8vw] pr-[0.2vw] pb-0'"></i>
         </div>
-        <ul class="space-y-2 px-[10px] py-[20px]" *ngIf="dropdowns['topEsport']">
-            <li class="text-[#FFFFFF99] text-[9.9px]">No esports data</li>
-        </ul>
+        <div class="space-y-2 px-[10px] pb-[20px]" *ngIf="dropdowns['topEsport']">
+            <div *ngFor="let item of raceEvents" class="mb-3 flex justify-between items-center">
+                <div class="flex flex-col items-start w-[65%]">
+                    <div class="text-green-500 leading-tight  truncate max-w-[90%]">{{ item.eventName }}</div>
+                    <div class="text-green-500 leading-tight mb-1  truncate max-w-[90%]"></div>
+                </div>
+                <div class="flex justify-between items-center  text-white text-[11px] w-[35%]">
+                    <span class="hover:bg-green-500 px-[2px] py-[1px] cursor-pointer"></span>
+                    <span class="hover:bg-green-500 px-[2px] py-[1px] cursor-pointer"></span>
+                </div>
+            </div>
+            <span *ngIf="raceEvents.length === 0" class="text-[#FFFFFF99] text-[9.9px]">No esports data</span>
+        </div>
     </div>
 
     <!-- TIME FILTERS Section -->

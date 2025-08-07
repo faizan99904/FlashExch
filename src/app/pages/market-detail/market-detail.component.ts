@@ -111,6 +111,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
   rules: boolean = false;
   openRules: boolean = true;
   betData: any;
+  runs: boolean = true;
 
   constructor(
     private route: ActivatedRoute,
