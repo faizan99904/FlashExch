@@ -1,14 +1,12 @@
-<div class="d-flex position-relative" style="margin-bottom: 2px;"
-    *ngIf="this.streamingAppName != null && this.streamingURl != null && this.streamingName != null">
+<div class="d-flex position-relative" style="margin-bottom: 2px;">
+    <!-- *ngIf="this.streamingAppName != null && this.streamingURl != null && this.streamingName != null" -->
     <div class="upperDiv">
-
-
 
         <div id="video_info">
 
             <div class="error-screen">
                 <div class="brand">Real Media</div>
-                <img src="../../../../../public/assets/Loading-Bar.gif" alt="">
+                <img src="/assets/Loading-Bar.gif" alt="">
                 <div class="message">
                     <h2>Stream Starting Soon!</h2>
                     <p>We'll be live shortly <br />stay tuned!
@@ -22,12 +20,12 @@
                 playsinline></video>
         </div>
 
-        <img id="play-video" class="play-video" style="display: none;" src="../../../../../public/assets/video/play.svg" />
+        <img id="play-video" class="play-video" style="display: none;" src="/assets/video/play.svg" />
 
 
         <!-- Mute/Unmute Video Button for 360 playback -->
         <button id="unmuteButton" title="Mute/Unmute Video">
-            <img src="../../../../../public/assets/video/VolumeOff.svg" style="width: 4vh;height: 4vh;" alt="Volume Off" />
+            <img src="/assets/video/VolumeOff.svg" style="width: 4vh;height: 4vh;" alt="Volume Off" />
         </button>
 
 
