@@ -114,7 +114,7 @@ export class VideoRealComponent implements OnInit, AfterViewInit, OnDestroy {
     // Reset unmute button to show VolumeOff.svg (muted state)
     const unmuteButton = document.getElementById('unmuteButton');
     if (unmuteButton) {
-      unmuteButton.innerHTML = '<img src="./assets/video/VolumeOff.svg" style="width: 4vh;height: 4vh;" alt="Volume Off" />';
+      unmuteButton.innerHTML = '<img src="../../../../../public/assets/video/VolumeOff.svg" style="width: 4vh;height: 4vh;" alt="Volume Off" />';
     }
   }
 
@@ -148,7 +148,7 @@ export class VideoRealComponent implements OnInit, AfterViewInit, OnDestroy {
   getStreaming() {
 
     var req = {
-      "eventId": this.eventId1,
+      "eventId": this.eventId,
     }
 
     this.networkService.getStreamData(req).subscribe((res: any) => {
@@ -209,7 +209,7 @@ export class VideoRealComponent implements OnInit, AfterViewInit, OnDestroy {
     // Create & append script 1
     this.script1 = document.createElement('script');
     this.script1.type = 'module';
-    this.script1.src = '/assets/js/real-media-embedded-player.js?v=' + Date.now(); // bust cache
+    this.script1.src = '../../../../../public/assets/js/real-media-embedded-player.js?v=' + Date.now(); // bust cache
 
     this.script1.onload = () => {
       if ((window as any)['createWebPlayer']) {
@@ -229,7 +229,7 @@ export class VideoRealComponent implements OnInit, AfterViewInit, OnDestroy {
           this.showVideoContainer();
           
           // Delay Picture-in-Picture initialization
-          import('../../../assets/js/picture-in-picture.js' as any).then(() => {
+          import('../../../../../public/assets/js/picture-in-picture.js' as any).then(() => {
             this.pipManager = new (window as any).PictureInPictureManager('video-player_html5_api');
           });
         }, 1500);
@@ -258,7 +258,7 @@ export class VideoRealComponent implements OnInit, AfterViewInit, OnDestroy {
     // Create & append script 1
     this.script1 = document.createElement('script');
     this.script1.type = 'module';
-    this.script1.src = '/assets/js/real-media-embedded-player.js?v=' + Date.now(); // bust cache
+    this.script1.src = '../../../../../public/assets/js/real-media-embedded-player.js?v=' + Date.now(); // bust cache
 
     this.script1.onload = () => {
       if ((window as any)['createWebPlayer']) {
@@ -283,7 +283,7 @@ export class VideoRealComponent implements OnInit, AfterViewInit, OnDestroy {
           // Reset unmute button to show VolumeOff.svg (muted state)
           const unmuteButton = document.getElementById('unmuteButton');
           if (unmuteButton) {
-            unmuteButton.innerHTML = '<img src="./assets/video/VolumeOff.svg" style="width: 4vh;height: 4vh;" alt="Volume Off" />';
+            unmuteButton.innerHTML = '<img src="../../../../../public/assets/video/VolumeOff.svg" style="width: 4vh;height: 4vh;" alt="Volume Off" />';
           }
         } else {
           // We were showing loading screen, so reset to loading state
@@ -294,7 +294,7 @@ export class VideoRealComponent implements OnInit, AfterViewInit, OnDestroy {
         }
         
         // Initialize Picture-in-Picture immediately since video container is ready
-        import('../../../assets/js/picture-in-picture.js' as any).then(() => {
+        import('../../../../../public/assets/js/picture-in-picture.js' as any).then(() => {
           this.pipManager = new (window as any).PictureInPictureManager('video-player_html5_api');
         });
       }

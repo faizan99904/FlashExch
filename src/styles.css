@@ -1655,3 +1655,35 @@ body {
 .flag[country^="seychelles"] {
   background-position: 3px -434px;
 }
+
+#toggleButton{
+  left:20px !important;
+  right:auto !important;
+  bottom:70px !important;
+}
+
+
+
+.video-player-dimensions {
+  width: 100% !important;
+  /* height: 24.4045dvh !important; */
+  height: 29dvh !important;
+}
+
+@media screen and (min-width: 992px) {
+  .video-player-dimensions {
+    width: 100% !important;
+    height: 24.4045dvh !important;
+  }
+  
+}
+.video-js {
+  width: 100%;
+  height: 25dvh;
+}
+
+
+#pip-prompt{
+  background: var(--mbl-filter-tab-active-bg) !important;
+  color: var(--mbl-filter-tab-active-text) !important;
+}
