@@ -36,12 +36,12 @@
             </div>
         </div>
         <div [ngClass]="{'overflow-hidden h-0': matchedBets}" class="w-full origin-top transition-all">
-            <div *ngIf="matchedBet.length === 0" class="BetSections">
+            <div *ngIf="matchedData.length === 0" class="BetSections">
                 You have no Matched Bets.</div>
 
             @for (bets of matchedData; track $index) {
-            <div *ngIf="matchedBet.length > 0" class="BetSections flex flex-col gap-1 text-sm">
-                <span class="text-blue-700 underline text-[16px]">{{bets?.selectionName}}</span>
+            <div *ngIf="matchedData.length > 0" class="BetSections flex flex-col gap-1 text-sm">
+                <span class="text-blue-700 truncate underline text-[16px] lg:text-[13px]">{{bets?.selectionName}}</span>
                 <span>Match Odds</span>
                 <span>Placed: {{ bets.updatedAt | date: 'M/d/yyyy, h:mm:ss a' }}</span>
             </div>
