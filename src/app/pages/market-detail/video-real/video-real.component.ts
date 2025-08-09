@@ -268,7 +268,7 @@ export class VideoRealComponent implements OnInit, AfterViewInit, OnDestroy {
           this.showVideoContainer();
 
           // Delay Picture-in-Picture initialization
-          import('/assets/js/picture-in-picture.js' as any).then(() => {
+          import('../../../../../public/assets/js/picture-in-picture.js' as any).then(() => {
             this.pipManager = new (window as any).PictureInPictureManager(
               'video-player_html5_api'
             );
@@ -343,7 +343,7 @@ export class VideoRealComponent implements OnInit, AfterViewInit, OnDestroy {
         }
 
         // Initialize Picture-in-Picture immediately since video container is ready
-        import('/assets/js/picture-in-picture.js' as any).then(() => {
+        import('../../../../../public/assets/js/picture-in-picture.js' as any).then(() => {
           this.pipManager = new (window as any).PictureInPictureManager(
             'video-player_html5_api'
           );
