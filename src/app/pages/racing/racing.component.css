@@ -789,7 +789,7 @@ section.matches .region-block .region-title .flag {
  .flag[country^="ISL"] { /* Iceland */
   background-position: -240px -144px;
 }
- .flag[country^="IND"] { /* India */
+ .flag[country^="IN"] { /* India */
   background-position: -264px -144px;
 }
  .flag[country^="IDN"] { /* Indonesia */
