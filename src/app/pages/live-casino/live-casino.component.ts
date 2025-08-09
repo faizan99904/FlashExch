@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { BottomNavComponent } from '../../shared/bottom-nav/bottom-nav.component';
 import { MainService } from '../../service/main.service';
+import { CONFIG } from '../../../../config';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 declare var Swiper: any;
 
 @Component({
@@ -28,7 +31,7 @@ export class LiveCasinoComponent implements AfterViewInit {
   swiperImages = ['https://static.inpcdn.com/105,1ae716b55fe8f0.webp'];
   largeSwiperImages = ['https://static.inpcdn.com/107,1ae6fcf953adfb.webp'];
 
-  constructor(private mainService: MainService) {
+  constructor(private mainService: MainService, private router: Router, private toaster:ToastrService ) {
     effect(() => {
       this.casinoList = this.mainService.getCasinoEvents();
       const menu = this.casinoList?.menu || [];
@@ -170,6 +173,51 @@ export class LiveCasinoComponent implements AfterViewInit {
     else {
       this.searchFilter = [...this.casinoList.lobby]
     }
+  }
+
+
+  goToMarketByUrlExposure(sportId: string, exEventId: string, sportName: any) {
+    if (sportId == '6') {
+      return;
+    }
+    if (sportId == '66102') {
+      this.redirectToCasino(exEventId);
+    }
+    else {
+      this.router.navigate(['/fullMarket/' + sportId + '/' + exEventId]);
+    }
+  }
+  redirectToCasino(eventId: any) {
+    let token = localStorage.getItem('token');
+    this.mainService.getDataFromServices(CONFIG.casinoEvents, CONFIG.casinoEventsTime, { key: CONFIG.siteKey }).subscribe((data: any) => {
+      if (data?.data?.lobby) {
+        var lobby = data?.data?.lobby.find((event: any) => event.eventId === eventId);
+        if (lobby.link) {
+          let isTokenString = lobby.link.includes("{$token}");
+          if (isTokenString) {
+            let finalLinkWithToken = lobby.link.replace("{$token}", token);
+            let finalUrl = finalLinkWithToken.replace("{$eventId}", lobby?.eventId);
+            // console.log('final output',finalUrl)
+            window.location.href = finalUrl; ``
+            return;
+          } else {
+            this.toaster.error('Please contact your upline! ', '', {
+              positionClass: 'toast-top-center',
+
+            });
+            return;
+          }
+        } else {
+          this.toaster.error('Please contact your upline! ', '', {
+            positionClass: 'toast-top-center',
+
+          });
+          // let url = 'https://realclub.games//#/authentication/' + token + '/' + lobby?.eventId + '/' + lobby?.room;
+          // this.router.navigate(['/opencasino', url]);
+          return
+        }
+      }
+    });
   }
 
 }

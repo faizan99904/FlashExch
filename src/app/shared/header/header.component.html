@@ -300,7 +300,7 @@
                     <tr class="py-1 " *ngFor="let exposure of userExposureList">
                         <td class="text-center ">{{exposure?.sportName}}</td>
                         <td class="text-center ">
-                            <a class="text-[#2789ce]">{{exposure?.eventName}}</a>
+                            <a class="text-[#2789ce] cursor-pointer" (click)="goToMarketByUrlExposure(exposure.sportId, exposure.eventId, exposure.sportName)">{{exposure?.eventName}}</a>
                         </td>
                         <td class="text-center ">
                             {{exposure?.marketName}}

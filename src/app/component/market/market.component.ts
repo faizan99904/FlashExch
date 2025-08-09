@@ -14,9 +14,11 @@ export class MarketComponent implements OnInit {
   @Input() index: any;
   @Input() searchTab!: string;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
 
-  ngOnInit(): void {}
+  }
+
+  ngOnInit(): void { }
   getEventName(first: boolean, eventName: any) {
     let splitArray = eventName.split(' v ');
     if (first) {

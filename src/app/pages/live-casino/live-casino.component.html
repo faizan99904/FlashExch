@@ -82,9 +82,9 @@
                     <span>See More</span>
                 </div>
             </div>
-            <div class="games-wrapper !px-[0.4844rem]">
+            <div class="games-wrapper !px-[0.4844rem]" >
                 <div class="game" *ngFor="let menu of lobby?.items">
-                    <img src="/assets/images/120,2298db8202d603.webp" alt="">
+                    <img src="/assets/images/120,2298db8202d603.webp" [alt]="`casino${lobby.sportName}`" (click)="goToMarketByUrlExposure(lobby.sportId, lobby.eventId, lobby.sportName)">
                 </div>
             </div>
             }
@@ -110,7 +110,7 @@
             <ul class="p-[10.406px] overflow-hidden grid [grid-template-columns:repeat(3,_1fr);] gap-[10.406px]">
                 <li class="rounded-[7.49232px] overflow-hidden" *ngFor="let menu of searchFilter">
                     <div class="relative pt-[81%] bg-cover bg-center overflow-hidden cursor-pointer "
-                        [ngStyle]="{'background-image': 'url(/assets/images/120,2298db8202d603.webp)'}">
+                        [ngStyle]="{'background-image': 'url(/assets/images/120,2298db8202d603.webp)'}" (click)="goToMarketByUrlExposure(menu.sportId, menu.eventId, menu.sportName)">
                     </div>
                     <div class="footer-game">
                         <span class="slot-name  truncate">{{menu?.eventName}}</span>
@@ -141,7 +141,7 @@
             <ul class="p-[10.406px] overflow-hidden grid [grid-template-columns:repeat(3,_1fr);] gap-[10.406px]">
                 <li class="rounded-[7.49232px] overflow-hidden" *ngFor="let item of SeeAlFilter.items">
                     <div class="relative pt-[81%] bg-cover bg-center overflow-hidden cursor-pointer "
-                        [ngStyle]="{'background-image': 'url(/assets/images/120,2298db8202d603.webp)'}">
+                        [ngStyle]="{'background-image': 'url(/assets/images/120,2298db8202d603.webp)'}" (click)="goToMarketByUrlExposure(item.sportId, item.eventId, item.sportName)">
                     </div>
                     <div class="footer-game">
                         <span class="slot-name  truncate">{{item?.eventName}}</span>

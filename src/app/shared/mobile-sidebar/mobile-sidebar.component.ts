@@ -3,11 +3,11 @@ import { Component, effect, ElementRef, Renderer2, ViewChild } from '@angular/co
 import { Subscription } from 'rxjs';
 import { SharedService } from '../../service/shared.service';
 import { MainService } from '../../service/main.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-mobile-sidebar',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './mobile-sidebar.component.html',
   styleUrl: './mobile-sidebar.component.css'
 })
