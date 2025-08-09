@@ -22,7 +22,7 @@ export const CONFIG = {
   casinoEvents: BASE_URL + '/api/exchange/navigations/casinoEvents',
   casinoEventsTime: 120,
   sidebarEvents: 'sidebarEvents',
-  inplayEvents:'inplayEvents',
+  inplayEvents: 'inplayEvents',
   sendUserRegisterOtp: BASE_URL + '/app/user/userRegisterOtpSent',
   verifyUserRegisterOtp: BASE_URL + '/app/user/userRegisterVerify',
   sendForgotPasswordOtp: BASE_URL + '/app/users/sendForgotPasswordOtp',
@@ -30,7 +30,7 @@ export const CONFIG = {
   livCasinoList: BASE_URL + '/api/exchange/navigations/casinoEvents',
   userLogin: BASE_URL + '/app/users/userLogin',
   userAccountStatement: BASE_URL + '/app/exchange/users/userAccountStatement',
-  userBalance: BASE_URL +"/app/exchange/users/userBalance",
+  userBalance: BASE_URL + "/app/exchange/users/userBalance",
   changedPasswordHistory:
     BASE_URL + '/app/exchange/users/changedPasswordHistory',
   userChangePassword: BASE_URL + '/app/exchange/users/userChangePassword',
@@ -149,6 +149,7 @@ export const CONFIG = {
   casinoTabList: BASE_URL + '/api/exchange/navigations/casino/casinoTabList',
 
   lotterySportList: BASE_URL + '/api/exchange/sports/lotterySportsList',
+  userEventExposure: BASE_URL + '/app/exchange/users/userEventsExposure'
 };
 
 export const STACK_VALUE = [

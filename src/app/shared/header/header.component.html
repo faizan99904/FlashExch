@@ -293,14 +293,15 @@
                     </tr>
                 </thead>
                 <tbody class="ng-star-inserted">
-                    <tr class="py-1">
-                        <td class="text-center pt-4 px-2">Cricket</td>
+                    <tr class="py-1" *ngFor="let exposure of userExposureList">
+                        <td class="text-center pt-4 px-2">{{exposure?.sportName}}</td>
                         <td class="text-center pt-4 px-2">
-                            <a class="text-[#2789ce]">The Hundred-Tournament Winner</a>
+                            <a class="text-[#2789ce]">{{exposure?.eventName}}</a>
                         </td>
-                        <td class="text-center pt-4 px-2">Lowest Innings Run - Only First
-                            Innings Is Valid</td>
-                        <td class="text-center pt-4 px-2">1</td>
+                        <td class="text-center pt-4 px-2">
+                            {{exposure?.marketName}}
+                        </td>
+                        <td class="text-center pt-4 px-2">{{exposure?.betCounts}}</td>
                     </tr>
                 </tbody>
             </table>
