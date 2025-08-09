@@ -28,16 +28,13 @@
   .layout-wrapper {
     height: calc(100dvh - 117.32px);
   }
-
 }
-
 
 @media (min-width: 1512px) {
   .layout-wrapper {
     height: calc(100dvh - 98.78px);
   }
 }
-
 
 @media (min-width: 1601px) {
   .layout-wrapper {

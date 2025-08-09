@@ -107,7 +107,7 @@
         <div class="market-filters overflow-hidden bg-black text-white h-[56px] flex items-center justify-between">
             <div [ngClass]="{'expanded': searchTrue}" class="search">
                 <div (click)="searchTrue = !searchTrue" class="material-icons icon text-white">search</div>
-                <input type="text" placeholder="Search Markets">
+                <input name="search" type="text" placeholder="Search Markets">
             </div>
             <div [ngClass]="{'with-one-arrow': moved}"
                 class="categories-wrapper flex items-center justify-center w-[calc(100%_-_56px)] h-full">

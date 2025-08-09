@@ -6,10 +6,10 @@
         style="height: 291px;">
         <div class="w-full grid grid-cols-12 gap-2">
             <div title="Odds: 100" class="col-span-5 flex flex-col gap-1">
-                <label class="text-text_color_primary1 sm:text-xs text-[10px] font-normal">ODDS</label>
+                <label for="enter-odds" class="text-text_color_primary1 sm:text-xs text-[10px] font-normal">ODDS</label>
                 <div *ngIf="!login"
                     class="flex items-center justify-center bg-bg_color_input_bg rounded overflow-hidden border border-border_color_primary">
-                    <input placeholder="Enter Odds" inputmode="numeric"
+                    <input id="enter-odds" placeholder="Enter Odds" inputmode="numeric"
                         class="w-full focus:outline-none  text-sm h-full py-2 text-center flex items-center justify-center text-text_color_primary1 bg-bg_color_input_bg "
                         disabled="" autocomplete="off" pattern="^[+-ed]+$" type="number" value="100">
                 </div>
@@ -25,7 +25,7 @@
                         </svg>
                     </button>
 
-                    <input placeholder="Enter Odds" inputmode="numeric"
+                    <input name="odds" placeholder="Enter Odds" inputmode="numeric"
                         class="w-full focus:outline-none  text-sm h-full py-2 text-center flex items-center justify-center text-text_color_primary1 bg-bg_color_input_bg  border border-border_color_primary border-l-0 border-r-0"
                         autocomplete="off" pattern="^[+-ed]+$" type="text" readonly [ngModel]="item?.price || 0">
 
@@ -63,7 +63,7 @@
                 class=" w-full p-2.5 rounded-md border bg-bg_color_input_bg border-border_color_primary ">
                 <div class="grid grid-cols-12 gap-[7px]">
                     <ng-container *ngFor="let stake of stackButtonArry; let i = index; trackBy: trackByIndex">
-                        <input *ngIf="editStakeMode && i < 6" type="number" [(ngModel)]="stackButtonArry[i].stakeAmount"
+                        <input name="editStake" *ngIf="editStakeMode && i < 6" type="number" [(ngModel)]="stackButtonArry[i].stakeAmount"
                             [ngClass]="{
                           'editable-inp col-span-4 text-center text-[12px] font-semibold rounded-[4px] py-1.5 bg-bg_color_primary border border-border_color_brand_primary text-text_brand_primary': true,
                           '!bg-[#1f2c3d] !border-[#60a3b3]': !stackButtonArry[i].stakeAmount && stackButtonArry[i].stakeAmount !== 0
@@ -141,7 +141,7 @@
             <div class=" flex items-center justify-between w-full select-none"><span
                     class=" text-[13px] text-text_color_primary1  font-medium">Confirm bet before placing</span>
                 <label class="relative inline-flex items-center cursor-pointer">
-                    <input (change)="toggleConfirmBet($event)" type="checkbox" class="sr-only peer" />
+                    <input name="confirmBet" (change)="toggleConfirmBet($event)" type="checkbox" class="sr-only peer" />
 
                     <div
                         class="w-[56px] h-[28px] bg-bg_color_primary peer-checked:bg-green-600 rounded-full border border-border_color_primary1 transition-colors duration-300">

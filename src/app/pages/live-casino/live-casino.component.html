@@ -66,7 +66,7 @@
                 </div>
                 <div class="relative h-[30.492px]  px-[4.994px]  overflow-hidden  max-h-0 !duration-300 transition-all mt-0"
                     [ngClass]="{'!duration-300 transition-all !max-h-[30.492px] mt-[13.068px] ':isSearch}">
-                    <input class="search-input" #searchValue placeholder="Search games..."
+                    <input name="games" class="search-input" #searchValue placeholder="Search games..."
                         (input)="searchGame(searchValue.value)">
                 </div>
             </div>
@@ -207,7 +207,7 @@
 
             <div class="flex flex-col items-center gap-[4.875px]">
                 <div class="desktop-search">
-                    <input type="text" (input)="searchGame(inputVal.value)" #inputVal name="" id=""
+                    <input type="text" (input)="searchGame(inputVal.value)" #inputVal name="searchGame" id="searchGame"
                         placeholder="Search games">
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path

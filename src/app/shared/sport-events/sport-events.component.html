@@ -61,7 +61,7 @@
 <div class="bg-[#000000] flex w-full h-[11.9vw] lg:h-[49px] lg:bg-[#111317] lg:rounded-[3px] pt-0.5">
 
     <div class="relative grow-[1] xl:max-w-[210px] h-full">
-        <input type="text"
+        <input type="text" name="searchFilter"
             class="bg-transparent placeholder:text-[13px] placeholder:text-[#88898B] border-0 h-full w-full [@media(min-width:420px)]:pl-[calc(12vw_+_6px)] [@media(min-width:375px)]:pl-[calc(12vw_+_3px)]  xl:!pl-[49px] leading-[12vw] outline-0 lg:text-base text-[3.5vw] text-white"
             placeholder="Search games" #searchValue (keyup)="searchFilter(searchValue.value)" (focus)="changeColor()"
             (blur)="changeColor()">
