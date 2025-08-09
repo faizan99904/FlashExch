@@ -13,6 +13,7 @@ import { NetworkService } from '../../service/network.service';
 })
 export class HeaderComponent {
   token: any;
+  exposureModal: boolean = false;
   constructor(
     private router: Router,
     public toggle: SharedService,

@@ -68,7 +68,7 @@
                 </div>
                 <div class="flex items-center gap-[9.39262px] after-login-mobile-balance" *ngIf="token">
                     <div class="flex items-center">
-                        <div class="balance md:!text-[16px] md:!mr-[-1vw]">
+                        <div (click)="exposureModal = true" class="balance md:!text-[16px] md:!mr-[-1vw]">
                             <span class="amount">{{'0.00'}}</span>
                             <span class="currency">USD</span>
                         </div>
@@ -204,7 +204,7 @@
                     </ul>
                 </li>
 
-                <li class="username">
+                <li (click)="exposureModal = true" class="username cursor-pointer">
                     <span class="amount">{{'0.00'}}</span>
                     <span class="currency-str">USD</span>
                 </li>
@@ -262,3 +262,49 @@
         </div>
     </div>
 </header>
+
+@if (exposureModal) {
+<div class="rules-overlay">
+    <div class="rules-bg"></div>
+    <div class="rule-wrapper px-2 md:px-4 popUpOpenAnimation1 !h-auto gap-4">
+        <button class="flex justify-end" (click)="exposureModal = false" type="button" aria-label="Close" title="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 16 16" fill="#fff"
+                class="close-rules-btn">
+                <g clip-path="url(#clip0_406_1676)">
+                    <path
+                        d="M9.46585 8.01314L15.6959 1.78287C16.1014 1.37762 16.1014 0.722377 15.6959 0.317124C15.2907 -0.0881297 14.6354 -0.0881297 14.2302 0.317124L7.99991 6.5474L1.76983 0.317124C1.36438 -0.0881297 0.709336 -0.0881297 0.304082 0.317124C-0.101361 0.722377 -0.101361 1.37762 0.304082 1.78287L6.53416 8.01314L0.304082 14.2434C-0.101361 14.6487 -0.101361 15.3039 0.304082 15.7092C0.506045 15.9113 0.771595 16.0129 1.03695 16.0129C1.30232 16.0129 1.56768 15.9113 1.76983 15.7092L7.99991 9.47889L14.2302 15.7092C14.4323 15.9113 14.6977 16.0129 14.9631 16.0129C15.2284 16.0129 15.4938 15.9113 15.6959 15.7092C16.1014 15.3039 16.1014 14.6487 15.6959 14.2434L9.46585 8.01314Z"
+                        fill="#fff"></path>
+                </g>
+                <defs>
+                    <clipPath id="clip0_406_1676">
+                        <rect width="16" height="16" fill="#fff"></rect>
+                    </clipPath>
+                </defs>
+            </svg>
+        </button>
+        <div class="wrapper">
+            <table class="table text-white">
+                <thead class="border-b border-white">
+                    <tr class="whitespace-nowrap">
+                        <th class="text-center">Sport Name</th>
+                        <th class="text-center" style="width: 40%;">Event Name</th>
+                        <th class="text-center">Market Name</th>
+                        <th class="text-center">Trade</th>
+                    </tr>
+                </thead>
+                <tbody class="ng-star-inserted">
+                    <tr class="py-1">
+                        <td class="text-center pt-4 px-2">Cricket</td>
+                        <td class="text-center pt-4 px-2">
+                            <a class="text-[#2789ce]">The Hundred-Tournament Winner</a>
+                        </td>
+                        <td class="text-center pt-4 px-2">Lowest Innings Run - Only First
+                            Innings Is Valid</td>
+                        <td class="text-center pt-4 px-2">1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+}
