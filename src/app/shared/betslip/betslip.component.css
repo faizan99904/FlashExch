@@ -144,3 +144,34 @@ input::placeholder {
 .editable-inp:focus {
   outline: #00aa30;
 }
+
+.rules-overlay {
+  @apply fixed bottom-0 transform-gpu  left-0 right-0 top-0 overflow-hidden flex overflow-y-hidden z-[10000] h-[100dvh] w-dvw items-center justify-center;
+}
+
+.rules-bg {
+  @apply fixed inset-0 w-full h-full bg-black/10 backdrop-blur-sm;
+}
+
+.rule-wrapper {
+  @apply relative bg-[#22272a] w-[94%] h-[70%] max-w-[550px] flex justify-start overflow-y-auto flex-col rounded-lg py-4;
+}
+
+.close-rules-btn {
+  @apply cursor-pointer rounded-full p-1 size-7 active:scale-95 transition-all duration-300;
+}
+
+.popUpOpenAnimation1 {
+  animation: popUpOpenAnimation1 0.31s ease-in-out;
+}
+
+@keyframes popUpOpenAnimation1 {
+  0% {
+    opacity: 0.5;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

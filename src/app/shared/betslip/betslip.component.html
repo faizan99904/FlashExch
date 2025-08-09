@@ -63,22 +63,19 @@
                 class=" w-full p-2.5 rounded-md border bg-bg_color_input_bg border-border_color_primary ">
                 <div class="grid grid-cols-12 gap-[7px]">
                     <ng-container *ngFor="let stake of stackButtonArry; let i = index; trackBy: trackByIndex">
-                        <input *ngIf="editStakeMode && i < 6" 
-                        type="number" 
-                        [(ngModel)]="stackButtonArry[i].stakeAmount"
-                        [ngClass]="{
+                        <input *ngIf="editStakeMode && i < 6" type="number" [(ngModel)]="stackButtonArry[i].stakeAmount"
+                            [ngClass]="{
                           'editable-inp col-span-4 text-center text-[12px] font-semibold rounded-[4px] py-1.5 bg-bg_color_primary border border-border_color_brand_primary text-text_brand_primary': true,
                           '!bg-[#1f2c3d] !border-[#60a3b3]': !stackButtonArry[i].stakeAmount && stackButtonArry[i].stakeAmount !== 0
-                        }" 
-                        placeholder="Enter Stakes" />
-             
+                        }" placeholder="Enter Stakes" />
 
-                     
-                        <button *ngIf="!editStakeMode && i < 6" 
+
+
+                        <button *ngIf="!editStakeMode && i < 6"
                             class="col-span-4 text-[12px] font-semibold rounded-[4px] py-1.5 bg-transparent border border-border_color_primary4 text-text_color_primary2">
                             + {{ stake.stakeAmount }}
                         </button>
-                     
+
                     </ng-container>
                 </div>
                 @if(login){
@@ -109,7 +106,7 @@
       cursor-pointer
       " (click)="cancelBet()"><span class=" text-text_brand_primary font-bold text-sm md:text-base leading-5">Cancel
                     Bet</span></button>
-            <button (click)="login ? placeBet() :'login'"
+            <button (click)="login ? onPlaceBet() :'login'"
                 class="relative overflow-hidden text-text_color_primary2 active:scale-95 md:active:scale-[98%] disabled:cursor-not-allowed px-2 py-1 rounded-md w-full col-span-6 border flex items-center justify-between bg-bg_color_placeBetBtnGrd border-border_color_brand_primary cursor-pointer "
                 type="button">
                 <div class=" flex items-start justify-start flex-col">
@@ -144,7 +141,7 @@
             <div class=" flex items-center justify-between w-full select-none"><span
                     class=" text-[13px] text-text_color_primary1  font-medium">Confirm bet before placing</span>
                 <label class="relative inline-flex items-center cursor-pointer">
-                    <input type="checkbox" class="sr-only peer" />
+                    <input (change)="toggleConfirmBet($event)" type="checkbox" class="sr-only peer" />
 
                     <div
                         class="w-[56px] h-[28px] bg-bg_color_primary peer-checked:bg-green-600 rounded-full border border-border_color_primary1 transition-colors duration-300">
@@ -166,3 +163,85 @@
         </div>
     </div>
 </div>
+
+@if (confirmBetModal) {
+<div class="rules-overlay">
+    <div class="rules-bg"></div>
+    <div class="rule-wrapper px-2 md:px-4 popUpOpenAnimation1 !h-auto gap-2">
+        <button class="flex justify-end" (click)="confirmBetModal = false" type="button" aria-label="Close"
+            title="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 16 16" fill="#fff"
+                class="close-rules-btn">
+                <g clip-path="url(#clip0_406_1676)">
+                    <path
+                        d="M9.46585 8.01314L15.6959 1.78287C16.1014 1.37762 16.1014 0.722377 15.6959 0.317124C15.2907 -0.0881297 14.6354 -0.0881297 14.2302 0.317124L7.99991 6.5474L1.76983 0.317124C1.36438 -0.0881297 0.709336 -0.0881297 0.304082 0.317124C-0.101361 0.722377 -0.101361 1.37762 0.304082 1.78287L6.53416 8.01314L0.304082 14.2434C-0.101361 14.6487 -0.101361 15.3039 0.304082 15.7092C0.506045 15.9113 0.771595 16.0129 1.03695 16.0129C1.30232 16.0129 1.56768 15.9113 1.76983 15.7092L7.99991 9.47889L14.2302 15.7092C14.4323 15.9113 14.6977 16.0129 14.9631 16.0129C15.2284 16.0129 15.4938 15.9113 15.6959 15.7092C16.1014 15.3039 16.1014 14.6487 15.6959 14.2434L9.46585 8.01314Z"
+                        fill="#fff"></path>
+                </g>
+                <defs>
+                    <clipPath id="clip0_406_1676">
+                        <rect width="16" height="16" fill="#fff"></rect>
+                    </clipPath>
+                </defs>
+            </svg>
+        </button>
+        <div class="wrapper">
+            <div class="text-[#5c92ff] font-medium w-full flex items-center justify-center">
+                <span>Backing</span>
+                <span class="ml-1">Oval Invincibles</span>
+            </div>
+            <div
+                class="grid grid-cols-12 border w-full border-[#e6e6e6] border-t-0 rounded-t-[8px] text-xs font-normal mt-[15px]">
+                <div class="col-span-12 grid grid-cols-12 text-[#9a9898] font-normal rounded-t-[8px] bg-[#ebf1ff]">
+                    <div class="col-span-4 text-center py-[5px]">Odds</div>
+                    <div class="col-span-4 text-center py-[5px]">Stake</div>
+                    <div class=" col-span-4 text-center py-[5px]">Profit</div>
+                </div>
+                <div class="col-span-12 grid grid-cols-12 text-white text-sm font-semibold leading-4 text-center">
+                    <div class="col-span-4 text-center py-2.5 border-r border-[#e6e6e6]">3.65</div>
+                    <div class="col-span-4 text-center py-2.5 border-r border-[#e6e6e6]">10</div>
+                    <div class="col-span-4 text-center py-2.5">
+                        <div><span>26.5</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full grid mt-[15px] grid-cols-12 gap-2">
+                <button type="button" class="leading-normal relative overflow-hidden  transition duration-150 ease-in-out  col-span-6 py-1 w-full flex items-center justify-center  text-sm bg-transperent text-text_color_betSlipCancelBtnColor font-medium border border-border_color_brand_secondary rounded-md 
+      cursor-pointer
+      " (click)="cancelBet()">
+                    <span class=" text-text_brand_primary font-bold text-sm md:text-base leading-5">Cancel
+                        Bet</span></button>
+                <button (click)="login ? placeBet() :'login'"
+                    class="relative overflow-hidden text-text_color_primary2 active:scale-95 md:active:scale-[98%] disabled:cursor-not-allowed px-2 py-1 rounded-md w-full col-span-6 border flex items-center justify-between bg-bg_color_placeBetBtnGrd border-border_color_brand_primary cursor-pointer "
+                    type="button">
+                    <div class=" flex items-start justify-start flex-col">
+                        <span class=" text-text_color_primary2 text-sm font-bold">
+                            {{login ? 'Place Bet' : 'Login'}}
+                        </span>
+                        <div class=" text-text_color_primary2 text-xs"><span>
+                                <span *ngIf="color === '#aed8ff'">Profit : </span>
+                                <span *ngIf="color === '#f1bed2'">Liability : </span>
+                            </span>
+                            <span *ngIf="color === '#aed8ff'">{{profit || '0'}}</span>
+                            <span *ngIf="color === '#f1bed2'">{{ profit ? profit + 10 : '0' }}</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center gap-x-1"><span><svg xmlns="http://www.w3.org/2000/svg"
+                                width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                <g clip-path="url(#clip0_2144_3162)">
+                                    <path
+                                        d="M9.91095 3.68857L10.3814 3.21808C10.5643 3.03525 10.5643 2.7388 10.3814 2.55606C10.1986 2.37323 9.90225 2.37323 9.71942 2.55606L9.24893 3.02655C8.45956 2.36884 7.50037 1.9715 6.47717 1.87848V0.93631H6.92972C7.18826 0.93631 7.39783 0.726654 7.39783 0.468109C7.39783 0.209564 7.18826 0 6.92972 0H5.08832C4.82977 0 4.62021 0.209564 4.62021 0.468109C4.62021 0.726654 4.82977 0.93631 5.08832 0.93631H5.54086V1.87848C2.97958 2.11139 0.9375 4.26306 0.9375 6.92844C0.9375 9.73141 3.20572 12 6.00906 12C8.81195 12 11.0805 9.73178 11.0805 6.92844C11.0805 5.73111 10.6682 4.59723 9.91095 3.68857ZM6.00897 11.0637C3.72885 11.0637 1.87372 9.20865 1.87372 6.92844C1.87372 4.64832 3.72885 2.79327 6.00897 2.79327C8.28918 2.79327 10.1442 4.64832 10.1442 6.92844C10.1442 9.20865 8.28918 11.0637 6.00897 11.0637ZM8.1785 4.759C8.36133 4.94183 8.36133 5.23828 8.1785 5.42102L6.34003 7.25949C6.1572 7.44232 5.86075 7.44232 5.67801 7.25949C5.49518 7.07666 5.49518 6.78021 5.67801 6.59747L7.51639 4.759C7.69922 4.57617 7.99567 4.57617 8.1785 4.759Z"
+                                        fill="#fff"></path>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_2144_3162">
+                                        <rect width="12" height="12" fill="white"></rect>
+                                    </clipPath>
+                                </defs>
+                            </svg></span><span class="font-normal  text-text_color_primary2">3s</span></div>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+}
