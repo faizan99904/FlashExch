@@ -15,7 +15,7 @@
                 </div>
                 @if(login){
                 <div class="flex items-center justify-center bg-bg_color_input_bg rounded overflow-hidden">
-                    <button (click)="upValue()"
+                    <button (click)="downValue()"
                         class="relative overflow-hidden w-full h-full flex items-center justify-center bg-bg_color_betSlipOddIncDecrBtnsGrd  text-xl font-normal text-center border border-border_color_primary4 border-r-0"
                         type="button">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="4" viewBox="0 0 18 4" fill="none">
@@ -29,7 +29,7 @@
                         class="w-full focus:outline-none  text-sm h-full py-2 text-center flex items-center justify-center text-text_color_primary1 bg-bg_color_input_bg  border border-border_color_primary border-l-0 border-r-0"
                         autocomplete="off" pattern="^[+-ed]+$" type="text" readonly [ngModel]="item?.price || 0">
 
-                    <button (click)="downValue()"
+                    <button (click)="upValue()"
                         class="relative overflow-hidden w-full h-full flex items-center justify-center bg-bg_color_betSlipOddIncDecrBtnsGrd text-xl font-normal text-center border border-border_color_primary4 border-l-0"
                         type="button">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
