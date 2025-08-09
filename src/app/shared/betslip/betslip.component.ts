@@ -600,6 +600,7 @@ export class BetslipComponent {
     } else {
       this.stakeButtonsBeforeLogin = [...this.editableStakes];
     }
+    this.updateBetSetting()
     this.editStakeMode = false;
   }
 

@@ -63,11 +63,15 @@
                 class=" w-full p-2.5 rounded-md border bg-bg_color_input_bg border-border_color_primary ">
                 <div class="grid grid-cols-12 gap-[7px]">
                     <ng-container *ngFor="let stake of stackButtonArry; let i = index; trackBy: trackByIndex">
-                        <input *ngIf="editStakeMode && i < 6" type="number" [ngModel]="editableStakes[i]"
-                            (ngModelChange)="updateStake(i, $event)" [ngClass]="{
-                              'editable-inp col-span-4 text-center text-[12px] font-semibold rounded-[4px] py-1.5 bg-bg_color_primary border border-border_color_brand_primary text-text_brand_primary': true,
-                              '!bg-[#1f2c3d] !border-[#60a3b3]': !editableStakes[i] && editableStakes[i] !== 0
-                            }" placeholder="Enter Stakes" />
+                        <input *ngIf="editStakeMode && i < 6" 
+                        type="number" 
+                        [(ngModel)]="stackButtonArry[i].stakeAmount"
+                        [ngClass]="{
+                          'editable-inp col-span-4 text-center text-[12px] font-semibold rounded-[4px] py-1.5 bg-bg_color_primary border border-border_color_brand_primary text-text_brand_primary': true,
+                          '!bg-[#1f2c3d] !border-[#60a3b3]': !stackButtonArry[i].stakeAmount && stackButtonArry[i].stakeAmount !== 0
+                        }" 
+                        placeholder="Enter Stakes" />
+             
 
                      
                         <button *ngIf="!editStakeMode && i < 6" 
