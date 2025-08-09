@@ -136,7 +136,7 @@
         <ul>
             <li *ngFor="let item of mainService.sportsList(); let i = index" (click)="selectSport(item.sportName)"
                 [ngClass]="{'!border-[#05AA30]':sportName === item.sportName}">
-                <div class="chbx-wrapper"><input type="checkbox" [checked]="sportName === item.sportName"></div>
+                <div class="chbx-wrapper"><input name="checkbox" type="checkbox" [checked]="sportName === item.sportName"></div>
                 <div class="sport-icon mx-[4vw]">
                     <span [attr.sport]="item.sportName.toLowerCase()" [attr.name]="item.sportName" class="sport-icon !text-[#9f9f9f]"></span>
                 </div>
