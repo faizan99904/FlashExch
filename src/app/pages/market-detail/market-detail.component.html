@@ -88,7 +88,8 @@
                     Match Info
                 </span>
             </div>
-            <div class="tab-wrapper" [ngClass]="{'active-item': openTab=='stream'}" (click)="toggleBets('stream')">
+            <div class="tab-wrapper" [ngClass]="{'active-item': isStartStream}" [ngClass]="isStartStream?'ActiveStreamTab':''" style="border-right:0px"
+            (click)="isStartStream = true;clickwatch=true" >
                 <span class=" text-text_tertiary8 tab-title">
                     Live Video
                 </span>
@@ -109,6 +110,10 @@
 
 @if (openTab=='market') {
 <div class="px-2 bg-black pt-2 border-solid">
+
+    <ng-container *ngIf="(isMobile)">
+        <app-video-real  [eventId]="event_id" (dataEmitter)="hasStream($event)"></app-video-real>
+      </ng-container>
 
     @if (loader) {
     <app-loader></app-loader>
@@ -185,6 +190,15 @@
                         <span class="disable-btns"></span>
                         <span class="disable-btns"></span>
                     </div>
+                </div>
+                <div *ngIf="market.news" class="bookmakerNews">
+                    <marquee behavior="scroll" scrollamount='3' 
+                        class="text-white flex items-end " behavior="scroll" direction="left">
+                        <strong>
+                            {{market.news}}
+                        </strong>
+                       
+                    </marquee>
                 </div>
                 <div class="runnerContainer">
                     <ng-container *ngFor="let runner of market?.oddsData?.runners; trackBy: trackByFn;index as i">
@@ -552,7 +566,7 @@
                                         </div>
                                         <button scaleclass="active:scale-[98%]"
                                             (click)="slipColor('back'); openBetslip(market.exMarketId,runner.selectionId,'back',runner.price.back[2].price,
-                     market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[2].size,2,market.oddsType)"
+                     market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[2].size,2,market.oddsType,null,market.oddsData.betDelay)"
                                             class="marketBox-wrapper !hidden md:!flex bg-bg_backBtnBgColor"
                                             type="button">
                                             <span
@@ -562,7 +576,7 @@
                                         </button>
                                         <button scaleclass="active:scale-[98%]"
                                             (click)="slipColor('back'); openBetslip(market.exMarketId,runner.selectionId,'back',runner.price.back[1].price,
-                   market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[1].size,1,market.oddsType)"
+                   market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[1].size,1,market.oddsType,null,market.oddsData.betDelay)"
                                             class="marketBox-wrapper !hidden md:!flex bg-bg_backBtnBgColor"
                                             type="button">
                                             <span
@@ -572,7 +586,7 @@
                                         </button>
                                         <button scaleclass="active:scale-[98%]"
                                             (click)="slipColor('back'); openBetslip(market.exMarketId,runner.selectionId,'back',runner.price.back[0].price,
-                   market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[0].size,0,market.oddsType)"
+                   market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[0].size,0,market.oddsType,null,market.oddsData.betDelay)"
                                             class="marketBox-wrapper bg-bg_backBtnBgColor" type="button">
                                             <span
                                                 class="text-sm">{{((runner.price.back[0].price)?(runner.price.back[0].price|
@@ -583,7 +597,7 @@
 
                                         <button scaleclass="active:scale-[98%]"
                                             (click)="slipColor('lay'); openBetslip(market.exMarketId,runner.selectionId,'lay',runner.price.lay[0].price,
-                   market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[0].size,0,market.oddsType)"
+                   market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[0].size,0,market.oddsType,null,market.oddsData.betDelay)"
                                             class="marketBox-wrapper bg-bg_layBtnBgColor" type="button">
                                             <span
                                                 class="text-sm">{{((runner.price.lay[0].price)?(runner.price.lay[0].price|
@@ -592,7 +606,7 @@
                                         </button>
                                         <button scaleclass="active:scale-[98%]"
                                             (click)="slipColor('lay'); openBetslip(market.exMarketId,runner.selectionId,'lay',runner.price.lay[1].price,
-                                market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[1].size,1,market.oddsType)"
+                                market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[1].size,1,market.oddsType,null,market.oddsData.betDelay)"
                                             class="marketBox-wrapper bg-bg_layBtnBgColor !hidden md:!flex"
                                             type="button">
                                             <span
@@ -602,7 +616,7 @@
                                         </button>
                                         <button scaleclass="active:scale-[98%]"
                                             (click)="slipColor('lay'); openBetslip(market.exMarketId,runner.selectionId,'lay',runner.price.lay[2].price,
-                  market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[2].size,2,market.oddsType)"
+                  market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[2].size,2,market.oddsType,null,market.oddsData.betDelay)"
                                             class="marketBox-wrapper bg-bg_layBtnBgColor !hidden md:!flex"
                                             type="button">
                                             <span
@@ -733,7 +747,7 @@
                                             </div>
                                             <div class="w-full h-full">
                                                 <div (click)="slipColor('lay'); openBetslip(market.exMarketId,market.oddsData.runners[0].selectionId,'lay',market.oddsData.runners[0].price.lay[0].price,
-                                             market.min, market.max,market.oddsType, market.marketName,market.oddsData.runners[0].price.lay[0].size,0,market.marketType,market.isSuperFancy)"
+                                             market.min, market.max,market.oddsType, market.marketName,market.oddsData.runners[0].price.lay[0].size,0,market.marketType,market.isSuperFancy,market.oddsData.betDelay)"
                                                     class="fancy-container bg-bg_color_layBtnBg">
                                                     <span id="oddBtnPrice" class="oddBtnPrice">
                                                         {{(market.oddsData.runners[0].price.lay[0].price) | number}}
@@ -745,7 +759,7 @@
                                             </div>
                                             <div class="w-full h-full">
                                                 <div (click)="slipColor('back'); openBetslip(market.exMarketId,market.oddsData.runners[0].selectionId,'back',market.oddsData.runners[0].price.back[0].price,
-                                             market.min, market.max,market.oddsType, market.marketName,market.oddsData.runners[0].price.back[0].size,0,market.marketType,market.isSuperFancy)"
+                                             market.min, market.max,market.oddsType, market.marketName,market.oddsData.runners[0].price.back[0].size,0,market.marketType,market.isSuperFancy,market.oddsData.betDelay)"
                                                     class="fancyBack py-[1px] bg-bg_color_backBtnBg">
                                                     <span id="oddBtnPrice"
                                                         class="oddBtnPrice">{{(market.oddsData.runners[0].price.back[0].price)|
@@ -887,7 +901,7 @@
                                                     </div>
                                                     <div class="w-full h-full">
                                                         <div (click)="slipColor('sportbook'); openBetslip(market.exMarketId,runner.selectionId,'back',runner.price.back[0].price,
-                                                         market.min, market.max,market.oddsType, market.marketName,runner.price.back[0].size,0)"
+                                                         market.min, market.max,market.oddsType, market.marketName,runner.price.back[0].size,0,market.marketType,market.isSuperFancy,market.oddsData.betDelay)"
                                                             class="fancyBack">
                                                             <span id="oddBtnPrice" class="oddBtnPrice">
                                                                 {{(runner.price.back[0].price)| number}}

@@ -32,6 +32,7 @@ import { BetslipComponent } from '../../shared/betslip/betslip.component';
 import { MatchedBetsComponent } from './matched-bets/matched-bets.component';
 import { LoaderComponent } from '../../shared/loader/loader.component';
 import { SharedService } from '../../service/shared.service';
+import { VideoRealComponent } from "./video-real/video-real.component";
 
 declare var $: any;
 
@@ -43,7 +44,8 @@ declare var $: any;
     BetslipComponent,
     MatchedBetsComponent,
     LoaderComponent,
-  ],
+    VideoRealComponent
+],
   templateUrl: './market-detail.component.html',
   styleUrl: './market-detail.component.css',
 })
@@ -107,6 +109,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
   fancyMarket: boolean = true;
   competitionName: any;
   openTab: any = 'market';
+  clickwatch =false;
 
   rules: boolean = false;
   openRules: boolean = true;
@@ -647,7 +650,8 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
     size?: any,
     index?: any,
     mType?: any,
-    isSuperFancy?: any
+    isSuperFancy?: any,
+    betDelay?:any
   ) {
     if (price == 0) {
       this.isBetsSlipOpened = '';
@@ -702,7 +706,9 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
       index: index,
       marketTpe: mType,
       isSuperFancy: isSuperFancy,
+      betDelay:betDelay
     };
+    console.log('bet',this.betplaceObj)
     this.mainService.setbetslip(this.betplaceObj);
   }
   getLocalDateTime(date: Date) {
@@ -1357,5 +1363,10 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
   }
   toggleBets(tabName: any) {
     this.openTab = tabName;
+  }
+  hasStream(data: any) {
+    // console.log('strea has',data)
+    this.isStartStream = data;
+ 
   }
 }

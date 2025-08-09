@@ -30,7 +30,7 @@ export const CONFIG = {
   livCasinoList: BASE_URL + '/api/exchange/navigations/casinoEvents',
   userLogin: BASE_URL + '/app/users/userLogin',
   userAccountStatement: BASE_URL + '/app/exchange/users/userAccountStatement',
-  userBalance: BASE_URL + '/app/exchange/users/balance/getUserBalance',
+  userBalance: BASE_URL +"/app/exchange/users/userBalance",
   changedPasswordHistory:
     BASE_URL + '/app/exchange/users/changedPasswordHistory',
   userChangePassword: BASE_URL + '/app/exchange/users/userChangePassword',
@@ -88,6 +88,7 @@ export const CONFIG = {
     BASE_URL + '/app/exchange/users/betlist/eventMatchedBetList',
 
   videoStreamURL: BASE_URL + '/api/exchange/streaming/exchEventsStreaming',
+
   marketFancyBook: BASE_URL + '/app/exchange/users/pl/marketFancyBook',
   getUserExposureEventName: BASE_URL + '/app/exchange/users/userEventsExposure',
 
