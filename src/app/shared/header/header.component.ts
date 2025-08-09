@@ -1,4 +1,4 @@
-import { Component, computed } from '@angular/core';
+import { Component, computed, effect } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { SharedService } from '../../service/shared.service';
 import { CommonModule } from '@angular/common';
@@ -15,13 +15,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HeaderComponent {
   token: any;
-  userExposureList:any = []
+  userExposureList: any = [];
+  userBalance: any
   exposureModal: boolean = false;
   constructor(
     private router: Router,
     public toggle: SharedService,
     public networkService: NetworkService,
-    private http:HttpClient
+    private http: HttpClient
   ) {
     this.token = localStorage.getItem('token');
     this.toggle.getToken().subscribe((value: any) => {
@@ -35,6 +36,10 @@ export class HeaderComponent {
       this.networkService.getUserBalanceFromApi();
       this.gerUserEventExposure();
     }
+
+    effect(() => {
+      this.userBalance = this.networkService.getUserBalanceSignal()();
+    })
   }
 
   gotoLogin() {
@@ -48,14 +53,14 @@ export class HeaderComponent {
   }
 
 
-  gerUserEventExposure(){
+  gerUserEventExposure() {
     this.http.post(CONFIG.userEventExposure, {}).subscribe(({
-       next:(res:any)=>{
+      next: (res: any) => {
         this.userExposureList = res.data
-       },
-       error:(error)=>{
+      },
+      error: (error) => {
         console.log(error);
-       }
+      }
     }))
   }
 
