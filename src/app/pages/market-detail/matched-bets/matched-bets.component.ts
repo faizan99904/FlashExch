@@ -1,5 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component, effect, Input } from '@angular/core';
+import {
+  Component,
+  effect,
+  Input,
+  OnChanges,
+  OnInit,
+  signal,
+  SimpleChanges,
+} from '@angular/core';
+import { SharedService } from '../../../service/shared.service';
 
 @Component({
   selector: 'app-matched-bets',
@@ -8,12 +17,14 @@ import { Component, effect, Input } from '@angular/core';
   styleUrl: './matched-bets.component.css',
 })
 export class MatchedBetsComponent {
-  unmatchedBets: boolean = true;
-  matchedBets: boolean = true;
+  unmatchedBets: boolean = false;
+  matchedBets: boolean = false;
+  matchedData: any;
   @Input() matchedBet: any[] = [];
-  constructor() {
+
+  constructor(private shared: SharedService) {
     effect(() => {
-      console.log(this.matchedBet);
+      this.matchedData = this.shared.getMatchedBets()();
     });
   }
 }

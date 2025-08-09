@@ -76,7 +76,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
   betplaceObj: any;
   isMobile: any;
   isDesktop: any;
-  matchedBetList: any = [];
+  matchedBetList: any[] = [];
   matchedOddsPl: any = [];
   FancyPl: any = [];
   SportsbookPl: any = [];
@@ -128,7 +128,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
     private location: Location,
     private mainService: MainService,
     private toaster: ToastrService,
-    private color: SharedService
+    private shared: SharedService
   ) {
     this.route.params.subscribe((params) => {
       this.sportId = params['sportId'];
@@ -271,7 +271,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
   }
 
   slipColor(type: string) {
-    this.color.setColorByType(type);
+    this.shared.setColorByType(type);
   }
 
   getBookmakerDataFirebase(projectDynamic: any) {
@@ -777,6 +777,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
       .then(
         (record: any) => {
           this.matchedBetList = record.data;
+          this.shared.setMatchedBets(this.matchedBetList);
         },
         (error: any) => {}
       );
@@ -967,8 +968,6 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
         tableFlag
       );
     }
-
-    console.log('matchOddsDataUpdated', this.matchOddsDataUpdated);
   }
 
   private filterAndSortMatchOdds(marketid: any, tableFlag?: any): any[] {
