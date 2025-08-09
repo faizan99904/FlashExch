@@ -5,10 +5,18 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class SharedService {
-  constructor() {}
+  constructor() {
+    window.addEventListener('storage', (event: StorageEvent) => {
+      if (event.key === this.USER_KEY) {
+        this.refreshUser();
+      }
+    });
+  }
   private mobileSidebarToggleSource = new Subject<boolean>();
   private isLogin = new Subject<string>();
   mobileSidebarToggle$ = this.mobileSidebarToggleSource.asObservable();
+
+  readonly matchedBet = signal(null);
 
   private signUpToggle = signal(false);
   readonly isSignupVisible = this.signUpToggle.asReadonly();
@@ -27,6 +35,30 @@ export class SharedService {
     return 'sportbook';
   });
 
+  private readonly USER_KEY = 'userDetail';
+  private userData = signal<any>(this.getSafeUser());
+
+  username = computed(() => {
+    const name = this.userData()?.userName || null;
+    return name;
+  });
+
+  private getSafeUser(): any {
+    const data = localStorage.getItem(this.USER_KEY);
+    if (!data) return null;
+
+    try {
+      return JSON.parse(data);
+    } catch (e) {
+      console.error('Error parsing user data', e);
+      return null;
+    }
+  }
+
+  refreshUser() {
+    this.userData.set(this.getSafeUser());
+  }
+
   setColorByType(type: string) {
     const colorMap: Record<string, string> = {
       back: '#aed8ff',
@@ -35,6 +67,14 @@ export class SharedService {
     };
 
     this.colorSignal.set(colorMap[type] || '#86efac');
+  }
+
+  getMatchedBets() {
+    return this.matchedBet;
+  }
+
+  setMatchedBets(value: any) {
+    this.matchedBet.set(value);
   }
 
   getToken() {
