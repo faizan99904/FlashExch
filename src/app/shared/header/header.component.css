@@ -1056,3 +1056,16 @@ li a:not(.logout) {
     transform: scale(1);
   }
 }
+
+.exposure-table-wrapper,
+thead,
+tbody tr,
+th,
+td {
+  @apply border border-[#424546] border-collapse;
+}
+
+th,
+td {
+  padding: 8px;
+}
