@@ -88,8 +88,9 @@
                     Match Info
                 </span>
             </div>
-            <div class="tab-wrapper" [ngClass]="{'active-item': isStartStream}" [ngClass]="isStartStream?'ActiveStreamTab':''" style="border-right:0px"
-            (click)="isStartStream = true;clickwatch=true" >
+            <div class="tab-wrapper" [ngClass]="{'active-item': isStartStream}"
+                [ngClass]="isStartStream?'ActiveStreamTab':''" style="border-right:0px"
+                (click)="isStartStream = true;clickwatch=true">
                 <span class=" text-text_tertiary8 tab-title">
                     Live Video
                 </span>
@@ -112,8 +113,8 @@
 <div class="px-2 bg-black pt-2 border-solid">
 
     <ng-container *ngIf="(isMobile)">
-        <app-video-real  [eventId]="event_id" (dataEmitter)="hasStream($event)"></app-video-real>
-      </ng-container>
+        <app-video-real [eventId]="event_id" (dataEmitter)="hasStream($event)"></app-video-real>
+    </ng-container>
 
     @if (loader) {
     <app-loader></app-loader>
@@ -192,13 +193,11 @@
                     </div>
                 </div>
                 <div *ngIf="market.news" class="bookmakerNews">
-                    <marquee behavior="scroll" scrollamount='3' 
-                        class="text-white flex items-end " behavior="scroll" direction="left">
-                        <strong>
-                            {{market.news}}
-                        </strong>
-                       
-                    </marquee>
+                    <div class="marquee-container">
+                        <div class="marquee-content">
+                            <strong>{{ market.news }}</strong>
+                        </div>
+                    </div>
                 </div>
                 <div class="runnerContainer">
                     <ng-container *ngFor="let runner of market?.oddsData?.runners; trackBy: trackByFn;index as i">
@@ -792,10 +791,13 @@
                         </div>
                     </div>
 
-                    <marquee behavior="scroll" scrollamount='3' *ngIf="market.news"
-                        class="text-white flex items-end text-xs" behavior="scroll" direction="left">
-                        {{market.news}}
-                    </marquee>
+                    <div *ngIf="market.news" class="bookmakerNews">
+                        <div class="marquee-container">
+                            <div class="marquee-content">
+                                <strong>{{ market.news }}</strong>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="lg:hidden w-full" id="betslip" *ngIf="isBetsSlipOpened == market.oddsData.runners[0].selectionId && marketId == market.exMarketId 
                                  && (market?.oddsData?.status=='OPEN' || market?.oddsData?.status=='ONLINE') ">

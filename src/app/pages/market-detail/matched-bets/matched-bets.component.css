@@ -2,6 +2,14 @@
   color: #fff;
 }
 
+.lay {
+  color: #f9c9d4;
+}
+
+.back {
+  color: #a7d8fd;
+}
+
 .flex-item-center {
   @apply flex items-center justify-between;
 }
