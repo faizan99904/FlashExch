@@ -20,11 +20,10 @@ export class MatchedBetsComponent {
   unmatchedBets: boolean = false;
   matchedBets: boolean = false;
   matchedData: any;
-  @Input() matchedBet: any[] = [];
-
   constructor(private shared: SharedService) {
     effect(() => {
-      this.matchedData = this.shared.getMatchedBets()();
+      const data = this.shared.getMatchedBets()();
+      this.matchedData = Array.isArray(data) ? data : [];
     });
   }
 }
