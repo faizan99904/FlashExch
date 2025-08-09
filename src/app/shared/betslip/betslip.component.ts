@@ -122,10 +122,11 @@ export class BetslipComponent {
     this.isDesktop = this.deviceService.isDesktop();
     // Check if the current device is a mobile
     this.isMobile = this.deviceService.isMobile();
+
     effect(() => {
       const betData = this.mainService.getbetslip();
       this.item = betData;
-      // console.log('betslip data', betData);
+      // console.log('betslip data', this.item);
     });
     // console.log('betslip component initialized',this.item);
   }

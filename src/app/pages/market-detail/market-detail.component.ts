@@ -708,7 +708,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
       isSuperFancy: isSuperFancy,
       betDelay:betDelay
     };
-    console.log('bet',this.betplaceObj)
+    // console.log('bet',this.betplaceObj)
     this.mainService.setbetslip(this.betplaceObj);
   }
   getLocalDateTime(date: Date) {
