@@ -50,6 +50,8 @@ export class BetslipComponent {
   isbetPlacing: boolean = false;
   isMobile: any;
   isDesktop: any;
+  confirmBet: boolean = false;
+  confirmBetModal: boolean = false;
   private lowerUpperArry = [
     {
       increment: 0.01,
@@ -162,10 +164,9 @@ export class BetslipComponent {
       ? JSON.parse(localStorage.getItem('matchMe') as string)
       : false;
   }
-  ngAfterViewInit() { }
+  ngAfterViewInit() {}
 
   getStackData() {
-
     const path = CONFIG.userBetStakeList.split('/').filter(Boolean).pop();
     this.indexedDb.getRecord(path).subscribe((res: any) => {
       if (res?.data?.stake) {
@@ -173,16 +174,14 @@ export class BetslipComponent {
       } else {
         if (this.backendservice.checkDomain()) {
           this.stackButtonArry = STACK_VALUE;
-
         } else {
           this.stackButtonArry = STACK_VALUE;
-
         }
       }
       [...this.stackButtonArry].forEach((item) => {
         this.editableStakes.push(item.stakeAmount);
-      })
-    })
+      });
+    });
     // this.backService.getAllRecordsByPost(CONFIG.userBetStakeList, {})
     //   .pipe(first())
     //   .subscribe(
@@ -217,6 +216,7 @@ export class BetslipComponent {
     // this.item.selectedAmount?this.item.selectedAmount>100?this.item.selectedAmount=this.item.selectedAmount-1:this.item.selectedAmount=100:this.item.selectedAmount=100;
   }
   cancelBet() {
+    this.confirmBetModal = false;
     let betData = {
       exposure: '',
       stackValue: '',
@@ -258,7 +258,16 @@ export class BetslipComponent {
     localStorage.setItem('matchMe', JSON.stringify(this.matchMeSwitch));
   }
 
+  onPlaceBet() {
+    if (this.confirmBet) {
+      this.confirmBetModal = true;
+    } else {
+      this.placeBet();
+    }
+  }
+
   placeBet() {
+    this.confirmBetModal = false;
     const token = localStorage.getItem('token');
     this.matchMeSwitch = JSON.parse(localStorage.getItem('matchMe') as string);
 
@@ -318,18 +327,18 @@ export class BetslipComponent {
       case 'LINEMARKET':
         data = item.isSuperFancy
           ? {
-            ...commonFields,
-            type: item.type,
-            selectionId: item.selectionId,
-            size: item.size,
-            index: item.index,
-          }
+              ...commonFields,
+              type: item.type,
+              selectionId: item.selectionId,
+              size: item.size,
+              index: item.index,
+            }
           : {
-            ...commonFields,
-            type: item.type,
-            selectionId: item.selectionId,
-            size: item.size,
-          };
+              ...commonFields,
+              type: item.type,
+              selectionId: item.selectionId,
+              size: item.size,
+            };
         break;
 
       case 'Ballbyball':
@@ -395,6 +404,12 @@ export class BetslipComponent {
       }
     );
   }
+
+  toggleConfirmBet(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.confirmBet = input.checked;
+  }
+
   getBalance() {
     this.backendservice
       .getAllRecordsByPost(CONFIG.userBalance, {})
@@ -600,7 +615,7 @@ export class BetslipComponent {
     } else {
       this.stakeButtonsBeforeLogin = [...this.editableStakes];
     }
-    this.updateBetSetting()
+    this.updateBetSetting();
     this.editStakeMode = false;
   }
 
@@ -616,25 +631,25 @@ export class BetslipComponent {
   // }
   //
 
-
   updateBetSetting() {
-
     let respRes: any = {};
     let isDuplicateArry = [];
 
     for (var i = 0; i < this.stackButtonArry.length; i++) {
-
-      if (this.stackButtonArry[i].stakeAmount == '' || this.stackButtonArry[i] == undefined) {
+      if (
+        this.stackButtonArry[i].stakeAmount == '' ||
+        this.stackButtonArry[i] == undefined
+      ) {
         // this.toaster.error('Enter required values.', '', {
         //   positionClass: 'toast-top-center',
         // });
         return;
       }
 
-      respRes[this.stackButtonArry[i].stakeAmount] = this.stackButtonArry[i].stakeAmount;
+      respRes[this.stackButtonArry[i].stakeAmount] =
+        this.stackButtonArry[i].stakeAmount;
       isDuplicateArry[i] = parseInt(this.stackButtonArry[i].stakeAmount);
     }
-
 
     if (this.hasDuplicates(isDuplicateArry)) {
       this.toaster.error('Duplicate values not allowed.', '', {
@@ -644,13 +659,15 @@ export class BetslipComponent {
     }
     let data = {
       data: {
-        stake: this.stackButtonArry
-      }
-    }
+        stake: this.stackButtonArry,
+      },
+    };
     const path = CONFIG.userBetStakeList.split('/').filter(Boolean).pop();
-    this.indexedDb.updateRecord(path, data).subscribe((res: any) => {
-    });
-    this.backendservice.getAllRecordsByPost(CONFIG.updateUserBetStake, { stake: JSON.stringify(respRes) })
+    this.indexedDb.updateRecord(path, data).subscribe((res: any) => {});
+    this.backendservice
+      .getAllRecordsByPost(CONFIG.updateUserBetStake, {
+        stake: JSON.stringify(respRes),
+      })
       .then((data: any) => {
         if (data.meta && data.meta.s2tatus === true) {
           this.toaster.success(data.meta.message, '');
@@ -674,7 +691,6 @@ export class BetslipComponent {
           return;
         }
       });
-
   }
 
   hasDuplicates(arr: any) {
