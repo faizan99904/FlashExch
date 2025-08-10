@@ -47,7 +47,7 @@
         <i class="text-[#00aa30] fa-regular fa-clock"></i>
         <span>Upcoming</span>
     </div>
-<div class="tab" (click)="markerNav('live')" [ngClass]="{'!border-b-[#00aa30]':marketType === 'live'}">
+    <div class="tab" (click)="markerNav('live')" [ngClass]="{'!border-b-[#00aa30]':marketType === 'live'}">
         <span>Live</span>
     </div>
     <div class="tab" (click)="markerNav('my-favourite')" [ngClass]="{'active':marketType === 'my-favourite'}">
@@ -147,10 +147,12 @@
         class="[&_.remove-home]:!hidden [&_.home-spacing]:!mt-0.5 [&_.home-padding]:!p-0"></app-racing>
 </div>
 
-}@else if(searchValue.value.length <= 2 && marketType !='live' ) { <div class="main-wrapper w-full"
+}@else if(searchValue.value.length <= 2 && marketType !='live' && marketType !='my-favourite' ) { 
+    <div
+    class="main-wrapper w-full"
     *ngIf="this.activeSportId !== '7' && this.activeSportId !==  '4339' && this.activeSportId !== '66104'">
-    <app-market *ngFor="let item of markets; index as i; trackBy: trackByFn;" [isMobile]="true" [searchTab]="searchTab"
-        [market]="item" [index]="i"></app-market>
+    <app-market *ngFor="let item of markets; index as i; trackBy: trackByFn;" [isMobile]="true" [searchTab]="searchTab" [market]="item" [index]="i">
+    </app-market>
     </div>
 
     <div class="top-events mt-[1rem]"
@@ -169,4 +171,6 @@
     </div>
     } @else if(this.marketType == 'live'){
     <app-inplay></app-inplay>
+    } @else if (this.marketType == 'my-favourite') {
+    <app-my-favourites></app-my-favourites>
     }
