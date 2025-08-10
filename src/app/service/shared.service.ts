@@ -25,6 +25,8 @@ export class SharedService {
   readonly isPassVisible = this.passToggle.asReadonly();
   readonly extended = signal(false);
 
+  readonly loginModal = signal(false);
+
   private colorSignal = signal<string>('#86efac');
   readonly color = this.colorSignal.asReadonly();
 
@@ -105,6 +107,15 @@ export class SharedService {
   showSignup(): void {
     this.signUpToggle.set(true);
   }
+
+  getLoginModal() {
+    return this.loginModal
+  }
+
+  setLoginModal(value: any) {
+    this.loginModal.set(value)
+  }
+
 
   hideSignup(): void {
     this.signUpToggle.set(false);

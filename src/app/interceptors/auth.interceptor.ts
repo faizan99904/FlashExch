@@ -4,15 +4,18 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { inject } from '@angular/core';
+import { SharedService } from '../service/shared.service';
 
 export const authInterceptor: HttpInterceptorFn = (
   req: HttpRequest<unknown>,
   next: HttpHandlerFn
 ): Observable<HttpEvent<unknown>> => {
   const router = inject(Router);
+  const sharedService = inject(SharedService);
+  const width = window.innerWidth
 
   const shouldSkipTokenInjection = (url: string): boolean => {
-    const skipUrls = ['/login', '/register']; 
+    const skipUrls = ['/login', '/register'];
     return skipUrls.some((skipUrl) => url.includes(skipUrl));
   };
 
@@ -31,9 +34,15 @@ export const authInterceptor: HttpInterceptorFn = (
     catchError((error) => {
       if (error.status === 401) {
         localStorage.clear();
-        router.navigate(['/login']);
+        if (width >= 1024) {
+
+          sharedService.setLoginModal(true)
+        } else {
+          router.navigate(['/login']);
+        }
+
       }
-      return throwError(() => error); 
+      return throwError(() => error);
     })
   );
 };

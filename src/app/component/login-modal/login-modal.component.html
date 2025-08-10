@@ -1,0 +1,25 @@
+<div class="overlay" *ngIf="isLoginModal" (click)="closeLoginModal()">
+    <form class="popup signin-popup" [formGroup]="loginForm" (submit)="onSubmit(); $event.stopPropagation()">
+        <h2 class="login-heading">Log In</h2>
+        <span class="material-icons close">close</span>
+        <div class="fields-wrapper">
+            <div class="field">
+                <input type="text" required name="userName" placeholder="Username" formControlName="userName">
+            </div>
+
+            <div class="field">
+                <input type="password" required name="password" placeholder="Password" formControlName="password">
+                <span class="forgot-pass">Forgot Password?</span>
+            </div>
+
+            <div class="field">
+                <button type="submit" class="btn" [ngClass]="{'opacity-[.5]':loginForm.invalid}">Log In</button>
+            </div>
+
+            <p class="reg-text">
+                <span>Still Not Registered?</span>
+                <span class="lnk register">Sign Up</span>
+            </p>
+        </div>
+    </form>
+</div>

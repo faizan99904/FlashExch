@@ -7,11 +7,12 @@ import { CONFIG } from '../../../../config';
 import { HttpClient } from '@angular/common/http';
 import { MainService } from '../../service/main.service';
 import { ToastrService } from 'ngx-toastr';
+import { LoginModalComponent } from '../../component/login-modal/login-modal.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, LoginModalComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })

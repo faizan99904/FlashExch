@@ -1,0 +1,132 @@
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(35, 31, 32, 0.9);
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.signin-popup {
+  border-top: 0;
+  overflow: hidden;
+  width: 450px;
+  height: 378.75px;
+  border-radius: 9.375px;
+}
+
+.overlay .popup {
+  position: relative;
+  background-color: #030303;
+  max-height: 90%;
+  box-sizing: border-box;
+  z-index: 1000;
+  pointer-events: auto;
+}
+
+.login-heading {
+  height: 52.5px;
+  background: #030303;
+  color: white;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 15px;
+  border-left: 12px solid #11e311;
+  padding-left: 23.4375px;
+}
+
+.overlay .popup .close {
+  position: absolute;
+  z-index: 2;
+  right: 9.375px;
+  top: 14.0625px;
+  font-size: 20.625px;
+  font-weight: 700;
+  color: #fff;
+  -webkit-transition: color 120ms ease-in;
+  transition: color 120ms ease-in;
+  cursor: pointer;
+}
+
+.fields-wrapper {
+  padding: 37.5px 42.1875px;
+  padding-bottom: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.field {
+  position: relative;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.field input {
+  background: #030303;
+  padding-left: 16.875px !important;
+  border: 1px solid #242833;
+  border-radius: 1.9995px;
+  height: 43.125px;
+  outline: none;
+  color: white;
+}
+
+.forgot-pass {
+  font-size: 13.125px;
+  line-height: 19.6875px;
+  margin-top: 8.4375px;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  font-weight: 300;
+  padding-left: 16.875px !important;
+}
+
+.field button {
+  height: 43.125px;
+  color: #1e1e25;
+  font-size: 15px;
+  font-weight: 600;
+  margin: auto;
+  width: 100%;
+  margin-top: 15px;
+  background-color: #11e311;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  border-radius: 7.0005px;
+}
+
+.reg-text {
+  line-height: 20.625px;
+  font-size: 15px;
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.6);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-weight: 400;
+}
+
+.reg-text .register {
+  color: #f1ac33;
+  cursor: pointer;
+  margin-left: 9.375px;
+}
