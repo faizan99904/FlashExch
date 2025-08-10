@@ -36,7 +36,7 @@
     </div>
     <div class="second-line star-border-wrapper">
         <div class="star-wrapper star-icon-mb">
-            <span class="material-icons text-[#00aa30]">star_border</span>
+            <span class="material-icons text-[#00aa30]" >star_border</span>
         </div>
         <div class="match-name marketWidth market-event-name" (click)="gotoMarket(market)">
             <span>{{market.eventName}}</span>
@@ -279,21 +279,7 @@
             <!-- <span class="text-[#7B7D7F] mr-2 truncate " routerLink="/market-detail">Ball By Ball</span>
                 <span class="text-[#00A930] truncate">In-Paly</span> -->
             <div class="lg-market-name-wrapper">
-                <ng-container *ngIf="hasFavourite(market.exEventId) ?? false; else noStar">
-                    <span class="material-icons cursor-pointer !text-[#11e311] lg-star-icon"
-                        (click)="addToMultimarket(market); $event.stopPropagation()">
-                        star
-                    </span>
-                </ng-container>
-
-                <ng-template #noStar>
-                    <span class="material-icons cursor-pointer lg-star-icon"
-                        (click)="addToMultimarket(market); $event.stopPropagation()">
-                        star_border
-                    </span>
-                </ng-template>
-
-
+                <span class="material-icons lg-star-icon">star_border</span>
 
                 <div class="lg-market-event-name marketType">
                     <div class="text-[12.32] text-center"> {{market?.eventTime | date: 'EEE'}}</div>

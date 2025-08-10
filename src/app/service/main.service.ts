@@ -3,6 +3,7 @@ import { Observable, Subject } from 'rxjs';
 import { CONFIG } from '../../../config';
 import { IndexedDbService } from './indexed-db.service';
 import { NetworkService } from './network.service';
+import { SharedService } from './shared.service';
 
 
 @Injectable({
@@ -40,7 +41,8 @@ export class MainService {
 
   constructor(
     private networkService: NetworkService,
-    private indexedDBService: IndexedDbService
+    private indexedDBService: IndexedDbService,
+    private toggle:SharedService
   ) { }
 
   // ─── Show Change-Password Modal ────────────────────────
@@ -181,6 +183,7 @@ export class MainService {
   setAllEvents(value: any): void {
     this.allEventList.set(value);
   }
+  
   getAllEvents(): any | null {
     return this.allEventList();
   }
@@ -455,6 +458,32 @@ export class MainService {
     );
 
     return resultSubject.asObservable();
+  }
+
+  addToMultimarket(eventid: any, sportId: any) {
+    const selectorClass = "." + eventid;
+    $(selectorClass).toggleClass("pin-on");
+    $(".btn-pin." + eventid).removeClass("pin-on");
+    const currentUserName = this.toggle.username();
+    const multiMarketKey = "multiMarket_" + currentUserName;
+
+    let multimarket = localStorage.getItem(multiMarketKey);
+    let multiMarketData: any[] = [];
+
+    if (multimarket) {
+      multiMarketData = JSON.parse(multimarket);
+    }
+    const existingEntryIndex = multiMarketData.findIndex(
+      (entry) => entry.sportId === sportId && entry.eventid === eventid
+    );
+
+    if (existingEntryIndex !== -1) {
+      multiMarketData.splice(existingEntryIndex, 1);
+      localStorage.setItem(multiMarketKey, JSON.stringify(multiMarketData));
+    } else {
+      multiMarketData.push({ sportId: sportId, eventid: eventid });
+    }
+    localStorage.setItem(multiMarketKey, JSON.stringify(multiMarketData));
   }
 
 
