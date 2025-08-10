@@ -8,10 +8,11 @@ import { RacingComponent } from '../../pages/racing/racing.component';
 import { LotteryComponent } from '../lottery/lottery.component';
 import { SearchComponent } from '../search/search.component';
 import { InplayComponent } from '../inplay/inplay.component';
+import { MyFavouritesComponent } from "../../component/my-favourites/my-favourites.component";
 
 @Component({
   selector: 'app-sport-events',
-  imports: [CommonModule, RouterLink, SportslistComponent, MarketComponent, RacingComponent, LotteryComponent, SearchComponent, InplayComponent],
+  imports: [CommonModule, RouterLink, SportslistComponent, MarketComponent, RacingComponent, LotteryComponent, SearchComponent, InplayComponent, MyFavouritesComponent],
   templateUrl: './sport-events.component.html',
   styleUrl: './sport-events.component.css'
 })
