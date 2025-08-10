@@ -6,14 +6,14 @@ import { CommonModule } from '@angular/common';
   selector: 'app-inplay',
   imports: [CommonModule],
   templateUrl: './inplay.component.html',
-  styleUrl: './inplay.component.css'
+  styleUrl: './inplay.component.css',
 })
 export class InplayComponent {
-  inplayList: any
+  inplayList: any;
   constructor(private mainService: MainService) {
     effect(() => {
       this.inplayList = this.mainService.getInplayEvents();
       console.log(this.inplayList);
-    })
+    });
   }
 }
