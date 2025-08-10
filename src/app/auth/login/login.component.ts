@@ -8,10 +8,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CONFIG } from '../../../../config';
 import { NetworkService } from '../../service/network.service';
 import { MainService } from '../../service/main.service';
+import { FooterComponent } from '../../shared/footer/footer.component';
 
 @Component({
   selector: 'app-login',
-  imports: [CommonModule, HeaderComponent, RouterLink, ReactiveFormsModule],
+  imports: [CommonModule, HeaderComponent, RouterLink, ReactiveFormsModule, FooterComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })

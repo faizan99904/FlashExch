@@ -1,11 +1,11 @@
 <app-header></app-header>
 <div class="bg-[#13161B] text-white h-screen overflow-y-auto">
 
-    <div class="relative w-full max-w-3xl mx-auto overflow-hidden">
+    <div class="relative w-full max-w-3xl lg:max-w-[100%] mx-auto overflow-hidden">
         <div class="flex transition-transform duration-500 ease-in-out"
             [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
             <div *ngFor="let img of images" class="min-w-full">
-                <img [src]="img" class="w-full h-[142px] object-cover" />
+                <img [src]="img" class="w-full h-[142px] lg:h-auto lg:max-h-[300px] object-cover" />
             </div>
         </div>
 
@@ -26,131 +26,25 @@
     <div class="log h-auto">
         <h2 class="title poppins-medium">Log In</h2>
 
-        <form class="px-[1.17045rem]" [formGroup]="loginForm" (submit)="onSubmit()">
-            <input class="poppins-regular" formControlName="userName" type="text" name="username" placeholder="Username">
-            <div class="err-text text-red-500 text-sm mt-1 pl-[6px]" *ngIf="loginForm.get('userName')?.invalid && loginForm.get('userName')?.touched">Username is required</div>
-            <input class="poppins-regular" formControlName="password" type="password" name="password" placeholder="Password">
-            <div class="err-text text-red-500 text-sm mt-1 pl-[6px]" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">Password is required</div>
+        <form class="px-[1.17045rem] lg:max-w-[800px] lg:mx-auto" [formGroup]="loginForm" (submit)="onSubmit()">
+            <input class="poppins-regular" formControlName="userName" type="text" name="username"
+                placeholder="Username">
+            <div class="err-text text-red-500 text-sm mt-1 pl-[6px]"
+                *ngIf="loginForm.get('userName')?.invalid && loginForm.get('userName')?.touched">Username is required
+            </div>
+            <input class="poppins-regular" formControlName="password" type="password" name="password"
+                placeholder="Password">
+            <div class="err-text text-red-500 text-sm mt-1 pl-[6px]"
+                *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">Password is required
+            </div>
             <span routerLink="/passwordrecovery" class="forget flex justify-end poppins-medium">Forgot Password?</span>
-            <button type="submit" class="login-btn btn roboto-medium" [disabled]="loginForm.invalid" [ngClass]="{'opacity-[.5]':loginForm.invalid}">Log In</button>
+            <button type="submit" class="login-btn btn roboto-medium" [disabled]="loginForm.invalid"
+                [ngClass]="{'opacity-[.5]':loginForm.invalid}">Log In</button>
             <p class="have-account">
                 <span class="poppins-regular">Do not have an account?</span>
                 <a class="poppins-medium text-[#11e311] ml-1">Sign Up</a>
             </p>
         </form>
-
-
-        <div class="payment-methods mt-[5.2rem]">
-            <ul>
-                <li>
-                    <a><img src="https://static.inpcdn.com/91,1721e6ed3a91ec.webp"></a>
-                </li>
-
-                <li>
-                    <a><img src="https://static.inpcdn.com/91,1721e9d8403b01.webp"></a>
-                </li>
-
-                <li>
-                    <a><img src="https://static.inpcdn.com/91,1721eab4566743.webp"></a>
-                </li>
-
-                <li>
-                    <a><img src="https://static.inpcdn.com/92,17cc640ec4f266.webp"></a>
-                </li>
-
-                <li>
-                    <a><img src="https://static.inpcdn.com/89,1721f4614a7b6f.webp"></a>
-                </li>
-
-                <li>
-                    <a><img src="https://static.inpcdn.com/92,17cc3defba5b19.webp"></a>
-                </li>
-
-                <li>
-                    <a><img src="https://static.inpcdn.com/92,17cc6636ea368f.webp"></a>
-                </li>
-
-                <li>
-                    <a><img src="https://static.inpcdn.com/92,17cc6a3c719800.webp"></a>
-                </li>
-
-                <li>
-                    <a><img src="https://static.inpcdn.com/92,17cc69488eed1c.webp"></a>
-                </li>
-
-                <li>
-                    <a><img src="https://static.inpcdn.com/92,17cc6d119b6f53.webp"></a>
-                </li>
-
-                <li>
-                    <a><img src="https://static.inpcdn.com/89,1721ffa2f02a8f.webp"></a>
-                </li>
-
-                <li>
-                    <a><img src="https://static.inpcdn.com/92,17cc6ed23ee0b9.webp"></a>
-                </li>
-            </ul>
-            <ul class="cryptos">
-                <li>
-                    <a href="/account/deposit"><img src="https://static.inpcdn.com/92,17cc5bb320e069.webp"></a>
-                </li>
-
-                <li>
-                    <a href="/account/deposit"><img src="https://static.inpcdn.com/92,17cc621393e1e8.webp"></a>
-                </li>
-
-                <li>
-                    <a href="/account/deposit"><img src="https://static.inpcdn.com/92,17cc6173a52ca7.webp"></a>
-                </li>
-
-                <li>
-                    <a href="/account/deposit"><img src="https://static.inpcdn.com/92,17cc6067508a33.webp"></a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="bg-black pt-6 min-h-[700px]">
-            <div class="license">
-                <a><img src="/assets/images/guru.png" alt="guru" width="60"></a>
-                <div class="gcb flex justify-center">
-                    <a>
-                        <img src="/assets/images/gcb.png" height="85" alt="gcb">
-                    </a>
-                </div>
-            </div>
-            <div class="f-terms mt-4">
-                <span class="leading-[1]">
-                    <p class="h-[90px]">
-                        m.velobet.win is operated by Santeda International B.V., a company incorporated under the laws
-                        of
-                        Curaçao
-                        with Company Number 151296 and is licensed by the Curaçao Gaming Control Board to offer games of
-                        chance
-                        under license number OGL/2024/1798/1048 in accordance with the National Ordinance on Offshore
-                        Games
-                        of Hazard (Landsverordening buitengaatse hazardspelen, P.B. 1993, no. 63) (NOOGH).
-                    </p>
-
-                    <p class="h-[45px]">
-                        Santeda International Limited, with registered office at Poreias, 2 3011, Limassol, Cyprus, acts
-                        as
-                        a
-                        payment agent of the license holder and parent company - Santeda International B.V.
-                    </p>
-
-                    <p class="h-[90px]">
-                        In order to register for this Website, the user is required to accept the
-                        <a href="#">Terms and Conditions</a>. In the event the
-                        <a href="#">Terms and Conditions</a> are updated, existing users may choose to discontinue using
-                        the
-                        products and services before the said update shall become effective, which is a minimum of two
-                        weeks
-                        after it has been announced.
-                    </p>
-                </span>
-            </div>
-
-        </div>
-
+        <app-footer></app-footer>
     </div>
 </div>
