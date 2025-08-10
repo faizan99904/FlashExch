@@ -116,6 +116,7 @@ export class BetslipComponent {
     private indexedDb: IndexedDbService,
     private mainService: MainService,
     private toaster: ToastrService,
+    private toggle: SharedService,
 
     private router: Router
   ) {
@@ -558,6 +559,15 @@ export class BetslipComponent {
       this.login = false;
     }
     return this.login;
+  }
+
+  onLogin() {
+    let width = window.innerWidth;
+    if (width >= 1024) {
+      this.toggle.setLoginModal(true);
+    } else {
+      this.router.navigateByUrl('/login');
+    }
   }
 
   addStake(amount: number): void {

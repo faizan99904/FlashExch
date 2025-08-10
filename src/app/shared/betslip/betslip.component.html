@@ -63,8 +63,8 @@
                 class=" w-full p-2.5 rounded-md border bg-bg_color_input_bg border-border_color_primary ">
                 <div class="grid grid-cols-12 gap-[7px]">
                     <ng-container *ngFor="let stake of stackButtonArry; let i = index; trackBy: trackByIndex">
-                        <input name="editStake" *ngIf="editStakeMode && i < 6" type="number" [(ngModel)]="stackButtonArry[i].stakeAmount"
-                            [ngClass]="{
+                        <input name="editStake" *ngIf="editStakeMode && i < 6" type="number"
+                            [(ngModel)]="stackButtonArry[i].stakeAmount" [ngClass]="{
                           'editable-inp col-span-4 text-center text-[12px] font-semibold rounded-[4px] py-1.5 bg-bg_color_primary border border-border_color_brand_primary text-text_brand_primary': true,
                           '!bg-[#1f2c3d] !border-[#60a3b3]': !stackButtonArry[i].stakeAmount && stackButtonArry[i].stakeAmount !== 0
                         }" placeholder="Enter Stakes" />
@@ -106,7 +106,7 @@
       cursor-pointer
       " (click)="cancelBet()"><span class=" text-text_brand_primary font-bold text-sm md:text-base leading-5">Cancel
                     Bet</span></button>
-            <button (click)="login ? onPlaceBet() :'login'"
+            <button (click)="login ? onPlaceBet() : onLogin()"
                 class="relative overflow-hidden text-text_color_primary2 active:scale-95 md:active:scale-[98%] disabled:cursor-not-allowed px-2 py-1 rounded-md w-full col-span-6 border flex items-center justify-between bg-bg_color_placeBetBtnGrd border-border_color_brand_primary cursor-pointer "
                 type="button">
                 <div class=" flex items-start justify-start flex-col">
@@ -133,7 +133,8 @@
                                     <rect width="12" height="12" fill="white"></rect>
                                 </clipPath>
                             </defs>
-                        </svg></span><span class="font-normal relative top-[1px] text-text_color_primary2">{{item.betDelay}}s</span></div>
+                        </svg></span><span
+                        class="font-normal relative top-[1px] text-text_color_primary2">{{item.betDelay}}s</span></div>
             </button>
         </div>
         <div class="w-full mt-[15px] lg:mt-1 flex flex-col gap-y-[4px]">
