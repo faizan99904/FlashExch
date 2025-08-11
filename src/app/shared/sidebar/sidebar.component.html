@@ -16,45 +16,15 @@
         </div>
         <ul class="space-y-2 px-[10px] py-[16px]" *ngIf="dropdowns['topLeagues']">
 
-            <li class="my-1">
+            <li class="my-1" *ngFor="let event of filterCompetitions; let ii = index">
                 <div class="flex items-center justify-between text-[#FFFFFF99] hover:text-white  rounded">
                     <div class="flex items-center gap-[1vw]">
-                        <img src="/assets/images/menu/download.png" class="w-[1.5vw] h-[1.6vw]" alt="">
-                        <span class="text-[0.8vw] font-medium">FIFA Club World Cup</span>
+                        <i class="sport-icon !text-[1.17vw]" [attr.sport]="event.sportName.toLowerCase()"></i>
+                        <span class="text-[0.8vw] font-medium">{{event.tournamentName}}</span>
                     </div>
-                    <span class="text-[0.8vw]">(33)</span>
+                    <span class="text-[0.8vw]">{{tournamentLength[ii]}}</span>
                 </div>
             </li>
-            <li class="my-1">
-                <div class="flex items-center justify-between text-[#FFFFFF99] hover:text-white  rounded">
-                    <div class="flex items-center gap-[1vw]">
-                        <img src="/assets/images/menu/download.png" class="w-[1.5vw] h-[1.6vw]" alt="">
-                        <span class="text-[0.8vw] font-medium">FIFA Club World Cup</span>
-                    </div>
-                    <span class="text-[0.8vw]">(33)</span>
-                </div>
-            </li>
-            <li class="my-1">
-                <div class="flex items-center justify-between text-[#FFFFFF99] hover:text-white  rounded">
-                    <div class="flex items-center gap-[1vw]">
-                        <img src="/assets/images/menu/download.png" class="w-[1.5vw] h-[1.6vw]" alt="">
-                        <span class="text-[0.8vw] font-medium">FIFA Club World Cup</span>
-                    </div>
-                    <span class="text-[0.8vw]">(33)</span>
-                </div>
-            </li>
-            <li class="my-1">
-                <div class="flex items-center justify-between text-[#FFFFFF99] hover:text-white  rounded">
-                    <div class="flex items-center gap-[1vw]">
-                        <img src="/assets/images/menu/download.png" class="w-[1.5vw] h-[1.6vw]" alt="">
-                        <span class="text-[0.8vw] font-medium">FIFA Club World Cup</span>
-                    </div>
-                    <span class="text-[0.8vw]">(33)</span>
-                </div>
-            </li>
-
-
-
 
         </ul>
 
@@ -117,7 +87,7 @@
         <div class="space-y-2 px-[10px] pb-[20px]" *ngIf="dropdowns['topEsport']">
             <div *ngFor="let item of raceEvents" class="mb-3 flex justify-between items-center">
                 <div class="flex flex-col items-start w-[65%]">
-                    <div class="text-green-500 leading-tight  truncate max-w-[90%]">{{ item.eventName }}</div>
+                    <div class="text-green-500 leading-tight  truncate max-w-[90%] text-[11px]">{{ item.eventName }}</div>
                     <div class="text-green-500 leading-tight mb-1  truncate max-w-[90%]"></div>
                 </div>
                 <div class="flex justify-between items-center  text-white text-[11px] w-[35%]">

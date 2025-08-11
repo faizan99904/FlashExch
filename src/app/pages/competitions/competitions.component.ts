@@ -44,7 +44,6 @@ export class CompetitionsComponent implements OnInit {
     })
     effect(() => {
       this.sportId = this.mainService.getActiveSport();
-
       this.AllEvents = this.mainService.getAllEvents();
       if (this.AllEvents) {
         this.getAllEvents();
@@ -68,6 +67,7 @@ export class CompetitionsComponent implements OnInit {
 
     if (this.activeTab == 'comp' && this.AllEvents) {
       this.competitionsArr = this.RearrangingData(this.AllEvents[this.sportId])
+
     }
   }
   toggle() {

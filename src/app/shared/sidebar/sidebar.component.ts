@@ -21,6 +21,9 @@ export class SidebarComponent {
   sportId: any;
   parentIndex: any;
   childIndex: any;
+  tournamentLength:any = []
+  filterCompetitions: any
+  AllEvents: any;
   activeRoute: any;
   currentRoute: any;
   inplayEventList: any;
@@ -62,6 +65,12 @@ export class SidebarComponent {
       this.filterInplay();
       this.racingData = this.mainService.getAllRacingEvents();
       this.filterRacingEvent();
+      this.AllEvents = this.mainService.getAllEvents();
+      // this.RearrangingData(this.AllEvents)
+      if (this.AllEvents) {
+        const data = Object.values(this.AllEvents).flat();
+        this.RearrangingData(data);
+      }
     });
   }
 
@@ -123,26 +132,90 @@ export class SidebarComponent {
   // }
 
   filterRacingEvent() {
-  const uniqueEventsMap = new Map<string, any>();
-  const events = this.racingData?.data?.events || [];
+    const uniqueEventsMap = new Map<string, any>();
+    const events = this.racingData?.data?.events || [];
 
-  events.forEach((event: any) => {
-    if (event.inPlay === true) {
-      uniqueEventsMap.set(event.eventId, event);
-    }
+    events.forEach((event: any) => {
+      if (event.inPlay === true) {
+        uniqueEventsMap.set(event.eventId, event);
+      }
 
-    if (Array.isArray(event.eventsData)) {
-      event.eventsData.forEach((subEvent: any) => {
-        if (subEvent.inPlay === true) {
-          uniqueEventsMap.set(subEvent.eventId, subEvent);
-        }
+      if (Array.isArray(event.eventsData)) {
+        event.eventsData.forEach((subEvent: any) => {
+          if (subEvent.inPlay === true) {
+            uniqueEventsMap.set(subEvent.eventId, subEvent);
+          }
+        });
+      }
+    });
+
+    const inPlayEvents = Array.from(uniqueEventsMap.values());
+    this.raceEvents = inPlayEvents.length > 0 ? inPlayEvents : events.slice(0, 5);
+  }
+
+
+  // RearrangingData(data: any) {
+  //   Object.values(data).flat().forEach((event: any) => {
+  //     if (event.competitionId) {
+  //       console.log(event);
+  //     }
+  //   })
+  // }
+
+
+  RearrangingData(data: any) {
+    const uniqueSportsArray = data.reduce((acc: any[], item: any) => {
+      const existingTournament = acc.find((t: any) => t.competitionId === item?.tournamentId);
+
+      if (existingTournament) {
+        existingTournament.data.push(item);
+      } else {
+        acc.push({
+          competitionId: item?.tournamentId,
+          competitionName: item?.tournamentName,
+          data: [item]
+        });
+      }
+
+      return acc;
+    }, []);
+
+    uniqueSportsArray.forEach((tournament: any) => {
+      tournament.data.sort((a: any, b: any) => {
+        const matchedA = a?.oddsData?.totalMatched ?? 0;
+        const matchedB = b?.oddsData?.totalMatched ?? 0;
+        return matchedB - matchedA;
       });
-    }
-  });
+    });
 
-  const inPlayEvents = Array.from(uniqueEventsMap.values());
-  this.raceEvents = inPlayEvents.length > 0 ? inPlayEvents : events.slice(0, 5);
-}
+
+
+    const allMatches = [...uniqueSportsArray].flatMap((tournament: any) => tournament.data);
+    const getTournamentCount = [...uniqueSportsArray].flatMap((tournament: any) => tournament.data);
+
+    const sortedMatches = allMatches
+      .filter((match: any) => match?.oddsData?.totalMatched != null)
+      .sort((a: any, b: any) => b.oddsData.totalMatched - a.oddsData.totalMatched);
+
+    this.filterCompetitions = sortedMatches.slice(0, 5);
+
+
+    [...this.filterCompetitions].forEach((event: any) => {
+      // Find the tournament that contains this event
+      const matchingTournament = uniqueSportsArray.find((sport: any) =>
+        sport.data.some((tournamentEvent: any) =>
+          tournamentEvent._id === event._id
+        )
+      );
+
+      if (matchingTournament) {
+        this.tournamentLength.push(matchingTournament.data.length)
+      }
+    });
+
+  }
+
+
 
   setTimeFilter(filter: string) {
     this.timeFilter = filter;

@@ -172,6 +172,59 @@ export class MobileSidebarComponent {
     this.toggleDropdown();
   }
 
+
+  RearrangingData(data: any) {
+    const uniqueSportsArray = data.reduce((acc: any[], item: any) => {
+      const existingTournament = acc.find((t: any) => t.competitionId === item?.tournamentId);
+
+      if (existingTournament) {
+        existingTournament.data.push(item);
+      } else {
+        acc.push({
+          competitionId: item?.tournamentId,
+          competitionName: item?.tournamentName,
+          data: [item]
+        });
+      }
+
+      return acc;
+    }, []);
+
+    uniqueSportsArray.forEach((tournament: any) => {
+      tournament.data.sort((a: any, b: any) => {
+        const matchedA = a?.oddsData?.totalMatched ?? 0;
+        const matchedB = b?.oddsData?.totalMatched ?? 0;
+        return matchedB - matchedA;
+      });
+    });
+
+
+
+    const allMatches = [...uniqueSportsArray].flatMap((tournament: any) => tournament.data);
+    const getTournamentCount = [...uniqueSportsArray].flatMap((tournament: any) => tournament.data);
+
+    const sortedMatches = allMatches
+      .filter((match: any) => match?.oddsData?.totalMatched != null)
+      .sort((a: any, b: any) => b.oddsData.totalMatched - a.oddsData.totalMatched);
+
+    this.filterCompetitions = sortedMatches.slice(0, 5);
+
+
+    [...this.filterCompetitions].forEach((event: any) => {
+      // Find the tournament that contains this event
+      const matchingTournament = uniqueSportsArray.find((sport: any) =>
+        sport.data.some((tournamentEvent: any) =>
+          tournamentEvent._id === event._id
+        )
+      );
+
+      if (matchingTournament) {
+        this.tournamentLength.push(matchingTournament.data.length)
+      }
+    });
+
+  }
+
   navigateMarket(sportName: any, sportId: any) {
     if (sportName === 'Horse Racing' || sportName === 'Greyhound Racing') {
       this.router.navigateByUrl(`racing/${sportId}`);
