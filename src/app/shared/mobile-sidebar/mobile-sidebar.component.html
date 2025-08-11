@@ -67,11 +67,10 @@
                 <li class="!mb-[2vw]" *ngFor="let event of filterCompetitions; let ii = index">
                     <div class="flex items-center justify-between hover:bg-gray-800  rounded">
                         <div class="flex items-center gap-[3.6vw]">
-                            <!-- <img src="/assets/images/menu/download.png" class="w-[5.454vw]" alt=""> -->
-                            <i class="sport-icon" [attr.sport]="event.sportName.toLowerCase()"></i>
-                            <span class="text-[3.7vw]">{{event.tournamentName}}</span>
+                            <i class="sport-icon text-[3.7vw]" [attr.sport]="event.sportName.toLowerCase()"></i>
+                            <span class="text-[3.7vw]">{{event.tournamentName}}p</span>
                         </div>
-                        <span class="text-[3.7vw] text-gray-400">{{tournamentLength[ii]}}</span>
+                        <span class="text-[3.7vw]">{{tournamentLength[ii]}}</span>
                     </div>
                 </li>
 

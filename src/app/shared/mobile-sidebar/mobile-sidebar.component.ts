@@ -22,11 +22,14 @@ import { MarketComponent } from "../../component/market/market.component";
 export class MobileSidebarComponent {
   @Input() searchTab!: string;
   dropdownOpen = false;
+  filterCompetitions: any = []
   dropdownHeight = '0px';
+  tournamentLength: any = []
   activeIndex: any;
   selectedFilterid: any = [];
   filteredEvents: any = [];
   ids: any = [];
+  AllEvents: any
   interval!: boolean;
   filterArray: any = [];
   EventsList: any = [];
@@ -89,14 +92,22 @@ export class MobileSidebarComponent {
   ) {
     this.selectedFilterid = JSON.parse(
       localStorage.getItem(`multiMarket_${this.sharedService.username()}`) ??
-        '[]'
+      '[]'
     );
     const filterData: any[] = this.selectedFilterid;
     this.ids = filterData;
     effect(() => {
       this.activeIndex = this.mainService.getActiveSport();
       this.EventsList = this.mainService.getAllEvents();
-      this.getAllEvents();
+
+
+      // this.RearrangingData(this.AllEvents)
+      if (this.EventsList) {
+        this.getAllEvents();
+        const data = Object.values(this.EventsList).flat();
+        this.RearrangingData(data);
+      }
+
     });
   }
 
@@ -172,6 +183,14 @@ export class MobileSidebarComponent {
     this.toggleDropdown();
   }
 
+  navigateMarket(sportName: any, sportId: any) {
+    if (sportName === 'Horse Racing' || sportName === 'Greyhound Racing') {
+      this.router.navigateByUrl(`racing/${sportId}`);
+    } else {
+      this.router.navigateByUrl(`competitions/${sportId}`);
+    }
+    this.closeSidebar();
+  }
 
   RearrangingData(data: any) {
     const uniqueSportsArray = data.reduce((acc: any[], item: any) => {
@@ -223,14 +242,5 @@ export class MobileSidebarComponent {
       }
     });
 
-  }
-
-  navigateMarket(sportName: any, sportId: any) {
-    if (sportName === 'Horse Racing' || sportName === 'Greyhound Racing') {
-      this.router.navigateByUrl(`racing/${sportId}`);
-    } else {
-      this.router.navigateByUrl(`competitions/${sportId}`);
-    }
-    this.closeSidebar();
   }
 }
