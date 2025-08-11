@@ -40,13 +40,24 @@
                 <li routerLink="/"><a><img src="/assets/images/menu/sport.svg"> <span>Sports</span></a></li>
                 <li routerLink="/inplay"><a><img src="/assets/images/menu/live.svg"> <span>Live</span></a></li>
                 <li><a><img src="/assets/images/menu/esports.svg"> <span>Esports</span></a></li>
-                <li  routerLink="/live-casino"><a><img src="/assets/images/menu/livecasino.svg"> <span>Live Casino</span></a></li>
+                <li routerLink="/live-casino"><a><img src="/assets/images/menu/livecasino.svg"> <span>Live
+                            Casino</span></a></li>
                 <li routerLink="/casino"><a><img src="/assets/images/menu/777.svg"> <span>Casino</span></a></li>
                 <li><a><img src="/assets/images/menu/virtual.svg"> <span>Virtual sport</span></a></li>
-                <li routerLink="/promotions" ><a><img src="/assets/images/menu/promos.svg"> <span>Promotions</span></a></li>
-                <li routerLink="/affiliate"><a><img src="/assets/images/menu/affiliate.svg"> <span>AFFILIATES</span></a></li>
+                <li routerLink="/promotions"><a><img src="/assets/images/menu/promos.svg"> <span>Promotions</span></a>
+                </li>
+                <li routerLink="/affiliate"><a><img src="/assets/images/menu/affiliate.svg"> <span>AFFILIATES</span></a>
+                </li>
             </ul>
         </div>
+
+        <div class="top-leagues text-[#afafaf] w-full py-[3.6vw]">
+            <h3 class="text-[3.64vw] leading-[1.3] px-[3.6vw] font-semibold text-white">Favourites</h3>
+            <app-market *ngFor="let item of filterArray; index as i; trackBy: trackByFn;" [isMobile]="true"
+                [market]="item" [index]="i" searchTab="line_style">
+            </app-market>
+        </div>
+
         <!-- With this: -->
         <div class="top-leagues text-[#afafaf] w-full px-[3.6vw] py-[3.6vw]">
 
@@ -94,7 +105,8 @@
             <ul class="space-y-2 ">
 
                 <!-- Special Odds -->
-                <li *ngFor="let item of mainService.sportsList(); let i = index" (click)="navigateMarket(item.sportName, item.sportId)">
+                <li *ngFor="let item of mainService.sportsList(); let i = index"
+                    (click)="navigateMarket(item.sportName, item.sportId)">
                     <a class="flex items-center justify-between   rounded">
                         <div class="flex items-center gap-[3.6vw]">
                             <span class="sport-icon" [attr.sport]="item?.sportName.toLowerCase()"></span>

@@ -1,5 +1,5 @@
 <div class="pb-8">
-    <app-market *ngFor="let item of filterArray; index as i; trackBy: trackByFn;" [isMobile]="isMobile" [market]="item"
-        [index]="i" [searchTab]="searchTab">
+    <app-market *ngFor="let item of filterArray; index as i; trackBy: trackByFn;" [isMobile]="false" [market]="item"
+        [index]="i">
     </app-market>
 </div>
