@@ -19,15 +19,15 @@ import { LoginModalComponent } from '../../component/login-modal/login-modal.com
 export class HeaderComponent {
   token: any;
   userExposureList: any = [];
-  userBalance: any
+  userBalance: any;
   exposureModal: boolean = false;
   constructor(
     private router: Router,
     public toggle: SharedService,
     public networkService: NetworkService,
     private http: HttpClient,
-    private mainService:MainService,
-    private toaster:ToastrService
+    private mainService: MainService,
+    private toaster: ToastrService
   ) {
     this.token = localStorage.getItem('token');
     this.toggle.getToken().subscribe((value: any) => {
@@ -44,7 +44,7 @@ export class HeaderComponent {
 
     effect(() => {
       this.userBalance = this.networkService.getUserBalanceSignal()();
-    })
+    });
   }
 
   gotoLogin() {
@@ -57,16 +57,16 @@ export class HeaderComponent {
     }
   }
 
-
   gerUserEventExposure() {
-    this.http.post(CONFIG.userEventExposure, {}).subscribe(({
+    this.http.post(CONFIG.userEventExposure, {}).subscribe({
       next: (res: any) => {
-        this.userExposureList = res.data
+        this.userExposureList = res.data;
+        this.toggle.exposureData.set(this.userExposureList);
       },
       error: (error) => {
         console.log(error);
-      }
-    }))
+      },
+    });
   }
 
   gotoAccNav() {
@@ -81,51 +81,57 @@ export class HeaderComponent {
     this.toggle.togglePass();
   }
 
-
   goToMarketByUrlExposure(sportId: string, exEventId: string, sportName: any) {
     if (sportId == '6') {
       return;
     }
     if (sportId == '66102') {
       this.redirectToCasino(exEventId);
-    }
-    else {
+    } else {
       this.router.navigate(['/market-detail/' + sportId + '/' + exEventId]);
-      this.exposureModal = false
+      this.exposureModal = false;
     }
   }
 
   redirectToCasino(eventId: any) {
     let token = localStorage.getItem('token');
-    this.mainService.getDataFromServices(CONFIG.casinoEvents, CONFIG.casinoEventsTime, { key: CONFIG.siteKey }).subscribe((data: any) => {
-      if (data?.data?.lobby) {
-        var lobby = data?.data?.lobby.find((event: any) => event.eventId === eventId);
-        if (lobby.link) {
-          let isTokenString = lobby.link.includes("{$token}");
-          if (isTokenString) {
-            let finalLinkWithToken = lobby.link.replace("{$token}", token);
-            let finalUrl = finalLinkWithToken.replace("{$eventId}", lobby?.eventId);
-            // console.log('final output',finalUrl)
-            window.location.href = finalUrl; ``
-            return;
+    this.mainService
+      .getDataFromServices(CONFIG.casinoEvents, CONFIG.casinoEventsTime, {
+        key: CONFIG.siteKey,
+      })
+      .subscribe((data: any) => {
+        if (data?.data?.lobby) {
+          var lobby = data?.data?.lobby.find(
+            (event: any) => event.eventId === eventId
+          );
+          if (lobby.link) {
+            let isTokenString = lobby.link.includes('{$token}');
+            if (isTokenString) {
+              let finalLinkWithToken = lobby.link.replace('{$token}', token);
+              let finalUrl = finalLinkWithToken.replace(
+                '{$eventId}',
+                lobby?.eventId
+              );
+              // console.log('final output',finalUrl)
+              window.location.href = finalUrl;
+              ``;
+              return;
+            } else {
+              this.toaster.error('Please contact your upline! ', '', {
+                positionClass: 'toast-top-center',
+              });
+              return;
+            }
           } else {
             this.toaster.error('Please contact your upline! ', '', {
               positionClass: 'toast-top-center',
-
             });
+            // let url = 'https://realclub.games//#/authentication/' + token + '/' + lobby?.eventId + '/' + lobby?.room;
+            // this.router.navigate(['/opencasino', url]);
             return;
           }
-        } else {
-          this.toaster.error('Please contact your upline! ', '', {
-            positionClass: 'toast-top-center',
-
-          });
-          // let url = 'https://realclub.games//#/authentication/' + token + '/' + lobby?.eventId + '/' + lobby?.room;
-          // this.router.navigate(['/opencasino', url]);
-          return
         }
-      }
-    });
+      });
   }
 
   onSubmit() {

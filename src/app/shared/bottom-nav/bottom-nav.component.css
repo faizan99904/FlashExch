@@ -28,3 +28,18 @@
   opacity: 1;
   float: left;
 }
+
+.collapsible {
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+.collapsible.closed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.collapsible.open {
+  height: auto;
+  opacity: 1;
+}
