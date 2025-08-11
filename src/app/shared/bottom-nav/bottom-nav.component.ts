@@ -26,13 +26,13 @@ export class BottomNavComponent {
   ) {
     effect(() => {
       this.exposureData = this.sharedService.getExposureData()();
-      console.log(this.exposureData);
+      console.log('exposureData : ', this.exposureData);
     });
   }
 
   getMatchedBetList(eventId: any, sportId: any) {
     this.openBets = !this.openBets;
-    if (this.openBets === true) {
+    if (this.openBets === true && this.matchedBetList.length == 0) {
       this.loader = true;
       let req = {
         eventId: eventId,
