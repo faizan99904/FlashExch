@@ -45,7 +45,7 @@ export class MarketComponent implements OnInit {
     let token = localStorage.getItem('token');
     if (token) {
       this.mainService.addToMultimarket(market.exEventId, market.sportId);
-      console.log(market);
+      // console.log(market);
       this.favourites = JSON.parse(
         localStorage.getItem(`multiMarket_${this.shared.username()}`) ?? '[]'
       );
