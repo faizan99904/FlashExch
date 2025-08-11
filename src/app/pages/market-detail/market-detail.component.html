@@ -112,7 +112,7 @@
 @if (openTab=='market') {
 <div class="px-2 bg-black pt-2 border-solid">
 
-    <ng-container *ngIf="(isMobile)">
+    <ng-container *ngIf=" !streamShowValidation && (isMobile)">
         <app-video-real [eventId]="event_id" (dataEmitter)="hasStream($event)"></app-video-real>
     </ng-container>
 
