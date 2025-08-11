@@ -196,7 +196,7 @@ export class NetworkService {
         //   observer.next(res);
         //   observer.complete();
         // })
-debugger
+// debugger
         this.getAllRecordsByPost(CONFIG.videoStreamURL, params)
           .then((res: any) => {
             this.streamData = res;
