@@ -59,7 +59,7 @@ export class MyFavouritesComponent implements OnInit {
   }
 
   private checkScreenWidth() {
-    this.isMobile = window.innerWidth <= 1024;
+    this.isMobile = window.innerWidth < 768;
     if (this.isMobile) {
       this.searchTab = 'line_style';
     }
