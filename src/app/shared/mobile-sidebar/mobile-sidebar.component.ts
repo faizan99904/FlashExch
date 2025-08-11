@@ -1,46 +1,107 @@
 import { CommonModule, NgIf } from '@angular/common';
-import { Component, effect, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import {
+  Component,
+  effect,
+  ElementRef,
+  Input,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SharedService } from '../../service/shared.service';
 import { MainService } from '../../service/main.service';
 import { Router, RouterLink } from '@angular/router';
+import { MarketComponent } from "../../component/market/market.component";
 
 @Component({
   selector: 'app-mobile-sidebar',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, MarketComponent],
   templateUrl: './mobile-sidebar.component.html',
-  styleUrl: './mobile-sidebar.component.css'
+  styleUrl: './mobile-sidebar.component.css',
 })
 export class MobileSidebarComponent {
+  @Input() searchTab!: string;
   dropdownOpen = false;
   dropdownHeight = '0px';
-  activeIndex: any
+  activeIndex: any;
+  selectedFilterid: any = [];
+  filteredEvents: any = [];
+  ids: any = [];
+  interval!: boolean;
+  filterArray: any = [];
+  EventsList: any = [];
+  isMobile: boolean = false;
   @ViewChild('dropdownList') dropdownList!: ElementRef;
 
   languages = [
-    { code: 'EN', label: 'EN - English', flag: 'https://flagcdn.com/w40/gb.png' },
-    { code: 'BR', label: 'BR - Portuguese', flag: 'https://flagcdn.com/w40/br.png' },
-    { code: 'ES', label: 'ES - Español', flag: 'https://flagcdn.com/w40/es.png' },
-    { code: 'FR', label: 'FR - Français', flag: 'https://flagcdn.com/w40/fr.png' },
-    { code: 'DE', label: 'DE - Deutsch', flag: 'https://flagcdn.com/w40/de.png' },
-    { code: 'FI', label: 'FI - Finnish', flag: 'https://flagcdn.com/w40/fi.png' },
+    {
+      code: 'EN',
+      label: 'EN - English',
+      flag: 'https://flagcdn.com/w40/gb.png',
+    },
+    {
+      code: 'BR',
+      label: 'BR - Portuguese',
+      flag: 'https://flagcdn.com/w40/br.png',
+    },
+    {
+      code: 'ES',
+      label: 'ES - Español',
+      flag: 'https://flagcdn.com/w40/es.png',
+    },
+    {
+      code: 'FR',
+      label: 'FR - Français',
+      flag: 'https://flagcdn.com/w40/fr.png',
+    },
+    {
+      code: 'DE',
+      label: 'DE - Deutsch',
+      flag: 'https://flagcdn.com/w40/de.png',
+    },
+    {
+      code: 'FI',
+      label: 'FI - Finnish',
+      flag: 'https://flagcdn.com/w40/fi.png',
+    },
     { code: 'NO', label: 'NO - Norsk', flag: 'https://flagcdn.com/w40/no.png' },
-    { code: 'IT', label: 'IT - Italiano', flag: 'https://flagcdn.com/w40/it.png' },
-    { code: 'RU', label: 'RU - Русский', flag: 'https://flagcdn.com/w40/ru.png' },
+    {
+      code: 'IT',
+      label: 'IT - Italiano',
+      flag: 'https://flagcdn.com/w40/it.png',
+    },
+    {
+      code: 'RU',
+      label: 'RU - Русский',
+      flag: 'https://flagcdn.com/w40/ru.png',
+    },
   ];
 
   selectedLanguage = this.languages[0];
   isVisible = false;
   private sub!: Subscription;
 
-  constructor(private sharedService: SharedService, private renderer: Renderer2, public mainService: MainService, private router:Router) {
+  constructor(
+    private sharedService: SharedService,
+    private renderer: Renderer2,
+    public mainService: MainService,
+    private router: Router
+  ) {
+    this.selectedFilterid = JSON.parse(
+      localStorage.getItem(`multiMarket_${this.sharedService.username()}`) ??
+        '[]'
+    );
+    const filterData: any[] = this.selectedFilterid;
+    this.ids = filterData;
     effect(() => {
       this.activeIndex = this.mainService.getActiveSport();
+      this.EventsList = this.mainService.getAllEvents();
+      this.getAllEvents();
     });
   }
 
   ngOnInit(): void {
-    this.sub = this.sharedService.mobileSidebarToggle$.subscribe(show => {
+    this.sub = this.sharedService.mobileSidebarToggle$.subscribe((show) => {
       this.isVisible = show;
       const mainRouterEl = document.querySelector('.mainRouter');
       if (mainRouterEl) {
@@ -51,6 +112,29 @@ export class MobileSidebarComponent {
         }
       }
     });
+  }
+
+  getAllEvents() {
+    this.interval = true;
+    this.filterArray = [];
+    if (this.ids) {
+      for (let sportid of this.ids) {
+        this.filteredEvents = this.EventsList[sportid.sportId];
+        this.filteredEvents.forEach((element: any) => {
+          if (element.exEventId === sportid.eventid) {
+            this.filterArray.push(element);
+          }
+        });
+        setTimeout(() => {
+          this.interval = false;
+        }, 300);
+        this.filteredEvents = this.filterArray;
+      }
+    }
+  }
+
+  trackByFn(index: any) {
+    return index;
   }
 
   closeSidebar() {
@@ -90,11 +174,10 @@ export class MobileSidebarComponent {
 
   navigateMarket(sportName: any, sportId: any) {
     if (sportName === 'Horse Racing' || sportName === 'Greyhound Racing') {
-      this.router.navigateByUrl(`racing/${sportId}`)
+      this.router.navigateByUrl(`racing/${sportId}`);
     } else {
-      this.router.navigateByUrl(`competitions/${sportId}`)
+      this.router.navigateByUrl(`competitions/${sportId}`);
     }
-    this.closeSidebar()
+    this.closeSidebar();
   }
-  
 }
