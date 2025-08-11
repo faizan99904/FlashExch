@@ -17,6 +17,7 @@ export class SharedService {
   mobileSidebarToggle$ = this.mobileSidebarToggleSource.asObservable();
 
   readonly matchedBet = signal(null);
+  readonly exposureData = signal(null);
 
   private signUpToggle = signal(false);
   readonly isSignupVisible = this.signUpToggle.asReadonly();
@@ -71,6 +72,14 @@ export class SharedService {
     this.colorSignal.set(colorMap[type] || '#86efac');
   }
 
+  getExposureData() {
+    return this.exposureData;
+  }
+
+  setExposureData(value: any) {
+    this.exposureData.set(value);
+  }
+
   getMatchedBets() {
     return this.matchedBet;
   }
@@ -109,13 +118,12 @@ export class SharedService {
   }
 
   getLoginModal() {
-    return this.loginModal
+    return this.loginModal;
   }
 
   setLoginModal(value: any) {
-    this.loginModal.set(value)
+    this.loginModal.set(value);
   }
-
 
   hideSignup(): void {
     this.signUpToggle.set(false);

@@ -17,11 +17,99 @@
             <img src="/assets/images/sports.svg" alt="">
             <span class="text-[#FFFFFF99] text-[13.125px] font-bold">Sports</span>
         </li>
-        <li class="flex flex-col items-center justify-center gap-[0.709vw] relative opacity-[0.6]">
+        <li (click)="bets = true"
+            class="flex flex-col items-center justify-center gap-[0.709vw] relative opacity-[0.6]">
             <img src="/assets/images/bets.svg" alt="">
             <span class="text-[#FFFFFF99] text-[13.125px] font-bold">My Bets</span>
         </li>
     </ul>
 </div>
+
+@if(bets){
+<div class="fixed left-0 right-0 bg-black z-50" style="top: 52px; bottom: 69px;">
+    <div class="w-full h-full overflow-auto text-white gap-4 flex flex-col">
+        <div class="flex items-center justify-between p-4">
+            <h2 class="rule-heading text-text_color_primary1">
+                Open Bets
+            </h2>
+            <button (click)="bets = false" type="button" aria-label="Close" title="Close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 16 16" fill="#fff"
+                    class="close-rules-btn">
+                    <g clip-path="url(#clip0_406_1676)">
+                        <path
+                            d="M9.46585 8.01314L15.6959 1.78287C16.1014 1.37762 16.1014 0.722377 15.6959 0.317124C15.2907 -0.0881297 14.6354 -0.0881297 14.2302 0.317124L7.99991 6.5474L1.76983 0.317124C1.36438 -0.0881297 0.709336 -0.0881297 0.304082 0.317124C-0.101361 0.722377 -0.101361 1.37762 0.304082 1.78287L6.53416 8.01314L0.304082 14.2434C-0.101361 14.6487 -0.101361 15.3039 0.304082 15.7092C0.506045 15.9113 0.771595 16.0129 1.03695 16.0129C1.30232 16.0129 1.56768 15.9113 1.76983 15.7092L7.99991 9.47889L14.2302 15.7092C14.4323 15.9113 14.6977 16.0129 14.9631 16.0129C15.2284 16.0129 15.4938 15.9113 15.6959 15.7092C16.1014 15.3039 16.1014 14.6487 15.6959 14.2434L9.46585 8.01314Z"
+                            fill="#fff"></path>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_406_1676">
+                            <rect width="16" height="16" fill="#fff"></rect>
+                        </clipPath>
+                    </defs>
+                </svg>
+            </button>
+        </div>
+        <div class="wraper bg-[#121519] p-4">
+            <div (click)="getMatchedBetList(item.eventId, item.sportId)" *ngFor="let item of exposureData"
+                class="flex items-center justify-between">
+                <div class="truncate">
+                    {{item?.marketName}}
+                </div>
+                <span [ngClass]="{'rotate-180': openBets}" class="toggle-text" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <mask id="path-1-inside-1_3039_16413" fill="white">
+                            <path
+                                d="M30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15ZM2.08392 15C2.08392 22.1334 7.86664 27.9161 15 27.9161C22.1334 27.9161 27.9161 22.1334 27.9161 15C27.9161 7.86664 22.1334 2.08392 15 2.08392C7.86664 2.08392 2.08392 7.86664 2.08392 15Z">
+                            </path>
+                        </mask>
+                        <path
+                            d="M30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15ZM2.08392 15C2.08392 22.1334 7.86664 27.9161 15 27.9161C22.1334 27.9161 27.9161 22.1334 27.9161 15C27.9161 7.86664 22.1334 2.08392 15 2.08392C7.86664 2.08392 2.08392 7.86664 2.08392 15Z"
+                            fill="#fff" stroke="#fff" stroke-width="2" mask="#fff"></path>
+                        <path
+                            d="M15.7071 9.29289C15.3166 8.90237 14.6834 8.90237 14.2929 9.29289L7.92893 15.6569C7.53841 16.0474 7.53841 16.6805 7.92893 17.0711C8.31946 17.4616 8.95262 17.4616 9.34315 17.0711L15 11.4142L20.6569 17.0711C21.0474 17.4616 21.6805 17.4616 22.0711 17.0711C22.4616 16.6805 22.4616 16.0474 22.0711 15.6569L15.7071 9.29289ZM16 11V10H14V11H16Z"
+                            fill="#fff"></path>
+                    </svg>
+                </span>
+            </div>
+            <div *ngIf="loader">
+                <app-loader></app-loader>
+            </div>
+            <div *ngIf="matchedBetList.length > 0" class="mt-4 flex flex-col gap-2">
+                <span class="p-1 px-2 bg-black rounded-sm w-fit">Matched</span>
+                <div class="info-container text-[12px]">
+                    <ul class="py-[9px] flex">
+                        <li class="w-[42%] text-left">Back (Bet For)</li>
+                        <li class="w-[16%] text-center">Odds</li>
+                        <li class="w-[16%] text-center">Stake</li>
+                        <li class="w-[25%] text-right">Profit</li>
+                    </ul>
+                    <ul class="py-[9px] flex">
+                        <li class="w-[42%] text-left">Lay (Bet Against)</li>
+                        <li class="w-[16%] text-center">Odds</li>
+                        <li class="w-[16%] text-center">Stake</li>
+                        <li class="w-[25%] text-right">Liability</li>
+                    </ul>
+                    <ul *ngFor="let item of matchedBetList"
+                        [ngClass]="{ 'lay': item.type === 'L', 'back': item.type === 'B' }"
+                        class="py-[9px] flex px-1 text-black text-[12px] justify-between rounded-sm">
+                        <li class="w-[42%] text-left flex items-center gap-0.5 truncate">
+                            <span [ngClass]="{ 'lay-box': item.type === 'L', 'back-box': item.type === 'B' }"
+                                class="box text-[11px]">{{item.type === 'L' ? 'Lay' : 'Back'}}</span>
+                            <div class="flex flex-col truncate">
+                                <span class="truncate">{{item.selectionName}}</span>
+                                <span class="truncate opacity-[0.5] pr-[1px]">{{item.marketName}}</span>
+                            </div>
+                        </li>
+                        <li class="w-[16%] flex items-center justify-center">
+                            {{item.oddsPrice}}/{{item.oddsRate}}
+                        </li>
+                        <li class="w-[16%] flex items-center justify-center">{{item.stake}}</li>
+                        <li class="w-[25%] flex items-center justify-end">{{item.betPl}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
 
 <app-mobile-sidebar class="lg:hidden"></app-mobile-sidebar>

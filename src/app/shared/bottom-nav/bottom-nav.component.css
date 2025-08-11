@@ -1,0 +1,30 @@
+.toggle-text {
+  @apply ml-3 flex-shrink-0 transition-transform duration-300 ease-in-out;
+}
+
+.lay {
+  background-color: #f1bed2;
+  border-bottom: 1px solid #dfa3b3;
+}
+
+.back {
+  background-color: #aed8ff;
+  border-bottom: 1px solid #74afe6;
+}
+
+.lay-box {
+  background-color: #dfa3b3;
+}
+
+.back-box {
+  background-color: #74afe6;
+}
+
+.box {
+  line-height: 22px;
+  border-radius: 3px;
+  padding: 0 5px;
+  margin: 5px 5px 0 0;
+  opacity: 1;
+  float: left;
+}
