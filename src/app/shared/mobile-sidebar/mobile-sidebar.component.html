@@ -51,7 +51,7 @@
             </ul>
         </div>
 
-        <div class="top-leagues text-[#afafaf] w-full py-[3.6vw]">
+        <div *ngIf="filterArray.length > 0" class="top-leagues text-[#afafaf] w-full py-[3.6vw]">
             <h3 class="text-[3.64vw] leading-[1.3] px-[3.6vw] font-semibold text-white">Favourites</h3>
             <app-market *ngFor="let item of filterArray; index as i; trackBy: trackByFn;" [isMobile]="true"
                 [market]="item" [index]="i" searchTab="line_style">
