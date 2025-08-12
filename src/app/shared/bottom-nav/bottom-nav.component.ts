@@ -20,6 +20,8 @@ export class BottomNavComponent {
   openBets: boolean = false;
   matchedBetList: any = [];
   loader: boolean = false;
+  betInfo: boolean = false;
+
   constructor(
     private sharedService: SharedService,
     private backendService: NetworkService
@@ -28,6 +30,12 @@ export class BottomNavComponent {
       this.exposureData = this.sharedService.getExposureData()();
       console.log('exposureData : ', this.exposureData);
     });
+  }
+
+  formatDate(dateString: string): string {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    return date.toLocaleString();
   }
 
   getMatchedBetList(eventId: any, sportId: any) {
