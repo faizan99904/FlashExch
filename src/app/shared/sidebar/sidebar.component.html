@@ -49,7 +49,7 @@
                 <!-- <div class="text-[#FFFFFF99] text-xs  border-b border-gray-700 pb-1 mb-2">Soccer</div> -->
 
                 <div *ngFor="let game of filterTopEvent" class="mb-3 flex justify-between items-center">
-                    <div class="flex flex-col items-start w-[65%]">
+                    <div (click)="gotoMarket(game)" class="flex flex-col items-start w-[65%] cursor-pointer">
                         <div class="text-green-500 leading-tight  truncate max-w-[90%]">{{ game.eventName }}</div>
                         <div class="text-green-500 leading-tight mb-1  truncate max-w-[90%]">{{ game.tournamentName }}
                         </div>
@@ -87,7 +87,8 @@
         <div class="space-y-2 px-[10px] pb-[20px]" *ngIf="dropdowns['topEsport']">
             <div *ngFor="let item of raceEvents" class="mb-3 flex justify-between items-center">
                 <div class="flex flex-col items-start w-[65%]">
-                    <div class="text-green-500 leading-tight  truncate max-w-[90%] text-[11px]">{{ item.eventName }}</div>
+                    <div class="text-green-500 leading-tight  truncate max-w-[90%] text-[11px]">{{ item.eventName }}
+                    </div>
                     <div class="text-green-500 leading-tight mb-1  truncate max-w-[90%]"></div>
                 </div>
                 <div class="flex justify-between items-center  text-white text-[11px] w-[35%]">
@@ -177,7 +178,7 @@
                     @if(childIndex == ii){
                     <div class="flex items-center justify-between tracking-tighter bg-[#000] px-[0.6vw] pt-[.2vw] cursor-pointer mt-[1px] h-[2vw] "
                         *ngFor="let marketTournament of tournament?.data; let iii = index"
-                        (click)="gotoMarket(marketTournament, iii)">
+                        (click)="gotoMarket(marketTournament)">
                         <div class="flex items-center gap-[0.78vw]">
                             <span class="pt-[0.1vw] text-[11.2px] truncate">{{marketTournament?.eventName}}</span>
                         </div>

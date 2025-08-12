@@ -71,7 +71,7 @@
 
 
 
-                        <button *ngIf="!editStakeMode && i < 6"
+                        <button (click)="addStake(stake.stakeAmount)" *ngIf="!editStakeMode && i < 6"
                             class="col-span-4 text-[12px] font-semibold rounded-[4px] py-1.5 bg-transparent border border-border_color_primary4 text-text_color_primary2">
                             + {{ stake.stakeAmount }}
                         </button>

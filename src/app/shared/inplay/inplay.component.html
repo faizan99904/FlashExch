@@ -34,14 +34,14 @@
                         <span class="score">2</span>
                     </div>
                     <ng-container *ngFor="let market of sport?.data">
-                        <div title="The Hundred" class="market-title border-border_color_primary1 ">
+                        <div (click)="gotoMarket(market)" title="The Hundred"
+                            class="market-title border-border_color_primary1 ">
                             <span id="inPlayTime" class="market-date">
                                 <span class="date text-text_color_InPlayEventsScoreAndTime">
                                     {{market.eventTime | date:'dd-MM-yyyy hh:mm a'}}
                                 </span>
                             </span>
-                            <a title="The Hundred" id="inPlayTeamName" class="market-name border-border_color_primary"
-                                href="/cricket/The%20Hundred/4/29510526">
+                            <a title="The Hundred" id="inPlayTeamName" class="market-name border-border_color_primary">
                                 <span class="market-text">
                                     <div class="text-wrapper">
                                         <span class="brand"></span>

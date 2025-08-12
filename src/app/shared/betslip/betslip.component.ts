@@ -570,10 +570,10 @@ export class BetslipComponent {
     }
   }
 
-  addStake(amount: number): void {
+  addStake(amount: any): void {
     const current = parseInt(this.stake || '0', 10);
     const validCurrent = isNaN(current) ? 0 : current;
-    const newStake = validCurrent + amount;
+    const newStake = validCurrent + Number(amount);
     this.stake = String(newStake);
     // this.updateProfit();
   }

@@ -21,8 +21,8 @@ export class SidebarComponent {
   sportId: any;
   parentIndex: any;
   childIndex: any;
-  tournamentLength:any = []
-  filterCompetitions: any
+  tournamentLength: any = [];
+  filterCompetitions: any;
   AllEvents: any;
   activeRoute: any;
   currentRoute: any;
@@ -123,6 +123,7 @@ export class SidebarComponent {
       .filter((sub) => sub?.oddsData?.totalMatched != null)
       .sort((a, b) => b.oddsData.totalMatched - a.oddsData.totalMatched);
     this.filterTopEvent = sorted.slice(0, 5);
+    console.log(this.filterTopEvent);
   }
 
   // filterRacingEvent() {
@@ -150,9 +151,9 @@ export class SidebarComponent {
     });
 
     const inPlayEvents = Array.from(uniqueEventsMap.values());
-    this.raceEvents = inPlayEvents.length > 0 ? inPlayEvents : events.slice(0, 5);
+    this.raceEvents =
+      inPlayEvents.length > 0 ? inPlayEvents : events.slice(0, 5);
   }
-
 
   // RearrangingData(data: any) {
   //   Object.values(data).flat().forEach((event: any) => {
@@ -162,10 +163,11 @@ export class SidebarComponent {
   //   })
   // }
 
-
   RearrangingData(data: any) {
     const uniqueSportsArray = data.reduce((acc: any[], item: any) => {
-      const existingTournament = acc.find((t: any) => t.competitionId === item?.tournamentId);
+      const existingTournament = acc.find(
+        (t: any) => t.competitionId === item?.tournamentId
+      );
 
       if (existingTournament) {
         existingTournament.data.push(item);
@@ -173,7 +175,7 @@ export class SidebarComponent {
         acc.push({
           competitionId: item?.tournamentId,
           competitionName: item?.tournamentName,
-          data: [item]
+          data: [item],
         });
       }
 
@@ -188,34 +190,34 @@ export class SidebarComponent {
       });
     });
 
-
-
-    const allMatches = [...uniqueSportsArray].flatMap((tournament: any) => tournament.data);
-    const getTournamentCount = [...uniqueSportsArray].flatMap((tournament: any) => tournament.data);
+    const allMatches = [...uniqueSportsArray].flatMap(
+      (tournament: any) => tournament.data
+    );
+    const getTournamentCount = [...uniqueSportsArray].flatMap(
+      (tournament: any) => tournament.data
+    );
 
     const sortedMatches = allMatches
       .filter((match: any) => match?.oddsData?.totalMatched != null)
-      .sort((a: any, b: any) => b.oddsData.totalMatched - a.oddsData.totalMatched);
+      .sort(
+        (a: any, b: any) => b.oddsData.totalMatched - a.oddsData.totalMatched
+      );
 
     this.filterCompetitions = sortedMatches.slice(0, 5);
-
 
     [...this.filterCompetitions].forEach((event: any) => {
       // Find the tournament that contains this event
       const matchingTournament = uniqueSportsArray.find((sport: any) =>
-        sport.data.some((tournamentEvent: any) =>
-          tournamentEvent._id === event._id
+        sport.data.some(
+          (tournamentEvent: any) => tournamentEvent._id === event._id
         )
       );
 
       if (matchingTournament) {
-        this.tournamentLength.push(matchingTournament.data.length)
+        this.tournamentLength.push(matchingTournament.data.length);
       }
     });
-
   }
-
-
 
   setTimeFilter(filter: string) {
     this.timeFilter = filter;
@@ -274,7 +276,7 @@ export class SidebarComponent {
     this.filteredSidebarEvent = filteredData;
   }
 
-  gotoMarket(market: any, index: any) {
+  gotoMarket(market: any) {
     localStorage.setItem('competitionName', market.tournamentName);
     this.router.navigateByUrl(
       '/market-detail/' + market.sportId + '/' + market.exEventId
