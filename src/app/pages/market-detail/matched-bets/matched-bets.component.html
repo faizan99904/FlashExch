@@ -1,4 +1,5 @@
 <div title="Open Bets">
+    
     <div class="open-bet">
         <div (click)="unmatchedBets = !unmatchedBets" id="unmatched_0" class="bet-container flex-item-center">
             <div class="head pl-2">
@@ -41,8 +42,8 @@
 
             @for (bets of matchedData; track $index) {
             <div *ngIf="matchedData.length > 0" class="BetSections flex flex-col gap-1 text-sm">
-                <span class="back truncate underline text-[16px] lg:text-[13px]">{{bets?.selectionName}}</span>
-                <span>Match Odds</span>
+                <span class=" truncate underline text-[16px] lg:text-[13px]" [ngClass]="{'back':bets.type=='B','lay':bets.type=='L'}">{{bets?.selectionName}} - {{bets.marketName}}</span>
+                <span>{{bets.marketType}} - <span class="text-[#23ec23]">P</span>/<span class="text-[#ff5a5a]">L</span>:{{bets.betPl}}</span>
                 <span>Placed: {{ bets.updatedAt | date: 'M/d/yyyy, h:mm:ss a' }}</span>
             </div>
             }
