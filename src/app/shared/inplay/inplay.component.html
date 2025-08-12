@@ -21,7 +21,7 @@
 
             <div class="inplay-content bg-bg_color_primary " *ngFor="let sport of inplayList?.data; index as i"
                 [ngClass]="{'!border-t':i != 0}">
-                <div class="eventHeadName grid grid-cols-12">
+                <div class="eventHeadName grid grid-cols-12 borderColor">
                     <div class="event-title text-text_color_primary1">
                         <i class="sport-icon text-[#11e311]" [attr.sport]="sport.sportName.toLowerCase()"></i>
                         <div class="event-name text-text_color_primary1">
