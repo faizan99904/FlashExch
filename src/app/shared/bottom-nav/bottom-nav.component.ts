@@ -28,7 +28,6 @@ export class BottomNavComponent {
   ) {
     effect(() => {
       this.exposureData = this.sharedService.getExposureData()();
-      console.log('exposureData : ', this.exposureData);
     });
   }
 
