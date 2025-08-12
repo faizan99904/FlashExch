@@ -82,14 +82,14 @@
             <div [ngClass]="{'active-item': openTab=='market'}" (click)="toggleBets('market')" class="tab-wrapper">
                 <span class="text-text_secondary tab-title">Market</span>
             </div>
-            <div class="tab-wrapper" [ngClass]="{'active-item': openTab=='matchInfo'}"
-                (click)="toggleBets('matchInfo')">
+            <div class="tab-wrapper" *ngIf="isScore" [ngClass]="isStartStream?'':'active-item'"
+            (click)="isStartStream = false;clickwatch=false">
                 <span class="text-text_tertiary8 tab-title">
-                    Match Info
+                   Live Score
                 </span>
             </div>
-            <div class="tab-wrapper" [ngClass]="{'active-item': isStartStream}"
-                [ngClass]="isStartStream?'ActiveStreamTab':''" style="border-right:0px"
+            <div class="tab-wrapper" [ngClass]="isStartStream?'active-item':''"
+                style="border-right:0px"
                 (click)="isStartStream = true;clickwatch=true">
                 <span class=" text-text_tertiary8 tab-title">
                     Live Video
@@ -112,9 +112,13 @@
 @if (openTab=='market') {
 <div class="px-2 bg-black pt-2 border-solid">
 
-    <ng-container *ngIf=" !streamShowValidation && (isMobile)">
+    <ng-container *ngIf="isStartStream && streamShowValidation && (isMobile)">
         <app-video-real [eventId]="event_id" (dataEmitter)="hasStream($event)"></app-video-real>
     </ng-container>
+
+    <ng-container *ngIf="!isStartStream && token !== '' && sportId!='66101' && isScore && (isMobile)">
+        <app-scorecards [sportObj]="sportObj" [isMuted]="false"></app-scorecards>
+      </ng-container>
 
     @if (loader) {
     <app-loader></app-loader>

@@ -10,6 +10,26 @@
   --lay-bg-clr: #f1bed2;
   --back-txt-clr: Black;
   --lay-txt-clr: Black;
+
+  --cricket-cmp-match-centre__score-and-events-background: #000;
+  --cricket-cmp-mc-sc-color: #fff;
+  --cricket-cmp-mc-sc__add-inf-color: #ccc6c6;
+  --cricket-cmp-score-item-pos4-color: #999;
+  --cricket-cmp-mc-sc__status-text-color: #b2b2b2;
+  --cricket-cmp-mc-sc__status-text-completed-color: #b2b2b2;
+  --cricket-cmp-mc-sc__status-text-completed-diff-color: #b2b2b2;
+
+
+  --soccer-cmp-mc-sc-color: #fff;
+  --soccer-cmp-match-centre__score-and-events-background: #000;
+  --soccer-cmp-mc-sc__add-inf-color: #b2b2b2;
+  --soccer-cmp-score-item-pos4-color: #999;
+  --soccer-cmp-mc-sc__status-text-color: #b2b2b2;
+
+  --tennis-cmp-match-centre__score-and-events-background: #000;
+  --tennis-cmp-mc-sc-color: #fff;
+  --tennis-cmp-mc-sc__add-inf-color: #b2b2b2;
+  --tennis-cmp-mc-sc__status-text-color: #b2b2b2;
 }
 @media screen and (min-width: 1200px) {
   html {

@@ -1,0 +1,478 @@
+.pricing-page-top__match-centre {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    height: 150px;
+}
+
+
+
+.match-centre__score-and-events {
+    align-content: center;
+    width: 100%;
+    background-color: var(--cricket-cmp-match-centre__score-and-events-background);
+    margin-bottom: 0;
+    height: 150px;
+}
+
+.mc-sc {
+    color: var(--cricket-cmp-mc-sc-color);
+}
+
+.mc-sc__ctnr {
+    display: flex;
+    align-items: center;
+    margin: 0 6px;
+    padding-bottom: 10px;
+}
+
+.mc-sc__tm-dtl {
+    width: 45%;
+}
+
+.mc-sc__add-inf {
+    display: flex;
+    text-transform: uppercase;
+    font-size: 13px;
+    /* color: #b2b2b2; */
+    color: var(--cricket-cmp-mc-sc__add-inf-color);
+    margin-top: 7px;
+    font-family: Arial,Helvetica,Tahoma,sans-serif;
+    text-align: left;
+    line-height: 28px;
+    height: 28px;
+}
+
+.mc-sc__info {
+    margin-left: 10px;
+    display: flex;
+    text-transform: uppercase;
+}
+
+.mc-sc__tm-ctnr {
+    display: flex;
+    align-items: center;
+    line-height: 19px;
+    height: 34px;
+}
+
+.team-kit {
+    width: 35px;
+}
+
+.team-strip {
+    width: 6%;
+    min-width: 18px;
+    text-align: right;
+    margin: 0 5px;
+}
+
+.team-strip.small {
+    /* max-width: 12px;
+    min-width: 12px;
+    text-align: center; */
+    width: 20px;
+    overflow: hidden;
+    font-weight: 700;
+    font-family: Century Gothic,Century Gothic W01,Sans-serif;
+    font-size: 14px;
+}
+
+.team-strip_img{
+    height: 24px;
+    width: 18px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.mc-sc__team-extra-info {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+}
+.score-item.pos4 {
+    width: 100%;
+    font-size: 9px;
+    line-height: 9px;
+    height: 20px;
+    position: relative;
+    font-family: Open Sans,Arial;
+    color: var(--cricket-cmp-score-item-pos4-color);
+}
+.score-item__value {
+    margin: 0 auto;
+    display: inline-block;
+}
+.score-item__extra-info {
+    font-size: 10px;
+    position: relative;
+    top: -4px;
+    left: -3px;
+}
+
+.score-item {
+    width: 20px;
+    overflow: hidden;
+    font-weight: 700;
+    font-family: Century Gothic,Century Gothic W01,Sans-serif;
+    font-size: 14px;
+    color: #b2b2b2;
+}
+.score-item__img {
+    width: 13px;
+    vertical-align: middle;
+    text-align: center;
+    display: inline-block;
+}
+
+.team-strip img {
+    /* height: 24px;
+    width: 18px;
+    vertical-align: middle;
+    text-align: center; */
+
+    width: 18px !important;
+    height: 24px !important;
+    vertical-align: middle;
+    text-align: center;
+    display: inline-block;
+}
+
+.mc-sc__tm-dtls-container {
+    display: flex;
+    position: relative;
+    width: 70%;
+    flex-direction: column;
+}
+
+.mc-sc__team-and-score {
+    font-family: Century Gothic, Century Gothic W01, Sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    flex: auto;
+    display: flex;
+    text-align: left;
+    overflow: visible;
+    letter-spacing: 1.2px;
+    align-items: center;
+}
+
+.mc-sc__team-name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 400 !important;
+}
+
+/*  */
+
+.mc-sc__score-detail {
+    width: 55%;
+}
+
+.mc-sc__score-header {
+    display: flex;
+    line-height: 28px;
+    height: 28px;
+    margin: 3px 0 4px;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.mc-sc__score-header-icons {
+    width: 20%;
+    flex: 1 1 auto;
+    text-align: right;
+    overflow: hidden;
+    font-family: Century Gothic, Century Gothic W01, Sans-serif;
+}
+
+.mc-sc__score-header-icons.cricket.overs {
+    min-width: 65px;
+    text-align: right;
+}
+
+.mc-sc__score-header-icons.cricket.runrate,
+.mc-sc__score-header-icons.cricket.wides {
+    min-width: 40px;
+    text-align: right;
+}
+
+.mc-sc__score-header-icons.cricket.fours,
+.mc-sc__score-header-icons.cricket.sixes {
+    max-width: 25px;
+    text-align: right;
+}
+
+.mc-sc__score-header-icons.cricket.fours,
+.mc-sc__score-header-icons.cricket.sixes {
+    max-width: 25px;
+    text-align: right;
+}
+
+.mc-sc__score-header-icons.cricket.runrate,
+.mc-sc__score-header-icons.cricket.wides {
+    min-width: 40px;
+    text-align: right;
+}
+
+/*  */
+
+.mc-sc__score-values {
+    display: flex;
+    align-items: center;
+    line-height: 32px;
+    height: 32px;
+}
+
+.score-item.pos0 {
+    width: 20%;
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.score-item__value {
+    margin: 0 auto;
+    display: inline-block;
+}
+
+/*  */
+
+.mc-sc__status-text {
+    height: 16px;
+    width: 100%;
+    margin: 3px 0;
+    color: var(--cricket-cmp-mc-sc__status-text-color);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+.completed{
+    text-align: right !important;
+    color: var(--cricket-cmp-mc-sc__status-text-completed-color);
+    font-family: Century Gothic,Century Gothic W01,Sans-serif;
+    font-weight: 400;
+}
+.completed-diff{
+    text-align: center !important;
+    color: var(--cricket-cmp-mc-sc__status-text-completed-diff-color);
+    font-family: Century Gothic,Century Gothic W01,Sans-serif;
+    font-weight: 400;
+}
+.mc-sc__score-header .four-head{
+    text-align: right;
+}
+.mc-sc__score-header .six-head{
+    text-align: left;
+    position: relative;
+    left: 10px;
+}
+.mc-sc__score-header .wide-head{
+    text-align: left !important;
+    font-family: Century Gothic,Century Gothic W01,Sans-serif;
+}
+.crciket-end-data{
+    text-align: center !important;
+}
+.crciket-end-data-wide{
+    text-align: left !important;
+    position: relative;
+    left: 15px;
+}
+.mc-sc__score-header-icons {
+    width: 20%;
+    flex: 1 1 auto;
+    text-align: center;
+    overflow: hidden;
+}
+.mc-sc__score-header-icons.cricket.overs {
+    min-width: 65px;
+    text-align: right;
+    position: relative;
+    left: 23px;
+}
+.mc-sc__score-header-icons.cricket.runrate, .mc-sc__score-header-icons.cricket.wides {
+    min-width: 40px;
+}
+.mc-sc__score-header-icons.cricket.fours, .mc-sc__score-header-icons.cricket.sixes {
+    max-width: 25px;
+}
+.mc-sc__score-header-icons.cricket.fours {
+    max-width: 25px;
+}
+.mc-sc__score-header-icons span {
+    margin: 0 auto;
+    font-family: Century Gothic,Century Gothic W01,Sans-serif;
+    line-height: normal;
+    display: inline-block;
+}
+.mc-sc__score-header-icons.cricket.wides {
+    min-width: 40px;
+}
+.mc-sc__score-header-icons {
+    width: 20%;
+    flex: 1 1 auto;
+    text-align: center;
+    overflow: hidden;
+}
+.mc-sc__score-values .overs{
+    position: relative;
+    left: 30px;
+}
+.mc-sc__score-values .sixes{
+    text-align: left !important;
+    position: relative;
+    left: 14px;
+
+}
+.mc-sc__team-name{
+    font-weight: 900 !important;
+}
+@media only screen  and (min-width:992px){
+    .mc-sc__score-values .runrate{
+        position: relative;
+        left: 39.8px;
+        text-align: right !important;
+    }
+    .mc-sc__score-values .overs{
+        position: relative;
+        left: 73px;
+    text-align: center !important;
+    }
+    .mc-sc__score-values .fours{
+        position: relative;
+        left: 15px;
+    }
+    .mc-sc__score-values .wides{
+        position: relative;
+        left: 21px;
+    }
+    .mc-sc__score-header-icons{
+        text-align: right;
+        position: relative;
+        right: 2.2px;
+        top: 0.3px;
+    }
+    .score-item.pos0{
+        text-align: center;
+        position: relative;
+        left: 11.3px;
+        bottom: 0.4px;
+    }
+    .mc-sc__score-header-icons.cricket.overs{
+        min-width: 65px;
+        text-align: right;
+        position: relative;
+        left: 45px;
+    }
+    .mc-sc__score-header-icons.cricket.runrate{
+        text-align: right;
+    position: relative;
+    left: 29px;
+    }
+    .mc-sc__score-header .four-head {
+        text-align: right;
+        position: relative;
+        left: 17px;
+    }
+    .mc-sc__score-header .six-head{
+        text-align: center;
+        position: relative;
+        left: 0px;
+    }
+    .mc-sc__score-values .sixes{
+        text-align: center !important;
+        position: relative;
+        left: 1px;
+    }
+
+    .mc-sc__score-header .wide-head{
+        text-align: left !important;
+        position: relative;
+        /* left: 6px; */
+        left: 4.5px;
+    }
+    .team-strip.small {
+        position: relative;
+        right: 2px;
+    }
+    .pricing-page-top__match-centre{
+        width: 99.25%;
+        position: relative;
+        margin: 0;
+        left: 3px;
+        overflow: hidden;
+        height: 150px;
+    }
+}
+
+@media only screen and (max-width: 767px){
+.mc-sc__tm-dtl {
+    width: 55%;
+    position: relative;
+    right: 1px;
+}
+.mc-sc__score-header-icons{
+    font-size: 11px;
+}
+.mc-sc__score-header-icons.cricket.overs{
+    text-align: center !important;
+    font-size: 11px;
+    position: relative;
+    left: 21.5px;
+}
+.mc-sc__score-header-icons.cricket.runrate{
+    text-align: center !important;
+    font-size: 11px;
+    position: relative;
+    left: 1px;
+}
+.mc-sc__score-values .overs{
+    position: relative;
+    left: 3px;
+    /* text-align: center !important; */
+    font-size: 11px;
+}
+.mc-sc__score-values .runrate{
+    text-align: center !important;
+    font-size: 11px;
+    position: relative;
+    left: 2px;
+}
+.mc-sc__score-values .score{
+    font-size: 11px;
+    font-weight: 900;
+    position: relative;
+    right: 1px;
+}
+.mc-sc__status-text marquee {
+    height: 15px;
+    font-size: 12px;
+}
+.team-strip img{
+    position: relative;
+    right: 2px;
+}
+.mc-sc__score-header-icons{
+    position: relative;
+    top: 0.5px;
+}
+
+}
+
+.mc-sc__score-header{
+    font-weight: 700;
+}
+.activeInnings{
+  color: white;
+}
+.no-left{
+  left: 0px !important;
+}
+.playersName{
+  color: #b4b4b4;
+  line-height: 7px;
+  font-size: 10px;
+}

@@ -33,6 +33,7 @@ import { MatchedBetsComponent } from './matched-bets/matched-bets.component';
 import { LoaderComponent } from '../../shared/loader/loader.component';
 import { SharedService } from '../../service/shared.service';
 import { VideoRealComponent } from "./video-real/video-real.component";
+import { ScorecardsComponent } from './scorecards/scorecards.component';
 
 declare var $: any;
 
@@ -44,7 +45,8 @@ declare var $: any;
     BetslipComponent,
     MatchedBetsComponent,
     LoaderComponent,
-    VideoRealComponent
+    VideoRealComponent,
+    ScorecardsComponent
 ],
   templateUrl: './market-detail.component.html',
   styleUrl: './market-detail.component.css',
@@ -585,19 +587,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
   }
 
   checkUserForStream() {
-    // this.backendService.getBalanceExpo().pipe(first()).subscribe((data: any) => {
-
-    //   let exposure =  data.exposure < 0 ? (data.exposure * -1) : data.exposure ;
-    //   this.userBalance = data.balance + exposure
-
-    //   // if (this.userBalance < 100 ) {
-    //   //   this.streamShowValidation = false;
-    //   // }
-
-    // },
-    // (error) => {
-    //   console.error("Error fetching balance:", error);
-    // },)
+  
 
     this.userDetail = JSON.parse(localStorage.getItem('userDetail') as string);
     if (this.userDetail?.userName == 'diamonddemo') {
@@ -605,6 +595,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
     } else {
       this.streamShowValidation = true;
     }
+    console.log('streamShowValidation',this.streamShowValidation)
   }
 
   checkLoggin() {

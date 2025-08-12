@@ -187,29 +187,28 @@ export class NetworkService {
   }
   getStreamData(params: any): Observable<any> {
     return new Observable<any>((observer) => {
-      if (params.eventId == this.streamData?.data?.eventId) {
-        observer.next(this.streamData);
-        observer.complete();
-      } else {
-        // this.getAllRecordsByPost(CONFIG.videoStreamURL, params).subscribe((res: any) => {
-        //   this.streamData = res;
-        //   observer.next(res);
-        //   observer.complete();
-        // })
-// debugger
-        this.getAllRecordsByPost(CONFIG.videoStreamURL, params)
-          .then((res: any) => {
-            this.streamData = res;
-            observer.next(res);
-            observer.complete();
-          })
-          .catch((error) => {
-            // Handle error as needed
-            console.error("Error:", error);
-            observer.error(error); // If you want to propagate the error to the observer
-            observer.complete();
-          });
-      }
+     
+
+      let timestamp = new Date().getTime();
+
+      const updatedParams = {
+        ...params,
+        timestamp: timestamp
+      };
+
+      this.getAllRecordsByPost(CONFIG.videoStreamURL, updatedParams)
+        .then((res: any) => {
+          this.streamData = res;
+          observer.next(res);
+          observer.complete();
+        })
+        .catch((error) => {
+          // Handle error as needed
+          console.error("Error:", error);
+          observer.error(error); // If you want to propagate the error to the observer
+          observer.complete();
+        });
+      // }
       // this.http.post(CONFIG.videoStreamURL, params)
     });
   }
