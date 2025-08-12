@@ -572,8 +572,7 @@
                      market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[2].size,2,market.oddsType,null,market.oddsData.betDelay)"
                                             class="marketBox-wrapper !hidden md:!flex bg-bg_backBtnBgColor"
                                             type="button">
-                                            <span
-                                                class=" text-sm">{{((runner.price.back[2].price)?(runner.price.back[2].price|
+                                            <span class=" text-sm" appRateHighlighter>{{((runner.price.back[2].price)?(runner.price.back[2].price|
                                                 number):'0' )}}</span>
                                             <span class="text-x">{{(runner.price.back[2].size) |shortNumber}}</span>
                                         </button>
@@ -582,7 +581,7 @@
                    market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[1].size,1,market.oddsType,null,market.oddsData.betDelay)"
                                             class="marketBox-wrapper !hidden md:!flex bg-bg_backBtnBgColor"
                                             type="button">
-                                            <span
+                                            <span appRateHighlighter
                                                 class=" text-sm">{{((runner.price.back[1].price)?(runner.price.back[1].price|
                                                 number):'0' )}}</span>
                                             <span class="text-x">{{(runner.price.back[1].size) |shortNumber}}</span>
@@ -591,7 +590,7 @@
                                             (click)="slipColor('back'); openBetslip(market.exMarketId,runner.selectionId,'back',runner.price.back[0].price,
                    market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[0].size,0,market.oddsType,null,market.oddsData.betDelay)"
                                             class="marketBox-wrapper bg-bg_backBtnBgColor" type="button">
-                                            <span
+                                            <span appRateHighlighter
                                                 class="text-sm">{{((runner.price.back[0].price)?(runner.price.back[0].price|
                                                 number):'0' )}}</span>
                                             <span class="text-x">{{(runner.price.back[0].size) |shortNumber}}</span>
@@ -602,7 +601,7 @@
                                             (click)="slipColor('lay'); openBetslip(market.exMarketId,runner.selectionId,'lay',runner.price.lay[0].price,
                    market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[0].size,0,market.oddsType,null,market.oddsData.betDelay)"
                                             class="marketBox-wrapper bg-bg_layBtnBgColor" type="button">
-                                            <span
+                                            <span appRateHighlighter
                                                 class="text-sm">{{((runner.price.lay[0].price)?(runner.price.lay[0].price|
                                                 number):'0' )}}</span>
                                             <span class="text-x">{{(runner.price.lay[0].size) |shortNumber}}</span>
@@ -612,7 +611,7 @@
                                 market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[1].size,1,market.oddsType,null,market.oddsData.betDelay)"
                                             class="marketBox-wrapper bg-bg_layBtnBgColor !hidden md:!flex"
                                             type="button">
-                                            <span
+                                            <span appRateHighlighter
                                                 class="text-sm">{{((runner.price.lay[1].price)?(runner.price.lay[1].price|
                                                 number):'0' )}}</span>
                                             <span class="text-x">{{(runner.price.lay[1].size) |shortNumber}}</span>
@@ -622,7 +621,7 @@
                   market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[2].size,2,market.oddsType,null,market.oddsData.betDelay)"
                                             class="marketBox-wrapper bg-bg_layBtnBgColor !hidden md:!flex"
                                             type="button">
-                                            <span
+                                            <span appRateHighlighter
                                                 class="text-sm">{{((runner.price.lay[2].price)?(runner.price.lay[2].price|
                                                 number):'0' )}}</span>
                                             <span class="text-x">{{(runner.price.lay[2].size) |shortNumber}}</span>
@@ -754,7 +753,7 @@
                                                 <div (click)="slipColor('lay'); openBetslip(market.exMarketId,market.oddsData.runners[0].selectionId,'lay',market.oddsData.runners[0].price.lay[0].price,
                                              market.min, market.max,market.oddsType, market.marketName,market.oddsData.runners[0].price.lay[0].size,0,market.marketType,market.isSuperFancy,market.oddsData.betDelay)"
                                                     class="fancy-container bg-bg_color_layBtnBg">
-                                                    <span id="oddBtnPrice" class="oddBtnPrice">
+                                                    <span appRateHighlighter id="oddBtnPrice" class="oddBtnPrice">
                                                         {{(market.oddsData.runners[0].price.lay[0].price) | number}}
                                                     </span><span id="oddBtnSize"
                                                         class="oddBtnSize">{{market.oddsData.runners[0].price.lay[0].size
@@ -766,7 +765,7 @@
                                                 <div (click)="slipColor('back'); openBetslip(market.exMarketId,market.oddsData.runners[0].selectionId,'back',market.oddsData.runners[0].price.back[0].price,
                                              market.min, market.max,market.oddsType, market.marketName,market.oddsData.runners[0].price.back[0].size,0,market.marketType,market.isSuperFancy,market.oddsData.betDelay)"
                                                     class="fancyBack py-[1px] bg-bg_color_backBtnBg">
-                                                    <span id="oddBtnPrice"
+                                                    <span appRateHighlighter id="oddBtnPrice"
                                                         class="oddBtnPrice">{{(market.oddsData.runners[0].price.back[0].price)|
                                                         number}}</span>
                                                     <span id="oddBtnSize" class="oddBtnSize">
@@ -911,7 +910,7 @@
                                                         <div (click)="slipColor('sportbook'); openBetslip(market.exMarketId,runner.selectionId,'back',runner.price.back[0].price,
                                                          market.min, market.max,market.oddsType, market.marketName,runner.price.back[0].size,0,market.marketType,market.isSuperFancy,market.oddsData.betDelay)"
                                                             class="fancyBack">
-                                                            <span id="oddBtnPrice" class="oddBtnPrice">
+                                                            <span id="oddBtnPrice" class="oddBtnPrice" appRateHighlighter>
                                                                 {{(runner.price.back[0].price)| number}}
                                                             </span>
                                                             <span id="oddBtnSize" class="oddBtnSize">
