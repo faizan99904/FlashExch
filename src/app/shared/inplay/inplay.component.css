@@ -3,7 +3,7 @@
 }
 
 .border-border_color_primary {
-  border-color: #545454;
+  border-color: black;
 }
 
 .text-text_color_primary2,
@@ -13,6 +13,7 @@
 
 .bg-bg_color_primary {
   background-color: #1f2c3d;
+  border-color: black;
 }
 
 .text-text_color_oddValue {
@@ -97,7 +98,7 @@
 }
 
 .odd-boxes {
-  @apply col-span-6 h-12 lg:col-span-7 w-full overflow-auto border-t;
+  @apply col-span-6 h-12 lg:col-span-7 w-full overflow-auto border-t border-[black];
 }
 
 .odd-box-container {
@@ -121,7 +122,7 @@
 }
 
 .suspended {
-  @apply col-span-6 h-12 lg:col-span-7 w-full overflow-auto border-t;
+  @apply col-span-6 h-12 lg:col-span-7 w-full overflow-auto border-t border-[black];
 }
 
 .suspended-wrapper {
@@ -142,4 +143,7 @@
 
 .mob-odd-container {
   @apply overflow-hidden relative opacity-100 cursor-pointer active:scale-95 w-full h-full px-1 py-[1px] rounded-sm flex flex-col transition-colors duration-300 ease-in-out items-center justify-center;
+}
+.borderColor > div{
+  border-color: black !important;
 }
