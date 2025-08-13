@@ -593,7 +593,6 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
     } else {
       this.streamShowValidation = true;
     }
-    console.log('streamShowValidation',this.streamShowValidation)
   }
 
   checkLoggin() {
@@ -925,7 +924,6 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
       }
     }
 
-    console.log('AllFancyMarketsFiltered', this.AllFancyMarketsFiltered);
   }
 
   private getFirestoreBySportId(sportId: string): any {
@@ -957,7 +955,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
 
     if (marketid == 'All') {
       this.matchOddsDataUpdated = this.sortAllMarketList();
-      console.log('all',this.matchOddsDataUpdated)
+
     } else {
       this.matchOddsDataUpdated = this.filterAndSortMatchOdds(
         marketid,
