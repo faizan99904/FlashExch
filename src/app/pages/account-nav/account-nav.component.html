@@ -3,11 +3,11 @@
         <div class="user-info text-white">
             <div class="username flex items-center">
                 <span class="material-icons">person</span>
-                <span>jackey501</span>
+                <span>{{ toggle.username() }}</span>
             </div>
             <a class="balance">
-                <span>0.00</span>
-                <span>USD</span>
+                <span>{{this.userBalance?.data?.bankBalance - this.userBalance?.data?.exposure || '0.00'}}</span>
+                <span>INR</span>
             </a>
         </div>
         <div class="payments flex justify-between">

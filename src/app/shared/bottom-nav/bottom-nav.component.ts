@@ -16,6 +16,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BottomNavComponent {
   exposureData: any[] = [];
+  openBetsData: any
   loader: boolean = false
   bets: boolean = false;
   betInfo: boolean = false;
@@ -38,6 +39,18 @@ export class BottomNavComponent {
           loader: false,
           matchedBetList: []
         }));
+
+        const groupedData = {} as { [eventId: string]: any[] };
+        this.exposureData.forEach((item: any) => {
+          const eventId = item.eventId;
+          if (!groupedData[eventId]) {
+            groupedData[eventId] = [];
+          }
+          groupedData[eventId].push(item);
+        });
+        const groupedArray = Object.values(groupedData);
+        this.openBetsData = groupedArray
+        console.log(this.openBetsData);
         this.loader = false;
       },
       error: (error) => {
@@ -92,6 +105,8 @@ export class BottomNavComponent {
   openSidebar() {
     this.sharedService.mobileSidebarOpen();
   }
+
+
 
 
 }

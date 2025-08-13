@@ -69,8 +69,8 @@
                 <div class="flex items-center gap-[9.39262px] after-login-mobile-balance" *ngIf="token">
                     <div class="flex items-center">
                         <div (click)="exposureModal = true" class="balance md:!text-[16px] md:!mr-[-1vw]">
-                            <span class="amount">{{this.userBalance?.data?.bankBalance || '0.00'}}</span>
-                            <span class="currency">USD</span>
+                            <span class="amount">{{this.userBalance?.data?.bankBalance - this.userBalance?.data?.exposure || '0.00'}}</span>
+                            <span class="currency">INR</span>
                         </div>
                         <div>
                             <img src="/assets/header/deposit-money.svg" style="height: 18px;" alt="">
@@ -154,7 +154,7 @@
                         </li>
 
                         <li (click)="exposureModal = true">
-                            <a>Exposure : ({{this.userBalance?.data?.exposure+'.00' || '0'}})</a>
+                            <a  >Exposure : <span class="!text-red-500">({{this.userBalance?.data?.exposure+'.00' || '0'}})</span></a>
                         </li>
 
                         <li routerLink="/account/personalinfo">
@@ -209,8 +209,8 @@
                 </li>
 
                 <li  class="username cursor-pointer">
-                    <span class="amount">{{this.userBalance?.data?.bankBalance || '0.00'}}</span>
-                    <span class="currency-str">USD</span>
+                    <span class="amount">{{this.userBalance?.data?.bankBalance - this.userBalance?.data?.exposure || '0.00'}}</span>
+                    <span class="currency-str">INR</span>
                 </li>
 
                 <!-- <li class="li-height"> -->
