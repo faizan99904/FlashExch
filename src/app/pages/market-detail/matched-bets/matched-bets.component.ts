@@ -19,6 +19,7 @@ import { SharedService } from '../../../service/shared.service';
 export class MatchedBetsComponent {
   unmatchedBets: boolean = false;
   matchedBets: boolean = false;
+  isLiveStreaming:boolean = false
   matchedData: any;
   constructor(private shared: SharedService) {
     effect(() => {

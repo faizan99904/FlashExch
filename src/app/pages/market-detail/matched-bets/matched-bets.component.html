@@ -1,6 +1,30 @@
 <div title="Open Bets">
     
     <div class="open-bet">
+
+        <div (click)="isLiveStreaming = !isLiveStreaming" id="unmatched_0" class="bet-container flex-item-center">
+            <div class="head pl-2">
+                <span class=" text-white font-lato-bold">
+                    Live Streaming
+                </span>
+            </div>
+            <div [ngClass]="{'rotate-180': isLiveStreaming}" class="ico flex-item-center">
+                <svg xmlns="http://www.w3.org/2000/svg" transform="rotate(180)" viewBox="0 0 512 512" height="16" width="16"
+                    fill="#fff">
+                    <path
+                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z">
+                    </path>
+                </svg>
+            </div>
+        </div>
+
+        <div [ngClass]="{'overflow-hidden h-0': isLiveStreaming}" class="transition-all w-full origin-top">
+            <div class="BetSections">
+                Live streaming is currently not available.
+            </div>
+        </div>
+
+
         <div (click)="unmatchedBets = !unmatchedBets" id="unmatched_0" class="bet-container flex-item-center">
             <div class="head pl-2">
                 <span class=" text-white font-lato-bold">Unmatched

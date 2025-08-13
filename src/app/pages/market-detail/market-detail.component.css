@@ -632,8 +632,9 @@
   word-wrap: break-word;
   background: linear-gradient(180deg, #ffffff, #ffffff 42%);
   background-clip: border-box;
-  border: 1px solid #c8ced3;
+  border: 1px solid #000;
   border-radius: 0.25rem;
+  @apply !rounded-t-[7px]
 }
 
 .matchodd {
