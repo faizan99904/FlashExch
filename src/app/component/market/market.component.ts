@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MainService } from '../../service/main.service';
+import { NetworkService } from '../../service/network.service';
 import { SharedService } from '../../service/shared.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class MarketComponent implements OnInit {
   @Input() searchTab!: string;
   favourites: any
 
-  constructor(private router: Router, private mainService: MainService, private shared: SharedService) {
+  constructor(private router: Router, private mainService: MainService, private shared: SharedService,private networkService:NetworkService) {
     this.favourites = JSON.parse(
       localStorage.getItem(`multiMarket_${this.shared.username()}`) ?? '[]'
     );
@@ -34,11 +35,8 @@ export class MarketComponent implements OnInit {
       return splitArray[1];
     }
   }
-  gotoMarket(market: any) {
-    localStorage.setItem('competitionName', market.tournamentName);
-    this.router.navigateByUrl(
-      '/market-detail/' + market.sportId + '/' + market.exEventId
-    );
+  gotoMarket(event:any){
+    this.networkService.gotoMarket(event)
   }
 
   addToMultimarket(market: any) {

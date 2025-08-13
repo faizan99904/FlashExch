@@ -156,7 +156,7 @@ export class NetworkService {
       this.router.navigateByUrl(url);
     }
     else {
-      let url = "/fullMarket/" + event?.sportId + "/" + event?.exEventId;
+      let url = "/market-detail/" + event?.sportId + "/" + event?.exEventId;
       this.router.navigateByUrl(url);
     }
   }
