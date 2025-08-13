@@ -1,0 +1,64 @@
+<div class="recent-res teenpatti">
+  <h5 style="font-weight: bold;">Recent Result</h5>
+  <ul class="result">
+    <li class="casino-a sportsbookTile" *ngFor="let item of resultArray" [ngClass]="{
+      'back-1': item.result == '0 RUNS' || item.result == '1 RUNS' || item.result == '2 RUNS' || item.result == '3 RUNS' || item.result == 'EXTRA RUNS',
+      'back-4': item.result == '4 RUNS',
+      'back-6': item.result == '6 RUNS',
+      'back-wicket': item.result == 'WICKET'
+    }">
+      <a (click)="selectedResult='';setResults(item)" data-bs-toggle="modal" data-bs-target="#ballbyballResult"
+        class="number text-dark">
+        {{ item.result | slice:0:1 }}
+      </a>
+    </li>
+
+
+
+  </ul>
+</div>
+
+<!-- FOR ballbyball RESULT -->
+<div class="modal fade" id="ballbyballResult" tabindex="-1" (click)="selectedResult.streamUrl=null"
+  aria-labelledby="ballbyballResult" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bet-slip-head">
+        <h5 class="modal-title " id="exampleModalLabel">
+          <!-- DTL Teen Patti Result -->
+          <b style="text-transform: capitalize;"> {{ selectedResult?.eventName }} </b>
+        </h5>
+        <button type="button" (click)="selectedResult.streamUrl=null" data-bs-dismiss="modal" aria-label="Close"
+          class="close btn">×</button>
+      </div>
+      <div id="__BVID__33___BV_modal_body_" class="modal-body">
+        <div style="margin-bottom: 20px;">
+          <div class="modal-title  p-2 ">
+            <h6 class="text-end round-id"><b>Round Id:</b>
+              {{selectedResult?.marketId}}
+            </h6>
+          </div>
+          <div class="col-12 paati_boxs">
+            <div class="resultVideo" *ngIf="selectedResult?.streamUrl">
+
+
+              <video #videoElement id="videoballbyballResult" class="w-100" width="100%" autoplay playsinline controls loop
+               muted>
+                <source [src]="selectedResult?.streamUrl" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+          <div class="my-3 w-100 d-flex justify-content-center">
+            <span class="bg-success pt-2 pb-2 ps-2 pe-2 text-white " style="border-radius: 3px;">
+              <b>
+                {{selectedResult?.result }}</b><i class="fa fa-trophy winner-icon text-white"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

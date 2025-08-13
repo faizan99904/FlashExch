@@ -1,0 +1,45 @@
+<div class="videoPlayer">
+
+
+
+  <video id="videoBallByball" *ngIf="game?.oddsData?.status=='SUSPENDED' && !showBanner"
+    style="background-color:black;background-size: contain;" width="100%" class="isDesktop" autoplay playsinline muted>
+    <source [src]="ballbyBallStream" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <img *ngIf="game?.oddsData?.status!='SUSPENDED' || showBanner" src="../../../../assets/ballbyball.gif" alt="Ball by Ball"
+    class="isDesktop ballbyballPoster">
+
+
+  <div class="ballbyballResult " *ngIf="resultDeclared">
+    <img src="../../../../assets/emptyBall.png">
+    <span>
+      {{resultDeclared}}
+    </span>
+    <span *ngIf="resultDeclared" style="position:absolute">
+      <canvas width="100vw" height="100vh"></canvas>
+    </span>
+  </div>
+
+
+  <div class="timer-overlay">
+    <div class="timer-group" *ngIf="TIME_LIMIT !== 0">
+      <div class="timer minute">
+        <div class="hand"><span [ngClass]="timerLeft < 6 ? 'spanColorRed' : ''"></span></div>
+        <div class="hand"><span [ngClass]="timerLeft < 6 ? 'spanColorRed' : ''"></span></div>
+      </div>
+      <div class="face">
+        <span [ngClass]="timerLeft < 6 ? 'heart' : ''">
+
+          <p id="lazy" [ngClass]="{'singleDigit':  timerLeft < 10 , 'heart' : timeLeft < 6 }">
+            {{timerLeft}}
+          </p>
+
+        </span>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+

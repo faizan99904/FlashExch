@@ -1,0 +1,617 @@
+<app-loader style="display: flex; justify-content: center;" *ngIf="loader"></app-loader>
+<div class="position-relative mobileScoreCardAndStream">
+  <div class="game-highlight-wrap ">
+    <span *ngIf="sportId==4" class="cric-txt">BALL BY BALL</span>
+    <span class=" roundId">
+      {{game?.exMarketId}}
+    </span>
+    <!-- <span _ngcontent-dsh-c3="" class="selectedItem"
+    style="float:right;font-weight: bold;margin-right: 16px;font-size: 16px;">
+      <i _ngcontent-dsh-c3="" class="fa fa-television">
+      </i>
+    </span> -->
+  </div>
+  <div class="accordion-body" id="tabs" *ngIf="game?.exMarketId">
+    <app-video-ballby-ball></app-video-ballby-ball>
+  </div>
+
+</div>
+<div id="marketScroll" [ngClass]="isDesktop ? 'overflow-hidden': 'overflow-auto'">
+  <ng-container *ngIf="game?.exMarketId">
+    <div class="game-market market-6">
+      <div class="market-title">
+        <div>
+          Runs
+        </div>
+        <div class="position-relative">
+          <div class="minMaxDesktop">
+            <span>Min/Max: {{game?.min}} - {{game?.max}} </span>
+          </div>
+          <span class="minMaxMobile">
+            <i data-bs-toggle="collapse" data-bs-toggle="collapse"
+              [attr.data-bs-target]="'#multiCollapseExample'+game?.exMarketId" [attr.data-bs-target]="'#collapse12'+1"
+              class="fa fa-info-circle  ml-2" data-bs-toggle="dropdown" aria-expanded="false"
+              [attr.id]="'#collapse12'+game?.exMarketId">
+            </i>
+            <ul class="dropdown-menu icon-range min-max-info text-end  tooltip-betlimit"
+              [attr.aria-labelledby]="'collapse12'+game?.exMarketId">
+              <span>Min/Max: {{game?.min}} - {{game?.max}} </span>
+            </ul>
+
+          </span>
+        </div>
+      </div>
+
+      <div class="market-header row  ms-0 me-0">
+        <!-- <div class="col-6  d-none  d-md-block paddingZero">
+        <div class="market-row">
+          <div class="market-nation-detail"></div>
+          <div class="market-odd-box back-1">
+            <b>Back</b>
+          </div>
+        </div>
+      </div> -->
+        <div class="col-6  border-r-transparent paddingZero">
+          <div class="market-row justify-content-center">
+            <!-- <div class="market-nation-detail"></div> -->
+            <div class="market-odd-box back-0">
+              <b>Back</b>
+            </div>
+          </div>
+        </div>
+        <div class="col-6  paddingZero">
+          <div class="market-row justify-content-center">
+            <!-- <div class="market-nation-detail"></div> -->
+            <div class="market-odd-box back-0">
+              <b>Back</b>
+            </div>
+          </div>
+        </div>
+        <div class="fancy-min-max-box"></div>
+      </div>
+      <div class="market-body ">
+        <!-- 1st row -->
+        <div class="row ms-0 me-0" style="padding-top: 8px;">
+          <!-- 0 run -->
+          <div class="col-6 d-flex justify-content-center border-r-grey paddingZero">
+            <div class="fancy-market" data-title="OPEN">
+              <div class="market-row">
+                <div class=" blb-box ">
+
+                  <a class="market-odd-box back-1" appRatehighlight
+                    [ngClass]="game?.oddsData?.runners[0]?.status=='SUSPEND' || game?.oddsData?.status=='SUSPENDED' ?'suspended': (isBetsSlipOpened ==game?.oddsData?.runners[0]?.selectionId) ? 'selected_Cell' : ''"
+                    (click)="openBetslip(game?.exMarketId,game?.oddsData?.runners[0]?.selectionId,'back',game?.oddsData?.runners[0].price.back[0].price,game?.min,game?.max,game?.oddsData?.runners[0]?.status,game?.marketName,game?.oddsType,game?.oddsData?.status,0)">
+                    <div class="d-flex flex-column align-items-center" style="width: 40%;">
+                      <span class="market-odd">{{game?.oddsData?.runners[0]?.price?.back[0]?.price}}</span>
+                      <span class="market-volume">{{game?.oddsData?.runners[0]?.price?.back[0]?.size}}</span>
+                    </div>
+                    <div class="position-relative pl-market">
+                      <span class="market-nation-name pointer"
+                        style="font-weight: 800;  line-height: 22px; padding-left: 15px;">{{game?.runnersData[game?.oddsData?.runners[0]?.selectionId]}}</span>
+                      <span class="d-flex align-items-center justify-content-center position-absolute"
+                        style="bottom: 4px; left: 50%; transform: translateX(-50%);">
+                        <span class="p-0" style="display:flex; font-size:11px !important;font-weight:400"
+                          *ngIf="casinoPl[game?.exMarketId]">
+                          <span class=" d-flex">
+                            <span class="plus-book"
+                              *ngIf="casinoPl[game?.exMarketId][game?.oddsData?.runners[0]?.selectionId]>0">
+                              {{casinoPl[game?.exMarketId][game?.oddsData?.runners[0]?.selectionId]
+                              ? (absValue(casinoPl[game?.exMarketId][game?.oddsData?.runners[0]?.selectionId]) |
+                              shortNumber: '1.0-2') :
+                              ''
+                              }}
+                            </span>&nbsp;
+                            <span class="minus-book"
+                              *ngIf="casinoPl[game?.exMarketId][game?.oddsData?.runners[0]?.selectionId] < 0">
+                              ({{casinoPl[game?.exMarketId][game?.oddsData?.runners[0]?.selectionId]
+                              ? (absValue(casinoPl[game?.exMarketId][game?.oddsData?.runners[0]?.selectionId]) |
+                              shortNumber: '1.0-2') :
+                              ''
+                              }})
+                            </span>
+                          </span>
+
+                        </span>
+                      </span>
+
+                    </div>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+
+
+          </div>
+          <!-- 1 run -->
+          <div class="col-6 d-flex justify-content-center border-r-grey paddingZero">
+            <div class="fancy-market" data-title="OPEN">
+              <div class="market-row">
+                <div class="market-nation-detail p-0">
+
+                  <div class=" blb-box ">
+                    <a class="market-odd-box back-1 " appRatehighlight
+                      [ngClass]="game?.oddsData?.runners[1]?.status=='SUSPEND' || game?.oddsData?.status=='SUSPENDED' ?'suspended': (isBetsSlipOpened ==game?.oddsData?.runners[1]?.selectionId) ? 'selected_Cell' : ''"
+                      (click)="openBetslip(game?.exMarketId,game?.oddsData?.runners[1]?.selectionId,'back',game?.oddsData?.runners[1].price.back[0].price,game?.min,game?.max,game?.oddsData?.runners[1]?.status,game?.marketName,game?.oddsType,game?.oddsData?.status,0)">
+                      <div class="d-flex flex-column align-items-center" style="width: 40%;">
+                        <span class="market-odd">{{game?.oddsData?.runners[1]?.price?.back[0]?.price}}</span>
+                        <span class="market-volume">{{game?.oddsData?.runners[1]?.price?.back[0]?.size}}</span>
+                      </div>
+                      <div class="position-relative pl-market">
+                        <span class="market-nation-name pointer"
+                          style="font-weight: 800;  line-height: 22px; padding-left: 15px;">{{game?.runnersData[game?.oddsData?.runners[1]?.selectionId]}}</span>
+                        <span class="d-flex align-items-center justify-content-center position-absolute"
+                          style="bottom: 4px; left: 50%; transform: translateX(-50%);">
+                          <span class="p-0" style="display:flex; font-size:11px !important;font-weight:400"
+                            *ngIf="casinoPl[game?.exMarketId]">
+                            <span class=" d-flex">
+                              <span class="plus-book"
+                                *ngIf="casinoPl[game?.exMarketId][game?.oddsData?.runners[1]?.selectionId]>0">
+                                {{casinoPl[game?.exMarketId][game?.oddsData?.runners[1]?.selectionId]
+                                ? (absValue(casinoPl[game?.exMarketId][game?.oddsData?.runners[1]?.selectionId]) |
+                                shortNumber: '1.0-2') :
+                                ''
+                                }}
+                              </span>&nbsp;
+                              <span class="minus-book"
+                                *ngIf="casinoPl[game?.exMarketId][game?.oddsData?.runners[1]?.selectionId]<0">
+                                ({{casinoPl[game?.exMarketId][game?.oddsData?.runners[1]?.selectionId]
+                                ? (absValue(casinoPl[game?.exMarketId][game?.oddsData?.runners[1]?.selectionId]) |
+                                shortNumber: '1.0-2') :
+                                ''
+                                }})
+                              </span>
+                            </span>
+
+                          </span>
+                        </span>
+
+                      </div>
+                    </a>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="paddingZero" style="padding-bottom: 0.625rem !important;"
+            *ngIf="(isBetsSlipOpened==game?.oddsData?.runners[0]?.selectionId || isBetsSlipOpened==game?.oddsData?.runners[1]?.selectionId) && game?.oddsData?.status!='SUSPENDED'">
+            <div id="betslip" class="sportsbookBg blue-bet-slip-back custom-td">
+
+              <app-betslip (valueEventPlaceBet)="getValueBetSlip($event)" [item]="betplaceObj"
+                [id]="game?.oddsData?.runners[6]?.selectionId+'_'+game?.exMarketId"></app-betslip>
+
+            </div>
+          </div>
+        </div>
+        <!-- 2nd row -->
+        <div class="row  ms-0 me-0">
+          <!-- 2 run -->
+          <div class="col-6 d-flex justify-content-center border-r-grey paddingZero">
+            <div class="fancy-market" data-title="OPEN">
+              <div class="market-row">
+                <div class=" blb-box ">
+                  <a class="market-odd-box back-1 " appRatehighlight
+                    [ngClass]="game?.oddsData?.runners[2]?.status=='SUSPEND' || game?.oddsData?.status=='SUSPENDED' ?'suspended': (isBetsSlipOpened ==game?.oddsData?.runners[2]?.selectionId) ? 'selected_Cell' : ''"
+                    (click)="openBetslip(game?.exMarketId,game?.oddsData?.runners[2]?.selectionId,'back',game?.oddsData?.runners[2].price.back[0].price,game?.min,game?.max,game?.oddsData?.runners[2]?.status,game?.marketName,game?.oddsType,game?.oddsData?.status,0)">
+                    <div class="d-flex flex-column align-items-center" style="width: 40%;">
+                      <span class="market-odd">{{game?.oddsData?.runners[2]?.price?.back[0]?.price}}</span>
+                      <span class="market-volume">{{game?.oddsData?.runners[2]?.price?.back[0]?.size}}</span>
+                    </div>
+                    <div class="position-relative pl-market">
+                      <span class="market-nation-name pointer"
+                        style="font-weight: 800;  line-height: 22px; padding-left: 15px;">{{game?.runnersData[game?.oddsData?.runners[2]?.selectionId]}}</span>
+                      <span class="d-flex align-items-center justify-content-center position-absolute"
+                        style="bottom: 4px; left: 50%; transform: translateX(-50%);">
+                        <span class="p-0" style="display:flex; font-size:11px !important;font-weight:400"
+                          *ngIf="casinoPl[game?.exMarketId]">
+                          <span class=" d-flex">
+                            <span class="plus-book"
+                              *ngIf="casinoPl[game?.exMarketId][game?.oddsData?.runners[2]?.selectionId]>0">
+                              {{casinoPl[game?.exMarketId][game?.oddsData?.runners[2]?.selectionId]
+                              ? (absValue(casinoPl[game?.exMarketId][game?.oddsData?.runners[2]?.selectionId]) |
+                              shortNumber: '1.0-2') :
+                              ''
+                              }}
+                            </span>&nbsp;
+                            <span class="minus-book"
+                              *ngIf="casinoPl[game?.exMarketId][game?.oddsData?.runners[2]?.selectionId]<0">
+                              ({{casinoPl[game?.exMarketId][game?.oddsData?.runners[2]?.selectionId]
+                              ? (absValue(casinoPl[game?.exMarketId][game?.oddsData?.runners[2]?.selectionId]) |
+                              shortNumber: '1.0-2') :
+                              ''
+                              }})
+                            </span>
+                          </span>
+
+                        </span>
+                      </span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 3 run -->
+          <div class="col-6 d-flex justify-content-center border-r-grey paddingZero">
+            <div class="fancy-market" data-title="OPEN">
+              <div class="market-row">
+                <div class=" blb-box ">
+                  <a class="market-odd-box back-1 " appRatehighlight
+                    [ngClass]="game?.oddsData?.runners[2]?.status=='SUSPEND' || game?.oddsData?.status=='SUSPENDED' ?'suspended': (isBetsSlipOpened ==game?.oddsData?.runners[3]?.selectionId) ? 'selected_Cell' : ''"
+                    (click)="openBetslip(game?.exMarketId,game?.oddsData?.runners[3]?.selectionId,'back',game?.oddsData?.runners[3].price.back[0].price,game?.min,game?.max,game?.oddsData?.runners[3]?.status,game?.marketName,game?.oddsType,game?.oddsData?.status,0)">
+                    <div class="d-flex flex-column align-items-center" style="width: 40%;">
+                      <span class="market-odd">{{game?.oddsData?.runners[3]?.price?.back[0]?.price}}</span>
+                      <span class="market-volume">{{game?.oddsData?.runners[3]?.price?.back[0]?.size}}</span>
+                    </div>
+
+                    <div class="position-relative pl-market">
+                      <span class="market-nation-name pointer"
+                        style="font-weight: 800;  line-height: 22px; padding-left: 15px;">{{game?.runnersData[game?.oddsData?.runners[3]?.selectionId]}}</span>
+                      <span class="d-flex align-items-center justify-content-center position-absolute"
+                        style="bottom: 4px; left: 50%; transform: translateX(-50%);">
+                        <span class="p-0" style="display:flex; font-size:11px !important;font-weight:400"
+                          *ngIf="casinoPl[game?.exMarketId]">
+                          <span class=" d-flex">
+                            <span class="plus-book"
+                              *ngIf="casinoPl[game?.exMarketId][game?.oddsData?.runners[3]?.selectionId]>0">
+                              {{casinoPl[game?.exMarketId][game?.oddsData?.runners[3]?.selectionId]
+                              ? (absValue(casinoPl[game?.exMarketId][game?.oddsData?.runners[3]?.selectionId]) |
+                              shortNumber: '1.0-2') :
+                              ''
+                              }}
+                            </span>&nbsp;
+                            <span class="minus-book"
+                              *ngIf="casinoPl[game?.exMarketId][game?.oddsData?.runners[3]?.selectionId]<0">
+                              ({{casinoPl[game?.exMarketId][game?.oddsData?.runners[3]?.selectionId]
+                              ? (absValue(casinoPl[game?.exMarketId][game?.oddsData?.runners[3]?.selectionId]) |
+                              shortNumber: '1.0-2') :
+                              ''
+                              }})
+                            </span>
+                          </span>
+                        </span>
+                      </span>
+
+                    </div>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-6 null paddingZero" *ngIf="game?.oddsData?.runners[8]">
+            <div class="fancy-market" data-title="OPEN">
+              <div class="market-row">
+                <div class=" blb-box ">
+                  <a class="market-odd-box back-1 " appRatehighlight
+                    [ngClass]="game?.oddsData?.runners[8]?.status=='SUSPEND' || game?.oddsData?.status=='SUSPENDED' ?'suspended': (isBetsSlipOpened ==game?.oddsData?.runners[8]?.selectionId) ? 'selected_Cell' : ''"
+                    (click)="openBetslip(game?.exMarketId,game?.oddsData?.runners[8]?.selectionId,'back',game?.oddsData?.runners[8].price.back[0].price,game?.min,game?.max,game?.oddsData?.runners[8]?.status,game?.marketName,game?.oddsType,game?.oddsData?.status,0)">
+                    <div class="d-flex flex-column align-items-center" style="width: 40%;">
+                      <span class="market-odd">{{game?.oddsData?.runners[8]?.price?.back[0]?.price}}</span>
+                      <span class="market-volume">{{game?.oddsData?.runners[8]?.price?.back[0]?.size}}</span>
+                    </div>
+                    <div class="position-relative pl-market">
+                      <span class="market-nation-name pointer"
+                        style="font-weight: 800;  line-height: 22px; padding-left: 15px;">{{game?.runnersData[game?.oddsData?.runners[8]?.selectionId]}}</span>
+                      <span class="d-flex align-items-center position-absolute"
+                        style="bottom: 4px; left: 50%; transform: translateX(-50%);">
+                        <span class="p-0" style="display:flex; font-size:11px !important;font-weight:400"
+                          *ngIf="casinoPl[game?.exMarketId] ">
+                          <span class=" d-flex">
+                            <span class="plus-book"
+                              *ngIf="casinoPl[game?.exMarketId][game?.oddsData?.runners[8]?.selectionId]>0">
+                              {{casinoPl[game?.exMarketId][game?.oddsData?.runners[8]?.selectionId]
+                              ? (absValue(casinoPl[game?.exMarketId][game?.oddsData?.runners[8]?.selectionId]) |
+                              shortNumber: '1.0-2') :
+                              ''
+                              }}
+                            </span>&nbsp;
+                            <span class="minus-book"
+                              *ngIf="casinoPl[game?.exMarketId][game?.oddsData?.runners[8]?.selectionId]<0">
+                              ({{casinoPl[game?.exMarketId][game?.oddsData?.runners[8]?.selectionId]
+                              ? (absValue(casinoPl[game?.exMarketId][game?.oddsData?.runners[8]?.selectionId]) |
+                              shortNumber: '1.0-2') :
+                              ''
+                              }})
+                            </span>
+                          </span>
+
+                        </span>
+                      </span>
+
+                    </div>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="paddingZero" style="padding-bottom: 0.625rem !important;"
+            *ngIf="(isBetsSlipOpened==game?.oddsData?.runners[2]?.selectionId || isBetsSlipOpened==game?.oddsData?.runners[3]?.selectionId) && game?.oddsData?.status!='SUSPENDED'">
+            <div id="betslip" class="sportsbookBg blue-bet-slip-back custom-td">
+
+              <app-betslip (valueEventPlaceBet)="getValueBetSlip($event)" [item]="betplaceObj"
+                [id]="game?.oddsData?.runners[6]?.selectionId+'_'+game?.exMarketId"></app-betslip>
+            </div>
+          </div>
+        </div>
+        <!-- 3rd row -->
+        <div class="row  ms-0 me-0">
+          <!-- 4 run -->
+          <div class="col-6 d-flex justify-content-center border-r-grey paddingZero">
+            <div class="fancy-market" data-title="OPEN">
+              <div class="market-row">
+                <!-- <div class="market-nation-detail">
+                 
+
+              
+
+                </div> -->
+                <div class=" blb-box ">
+                  <a class="market-odd-box back-4 " appRatehighlight
+                    [ngClass]="game?.oddsData?.runners[4]?.status=='SUSPEND' || game?.oddsData?.status=='SUSPENDED' ?'suspended': (isBetsSlipOpened ==game?.oddsData?.runners[4]?.selectionId) ? 'selected_Cell' : ''"
+                    (click)="openBetslip(game?.exMarketId,game?.oddsData?.runners[4]?.selectionId,'back',game?.oddsData?.runners[4].price.back[0].price,game?.min,game?.max,game?.oddsData?.runners[4]?.status,game?.marketName,game?.oddsType,game?.oddsData?.status,0)">
+                    <div class="d-flex flex-column align-items-center" style="width: 40%;">
+                      <span class="market-odd">{{game?.oddsData?.runners[4]?.price?.back[0]?.price}}</span>
+                      <span class="market-volume">{{game?.oddsData?.runners[4]?.price?.back[0]?.size}}</span>
+                    </div>
+                    <div class="position-relative pl-market">
+                      <span class="market-nation-name pointer"
+                        style="font-weight: 800;  line-height: 22px; padding-left: 15px;">{{game?.runnersData[game?.oddsData?.runners[4]?.selectionId]}}</span>
+                      <span class="d-flex align-items-center position-absolute"
+                        style="bottom: 4px; left: 50%; transform: translateX(-50%);">
+                        <span class="p-0" style="display:flex; font-size:11px !important;font-weight:400"
+                          *ngIf="casinoPl[game?.exMarketId]">
+                          <span class=" d-flex">
+                            <span class="plus-book"
+                              *ngIf="casinoPl[game?.exMarketId][game?.oddsData?.runners[4]?.selectionId]>0">
+                              {{casinoPl[game?.exMarketId][game?.oddsData?.runners[4]?.selectionId]
+                              ? (absValue(casinoPl[game?.exMarketId][game?.oddsData?.runners[4]?.selectionId]) |
+                              shortNumber: '1.0-2') :
+                              ''
+                              }}
+                            </span>&nbsp;
+                            <span class="minus-book"
+                              *ngIf="casinoPl[game?.exMarketId][game?.oddsData?.runners[4]?.selectionId]<0">
+                              ({{casinoPl[game?.exMarketId][game?.oddsData?.runners[4]?.selectionId]
+                              ? (absValue(casinoPl[game?.exMarketId][game?.oddsData?.runners[4]?.selectionId]) |
+                              shortNumber: '1.0-2') :
+                              ''
+                              }})
+                            </span>
+                          </span>
+
+                        </span>
+                      </span>
+
+                    </div>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!-- 6 run -->
+          <div class="col-6 d-flex justify-content-center border-r-grey paddingZero">
+            <div class="fancy-market" data-title="OPEN">
+              <div class="market-row">
+                <!-- <div class="market-nation-detail">
+                  
+
+
+                </div> -->
+                <div class=" blb-box ">
+                  <a class="market-odd-box back-6 " appRatehighlight
+                    [ngClass]="game?.oddsData?.runners[5]?.status=='SUSPEND' || game?.oddsData?.status=='SUSPENDED' ?'suspended': (isBetsSlipOpened ==game?.oddsData?.runners[5]?.selectionId) ? 'selected_Cell' : ''"
+                    (click)="openBetslip(game?.exMarketId,game?.oddsData?.runners[5]?.selectionId,'back',game?.oddsData?.runners[5].price.back[0].price,game?.min,game?.max,game?.oddsData?.runners[5]?.status,game?.marketName,game?.oddsType,game?.oddsData?.status,0)">
+                    <div class="d-flex flex-column align-items-center" style="width: 40%;">
+                      <span class="market-odd">{{game?.oddsData?.runners[5]?.price?.back[0]?.price}}</span>
+                      <span class="market-volume">{{game?.oddsData?.runners[5]?.price?.back[0]?.size}}</span>
+                    </div>
+
+                    <div class="position-relative pl-market">
+                      <span class="market-nation-name pointer"
+                        style="font-weight: 800;  line-height: 22px; padding-left: 15px;">{{game?.runnersData[game?.oddsData?.runners[5]?.selectionId]}}</span>
+                      <span class="d-flex align-items-center position-absolute"
+                        style="bottom: 4px; left: 50%; transform: translateX(-50%);">
+                        <span class="p-0" style="display:flex; font-size:11px !important;font-weight:400"
+                          *ngIf="casinoPl[game?.exMarketId]">
+                          <span class=" d-flex">
+                            <span class="plus-book"
+                              *ngIf="casinoPl[game?.exMarketId][game?.oddsData?.runners[5]?.selectionId]>0">
+                              {{casinoPl[game?.exMarketId][game?.oddsData?.runners[5]?.selectionId]
+                              ? (absValue(casinoPl[game?.exMarketId][game?.oddsData?.runners[5]?.selectionId]) |
+                              shortNumber: '1.0-2') :
+                              ''
+                              }}
+                            </span>&nbsp;
+                            <span class="minus-book"
+                              *ngIf="casinoPl[game?.exMarketId][game?.oddsData?.runners[5]?.selectionId]<0">
+                              ({{casinoPl[game?.exMarketId][game?.oddsData?.runners[5]?.selectionId]
+                              ? (absValue(casinoPl[game?.exMarketId][game?.oddsData?.runners[5]?.selectionId]) |
+                              shortNumber: '1.0-2') :
+                              ''
+                              }})
+                            </span>
+                          </span>
+
+                        </span>
+                      </span>
+
+                    </div>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="paddingZero" style="padding-bottom: 0.625rem !important;"
+            *ngIf="(isBetsSlipOpened==game?.oddsData?.runners[4]?.selectionId || isBetsSlipOpened==game?.oddsData?.runners[5]?.selectionId) && game?.oddsData?.status!='SUSPENDED'">
+            <div id="betslip" class="sportsbookBg blue-bet-slip-back custom-td">
+
+              <app-betslip (valueEventPlaceBet)="getValueBetSlip($event)" [item]="betplaceObj"
+                [id]="game?.oddsData?.runners[2]?.selectionId+'_'+game?.exMarketId"></app-betslip>
+            </div>
+          </div>
+        </div>
+        <!-- 4rth row -->
+        <div class="row  ms-0 me-0">
+          <!-- wiket -->
+          <div class="col-6 d-flex justify-content-center paddingZero border-r-grey">
+            <div class="fancy-market" data-title="OPEN">
+              <div class="market-row">
+                <!-- <div class="market-nation-detail">
+
+
+                 
+
+                </div> -->
+                <div class=" blb-box ">
+                  <a class="market-odd-box back-wicket " appRatehighlight
+                    [ngClass]="game?.oddsData?.runners[6]?.status=='SUSPEND' || game?.oddsData?.status=='SUSPENDED' ?'suspended': (isBetsSlipOpened ==game?.oddsData?.runners[6]?.selectionId) ? 'selected_Cell' : ''"
+                    (click)="openBetslip(game?.exMarketId,game?.oddsData?.runners[6]?.selectionId,'back',game?.oddsData?.runners[6].price.back[0].price,game?.min,game?.max,game?.oddsData?.runners[6]?.status,game?.marketName,game?.oddsType,game?.oddsData?.status,0)">
+                    <div class="d-flex flex-column align-items-center" style="width: 40%;">
+                      <span class="market-odd">{{game?.oddsData?.runners[6]?.price?.back[0]?.price}}</span>
+                      <span class="market-volume">{{game?.oddsData?.runners[6]?.price?.back[0]?.size}}</span>
+                    </div>
+                    <div class="position-relative pl-market">
+                      <span class="market-nation-name pointer"
+                        style="font-weight: 800;  line-height: 42px; padding-left: 15px;">{{game?.runnersData[game?.oddsData?.runners[6]?.selectionId]}}</span>
+                      <span class="d-flex align-items-center position-absolute"
+                        style="bottom: 4px; left: 50%; transform: translateX(-50%);">
+                        <span class="p-0" style="display:flex; font-size:11px !important;font-weight:400"
+                          *ngIf="casinoPl[game?.exMarketId]">
+                          <span class=" d-flex">
+
+                            <span class="plus-book"
+                              *ngIf="casinoPl[game?.exMarketId][game?.oddsData?.runners[6]?.selectionId]>0">
+                              {{casinoPl[game?.exMarketId][game?.oddsData?.runners[6]?.selectionId]
+                              ? (absValue(casinoPl[game?.exMarketId][game?.oddsData?.runners[6]?.selectionId]) |
+                              shortNumber: '1.0-2') :
+                              ''
+                              }}
+                            </span>&nbsp;
+                            <span class="minus-book"
+                              *ngIf="casinoPl[game?.exMarketId][game?.oddsData?.runners[6]?.selectionId]<0">
+                              ({{casinoPl[game?.exMarketId][game?.oddsData?.runners[6]?.selectionId]
+                              ? (absValue(casinoPl[game?.exMarketId][game?.oddsData?.runners[6]?.selectionId]) |
+                              shortNumber: '1.0-2') :
+                              ''
+                              }})
+                            </span>
+                          </span>
+                        </span>
+                      </span>
+
+                    </div>
+                  </a>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+          <!-- extra score -->
+          <div class="col-6 d-flex justify-content-center paddingZero ">
+            <div class="fancy-market" data-title="OPEN">
+              <!--  -->
+              <div class="market-row">
+                <div class=" blb-box ">
+                  <a class="market-odd-box back-1 " appRatehighlight
+                    [ngClass]="game?.oddsData?.runners[7]?.status=='SUSPEND' || game?.oddsData?.status=='SUSPENDED' ?'suspended': (isBetsSlipOpened ==game?.oddsData?.runners[7]?.selectionId) ? 'selected_Cell' : ''"
+                    (click)="openBetslip(game?.exMarketId,game?.oddsData?.runners[7]?.selectionId,'back',game?.oddsData?.runners[7].price.back[0].price,game?.min,game?.max,game?.oddsData?.runners[7]?.status,game?.marketName,game?.oddsType,game?.oddsData?.status,0)">
+                    <div class="d-flex flex-column align-items-center" style="width: 40%;">
+                      <span class="market-odd">{{game?.oddsData?.runners[7]?.price?.back[0]?.price}}</span>
+                      <span class="market-volume">{{game?.oddsData?.runners[7]?.price?.back[0]?.size}}</span>
+                    </div>
+                    <div class="position-relative pl-market">
+                      <span class="market-nation-name pointer text-center d-flex justify-center align-items-center"
+                        style="font-weight: 800; line-height: 24px; padding-left: 9px; font-size: 12px !important; ">{{game?.runnersData[game?.oddsData?.runners[7]?.selectionId]}}</span>
+                      <span class="d-flex align-items-center position-absolute"
+                        style="bottom: 4px; left: 50%; transform: translateX(-50%);">
+                        <span class="p-0" style="display:flex; font-size:11px !important;font-weight:400"
+                          *ngIf="casinoPl[game?.exMarketId]">
+                          <span class=" d-flex">
+                            <span class="plus-book"
+                              *ngIf="casinoPl[game?.exMarketId][game?.oddsData?.runners[7]?.selectionId]>0">
+                              {{casinoPl[game?.exMarketId][game?.oddsData?.runners[7]?.selectionId]
+                              ? (absValue(casinoPl[game?.exMarketId][game?.oddsData?.runners[7]?.selectionId]) |
+                              shortNumber: '1.0-2') :
+                              ''
+                              }}
+                            </span>&nbsp;
+                            <span class="minus-book"
+                              *ngIf="casinoPl[game?.exMarketId][game?.oddsData?.runners[7]?.selectionId]<0">
+                              ({{casinoPl[game?.exMarketId][game?.oddsData?.runners[7]?.selectionId]
+                              ? (absValue(casinoPl[game?.exMarketId][game?.oddsData?.runners[7]?.selectionId]) |
+                              shortNumber: '1.0-2') :
+                              ''
+                              }})
+                            </span>
+                          </span>
+
+                        </span>
+                      </span>
+
+                    </div>
+                  </a>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+          <div class="paddingZero" style="padding-bottom: 0.625rem !important;"
+            *ngIf="(isBetsSlipOpened==game?.oddsData?.runners[6]?.selectionId || isBetsSlipOpened==game?.oddsData?.runners[7]?.selectionId) && game?.oddsData?.status!='SUSPENDED'">
+            <div id="betslip" class="sportsbookBg blue-bet-slip-back custom-td">
+
+              <app-betslip (valueEventPlaceBet)="getValueBetSlip($event)" [item]="betplaceObj"
+                [id]="game?.oddsData?.runners[6]?.selectionId+'_'+game?.exMarketId"></app-betslip>
+            </div>
+          </div>
+        </div>
+        <!-- 5th row -->
+        <!-- <div class="row ms-0 me-0">
+
+          <div class="col-6  paddingZero">
+
+          </div>
+          <div class="paddingZero" style="padding-bottom: 0.625rem !important;"
+            *ngIf="isBetsSlipOpened==game?.oddsData?.runners[4]?.selectionId && game?.oddsData?.status!='SUSPENDED'">
+            <div id="betslip" class="sportsbookBg blue-bet-slip-back custom-td">
+
+              <app-betslip (valueEventPlaceBet)="getValueBetSlip($event)" [item]="betplaceObj"
+                [id]="game?.oddsData?.runners[6]?.selectionId+'_'+game?.exMarketId"></app-betslip>
+            </div>
+          </div>
+        </div> -->
+        <!-- 6th row -->
+        <!-- <div class="row  ms-0 me-0">
+
+          <div class="col-6  paddingZero">
+          </div>
+          <div class="paddingZero" style="padding-bottom: 0.625rem !important;"
+            *ngIf="isBetsSlipOpened==game?.oddsData?.runners[5]?.selectionId && game?.oddsData?.status!='SUSPENDED'">
+            <div id="betslip" class="sportsbookBg blue-bet-slip-back custom-td">
+
+              <app-betslip (valueEventPlaceBet)="getValueBetSlip($event)" [item]="betplaceObj"
+                [id]="game?.oddsData?.runners[6]?.selectionId+'_'+game?.exMarketId"></app-betslip>
+            </div>
+          </div>
+        </div> -->
+      </div>
+
+
+    </div>
+    <div class="text-right progress-bar">
+      <marquee direction="left" scrollamount="3" behavior="scroll" class="pull-right progress-bar-txt">
+        {{game?.news}}
+      </marquee>
+    </div>
+    <!-- results -->
+    <app-results [resultArray]="results"></app-results>
+  </ng-container>
+</div>
