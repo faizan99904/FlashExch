@@ -19,45 +19,43 @@
 </div>
 
 <!-- FOR ballbyball RESULT -->
-<div class="modal fade" id="ballbyballResult" tabindex="-1" (click)="selectedResult.streamUrl=null"
-  aria-labelledby="ballbyballResult" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header bet-slip-head">
-        <h5 class="modal-title " id="exampleModalLabel">
-          <!-- DTL Teen Patti Result -->
-          <b style="text-transform: capitalize;"> {{ selectedResult?.eventName }} </b>
-        </h5>
-        <button type="button" (click)="selectedResult.streamUrl=null" data-bs-dismiss="modal" aria-label="Close"
-          class="close btn">×</button>
+<!-- Ball by Ball Result Modal -->
+<div class="fixed inset-0 z-50 flex top-[0.5rem] justify-center bg-black bg-opacity-50" *ngIf="isResultModal"
+  (click)="isResultModal = false">
+  <div class="rounded-lg max-h-fit shadow-lg w-full max-w-lg mx-2 overflow-hidden" (click)="$event.stopPropagation()">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between bg-black px-4 py-3 border-b">
+      <h5 class="font-bold text-white text-lg capitalize">
+        {{ selectedResult?.eventName }}
+      </h5>
+      <button class="text-white hover:text-gray-800 text-xl font-bold" (click)="isResultModal = false">&times;</button>
+    </div>
+
+    <!-- Body -->
+    <div class="p-2 bg-white ">
+
+      <!-- Round Id -->
+      <div class="mb-2">
+        <h6 class="text-right text-sm font-semibold">
+          <b>Round Id:</b> {{ selectedResult?.marketId }}
+        </h6>
       </div>
-      <div id="__BVID__33___BV_modal_body_" class="modal-body">
-        <div style="margin-bottom: 20px;">
-          <div class="modal-title  p-2 ">
-            <h6 class="text-end round-id"><b>Round Id:</b>
-              {{selectedResult?.marketId}}
-            </h6>
-          </div>
-          <div class="col-12 paati_boxs">
-            <div class="resultVideo" *ngIf="selectedResult?.streamUrl">
 
+      <!-- Video -->
+      <div class="mb-4" *ngIf="selectedResult?.streamUrl">
+        <video class="w-full rounded" autoplay playsinline controls loop muted>
+          <source [src]="selectedResult?.streamUrl" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
 
-              <video #videoElement id="videoballbyballResult" class="w-100" width="100%" autoplay playsinline controls loop
-               muted>
-                <source [src]="selectedResult?.streamUrl" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-
-          <div class="clearfix"></div>
-          <div class="my-3 w-100 d-flex justify-content-center">
-            <span class="bg-success pt-2 pb-2 ps-2 pe-2 text-white " style="border-radius: 3px;">
-              <b>
-                {{selectedResult?.result }}</b><i class="fa fa-trophy winner-icon text-white"></i>
-            </span>
-          </div>
-        </div>
+      <!-- Result -->
+      <div class="flex justify-center">
+        <span class="bg-green-600 text-white px-3 py-1 rounded-sm flex items-center gap-2">
+          <b>{{ selectedResult?.result }}</b>
+          <i class="fa fa-trophy"></i>
+        </span>
       </div>
     </div>
   </div>

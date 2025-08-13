@@ -1,6 +1,6 @@
 .market-title {
-  background: var(--marketdetails-marketName-bg);
-  color: var(--marketdetails-marketName-text);
+  background-color: rgb(39 45 51);
+  color: #ffffff;
   padding: 5px 10px;
   font-size: 15px;
   font-weight: bold;
@@ -345,6 +345,7 @@
   transform: translate3d(0px, -2px, 0px) !important;
 
   max-width: 200px;
+  min-width: 150px;
   color: #fff;
   text-align: center !important;
   background-color: #000;
@@ -396,7 +397,7 @@
   height: 25px;
   padding: 0;
   margin: 0;
-  background: var(--fancy-news-bg);
+  background: #c2d5e4;
   border-radius: 0;
   box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.1);
   transition: width 0.4s ease;
@@ -422,4 +423,19 @@
   align-items: center;
   font-size: 12px;
   font-weight: 600;
+}
+
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * 0);
+  margin-right: calc(-0.5 * 1.5rem);
+  margin-left: calc(-0.5 * 1.5rem);
+}
+
+.col-6 {
+  flex: 0 0 auto;
+  width: 50%;
 }

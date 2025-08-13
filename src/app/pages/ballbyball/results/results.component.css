@@ -1,7 +1,7 @@
 /* results */
 
 .recent-res {
-  background: #000;
+  background-color: rgb(18 21 25);
   padding: 5px;
   color: #fff;
   margin-top: 50px;
@@ -159,3 +159,5 @@ h6 {
 .back-wicket {
   background: linear-gradient(to bottom, #e7645a, #f68f87, #ff5043) !important;
 }
+
+

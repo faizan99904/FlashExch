@@ -228,7 +228,7 @@
   width: 150px;
   margin: 0 auto;
   display: block;
-  background: url(../../../../assets/t20/bg-ok.gif) repeat-x #eee;
+  background: url(/assets/t20/bg-ok.gif) repeat-x #eee;
   border: 1px solid #bbb;
   border-radius: 4px;
   color: #1e1e1e;
@@ -395,9 +395,9 @@
   font-size: 20px;
   font-weight: bold;
   position: absolute;
-  top: 8px;
+  top: 11px;
   text-align: center;
-  right: 2px;
+  right: 4px;
   color: white;
 
 }

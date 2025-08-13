@@ -22,7 +22,9 @@ import { LoaderComponent } from "../../shared/loader/loader.component";
 
 @Component({
   selector: 'app-ballbyball',
+
   standalone: true,
+  
   imports: [
     CommonModule,
     BetslipComponent,
@@ -35,6 +37,7 @@ import { LoaderComponent } from "../../shared/loader/loader.component";
   styleUrl: './ballbyball.component.css',
 })
 export class BallbyballComponent implements OnInit, OnDestroy {
+  isTooltip: boolean = false
   subscription!: Subscription | undefined;
   subscription2!: Subscription | undefined;
   // @ViewChild(PlaceBetComponent) MatchedBetsComponent!: NewType;

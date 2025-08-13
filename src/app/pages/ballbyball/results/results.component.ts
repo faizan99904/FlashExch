@@ -11,6 +11,7 @@ import { NetworkService } from '../../../service/network.service';
   styleUrl: './results.component.css',
 })
 export class ResultsComponent implements OnInit {
+  isResultModal:boolean = false
   selectedResult: any ={
     streamUrl:'',
     marketId:'',
@@ -37,6 +38,7 @@ export class ResultsComponent implements OnInit {
     };
     document.body.style.overflow = 'hidden';
     this.selectedResult = result;
+    this.isResultModal = true
 
     this.selectedResult = JSON.parse(JSON.stringify(result));
     this.cdr.detectChanges();
