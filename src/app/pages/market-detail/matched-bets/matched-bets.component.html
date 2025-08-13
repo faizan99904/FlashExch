@@ -2,7 +2,7 @@
     
     <div class="open-bet">
 
-        <div (click)="isLiveStreaming = !isLiveStreaming" id="unmatched_0" class="bet-container flex-item-center">
+        <div (click)="isLiveStreaming = !isLiveStreaming" id="unmatched_0" class="bet-container flex-item-center max-lg:!hidden">
             <div class="head pl-2">
                 <span class=" text-white font-lato-bold">
                     Live Streaming
@@ -19,7 +19,7 @@
         </div>
 
         <div [ngClass]="{'overflow-hidden h-0': isLiveStreaming}" class="transition-all w-full origin-top">
-            <div class="BetSections">
+            <div class="BetSections max-lg:!hidden">
                 Live streaming is currently not available.
             </div>
         </div>
@@ -60,7 +60,7 @@
                 </svg>
             </div>
         </div>
-        <div [ngClass]="{'overflow-hidden h-0': matchedBets}" class="w-full origin-top transition-all">
+        <div [ngClass]="{'overflow-hidden h-0 !pb-0': matchedBets}" class="w-full origin-top transition-all max-lg:pb-[70px]">
             <div *ngIf="matchedData.length === 0" class="BetSections">
                 You have no Matched Bets.</div>
 
