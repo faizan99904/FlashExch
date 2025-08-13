@@ -597,7 +597,7 @@
 }
 
 .bookmakerNews {
-  font-size: 11px;
+  font-size: 12px;
   width: 100%;
 }
 
@@ -630,11 +630,10 @@
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background: linear-gradient(180deg, #ffffff, #ffffff 42%);
   background-clip: border-box;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   border-radius: 0.25rem;
-  @apply !rounded-t-[7px]
+  /* @apply !rounded-t-[7px] */
 }
 
 .matchodd {
@@ -643,6 +642,9 @@
 
 .card-body {
   flex: 1 1 auto;
+  background: linear-gradient(180deg, #ffffff, #ffffff 42%);
+  width: calc(100% - 1px);
+  margin-left: 0.5px;
 }
 
 .back-gradientSportbook {

@@ -125,7 +125,7 @@ export class SidebarComponent {
       .filter((sub) => sub?.oddsData?.totalMatched != null)
       .sort((a, b) => b.oddsData.totalMatched - a.oddsData.totalMatched);
     this.filterTopEvent = sorted.slice(0, 5);
-    console.log(this.filterTopEvent);
+ 
   }
 
   // filterRacingEvent() {
@@ -141,14 +141,14 @@ export class SidebarComponent {
     events.forEach((event: any) => {
       if (event.inPlay === true) {
         uniqueEventsMap.set(event.eventId, event);
-        console.log(event);
+
       }
 
       if (Array.isArray(event.eventsData)) {
         event.eventsData.forEach((subEvent: any) => {
           if (subEvent.inPlay === true) {
             uniqueEventsMap.set(subEvent.eventId, subEvent);
-            console.log(subEvent);
+
           }
         });
       }
@@ -158,7 +158,7 @@ export class SidebarComponent {
     this.raceEvents =
       inPlayEvents.length > 0 ? inPlayEvents : events.slice(0, 5);
 
-    console.log(this.raceEvents);
+
   }
 
   // RearrangingData(data: any) {
@@ -222,7 +222,7 @@ export class SidebarComponent {
       if (matchingTournament) {
         this.tournamentLength.push(matchingTournament.data.length);
         this.tournamentData.push(matchingTournament.data);
-        console.log('tournamentData : ', this.tournamentData);
+   
       }
     });
   }

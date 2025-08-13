@@ -651,12 +651,18 @@
                         <div class="">
                             <div class="card mb-0 matchodd bookmaker-mobile-custom-css">
 
-                                <div class="match-container bg-cricketHeaderGradient ">
+                                <div class="match-container bg-cricketHeaderGradient !rounded-t-[3px]">
                                     <div class="matchcontainer !w-full">
-                                        <span class="marketname">{{market?.marketName}}</span>
-                                        <div class="flex-item-center gap-[3px]">
+                                        <span class="marketname text-nowrap">{{market?.marketName}}</span>
 
-                                            <span class="matched-count pull-right outer-div4">Matched
+                                        <marquee *ngIf="market?.news"
+                                            class="pull-right flex-auto fancy-marquee outer-div3 hideDesktopMarque px-2 !text-[13px]"
+                                            scrollamount="3" behavior="scroll">
+                                            <strong class="bookmakerNews">{{market?.news}} </strong>
+                                        </marquee>
+
+                                        <div class="flex-item-center gap-[3px]">
+                                            <span class="matched-count pull-right outer-div4 text-nowrap">Matched
                                                 <strong>€ {{market?.oddsData?.totalMatched|
                                                     shortNumber}}</strong></span>
                                         </div>
