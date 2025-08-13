@@ -41,11 +41,12 @@
         </div>
 
         <div class="wraper bg-[#121519] p-4 rounded-lg shadow-xl flex flex-col gap-4 mx-2.5">
-            <div *ngFor="let item of exposureData let i = index" class="bg-gray-800 rounded-md">
-                <div (click)="toggleBet(item, i)"
+            <div *ngFor="let item of openBetsData let i = index" class="bg-gray-800 rounded-md">
+                <div (click)="toggleBet(item[0], i)"
                     class="flex items-center justify-between py-3 px-4 cursor-pointer transition-colors">
-                    <div class="truncate font-medium">{{item?.eventName}}</div>
-                    <span [ngClass]="{'rotate-180': item.openBets}" class="transition-transform duration-300">
+                    <div class="truncate font-medium">{{item[0].eventName}}</div>
+                    <span [ngClass]="{'rotate-180': checkBoxIndex == i}" class="transition-transform duration-300">
+
                         <svg width="20" height="20" viewBox="0 0 30 30" fill="none">
                             <path
                                 d="M15.7071 9.29289C15.3166 8.90237 14.6834 8.90237 14.2929 9.29289L7.92893 15.6569C7.53841 16.0474 7.53841 16.6805 7.92893 17.0711C8.31946 17.4616 8.95262 17.4616 9.34315 17.0711L15 11.4142L20.6569 17.0711C21.0474 17.4616 21.6805 17.4616 22.0711 17.0711C22.4616 16.6805 22.4616 16.0474 22.0711 15.6569L15.7071 9.29289Z"
@@ -68,7 +69,7 @@
                             <li class="w-[25%] text-right">Profit</li>
                         </ul>
 
-                        @for (bet of item.matchedBetList; track $index) {
+                        @for (bet of matchedBetList; track $index) {
                         <ul *ngIf="bet.type == 'B'"
                             class="py-[9px] back flex flex-col px-2 text-black text-[12px] justify-between rounded-md shadow-sm mt-1">
                             @if (betInfo) {
@@ -100,7 +101,7 @@
                             <li class="w-[16%] text-center">Stake</li>
                             <li class="w-[25%] text-right">Liability</li>
                         </ul>
-                        @for (bet of item.matchedBetList; track $index) {
+                        @for (bet of matchedBetList; track $index) {
                         <ul *ngIf="bet.type == 'L'"
                             class="py-[9px] flex lay flex-col px-2 text-black text-[12px] justify-between rounded-md shadow-sm mt-1">
                             @if (betInfo) {

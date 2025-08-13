@@ -20,7 +20,8 @@ export class BottomNavComponent {
   loader: boolean = false
   bets: boolean = false;
   betInfo: boolean = false;
-  checkBoxIndex: any
+  checkBoxIndex: any;
+  matchedBetList:any;
   constructor(
     private sharedService: SharedService,
     private backendService: NetworkService,
@@ -33,13 +34,13 @@ export class BottomNavComponent {
     this.http.post(CONFIG.userEventExposure, {}).subscribe({
       next: (res: any) => {
         // Apply the same transformation logic that was in the effect
-        this.exposureData = (res.data ?? []).map((item: any) => ({
-          ...item,
-          openBets: false,
-          loader: false,
-          matchedBetList: []
-        }));
-
+        // this.exposureData = (res.data ?? []).map((item: any) => ({
+        //   ...item,
+        //   openBets: false,
+        //   loader: false,
+        //   matchedBetList: []
+        // }));
+        this.exposureData = res.data;
         const groupedData = {} as { [eventId: string]: any[] };
         this.exposureData.forEach((item: any) => {
           const eventId = item.eventId;
@@ -74,16 +75,15 @@ export class BottomNavComponent {
   }
 
   toggleBet(item: any, index: number) {
-
+    
+    this.matchedBetList = [];
     if (this.checkBoxIndex == index) {
       this.checkBoxIndex = null
     } else {
-      this.checkBoxIndex = index
+      this.checkBoxIndex = index;
+      this.loader = true;
     }
 
-    item.openBets = !item.openBets;
-    if (item.openBets && item.matchedBetList.length === 0) {
-      this.loader = true;
       let req = {
         eventId: item.eventId,
         sportId: item.sportId,
@@ -92,14 +92,14 @@ export class BottomNavComponent {
         .getAllRecordsByPost(CONFIG.eventMatchedBetList, req)
         .then(
           (record: any) => {
-            item.matchedBetList = record.data;
+            this.matchedBetList = record.data;
             this.loader = false;
           },
           () => {
             this.loader = false;
           }
         );
-    }
+    
   }
 
   openSidebar() {
