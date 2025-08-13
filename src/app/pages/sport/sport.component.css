@@ -1,0 +1,50 @@
+.sport-item {
+  position: relative;
+  background-color: #151a21;
+  padding: 0 5vw;
+  height: 14.5vw;
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  width: 10vw;
+  margin-left: 2vw;
+  font-size: 7vw;
+  text-align: right;
+  box-sizing: border-box;
+}
+
+.all-sports {
+  background-color: rgb(16 19 23 );
+  color: #ffffff;
+  font-size: 3.73333vw;
+  line-height: 2.2;
+  text-align: center;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.champs > li {
+  height: 15vw;
+  display: flex;
+  align-items: center;
+  background-color: #101317;
+  color: #fff;
+  padding: 0 5vw;
+}
+
+.champs > li .arrow {
+  font-size: 5vw;
+  padding-right: 1.5vw;
+}
+
+.arrow-forward {
+  width: 10vw;
+  margin-left: 2vw;
+  font-size: 7vw;
+  text-align: right;
+  box-sizing: border-box;
+}

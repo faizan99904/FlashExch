@@ -2,7 +2,7 @@
     <app-header class="relative z-[11]"></app-header>
     <app-sports-nav class="max-[820px]:hidden relative z-10"></app-sports-nav>
     <div class="flex lg:gap-[11px] xl:gap-[14px] layout-wrapper lg:px-[1vw]"
-        *ngIf="activeRoute === 'market-detail' || activeRoute === '/' || activeRoute === 'racing' || activeRoute === 'competitions' || activeRoute === 'lottery' || activeRoute === 'virtual' || activeRoute === 'news' || activeRoute === 'lottery-details' || activeRoute === 'inplay' || activeRoute === 'ballByBall' ">
+        *ngIf="activeRoute === 'market-detail' || activeRoute === '/' || activeRoute === 'racing' || activeRoute === 'competitions' || activeRoute === 'lottery' || activeRoute === 'virtual' || activeRoute === 'news' || activeRoute === 'lottery-details' || activeRoute === 'inplay' || activeRoute === 'ballByBall' || activeRoute === 'sport' ">
 
         <div class="lg:max-w-[198px] xl:max-w-[252px]">
             <app-sidebar></app-sidebar>
@@ -32,7 +32,7 @@
 
     </div>
     <div class="w-full layout-wrapper !overflow-y-auto"
-        *ngIf="activeRoute !== 'market-detail' && activeRoute != '/' && activeRoute !== 'racing' && activeRoute !== 'competitions' && activeRoute !== 'lottery' && activeRoute !== 'virtual' && activeRoute !== 'news' && activeRoute !== 'lottery-details' && activeRoute !== 'inplay' && activeRoute !== 'ballByBall' ">
+        *ngIf="activeRoute !== 'market-detail' && activeRoute != '/' && activeRoute !== 'racing' && activeRoute !== 'competitions' && activeRoute !== 'lottery' && activeRoute !== 'virtual' && activeRoute !== 'news' && activeRoute !== 'lottery-details' && activeRoute !== 'inplay' && activeRoute !== 'ballByBall' && activeRoute !== 'sport' ">
         <router-outlet></router-outlet>
     </div>
     <div class="fixed left-0 bottom-0 w-full z-[999]">

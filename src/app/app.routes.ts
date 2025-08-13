@@ -44,6 +44,7 @@ import { InplayComponent } from './shared/inplay/inplay.component';
 import { VirtualComponent } from './pages/virtual/virtual.component';
 import { LotteryDetailsComponent } from './shared/lottery-details/lottery-details.component';
 import { BallbyballComponent } from './pages/ballbyball/ballbyball.component';
+import { SportComponent } from './pages/sport/sport.component';
 
 export const routes: Routes = [
   {
@@ -67,7 +68,7 @@ export const routes: Routes = [
         path: 'ballByBall/:sportId/:eventId',
         component: BallbyballComponent,
       },
-     
+
       { path: 'racing/:id', component: RacingComponent },
       { path: 'competitions/:id', component: CompetitionsComponent },
       { path: 'virtual', component: VirtualComponent },
@@ -95,6 +96,7 @@ export const routes: Routes = [
         path: 'lottery-details/:sportId/:eventId',
         component: LotteryDetailsComponent,
       },
+      { path: 'sport', component: SportComponent }
     ],
   },
 
