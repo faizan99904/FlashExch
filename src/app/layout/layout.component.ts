@@ -23,7 +23,6 @@ import { MatchedBetsComponent } from "../pages/market-detail/matched-bets/matche
     BottomNavComponent,
     BetslipComponent,
     SportsNavComponent,
-    MobileSidebarComponent,
     SignupComponent,
     ForgetModalComponent,
     CommonModule,
