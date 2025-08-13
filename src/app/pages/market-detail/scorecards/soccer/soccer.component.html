@@ -1,0 +1,215 @@
+<!-- Soccer -->
+<div class="pricing-page-top__match-centre">
+    <div class="match-centre__score-and-events desktopView">
+        <div class="item" *ngIf="checkData?.length > 0">
+            <div class="cricket mc-sc">
+                <div class="mc-sc__ctnr">
+                    <div class="mc-sc__tm-dtl">
+                        <div class="mc-sc__add-inf">
+                            <div style="font-size: 12px;text-transform: capitalize;font-weight: bold;"> Powered By
+                                Universe Score </div>
+                            <!-- <div class="mc-sc__info"></div> -->
+                        </div>
+                        <div class="mc-sc__tm-ctnr">
+                            <!-- <div class="score-item pos1 bat-ball val-ball">
+                               <span *ngIf="slider[0]?.score?.scoreItems[0]?.scoreData[totalSets?.length+2]?.value=='*'">
+                                    <img class="score-item__img ball bat-ball" src="./../../../../../assets/ball.svg">
+                                </span>
+                            </div> -->
+                            <div class="team-kit">
+                                <div class="team-strip small">
+                                    <img class="soccerShirt"
+                                        src="https://spxstatic.com/sports/assets/media/spTeamKits/{{teamInfo?.team1KitFileName}}">
+                                    <!-- [alt]="slider[0]?.score?.teamInfo?.team1Abbreviation" -->
+                                </div>
+                            </div>
+                            <div class="mc-sc__tm-dtls-container">
+                                <div class="mc-sc__team-and-score">
+                                    <div class="mc-sc__team-name">
+                                        {{(teamInfo?.team1Name)?.length>20 ||
+                                        (teamInfo?.team2Name)?.length>20 ?
+                                        teamInfo?.team1Abbreviation :
+                                        teamInfo?.team1Name
+                                        }}
+                                    </div>
+
+                                </div>
+                                <div class="mc-sc__team-extra-info">
+
+                                    <div  class="score-item pos4 currentBatsman" *ngIf="isDesktop">
+                                        <span class="score-item__value">
+                                            {{slider[0]?.scoreData[0]?.value}}
+                                            <span  class="score-item__extra-info"></span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mc-sc__tm-ctnr">
+                            <!-- <div class="score-item pos1 bat-ball val-ball">
+                                <span *ngIf="slider[0]?.score?.scoreItems[1]?.scoreData[totalSets?.length+2]?.value=='*'">
+                                    <img class="score-item__img ball bat-ball" src="./../../../../../assets/ball.svg">
+                                </span>
+                            </div> -->
+                            <div class="team-kit">
+                                <div class="team-strip small">
+                                    <img class="soccerShirt"
+                                        src="https://spxstatic.com/sports/assets/media/spTeamKits/{{teamInfo?.team2KitFileName}}">
+                                    <!-- [alt]="slider[0]?.score?.teamInfo?.team2Abbreviation" -->
+                                </div>
+                            </div>
+                            <div class="mc-sc__tm-dtls-container">
+                                <div class="mc-sc__team-and-score">
+                                    <div class="mc-sc__team-name">
+
+                                        {{(teamInfo?.team1Name)?.length>20 ||
+                                        (teamInfo?.team2Name)?.length>20 ?
+                                        teamInfo?.team2Abbreviation :
+                                        teamInfo?.team2Name
+                                        }}
+
+                                    </div>
+                                </div>
+                                <div class="mc-sc__team-extra-info">
+                                                                    
+                                    <div  class="score-item pos4 currentBatsman" *ngIf="isDesktop">
+                                        <span class="score-item__value">
+                                            {{slider[1]?.scoreData[0]?.value}}
+                                            <span  class="score-item__extra-info"></span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mc-sc__score-detail">
+                        <div class="mc-sc__score-header">
+                            <!-- goal info -->
+                            <div class="football goal mc-sc__score-header-icons soccergoal"><img alt=""
+                                    src="../../../../../assets/scoreCard/goal.svg">
+                            </div>
+                            <!-- HT score -->
+                            <div class="football goal mc-sc__score-header-icons soccerhtscore"><img alt=""
+                                    src="../../../../../assets/scoreCard/htscore.svg">
+                            </div>
+                            <!-- corner -->
+                            <div class="football goal mc-sc__score-header-icons soccercorner"><img alt=""
+                                    src="../../../../../assets/scoreCard/corner.svg">
+                            </div>
+                            <!-- Yellow card -->
+                            <div class="football goal mc-sc__score-header-icons socceryellow-card">
+                                <img alt="" src="../../../../../assets/scoreCard/yellow-card.svg">
+                            </div>
+                            <!-- Red card -->
+                            <div class="football goal mc-sc__score-header-icons soccerred-card">
+                                <img alt="" src="../../../../../assets/scoreCard/red-card.svg">
+                            </div>
+                            <!-- Penalty -->
+                            <div class="football goal mc-sc__score-header-icons soccerpenalty"  *ngIf="isDesktop"><img
+                                    alt="" src="../../../../../assets/scoreCard/penalty.svg">
+                            </div>
+                            <!-- Shots -->
+                            <div class="football mc-sc__score-header-icons score soccershots"  *ngIf="isDesktop">
+                                <span class="text"> SHOTS </span>
+                            </div>
+                            <!-- Shots On -->
+                            <div class="football mc-sc__score-header-icons score soccershotsontarget"  *ngIf="isDesktop"><span
+                                    class="text"> SHOTS ON </span>
+                            </div>
+                            <!-- Poss % -->
+                            <div class="football mc-sc__score-header-icons score soccerpossession"  *ngIf="isDesktop">
+                                <span class="text"> POSS % </span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mc-sc__score-values">
+                                <!-- goal info -->
+                                <div class="score-item pos0 score">
+                                    <span class="score-item__value">{{slider[0]?.scoreData[0]?.value}}</span>
+                                </div>
+                                <!-- HT -->
+                                <div class="score-item completed pos0 overs">
+                                    <span class="score-item__value"> {{slider[0]?.scoreData[1]?.value}}</span>
+                                </div>
+                                <!-- corner -->
+                                <div class="score-item completed pos0 runrate">
+                                    <span class="score-item__value">{{slider[0]?.scoreData[2]?.value}}</span>
+                                </div>
+                                <!-- Yellow -->
+                                <div class="score-item completed pos0 fours">
+                                    <span class="score-item__value">{{slider[0]?.scoreData[3]?.value}}</span>
+                                </div>
+                                <!-- Red -->
+                                <div class="score-item completed pos0 sixes crciket-end-data">
+                                    <span class="score-item__value"> {{slider[0]?.scoreData[4]?.value}}</span>
+                                </div>
+                                <!-- penalty -->
+                                <div class="score-item completed pos0 sixes crciket-end-data"  *ngIf="isDesktop">
+                                    <span class="score-item__value">{{slider[0]?.scoreData[5]?.value}}</span>
+                                </div>
+                                <!-- Shots-->
+                                <div class="score-item completed pos0 sixes crciket-end-data"  *ngIf="isDesktop">
+                                    <span class="score-item__value">{{slider[0]?.scoreData[6]?.value}}</span>
+                                </div>
+                                <!-- Shots On -->
+                                <div class="score-item completed pos0 sixes crciket-end-data"  *ngIf="isDesktop">
+                                    <span class="score-item__value">{{slider[0]?.scoreData[7]?.value}}</span>
+                                </div>
+                                <!-- Poss % -->
+                                <div class="score-item completed pos0 sixes crciket-end-data"  *ngIf="isDesktop">
+                                    <span class="score-item__value">{{slider[0]?.scoreData[8]?.value}}</span>
+                                </div>
+                            </div>
+                            <div class="mc-sc__score-values">
+                                <!-- goal info -->
+                                <div class="score-item pos0 sets">
+                                    <span>{{slider[1]?.scoreData[0]?.value}}</span>
+                                </div>
+                                <!-- HT -->
+                                <div class="score-item completed pos0 one">
+                                    <!-- *ngFor="let item of FetchSets(slider[0]?.score?.scoreItems[0]?.scoreData)" -->
+                                    <span class="">{{slider[1]?.scoreData[1]?.value}}</span>
+                                </div>
+                                <!-- corner -->
+                                <div class="score-item completed pos0 two">
+                                    <span>{{slider[1]?.scoreData[2]?.value}}</span>
+                                </div>
+                                <!-- Yellow Card -->
+                                <div class="score-item completed pos0 three">
+                                    <span>{{slider[1]?.scoreData[3]?.value}}</span>
+                                </div>
+                                <!-- Red -->
+                                <div class="score-item completed pos0 four crciket-end-data">
+                                    <span>{{slider[0]?.scoreData[4]?.value}}</span>
+                                </div>
+                                <!-- Penalty -->
+                                <div class="score-item completed pos0 four crciket-end-data"  *ngIf="isDesktop">
+                                    <span>{{slider[1]?.scoreData[5]?.value}}</span>
+                                </div>
+                                <!-- shots -->
+                                <div class="score-item completed pos0 four crciket-end-data"  *ngIf="isDesktop">
+                                    <span>{{slider[1]?.scoreData[6]?.value}}</span>
+                                </div>
+                                <!-- Shots On -->
+                                <div class="score-item completed pos0 four crciket-end-data"  *ngIf="isDesktop">
+                                    <span>{{slider[1]?.scoreData[7]?.value}}</span>
+                                </div>
+                                <!-- Poss % -->
+                                <div class="score-item completed pos0 four crciket-end-data"  *ngIf="isDesktop">
+                                    <span>{{slider[1]?.scoreData[8]?.value}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="mc-sc__status-text">
+                    <marquee direction="scroll" scrolldelay="100" class="pull-right fancy-marquee">
+                        {{slider[0].score.statusCommentry}}
+                    </marquee>
+                </div> -->
+            </div>
+        </div>
+        <div class="flex justify-center items-center" *ngIf="slider?.length === 0"
+            style="height: 100%;">
+            <img src="./../../../../../assets/loader.gif" alt="loader" />
+        </div>
+    </div>
+</div>

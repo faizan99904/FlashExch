@@ -38,6 +38,7 @@ export class VideoRealComponent implements OnInit, AfterViewInit, OnDestroy {
   currentState: boolean = false;
   streamingAppName: any;
   streamingToken: any;
+  loader:boolean = true;
   private visibilityChangeHandler: () => void;
 
   constructor(
@@ -177,6 +178,7 @@ export class VideoRealComponent implements OnInit, AfterViewInit, OnDestroy {
     };
 
     this.networkService.getStreamData(req).subscribe((res: any) => {
+      this.loader=false;
       this.streamDate = res.data;
       this.streamingName = this.streamDate?.streamingName;
       this.streamingURl = this.streamDate?.url;

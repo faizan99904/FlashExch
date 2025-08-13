@@ -226,6 +226,12 @@ export class SidebarComponent {
       }
     });
   }
+  
+
+  restSidebar(){
+    this.parentIndex = null;
+    this.childIndex = null
+  }
 
   toggleLeagues(index: number): void {
     this.activeDropdownIndex =

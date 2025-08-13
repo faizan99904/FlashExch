@@ -1,21 +1,17 @@
 import {
-  AfterViewInit,
   Component,
   effect,
   ElementRef,
   HostListener,
   Inject,
-  Input,
   OnDestroy,
   OnInit,
   Renderer2,
-  ViewChild,
 } from '@angular/core';
 // import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import * as moment from 'moment';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { first, Subscription } from 'rxjs';
 import * as _ from 'lodash';
@@ -33,6 +29,8 @@ import { MatchedBetsComponent } from './matched-bets/matched-bets.component';
 import { LoaderComponent } from '../../shared/loader/loader.component';
 import { SharedService } from '../../service/shared.service';
 import { VideoRealComponent } from "./video-real/video-real.component";
+import { ScorecardsComponent } from './scorecards/scorecards.component';
+import { RateHighlighterDirective } from './directive/rate-highlighter.directive';
 
 declare var $: any;
 
@@ -44,7 +42,9 @@ declare var $: any;
     BetslipComponent,
     MatchedBetsComponent,
     LoaderComponent,
-    VideoRealComponent
+    VideoRealComponent,
+    ScorecardsComponent,
+    RateHighlighterDirective
 ],
   templateUrl: './market-detail.component.html',
   styleUrl: './market-detail.component.css',
@@ -585,19 +585,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
   }
 
   checkUserForStream() {
-    // this.backendService.getBalanceExpo().pipe(first()).subscribe((data: any) => {
-
-    //   let exposure =  data.exposure < 0 ? (data.exposure * -1) : data.exposure ;
-    //   this.userBalance = data.balance + exposure
-
-    //   // if (this.userBalance < 100 ) {
-    //   //   this.streamShowValidation = false;
-    //   // }
-
-    // },
-    // (error) => {
-    //   console.error("Error fetching balance:", error);
-    // },)
+  
 
     this.userDetail = JSON.parse(localStorage.getItem('userDetail') as string);
     if (this.userDetail?.userName == 'diamonddemo') {
@@ -605,6 +593,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
     } else {
       this.streamShowValidation = true;
     }
+    console.log('streamShowValidation',this.streamShowValidation)
   }
 
   checkLoggin() {
@@ -968,6 +957,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
 
     if (marketid == 'All') {
       this.matchOddsDataUpdated = this.sortAllMarketList();
+      console.log('all',this.matchOddsDataUpdated)
     } else {
       this.matchOddsDataUpdated = this.filterAndSortMatchOdds(
         marketid,
@@ -1029,10 +1019,10 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
             market.marketType !== 'MATCH_ODDS' &&
             market.marketType !== 'Bookmakers'
         )
-        .sort((a: any, b: any) => a.sequence - b.sequence)
+       
     );
 
-    return [...matchOdds, ...bookmakers, ...otherMarkets];
+    return [...matchOdds, ...bookmakers, ...otherMarkets].sort((a: any, b: any) => a.sequence - b.sequence);
   }
 
   checkJursy(value: any) {
