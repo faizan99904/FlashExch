@@ -125,6 +125,9 @@
                                 <li class="w-[25%] flex items-center justify-end font-semibold">{{bet.betPl}}</li>
                             </div>
                         </ul> }
+
+
+
                         <div class="flex items-center mt-2.5 gap-1.5">
                             <input (click)="betInfo = !betInfo" [checked]="betInfo" type="checkbox"
                                 class="h-[13px] w-[13px] appearance-none rounded border border-gray-300 bg-white transition-all checked:border-[#11e311] checked:bg-[#11e311] focus:outline-none">
@@ -132,6 +135,13 @@
                         </div>
                     </div>
                 </div>
+
+               
+            </div>
+
+            <div class="no-data" style="display: block;" *ngIf="openBetsData <= 0 && !loader">
+                <div class="material-icons icon">assignment</div>
+                <div class="text">Data not found</div>
             </div>
         </div>
 
