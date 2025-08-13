@@ -219,11 +219,11 @@
                             {{login ? 'Place Bet' : 'Login'}}
                         </span>
                         <div class=" text-text_color_primary2 text-xs"><span>
-                                <span *ngIf="color === '#aed8ff'">Profit : </span>
-                                <span *ngIf="color === '#f1bed2'">Liability : </span>
+                                <span *ngIf="color == 'back'">Profit : </span>
+                                <span *ngIf="color == 'lay'">Liability : </span>
                             </span>
-                            <span *ngIf="color === '#aed8ff'">{{profit || '0'}}</span>
-                            <span *ngIf="color === '#f1bed2'">{{ profit ? profit + 10 : '0' }}</span>
+                            <span *ngIf="color == 'back'">{{profit || '0'}}</span>
+                            <span *ngIf="color == 'lay'">{{ profit ? profit + 10 : '0' }}</span>
                         </div>
                     </div>
                     <div class="flex items-center justify-center gap-x-1"><span><svg xmlns="http://www.w3.org/2000/svg"

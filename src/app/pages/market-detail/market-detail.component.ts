@@ -175,7 +175,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
       .subscribe((data: any) => {
         if (data) {
           this.clicked = false;
-          this.loader = data.loader;
+          // this.loader = data.loader;
 
           if (data.profitlossCall == true && data.loader == false) {
             this.ProfitLossBalance();
