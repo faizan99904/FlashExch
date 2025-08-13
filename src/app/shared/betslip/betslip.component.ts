@@ -159,7 +159,7 @@ export class BetslipComponent {
     this.editableStakes = [...this.getCurrentStakeButtons()];
     //
 
-    this.item;
+    
     this.getStackData();
 
     this.matchMeSwitch = JSON.parse(localStorage.getItem('matchMe') as string)
