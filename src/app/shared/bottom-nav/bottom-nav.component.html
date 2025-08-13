@@ -17,7 +17,7 @@
             <img src="/assets/images/sports.svg" alt="">
             <span class="text-[#FFFFFF99] text-[13.125px] font-bold">Sports</span>
         </li>
-        <li (click)="bets = true"
+        <li (click)="toggleBets()"
             class="flex flex-col items-center justify-center gap-[0.709vw] relative opacity-[0.6]">
             <img src="/assets/images/bets.svg" alt="">
             <span class="text-[#FFFFFF99] text-[13.125px] font-bold">My Bets</span>
@@ -41,8 +41,8 @@
         </div>
 
         <div class="wraper bg-[#121519] p-4 rounded-lg shadow-xl flex flex-col gap-4">
-            <div *ngFor="let item of exposureData" class="bg-gray-800 rounded-md">
-                <div (click)="toggleBet(item)"
+            <div *ngFor="let item of exposureData let i = index" class="bg-gray-800 rounded-md">
+                <div (click)="toggleBet(item, i)"
                     class="flex items-center justify-between py-3 px-4 cursor-pointer transition-colors">
                     <div class="truncate font-medium">{{item?.eventName}}</div>
                     <span [ngClass]="{'rotate-180': item.openBets}" class="transition-transform duration-300">
@@ -54,11 +54,11 @@
                     </span>
                 </div>
 
-                <div *ngIf="item.loader" class="flex justify-center py-6">
+                <div *ngIf="loader" class="flex justify-center py-6">
                     <app-loader></app-loader>
                 </div>
 
-                <div *ngIf="item.openBets" class="collapsible flex flex-col gap-2 p-3">
+                <div *ngIf="checkBoxIndex == i" class="collapsible flex flex-col gap-2 p-3">
                     <span class="px-3 py-1 bg-black rounded-sm w-fit text-sm tracking-wide shadow-sm">Matched</span>
                     <div class="info-container text-[12px]">
                         <ul class="py-[9px] flex text-gray-400">
@@ -67,15 +67,10 @@
                             <li class="w-[16%] text-center">Stake</li>
                             <li class="w-[25%] text-right">Profit</li>
                         </ul>
-                        <ul class="py-[9px] flex text-gray-400 border-b border-gray-700">
-                            <li class="w-[42%] text-left">Lay (Bet Against)</li>
-                            <li class="w-[16%] text-center">Odds</li>
-                            <li class="w-[16%] text-center">Stake</li>
-                            <li class="w-[25%] text-right">Liability</li>
-                        </ul>
-                        <ul *ngFor="let bet of item.matchedBetList"
-                            [ngClass]="{'lay': bet.type === 'L','back': bet.type === 'B'}"
-                            class="py-[9px] flex flex-col px-2 text-black text-[12px] justify-between rounded-md shadow-sm mt-1">
+
+                        @for (bet of item.matchedBetList; track $index) {
+                        <ul *ngIf="bet.type == 'B'"
+                            class="py-[9px] back flex flex-col px-2 text-black text-[12px] justify-between rounded-md shadow-sm mt-1">
                             @if (betInfo) {
                             <span class="text-[11px]">Ref: {{ bet.updatedAt | date:'dd-MM-yyyy HH:mm:ss' }}</span>
                             }
@@ -97,6 +92,38 @@
                                 <li class="w-[25%] flex items-center justify-end font-semibold">{{bet.betPl}}</li>
                             </div>
                         </ul>
+                        }
+
+                        <ul class="py-[9px] flex text-gray-400">
+                            <li class="w-[42%] text-left">Lay (Bet Against)</li>
+                            <li class="w-[16%] text-center">Odds</li>
+                            <li class="w-[16%] text-center">Stake</li>
+                            <li class="w-[25%] text-right">Liability</li>
+                        </ul>
+                        @for (bet of item.matchedBetList; track $index) {
+                        <ul *ngIf="bet.type == 'L'"
+                            class="py-[9px] flex lay flex-col px-2 text-black text-[12px] justify-between rounded-md shadow-sm mt-1">
+                            @if (betInfo) {
+                            <span class="text-[11px]">Ref: {{ bet.updatedAt | date:'dd-MM-yyyy HH:mm:ss' }}</span>
+                            }
+                            <div class="flex">
+                                <li class="w-[42%] flex items-center gap-1 truncate">
+                                    <span
+                                        [ngClass]="{'lay-box text-white': bet.type === 'L','back-box text-white': bet.type === 'B'}"
+                                        class="px-1 py-0.5 rounded text-[11px]">
+                                        {{bet.type === 'L' ? 'Lay' : 'Back'}}
+                                    </span>
+                                    <div class="flex flex-col truncate">
+                                        <span class="truncate font-medium">{{bet.selectionName}}</span>
+                                        <span class="truncate opacity-60 text-[11px]">{{bet.marketName}}</span>
+                                    </div>
+                                </li>
+                                <li class="w-[16%] flex items-center justify-center font-semibold">
+                                    {{bet.oddsPrice}}/{{bet.oddsRate}}</li>
+                                <li class="w-[16%] flex items-center justify-center">{{bet.stake}}</li>
+                                <li class="w-[25%] flex items-center justify-end font-semibold">{{bet.betPl}}</li>
+                            </div>
+                        </ul> }
                         <div class="flex items-center mt-2.5 gap-1.5">
                             <input (click)="betInfo = !betInfo" [checked]="betInfo" type="checkbox"
                                 class="h-[13px] w-[13px] appearance-none rounded border border-gray-300 bg-white transition-all checked:border-[#11e311] checked:bg-[#11e311] focus:outline-none">
