@@ -48,11 +48,11 @@
   100%,
   80% {
     box-shadow: 0 0;
-    height: 24px;
+    height: 34px;
   }
 
   40% {
     box-shadow: 0 -10px;
-    height: 30px;
+    height: 40px;
   }
 }
