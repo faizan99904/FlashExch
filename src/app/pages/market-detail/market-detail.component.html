@@ -83,13 +83,12 @@
                 <span class="text-text_secondary tab-title">Market</span>
             </div>
             <div class="tab-wrapper" *ngIf="isScore" [ngClass]="isStartStream?'':'active-item'"
-            (click)="isStartStream = false;clickwatch=false">
+                (click)="isStartStream = false;clickwatch=false">
                 <span class="text-text_tertiary8 tab-title">
-                   Live Score
+                    Live Score
                 </span>
             </div>
-            <div class="tab-wrapper" [ngClass]="isStartStream?'active-item':''"
-                style="border-right:0px"
+            <div class="tab-wrapper" [ngClass]="isStartStream?'active-item':''" style="border-right:0px"
                 (click)="isStartStream = true;clickwatch=true">
                 <span class=" text-text_tertiary8 tab-title">
                     Live Video
@@ -118,7 +117,7 @@
 
     <ng-container *ngIf="!isStartStream && token !== '' && sportId!='66101' && isScore && (isMobile)">
         <app-scorecards [sportObj]="sportObj" [isMuted]="false"></app-scorecards>
-      </ng-container>
+    </ng-container>
 
     @if (loader) {
     <app-loader></app-loader>
@@ -572,7 +571,8 @@
                      market.min, market.max,market.marketType, market.runnersData[runner.selectionId],runner.price.back[2].size,2,market.oddsType,null,market.oddsData.betDelay)"
                                             class="marketBox-wrapper !hidden md:!flex bg-bg_backBtnBgColor"
                                             type="button">
-                                            <span class=" text-sm" appRateHighlighter>{{((runner.price.back[2].price)?(runner.price.back[2].price|
+                                            <span class=" text-sm"
+                                                appRateHighlighter>{{((runner.price.back[2].price)?(runner.price.back[2].price|
                                                 number):'0' )}}</span>
                                             <span class="text-x">{{(runner.price.back[2].size) |shortNumber}}</span>
                                         </button>
@@ -640,8 +640,374 @@
             </div>
         </ng-container>
         <!-- sportsbook popular -->
-    
+
         <!-- sportsbook popular design end -->
+
+        <ng-container *ngFor="let market of AllFancyMarkets ; trackBy: trackByFn; index as i">
+            <ng-container *ngIf="market?.oddsData?.status !== 'CLOSED'">
+                <div class="ipl-winner mt-1 spWinnerMarket w-full"
+                    *ngIf="market?.marketType=='Sportsbook' && market?.popular">
+                    <div class=" flex-wrap ">
+                        <div class="">
+                            <div class="card mb-0 matchodd bookmaker-mobile-custom-css">
+
+                                <div class="match-container bg-cricketHeaderGradient !rounded-t-[3px]">
+                                    <div class="matchcontainer !w-full">
+                                        <span class="marketname text-nowrap">{{market?.marketName}}</span>
+
+                                        <marquee *ngIf="market?.news"
+                                            class="pull-right flex-auto fancy-marquee outer-div3 hideDesktopMarque px-2 !text-[13px]"
+                                            scrollamount="3" behavior="scroll">
+                                            <strong class="bookmakerNews">{{market?.news}} </strong>
+                                        </marquee>
+
+                                        <div class="flex-item-center gap-[3px]">
+                                            <span class="matched-count pull-right outer-div4 text-nowrap">Matched
+                                                <strong>€ {{market?.oddsData?.totalMatched|
+                                                    shortNumber}}</strong></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- <div class="card-matchodds outer-divs">
+                                    <strong class="match-odds bookmaker-dark-head">{{market?.marketName}}
+                                        <span class="marketinfo ml-2" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal1" (click)="gameRules(sportId )">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                                                viewBox="0 0 15 15">
+                                                <path fill="currentColor" fill-rule="evenodd"
+                                                    d="M6.76 5.246V3.732h1.48v1.514H6.76zm.74 8.276a5.86 5.86 0 0 0 3.029-.83 5.839 5.839 0 0 0 2.163-2.163 5.86 5.86 0 0 0 .83-3.029 5.86 5.86 0 0 0-.83-3.029 5.839 5.839 0 0 0-2.163-2.163 5.86 5.86 0 0 0-3.029-.83 5.86 5.86 0 0 0-3.029.83A5.839 5.839 0 0 0 2.308 4.47a5.86 5.86 0 0 0-.83 3.029 5.86 5.86 0 0 0 .83 3.029 5.839 5.839 0 0 0 2.163 2.163 5.86 5.86 0 0 0 3.029.83zM7.5 0c1.37 0 2.638.343 3.804 1.028a7.108 7.108 0 0 1 2.668 2.668A7.376 7.376 0 0 1 15 7.5c0 1.37-.343 2.638-1.028 3.804a7.108 7.108 0 0 1-2.668 2.668A7.376 7.376 0 0 1 7.5 15a7.376 7.376 0 0 1-3.804-1.028 7.243 7.243 0 0 1-2.668-2.686A7.343 7.343 0 0 1 0 7.5c0-1.358.343-2.62 1.028-3.786a7.381 7.381 0 0 1 2.686-2.686A7.343 7.343 0 0 1 7.5 0zm-.74 11.268V6.761h1.48v4.507H6.76z" />
+                                            </svg>
+
+                                        </span>
+                                    </strong>
+
+                                    <span class="matched-count pull-right outer-div4">Matched
+                                        <strong>€ {{market?.oddsData?.totalMatched|
+                                            shortNumber}}</strong></span>
+                                    <marquee class="pull-right fancy-marquee outer-div3 hideDesktopMarque"
+                                        scrollamount="3" behavior="scroll" *ngIf="market?.news">
+                                        <strong class="bookmakerNews">{{market?.news}} </strong>
+                                    </marquee>
+                                </div> -->
+                                <div class="card-body p-0 relative ">
+                                    <div bookmarked_table="" class="suspend-WinSPort-external unitycss0-7-22-23"
+                                        *ngIf="market?.oddsData?.status != 'BALLRUN' && market?.oddsData?.status === 'SUSPENDED'">
+                                        <span bookmarked_table="" class="stats-text unitycss0-8-23-24">
+                                            Suspended
+                                        </span>
+                                    </div>
+                                    <div bookmarked_table="" class="suspend-WinSPort-external unitycss0-7-22-23"
+                                        *ngIf="market?.oddsData?.status === 'BALLRUN'">
+                                        <span bookmarked_table="" class="stats-text unitycss0-8-23-24">
+                                            Ballrun
+                                        </span>
+                                    </div>
+                                    <div class="relative" style="overflow: hidden;">
+                                        <div class="row betfair-tbl tbl-bets p-rltv back-gradientSportbook">
+                                            <ng-container
+                                                *ngFor="let runner of market?.oddsData?.runners; trackBy: trackByFn;index as i">
+
+                                                <div class="col-6 ps-1 pe-1" *ngIf="i==1 || i==0">
+
+                                                    <div class="winMarket relative">
+                                                        <div bookmarked_table=""
+                                                            class="suspend-WinSPort-external unitycss0-7-22-23"
+                                                            *ngIf="(market?.oddsData?.status != 'BALLRUN' && runner.status === 'SUSPENDED') && market?.oddsData?.status !== 'SUSPENDED'">
+                                                            <span bookmarked_table=""
+                                                                class="stats-text unitycss0-8-23-24">
+                                                                Suspended
+                                                            </span>
+                                                        </div>
+                                                        <div class="winTitle ">
+                                                            {{market?.runnersData[runner?.selectionId]}}
+                                                        </div>
+                                                        <div class="sportbook-back" style="cursor: pointer"
+                                                            [ngClass]="(isBetsSlipOpened  == runner.selectionId && marketId == market.exMarketId && type == 'back' && index == 0) ? 'selectBetBackSportBook': ''  "
+                                                            (click)="openBetslip(market?.exMarketId, runner?.selectionId,'back', runner?.price?.back[0]?.price,
+                                             market?.min, market?.max,market?.oddsType,market?.runnersData[runner?.selectionId], runner?.price?.back[0]?.size,0,market?.oddsType);">
+
+                                                            <a appRateHighlighter
+                                                                class="flex flex-col items-center justify-center">
+                                                                <span class="relative match-inn-txt-top"
+                                                                    style="font-weight:700">{{(runner?.price?.back[0]?.price)|
+                                                                    number}}</span>
+                                                                <span class="relative"
+                                                                    style="font-size: 11px;">{{(runner?.price?.back[0]?.size)
+                                                                    |shortNumber}}</span>
+                                                            </a>
+                                                        </div>
+                                                        <!-- *********** PL ************ -->
+                                                        <span>
+                                                            <span style="display: flex;">
+                                                                <!-- <span class="minus-book" *ngIf="!BookmakersPl[market?.exMarketId]">
+                                                <i class="fas fa-arrow-right"></i> 0.00
+                                              </span> -->
+                                                                <span>
+
+                                                                    <span class="p-0"
+                                                                        style="display:flex; font-size:12px;font-weight:400"
+                                                                        *ngIf="SportsbookPl[market?.exMarketId]">
+
+                                                                        <span class="flex items-center"
+                                                                            [ngClass]="[SportsbookPl[market?.exMarketId][runner.selectionId] > 0  ? 'plus-book' : 'minus-book']"
+                                                                            *ngIf=" SportsbookPl[market?.exMarketId]">
+                                                                            <i class="fa fa-arrow-right">
+                                                                            </i>&nbsp;
+                                                                            {{SportsbookPl[market?.exMarketId][runner?.selectionId]
+                                                                            ?
+                                                                            (SportsbookPl[market?.exMarketId][runner?.selectionId]
+                                                                            | number :
+                                                                            '1.2-2') : '0.00'
+                                                                            }}
+
+                                                                            <!-- after api response  -->
+                                                                            <span
+                                                                                [ngClass]="(((currentRunnerPrice -1) * isValueBetsSlip) +
+                                                                                           (SportsbookPl[market?.exMarketId][runner?.selectionId] ? SportsbookPl[market?.exMarketId][runner?.selectionId] : 0 )) > 0  ? 'plus-book' : 'minus-book'"
+                                                                                *ngIf="isBetsSlipOpened == runner?.selectionId
+                                                               && marketId == market?.exMarketId
+                                                               && isValueBetsSlip != 0 ">
+
+                                                                                &nbsp; ({{ ((currentRunnerPrice -1) *
+                                                                                isValueBetsSlip) +
+                                                                                (SportsbookPl[market?.exMarketId][runner?.selectionId]
+                                                                                ?
+                                                                                SportsbookPl[market?.exMarketId][runner?.selectionId]
+                                                                                : 0) | number : '1.2-2' }})
+                                                                            </span>
+
+
+                                                                            <span
+                                                                                [ngClass]="((SportsbookPl[market?.exMarketId][runner?.selectionId] ) - isValueBetsSlip ) > 0  ? 'plus-book' : 'minus-book'"
+                                                                                *ngIf="  currentRunnerPrice
+                                                            && isValueBetsSlip
+                                                            && isValueBetsSlip != 0
+                                                            && isBetsSlipOpened != runner?.selectionId
+                                                            && marketId == market?.exMarketId">
+
+                                                                                &nbsp; ({{
+                                                                                ((SportsbookPl[market?.exMarketId][runner?.selectionId]
+                                                                                ?
+                                                                                SportsbookPl[market?.exMarketId][runner?.selectionId]
+                                                                                : 0 ) -
+                                                                                isValueBetsSlip) | number : '1.2-2' }})
+                                                                            </span>
+
+
+
+                                                                        </span>
+
+
+                                                                    </span>
+
+                                                                    <span style="display: flex;padding: 0;"
+                                                                        *ngIf="isValueBetsSlip && !SportsbookPl[market?.exMarketId]">
+
+                                                                        <span class="plus-book  d-flex"
+                                                                            style="margin-right:5px;"
+                                                                            *ngIf="isBetsSlipOpened == runner?.selectionId && marketId == market?.exMarketId">
+                                                                            <span class="plus-book">
+                                                                                &nbsp;({{ ((currentRunnerPrice -1)
+                                                                                *
+                                                                                isValueBetsSlip) | number :
+                                                                                '1.2-2'}})</span>
+                                                                        </span>
+
+                                                                        <span class="minus-book d-flex"
+                                                                            *ngIf="isBetsSlipOpened != runner?.selectionId && marketId == market?.exMarketId">
+                                                                            <span class="minus-book">&nbsp;(-{{
+                                                                                isValueBetsSlip
+                                                                                |
+                                                                                number
+                                                                                : '1.2-2' }})
+                                                                            </span>
+                                                                        </span>
+
+                                                                    </span>
+
+                                                                </span>
+                                                                <!-- offline  -->
+
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </ng-container>
+                                        </div>
+                                        <div class="d-flex"
+                                            *ngIf="index !== 3 && marketId == market.exMarketId && (market?.oddsData?.status=='OPEN' || market?.oddsData?.status=='ONLINE' )">
+                                            <div class="winSP w-100" [id]="'betslip'+'_'+market.exMarketId">
+                                                <app-betslip (valueEventPlaceBet)="getValueBetSlip($event)"
+                                                    [id]="market?.exMarketId" [item]="betplaceObj"></app-betslip>
+                                            </div>
+                                        </div>
+                                        <div class="row betfair-tbl tbl-bets p-rltv back-gradientSportbook">
+                                            <ng-container
+                                                *ngFor="let runner of market?.oddsData?.runners; trackBy: trackByFn;index as i">
+
+                                                <div class="col ps-1 pe-1" *ngIf="i==2">
+
+                                                    <div class="winMarket position-relative">
+                                                        <div bookmarked_table=""
+                                                            class="suspend-WinSPort-external unitycss0-7-22-23"
+                                                            *ngIf="(market?.oddsData?.status != 'BALLRUN' && runner.status === 'SUSPENDED') && market?.oddsData?.status !== 'SUSPENDED'">
+                                                            <span bookmarked_table=""
+                                                                class="stats-text unitycss0-8-23-24">
+                                                                Suspended
+                                                            </span>
+                                                        </div>
+
+                                                        <div class="winTitle ">
+                                                            {{market?.runnersData[runner?.selectionId]}}
+                                                        </div>
+                                                        <div class="sportbook-back"
+                                                            style="cursor: pointer;width: 300px;"
+                                                            [ngClass]="(isBetsSlipOpened  == runner.selectionId && marketId == market.exMarketId && type == 'back' && index == 3) ? 'selectBetBackSportBook': ''  "
+                                                            (click)="openBetslip(market?.exMarketId, runner?.selectionId,'back', runner?.price?.back[0]?.price,
+                                             market?.min, market?.max,market?.oddsType,market?.runnersData[runner?.selectionId], runner?.price?.back[0]?.size,3,market?.oddsType);">
+
+                                                            <a appRateHighlighter
+                                                                class="d-flex flex-column align-items-center justify-content-center">
+                                                                <span class="position-relative match-inn-txt-top"
+                                                                    style="font-weight:700">{{(runner?.price?.back[0]?.price)|
+                                                                    number}}</span>
+                                                                <span class="position-relative"
+                                                                    style="font-size: 11px;">{{(runner?.price?.back[0]?.size)
+                                                                    |shortNumber}}</span>
+                                                            </a>
+                                                        </div>
+                                                        <!-- *********** PL ************ -->
+                                                        <span>
+                                                            <span style="display: flex;">
+                                                                <!-- <span class="minus-book" *ngIf="!BookmakersPl[market?.exMarketId]">
+                                                <i class="fas fa-arrow-right"></i> 0.00
+                                              </span> -->
+                                                                <span>
+
+                                                                    <span class="p-0"
+                                                                        style="display:flex; font-size:12px;font-weight:400"
+                                                                        *ngIf="SportsbookPl[market?.exMarketId]">
+
+                                                                        <span class="d-flex align-items-center"
+                                                                            [ngClass]="[SportsbookPl[market?.exMarketId][runner.selectionId] > 0  ? 'plus-book' : 'minus-book']"
+                                                                            *ngIf=" SportsbookPl[market?.exMarketId]">
+                                                                            <i class="fa fa-arrow-right">
+                                                                            </i>&nbsp;
+                                                                            {{SportsbookPl[market?.exMarketId][runner?.selectionId]
+                                                                            ?
+                                                                            (SportsbookPl[market?.exMarketId][runner?.selectionId]
+                                                                            | number :
+                                                                            '1.2-2') : '0.00'
+                                                                            }}
+
+                                                                            <!-- after api response  -->
+                                                                            <span
+                                                                                [ngClass]="(((currentRunnerPrice -1) * isValueBetsSlip) +
+                                                                                           (SportsbookPl[market?.exMarketId][runner?.selectionId] ? SportsbookPl[market?.exMarketId][runner?.selectionId] : 0 )) > 0  ? 'plus-book' : 'minus-book'"
+                                                                                *ngIf="isBetsSlipOpened == runner?.selectionId
+                                                               && marketId == market?.exMarketId
+                                                               && isValueBetsSlip != 0 ">
+
+                                                                                &nbsp; ({{ ((currentRunnerPrice -1) *
+                                                                                isValueBetsSlip) +
+                                                                                (SportsbookPl[market?.exMarketId][runner?.selectionId]
+                                                                                ?
+                                                                                SportsbookPl[market?.exMarketId][runner?.selectionId]
+                                                                                : 0) | number : '1.2-2' }})
+                                                                            </span>
+
+
+                                                                            <span
+                                                                                [ngClass]="((SportsbookPl[market?.exMarketId][runner?.selectionId] ) - isValueBetsSlip ) > 0  ? 'plus-book' : 'minus-book'"
+                                                                                *ngIf="  currentRunnerPrice
+                                                            && isValueBetsSlip
+                                                            && isValueBetsSlip != 0
+                                                            && isBetsSlipOpened != runner?.selectionId
+                                                            && marketId == market?.exMarketId">
+
+                                                                                &nbsp; ({{
+                                                                                ((SportsbookPl[market?.exMarketId][runner?.selectionId]
+                                                                                ?
+                                                                                SportsbookPl[market?.exMarketId][runner?.selectionId]
+                                                                                : 0 ) -
+                                                                                isValueBetsSlip) | number : '1.2-2' }})
+                                                                            </span>
+
+
+
+                                                                        </span>
+
+
+                                                                    </span>
+
+                                                                    <span style="display: flex;padding: 0;"
+                                                                        *ngIf="isValueBetsSlip && !SportsbookPl[market?.exMarketId]">
+
+                                                                        <span class="plus-book  d-flex"
+                                                                            style="margin-right:5px;"
+                                                                            *ngIf="isBetsSlipOpened == runner?.selectionId && marketId == market?.exMarketId">
+                                                                            <span class="plus-book">
+                                                                                &nbsp;({{ ((currentRunnerPrice -1)
+                                                                                *
+                                                                                isValueBetsSlip) | number :
+                                                                                '1.2-2'}})</span>
+                                                                        </span>
+
+                                                                        <span class="minus-book d-flex"
+                                                                            *ngIf="isBetsSlipOpened != runner?.selectionId && marketId == market?.exMarketId">
+                                                                            <span class="minus-book">&nbsp;(-{{
+                                                                                isValueBetsSlip
+                                                                                |
+                                                                                number
+                                                                                : '1.2-2' }})
+                                                                            </span>
+                                                                        </span>
+
+                                                                    </span>
+
+                                                                </span>
+                                                                <!-- offline  -->
+
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </ng-container>
+                                        </div>
+                                        <div class="row w-100">
+                                            <marquee class="pull-right fancy-marquee p-0 hideMobileMarque "
+                                                scrollamount="3" behavior="scroll" *ngIf="market?.news">
+                                                <strong class="bookmakerNews">{{market?.news}} </strong>
+                                            </marquee>
+                                        </div>
+                                        <div class="row"
+                                            *ngIf="index == 3 && marketId == market.exMarketId && (market?.oddsData?.status=='OPEN' || market?.oddsData?.status=='ONLINE' )">
+                                            <!-- [ngClass]="index == 3 && marketId == market.exMarketId && (market?.oddsData?.status=='OPEN' || market?.oddsData?.status=='ONLINE' )?'':'d-none' "> -->
+                                            <div class="winSP" [id]="'betslip'+'_'+market.exMarketId">
+                                                <app-betslip (valueEventPlaceBet)="getValueBetSlip($event)"
+                                                    [id]="market?.exMarketId" [item]="betplaceObj"></app-betslip>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </ng-container>
+        </ng-container>
 
         <div class="fancyul">
             <ul id="fancyul">
@@ -910,7 +1276,8 @@
                                                         <div (click)="slipColor('sportbook'); openBetslip(market.exMarketId,runner.selectionId,'back',runner.price.back[0].price,
                                                          market.min, market.max,market.oddsType, market.marketName,runner.price.back[0].size,0,market.marketType,market.isSuperFancy,market.oddsData.betDelay)"
                                                             class="fancyBack">
-                                                            <span id="oddBtnPrice" class="oddBtnPrice" appRateHighlighter>
+                                                            <span id="oddBtnPrice" class="oddBtnPrice"
+                                                                appRateHighlighter>
                                                                 {{(runner.price.back[0].price)| number}}
                                                             </span>
                                                             <span id="oddBtnSize" class="oddBtnSize">

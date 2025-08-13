@@ -48,8 +48,7 @@
                 <label for="stakeInput"
                     class="text-text_color_primary1 sm:text-xs text-[10px] font-normal flex items-center justify-between gap-1">
                     <span>STAKE</span>
-                    <span [title]="'Max mkt : ' + (login ? '25,00,000' : '0')" class="truncate">Max
-                        mkt : {{login ? '25,00,000' : '0'}}</span>
+                    <span [title]="'Max mkt : '+ this.item.maxValue" class="truncate">Min/Max : {{this.item.minValue}}/{{this.item.maxValue}}</span>
                 </label>
                 <input (input)="betExposure()" [ngClass]="{ '!bg-[#101827]': stake, 'bg-transparent': !stake }"
                     [(ngModel)]="stake" id="stakeInput" inputmode="numeric" class=" focus:outline-none text-sm w-full h-full text-center focus:bg-bg_color_input_bg flex items-center justify-center border-[0.75px]  text-text_color_primary1 border-border_color_primary placeholder:text-text_color_primary1 5 rounded-sm  text-text_color_primary1 bg-transparent
@@ -220,11 +219,11 @@
                             {{login ? 'Place Bet' : 'Login'}}
                         </span>
                         <div class=" text-text_color_primary2 text-xs"><span>
-                                <span *ngIf="color === '#aed8ff'">Profit : </span>
-                                <span *ngIf="color === '#f1bed2'">Liability : </span>
+                                <span *ngIf="color == 'back'">Profit : </span>
+                                <span *ngIf="color == 'lay'">Liability : </span>
                             </span>
-                            <span *ngIf="color === '#aed8ff'">{{profit || '0'}}</span>
-                            <span *ngIf="color === '#f1bed2'">{{ profit ? profit + 10 : '0' }}</span>
+                            <span *ngIf="color == 'back'">{{profit || '0'}}</span>
+                            <span *ngIf="color == 'lay'">{{ profit ? profit + 10 : '0' }}</span>
                         </div>
                     </div>
                     <div class="flex items-center justify-center gap-x-1"><span><svg xmlns="http://www.w3.org/2000/svg"

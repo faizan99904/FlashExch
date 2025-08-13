@@ -597,7 +597,7 @@
 }
 
 .bookmakerNews {
-  font-size: 11px;
+  font-size: 12px;
   width: 100%;
 }
 
@@ -624,5 +624,87 @@
   }
 }
 
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+  /* border: 1px solid #000; */
+  border-radius: 0.25rem;
+  /* @apply !rounded-t-[7px] */
+}
 
+.matchodd {
+  font-size: 12px;
+}
 
+.card-body {
+  flex: 1 1 auto;
+  background: linear-gradient(180deg, #ffffff, #ffffff 42%);
+  width: calc(100% - 1px);
+  margin-left: 0.5px;
+}
+
+.back-gradientSportbook {
+  background: linear-gradient(90deg, #82dda6cc, #82ddb059 49%, #82dda6cc);
+}
+
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * 0);
+  margin-right: calc(-0.5 * 1.5rem);
+  margin-left: calc(-0.5 * 1.5rem);
+}
+
+.p-rltv {
+  position: relative;
+}
+
+.betfair-tbl {
+  margin-bottom: 0;
+}
+
+.col-6 {
+  flex: 0 0 auto;
+  width: 50%;
+}
+
+.winMarket {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px;
+}
+
+.winTitle {
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  display: block;
+}
+
+.sportbook-back {
+  background: #72e3a0;
+  width: 125px;
+  border: 1px solid white;
+  border-radius: 3px;
+  position: relative;
+  padding: 2px 0;
+  cursor: pointer;
+}
+
+.plus-book {
+  color: #228b22;
+  font-weight: 700 !important;
+}
+
+.minus-book {
+  color: #d0021b;
+  display: block;
+  font-weight: 700 !important;
+}

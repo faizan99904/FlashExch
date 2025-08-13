@@ -299,7 +299,7 @@ export class BetslipComponent {
     const commonFields = {
       marketId: item.marketId,
       sportId: item.sportId,
-      stake: this.stake,
+      stake: parseInt(this.stake),
       price: item.price,
       side: (item.betType?.toString() || '').toUpperCase(),
       matchMe: !!this.matchMeSwitch,
@@ -342,7 +342,14 @@ export class BetslipComponent {
               size: item.size,
             };
         break;
-
+      case 'Bookmakers-2':
+        data = {
+          ...commonFields,
+          type: item.marketTpe,
+          selectionId: item.selectionId,
+          index: item.index,
+        };
+        break
       case 'Ballbyball':
         data = {
           ...commonFields,
@@ -359,7 +366,7 @@ export class BetslipComponent {
           eventId: item.eventId,
           selectionNo: item.selectionId,
           sportId: item.sportId,
-          stake: this.selectedAmount,
+          stake:  parseInt(this.stake),
           type: item.oddsType,
         };
         break;
@@ -386,11 +393,7 @@ export class BetslipComponent {
           this.afterPlaceBet();
           this.getBalance();
         } else {
-          this.toaster.error(
-            res?.meta?.message || 'Something went wrong, please try again.',
-            '',
-            { positionClass: 'toast-top-right' }
-          );
+        
           this.cancelBet();
         }
       },
@@ -398,10 +401,7 @@ export class BetslipComponent {
         this.isbetPlacing = false;
         this.hideLoading();
 
-        const message =
-          error?.error?.meta?.message ||
-          'Something went wrong, please try again.';
-        this.toaster.error(message, '', { positionClass: 'toast-top-right' });
+       this.backendservice.ErrorNotification_Manager(error.error);
         this.cancelBet();
       }
     );
@@ -591,13 +591,14 @@ export class BetslipComponent {
   }
 
   setMinStake(): void {
-    this.stake = '100';
-    this.profit = 100 * 2;
+    console.log(this.item)
+    this.stake = this.item.minValue;
+    this.profit = this.stake * 2;
   }
 
   setMaxStake(): void {
-    this.stake = '250000';
-    this.profit = 250000 * 2;
+    this.stake = this.item.maxValue;
+    this.profit = this.stake * 2;
   }
 
   clearStake(): void {
