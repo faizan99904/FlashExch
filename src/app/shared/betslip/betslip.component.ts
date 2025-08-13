@@ -584,13 +584,14 @@ export class BetslipComponent {
   }
 
   setMinStake(): void {
-    this.stake = '100';
-    this.profit = 100 * 2;
+    console.log(this.item)
+    this.stake = this.item.minValue;
+    this.profit = this.stake * 2;
   }
 
   setMaxStake(): void {
-    this.stake = '250000';
-    this.profit = 250000 * 2;
+    this.stake = this.item.maxValue;
+    this.profit = this.stake * 2;
   }
 
   clearStake(): void {

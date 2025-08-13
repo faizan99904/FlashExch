@@ -48,8 +48,7 @@
                 <label for="stakeInput"
                     class="text-text_color_primary1 sm:text-xs text-[10px] font-normal flex items-center justify-between gap-1">
                     <span>STAKE</span>
-                    <span [title]="'Max mkt : ' + (login ? '25,00,000' : '0')" class="truncate">Max
-                        mkt : {{login ? '25,00,000' : '0'}}</span>
+                    <span [title]="'Max mkt : '+ this.item.maxValue" class="truncate">Min/Max : {{this.item.minValue}}/{{this.item.maxValue}}</span>
                 </label>
                 <input (input)="betExposure()" [ngClass]="{ '!bg-[#101827]': stake, 'bg-transparent': !stake }"
                     [(ngModel)]="stake" id="stakeInput" inputmode="numeric" class=" focus:outline-none text-sm w-full h-full text-center focus:bg-bg_color_input_bg flex items-center justify-center border-[0.75px]  text-text_color_primary1 border-border_color_primary placeholder:text-text_color_primary1 5 rounded-sm  text-text_color_primary1 bg-transparent
