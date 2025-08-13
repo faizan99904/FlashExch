@@ -342,7 +342,14 @@ export class BetslipComponent {
               size: item.size,
             };
         break;
-
+      case 'Bookmakers-2':
+        data = {
+          ...commonFields,
+          type: item.marketTpe,
+          selectionId: item.selectionId,
+          index: item.index,
+        };
+        break
       case 'Ballbyball':
         data = {
           ...commonFields,
