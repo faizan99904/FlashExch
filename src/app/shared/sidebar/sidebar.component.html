@@ -16,14 +16,23 @@
         </div>
         <ul class="space-y-2 px-[10px] py-[16px]" *ngIf="dropdowns['topLeagues']">
 
-            <li class="my-1" *ngFor="let event of filterCompetitions; let ii = index">
-                <div class="flex items-center justify-between text-[#FFFFFF99] hover:text-white  rounded">
-                    <div class="flex items-center gap-[1vw]">
+            <li class="my-1 relative" *ngFor="let event of filterCompetitions; let ii = index">
+                <div (click)="toggleLeagues(ii)" class="flex items-center justify-between rounded">
+                    <div class="flex items-center gap-[1vw] text-[#FFFFFF99] hover:text-white">
                         <i class="sport-icon !text-[1.17vw]" [attr.sport]="event.sportName.toLowerCase()"></i>
                         <span class="text-[0.8vw] font-medium">{{event.tournamentName}}</span>
                     </div>
                     <span class="text-[0.8vw]">{{tournamentLength[ii]}}</span>
                 </div>
+                <div class="dropdown-content" [class.open]="activeDropdownIndex === ii">
+                    <ul class="text-green-500 p-2 text-sm space-y-1" *ngIf="tournamentData[ii]?.length">
+                        <li class="cursor-pointer" (click)="gotoLeagues(match.exEventId, match.sportId)"
+                            *ngFor="let match of tournamentData[ii]">
+                            {{ match.eventName }}
+                        </li>
+                    </ul>
+                </div>
+
             </li>
 
         </ul>
@@ -140,7 +149,7 @@
                 <span class="text-[#00aa30] font-bold">|</span>
                 <span class="text-[0.94vw] pt-[0.2vw]">Sports</span>
             </div>
-            <button class="text-[#FFFFFF99] hover:text-red-500 text-sm">
+            <button (click)="resetSidebar()" class="text-[#FFFFFF99] hover:text-red-500 text-sm">
                 <i class="fas fa-trash text-[#FFFFFF99]"></i>
             </button>
         </div>

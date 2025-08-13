@@ -174,8 +174,6 @@ li input[type="checkbox"]:checked ~ label {
   font-size: 0.7875rem;
 }
 
-
-
 .chbx {
   position: relative;
   height: 14px;
@@ -196,7 +194,7 @@ li input[type="checkbox"]:checked ~ label {
   background-color: #00aa30;
 }
 
-.lastChild:before{
+.lastChild:before {
   content: "";
   display: block;
   position: absolute;
@@ -213,4 +211,12 @@ li input[type="checkbox"]:checked ~ label {
   }
 }
 
+.dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
 
+.dropdown-content.open {
+  max-height: 500px;
+}

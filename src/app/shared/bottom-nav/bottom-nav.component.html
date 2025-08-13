@@ -26,7 +26,6 @@
 </div>
 
 @if(bets){
-
 <div class="fixed left-0 right-0 bg-black z-50" style="top: 52px; bottom: 69px;">
     <div class="w-full h-full overflow-auto text-white flex flex-col gap-4">
         <div class="flex items-center justify-between p-4">
@@ -41,82 +40,75 @@
             </button>
         </div>
 
-        <div class="wraper bg-[#121519] p-4 rounded-lg shadow-xl">
-            <div (click)="getMatchedBetList(item.eventId, item.sportId)" *ngFor="let item of exposureData"
-                class="flex items-center justify-between py-3 px-4 rounded-md bg-gray-800 cursor-pointer transition-colors">
-                <div class="truncate font-medium">{{item?.marketName}}</div>
-                <span [ngClass]="{'rotate-180': openBets}" class="transition-transform duration-300">
-                    <svg width="20" height="20" viewBox="0 0 30 30" fill="none">
-                        <path
-                            d="M15.7071 9.29289C15.3166 8.90237 14.6834 8.90237 14.2929 9.29289L7.92893 15.6569C7.53841 16.0474 7.53841 16.6805 7.92893 17.0711C8.31946 17.4616 8.95262 17.4616 9.34315 17.0711L15 11.4142L20.6569 17.0711C21.0474 17.4616 21.6805 17.4616 22.0711 17.0711C22.4616 16.6805 22.4616 16.0474 22.0711 15.6569L15.7071 9.29289Z"
-                            fill="#fff"></path>
-                    </svg>
-                </span>
-            </div>
+        <div class="wraper bg-[#121519] p-4 rounded-lg shadow-xl flex flex-col gap-4">
+            <div *ngFor="let item of exposureData" class="bg-gray-800 rounded-md">
+                <div (click)="toggleBet(item)"
+                    class="flex items-center justify-between py-3 px-4 cursor-pointer transition-colors">
+                    <div class="truncate font-medium">{{item?.eventName}}</div>
+                    <span [ngClass]="{'rotate-180': item.openBets}" class="transition-transform duration-300">
+                        <svg width="20" height="20" viewBox="0 0 30 30" fill="none">
+                            <path
+                                d="M15.7071 9.29289C15.3166 8.90237 14.6834 8.90237 14.2929 9.29289L7.92893 15.6569C7.53841 16.0474 7.53841 16.6805 7.92893 17.0711C8.31946 17.4616 8.95262 17.4616 9.34315 17.0711L15 11.4142L20.6569 17.0711C21.0474 17.4616 21.6805 17.4616 22.0711 17.0711C22.4616 16.6805 22.4616 16.0474 22.0711 15.6569L15.7071 9.29289Z"
+                                fill="#fff"></path>
+                        </svg>
+                    </span>
+                </div>
 
-            <div *ngIf="loader" class="flex justify-center py-6">
-                <app-loader></app-loader>
-            </div>
+                <div *ngIf="item.loader" class="flex justify-center py-6">
+                    <app-loader></app-loader>
+                </div>
 
-            <div [ngClass]="{ 'open': openBets, 'closed': !openBets }" class="collapsible mt-4 flex flex-col gap-2">
-                <span class="px-3 py-1 bg-black rounded-sm w-fit text-sm tracking-wide shadow-sm">Matched</span>
-
-                <div class="info-container text-[12px]">
-                    <ul class="py-[9px] flex text-gray-400">
-                        <li class="w-[42%] text-left">Back (Bet For)</li>
-                        <li class="w-[16%] text-center">Odds</li>
-                        <li class="w-[16%] text-center">Stake</li>
-                        <li class="w-[25%] text-right">Profit</li>
-                    </ul>
-
-                    <ul class="py-[9px] flex text-gray-400 border-b border-gray-700">
-                        <li class="w-[42%] text-left">Lay (Bet Against)</li>
-                        <li class="w-[16%] text-center">Odds</li>
-                        <li class="w-[16%] text-center">Stake</li>
-                        <li class="w-[25%] text-right">Liability</li>
-                    </ul>
-
-
-                    <ul *ngFor="let item of matchedBetList" [ngClass]="{
-                        'lay': item.type === 'L',
-                        'back': item.type === 'B'
-                    }"
-                        class="py-[9px] flex flex-col px-2 text-black text-[12px] justify-between rounded-md shadow-sm mt-1">
-                        @if (betInfo) {
-                        <span class="text-[11px]">Ref: {{ item.updatedAt | date:'dd-MM-yyyy HH:mm:ss'}}</span>
-                        }
-                        <div class="flex">
-                            <li class="w-[42%] flex items-center gap-1 truncate">
-                                <span [ngClass]="{
-                  'lay-box text-white': item.type === 'L',
-                  'back-box text-white': item.type === 'B'
-                }" class="px-1 py-0.5 rounded text-[11px]">
-                                    {{item.type === 'L' ? 'Lay' : 'Back'}}
-                                </span>
-                                <div class="flex flex-col truncate">
-                                    <span class="truncate font-medium">{{item.selectionName}}</span>
-                                    <span class="truncate opacity-60 text-[11px]">{{item.marketName}}</span>
-                                </div>
-                            </li>
-                            <li class="w-[16%] flex items-center justify-center font-semibold">
-                                {{item.oddsPrice}}/{{item.oddsRate}}</li>
-                            <li class="w-[16%] flex items-center justify-center">{{item.stake}}</li>
-                            <li class="w-[25%] flex items-center justify-end font-semibold">{{item.betPl}}</li>
+                <div *ngIf="item.openBets" class="collapsible flex flex-col gap-2 p-3">
+                    <span class="px-3 py-1 bg-black rounded-sm w-fit text-sm tracking-wide shadow-sm">Matched</span>
+                    <div class="info-container text-[12px]">
+                        <ul class="py-[9px] flex text-gray-400">
+                            <li class="w-[42%] text-left">Back (Bet For)</li>
+                            <li class="w-[16%] text-center">Odds</li>
+                            <li class="w-[16%] text-center">Stake</li>
+                            <li class="w-[25%] text-right">Profit</li>
+                        </ul>
+                        <ul class="py-[9px] flex text-gray-400 border-b border-gray-700">
+                            <li class="w-[42%] text-left">Lay (Bet Against)</li>
+                            <li class="w-[16%] text-center">Odds</li>
+                            <li class="w-[16%] text-center">Stake</li>
+                            <li class="w-[25%] text-right">Liability</li>
+                        </ul>
+                        <ul *ngFor="let bet of item.matchedBetList"
+                            [ngClass]="{'lay': bet.type === 'L','back': bet.type === 'B'}"
+                            class="py-[9px] flex flex-col px-2 text-black text-[12px] justify-between rounded-md shadow-sm mt-1">
+                            @if (betInfo) {
+                            <span class="text-[11px]">Ref: {{ bet.updatedAt | date:'dd-MM-yyyy HH:mm:ss' }}</span>
+                            }
+                            <div class="flex">
+                                <li class="w-[42%] flex items-center gap-1 truncate">
+                                    <span
+                                        [ngClass]="{'lay-box text-white': bet.type === 'L','back-box text-white': bet.type === 'B'}"
+                                        class="px-1 py-0.5 rounded text-[11px]">
+                                        {{bet.type === 'L' ? 'Lay' : 'Back'}}
+                                    </span>
+                                    <div class="flex flex-col truncate">
+                                        <span class="truncate font-medium">{{bet.selectionName}}</span>
+                                        <span class="truncate opacity-60 text-[11px]">{{bet.marketName}}</span>
+                                    </div>
+                                </li>
+                                <li class="w-[16%] flex items-center justify-center font-semibold">
+                                    {{bet.oddsPrice}}/{{bet.oddsRate}}</li>
+                                <li class="w-[16%] flex items-center justify-center">{{bet.stake}}</li>
+                                <li class="w-[25%] flex items-center justify-end font-semibold">{{bet.betPl}}</li>
+                            </div>
+                        </ul>
+                        <div class="flex items-center mt-2.5 gap-1.5">
+                            <input (click)="betInfo = !betInfo" [checked]="betInfo" type="checkbox"
+                                class="h-[13px] w-[13px] appearance-none rounded border border-gray-300 bg-white transition-all checked:border-[#11e311] checked:bg-[#11e311] focus:outline-none">
+                            <span class="text-xs">Bet Info</span>
                         </div>
-                    </ul>
-                    <div class="flex items-center mt-2.5 gap-1.5">
-                        <input (click)="betInfo = !betInfo" [checked]="betInfo" type="checkbox" class="h-[13px] w-[13px] appearance-none rounded border border-gray-300 bg-white transition-all 
-                      checked:border-[#11e311] checked:bg-[#11e311] focus:outline-none">
-                        <span class="text-xs">Bet Info</span>
                     </div>
                 </div>
             </div>
-
         </div>
+
     </div>
 </div>
-
-
 }
 
 <app-mobile-sidebar class="lg:hidden"></app-mobile-sidebar>
