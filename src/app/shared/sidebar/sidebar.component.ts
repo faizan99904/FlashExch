@@ -218,6 +218,12 @@ export class SidebarComponent {
       }
     });
   }
+  
+
+  restSidebar(){
+    this.parentIndex = null;
+    this.childIndex = null
+  }
 
   setTimeFilter(filter: string) {
     this.timeFilter = filter;
