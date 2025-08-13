@@ -4,6 +4,7 @@ import { ActivatedRoute, NavigationEnd, Router, RouterLink } from '@angular/rout
 import { LiveStreemComponent } from '../../component/live-streem/live-streem.component';
 import { MainService } from '../../service/main.service';
 import { elementAt } from 'rxjs';
+import { SharedService } from '../../service/shared.service';
 
 @Component({
   selector: 'app-racing',
@@ -26,7 +27,7 @@ export class RacingComponent implements OnChanges {
   // Store toggle state for each region
   collapsedRegions: { [key: number]: boolean } = {};
 
-  constructor(private mainService: MainService, private route: ActivatedRoute, private router: Router) {
+  constructor(private mainService: MainService, private route: ActivatedRoute, private router: Router, private sharedService: SharedService) {
     this.route.params.subscribe(params => {
       if (params && params['id']) {
         this.sportId = params['id'];
@@ -132,6 +133,7 @@ export class RacingComponent implements OnChanges {
     this.horseLength = events
       .filter(event => event.sportId === '7')
       .flatMap(item => item.eventsData || []);
+    this.sharedService.setRacingLength([this.horseLength.length, this.greyhoundLength.length])
   }
 
 

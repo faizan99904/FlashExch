@@ -25,7 +25,7 @@ export class SharedService {
   private passToggle = signal(false);
   readonly isPassVisible = this.passToggle.asReadonly();
   readonly extended = signal(false);
-
+  readonly racingLength = signal(null);
   readonly loginModal = signal(false);
 
   private colorSignal = signal<string>('#86efac');
@@ -60,6 +60,15 @@ export class SharedService {
 
   refreshUser() {
     this.userData.set(this.getSafeUser());
+  }
+
+
+  getRacingLength() {
+    return this.racingLength
+  }
+
+  setRacingLength(value:any){
+    this.racingLength.set(value)
   }
 
   setColorByType(type: string) {

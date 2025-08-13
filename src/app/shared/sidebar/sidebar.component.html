@@ -217,12 +217,11 @@
 
     <div class="racing-menu">
         <ul class="sports">
-            <li class="selected">
-                <div sport="horseracing" class="img"></div> <span>Horse Racing</span> <span
-                    class="match-count">(297)</span>
+            <li class="" routerLink="/racing/7" routerLinkActive="selected">
+                <div sport="horseracing" class="img"></div> <span>Horse Racing</span> <span class="match-count">({{racingLength && racingLength[0] || 0}})</span>
             </li>
-            <li class="">
-                <div sport="greyhound" class="img"></div> <span>Greyhound</span> <span class="match-count">(133)</span>
+            <li class="" routerLink="/racing/4339" routerLinkActive="selected"> 
+                <div sport="greyhound" class="img"></div> <span>Greyhound</span> <span class="match-count">({{racingLength && racingLength[1] || 0}})</span>
             </li>
         </ul>
         <div class="upcoming">

@@ -1,19 +1,21 @@
 import { CommonModule } from '@angular/common';
-import { Component, effect, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, effect, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
   ActivatedRoute,
   NavigationEnd,
   Route,
   Router,
+  RouterLink,
   RouterLinkActive,
 } from '@angular/router';
 import { filter } from 'rxjs';
 import { MainService } from '../../service/main.service';
+import { SharedService } from '../../service/shared.service';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink, RouterLinkActive],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css',
 })
@@ -32,6 +34,7 @@ export class SidebarComponent {
   filterRacing: any = [];
   racingData: any = [];
   raceEvents: any[] = [];
+  racingLength:any = []
   filteredSidebarEvent: any = [];
   tournamentData: any = [];
   activeDropdownIndex: number | null = null;
@@ -45,7 +48,9 @@ export class SidebarComponent {
   constructor(
     private router: Router,
     public mainService: MainService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private shared:SharedService,
+    private cdr: ChangeDetectorRef
   ) {
     const routeUrl = this.router.url.split('/');
     this.currentRoute = this.router.url;
@@ -61,6 +66,7 @@ export class SidebarComponent {
     });
 
     effect(() => {
+    
       this.sidebarEvent = mainService.getSideBarEvent();
       this.filterByTime();
       this.inplayEventList = mainService.getInplayEvents();
@@ -73,6 +79,9 @@ export class SidebarComponent {
         const data = Object.values(this.AllEvents).flat();
         this.RearrangingData(data);
       }
+      Promise.resolve().then(() => {
+        this.racingLength = this.shared.getRacingLength()();
+      });
     });
   }
 
@@ -220,9 +229,9 @@ export class SidebarComponent {
       }
     });
   }
-  
 
-  restSidebar(){
+
+  restSidebar() {
     this.parentIndex = null;
     this.childIndex = null
   }
