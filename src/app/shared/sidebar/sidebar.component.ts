@@ -33,6 +33,8 @@ export class SidebarComponent {
   racingData: any = [];
   raceEvents: any[] = [];
   filteredSidebarEvent: any = [];
+  tournamentData: any = [];
+  activeDropdownIndex: number | null = null;
   dropdowns: { [key: string]: boolean } = {
     topLeagues: false,
     topLive: false,
@@ -139,12 +141,14 @@ export class SidebarComponent {
     events.forEach((event: any) => {
       if (event.inPlay === true) {
         uniqueEventsMap.set(event.eventId, event);
+        console.log(event);
       }
 
       if (Array.isArray(event.eventsData)) {
         event.eventsData.forEach((subEvent: any) => {
           if (subEvent.inPlay === true) {
             uniqueEventsMap.set(subEvent.eventId, subEvent);
+            console.log(subEvent);
           }
         });
       }
@@ -153,6 +157,8 @@ export class SidebarComponent {
     const inPlayEvents = Array.from(uniqueEventsMap.values());
     this.raceEvents =
       inPlayEvents.length > 0 ? inPlayEvents : events.slice(0, 5);
+
+    console.log(this.raceEvents);
   }
 
   // RearrangingData(data: any) {
@@ -215,6 +221,8 @@ export class SidebarComponent {
 
       if (matchingTournament) {
         this.tournamentLength.push(matchingTournament.data.length);
+        this.tournamentData.push(matchingTournament.data);
+        console.log('tournamentData : ', this.tournamentData);
       }
     });
   }
@@ -223,6 +231,15 @@ export class SidebarComponent {
   restSidebar(){
     this.parentIndex = null;
     this.childIndex = null
+  }
+
+  toggleLeagues(index: number): void {
+    this.activeDropdownIndex =
+      this.activeDropdownIndex === index ? null : index;
+  }
+
+  gotoLeagues(eventId: any, sportId: any) {
+    this.router.navigateByUrl('/market-detail/' + sportId + '/' + eventId);
   }
 
   setTimeFilter(filter: string) {
@@ -244,6 +261,11 @@ export class SidebarComponent {
     } else {
       this.childIndex = index;
     }
+  }
+
+  resetSidebar() {
+    this.parentIndex = null;
+    this.childIndex = null;
   }
 
   filterByTime() {

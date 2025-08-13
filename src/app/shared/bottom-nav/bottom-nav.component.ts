@@ -5,7 +5,6 @@ import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CONFIG } from '../../../../config';
 import { NetworkService } from '../../service/network.service';
-import { event } from 'jquery';
 import { LoaderComponent } from '../loader/loader.component';
 
 @Component({
@@ -15,11 +14,8 @@ import { LoaderComponent } from '../loader/loader.component';
   styleUrl: './bottom-nav.component.css',
 })
 export class BottomNavComponent {
-  exposureData: any;
+  exposureData: any[] = [];
   bets: boolean = false;
-  openBets: boolean = false;
-  matchedBetList: any = [];
-  loader: boolean = false;
   betInfo: boolean = false;
 
   constructor(
@@ -27,7 +23,14 @@ export class BottomNavComponent {
     private backendService: NetworkService
   ) {
     effect(() => {
-      this.exposureData = this.sharedService.getExposureData()();
+      this.exposureData = (this.sharedService.getExposureData()() ?? []).map(
+        (item: any) => ({
+          ...item,
+          openBets: false,
+          loader: false,
+          matchedBetList: [],
+        })
+      );
     });
   }
 
@@ -37,29 +40,25 @@ export class BottomNavComponent {
     return date.toLocaleString();
   }
 
-  getMatchedBetList(eventId: any, sportId: any) {
-    this.openBets = !this.openBets;
-    if (this.openBets === true && this.matchedBetList.length == 0) {
-      this.loader = true;
+  toggleBet(item: any) {
+    item.openBets = !item.openBets;
+    if (item.openBets && item.matchedBetList.length === 0) {
+      item.loader = true;
       let req = {
-        eventId: eventId,
-        sportId: sportId,
+        eventId: item.eventId,
+        sportId: item.sportId,
       };
       this.backendService
         .getAllRecordsByPost(CONFIG.eventMatchedBetList, req)
         .then(
           (record: any) => {
-            this.matchedBetList = record.data;
-            console.log(this.matchedBetList);
-            this.loader = false;
+            item.matchedBetList = record.data;
+            item.loader = false;
           },
-          (error: any) => {}
+          () => {
+            item.loader = false;
+          }
         );
-      if (this.matchedBetList.length == 0) {
-        this.loader = true;
-      } else {
-        this.loader = false;
-      }
     }
   }
 
