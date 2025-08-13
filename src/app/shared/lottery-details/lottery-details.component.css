@@ -360,3 +360,13 @@ button.close {
     transform: scale(1);
   }
 }
+.d-none{
+  display: none !important;
+}
+.minus-book{
+color: #d0021b;
+}
+.plus-book.matchodds {
+  color: #228b22 !important;
+ 
+}

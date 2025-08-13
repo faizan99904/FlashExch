@@ -299,7 +299,7 @@ export class BetslipComponent {
     const commonFields = {
       marketId: item.marketId,
       sportId: item.sportId,
-      stake: this.stake,
+      stake: parseInt(this.stake),
       price: item.price,
       side: (item.betType?.toString() || '').toUpperCase(),
       matchMe: !!this.matchMeSwitch,
@@ -359,7 +359,7 @@ export class BetslipComponent {
           eventId: item.eventId,
           selectionNo: item.selectionId,
           sportId: item.sportId,
-          stake: this.selectedAmount,
+          stake:  parseInt(this.stake),
           type: item.oddsType,
         };
         break;
@@ -386,11 +386,7 @@ export class BetslipComponent {
           this.afterPlaceBet();
           this.getBalance();
         } else {
-          this.toaster.error(
-            res?.meta?.message || 'Something went wrong, please try again.',
-            '',
-            { positionClass: 'toast-top-right' }
-          );
+        
           this.cancelBet();
         }
       },
@@ -398,10 +394,7 @@ export class BetslipComponent {
         this.isbetPlacing = false;
         this.hideLoading();
 
-        const message =
-          error?.error?.meta?.message ||
-          'Something went wrong, please try again.';
-        this.toaster.error(message, '', { positionClass: 'toast-top-right' });
+       this.backendservice.ErrorNotification_Manager(error.error);
         this.cancelBet();
       }
     );

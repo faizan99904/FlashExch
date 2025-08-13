@@ -2,6 +2,7 @@ import { DatePipe } from "@angular/common";
 import { HttpClient } from "@angular/common/http";
 import { Injectable, signal } from "@angular/core";
 import { Router } from "@angular/router";
+import { ToastrService } from "ngx-toastr";
 
 import {
   catchError,
@@ -33,7 +34,8 @@ export class NetworkService {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private toaster:ToastrService
   ) {
     this.loggedUserData = JSON.parse(
       localStorage.getItem("userDetail") as string
@@ -164,18 +166,18 @@ export class NetworkService {
       if (typeof errorObject === "object") {
         for (var key of Object.keys(errorObject)) {
           if (errorObject[key].message != "") {
-            // this.toaster.error(errorObject[key].message, "");
+            this.toaster.error(errorObject[key].message, "");
           }
           return;
         }
       } else {
         if (errorObject != "") {
-          // this.toaster.error(errorObject, "", {});
+          this.toaster.error(errorObject, "", {});
         }
         return;
       }
     } else {
-      // this.toaster.error("Hey, looks like something went wrong.", "", {});
+      this.toaster.error("Hey, looks like something went wrong.", "", {});
       return;
     }
   }
