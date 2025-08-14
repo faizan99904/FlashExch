@@ -1,4 +1,4 @@
-import { Component, computed, OnInit } from '@angular/core';
+import { Component, computed, effect, OnInit } from '@angular/core';
 import { HeaderComponent } from '../shared/header/header.component';
 import { SidebarComponent } from '../shared/sidebar/sidebar.component';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
@@ -12,7 +12,7 @@ import { SharedService } from '../service/shared.service';
 import { ForgetModalComponent } from '../shared/forget-modal/forget-modal.component';
 import { AccountNavComponent } from '../pages/account-nav/account-nav.component';
 import { CommonModule } from '@angular/common';
-import { MatchedBetsComponent } from "../pages/market-detail/matched-bets/matched-bets.component";
+import { MatchedBetsComponent } from '../pages/market-detail/matched-bets/matched-bets.component';
 
 @Component({
   selector: 'app-layout',
@@ -26,14 +26,19 @@ import { MatchedBetsComponent } from "../pages/market-detail/matched-bets/matche
     SignupComponent,
     ForgetModalComponent,
     CommonModule,
-    MatchedBetsComponent
-],
+    MatchedBetsComponent,
+  ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css',
 })
 export class LayoutComponent implements OnInit {
   activeRoute: any;
-  constructor(private toggle: SharedService, private router: Router) { }
+  constructor(private toggle: SharedService, private router: Router) {
+    effect(() => {
+      this.toggle.betslipToggle();
+      this.scrollToTop();
+    });
+  }
 
   ngOnInit(): void {
     const routeUrl = this.router.url.split('/');
@@ -53,6 +58,13 @@ export class LayoutComponent implements OnInit {
         }, 0);
       }
     });
+  }
+
+  scrollToTop() {
+    const sidebar = document.getElementById('rightSidebar');
+    if (sidebar) {
+      sidebar.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }
 
   signUp = computed(() => this.toggle.isSignupVisible());

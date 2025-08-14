@@ -38,6 +38,12 @@ export class SharedService {
     return 'sportbook';
   });
 
+  betslipToggle = signal<number>(0);
+
+  emitBetslip() {
+    this.betslipToggle.update((v) => v + 1);
+  }
+
   private readonly USER_KEY = 'userDetail';
   private userData = signal<any>(this.getSafeUser());
 
@@ -62,13 +68,12 @@ export class SharedService {
     this.userData.set(this.getSafeUser());
   }
 
-
   getRacingLength() {
-    return this.racingLength
+    return this.racingLength;
   }
 
-  setRacingLength(value:any){
-    this.racingLength.set(value)
+  setRacingLength(value: any) {
+    this.racingLength.set(value);
   }
 
   setColorByType(type: string) {

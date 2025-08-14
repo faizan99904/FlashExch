@@ -28,7 +28,7 @@ import { BetslipComponent } from '../../shared/betslip/betslip.component';
 import { MatchedBetsComponent } from './matched-bets/matched-bets.component';
 import { LoaderComponent } from '../../shared/loader/loader.component';
 import { SharedService } from '../../service/shared.service';
-import { VideoRealComponent } from "./video-real/video-real.component";
+import { VideoRealComponent } from './video-real/video-real.component';
 import { ScorecardsComponent } from './scorecards/scorecards.component';
 import { RateHighlighterDirective } from './directive/rate-highlighter.directive';
 
@@ -44,8 +44,8 @@ declare var $: any;
     LoaderComponent,
     VideoRealComponent,
     ScorecardsComponent,
-    RateHighlighterDirective
-],
+    RateHighlighterDirective,
+  ],
   templateUrl: './market-detail.component.html',
   styleUrl: './market-detail.component.css',
 })
@@ -109,7 +109,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
   fancyMarket: boolean = true;
   competitionName: any;
   openTab: any = 'market';
-  clickwatch =false;
+  clickwatch = false;
 
   rules: boolean = false;
   openRules: boolean = true;
@@ -585,8 +585,6 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
   }
 
   checkUserForStream() {
-  
-
     this.userDetail = JSON.parse(localStorage.getItem('userDetail') as string);
     if (this.userDetail?.userName == 'diamonddemo') {
       this.streamShowValidation = false;
@@ -639,8 +637,9 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
     index?: any,
     mType?: any,
     isSuperFancy?: any,
-    betDelay?:any
+    betDelay?: any
   ) {
+    this.shared.emitBetslip();
     if (price == 0) {
       this.isBetsSlipOpened = '';
       this.marketId = '';
@@ -694,7 +693,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
       index: index,
       marketTpe: mType,
       isSuperFancy: isSuperFancy,
-      betDelay:betDelay
+      betDelay: betDelay,
     };
     // console.log('bet',this.betplaceObj)
     this.mainService.setbetslip(this.betplaceObj);
@@ -923,7 +922,6 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
         ).sort((a: any, b: any) => a.sequence - b.sequence);
       }
     }
-
   }
 
   private getFirestoreBySportId(sportId: string): any {
@@ -955,7 +953,6 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
 
     if (marketid == 'All') {
       this.matchOddsDataUpdated = this.sortAllMarketList();
-
     } else {
       this.matchOddsDataUpdated = this.filterAndSortMatchOdds(
         marketid,
@@ -1011,16 +1008,16 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
     );
 
     const otherMarkets = uniqueFilter(
-      matchOddsData
-        .filter(
-          (market: any) =>
-            market.marketType !== 'MATCH_ODDS' &&
-            market.marketType !== 'Bookmakers'
-        )
-       
+      matchOddsData.filter(
+        (market: any) =>
+          market.marketType !== 'MATCH_ODDS' &&
+          market.marketType !== 'Bookmakers'
+      )
     );
 
-    return [...matchOdds, ...bookmakers, ...otherMarkets].sort((a: any, b: any) => a.sequence - b.sequence);
+    return [...matchOdds, ...bookmakers, ...otherMarkets].sort(
+      (a: any, b: any) => a.sequence - b.sequence
+    );
   }
 
   checkJursy(value: any) {
@@ -1355,6 +1352,5 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
   hasStream(data: any) {
     // console.log('strea has',data)
     this.isStartStream = data;
- 
   }
 }
