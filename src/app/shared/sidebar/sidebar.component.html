@@ -25,6 +25,7 @@
                     <span class="text-[0.8vw]">{{tournamentLength[ii]}}</span>
                 </div>
                 <div class="dropdown-content" [class.open]="activeDropdownIndex === ii">
+
                     <ul class="text-green-500 p-2 text-sm space-y-1" *ngIf="tournamentData[ii]?.length">
                         <li class="cursor-pointer" (click)="gotoLeagues(match.exEventId, match.sportId)"
                             *ngFor="let match of tournamentData[ii]">
@@ -217,32 +218,27 @@
 
     <div class="racing-menu">
         <ul class="sports">
-            <li class="" routerLink="/racing/7" routerLinkActive="selected">
-                <div sport="horseracing" class="img"></div> <span>Horse Racing</span> <span class="match-count">({{racingLength && racingLength[0] || 0}})</span>
+            <li class="" routerLink="/racing/7" (click)="sendRacingId(7)" routerLinkActive="selected">
+                <div sport="horseracing" class="img"></div> <span>Horse Racing</span> <span
+                    class="match-count">({{racingLength && racingLength[0] || 0}})</span>
             </li>
-            <li class="" routerLink="/racing/4339" routerLinkActive="selected"> 
-                <div sport="greyhound" class="img"></div> <span>Greyhound</span> <span class="match-count">({{racingLength && racingLength[1] || 0}})</span>
+            <li class="" routerLink="/racing/4339" (click)="sendRacingId(4339)" routerLinkActive="selected">
+                <div sport="greyhound" class="img"></div> <span>Greyhound</span> <span
+                    class="match-count">({{racingLength && racingLength[1] || 0}})</span>
             </li>
         </ul>
         <div class="upcoming">
             <p><span class="material-icons">timer</span> <span>UPCOMINGS</span></p>
             <ul>
-                <li class=""><span country="spain" class="flag"></span> <span>Spain</span> <span>15:53</span></li>
-                <li class=""><span country="ireland" class="flag"></span> <span>Ireland</span> <span>16:30</span></li>
-                <li class=""><span country="germany" class="flag"></span> <span>Germany</span> <span>17:00</span></li>
-                <li class=""><span country="greatbritain" class="flag"></span> <span>Great Britain</span>
-                    <span>17:58</span>
-                </li>
-                <li class=""><span country="mexico" class="flag"></span> <span>Mexico</span> <span>01:30</span></li>
-                <li class=""><span country="unitedstates" class="flag"></span> <span>United States</span>
-                    <span>02:00</span>
-                </li>
-                <li class=""><span country="australia" class="flag"></span> <span>Australia</span> <span>08:00</span>
-                </li>
-                <li class=""><span country="southafrica" class="flag"></span> <span>South Africa</span>
-                    <span>15:30</span>
-                </li>
-                <li class=""><span country="italy" class="flag"></span> <span>Italy</span> <span>22:00</span></li>
+                <ng-container *ngFor="let racing of racingTimeFilter">
+                    @for (subRacing of racing.eventsData; track $index) {
+                    <li class="" *ngIf="racingId == racing.sportId">
+                        <span [attr.country]="racing.tournamentName" class="flag">
+                        </span> <span>{{racing.tournamentName}}</span> <span>{{ subRacing.eventTime| date :'H:mm'
+                            }}</span>
+                    </li> }
+                </ng-container>
+
             </ul>
         </div>
     </div>
