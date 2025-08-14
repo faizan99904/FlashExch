@@ -21,6 +21,7 @@ import { SharedService } from '../../service/shared.service';
 })
 export class SidebarComponent {
   sportId: any;
+  racingId: any
   parentIndex: any;
   childIndex: any;
   tournamentLength: any = [];
@@ -34,9 +35,10 @@ export class SidebarComponent {
   filterRacing: any = [];
   racingData: any = [];
   raceEvents: any[] = [];
-  racingLength:any = []
+  racingLength: any = []
   filteredSidebarEvent: any = [];
   tournamentData: any = [];
+  racingTimeFilter: any = []
   activeDropdownIndex: number | null = null;
   dropdowns: { [key: string]: boolean } = {
     topLeagues: false,
@@ -49,29 +51,45 @@ export class SidebarComponent {
     private router: Router,
     public mainService: MainService,
     private route: ActivatedRoute,
-    private shared:SharedService,
+    private shared: SharedService,
     private cdr: ChangeDetectorRef
   ) {
     const routeUrl = this.router.url.split('/');
     this.currentRoute = this.router.url;
     const routeNameOne = routeUrl[1];
+    this.racingId = routeUrl[2]
     this.activeRoute = routeNameOne;
+    console.log(this.racingId);
     this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
         const urlSegments = event.urlAfterRedirects.split('/');
         const routeName = urlSegments[1];
+      
         this.activeRoute = routeName;
         this.currentRoute = event.url;
       }
+
+      Promise.resolve().then(() => {
+        setTimeout(() => {
+          this.racingLength = this.shared.getRacingLength()();
+        }, 0);
+      });
+
     });
 
     effect(() => {
-    
+
       this.sidebarEvent = mainService.getSideBarEvent();
       this.filterByTime();
       this.inplayEventList = mainService.getInplayEvents();
       this.filterInplay();
       this.racingData = this.mainService.getAllRacingEvents();
+      if (this.racingData) {
+        this.racingTimeFilter = this.filterEvents(this.racingData.data.events);
+        console.log(this.racingTimeFilter);
+        console.log(this.racingData);
+      }
+
       this.filterRacingEvent();
       this.AllEvents = this.mainService.getAllEvents();
       // this.RearrangingData(this.AllEvents)
@@ -122,6 +140,37 @@ export class SidebarComponent {
   toggleDropdown(name: string) {
     this.dropdowns[name] = !this.dropdowns[name];
   }
+
+  filterEvents(eventData: any) {
+    const now = new Date();
+    const thirtyMinutesLater = new Date(now.getTime() + 30 * 60 * 1000);
+   
+
+
+    return eventData.filter((event: any) => {
+      // Filter by sportId
+      const isCorrectSport = event.sportId === '4339' || event.sportId === '7';
+
+      // Check if any event in eventsData is within the next 30 minutes
+      const hasUpcomingEvent = event.eventsData.some((eventItem: any) => {
+        const eventTime = new Date(eventItem.eventTime);
+        return eventTime > now && eventTime <= thirtyMinutesLater;
+      });
+
+      return isCorrectSport && hasUpcomingEvent;
+    }).map((event: any) => {
+      // For each matching event, filter its eventsData to only show upcoming ones
+      return {
+        ...event,
+        eventsData: event.eventsData.filter((eventItem: any) => {
+          const eventTime = new Date(eventItem.eventTime);
+          return eventTime > now && eventTime <= thirtyMinutesLater;
+        })
+      };
+    });
+  }
+
+
 
   filterInplay() {
     const allSubEvents: any[] = [];
@@ -312,5 +361,10 @@ export class SidebarComponent {
     this.router.navigateByUrl(
       '/market-detail/' + market.sportId + '/' + market.exEventId
     );
+  }
+
+  sendRacingId(sportId:number){
+    this.racingId = sportId;
+    console.log(this.racingId);
   }
 }
