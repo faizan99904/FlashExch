@@ -41,7 +41,7 @@
         </div>
       </div>
 
-      <div class="market-header row  ms-0 me-0 bg-[#EDEDED]">
+      <div class="market-header row  !mx-0 bg-[#EDEDED]">
         <!-- <div class="col-6  d-none  d-md-block paddingZero">
         <div class="market-row">
           <div class="market-nation-detail"></div>
@@ -70,7 +70,7 @@
       </div>
       <div class="market-body ">
         <!-- 1st row -->
-        <div class="row ms-0 me-0" style="padding-top: 8px;">
+        <div class="row !mx-0" style="padding-top: 8px;">
           <!-- 0 run -->
           <div class="col-6 flex justify-center border-r-grey paddingZero">
             <div class="fancy-market" data-title="OPEN">
@@ -175,7 +175,7 @@
             </div>
           </div>
 
-          <div class="paddingZero" style="padding-bottom: 0.625rem !important;"
+          <div class="paddingZero lg:hidden w-full" style="padding-bottom: 0.625rem !important;"
             *ngIf="(isBetsSlipOpened==game?.oddsData?.runners[0]?.selectionId || isBetsSlipOpened==game?.oddsData?.runners[1]?.selectionId) && game?.oddsData?.status!='SUSPENDED'">
             <div id="betslip" class="sportsbookBg blue-bet-slip-back custom-td">
 
@@ -186,7 +186,7 @@
           </div>
         </div>
         <!-- 2nd row -->
-        <div class="row  ms-0 me-0">
+        <div class="row  !mx-0">
           <!-- 2 run -->
           <div class="col-6 flex justify-center border-r-grey paddingZero">
             <div class="fancy-market" data-title="OPEN">
@@ -328,7 +328,7 @@
               </div>
             </div>
           </div>
-          <div class="paddingZero" style="padding-bottom: 0.625rem !important;"
+          <div class="paddingZero lg:hidden w-full" style="padding-bottom: 0.625rem !important;"
             *ngIf="(isBetsSlipOpened==game?.oddsData?.runners[2]?.selectionId || isBetsSlipOpened==game?.oddsData?.runners[3]?.selectionId) && game?.oddsData?.status!='SUSPENDED'">
             <div id="betslip" class="sportsbookBg blue-bet-slip-back custom-td">
 
@@ -338,7 +338,7 @@
           </div>
         </div>
         <!-- 3rd row -->
-        <div class="row  ms-0 me-0">
+        <div class="row  !mx-0">
           <!-- 4 run -->
           <div class="col-6 flex justify-center border-r-grey paddingZero">
             <div class="fancy-market" data-title="OPEN">
@@ -447,7 +447,7 @@
               </div>
             </div>
           </div>
-          <div class="paddingZero" style="padding-bottom: 0.625rem !important;"
+          <div class="paddingZero lg:hidden w-full" style="padding-bottom: 0.625rem !important;"
             *ngIf="(isBetsSlipOpened==game?.oddsData?.runners[4]?.selectionId || isBetsSlipOpened==game?.oddsData?.runners[5]?.selectionId) && game?.oddsData?.status!='SUSPENDED'">
             <div id="betslip" class="sportsbookBg blue-bet-slip-back custom-td">
 
@@ -457,7 +457,7 @@
           </div>
         </div>
         <!-- 4rth row -->
-        <div class="row  ms-0 me-0">
+        <div class="row  !mx-0">
           <!-- wiket -->
           <div class="col-6 flex justify-center paddingZero border-r-grey">
             <div class="fancy-market" data-title="OPEN">
@@ -563,7 +563,7 @@
 
             </div>
           </div>
-          <div class="paddingZero" style="padding-bottom: 0.625rem !important;"
+          <div class="paddingZero lg:hidden w-full" style="padding-bottom: 0.625rem !important;"
             *ngIf="(isBetsSlipOpened==game?.oddsData?.runners[6]?.selectionId || isBetsSlipOpened==game?.oddsData?.runners[7]?.selectionId) && game?.oddsData?.status!='SUSPENDED'">
             <div id="betslip" class="sportsbookBg blue-bet-slip-back custom-td">
 
@@ -573,7 +573,7 @@
           </div>
         </div>
         <!-- 5th row -->
-        <!-- <div class="row ms-0 me-0">
+        <!-- <div class="row !mx-0">
 
           <div class="col-6  paddingZero">
 
@@ -588,7 +588,7 @@
           </div>
         </div> -->
         <!-- 6th row -->
-        <!-- <div class="row  ms-0 me-0">
+        <!-- <div class="row  !mx-0">
 
           <div class="col-6  paddingZero">
           </div>

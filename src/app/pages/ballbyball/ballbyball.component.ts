@@ -327,6 +327,31 @@ export class BallbyballComponent implements OnInit, OnDestroy {
       return;
     }
 
+    this.isBetsSlipOpened = selectionId;
+    this.marketId = marketId;
+    this.betType = betType;
+    this.isValueBetsSlip = 0;
+    this.selectedCell = selectionId;
+    this.betplaceObj = {
+      marketId: marketId,
+      selectionId: selectionId,
+      betType: betType,
+      price: price,
+      eventId: this.event_id,
+      roomId: this._roomId,
+      minValue: min,
+      maxValue: max,
+      marketName: marketName,
+      bg: 'sportsbook',
+      oddsType: oddsType,
+      sportId: this.sportId,
+      index: index,
+    };
+ 
+      this.mainService.setbetslip(this.betplaceObj)
+
+
+
     setTimeout(() => {
       const element = document.getElementById('betslip');
       if (element) {
@@ -360,29 +385,7 @@ export class BallbyballComponent implements OnInit, OnDestroy {
       }
     }, 1);
 
-    this.isBetsSlipOpened = selectionId;
-    this.marketId = marketId;
-    this.betType = betType;
-    this.isValueBetsSlip = 0;
-    this.selectedCell = selectionId;
-    this.betplaceObj = {
-      marketId: marketId,
-      selectionId: selectionId,
-      betType: betType,
-      price: price,
-      eventId: this.event_id,
-      roomId: this._roomId,
-      minValue: min,
-      maxValue: max,
-      marketName: marketName,
-      bg: 'sportsbook',
-      oddsType: oddsType,
-      sportId: this.sportId,
-      index: index,
-    };
-    if (this.isDesktop) {
-      // this.networkService.setBetSlipPlaceData(this.betplaceObj);
-    }
+
   }
 
   callFunctionOnClickNearBottom(
