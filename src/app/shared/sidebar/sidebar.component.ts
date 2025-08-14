@@ -59,7 +59,6 @@ export class SidebarComponent {
     const routeNameOne = routeUrl[1];
     this.racingId = routeUrl[2]
     this.activeRoute = routeNameOne;
-    console.log(this.racingId);
     this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
         const urlSegments = event.urlAfterRedirects.split('/');
@@ -86,8 +85,6 @@ export class SidebarComponent {
       this.racingData = this.mainService.getAllRacingEvents();
       if (this.racingData) {
         this.racingTimeFilter = this.filterEvents(this.racingData.data.events);
-        console.log(this.racingTimeFilter);
-        console.log(this.racingData);
       }
 
       this.filterRacingEvent();
@@ -365,6 +362,5 @@ export class SidebarComponent {
 
   sendRacingId(sportId:number){
     this.racingId = sportId;
-    console.log(this.racingId);
   }
 }
