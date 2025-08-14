@@ -152,10 +152,12 @@ export class NetworkService {
       //   this.router.navigateByUrl(url);
       //   return
       // }
+      localStorage.setItem('competitionName', event.tournamentName);
       let url = '/ballByBall/' + event?.sportId + '/' + event?.exEventId;
       this.router.navigateByUrl(url);
     }
     else {
+      localStorage.setItem('competitionName', event.tournamentName);
       let url = "/market-detail/" + event?.sportId + "/" + event?.exEventId;
       this.router.navigateByUrl(url);
     }
