@@ -1,7 +1,7 @@
 <div class="overlay" *ngIf="isLoginModal" (click)="closeLoginModal()">
-    <form class="popup signin-popup" [formGroup]="loginForm" (submit)="onSubmit(); $event.stopPropagation()">
+    <form class="popup signin-popup" [formGroup]="loginForm" (submit)="onSubmit();" (click)="$event.stopPropagation()">
         <h2 class="login-heading">Log In</h2>
-        <span class="material-icons close">close</span>
+        <span class="material-icons close" (click)="closeLoginModal()">close</span>
         <div class="fields-wrapper">
             <div class="field">
                 <input type="text" required name="userName" placeholder="Username" formControlName="userName">
@@ -18,7 +18,7 @@
 
             <p class="reg-text">
                 <span>Still Not Registered?</span>
-                <span class="lnk register">Sign Up</span>
+                <span class="lnk register" (click)="showSignup()">Sign Up</span>
             </p>
         </div>
     </form>

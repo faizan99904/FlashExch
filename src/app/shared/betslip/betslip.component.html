@@ -11,7 +11,7 @@
                     class="flex items-center justify-center bg-bg_color_input_bg rounded overflow-hidden border border-border_color_primary">
                     <input id="enter-odds" placeholder="Enter Odds" inputmode="numeric"
                         class="w-full focus:outline-none  text-sm h-full py-2 text-center flex items-center justify-center text-text_color_primary1 bg-bg_color_input_bg "
-                        disabled="" autocomplete="off" pattern="^[+-ed]+$" type="number" value="100">
+                        disabled="" autocomplete="off" pattern="^[+-ed]+$" type="number" readonly [ngModel]="item?.price || 0">
                 </div>
                 @if(login){
                 <div class="flex items-center justify-center bg-bg_color_input_bg rounded overflow-hidden">

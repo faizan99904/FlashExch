@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterLink } from '@angular/router';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { HeaderComponent } from '../../shared/header/header.component';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
@@ -20,7 +20,7 @@ export class LoginComponent {
   currentIndex = 0;
   iplocation: any;
   loginForm!: FormGroup;
-
+  currentUrl: any
   images = [
     '/assets/images/slide1.webp',
     '/assets/images/slide2.webp',
@@ -50,6 +50,13 @@ export class LoginComponent {
       userName: ['', Validators.required],
       password: ['', Validators.required]
     })
+    this.currentUrl = this.router.url
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.currentUrl = event.urlAfterRedirects
+      }
+    });
+
 
     this.iplocation = this.staticIpRes;
     this.appService.getIpLocation().subscribe(
@@ -60,6 +67,7 @@ export class LoginComponent {
         this.iplocation = this.staticIpRes;
       }
     );
+
   }
 
 

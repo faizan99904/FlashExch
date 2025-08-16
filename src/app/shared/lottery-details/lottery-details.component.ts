@@ -15,6 +15,7 @@ import { BetslipComponent } from '../betslip/betslip.component';
 import { ShortNumberPipe } from '../pipes/short-number.pipe';
 import { CONFIG } from '../../../../config';
 import { NetworkService } from '../../service/network.service';
+import { MainService } from '../../service/main.service';
 
 @Component({
   selector: 'app-lottery-details',
@@ -61,7 +62,8 @@ export class LotteryDetailsComponent implements OnInit, OnDestroy {
     @Inject('firebaseProjectOther') private otherFirestore: AngularFirestore,
     private backendService: NetworkService,
     private deviceDetector: DeviceDetectorService,
-    private toaster: ToastrService
+    private toaster: ToastrService,
+    private mainService: MainService
   ) {
     this.route.params.subscribe((params) => {
       this.sportId = params['sportId'];
@@ -238,8 +240,13 @@ export class LotteryDetailsComponent implements OnInit, OnDestroy {
       type: 'Lottery',
       oddsType: 'Lottery',
     };
-    // console.log('bet slip obj', this.betplaceObj)
+    // console.log('bet slip obj', this.betplaceObj);
+    this.mainService.setbetslip(this.betplaceObj)
   }
+
+
+
+
   timeoutFunctionforBetslip(marketId: any) {
     setTimeout(() => {
       const element = document.getElementById('betslip' + marketId);

@@ -29,6 +29,7 @@ export class SignupComponent {
   signupForm!: FormGroup;
   otpForm!: FormGroup;
 
+
   passwordChecks = {
     lengthValid: false,
     noSequence: false,

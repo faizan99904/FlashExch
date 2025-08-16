@@ -118,7 +118,7 @@
                     </a>
 
                 </div>
-                <div [id]="'betslip'+market?.marketId"
+                <div [id]="'betslip'+market?.marketId" class="lg:hidden"
                     [ngClass]="isBetsSlipOpened  && marketId == market?.marketId && (market?.status=='OPEN' || market?.status=='ONLINE' )?'':'d-none' ">
                     <app-betslip (valueEventPlaceBet)="getValueBetSlip($event)" [id]="market?.marketId"
                         [item]="betplaceObj"></app-betslip>
@@ -226,7 +226,7 @@
                     </a>
 
                 </div>
-                <div [id]="'betslip'+market?.marketId"
+                <div [id]="'betslip'+market?.marketId" class="lg:hidden"
                     [ngClass]="isBetsSlipPANAOpened.length==3 && marketId == market?.marketId && (market?.status=='OPEN' || market?.status=='ONLINE' )?'':'d-none' ">
                     <app-betslip (valueEventPlaceBet)="getValueBetSlip($event)" [id]="market?.marketId"
                         [item]="betplaceObj"></app-betslip>

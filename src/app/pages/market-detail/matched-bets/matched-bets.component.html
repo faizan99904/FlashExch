@@ -2,7 +2,7 @@
 
     <div class="open-bet">
 
-        <div (click)="isLiveStreaming = !isLiveStreaming" id="unmatched_0"
+        <div (click)="isLiveStreaming = !isLiveStreaming" id="unmatched_0" *ngIf="activeRoute === 'market-detail'"
             class="bet-container flex-item-center max-lg:!hidden">
             <div class="head pl-2">
                 <span class=" text-white font-lato-bold">
@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div [ngClass]="{'overflow-hidden h-0': isLiveStreaming}" class="transition-all w-full origin-top">
+        <div [ngClass]="{'overflow-hidden h-0': isLiveStreaming}" class="transition-all w-full origin-top"  *ngIf="activeRoute === 'market-detail'">
             <ng-container *ngIf="isDesktop">
                 <ng-container *ngIf="isStartStream && streamShowValidation; else noStream">
                     <app-video-real [eventId]="event_id" (dataEmitter)="hasStream($event)"></app-video-real>
