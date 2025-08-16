@@ -285,6 +285,7 @@ export class RacingComponent implements OnChanges {
   }
   gotoMarket(market: any) {
     localStorage.setItem('competitionName', market.eventName);
+    console.log(market);
 
     this.router.navigateByUrl(
       '/market-detail/' + this.sportId + '/' + market.eventId

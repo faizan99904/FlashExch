@@ -63,7 +63,7 @@ export class SidebarComponent {
       if (event instanceof NavigationEnd) {
         const urlSegments = event.urlAfterRedirects.split('/');
         const routeName = urlSegments[1];
-      
+
         this.activeRoute = routeName;
         this.currentRoute = event.url;
       }
@@ -71,7 +71,7 @@ export class SidebarComponent {
       Promise.resolve().then(() => {
         setTimeout(() => {
           this.racingLength = this.shared.getRacingLength()();
-        }, 0);
+        }, 10);
       });
 
     });
@@ -141,31 +141,42 @@ export class SidebarComponent {
   filterEvents(eventData: any) {
     const now = new Date();
     const thirtyMinutesLater = new Date(now.getTime() + 30 * 60 * 1000);
-   
 
+    return eventData
+      .filter((event: any) => {
+        // Filter by sportId
+        const isCorrectSport = event.sportId === '4339' || event.sportId === '7';
 
-    return eventData.filter((event: any) => {
-      // Filter by sportId
-      const isCorrectSport = event.sportId === '4339' || event.sportId === '7';
-
-      // Check if any event in eventsData is within the next 30 minutes
-      const hasUpcomingEvent = event.eventsData.some((eventItem: any) => {
-        const eventTime = new Date(eventItem.eventTime);
-        return eventTime > now && eventTime <= thirtyMinutesLater;
-      });
-
-      return isCorrectSport && hasUpcomingEvent;
-    }).map((event: any) => {
-      // For each matching event, filter its eventsData to only show upcoming ones
-      return {
-        ...event,
-        eventsData: event.eventsData.filter((eventItem: any) => {
+        // Check if any event in eventsData is within the next 30 minutes
+        const hasUpcomingEvent = event.eventsData.some((eventItem: any) => {
           const eventTime = new Date(eventItem.eventTime);
           return eventTime > now && eventTime <= thirtyMinutesLater;
-        })
-      };
-    });
+        });
+
+        return isCorrectSport && hasUpcomingEvent;
+      })
+      .map((event: any) => {
+        // Keep only upcoming events and sort them by eventTime
+        const filteredEvents = event.eventsData
+          .filter((eventItem: any) => {
+            const eventTime = new Date(eventItem.eventTime);
+            return eventTime > now && eventTime <= thirtyMinutesLater;
+          })
+          .sort((a: any, b: any) => new Date(a.eventTime).getTime() - new Date(b.eventTime).getTime());
+
+        return {
+          ...event,
+          eventsData: filteredEvents
+        };
+      })
+      // Finally, sort parent events by their first eventData time
+      .sort((a: any, b: any) => {
+        const timeA = new Date(a.eventsData[0].eventTime).getTime();
+        const timeB = new Date(b.eventsData[0].eventTime).getTime();
+        return timeA - timeB;
+      });
   }
+
 
 
 
@@ -360,7 +371,14 @@ export class SidebarComponent {
     );
   }
 
-  sendRacingId(sportId:number){
+  gotoMarketRacing(market: any) {
+    localStorage.setItem('competitionName', market.eventName);
+    this.router.navigateByUrl(
+      '/market-detail/' + this.sportId + '/' + market.eventId
+    );
+  }
+
+  sendRacingId(sportId: number) {
     this.racingId = sportId;
   }
 }
