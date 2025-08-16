@@ -19,7 +19,7 @@ export class LoginModalComponent {
   loginForm!: FormGroup;
   isLoginModal: boolean = false
   iplocation: any;
-  constructor(private fb: FormBuilder, private appService: NetworkService, private http: HttpClient, private toaster: ToastrService, private router: Router, private sharedService: SharedService) {
+  constructor(private fb: FormBuilder, private appService: NetworkService, private http: HttpClient, private toaster: ToastrService, private router: Router, private sharedService: SharedService,) {
     this.loginForm = this.fb.group({
       userName: ['', Validators.required],
       password: ['', Validators.required],
@@ -49,6 +49,10 @@ export class LoginModalComponent {
     if (!token) {
       this.router.navigateByUrl('/')
     }
+  }
+
+  outSideClose(){
+    this.sharedService.setLoginModal(false);
   }
 
   staticIpRes =
@@ -102,5 +106,10 @@ export class LoginModalComponent {
       })
     }
 
+  }
+
+  showSignup() {
+    this.sharedService.toggleSignup();
+    this.isLoginModal = false
   }
 }
