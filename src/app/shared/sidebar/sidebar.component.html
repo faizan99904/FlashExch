@@ -232,7 +232,7 @@
             <ul>
                 <ng-container *ngFor="let racing of racingTimeFilter">
                     @for (subRacing of racing.eventsData; track $index) {
-                    <li class="" *ngIf="racingId == racing.sportId">
+                    <li class="" *ngIf="racingId == racing.sportId" (click)="gotoMarketRacing(subRacing)">
                         <span [attr.country]="racing.tournamentName" class="flag">
                         </span> <span>{{racing.tournamentName}}</span> <span>{{ subRacing.eventTime| date :'H:mm'
                             }}</span>

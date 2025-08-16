@@ -218,7 +218,10 @@ li input[type="checkbox"]:checked ~ label {
 }
 
 .dropdown-content.open {
-  max-height: 500px;
+  max-height: 250px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding: 4px 0px;
 }
 
 
