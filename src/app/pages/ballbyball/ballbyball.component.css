@@ -439,3 +439,11 @@
   flex: 0 0 auto;
   width: 50%;
 }
+
+.minus-book{
+color: #d0021b;
+}
+.plus-book {
+  color: #228b22 !important;
+ 
+}

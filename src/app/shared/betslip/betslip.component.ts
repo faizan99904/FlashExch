@@ -288,7 +288,7 @@ export class BetslipComponent {
     let data: any;
 
     const item = this.item;
-
+    console.log(item)
     // Special handling for mobile
     if (this.isMobile) {
       this.placeBetObj.profitlossCall = false;
@@ -353,9 +353,11 @@ export class BetslipComponent {
       case 'Ballbyball':
         data = {
           ...commonFields,
-          selectionId: item.size,
+           index: item.index,
+          selectionId: item.selectionId,
           type: item.oddsType,
           size: item.size,
+
         };
         break;
 

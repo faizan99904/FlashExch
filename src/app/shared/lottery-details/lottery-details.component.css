@@ -119,10 +119,10 @@
   text-transform: uppercase;
   content: attr(data-title);
   top: 0;
-  color: var(--matchodds-suspended-color);
-  background: var(--matchodds-suspended-bg);
-  opacity: 0.8;
-  border: 2px solid var(--matchodds-suspended-border);
+     color: white;
+    background: #0000006e;
+    opacity: 0.8;
+    border: 2px solid #000000;
 }
 
 .active .plus-book {

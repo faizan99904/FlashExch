@@ -177,7 +177,7 @@ export class LotteryDetailsComponent implements OnInit, OnDestroy {
           let currentid;
 
           if (change.type == 'removed') {
-            console.log('removed', pt);
+            // console.log('removed', pt);
             // dont know what to do here...
           } else {
             // console.log('data',pt);
@@ -425,7 +425,7 @@ export class LotteryDetailsComponent implements OnInit, OnDestroy {
       })
       .then((data: any) => {
         this.rulesInfo = data.data;
-        console.log(this.rulesInfo);
+        // console.log(this.rulesInfo);
       })
       .catch((error) => {
         let responseData = error;

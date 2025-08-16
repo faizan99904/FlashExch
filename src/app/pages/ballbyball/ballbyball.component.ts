@@ -346,8 +346,9 @@ export class BallbyballComponent implements OnInit, OnDestroy {
       oddsType: oddsType,
       sportId: this.sportId,
       index: index,
+      type:'Ballbyball'
     };
- 
+    console.log('betslio',this.betplaceObj)
       this.mainService.setbetslip(this.betplaceObj)
 
 
@@ -378,7 +379,7 @@ export class BallbyballComponent implements OnInit, OnDestroy {
 
       if (!isBetslipOpen) {
         // If the betslip is not already open, set up the event listener
-        this.callFunctionOnClickNearBottom(150, this.scrollToBetslip);
+        this.callFunctionOnClickNearBottom(0, this.scrollToBetslip);
         // this.centerScrollableDiv('betslip')
       } else {
         // console.log('Betslip is already open, no need to scroll');
