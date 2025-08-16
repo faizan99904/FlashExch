@@ -3,7 +3,7 @@ import { Component, effect, OnDestroy, OnInit } from '@angular/core';
 import { SharedService } from '../../../service/shared.service';
 import { VideoRealComponent } from '../video-real/video-real.component';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { NetworkService } from '../../../service/network.service';
 
@@ -31,12 +31,13 @@ export class MatchedBetsComponent implements OnInit, OnDestroy {
   isBetsSlipOpened: string = '';
   isValueBetsSlip: number = 0;
   subscription!: Subscription;
-
+  activeRoute:any
   constructor(
     private route: ActivatedRoute,
     private shared: SharedService,
     private deviceService: DeviceDetectorService,
-    private backendService: NetworkService
+    private backendService: NetworkService,
+    private router:Router
   ) {
     this.route.params.subscribe((params) => {
       this.sportId = params['sportId'];
@@ -57,9 +58,29 @@ export class MatchedBetsComponent implements OnInit, OnDestroy {
       this.previousEventId = this.event_id;
     });
 
+
+
     effect(() => {
       const data = this.shared.getMatchedBets()();
       this.matchedData = Array.isArray(data) ? data : [];
+    });
+
+    const routeUrl = this.router.url.split('/');
+    const routeNameOne = routeUrl[1] || '/';
+    this.activeRoute = routeNameOne;
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const urlSegments = event.urlAfterRedirects.split('/');
+        const routeName = urlSegments[1] || '/';
+        this.activeRoute = routeName;
+        const mainRouter = document.querySelector('.mainRouter') as HTMLElement;
+        if (mainRouter) {
+          mainRouter.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        setTimeout(() => {
+          this.activeRoute = routeName;
+        }, 0);
+      }
     });
 
     this.isDesktop = this.deviceService.isDesktop();
