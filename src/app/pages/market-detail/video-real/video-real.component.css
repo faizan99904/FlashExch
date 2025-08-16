@@ -256,7 +256,7 @@
 
 @media screen and (min-width: 992px) {
   .upperDiv {
-    height: 13vw;
+    height: 100%;
   }
 }
 

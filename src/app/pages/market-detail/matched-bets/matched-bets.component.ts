@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, effect, OnDestroy, OnInit } from '@angular/core';
+import { Component, effect, Input, OnDestroy, OnInit } from '@angular/core';
 import { SharedService } from '../../../service/shared.service';
 import { VideoRealComponent } from '../video-real/video-real.component';
 import { DeviceDetectorService } from 'ngx-device-detector';
@@ -14,6 +14,7 @@ import { NetworkService } from '../../../service/network.service';
   styleUrl: './matched-bets.component.css',
 })
 export class MatchedBetsComponent implements OnInit, OnDestroy {
+  @Input() eventId:any;
   unmatchedBets = false;
   matchedBets = false;
   isLiveStreaming = false;
@@ -21,8 +22,7 @@ export class MatchedBetsComponent implements OnInit, OnDestroy {
   isDesktop: boolean;
   userDetail: any;
   isStartStream = false;
-  sportId: any;
-  event_id: any;
+
   sportObj: any;
   previousSport: any;
   previousEventId!: string;
@@ -39,27 +39,7 @@ export class MatchedBetsComponent implements OnInit, OnDestroy {
     private backendService: NetworkService,
     private router:Router
   ) {
-    this.route.params.subscribe((params) => {
-      this.sportId = params['sportId'];
-      this.event_id = params['eventId'];
-      this.sportObj = {
-        event_id: this.event_id,
-        sportId: this.sportId,
-      };
-
-      if (
-        this.previousSport !== this.sportId ||
-        this.previousEventId !== this.event_id
-      ) {
-        this.unsubscribeFirebase();
-      }
-
-      this.previousSport = this.sportId;
-      this.previousEventId = this.event_id;
-    });
-
-
-
+   
     effect(() => {
       const data = this.shared.getMatchedBets()();
       this.matchedData = Array.isArray(data) ? data : [];

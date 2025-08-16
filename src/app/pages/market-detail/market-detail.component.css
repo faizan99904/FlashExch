@@ -425,7 +425,7 @@
 }
 
 .oddBtnPrice {
-  @apply relative z-[1] transition-all ease-in-out duration-300 origin-center flex-item-center w-full leading-5 text-sm md:text-[15px] font-semibold;
+  @apply  z-[1] transition-all ease-in-out duration-300 origin-center flex-item-center w-full leading-5 text-sm md:text-[15px] font-semibold;
 }
 
 .oddBtnSize {

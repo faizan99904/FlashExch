@@ -61,7 +61,7 @@
                         </span>
                         <span class="competitionName text-text_secondary5">
                             {{competitionName}}
-                            <span class="hidden text-white lg:flex items-center gap-1.5">
+                            <!-- <span class="hidden text-white lg:flex items-center gap-1.5">
                                 LIVE
                                 <svg width="13" height="11" viewBox="0 0 13 11" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -69,7 +69,7 @@
                                         d="M11.8182 0H1.18182C0.525909 0 0 0.543889 0 1.22222V8.55556C0 9.22778 0.525909 9.77778 1.18182 9.77778H4.13636V11H8.86364V9.77778H11.8182C12.4682 9.77778 12.9941 9.22778 12.9941 8.55556L13 1.22222C13 0.543889 12.4682 0 11.8182 0ZM11.8182 8.55556H1.18182V1.22222H11.8182V8.55556ZM8.86364 4.88889L4.72727 7.33333V2.44444L8.86364 4.88889Z"
                                         fill="#11e311"></path>
                                 </svg>
-                            </span>
+                            </span> -->
                         </span>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
 </div>
 
 @if (openTab=='bets') {
-<app-matched-bets class="lg:hidden"></app-matched-bets>
+<app-matched-bets [eventId]="event_id" class="lg:hidden"></app-matched-bets>
 }
 
 @if (openTab=='market') {
@@ -115,7 +115,7 @@
         <app-video-real [eventId]="event_id" (dataEmitter)="hasStream($event)"></app-video-real>
     </ng-container>
 
-    <ng-container *ngIf="!isStartStream && token !== '' && sportId!='66101' && isScore && (isMobile)">
+    <ng-container *ngIf="!isStartStream && token !== '' && sportId!='66101' && isScore ">
         <app-scorecards [sportObj]="sportObj" [isMuted]="false"></app-scorecards>
     </ng-container>
 

@@ -19,10 +19,10 @@
             </div>
         </div>
 
-        <div [ngClass]="{'overflow-hidden h-0': isLiveStreaming}" class="transition-all w-full origin-top"  *ngIf="activeRoute === 'market-detail'">
+        <div [ngClass]="{'overflow-hidden h-0': !isLiveStreaming}" class="transition-all w-full origin-top"  *ngIf="activeRoute === 'market-detail'">
             <ng-container *ngIf="isDesktop">
-                <ng-container *ngIf="isStartStream && streamShowValidation; else noStream">
-                    <app-video-real [eventId]="event_id" (dataEmitter)="hasStream($event)"></app-video-real>
+                <ng-container *ngIf="isLiveStreaming && streamShowValidation; else noStream">
+                    <app-video-real [eventId]="eventId" (dataEmitter)="hasStream($event)"></app-video-real>
                 </ng-container>
                 <ng-template #noStream>
                     <div class="BetSections max-lg:!hidden">

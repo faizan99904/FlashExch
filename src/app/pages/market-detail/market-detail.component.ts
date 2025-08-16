@@ -148,6 +148,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
       ) {
         this.unsubscribeFirebase();
       }
+      this.mainService.setEventId(this.event_id);
       this.previousSport = this.sportId;
       this.previousEventId = this.event_id;
       this.getMarketList();

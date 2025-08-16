@@ -20,6 +20,7 @@ import { NetworkService } from '../../service/network.service';
 import { MainService } from '../../service/main.service';
 import { SharedService } from '../../service/shared.service';
 
+
 @Component({
   selector: 'app-betslip',
   imports: [CommonModule, FormsModule],
@@ -280,7 +281,9 @@ export class BetslipComponent {
       this.router.navigate(['/login']);
       return;
     }
-
+    if(!this.stake){
+return
+    }
     this.showLoading();
     this.isbetPlacing = true;
 

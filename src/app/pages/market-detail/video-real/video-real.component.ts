@@ -2,6 +2,7 @@ import { NgIf } from '@angular/common';
 import {
   AfterViewInit,
   Component,
+  effect,
   ElementRef,
   EventEmitter,
   Input,
@@ -48,12 +49,21 @@ export class VideoRealComponent implements OnInit, AfterViewInit, OnDestroy {
   ) {
     // Bind the visibility change handler to maintain proper 'this' context
     this.visibilityChangeHandler = this.handleVisibilityChange.bind(this);
+     effect(() => {
+      this.eventId1 = this.mainService.getEventId();
+      if(this.eventId1){
+        this.eventId=this.eventId1
+         this.getStreaming();
+      }
+      // console.log('this.eventId1',this.eventId1)
+     })
   }
 
   ngOnInit(): void {
-    // this.eventId1 = this.mainService.getEventID();
+    
+  
     this.videoPlayer = document.getElementById('video-player_html5_api');
-    this.getStreaming();
+   
 
     // Add Page Visibility API listener to handle tab visibility changes
     this.setupVisibilityListener();
@@ -176,7 +186,7 @@ export class VideoRealComponent implements OnInit, AfterViewInit, OnDestroy {
     var req = {
       eventId: this.eventId,
     };
-
+    console.log('ever',this.eventId)
     this.networkService.getStreamData(req).subscribe((res: any) => {
       this.loader=false;
       this.streamDate = res.data;
