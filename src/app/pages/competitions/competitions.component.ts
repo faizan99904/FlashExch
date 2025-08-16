@@ -3,20 +3,17 @@ import { BottomNavComponent } from '../../shared/bottom-nav/bottom-nav.component
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { MainService } from '../../service/main.service';
+import { NetworkService } from '../../service/network.service';
 
 @Component({
   selector: 'app-competitions',
-  imports: [
-    CommonModule,
-    BottomNavComponent,
-    RouterLink
-  ],
+  imports: [CommonModule, BottomNavComponent, RouterLink],
   templateUrl: './competitions.component.html',
   styleUrl: './competitions.component.css',
 })
 export class CompetitionsComponent implements OnInit {
-  activeTab: any
-  sportName: any
+  activeTab: any;
+  sportName: any;
   timeFilters: boolean = true;
   competitions: any = [];
   sportId: any;
@@ -34,52 +31,49 @@ export class CompetitionsComponent implements OnInit {
     '2 Days',
     '4 Days',
     '8 Days',
-  ]
+  ];
 
-  constructor(private route: ActivatedRoute, public mainService: MainService, private router: Router) {
-    this.route.params.subscribe(params => {
+  constructor(
+    private route: ActivatedRoute,
+    public mainService: MainService,
+    private router: Router,
+    private networkService: NetworkService
+  ) {
+    this.route.params.subscribe((params) => {
       this.sportId = params['id'];
-      this.mainService.setActiveSport(this.sportId)
-      this.checkTabs()
-    })
+      this.mainService.setActiveSport(this.sportId);
+      this.checkTabs();
+    });
     effect(() => {
       this.sportId = this.mainService.getActiveSport();
       this.AllEvents = this.mainService.getAllEvents();
       if (this.AllEvents) {
         this.getAllEvents();
       }
-
     });
-
   }
   ngOnInit(): void {
     // this.getAllEvents();
   }
   checkTabs() {
     if (this.sportId != 'ALL') {
-      this.activeTab = 'comp'
-    }
-    else {
-      this.activeTab = 'upcoming'
+      this.activeTab = 'comp';
+    } else {
+      this.activeTab = 'upcoming';
     }
   }
   getAllEvents() {
-
     if (this.activeTab == 'comp' && this.AllEvents) {
-      this.competitionsArr = this.RearrangingData(this.AllEvents[this.sportId])
-
+      this.competitionsArr = this.RearrangingData(this.AllEvents[this.sportId]);
     }
   }
   toggle() {
-
     this.timeFilters = !this.timeFilters;
-
   }
   openCompetition(index: any) {
     if (!this.competitions[index]) {
       this.competitions[index] = true;
-    }
-    else {
+    } else {
       this.competitions[index] = false;
     }
   }
@@ -148,14 +142,16 @@ export class CompetitionsComponent implements OnInit {
     const now = Date.now();
     const cutOff = now + hoursAhead * 60 * 60 * 1000;
 
-    return events.filter(ev => {
+    return events.filter((ev) => {
       const ts = new Date(ev.eventTime).getTime();
       return ts >= now && ts <= cutOff;
     });
   }
   RearrangingData(data: any) {
     const uniqueSportsArray = data.reduce((acc: any[], item: any) => {
-      const existingTournament = acc.find((t: any) => t.competitionId === item?.tournamentId);
+      const existingTournament = acc.find(
+        (t: any) => t.competitionId === item?.tournamentId
+      );
 
       if (existingTournament) {
         existingTournament.data.push(item);
@@ -163,7 +159,7 @@ export class CompetitionsComponent implements OnInit {
         acc.push({
           competitionId: item?.tournamentId,
           competitionName: item?.tournamentName,
-          data: [item]
+          data: [item],
         });
       }
 
@@ -183,19 +179,15 @@ export class CompetitionsComponent implements OnInit {
     let splitArray = eventName.split(' v ');
     if (first) {
       return splitArray[0];
-    }
-    else {
+    } else {
       return splitArray[1];
     }
   }
 
   selectSport(sportName: any) {
-    this.sportName = sportName
+    this.sportName = sportName;
   }
-  gotoMarket(market: any) {
-    localStorage.setItem('competitionName', market.tournamentName);
-    this.router.navigateByUrl(
-      '/market-detail/' + market.sportId + '/' + market.exEventId
-    );
+  gotoMarket(event: any) {
+    this.networkService.gotoMarket(event);
   }
 }
