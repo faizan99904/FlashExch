@@ -138,7 +138,7 @@
 
                
             </div>
-
+            <app-loader *ngIf="loader"></app-loader>
             <div class="no-data" style="display: block;" *ngIf="openBetsData <= 0 && !loader">
                 <div class="material-icons icon">assignment</div>
                 <div class="text">Data not found</div>

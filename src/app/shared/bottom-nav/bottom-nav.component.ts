@@ -31,6 +31,7 @@ export class BottomNavComponent {
 
   getUserEventExposure() {
     this.loader = true;
+    this.openBetsData = [];
     this.http.post(CONFIG.userEventExposure, {}).subscribe({
       next: (res: any) => {
         // Apply the same transformation logic that was in the effect
@@ -51,7 +52,7 @@ export class BottomNavComponent {
         });
         const groupedArray = Object.values(groupedData);
         this.openBetsData = groupedArray
-        console.log(this.openBetsData);
+        // console.log(this.openBetsData);
         this.loader = false;
       },
       error: (error) => {

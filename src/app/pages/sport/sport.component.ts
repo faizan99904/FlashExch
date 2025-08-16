@@ -31,6 +31,7 @@ export class SportComponent {
     this.subSportList = [...this.sidebarEvent?.data].filter((event: any) => {
       return sportId === event.sportId;
     });
+    console.log(this.subSportList)
   }
 
   openListChild(index: any) {

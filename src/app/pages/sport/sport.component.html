@@ -36,7 +36,7 @@
         <!-- sub sports list -->
         <ul class="champs text-[#ffffff]" *ngIf="sportIndex == i">
             <li class="flex justify-between items-center mt-[2px]" *ngFor="let subSport of sport?.data" (click)="gotoMarket(subSport)">
-                <span class="region-name font-bold">{{subSport.marketName}}</span>
+                <span class="region-name font-bold">{{subSport.eventName}}</span>
                 <span class="material-icons arrow-forward pt-[2px]">arrow_forward</span>
             </li>
         </ul>
