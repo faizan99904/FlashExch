@@ -104,11 +104,14 @@
     </div>
 </div>
 
-@if (openTab=='bets') {
-<app-matched-bets [eventId]="event_id" class="lg:hidden"></app-matched-bets>
-}
 
-@if (openTab=='market') {
+    <div [ngClass]="openTab=='bets'?'block':'hidden'">
+<app-matched-bets [eventId]="event_id" class="lg:hidden"></app-matched-bets>
+    </div>
+
+
+
+     <div [ngClass]="openTab=='market'?'block':'hidden'">
 <div class="px-2 bg-black pt-2 border-solid">
 
     <ng-container *ngIf="isStartStream && streamShowValidation && (isMobile)">
@@ -1323,7 +1326,8 @@
 
     </div>
 </div>
-}
+</div>
+
 }
 
 @if (rules) {
