@@ -51,9 +51,7 @@ export class LoginModalComponent {
     }
   }
 
-  outSideClose(){
-    this.sharedService.setLoginModal(false);
-  }
+ 
 
   staticIpRes =
     {
