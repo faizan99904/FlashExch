@@ -2,7 +2,7 @@
 
     <div class="page-title [@media(min-width:770px)]:!hidden ">
         <a class="material-icons arrow" (click)="goBack()">arrow_back</a>
-        <span class="title">Profit Loss Event</span>
+        <span class="title">Profit/Loss Market</span>
         <span class="material-icons icon">trending_up</span>
     </div>
 
@@ -27,13 +27,15 @@
                     <td class="text-center">{{profit.sportName}}</td>
                     <td class="text-center">{{profit.eventName}}</td>
                     <td class="text-center" *ngIf="_sportId=='66102'">{{profit.marketId}}</td>
-                    <td class="text-center"><a class="text-[#fff] hover:underline" 
+                    <td class="text-center"><a class="text-[#2789ce] hover:underline"
                             routerLink="/account/profit-history/{{profit.sportId}}/{{profit.marketId}}">{{profit.marketName}}
                         </a></td>
                     <td class="text-center" *ngIf="profit.marketName == 'KBC'">{{removeQoute(profit.result)}}</td>
                     <td class="text-center" *ngIf="profit.marketName !== 'KBC'">{{profit.result}}</td>
 
-                    <td class="text-center"><span class="font-weight-bold" [ngClass]=" [ profit.pl <= 0 ? 'text-red-500' : 'text-green-500'] ">{{profit.pl | number}}</span></td>
+                    <td class="text-center"><span class="font-weight-bold"
+                            [ngClass]=" [ profit.pl <= 0 ? 'text-red-500' : 'text-green-500'] ">{{profit.pl |
+                            number}}</span></td>
                     <td class="text-center text-red-500 font-weight-bold">{{profit.commission | number}}</td>
                     <td class="text-center">{{profit.createdAt | date : 'dd-MM-YYYY H:mm:ss'}}</td>
                 </tr>

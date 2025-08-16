@@ -23,6 +23,9 @@ export class ChangePassComponent {
   isOld: boolean = false;
   isNew: boolean = false;
   isConfirm: boolean = false;
+  showOldPassword = false;
+  showNewPassword = false;
+  showConfirmPassword = false;
 
   constructor(
     private fb: FormBuilder,
@@ -47,8 +50,6 @@ export class ChangePassComponent {
     }
   }
 
-  
-
   checkMatchPassword() {
     const confirm = this.changePassword.get('confirmPassword')?.value;
     const newPass = this.changePassword.get('newPassword')?.value;
@@ -56,6 +57,16 @@ export class ChangePassComponent {
       this.confirmPasswordMatch = true;
     } else {
       this.confirmPasswordMatch = false;
+    }
+  }
+
+  togglePassword(field: string) {
+    if (field === 'old') {
+      this.showOldPassword = !this.showOldPassword;
+    } else if (field === 'new') {
+      this.showNewPassword = !this.showNewPassword;
+    } else if (field === 'confirm') {
+      this.showConfirmPassword = !this.showConfirmPassword;
     }
   }
 

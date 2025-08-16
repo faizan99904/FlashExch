@@ -1,34 +1,61 @@
 <div class="popup">
     <form [formGroup]="changePassword" (ngSubmit)="onSubmit()" class="new flex w-full flex-col items-center">
         <ul class="fields flex items-center justify-center flex-col w-full h-full">
+
             <li [ngClass]=" {'fucused' : isOld}">
                 <p>Old Password</p>
-                <input
-                    [ngClass]="{'!border-[#d62700]': changePassword.get('oldPassword')?.invalid && changePassword.get('oldPassword')?.touched}"
-                    formControlName="oldPassword" (focus)="focused('oldPassword')" type="password" name="currPass"
-                        (blur)="blurred('oldPassword')">
+                <div class="relative w-full">
+                    <input
+                        [ngClass]="{'!border-[#d62700]': changePassword.get('oldPassword')?.invalid && changePassword.get('oldPassword')?.touched}"
+                        formControlName="oldPassword" (focus)="focused('oldPassword')"
+                        [type]="showOldPassword ? 'text' : 'password'" name="currPass" (blur)="blurred('oldPassword')"
+                        class="pr-10 w-full">
+                    <span class="absolute right-3 top-1/2 -translate-y-1/2 opacity-[0.6] cursor-pointer text-white"
+                        (click)="togglePassword('old')">
+                        <i [ngClass]="showOldPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+                    </span>
+                </div>
             </li>
+
             <li [ngClass]=" {'fucused' : isNew}">
                 <p>New Password</p>
-                <input
-                    [ngClass]="{'!border-[#d62700]': changePassword.get('newPassword')?.invalid && changePassword.get('newPassword')?.touched}"
-                    formControlName="newPassword" (focus)="focused('newPassword')" type="password" name="newPass"
-                     (blur)="blurred('newPassword')">
-                <span class="material-icons done">done</span>
+                <div class="relative w-full">
+                    <input
+                        [ngClass]="{'!border-[#d62700]': changePassword.get('newPassword')?.invalid && changePassword.get('newPassword')?.touched}"
+                        formControlName="newPassword" (focus)="focused('newPassword')"
+                        [type]="showNewPassword ? 'text' : 'password'" name="newPass" (blur)="blurred('newPassword')"
+                        class="pr-10 w-full">
+                    <span class="absolute right-3 top-1/2 -translate-y-1/2 opacity-[0.6] cursor-pointer text-white"
+                        (click)="togglePassword('new')">
+                        <i [ngClass]="showNewPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+                    </span>
+                    <span class="material-icons done">done</span>
+                </div>
             </li>
+
             <li [ngClass]=" {'fucused' : isConfirm}">
                 <p>Confirm Password</p>
-                <input 
-                [ngClass]="{'!border-[#d62700]': changePassword.get('confirmPassword')?.invalid && changePassword.get('confirmPassword')?.touched || confirmPasswordMatch}"
-                type="password" formControlName="confirmPassword" (focus)="focused('confirmPassword')"
-                    name="confPass" (input)="checkMatchPassword()"  (blur)="blurred('confirmPassword')">
-                <span class="material-icons done">done</span>
+                <div class="relative w-full">
+                    <input
+                        [ngClass]="{'!border-[#d62700]': changePassword.get('confirmPassword')?.invalid && changePassword.get('confirmPassword')?.touched || confirmPasswordMatch}"
+                        [type]="showConfirmPassword ? 'text' : 'password'" formControlName="confirmPassword"
+                        (focus)="focused('confirmPassword')" name="confPass" (input)="checkMatchPassword()"
+                        (blur)="blurred('confirmPassword')" class="pr-10 w-full">
+                    <span class="absolute right-3 top-1/2 -translate-y-1/2 opacity-[0.6] cursor-pointer text-white"
+                        (click)="togglePassword('confirm')">
+                        <i [ngClass]="showConfirmPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+                    </span>
+                    <span class="material-icons done">done</span>
+                </div>
             </li>
+
         </ul>
-        <button type="submit" class="btn poppins-bold" [disabled]="confirmPasswordMatch || changePassword.invalid" [ngClass]="{'opacity-[.5]':changePassword.invalid}">Change Password</button>
-        <p class="success-text">Password Changed
-            Successfully
-        </p>
+
+        <button type="submit" class="btn poppins-bold" [disabled]="confirmPasswordMatch || changePassword.invalid"
+            [ngClass]="{'opacity-[.5]':changePassword.invalid}">
+            Change Password
+        </button>
+        <p class="success-text">Password Changed Successfully</p>
         <p class="err-text"></p>
     </form>
 </div>
