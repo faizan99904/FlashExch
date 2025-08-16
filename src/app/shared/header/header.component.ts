@@ -8,21 +8,44 @@ import { HttpClient } from '@angular/common/http';
 import { MainService } from '../../service/main.service';
 import { ToastrService } from 'ngx-toastr';
 import { LoginModalComponent } from '../../component/login-modal/login-modal.component';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, CommonModule, LoginModalComponent],
+  imports: [RouterLink, CommonModule, LoginModalComponent, ReactiveFormsModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
+  loginForm!: FormGroup;
+  iplocation: any;
   token: any;
   userExposureList: any = [];
   userBalance: any;
   exposureModal: boolean = false;
+  staticIpRes =
+    {
+      as: '0',
+      city: '0',
+      country: '0',
+      countryCode: '0',
+      isp: '0',
+      lat: '0',
+      lon: '0',
+      org: '0',
+      query: '0',
+      region: '0',
+      regionName: '0',
+      status: '0',
+      timezone: '0',
+      zip: '0',
+    }
+
+
   constructor(
     private router: Router,
+    private fb: FormBuilder,
     public toggle: SharedService,
     public networkService: NetworkService,
     private http: HttpClient,
@@ -45,6 +68,21 @@ export class HeaderComponent {
     effect(() => {
       this.userBalance = this.networkService.getUserBalanceSignal()();
     });
+
+    this.loginForm = this.fb.group({
+      userName: ['', Validators.required],
+      password: ['', Validators.required]
+    })
+
+    this.iplocation = this.staticIpRes;
+    this.networkService.getIpLocation().subscribe(
+      (locRes: any) => {
+        this.iplocation = locRes;
+      },
+      (error) => {
+        this.iplocation = this.staticIpRes;
+      }
+    );
   }
 
   gotoLogin() {
@@ -135,11 +173,37 @@ export class HeaderComponent {
   }
 
   onSubmit() {
-    localStorage.setItem(
-      'token',
-      'resolveallconflictsmanuallymarkthemasresolvedwith'
-    );
-    this.toggle.setToken('resolveallconflictsmanuallymarkthemasresolvedwith');
+    const req = {
+      ipInfo: this.iplocation,
+      userName: this.loginForm.get('userName')?.value,
+      password: this.loginForm.get('password')?.value,
+    }
+
+    if (this.loginForm.valid) {
+      this.http.post(CONFIG.userLogin, req).subscribe({
+        next: (res: any) => {
+          localStorage.setItem('token', res.data.accessToken);
+          localStorage.setItem('userDetail', JSON.stringify(res.data.userDetail));
+          localStorage.setItem('intCasino', res.data.intCasino)
+          this.router.navigate(['/']);
+          if (res.data.userDetail.isLogin == 0) {
+            this.router.navigate(['/account/change-password']);
+          } else {
+            this.router.navigate(['/']);
+          }
+
+          this.toaster.success(res.meta.message, '', {
+            positionClass: 'toast-top-right',
+          });
+
+        },
+        error: (error: any) => {
+          this.toaster.error(error.meta.message, '', {
+            positionClass: 'toast-top-right',
+          });
+        }
+      })
+    }
   }
 
   // userLogout

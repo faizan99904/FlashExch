@@ -35,6 +35,7 @@ export class MarketComponent implements OnInit {
       return splitArray[1];
     }
   }
+  
   gotoMarket(event:any){
     this.networkService.gotoMarket(event)
   }
