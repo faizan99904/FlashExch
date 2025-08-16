@@ -1,4 +1,5 @@
-<section class="racing  p-[1.33333vw] md:px-[0.8em] lg:mt-[1.033em]  lg:!p-0 !mb-[75px]   overflow-x-hidden home-padding lg:hidden">
+<section
+    class="racing  p-[1.33333vw] md:px-[0.8em] lg:mt-[1.033em]  lg:!p-0 !mb-[75px]   overflow-x-hidden home-padding lg:hidden">
 
 
     <section class="main-banner hidden default lg:block"><!----></section>
@@ -10,7 +11,7 @@
     </section>
 
     <app-live-streem *ngIf="isToggleVideoStream"></app-live-streem>
-     <div class="racing-events lg:!hidden remove-home">
+    <div class="racing-events lg:!hidden remove-home">
         <section class="sport-tabs lg:!hidden">
             <ul>
                 <li class="" [ngClass]="{'selected':sportId === '7'}" routerLink="/racing/7">
@@ -123,10 +124,19 @@
                     </span>
                 </li>
             </ul>
+
+
             }
+
+
 
         </div>
     </section>
+
+    <div class="no-data mt-3" style="display: block;" *ngIf="searchFilter <= 0">
+        <div class="material-icons icon">assignment</div>
+        <div class="text">Data not found</div>
+    </div>
 
 </section>
 
@@ -189,6 +199,11 @@
 
             </ul>
             }
+        </div>
+
+        <div class="no-data mt-3" style="display: block;" *ngIf="searchFilter <= 0">
+            <div class="material-icons icon">assignment</div>
+            <div class="text">Data not found</div>
         </div>
 
 
