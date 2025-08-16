@@ -12,6 +12,7 @@ import {
 import { filter } from 'rxjs';
 import { MainService } from '../../service/main.service';
 import { SharedService } from '../../service/shared.service';
+import { NetworkService } from '../../service/network.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -21,7 +22,7 @@ import { SharedService } from '../../service/shared.service';
 })
 export class SidebarComponent {
   sportId: any;
-  racingId: any
+  racingId: any;
   parentIndex: any;
   childIndex: any;
   tournamentLength: any = [];
@@ -35,10 +36,10 @@ export class SidebarComponent {
   filterRacing: any = [];
   racingData: any = [];
   raceEvents: any[] = [];
-  racingLength: any = []
+  racingLength: any = [];
   filteredSidebarEvent: any = [];
   tournamentData: any = [];
-  racingTimeFilter: any = []
+  racingTimeFilter: any = [];
   activeDropdownIndex: number | null = null;
   dropdowns: { [key: string]: boolean } = {
     topLeagues: false,
@@ -52,12 +53,13 @@ export class SidebarComponent {
     public mainService: MainService,
     private route: ActivatedRoute,
     private shared: SharedService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private networkService: NetworkService
   ) {
     const routeUrl = this.router.url.split('/');
     this.currentRoute = this.router.url;
     const routeNameOne = routeUrl[1];
-    this.racingId = routeUrl[2]
+    this.racingId = routeUrl[2];
     this.activeRoute = routeNameOne;
     this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
@@ -73,11 +75,9 @@ export class SidebarComponent {
           this.racingLength = this.shared.getRacingLength()();
         }, 10);
       });
-
     });
 
     effect(() => {
-
       this.sidebarEvent = mainService.getSideBarEvent();
       this.filterByTime();
       this.inplayEventList = mainService.getInplayEvents();
@@ -142,43 +142,47 @@ export class SidebarComponent {
     const now = new Date();
     const thirtyMinutesLater = new Date(now.getTime() + 30 * 60 * 1000);
 
-    return eventData
-      .filter((event: any) => {
-        // Filter by sportId
-        const isCorrectSport = event.sportId === '4339' || event.sportId === '7';
+    return (
+      eventData
+        .filter((event: any) => {
+          // Filter by sportId
+          const isCorrectSport =
+            event.sportId === '4339' || event.sportId === '7';
 
-        // Check if any event in eventsData is within the next 30 minutes
-        const hasUpcomingEvent = event.eventsData.some((eventItem: any) => {
-          const eventTime = new Date(eventItem.eventTime);
-          return eventTime > now && eventTime <= thirtyMinutesLater;
-        });
-
-        return isCorrectSport && hasUpcomingEvent;
-      })
-      .map((event: any) => {
-        // Keep only upcoming events and sort them by eventTime
-        const filteredEvents = event.eventsData
-          .filter((eventItem: any) => {
+          // Check if any event in eventsData is within the next 30 minutes
+          const hasUpcomingEvent = event.eventsData.some((eventItem: any) => {
             const eventTime = new Date(eventItem.eventTime);
             return eventTime > now && eventTime <= thirtyMinutesLater;
-          })
-          .sort((a: any, b: any) => new Date(a.eventTime).getTime() - new Date(b.eventTime).getTime());
+          });
 
-        return {
-          ...event,
-          eventsData: filteredEvents
-        };
-      })
-      // Finally, sort parent events by their first eventData time
-      .sort((a: any, b: any) => {
-        const timeA = new Date(a.eventsData[0].eventTime).getTime();
-        const timeB = new Date(b.eventsData[0].eventTime).getTime();
-        return timeA - timeB;
-      });
+          return isCorrectSport && hasUpcomingEvent;
+        })
+        .map((event: any) => {
+          // Keep only upcoming events and sort them by eventTime
+          const filteredEvents = event.eventsData
+            .filter((eventItem: any) => {
+              const eventTime = new Date(eventItem.eventTime);
+              return eventTime > now && eventTime <= thirtyMinutesLater;
+            })
+            .sort(
+              (a: any, b: any) =>
+                new Date(a.eventTime).getTime() -
+                new Date(b.eventTime).getTime()
+            );
+
+          return {
+            ...event,
+            eventsData: filteredEvents,
+          };
+        })
+        // Finally, sort parent events by their first eventData time
+        .sort((a: any, b: any) => {
+          const timeA = new Date(a.eventsData[0].eventTime).getTime();
+          const timeB = new Date(b.eventsData[0].eventTime).getTime();
+          return timeA - timeB;
+        })
+    );
   }
-
-
-
 
   filterInplay() {
     const allSubEvents: any[] = [];
@@ -287,10 +291,9 @@ export class SidebarComponent {
     });
   }
 
-
   restSidebar() {
     this.parentIndex = null;
-    this.childIndex = null
+    this.childIndex = null;
   }
 
   toggleLeagues(index: number): void {
@@ -364,11 +367,8 @@ export class SidebarComponent {
     this.filteredSidebarEvent = filteredData;
   }
 
-  gotoMarket(market: any) {
-    localStorage.setItem('competitionName', market.tournamentName);
-    this.router.navigateByUrl(
-      '/market-detail/' + market.sportId + '/' + market.exEventId
-    );
+  gotoMarket(event: any) {
+    this.networkService.gotoMarket(event);
   }
 
   gotoMarketRacing(market: any) {

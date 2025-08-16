@@ -195,7 +195,7 @@
                         <div class="flex items-center gap-2">
                             <!-- <span class="text-[#ffffff71]">{{tournament?.data?.length}}</span> -->
                             <div class="chbx  !bg-[#292929]"
-                                [ngClass]="{'lastChild':currentRoute === `/market-detail/${marketTournament.sportId}/${marketTournament.exEventId}`}">
+                                [ngClass]="{'lastChild':currentRoute === `/market-detail/${marketTournament.sportId}/${marketTournament.exEventId}` || currentRoute === '/ballByBall/' + marketTournament.sportId + '/' + marketTournament.exEventId}">
                             </div>
                         </div>
                     </div>
