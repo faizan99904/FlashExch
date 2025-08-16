@@ -23,9 +23,11 @@
   margin-right: 0;
 }
 .no-markets {
+      color: #c8ced3;
   border: 1px solid #c8ced3;
   border-radius: 0.25rem;
-  height: 78vh;
+  height: 72vh;
+      font-size: 14px;
   display: flex;
   align-content: center;
   justify-content: center;
