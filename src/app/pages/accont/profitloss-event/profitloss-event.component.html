@@ -2,7 +2,7 @@
 
     <div class="page-title [@media(min-width:770px)]:!hidden ">
         <a class="material-icons arrow" (click)="goBack()">arrow_back</a>
-        <span class="title">Profit Loss Event</span>
+        <span class="title">Profit/Loss Events</span>
         <span class="material-icons icon">trending_up</span>
     </div>
 
@@ -21,7 +21,7 @@
             <tbody *ngIf="profitList.length > 0">
                 <tr *ngFor="let profit of profitList">
                     <td class="text-center">{{profit.sportName}}</td>
-                    <td class="text-center text-[#fff] hover:underline cursor-pointer">
+                    <td class="text-center text-[#2789ce] hover:underline cursor-pointer">
                         <a (click)="goToMarkerPL(profit.eventId)">{{profit.eventName}}</a>
                     </td>
                     <td class="text-center font-weight-bold"

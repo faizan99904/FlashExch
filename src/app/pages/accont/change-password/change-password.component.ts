@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { CONFIG } from '../../../../../config';
 import { ToastrService } from 'ngx-toastr';
@@ -9,18 +14,27 @@ import { Router } from '@angular/router';
   selector: 'app-change-password',
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './change-password.component.html',
-  styleUrl: './change-password.component.css'
+  styleUrl: './change-password.component.css',
 })
 export class ChangePasswordComponent {
   changePassword!: FormGroup;
-  confirmPasswordMatch: boolean = false
+  confirmPasswordMatch: boolean = false;
+  showOldPassword = false;
+  showNewPassword = false;
+  showConfirmPassword = false;
 
-  constructor(private location: Location, private fb: FormBuilder, private http: HttpClient, private toaster: ToastrService, private router: Router) {
+  constructor(
+    private location: Location,
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private toaster: ToastrService,
+    private router: Router
+  ) {
     this.changePassword = this.fb.group({
       newPassword: ['', Validators.required],
       confirmPassword: ['', Validators.required],
       oldPassword: ['', Validators.required],
-    })
+    });
   }
 
   goBack(): void {
@@ -28,25 +42,32 @@ export class ChangePasswordComponent {
   }
 
   checkMatchPassword() {
-    const confirm = this.changePassword.get('confirmPassword')?.value
-    const newPass = this.changePassword.get('newPassword')?.value
+    const confirm = this.changePassword.get('confirmPassword')?.value;
+    const newPass = this.changePassword.get('newPassword')?.value;
     if (confirm != newPass) {
-      this.confirmPasswordMatch = true
+      this.confirmPasswordMatch = true;
     } else {
-      this.confirmPasswordMatch = false
+      this.confirmPasswordMatch = false;
     }
   }
 
-
+  togglePassword(field: string) {
+    if (field === 'old') {
+      this.showOldPassword = !this.showOldPassword;
+    } else if (field === 'new') {
+      this.showNewPassword = !this.showNewPassword;
+    } else if (field === 'confirm') {
+      this.showConfirmPassword = !this.showConfirmPassword;
+    }
+  }
 
   onSubmit() {
-
     const req = {
       oldPassword: this.changePassword.get('oldPassword')?.value,
-      newPassword: this.changePassword.get('newPassword')?.value
-    }
+      newPassword: this.changePassword.get('newPassword')?.value,
+    };
 
-    if(this.changePassword.valid){
+    if (this.changePassword.valid) {
       this.http.post(CONFIG.userChangePassword, req).subscribe({
         next: (res: any) => {
           this.toaster.success(res.meta.message);
@@ -56,7 +77,9 @@ export class ChangePasswordComponent {
         },
 
         error: (error: any) => {
-          let errorObject = error.meta ? error.meta.message : error.error?.meta?.message;
+          let errorObject = error.meta
+            ? error.meta.message
+            : error.error?.meta?.message;
           if (typeof errorObject === 'object') {
             for (var key of Object.keys(errorObject)) {
               this.toaster.error(errorObject[key].message, '', {
@@ -71,13 +94,8 @@ export class ChangePasswordComponent {
             });
             return;
           }
-        }
-      })
+        },
+      });
     }
-
   }
-
-
-
-
 }
