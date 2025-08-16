@@ -34,8 +34,8 @@
                                 placeholder="Username" autocomplete="username">
                         </div>
                         <div class="field">
-                            <input type="password" autocomplete="current-password" name="password" placeholder_key="LOGIN__PASSWORD" required=""
-                                placeholder="Password">
+                            <input type="password" autocomplete="current-password" name="password"
+                                placeholder_key="LOGIN__PASSWORD" required="" placeholder="Password">
                             <svg (click)="showPass()" width="26" height="26" viewBox="0 0 26 26" fill="none"
                                 class="forgot-pass cursor-pointer" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_11_40)">
@@ -69,7 +69,8 @@
                 <div class="flex items-center gap-[9.39262px] after-login-mobile-balance" *ngIf="token">
                     <div class="flex items-center">
                         <div (click)="exposureModal = true" class="balance md:!text-[16px] md:!mr-[-1vw]">
-                            <span class="amount userTotalBalance" >{{this.userBalance?.data?.bankBalance - this.userBalance?.data?.exposure || '0.00'}}</span>
+                            <span class="amount userTotalBalance">{{this.userBalance?.data?.bankBalance -
+                                this.userBalance?.data?.exposure || '0.00'}}</span>
                             <span class="currency">INR</span>
                         </div>
                         <div>
@@ -148,16 +149,17 @@
                         </path>
                     </svg>
 
-                    <ul class="dropdown">
+                    <ul class="dropdown [@media(max-width:1440px)]:top-[34px]">
                         <!-- <li routerLink="/account/dashboard">
                             <a>Dashboard</a>
                         </li> -->
 
-                        <li (click)="exposureModal = true">
-                            <a  >Exposure : <span class="!text-red-500">({{this.userBalance?.data?.exposure+'.00' || '0'}})</span></a>
+                        <li class="cursor-pointer" (click)="exposureModal = true">
+                            <a>Exposure : <span class="!text-red-500">({{this.userBalance?.data?.exposure+'.00' ||
+                                    '0'}})</span></a>
                         </li>
 
-                        <li routerLink="/account/personalinfo">
+                        <li class="cursor-pointer" routerLink="/account/personalinfo">
                             <a>Personal Information</a>
                         </li>
 
@@ -196,7 +198,7 @@
                         <li routerLink="/account/password-history">
                             <a>Password History</a>
                         </li>
-<!-- 
+                        <!-- 
                         <li routerLink="/account/kyc">
                             <a>Acount Verification</a>
                         </li> -->
@@ -208,8 +210,9 @@
                     </ul>
                 </li>
 
-                <li  class="username cursor-pointer">
-                    <span class="amount userTotalBalance">{{this.userBalance?.data?.bankBalance - this.userBalance?.data?.exposure || '0.00'}}</span>
+                <li class="username cursor-pointer">
+                    <span class="amount userTotalBalance">{{this.userBalance?.data?.bankBalance -
+                        this.userBalance?.data?.exposure || '0.00'}}</span>
                     <span class="currency-str">INR</span>
                 </li>
 
@@ -300,7 +303,8 @@
                     <tr class="py-1 " *ngFor="let exposure of userExposureList">
                         <td class="text-center ">{{exposure?.sportName}}</td>
                         <td class="text-center ">
-                            <a class="text-[#2789ce] cursor-pointer" (click)="goToMarketByUrlExposure(exposure.sportId, exposure.eventId, exposure.sportName)">{{exposure?.eventName}}</a>
+                            <a class="text-[#2789ce] cursor-pointer"
+                                (click)="goToMarketByUrlExposure(exposure.sportId, exposure.eventId, exposure.sportName)">{{exposure?.eventName}}</a>
                         </td>
                         <td class="text-center ">
                             {{exposure?.marketName}}
