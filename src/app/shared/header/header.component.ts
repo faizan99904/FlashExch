@@ -141,4 +141,22 @@ export class HeaderComponent {
     );
     this.toggle.setToken('resolveallconflictsmanuallymarkthemasresolvedwith');
   }
+
+  // userLogout
+  logout() {
+    this.http.post(CONFIG.userLogout, {}).subscribe({
+      next: (res: any) => {
+        this.toaster.success(res.meta.message);
+        localStorage.clear();
+        this.toggle.setToken(null);
+        this.token = null
+        this.router.navigateByUrl('/')
+      },
+      error: (err) => {
+        this.toaster.success(err.error.message)
+      }
+    })
+  }
+
+
 }
