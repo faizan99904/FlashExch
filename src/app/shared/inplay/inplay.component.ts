@@ -2,6 +2,7 @@ import { Component, effect } from '@angular/core';
 import { MainService } from '../../service/main.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { NetworkService } from '../../service/network.service';
 
 @Component({
   selector: 'app-inplay',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class InplayComponent {
   inplayList: any;
-  constructor(private mainService: MainService, private router: Router) {
+  constructor(private mainService: MainService, private networkService: NetworkService) {
     effect(() => {
       this.inplayList = this.mainService.getInplayEvents();
     });
@@ -20,6 +21,6 @@ export class InplayComponent {
   gotoMarket(market: any) {
     const sportId = market.sportId;
     const exEventId = market.exEventId;
-    this.router.navigateByUrl(`/market-detail/${sportId}/${exEventId}`);
+   this.networkService.gotoMarket(market);
   }
 }
