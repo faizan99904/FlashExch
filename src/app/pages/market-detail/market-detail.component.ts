@@ -1021,11 +1021,12 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
     );
   }
 
-  checkJursy(value: any) {
-    if (value) {
-      return true;
-    } else {
-      return false;
+   checkJursy(value: any) {
+    if (value?.includes("data:image")) {
+      return true
+    }
+    else {
+      return false
     }
   }
 
@@ -1354,4 +1355,5 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
     // console.log('strea has',data)
     this.isStartStream = data;
   }
+
 }
