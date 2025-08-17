@@ -329,7 +329,7 @@
 }
 
 .runnerId-text {
-  @apply font-[roboto] text-sm text-[13px] font-medium capitalize text-[#888a8c] w-full truncate;
+  @apply ms-1 font-[roboto] text-sm text-[13px] font-medium capitalize text-[#888a8c] w-full truncate;
 }
 
 .runnerBox-container {
@@ -763,7 +763,7 @@
 }
 .jursey-img {
   height: 30px;
-  margin-right: 5px;
+  
 }
 
 .sdlimg {
@@ -1039,7 +1039,7 @@
 @media only screen and (max-width:768px) {
   .jursey-img{
     height: 25px;
-    margin-right: 4px;
+    
   }
 }
 
