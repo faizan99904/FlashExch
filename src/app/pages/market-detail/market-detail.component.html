@@ -305,21 +305,36 @@
             >
               <div
                 class="border-b-border_tertiary20 runnerBox runner-container relative"
-                [ngClass]="market?.racingInfo && (sportId == 7 || sportId == 4339)
+                [ngClass]="
+                  market?.racingInfo && (sportId == 7 || sportId == 4339)
                     ? 'runnerBox-horseRacing'
-                    : ''">
-                    <div class="suspended-full"
-                    *ngIf="runner.status == 'REMOVED' &&  runner.removalDate && runner.adjustmentFactor  && market.oddsData.status !=='SUSPENDED'">
-                    <span class="stats-text"> Non Runner {{runner.adjustmentFactor | number : '1.1-1'}}%
-                      {{runner.removalDate |date :
-                      'dd-MM-YYYY h:mm'}} </span>
-                  </div>
+                    : ''
+                "
+              >
+                <div
+                  class="suspended-full"
+                  *ngIf="
+                    runner.status == 'REMOVED' &&
+                    runner.removalDate &&
+                    runner.adjustmentFactor &&
+                    market.oddsData.status !== 'SUSPENDED'
+                  "
+                >
+                  <span class="stats-text">
+                    Non Runner {{ runner.adjustmentFactor | number : "1.1-1" }}%
+                    {{ runner.removalDate | date : "dd-MM-YYYY h:mm" }}
+                  </span>
+                </div>
 
-                  <div class="suspended-full" *ngIf="runner.status == 'REMOVED' &&  runner.adjustmentFactor ">
-                    <span class="stats-text"> REMOVED {{runner.adjustmentFactor | number : '1.1-1'}}%
-                      {{runner.removalDate |date :
-                      'dd-MM-YYYY h:mm'}} </span>
-                  </div>
+                <div
+                  class="suspended-full"
+                  *ngIf="runner.status == 'REMOVED' && runner.adjustmentFactor"
+                >
+                  <span class="stats-text">
+                    REMOVED {{ runner.adjustmentFactor | number : "1.1-1" }}%
+                    {{ runner.removalDate | date : "dd-MM-YYYY h:mm" }}
+                  </span>
+                </div>
                 <div class="runnerStarter">
                   <div
                     class="runnerId flex"
@@ -1365,29 +1380,67 @@
                   </div>
                 </div>
               </div>
-              <div *ngIf="market.racingInfo && market.racingInfo !=={} && market?.racingInfo?.length!=0 && (sportId==7 || sportId==4339)">
-                  <div class="JockeyContainer">
-                    <ul cla="jockey-list">
-                      <li class="jokeyTags ms-1" *ngIf="market?.racingInfo[runner?.selectionId]?.JOCKEY_NAME">
-                        <b>Jockey : </b><span class="jokeydetail">
-                          {{market?.racingInfo[runner?.selectionId]?.JOCKEY_NAME}}</span>
-                      </li>
-                      <li class="jokeyTags ms-1" *ngIf="market?.racingInfo[runner?.selectionId]?.TRAINER_NAME">
-                        <b>Trainer : </b><span
-                          class="jokeydetail">{{market?.racingInfo[runner?.selectionId]?.TRAINER_NAME}}</span>
-                      </li>
-                      <li class="jokeyTags ms-1" *ngIf="market?.racingInfo[runner?.selectionId]?.AGE">
-                        <b>Age :
-                        </b><span>{{market?.racingInfo[runner?.selectionId]?.AGE}}</span>
-                      </li>
-                      <li class="jokeyTags ms-1 me-1" *ngIf="market?.racingInfo[runner?.selectionId]?.WEIGHT_VALUE">
-                        <b>Weight :
-                        </b><span>{{market?.racingInfo[runner?.selectionId]?.WEIGHT_VALUE}}&nbsp;{{market?.racingInfo[runner?.selectionId]?.WEIGHT_UNITS}}</span>
-                      </li>
-
-                    </ul>
-                  </div>
+              <div
+                *ngIf="
+                  market.racingInfo &&
+                  market.racingInfo !== {} &&
+                  market?.racingInfo?.length != 0 &&
+                  (sportId == 7 || sportId == 4339)
+                "
+              >
+                <div class="JockeyContainer">
+                  <ul cla="jockey-list">
+                    <li
+                      class="jokeyTags ms-1"
+                      *ngIf="
+                        market?.racingInfo[runner?.selectionId]?.JOCKEY_NAME
+                      "
+                    >
+                      <b>Jockey : </b
+                      ><span class="jokeydetail">
+                        {{
+                          market?.racingInfo[runner?.selectionId]?.JOCKEY_NAME
+                        }}</span
+                      >
+                    </li>
+                    <li
+                      class="jokeyTags ms-1"
+                      *ngIf="
+                        market?.racingInfo[runner?.selectionId]?.TRAINER_NAME
+                      "
+                    >
+                      <b>Trainer : </b
+                      ><span class="jokeydetail">{{
+                        market?.racingInfo[runner?.selectionId]?.TRAINER_NAME
+                      }}</span>
+                    </li>
+                    <li
+                      class="jokeyTags ms-1"
+                      *ngIf="market?.racingInfo[runner?.selectionId]?.AGE"
+                    >
+                      <b>Age : </b
+                      ><span>{{
+                        market?.racingInfo[runner?.selectionId]?.AGE
+                      }}</span>
+                    </li>
+                    <li
+                      class="jokeyTags ms-1 me-1"
+                      *ngIf="
+                        market?.racingInfo[runner?.selectionId]?.WEIGHT_VALUE
+                      "
+                    >
+                      <b>Weight : </b
+                      ><span
+                        >{{
+                          market?.racingInfo[runner?.selectionId]?.WEIGHT_VALUE
+                        }}&nbsp;{{
+                          market?.racingInfo[runner?.selectionId]?.WEIGHT_UNITS
+                        }}</span
+                      >
+                    </li>
+                  </ul>
                 </div>
+              </div>
               <div
                 class="lg:hidden w-full"
                 id="betslip"
@@ -1406,7 +1459,6 @@
               </div>
             </ng-container>
           </div>
-
         </div>
       </ng-container>
       <!-- sportsbook popular -->
@@ -1740,10 +1792,7 @@
                             market?.oddsData?.status == 'ONLINE')
                         "
                       >
-                        <div
-                          class="winSP w-100"
-                          [id]="'betslip' + '_' + market.exMarketId"
-                        >
+                        <div class="winSP w-100" id="betslip">
                           <app-betslip
                             (valueEventPlaceBet)="getValueBetSlip($event)"
                             [id]="market?.exMarketId"
@@ -1995,7 +2044,7 @@
                         </marquee>
                       </div>
                       <div
-                        class="row"
+                        class=""
                         *ngIf="
                           index == 3 &&
                           marketId == market.exMarketId &&
@@ -2004,10 +2053,7 @@
                         "
                       >
                         <!-- [ngClass]="index == 3 && marketId == market.exMarketId && (market?.oddsData?.status=='OPEN' || market?.oddsData?.status=='ONLINE' )?'':'d-none' "> -->
-                        <div
-                          class="winSP"
-                          [id]="'betslip' + '_' + market.exMarketId"
-                        >
+                        <div class="winSP" id="betslip">
                           <app-betslip
                             (valueEventPlaceBet)="getValueBetSlip($event)"
                             [id]="market?.exMarketId"
@@ -2286,7 +2332,158 @@
                 </div>
               </div>
             </div>
+            <!-- issuperfancy -->
+            <ng-container *ngIf="market.isSuperFancy">
+              <div
+                class="bg-bg_color_primary fancy-title !my-0 border-t-[1px] border-[black]"
+                *ngFor="let index of [1, 2]"
+              >
+                <div title="Match 1st Over" id="1" class="grid grid-cols-12">
+                  <div class="fancy-wrapper">
+                    <div class="fancyWrapper">
+                      <div class="fancyContent">
+                        
+                      </div>
+                    </div>
+                    <div class="fancyDelay">
+                     
+                    </div>
+                    <div class="minMax showMobile">
+                    
+                    </div>
+                  </div>
+                  <div class="fancy-wrap">
+                    <div class="w-full h-full col-span-2 md:col-span-4">
+                      <div id="hideScrollBar">
+                        <div class="fancy-cont relative">
+                          <div
+                            class="suspended"
+                            *ngIf="
+                              market?.oddsData?.status == 'BALLRUN' ||
+                              market?.oddsData?.status === 'SUSPENDED' ||
+                              market?.oddsData?.status == 'CLOSED' ||
+                              market.oddsData.runners[0]?.status ==
+                                'SUSPENDED' ||
+                              market.oddsData.runners[0]?.status == 'CLOSED' ||
+                              market.oddsData.runners[0]?.status == 'REMOVED' ||
+                              market.oddsData.runners[0]?.status == 'BALLRUN'
+                            "
+                          >
+                            <span class="stats-text">
+                              {{
+                                market?.oddsData?.status != "CLOSED" &&
+                                market?.oddsData.status != "SUSPENDED" &&
+                                market?.oddsData?.status != "BALLRUN"
+                                  ? market.oddsData.runners[0]?.status
+                                  : market?.oddsData.status
+                              }}
+                            </span>
+                          </div>
+                          <div class="w-full h-full">
+                            <div
+                              (click)="
+                                slipColor('lay');
+                                openBetslip(
+                                  market.exMarketId,
+                                  market.oddsData.runners[0].selectionId,
+                                  'lay',
+                                  market.oddsData.runners[0].price.lay[index].price,
+                                  market.min,
+                                  market.max,
+                                  market.oddsType,
+                                  market.marketName,
+                                  market.oddsData.runners[0].price.lay[index].size,
+                                  0,
+                                  market.marketType,
+                                  market.isSuperFancy,
+                                  market.oddsData.betDelay
+                                )
+                              "
+                              class="fancy-container bg-bg_color_layBtnBg"
+                            >
+                              <span
+                                appRateHighlighter
+                                id="oddBtnPrice"
+                                class="oddBtnPrice"
+                              >
+                                {{
+                                  market.oddsData.runners[0].price.lay[index].price
+                                    | number
+                                }} </span
+                              ><span id="oddBtnSize" class="oddBtnSize">{{
+                                market.oddsData.runners[0].price.lay[index].size
+                                  | shortNumber
+                              }}</span>
+                            </div>
+                          </div>
+                          <div class="w-full h-full">
+                            <div
+                              (click)="
+                                slipColor('back');
+                                openBetslip(
+                                  market.exMarketId,
+                                  market.oddsData.runners[0].selectionId,
+                                  'back',
+                                  market.oddsData.runners[0].price.back[index]
+                                    .price,
+                                  market.min,
+                                  market.max,
+                                  market.oddsType,
+                                  market.marketName,
+                                  market.oddsData.runners[0].price.back[index].size,
+                                  0,
+                                  market.marketType,
+                                  market.isSuperFancy,
+                                  market.oddsData.betDelay
+                                )
+                              "
+                              class="fancyBack py-[1px] bg-bg_color_backBtnBg"
+                            >
+                              <span
+                                appRateHighlighter
+                                id="oddBtnPrice"
+                                class="oddBtnPrice"
+                                >{{
+                                  market.oddsData.runners[0].price.back[index].price
+                                    | number
+                                }}</span
+                              >
+                              <span id="oddBtnSize" class="oddBtnSize">
+                                {{
+                                  market.oddsData.runners[0].price.back[index].size
+                                    | shortNumber
+                                }}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <span class="minBet">
+                      <div class="minBet-wrap">
+                        <div class="flex-item-center">
+                          <span class="text-[10px] text-center">
+                            Min Bet :
+                          </span>
+                          <span class="text-[10px] text-center">
+                            {{ market.min }}
+                          </span>
+                        </div>
+                        <div class="flex items-center justify-start">
+                          <span class="text-[10px] text-center">Max Bet :</span>
+                          <span class="text-[10px] text-center">{{
+                            market.max
+                          }}</span>
+                        </div>
+                      </div>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
 
+            <!-- is superfancy ended -->
+             
             <div *ngIf="market.news" class="bookmakerNews">
               <div class="marquee-container">
                 <div class="marquee-content">
