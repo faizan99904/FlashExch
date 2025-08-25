@@ -6,6 +6,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { NetworkService } from '../../../service/network.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-matched-bets',
@@ -31,9 +32,10 @@ export class MatchedBetsComponent implements OnInit, OnDestroy {
   isBetsSlipOpened: string = '';
   isValueBetsSlip: number = 0;
   subscription!: Subscription;
-  activeRoute:any
+  activeRoute:any;
+  token:any;
   constructor(
-    private route: ActivatedRoute,
+    private toaster: ToastrService,
     private shared: SharedService,
     private deviceService: DeviceDetectorService,
     private backendService: NetworkService,
@@ -67,6 +69,7 @@ export class MatchedBetsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+   this.token = localStorage.getItem('token');
     this.subscription = this.backendService
       .getBetPlace()
       .subscribe((data: any) => {
@@ -90,7 +93,7 @@ export class MatchedBetsComponent implements OnInit, OnDestroy {
   }
 
   ProfitLossBalance() {
-    console.log('ProfitLossBalance called');
+    // console.log('ProfitLossBalance called');
   }
 
   hasStream(data: any) {
@@ -109,5 +112,10 @@ export class MatchedBetsComponent implements OnInit, OnDestroy {
 
   unsubscribeFirebase() {
     
+  }
+  ShowLoginToaster(){
+    this.toaster.error('Please login to watch the Live stream', '', {
+      positionClass: 'toast-top-right',
+    });
   }
 }

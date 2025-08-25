@@ -35,7 +35,7 @@ export class NetworkService {
     private http: HttpClient,
     private router: Router,
     private datePipe: DatePipe,
-    private toaster:ToastrService
+    private toaster: ToastrService
   ) {
     this.loggedUserData = JSON.parse(
       localStorage.getItem("userDetail") as string
@@ -98,10 +98,10 @@ export class NetworkService {
     if (isTokenString && avres.companyName == 'UNIVERSE') {
       let finalLinkWithToken = avres.link.replace('{$token}', token);
       let finalUrl = finalLinkWithToken.replace('{$eventId}', avres?.eventId);
-      let finalUrlwithDomain = finalUrl.replace("{$domain}", 'casino.'+domain);
+      let finalUrlwithDomain = finalUrl.replace("{$domain}", 'casino.' + domain);
       let trim_host = finalUrlwithDomain.replace("www.", '');
       // console.log('final output',finalUrl)
-      window.location.href = trim_host;``;
+      window.location.href = trim_host; ``;
       return;
     }
   }
@@ -145,19 +145,30 @@ export class NetworkService {
       window.location.href = finalLinkWithToken;
       ``;
       return;
-    } 
+    }
     if (event.exEventId == '3544687543453') {
       // if (!token) {
       //   let url = '/login';
       //   this.router.navigateByUrl(url);
       //   return
       // }
-      localStorage.setItem('competitionName', event.tournamentName);
+     if (event.tournamentName) {
+        localStorage.setItem('competitionName', event.tournamentName);
+      }
+      else {
+        localStorage.removeItem('competitionName');
+      }
       let url = '/ballByBall/' + event?.sportId + '/' + event?.exEventId;
       this.router.navigateByUrl(url);
     }
     else {
-      localStorage.setItem('competitionName', event.tournamentName);
+      if (event.tournamentName) {
+        localStorage.setItem('competitionName', event.tournamentName);
+      }
+      else {
+        localStorage.removeItem('competitionName');
+      }
+
       let url = "/market-detail/" + event?.sportId + "/" + event?.exEventId;
       this.router.navigateByUrl(url);
     }
@@ -191,7 +202,7 @@ export class NetworkService {
   }
   getStreamData(params: any): Observable<any> {
     return new Observable<any>((observer) => {
-     
+
 
       let timestamp = new Date().getTime();
 
@@ -288,7 +299,7 @@ export class NetworkService {
       return false;
     }
   }
-  
+
   addToMultimarket(eventid: any, sportId: any) {
     const selectorClass = "." + eventid;
     $(selectorClass).toggleClass("pin-on");
@@ -429,25 +440,25 @@ export class NetworkService {
       // 3 months ago
       target.setMonth(now.getMonth() - 3);
     } else if (newValue === 'LIVE') {
-      
+
       // leave as today
     } else {
       // 1 year ago
       target.setFullYear(now.getFullYear() - 1);
     }
-  
+
     // produce "YYYY-MM-DD"
     return target.toISOString().slice(0, 10);
   }
 
   getStartDate(input: string | { date: { year: number; month: number; day: number } }): string | null {
     const date = typeof input === 'string'
-      ? new Date(input)  
+      ? new Date(input)
       : new Date(input.date.year, input.date.month - 1, input.date.day);
 
     date.setHours(0, 0, 0, 0);
 
-   
+
     return this.datePipe.transform(
       date,
       "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
@@ -457,16 +468,16 @@ export class NetworkService {
   getEndDate(
     input: string | { date: { year: number; month: number; day: number } }
   ): string | null {
-   
+
     const dateObj =
       typeof input === 'string'
-        ? new Date(input)  
+        ? new Date(input)
         : new Date(input.date.year, input.date.month - 1, input.date.day);
-  
-   
+
+
     dateObj.setHours(23, 59, 0, 0);
-  
-   
+
+
     return this.datePipe.transform(
       dateObj,
       "yyyy-MM-dd'T'HH:mm:ssZZZZZ"

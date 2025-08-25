@@ -9,6 +9,7 @@ import { MainService } from '../../service/main.service';
 import { ToastrService } from 'ngx-toastr';
 import { LoginModalComponent } from '../../component/login-modal/login-modal.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-header',
@@ -50,7 +51,8 @@ export class HeaderComponent {
     public networkService: NetworkService,
     private http: HttpClient,
     private mainService: MainService,
-    private toaster: ToastrService
+    private toaster: ToastrService,
+    private deviceService: DeviceDetectorService,
   ) {
     this.token = localStorage.getItem('token');
     this.toggle.getToken().subscribe((value: any) => {
@@ -75,14 +77,17 @@ export class HeaderComponent {
     })
 
     this.iplocation = this.staticIpRes;
-    this.networkService.getIpLocation().subscribe(
-      (locRes: any) => {
-        this.iplocation = locRes;
-      },
-      (error) => {
-        this.iplocation = this.staticIpRes;
-      }
-    );
+    if (this.deviceService.isDesktop()) {
+      this.networkService.getIpLocation().subscribe(
+        (locRes: any) => {
+          this.iplocation = locRes;
+        },
+        (error) => {
+          this.iplocation = this.staticIpRes;
+        }
+      );
+    }
+
   }
 
   gotoLogin() {

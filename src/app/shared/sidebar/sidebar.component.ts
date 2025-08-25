@@ -301,8 +301,8 @@ export class SidebarComponent {
       this.activeDropdownIndex === index ? null : index;
   }
 
-  gotoLeagues(eventId: any, sportId: any) {
-    this.router.navigateByUrl('/market-detail/' + sportId + '/' + eventId);
+  gotoLeagues(event: any) {
+    this.networkService.gotoMarket(event);
   }
 
   setTimeFilter(filter: string) {

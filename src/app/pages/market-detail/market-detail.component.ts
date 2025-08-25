@@ -152,7 +152,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
       this.previousSport = this.sportId;
       this.previousEventId = this.event_id;
       this.getMarketList();
-
+ this.competitionName = localStorage.getItem('competitionName');
       // this.InitialStartupApiCalls();
     });
     effect(() => {
@@ -164,7 +164,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
     this.isDesktop = this.deviceService.isDesktop();
   }
   ngOnInit(): void {
-    this.competitionName = localStorage.getItem('competitionName');
+   
     this.getfancyMarketList();
     setTimeout(() => {
       this.checkUserForStream();
@@ -1355,5 +1355,16 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
     // console.log('strea has',data)
     this.isStartStream = data;
   }
-
+ShowLoginToaster(type:any){
+  if(type=='video'){
+    this.toaster.error('Please login to watch the Live stream', '', {
+      positionClass: 'toast-top-right',
+    });
+  }
+  if(type=='score'){
+    this.toaster.error('Please login to watch the Live score', '', {
+      positionClass: 'toast-top-right',
+    });
+}
+}
 }

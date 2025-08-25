@@ -27,7 +27,7 @@
                 <div class="dropdown-content" [class.open]="activeDropdownIndex === ii">
 
                     <ul class="text-green-500 p-2 text-sm space-y-1" *ngIf="tournamentData[ii]?.length">
-                        <li class="cursor-pointer" (click)="gotoLeagues(match.exEventId, match.sportId)"
+                        <li class="cursor-pointer" (click)="gotoLeagues(match)"
                             *ngFor="let match of tournamentData[ii]">
                             {{ match.eventName }}
                         </li>

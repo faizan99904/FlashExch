@@ -25,20 +25,21 @@ export class LoginModalComponent {
       password: ['', Validators.required],
     });
 
-    if (this.isLoginModal) {
-      this.iplocation = this.staticIpRes;
-      this.appService.getIpLocation().subscribe(
-        (locRes: any) => {
-          this.iplocation = locRes;
-        },
-        (error) => {
-          this.iplocation = this.staticIpRes;
-        }
-      );
-    }
+
 
     effect(() => {
       this.isLoginModal = this.sharedService.getLoginModal()();
+      if (this.isLoginModal) {
+        this.iplocation = this.staticIpRes;
+        this.appService.getIpLocation().subscribe(
+          (locRes: any) => {
+            this.iplocation = locRes;
+          },
+          (error) => {
+            this.iplocation = this.staticIpRes;
+          }
+        );
+      }
     })
 
   }
@@ -51,7 +52,7 @@ export class LoginModalComponent {
     }
   }
 
- 
+
 
   staticIpRes =
     {

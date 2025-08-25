@@ -63,6 +63,11 @@ export class BottomNavComponent {
   }
 
   toggleBets() {
+    let token = localStorage.getItem('token');
+    if (!token) {
+      this.sharedService.setLoginModal(true);
+      return;
+    }
     this.bets = !this.bets;
     if (this.bets) {
       this.getUserEventExposure()

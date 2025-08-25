@@ -40,4 +40,8 @@ export class VirtualComponent implements OnInit {
       }
     );
   }
+  openGame(item: any) {
+    
+    this.backend.gotoMarket(item);
+  }
 }

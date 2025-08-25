@@ -125,17 +125,34 @@
       </div>
       <div
         class="tab-wrapper"
-        *ngIf="isScore"
+        *ngIf="isScore && token"
         [ngClass]="isStartStream ? '' : 'active-item'"
         (click)="isStartStream = false; clickwatch = false"
       >
         <span class="text-text_tertiary8 tab-title"> Live Score </span>
       </div>
       <div
+        *ngIf="token"
         class="tab-wrapper"
         [ngClass]="isStartStream ? 'active-item' : ''"
         style="border-right: 0px"
         (click)="isStartStream = true; clickwatch = true"
+      >
+        <span class="text-text_tertiary8 tab-title"> Live Video </span>
+      </div>
+      <div
+        class="tab-wrapper"
+        *ngIf="isScore && !token"
+        
+         (click)="ShowLoginToaster('score')"
+      >
+        <span class="text-text_tertiary8 tab-title"> Live Score </span>
+      </div>
+      <div
+        *ngIf="!token"
+        class="tab-wrapper"
+        style="border-right: 0px"
+        (click)="ShowLoginToaster('video')"
       >
         <span class="text-text_tertiary8 tab-title"> Live Video </span>
       </div>
@@ -165,7 +182,7 @@
     </ng-container>
 
     <ng-container
-      *ngIf="!isStartStream && token !== '' && sportId != '66101' && isScore"
+      *ngIf="!isStartStream && token && sportId != '66101' && isScore"
     >
       <app-scorecards [sportObj]="sportObj" [isMuted]="false"></app-scorecards>
     </ng-container>
