@@ -25,6 +25,7 @@ export class HeaderComponent {
   userExposureList: any = [];
   userBalance: any;
   exposureModal: boolean = false;
+
   staticIpRes =
     {
       as: '0',
@@ -117,7 +118,7 @@ export class HeaderComponent {
   }
 
   showSignup() {
-    this.toggle.toggleSignup();
+    this.toggle.setSignUpMModal(true);
   }
 
   showPass() {

@@ -17,6 +17,7 @@ import { Token } from '@angular/compiler';
 })
 export class LoginModalComponent {
   loginForm!: FormGroup;
+  isEye:boolean = false
   isLoginModal: boolean = false
   iplocation: any;
   constructor(private fb: FormBuilder, private appService: NetworkService, private http: HttpClient, private toaster: ToastrService, private router: Router, private sharedService: SharedService,) {

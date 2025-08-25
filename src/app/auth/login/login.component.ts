@@ -18,6 +18,8 @@ import { FooterComponent } from '../../shared/footer/footer.component';
 })
 export class LoginComponent {
   currentIndex = 0;
+  isEye:boolean = false
+  activeRoute:any
   iplocation: any;
   loginForm!: FormGroup;
   currentUrl: any
@@ -46,6 +48,8 @@ export class LoginComponent {
     }
 
   constructor(private router: Router, private toaster: ToastrService, private http: HttpClient, private fb: FormBuilder, private appService: NetworkService, private mainService: MainService) {
+
+  
     this.loginForm = this.fb.group({
       userName: ['', Validators.required],
       password: ['', Validators.required]
@@ -53,7 +57,11 @@ export class LoginComponent {
     this.currentUrl = this.router.url
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.currentUrl = event.urlAfterRedirects
+        this.currentUrl = event.urlAfterRedirects;
+        const mainRouter = document.querySelector('.main-container') as HTMLElement;
+        if (mainRouter) {
+          mainRouter.scrollTo({ top: -40, behavior: 'smooth' });
+        }
       }
     });
 

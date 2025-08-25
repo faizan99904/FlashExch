@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import {
   AfterViewInit,
   Component,
+  effect,
   ElementRef,
   QueryList,
   ViewChild,
@@ -27,6 +28,7 @@ export class SignupComponent {
   otpSent: boolean = false;
   havePromo: boolean = false;
   signupForm!: FormGroup;
+  isSignUp: boolean = false
   otpForm!: FormGroup;
 
 
@@ -49,7 +51,8 @@ export class SignupComponent {
     private toggle: SharedService,
     private fb: FormBuilder,
     private http: HttpClient,
-    private toaster: ToastrService
+    private toaster: ToastrService,
+    private shared: SharedService
   ) {
     this.signupForm = this.fb.group({
       username: ['', Validators.required],
@@ -77,6 +80,14 @@ export class SignupComponent {
       digit5: ['', [Validators.required, Validators.pattern('[0-9]')]],
     });
 
+
+    effect(()=>{
+      this.isSignUp = this.shared.signUpMModal();
+    })
+
+   
+
+
     this.signupForm
       .get('password')
       ?.valueChanges.subscribe(() => this.onPasswordInput());
@@ -84,9 +95,7 @@ export class SignupComponent {
       .get('username')
       ?.valueChanges.subscribe(() => this.onPasswordInput());
   }
-  closeSignup() {
-    this.toggle.hideSignup();
-  }
+ 
 
   getClass(isValid: boolean): string {
     const password = this.signupForm.get('password')?.value;
@@ -208,5 +217,10 @@ export class SignupComponent {
         this.otpSent = true;
       },
     });
+  }
+
+
+  closeModal() {
+    this.shared.setSignUpMModal(false);
   }
 }

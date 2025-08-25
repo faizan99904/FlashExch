@@ -12,6 +12,7 @@ import { SharedService } from '../../service/shared.service';
 import { MainService } from '../../service/main.service';
 import { Router, RouterLink } from '@angular/router';
 import { MarketComponent } from "../../component/market/market.component";
+import { NetworkService } from '../../service/network.service';
 
 @Component({
   selector: 'app-mobile-sidebar',
@@ -21,10 +22,12 @@ import { MarketComponent } from "../../component/market/market.component";
 })
 export class MobileSidebarComponent {
   @Input() searchTab!: string;
+  activeDropdownIndex: number | null = null;
   dropdownOpen = false;
   filterCompetitions: any = []
   dropdownHeight = '0px';
-  tournamentLength: any = []
+  tournamentLength: any = [];
+  tournamentData: any = []
   activeIndex: any;
   selectedFilterid: any = [];
   filteredEvents: any = [];
@@ -88,7 +91,8 @@ export class MobileSidebarComponent {
     private sharedService: SharedService,
     private renderer: Renderer2,
     public mainService: MainService,
-    private router: Router
+    private router: Router,
+    private networkService: NetworkService
   ) {
     this.selectedFilterid = JSON.parse(
       localStorage.getItem(`multiMarket_${this.sharedService.username()}`) ??
@@ -194,7 +198,9 @@ export class MobileSidebarComponent {
 
   RearrangingData(data: any) {
     const uniqueSportsArray = data.reduce((acc: any[], item: any) => {
-      const existingTournament = acc.find((t: any) => t.competitionId === item?.tournamentId);
+      const existingTournament = acc.find(
+        (t: any) => t.competitionId === item?.tournamentId
+      );
 
       if (existingTournament) {
         existingTournament.data.push(item);
@@ -202,7 +208,7 @@ export class MobileSidebarComponent {
         acc.push({
           competitionId: item?.tournamentId,
           competitionName: item?.tournamentName,
-          data: [item]
+          data: [item],
         });
       }
 
@@ -217,30 +223,46 @@ export class MobileSidebarComponent {
       });
     });
 
-
-
-    const allMatches = [...uniqueSportsArray].flatMap((tournament: any) => tournament.data);
-    const getTournamentCount = [...uniqueSportsArray].flatMap((tournament: any) => tournament.data);
+    const allMatches = [...uniqueSportsArray].flatMap(
+      (tournament: any) => tournament.data
+    );
+    const getTournamentCount = [...uniqueSportsArray].flatMap(
+      (tournament: any) => tournament.data
+    );
 
     const sortedMatches = allMatches
       .filter((match: any) => match?.oddsData?.totalMatched != null)
-      .sort((a: any, b: any) => b.oddsData.totalMatched - a.oddsData.totalMatched);
+      .sort(
+        (a: any, b: any) => b.oddsData.totalMatched - a.oddsData.totalMatched
+      );
 
     this.filterCompetitions = sortedMatches.slice(0, 5);
-
 
     [...this.filterCompetitions].forEach((event: any) => {
       // Find the tournament that contains this event
       const matchingTournament = uniqueSportsArray.find((sport: any) =>
-        sport.data.some((tournamentEvent: any) =>
-          tournamentEvent._id === event._id
+        sport.data.some(
+          (tournamentEvent: any) => tournamentEvent._id === event._id
         )
       );
 
       if (matchingTournament) {
-        this.tournamentLength.push(matchingTournament.data.length)
+        this.tournamentLength.push(matchingTournament.data.length);
+        this.tournamentData.push(matchingTournament.data);
       }
     });
+  }
+
+
+  gotoLeagues(event: any) {
+    this.networkService.gotoMarket(event);
+    this.closeSidebar()
+  }
+
+  toggleLeagues(index: number): void {
+    this.activeDropdownIndex =
+      this.activeDropdownIndex === index ? null : index;
+
 
   }
 }

@@ -27,6 +27,7 @@ export class SharedService {
   readonly extended = signal(false);
   readonly racingLength = signal(null);
   readonly loginModal = signal(false);
+  readonly signUpMModal = signal(false);
 
   private colorSignal = signal<string>('#86efac');
   readonly color = this.colorSignal.asReadonly();
@@ -162,4 +163,15 @@ export class SharedService {
   getState(): boolean {
     return this.extended();
   }
+
+  getSignUpMModal(): boolean {
+    return this.signUpMModal();
+  }
+  
+
+  setSignUpMModal(value: boolean) {
+    this.signUpMModal.set(value);
+  }
+
+ 
 }

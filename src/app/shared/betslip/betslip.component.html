@@ -1,4 +1,4 @@
-<div class="col-span-12 h-max w-full" *ngIf="item && item?.price">
+<div class="col-span-12 h-max w-full max-h-0 overflow-hidden" [ngClass]="{'!max-h-[500px] !duration-300 lg:!duration-0':item && item?.price}">
     <div [ngClass]="{'border-layBtn': colorType() === 'lay',
     'border-backBtn': colorType() === 'back',
     'border-sportBtn': colorType() === 'sportbook'}"
@@ -48,7 +48,7 @@
                 <label for="stakeInput"
                     class="text-text_color_primary1 sm:text-xs text-[10px] font-normal flex items-center justify-between gap-1">
                     <span>STAKE</span>
-                    <span [title]="'Max mkt : '+ this.item.maxValue" class="truncate">Min/Max : {{this.item.minValue}}/{{this.item.maxValue}}</span>
+                    <span [title]="'Max mkt : '+ this.item?.maxValue" class="truncate">Min/Max : {{this.item?.minValue}}/{{this.item?.maxValue}}</span>
                 </label>
                 <input (input)="betExposure()" [ngClass]="{ '!bg-[#101827]': stake, 'bg-transparent': !stake }"
                     [(ngModel)]="stake" id="stakeInput" inputmode="numeric" class=" focus:outline-none text-sm w-full h-full text-center focus:bg-bg_color_input_bg flex items-center justify-center border-[0.75px]  text-text_color_primary1 border-border_color_primary placeholder:text-text_color_primary1 5 rounded-sm  text-text_color_primary1 bg-transparent
@@ -137,7 +137,7 @@
                         </svg>
 
                     </span>
-                    <span class="font-normal relative top-[1px] text-text_color_primary2">{{item.betDelay}}s</span>
+                    <span class="font-normal relative top-[1px] text-text_color_primary2">{{item?.betDelay}}s</span>
                 </div>
                  <div class="flex items-center justify-center gap-x-1" *ngIf="isbetPlacing">
                     <span>

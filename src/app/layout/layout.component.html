@@ -18,9 +18,9 @@
                 [ngClass]="{'hidden': activeRoute === 'market-detail' || activeRoute === 'ballByBall' }">
             </app-sports-nav>
             <router-outlet></router-outlet>
-            @if(signUp()){
+
             <app-signup></app-signup>
-            }
+
             @if(forgetPass()){
             <app-forget-modal></app-forget-modal>
             }

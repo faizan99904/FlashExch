@@ -1,5 +1,5 @@
-<div class="overlay" *ngIf="isLoginModal" (click)="closeLoginModal()">
-    <form class="popup signin-popup" [formGroup]="loginForm" (submit)="onSubmit();" (click)="$event.stopPropagation()">
+<div class="overlay invisible"  (click)="closeLoginModal()" [ngClass]="{'!visible':isLoginModal}">
+    <form class="popup signin-popup translate-y-[-40px]" [ngClass]="{'!translate-y-[0] !duration-300':isLoginModal}" [formGroup]="loginForm" (submit)="onSubmit();" (click)="$event.stopPropagation()">
         <h2 class="login-heading">Log In</h2>
         <span class="material-icons close" (click)="closeLoginModal()">close</span>
         <div class="fields-wrapper">
@@ -7,8 +7,9 @@
                 <input type="text" required name="userName" placeholder="Username" formControlName="userName">
             </div>
 
-            <div class="field">
-                <input type="password" required name="password" placeholder="Password" formControlName="password">
+            <div class="field relative">
+                <input [type]="isEye ? 'text' : 'password'" required name="password" placeholder="Password" formControlName="password">
+                <i class="absolute right-4 top-[21%] cursor-pointer text-white" [ngClass]="isEye ? 'fa fa-eye-slash' : 'fa fa-eye'" (click)="isEye = !isEye"></i>
                 <span class="forgot-pass">Forgot Password?</span>
             </div>
 

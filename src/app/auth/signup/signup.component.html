@@ -1,8 +1,8 @@
-<div class="overlay fixed left-0 top-0 w-full h-screen bg-[rgba(6,6,6,.7)] sm:bg-[rgba(35,31,32,.9)] z-[9999]">
-    <div class="content-wrapper sm:w-[18.7491rem] overflow-hidden">
+<div class="overlay fixed left-0 top-0 w-full h-screen bg-[rgba(6,6,6,.7)] sm:bg-[rgba(35,31,32,.9)] z-[9999] invisible" [ngClass]="{'!visible ':isSignUp}" (click)="closeModal()">
+    <div class="content-wrapper sm:w-[18.7491rem] lg:w-[433px] overflow-hidden translate-y-[-40px]" [ngClass]="{'translate-y-[0] !duration-300':isSignUp}" (click)="$event.stopPropagation()">
         <div style="scrollbar-width: none;" class="overflow-y-auto !overflow-x-hidden h-full">
-            <div class="mt-[1.7016rem] sm:mt-0 sm:p-[0.7125rem_1.35rem]">
-                <img class="sm:h-[5.925rem] h-[6.267rem] w-full rounded-lg mb-3 sm:mb-0 sm:mt-8"
+            <div class="mt-[1.7016rem] lg:mt-[13px] sm:mt-0 sm:p-[0.7125rem_1.35rem]">
+                <img class="sm:h-[5.925rem] h-[6.267rem] w-full lg:h-[136px] rounded-lg mb-3 sm:mb-0 sm:mt-8"
                     src="/assets/images/slide1.webp" alt="">
             </div>
             <form [formGroup]="signupForm" class="px-0 sm:px-[1.35rem]">
@@ -560,10 +560,10 @@
                 </ul>
             </form>
             <div
-                class="absolute top-[0.5672rem] right-[0.5672rem] sm:w-full sm:bg-[#36393f] sm:h-[29.98px] sm:top-0 sm:right-0 sm:flex sm:items-center sm:justify-end sm:pr-[6px]">
+                class="absolute lg:top-0 top-[0.5672rem] lg:h-[43px] right-[0.5672rem] sm:w-full sm:bg-[#36393f] sm:h-[29.98px] sm:top-0 sm:right-0 sm:flex sm:items-center sm:justify-end sm:pr-[6px]">
                 <span
-                    class="hidden sm:block text-white absolute left-1/2 text-[9.6003px] translate-x-[-50%]">Registration</span>
-                <img (click)="closeSignup()" class="sm:w-[11.9997px] cursor-pointer" src="/assets/images/close.png"
+                    class="hidden sm:block text-white absolute left-1/2 text-[9.6003px] translate-x-[-50%] lg:text-base">Registration</span>
+                <img (click)="closeModal()" class="sm:w-[11.9997px] lg:w-[20px] cursor-pointer" src="/assets/images/close.png"
                     alt="">
             </div>
         </div>

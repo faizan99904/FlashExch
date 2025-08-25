@@ -36,16 +36,24 @@
             </div>
         </div>
         <div class="nav-list">
-            <ul >
-                <li routerLink="/sport" (click)="closeSidebar()"><a><img src="/assets/images/menu/sport.svg"> <span>Sports</span></a></li>
-                <li routerLink="/inplay" (click)="closeSidebar()"><a><img src="/assets/images/menu/live.svg"> <span>Live</span></a></li>
-                <li (click)="closeSidebar()"><a><img src="/assets/images/menu/esports.svg" > <span>Esports</span></a></li>
-                <li routerLink="/live-casino" (click)="closeSidebar()"><a><img src="/assets/images/menu/livecasino.svg" > <span>Live
+            <ul>
+                <li routerLink="/sport" (click)="closeSidebar()"><a><img src="/assets/images/menu/sport.svg">
+                        <span>Sports</span></a></li>
+                <li routerLink="/inplay" (click)="closeSidebar()"><a><img src="/assets/images/menu/live.svg">
+                        <span>Live</span></a></li>
+                <li (click)="closeSidebar()"><a><img src="/assets/images/menu/esports.svg"> <span>Esports</span></a>
+                </li>
+                <li routerLink="/live-casino" (click)="closeSidebar()"><a><img src="/assets/images/menu/livecasino.svg">
+                        <span>Live
                             Casino</span></a></li>
-                <li routerLink="/casino" (click)="closeSidebar()"><a><img src="/assets/images/menu/777.svg" > <span>Casino</span></a></li>
-                <li (click)="closeSidebar()"><a><img src="/assets/images/menu/virtual.svg"> <span>Virtual sport</span></a></li>
-                <li routerLink="/promotions" (click)="closeSidebar()"><a><img src="/assets/images/menu/promos.svg"> <span>Promotions</span></a></li>
-                <li routerLink="/affiliate" (click)="closeSidebar()"><a><img src="/assets/images/menu/affiliate.svg"> <span>AFFILIATES</span></a></li>
+                <li routerLink="/casino" (click)="closeSidebar()"><a><img src="/assets/images/menu/777.svg">
+                        <span>Casino</span></a></li>
+                <li (click)="closeSidebar()"><a><img src="/assets/images/menu/virtual.svg"> <span>Virtual
+                            sport</span></a></li>
+                <li routerLink="/promotions" (click)="closeSidebar()"><a><img src="/assets/images/menu/promos.svg">
+                        <span>Promotions</span></a></li>
+                <li routerLink="/affiliate" (click)="closeSidebar()"><a><img src="/assets/images/menu/affiliate.svg">
+                        <span>AFFILIATES</span></a></li>
             </ul>
         </div>
 
@@ -63,13 +71,23 @@
             <ul class="space-y-2">
 
                 <li class="!mb-[2vw]" *ngFor="let event of filterCompetitions; let ii = index">
-                    <div class="flex items-center justify-between hover:bg-gray-800  rounded">
+                    <div class="flex items-center justify-between hover:bg-gray-800  rounded" (click)="toggleLeagues(ii)">
                         <div class="flex items-center gap-[3.6vw]">
                             <i class="sport-icon text-[3.7vw]" [attr.sport]="event.sportName.toLowerCase()"></i>
                             <span class="text-[3.7vw]">{{event.tournamentName}}p</span>
                         </div>
                         <span class="text-[3.7vw]">{{tournamentLength[ii]}}</span>
                     </div>
+
+                    <div class="dropdown-content" [class.open]="activeDropdownIndex === ii">
+                    
+                        <ul class="text-green-500 p-2 text-sm space-y-1" *ngIf="tournamentData[ii]?.length">
+                            <li class="cursor-pointer" (click)="gotoLeagues(match)" *ngFor="let match of tournamentData[ii]">
+                                {{ match.eventName }}
+                            </li>
+                        </ul>
+                    </div>
+
                 </li>
 
 

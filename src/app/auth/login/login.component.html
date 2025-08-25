@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="bg-[#13161B] text-white h-screen overflow-y-auto">
+<div class="bg-[#13161B] text-white h-screen overflow-y-auto main-container">
 
     <div class="relative w-full max-w-3xl lg:max-w-[100%] mx-auto overflow-hidden">
         <div class="flex transition-transform duration-500 ease-in-out"
@@ -32,8 +32,14 @@
             <div class="err-text text-red-500 text-sm mt-1 pl-[6px]"
                 *ngIf="loginForm.get('userName')?.invalid && loginForm.get('userName')?.touched">Username is required
             </div>
-            <input class="poppins-regular" formControlName="password" type="password" name="password"
-                placeholder="Password">
+
+            <div class="w-full relative">
+                <input class="poppins-regular" formControlName="password" [type]="isEye ? 'text' : 'password'" name="password"
+                    placeholder="Password">
+                <i class="absolute right-4 top-[53%] cursor-pointer text-white"
+                    [ngClass]="isEye ? 'fa fa-eye-slash' : 'fa fa-eye'" (click)="isEye = !isEye"></i>
+            </div>
+
             <div class="err-text text-red-500 text-sm mt-1 pl-[6px]"
                 *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">Password is required
             </div>

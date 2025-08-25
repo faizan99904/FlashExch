@@ -38,7 +38,7 @@ form ul li:not(.accept-terms) {
 }
 
 .input {
-  @apply w-full h-[3.0061rem] !bg-[#181b22] text-white border border-solid border-[#11e31233] pl-[4vw] rounded-[0.5672rem] text-[12px];
+  @apply w-full h-[3.0061rem] !bg-[#181b22] text-white border border-solid border-[#11e31233] pl-[4vw] rounded-[0.5672rem] text-[12px] lg:!h-[40px];
 }
 
 .select {
@@ -226,6 +226,24 @@ form ul li:not(.accept-terms) .currency-cont {
   label.check {
     padding-left: 16.875px !important;
     margin: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  ul li input,
+  .pass-input {
+    height: 40px !important;
+    font-size: 12.5px !important;
+  }
+
+  .select {
+    height: 40px !important;
+    font-size: 12.5px !important;
+  }
+
+  .btn {
+    height: 40px !important;
+    font-size: 14px !important;
   }
 }
 

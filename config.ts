@@ -1,7 +1,7 @@
-// const BASE_URL = 'https://betever365.com';
+const BASE_URL = 'https://betever365.com';
 // const BASE_URL = 'https://infiexch.com';
 
-const BASE_URL = ''
+// const BASE_URL = ''
 
 export const CONFIG = {
   miniCasinoIframeUrl: 'https://minicasino.ludoexchange.com',
