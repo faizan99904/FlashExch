@@ -574,15 +574,21 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
     });
   }
 
-  scrollToBetslip() {
-    const element = document.getElementById('betslip');
+  scrollToBetslip(mtype?: any,selectionId?: any,marketId?: any) {
+    let element;
+   
+    element = document.getElementById("betslip" + selectionId + '_' + marketId);
+    if (mtype == "SPORTSBOOK") {
+      element = document.getElementById('betslip' + '_' + marketId);
+    }
     if (element) {
       element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-        inline: 'center',
+        behavior: "smooth",
+        block: "center",
+        inline: "end"
       });
     }
+
   }
 
   checkUserForStream() {
@@ -648,21 +654,31 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
     }
     window.clearInterval(this.intrvlCashOut);
     this.cashoutValue = [];
-
+    this.isBetsSlipOpened = selectionId;
+    this.marketId = marketId;
     setTimeout(() => {
-      const element = document.getElementById('betslip');
+      let element;
+      element = document.getElementById('betslip' + this.isBetsSlipOpened + '_' + this.marketId);
+      if (mType == "SPORTSBOOK") {
+        element = document.getElementById('betslip' + '_' + this.marketId);
+      }
       if (element) {
         const rect = element.getBoundingClientRect();
-        const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+        let bottom = rect.bottom;
+        // if (this.miniCasinoOpened) {
+        //   bottom = bottom + 230;
+        // }
+        const isVisible = rect.top >= 0 && bottom <= window.innerHeight;
 
         if (isVisible) {
           // console.log('Betslip is completely in the viewport');
         } else {
           // console.log('Betslip is not completely in the viewport');
-          this.scrollToBetslip();
+          this.scrollToBetslip(mType,selectionId,marketId)
         }
       }
-    }, 50);
+
+    }, 200);
     this.callFunctionOnClickNearBottom(190, this.scrollToBetslip);
     if (this.sportId == '7' || this.sportId == '4339') {
       marketType = mType;
@@ -671,8 +687,6 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
       marketType = mType;
     }
     //
-    this.isBetsSlipOpened = selectionId;
-    this.marketId = marketId;
     this.type = betType;
     this.betType = marketType;
     this.isValueBetsSlip = 0;
