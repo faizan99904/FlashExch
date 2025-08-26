@@ -81,8 +81,8 @@
     </div>
 </div>
 
-<div [ngClass]="{'!flex': passModal}" class="hidden overlay">
-    <div class="relative">
+<div [ngClass]="{'!visible': passModal}" class="invisible overlay">
+    <div class="relative translate-y-[-40px] " [ngClass]="passModal ? '!translate-y-[0px] !duration-300' : '!duration-0 opacity-0'">
         <app-change-pass></app-change-pass>
         <span (click)="passModal = false" class="material-icons close">close</span>
     </div>

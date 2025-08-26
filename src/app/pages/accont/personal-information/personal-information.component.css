@@ -132,9 +132,9 @@
 .fields li .locked {
   float: right;
   font-size: 20.625px;
-  -webkit-transition: opacity 0.3s;
+  
   color: rgba(255, 255, 255, 0.5);
-  transition: opacity 0.3s;
+
   margin-left: auto;
   margin-right: 14.0625px;
   cursor: pointer;
@@ -328,13 +328,14 @@ li .desc {
   background: #11e311;
   color: #030303;
   user-select: none;
-  transition: 0.2s ease;
+
 }
 
 .overlay {
   background: rgba(60, 60, 60, 0.77);
   position: fixed;
   left: 0;
+  display: flex;
   top: 0;
   width: 100%;
   height: 100%;
@@ -351,6 +352,5 @@ li .desc {
   font-size: 17.875px;
   font-weight: 700;
   color: #fff;
-  transition: color 120ms ease-in;
   cursor: pointer;
 }

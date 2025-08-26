@@ -152,7 +152,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
       this.previousSport = this.sportId;
       this.previousEventId = this.event_id;
       this.getMarketList();
- this.competitionName = localStorage.getItem('competitionName');
+      this.competitionName = localStorage.getItem('competitionName');
       // this.InitialStartupApiCalls();
     });
     effect(() => {
@@ -164,7 +164,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
     this.isDesktop = this.deviceService.isDesktop();
   }
   ngOnInit(): void {
-   
+
     this.getfancyMarketList();
     setTimeout(() => {
       this.checkUserForStream();
@@ -190,7 +190,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
         }
       });
   }
-  ngAfterViewInit(): void {}
+  ngAfterViewInit(): void { }
   ngOnDestroy() {
     this.unsubscribeFirebase();
     this.subscription.unsubscribe();
@@ -494,7 +494,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
                 : CONFIG.getAllEventsList;
             this.mainService
               .getDataFromServices(endpoint, -1, { key: CONFIG.siteKey })
-              .subscribe((data: any) => {});
+              .subscribe((data: any) => { });
             this.router.navigateByUrl('/');
           } else {
             this.InitialStartupApiCalls();
@@ -574,9 +574,9 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
     });
   }
 
-  scrollToBetslip(mtype?: any,selectionId?: any,marketId?: any) {
+  scrollToBetslip(mtype?: any, selectionId?: any, marketId?: any) {
     let element;
-   
+
     element = document.getElementById("betslip" + selectionId + '_' + marketId);
     if (mtype == "SPORTSBOOK") {
       element = document.getElementById('betslip' + '_' + marketId);
@@ -590,12 +590,12 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
     }
 
   }
-count=0;
- checkEmptyFancy(flag:any){
-      if(this.AllFancyMarketsFiltered.length==0 && flag=='popular' && this.count==0){
-      this.count=1;
+  count = 0;
+  checkEmptyFancy(flag: any) {
+    if (this.AllFancyMarketsFiltered.length == 0 && flag == 'popular' && this.count == 0) {
+      this.count = 1;
       this.changeFancyMarket('SPORTSBOOK');
-     }
+    }
   }
   checkUserForStream() {
     this.userDetail = JSON.parse(localStorage.getItem('userDetail') as string);
@@ -680,7 +680,7 @@ count=0;
           // console.log('Betslip is completely in the viewport');
         } else {
           // console.log('Betslip is not completely in the viewport');
-          this.scrollToBetslip(mType,selectionId,marketId)
+          this.scrollToBetslip(mType, selectionId, marketId)
         }
       }
 
@@ -793,7 +793,7 @@ count=0;
           this.matchedBetList = record.data;
           this.shared.setMatchedBets(this.matchedBetList);
         },
-        (error: any) => {}
+        (error: any) => { }
       );
   }
 
@@ -879,7 +879,7 @@ count=0;
         const isElementVisible =
           elementRect.top >= 0 &&
           elementRect.bottom <=
-            (window.innerHeight || document.documentElement.clientHeight);
+          (window.innerHeight || document.documentElement.clientHeight);
 
         if (isElementVisible && this.isMobile) {
           this.centerScrollableDiv(tableFlag);
@@ -1041,7 +1041,7 @@ count=0;
     );
   }
 
-   checkJursy(value: any) {
+  checkJursy(value: any) {
     if (value?.includes("data:image")) {
       return true
     }
@@ -1375,16 +1375,16 @@ count=0;
     // console.log('strea has',data)
     this.isStartStream = data;
   }
-ShowLoginToaster(type:any){
-  if(type=='video'){
-    this.toaster.error('Please login to watch the Live stream', '', {
-      positionClass: 'toast-top-right',
-    });
+  ShowLoginToaster(type: any) {
+    if (type == 'video') {
+      this.toaster.error('Please login to watch the Live stream', '', {
+        positionClass: 'toast-top-right',
+      });
+    }
+    if (type == 'score') {
+      this.toaster.error('Please login to watch the Live score', '', {
+        positionClass: 'toast-top-right',
+      });
+    }
   }
-  if(type=='score'){
-    this.toaster.error('Please login to watch the Live score', '', {
-      positionClass: 'toast-top-right',
-    });
-}
-}
 }

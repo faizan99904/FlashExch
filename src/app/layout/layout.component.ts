@@ -13,6 +13,7 @@ import { ForgetModalComponent } from '../shared/forget-modal/forget-modal.compon
 import { AccountNavComponent } from '../pages/account-nav/account-nav.component';
 import { CommonModule } from '@angular/common';
 import { MatchedBetsComponent } from '../pages/market-detail/matched-bets/matched-bets.component';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-layout',
@@ -33,7 +34,7 @@ import { MatchedBetsComponent } from '../pages/market-detail/matched-bets/matche
 })
 export class LayoutComponent implements OnInit {
   activeRoute: any;
-  constructor(private toggle: SharedService, private router: Router) {
+  constructor(private toggle: SharedService, private router: Router, private device: DeviceDetectorService) {
     effect(() => {
       this.toggle.betslipToggle();
       this.scrollToTop();
@@ -62,7 +63,7 @@ export class LayoutComponent implements OnInit {
 
   scrollToTop() {
     const sidebar = document.getElementById('rightSidebar');
-    if (sidebar) {
+    if (sidebar && window.innerWidth >= 1024) {
       sidebar.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }

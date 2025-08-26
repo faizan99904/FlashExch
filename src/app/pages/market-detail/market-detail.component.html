@@ -1177,7 +1177,8 @@
                 </div>
               </div>
               <!-- [id]="'betslip'+runner.selectionId+'_'+market.exMarketId" -->
-              <div class="lg:hidden w-full max-h-0 overflow-hidden" [id]="'betslip'+runner.selectionId+'_'+market.exMarketId" [ngClass]="{'!max-h-[300px] !duration-300 lg:!duration-0':  isBetsSlipOpened == runner.selectionId &&
+              <div class="lg:hidden w-full max-h-0 overflow-hidden"
+                [id]="'betslip'+runner.selectionId+'_'+market.exMarketId" [ngClass]="{'!max-h-[300px] !duration-300 lg:!duration-0':  isBetsSlipOpened == runner.selectionId &&
                   marketId == market.exMarketId &&
                   (market?.oddsData?.status == 'OPEN' ||
                     market?.oddsData?.status == 'ONLINE')}">
@@ -1190,7 +1191,7 @@
       </ng-container>
       <!-- sportsbook popular -->
 
-    
+
 
       <ng-container *ngFor="let market of AllFancyMarkets; trackBy: trackByFn; index as i">
         <ng-container *ngIf="market?.oddsData?.status !== 'CLOSED'">
@@ -1658,7 +1659,7 @@
         </ng-container>
       </ng-container>
 
-        <!-- sportsbook popular design end -->
+      <!-- sportsbook popular design end -->
 
       <div class="fancyul">
         <ul id="fancyul">
@@ -2006,7 +2007,8 @@
               </div>
             </div>
 
-            <div class="lg:hidden w-full max-h-0 overflow-hidden" [id]="'betslip'+market.oddsData.runners[0].selectionId+'_'+market.exMarketId" [ngClass]="{'!max-h-[300px] !duration-0 lg:!duration-0':   isBetsSlipOpened == market.oddsData.runners[0].selectionId &&
+            <div class="lg:hidden w-full max-h-0 overflow-hidden"
+              [id]="'betslip'+market.oddsData.runners[0].selectionId+'_'+market.exMarketId" [ngClass]="{'!max-h-[300px] !duration-0 lg:!duration-0':   isBetsSlipOpened == market.oddsData.runners[0].selectionId &&
                 marketId == market.exMarketId &&
                 (market?.oddsData?.status == 'OPEN' ||
                   market?.oddsData?.status == 'ONLINE')}">
@@ -2179,7 +2181,8 @@
                     </span>
                   </div>
                 </div>
-                <div class="lg:hidden w-full max-h-0 overflow-hidden" [id]="'betslip'+runner.selectionId+'_'+market.exMarketId" [ngClass]="{'!max-h-[300px] !duration-300 lg:!duration-0':  isBetsSlipOpened == runner.selectionId &&
+                <div class="lg:hidden w-full max-h-0 overflow-hidden"
+                  [id]="'betslip'+runner.selectionId+'_'+market.exMarketId" [ngClass]="{'!max-h-[300px] !duration-300 lg:!duration-0':  isBetsSlipOpened == runner.selectionId &&
                     marketId == market.exMarketId &&
                     (market?.oddsData?.status == 'OPEN' ||
                       market?.oddsData?.status == 'ONLINE')}">
