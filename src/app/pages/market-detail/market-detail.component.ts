@@ -594,7 +594,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
   checkEmptyFancy(flag: any) {
     if (this.AllFancyMarketsFiltered.length == 0 && flag == 'popular' && this.count == 0) {
       this.count = 1;
-      this.changeFancyMarket('SPORTSBOOK');
+      this.changeFancyMarket('Sportsbook',false);
     }
   }
   checkUserForStream() {
@@ -918,6 +918,7 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
             }
           }
         ).sort((a: any, b: any) => a.sequence - b.sequence);
+          // this.checkEmptyFancy(tableFlag);
         return;
       } else {
         this.AllFancyMarketsFiltered = this.AllFancyMarkets.filter(
