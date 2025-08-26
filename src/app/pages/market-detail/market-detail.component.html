@@ -1178,7 +1178,7 @@
               </div>
               <!-- [id]="'betslip'+runner.selectionId+'_'+market.exMarketId" -->
               <div class="lg:hidden w-full max-h-0 overflow-hidden"
-                [id]="'betslip'+runner.selectionId+'_'+market.exMarketId" [ngClass]="{'!max-h-[300px] !duration-300 lg:!duration-0':  isBetsSlipOpened == runner.selectionId &&
+                [id]="'betslip'+runner.selectionId+'_'+market.exMarketId" [ngClass]="{'!max-h-[350px] !duration-300 lg:!duration-0':  isBetsSlipOpened == runner.selectionId &&
                   marketId == market.exMarketId &&
                   (market?.oddsData?.status == 'OPEN' ||
                     market?.oddsData?.status == 'ONLINE')}">
@@ -2008,7 +2008,7 @@
             </div>
 
             <div class="lg:hidden w-full max-h-0 overflow-hidden"
-              [id]="'betslip'+market.oddsData.runners[0].selectionId+'_'+market.exMarketId" [ngClass]="{'!max-h-[300px] !duration-0 lg:!duration-0':   isBetsSlipOpened == market.oddsData.runners[0].selectionId &&
+              [id]="'betslip'+market.oddsData.runners[0].selectionId+'_'+market.exMarketId" [ngClass]="{'!max-h-[350px] !duration-300 lg:!duration-0':   isBetsSlipOpened == market.oddsData.runners[0].selectionId &&
                 marketId == market.exMarketId &&
                 (market?.oddsData?.status == 'OPEN' ||
                   market?.oddsData?.status == 'ONLINE')}">
@@ -2182,7 +2182,7 @@
                   </div>
                 </div>
                 <div class="lg:hidden w-full max-h-0 overflow-hidden"
-                  [id]="'betslip'+runner.selectionId+'_'+market.exMarketId" [ngClass]="{'!max-h-[300px] !duration-300 lg:!duration-0':  isBetsSlipOpened == runner.selectionId &&
+                  [id]="'betslip'+runner.selectionId+'_'+market.exMarketId" [ngClass]="{'!max-h-[350px] !duration-300 lg:!duration-0':  isBetsSlipOpened == runner.selectionId &&
                     marketId == market.exMarketId &&
                     (market?.oddsData?.status == 'OPEN' ||
                       market?.oddsData?.status == 'ONLINE')}">
