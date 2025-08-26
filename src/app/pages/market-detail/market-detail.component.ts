@@ -590,7 +590,13 @@ export class MarketDetailComponent implements OnInit, OnDestroy {
     }
 
   }
-
+count=0;
+ checkEmptyFancy(flag:any){
+      if(this.AllFancyMarketsFiltered.length==0 && flag=='popular' && this.count==0){
+      this.count=1;
+      this.changeFancyMarket('SPORTSBOOK');
+     }
+  }
   checkUserForStream() {
     this.userDetail = JSON.parse(localStorage.getItem('userDetail') as string);
     if (this.userDetail?.userName == 'diamonddemo') {
