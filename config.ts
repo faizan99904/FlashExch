@@ -1,5 +1,5 @@
-const BASE_URL = 'https://betever365.com';
-// const BASE_URL = 'https://infiexch.com';
+// const BASE_URL = 'https://betever365.com';
+const BASE_URL = 'https://flashexch-b2b-webclient.yourdesign.live';
 
 // const BASE_URL = ''
 
