@@ -125,9 +125,7 @@ export class LoginComponent {
 
         },
         error: (error: any) => {
-          this.toaster.error(error.meta.message, '', {
-            positionClass: 'toast-top-right',
-          });
+         this.appService.ErrorNotification_Manager(error.error);
         }
       })
     }
