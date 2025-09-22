@@ -27,7 +27,7 @@
         <h2 class="title poppins-medium">Log In</h2>
 
         <form class="px-[1.17045rem] lg:max-w-[800px] lg:mx-auto" [formGroup]="loginForm" (submit)="onSubmit()">
-            <input class="poppins-regular" formControlName="userName" type="text" name="username"
+            <input class="poppins-regular" formControlName="userName" type="text" name="user-name"
                 placeholder="Username">
             <div class="err-text text-red-500 text-sm mt-1 pl-[6px]"
                 *ngIf="loginForm.get('userName')?.invalid && loginForm.get('userName')?.touched">Username is required

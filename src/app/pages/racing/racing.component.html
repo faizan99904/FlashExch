@@ -12,7 +12,7 @@
 
     <app-live-streem *ngIf="isToggleVideoStream"></app-live-streem>
     <div class="racing-events lg:!hidden remove-home">
-        <section class="sport-tabs lg:!hidden">
+        <section class="sport-tabs lg:!hidden"  >
             <ul>
                 <li class="" [ngClass]="{'selected':sportId === '7'}" routerLink="/racing/7">
                     <div sport="horseracing" class="img"></div> <span class="text-[#ffffff66]"
@@ -52,7 +52,7 @@
             <span class="text-[3.5vw]  tracking-normal odds">With Odds</span>
             <span class="switcher"></span>
         </div>
-        <select #selectTag (change)="daysFilter(selectTag.value)">
+        <select #selectTag (change)="daysFilter(selectTag.value)" id="time-filter" name="time-filter">
             <option value="all">All</option>
             <option value="today">Today</option>
             <option value="tomorrow">Tomorrow</option>

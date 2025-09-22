@@ -348,7 +348,7 @@ export class BallbyballComponent implements OnInit, OnDestroy {
       index: index,
       type:'Ballbyball'
     };
-    console.log('betslio',this.betplaceObj)
+
       this.mainService.setbetslip(this.betplaceObj)
 
 

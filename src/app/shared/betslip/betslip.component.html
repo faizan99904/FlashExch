@@ -1,4 +1,5 @@
-<div class="col-span-12 h-max w-full max-h-0 overflow-hidden" [ngClass]="{'!max-h-[500px] !duration-300 lg:!duration-0':item && item?.price}">
+<div class="col-span-12 h-max w-full max-h-0 overflow-hidden"
+    [ngClass]="{'!max-h-[500px] !duration-300 lg:!duration-0':item && item?.price}">
     <div [ngClass]="{'border-layBtn': colorType() === 'lay',
     'border-backBtn': colorType() === 'back',
     'border-sportBtn': colorType() === 'sportbook'}"
@@ -9,9 +10,10 @@
                 <label for="enter-odds" class="text-text_color_primary1 sm:text-xs text-[10px] font-normal">ODDS</label>
                 <div *ngIf="!login"
                     class="flex items-center justify-center bg-bg_color_input_bg rounded overflow-hidden border border-border_color_primary">
-                    <input id="enter-odds" placeholder="Enter Odds" inputmode="numeric"
+                    <input id="enter-odds" placeholder="Enter Odds"  inputmode="numeric"
                         class="w-full focus:outline-none  text-sm h-full py-2 text-center flex items-center justify-center text-text_color_primary1 bg-bg_color_input_bg "
-                        disabled="" autocomplete="off" pattern="^[+-ed]+$" type="number" readonly [ngModel]="item?.price || 0">
+                        disabled="" autocomplete="off" pattern="^[+-ed]+$" type="number" readonly
+                        [ngModel]="item?.price || 0">
                 </div>
                 @if(login){
                 <div class="flex items-center justify-center bg-bg_color_input_bg rounded overflow-hidden">
@@ -25,7 +27,7 @@
                         </svg>
                     </button>
 
-                    <input name="odds" placeholder="Enter Odds" inputmode="numeric"
+                    <input name="odds" id="odds" placeholder="Enter Odds" inputmode="numeric"
                         class="w-full focus:outline-none  text-sm h-full py-2 text-center flex items-center justify-center text-text_color_primary1 bg-bg_color_input_bg  border border-border_color_primary border-l-0 border-r-0"
                         autocomplete="off" pattern="^[+-ed]+$" type="text" readonly [ngModel]="item?.price || 0">
 
@@ -48,9 +50,10 @@
                 <label for="stakeInput"
                     class="text-text_color_primary1 sm:text-xs text-[10px] font-normal flex items-center justify-between gap-1">
                     <span>STAKE</span>
-                    <span [title]="'Max mkt : '+ this.item?.maxValue" class="truncate">Min/Max : {{this.item?.minValue}}/{{this.item?.maxValue}}</span>
+                    <span [title]="'Max mkt : '+ this.item?.maxValue" class="truncate">Min/Max :
+                        {{this.item?.minValue}}/{{this.item?.maxValue}}</span>
                 </label>
-                <input (input)="betExposure()" [ngClass]="{ '!bg-[#101827]': stake, 'bg-transparent': !stake }"
+                <input (input)="betExposure()"  [ngClass]="{ '!bg-[#101827]': stake, 'bg-transparent': !stake }"
                     [(ngModel)]="stake" id="stakeInput" inputmode="numeric" class=" focus:outline-none text-sm w-full h-full text-center focus:bg-bg_color_input_bg flex items-center justify-center border-[0.75px]  text-text_color_primary1 border-border_color_primary placeholder:text-text_color_primary1 5 rounded-sm  text-text_color_primary1 bg-transparent
                   focus:border-oddInputBorderActive active:border-oddInputBorderActive
                    " placeholder="Max bet: 0" autocomplete="off" pattern="d*" type="number" value="">
@@ -62,7 +65,7 @@
                 class=" w-full p-2.5 rounded-md border bg-bg_color_input_bg border-border_color_primary ">
                 <div class="grid grid-cols-12 gap-[7px]">
                     <ng-container *ngFor="let stake of stackButtonArry; let i = index; trackBy: trackByIndex">
-                        <input name="editStake" *ngIf="editStakeMode && i < 6" type="number"
+                        <input name="editStake" [id]="'editStake'+i" *ngIf="editStakeMode && i < 6" type="number"
                             [(ngModel)]="stackButtonArry[i].stakeAmount" [ngClass]="{
                           'editable-inp col-span-4 text-center text-[12px] font-semibold rounded-[4px] py-1.5 bg-bg_color_primary border border-border_color_brand_primary text-text_brand_primary': true,
                           '!bg-[#1f2c3d] !border-[#60a3b3]': !stackButtonArry[i].stakeAmount && stackButtonArry[i].stakeAmount !== 0
@@ -122,8 +125,7 @@
                 </div>
                 <div class="flex items-center justify-center gap-x-1" *ngIf="!isbetPlacing">
                     <span>
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                            width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                             <g clip-path="url(#clip0_2144_3162)">
                                 <path
                                     d="M9.91095 3.68857L10.3814 3.21808C10.5643 3.03525 10.5643 2.7388 10.3814 2.55606C10.1986 2.37323 9.90225 2.37323 9.71942 2.55606L9.24893 3.02655C8.45956 2.36884 7.50037 1.9715 6.47717 1.87848V0.93631H6.92972C7.18826 0.93631 7.39783 0.726654 7.39783 0.468109C7.39783 0.209564 7.18826 0 6.92972 0H5.08832C4.82977 0 4.62021 0.209564 4.62021 0.468109C4.62021 0.726654 4.82977 0.93631 5.08832 0.93631H5.54086V1.87848C2.97958 2.11139 0.9375 4.26306 0.9375 6.92844C0.9375 9.73141 3.20572 12 6.00906 12C8.81195 12 11.0805 9.73178 11.0805 6.92844C11.0805 5.73111 10.6682 4.59723 9.91095 3.68857ZM6.00897 11.0637C3.72885 11.0637 1.87372 9.20865 1.87372 6.92844C1.87372 4.64832 3.72885 2.79327 6.00897 2.79327C8.28918 2.79327 10.1442 4.64832 10.1442 6.92844C10.1442 9.20865 8.28918 11.0637 6.00897 11.0637ZM8.1785 4.759C8.36133 4.94183 8.36133 5.23828 8.1785 5.42102L6.34003 7.25949C6.1572 7.44232 5.86075 7.44232 5.67801 7.25949C5.49518 7.07666 5.49518 6.78021 5.67801 6.59747L7.51639 4.759C7.69922 4.57617 7.99567 4.57617 8.1785 4.759Z"
@@ -139,20 +141,22 @@
                     </span>
                     <span class="font-normal relative top-[1px] text-text_color_primary2">{{item?.betDelay}}s</span>
                 </div>
-                 <div class="flex items-center justify-center gap-x-1" *ngIf="isbetPlacing">
+                <div class="flex items-center justify-center gap-x-1" *ngIf="isbetPlacing">
                     <span>
-                     <div class="loader"></div>
+                        <div class="loader"></div>
                     </span>
-                    
+
                 </div>
             </button>
         </div>
         <div class="w-full mt-[15px] lg:mt-1 flex flex-col gap-y-[4px]">
             <div class="w-full h-9 lg:block hidden"></div>
-            <div class=" flex items-center justify-between w-full select-none"><span
+           
+                @if (login) {
+                     <div class=" flex items-center justify-between w-full select-none"><span
                     class=" text-[13px] text-text_color_primary1  font-medium">Confirm bet before placing</span>
                 <label class="relative inline-flex items-center cursor-pointer">
-                    <input name="confirmBet" (change)="toggleConfirmBet($event)" type="checkbox" class="sr-only peer" />
+                    <input name="confirmBet" (change)="toggleConfirmBet($event)" id="confirmBet" type="checkbox" class="sr-only peer" />
 
                     <div
                         class="w-[56px] h-[28px] bg-bg_color_primary peer-checked:bg-green-600 rounded-full border border-border_color_primary1 transition-colors duration-300">
@@ -170,7 +174,10 @@
                         ON
                     </span>
                 </label>
-            </div>
+                </div>
+                }
+
+           
         </div>
     </div>
 </div>
