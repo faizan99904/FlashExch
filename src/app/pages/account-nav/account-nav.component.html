@@ -113,6 +113,9 @@
 
         <!-- Input Field -->
         <input type="number" placeholder="Deposit Amount*"
+        [(ngModel)]="depositAmount"
+        (keypress)="numberOnly($event)"
+        inputmode="numeric"
             class="w-full h-[41.62px] box-border text-white outline-none bg-[#151414] pl-[16.03px] border border-[#242833] text-[14.02px]  rounded-[10.02px]"
             #depositInput name="deposit-amount" />
 
@@ -123,7 +126,7 @@
 
         <!-- Button -->
         <div class="w-full justify-center flex">
-            <button class="bg-[rgb(17,227,17)] text-white px-5 py-2 rounded">
+            <button class="bg-[rgb(17,227,17)] text-white px-5 py-2 rounded" [disabled]="!depositAmount" [routerLink]="['/banking/deposit/'+depositAmount]">
                 Deposit
             </button>
         </div>

@@ -5,6 +5,7 @@ import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 
 import {
+  BehaviorSubject,
   catchError,
   firstValueFrom,
   map,
@@ -27,7 +28,7 @@ export class NetworkService {
   userBalance = signal<any>(null);
   private roundData = new Subject<string>();
   private resultData = new Subject<string>();
-
+ private depositBank: BehaviorSubject<any | null> = new BehaviorSubject<any | null>(null);
 
 
   private streamData: any = {};
@@ -482,5 +483,11 @@ export class NetworkService {
       dateObj,
       "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
     );
+  }
+    getDepositBank(): BehaviorSubject<any | null> {
+    return this.depositBank;
+  }
+  setDepositBank(value: any | null): void {
+    this.depositBank.next(value);
   }
 }

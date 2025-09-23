@@ -1,0 +1,83 @@
+.btn.border{
+    border-color: white;
+    border-style: dashed !important;
+}
+.btn.border:hover{
+    background-color: white;
+    color: black !important;
+    transition: 0.3s;
+    border-style:solid !important;
+}
+
+.page-heading {
+  padding: 5px 10px;
+  position: relative;
+}
+
+.page-heading h3 {
+  text-transform: capitalize;
+  font-size: 18px;
+  margin-bottom: 0;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.page-heading h3:before {
+  border-bottom: 2px solid var(--primary);
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 50px;
+}
+
+.card-accent-primary {
+  border-top-color: var(--primary);
+}
+
+.sub-heading h4 {
+  font-size: 12px;
+  margin-bottom: 0;
+  padding: 10px;
+  font-weight: 600;
+}
+.bg1{
+    background: linear-gradient(to right, rgb(33 36 38), rgb(5 20 36));
+}
+.bg2{
+    background: linear-gradient(to right, rgb(65, 41, 90), rgb(47, 7, 67));
+}
+.bg3{
+    background: linear-gradient(to right, rgb(0, 0, 0), rgb(67, 67, 67));
+}
+.bg4{
+    background: linear-gradient(to right, rgb(22, 34, 42), rgb(58, 96, 115));
+}
+.bg5{
+    background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
+}       
+
+
+.payment-title{ 
+  font-weight:800;
+  letter-spacing:.3px;
+  text-transform:uppercase;
+ }
+
+.amount-pill{ 
+    background:rgba(255,255,255,.14);
+    backdrop-filter:blur(2px);
+    border-radius:999px;
+    padding:.25rem .6rem;
+    font-weight:700;
+    font-size:.8rem; 
+    height: 100%;
+}
+.pay-btn{ 
+  border:2px solid rgba(255,255,255,.85);
+  font-weight:800; color:#fff; 
+  line-height: 20px;
+}
+.pay-btn:hover{ 
+  background:#fff;
+  color:#000;
+}

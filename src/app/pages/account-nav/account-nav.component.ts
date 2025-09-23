@@ -6,15 +6,17 @@ import { CONFIG } from '../../../../config';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-account-nav',
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule,FormsModule],
   templateUrl: './account-nav.component.html',
   styleUrl: './account-nav.component.css',
 })
 export class AccountNavComponent {
   userBalance: any;
+  depositAmount: any = '';
   isDeposit: boolean = false
   @ViewChild('depositInput') depositInput!: ElementRef;
   constructor(
@@ -53,5 +55,14 @@ export class AccountNavComponent {
         this.depositInput?.nativeElement.focus();
       }, 500);
     }
+  }
+    numberOnly(event: any): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+
+    if (charCode > 31 && (charCode < 45 || charCode > 57)) {
+      return false;
+    }
+    return true;
+
   }
 }

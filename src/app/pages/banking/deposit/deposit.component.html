@@ -1,1 +1,154 @@
-<p>deposit works!</p>
+<!-- Header card -->
+<div class="m-3 rounded-xl border border-indigo-500/30 bg-white p-4 shadow-sm">
+  <div class="mb-5">
+    <h3 class="text-lg font-semibold text-gray-900">Choose your payment method</h3>
+  </div>
+  <div>
+    <h4 class="text-base text-gray-700">
+      Make payment of {{ _amount }}/- and upload screenshot.
+    </h4>
+  </div>
+</div>
+
+<div class="m-2 p-2 mb-[100px]" >
+  <!-- Cards grid -->
+  <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-2">
+    <ng-container *ngFor="let detail of depositDetails; trackBy: trackByFn; let index = index">
+
+      <!-- Card: CRYPTO -->
+      <div class="col-span-1" *ngIf="detail.paymentType === 'crypto'">
+        <div
+          class="relative min-h-[200px] rounded-xl text-white"
+          [ngClass]="classes[index % classes.length]"
+        >
+          <div class="flex h-full flex-col justify-between p-4">
+            <div>
+              <div class="flex items-center justify-between font-bold uppercase">
+                <h3 class="payment-title text-xl tracking-wide">
+                  {{ detail.paymentType }}
+                </h3>
+                <div class="rounded-full bg-white/15 px-3 py-1 text-sm font-semibold ring-1 ring-white/30">
+                  ₹{{ detail.amount }}
+                </div>
+              </div>
+
+              <div class="h-full p-4">
+                <div class="flex w-full items-center justify-center">
+                  <img
+                    (click)="DepositDetails(detail)"
+                    class="h-[100px] max-w-full cursor-pointer"
+                    src="assets/paymentMethods/USDTT.png"
+                    alt="USDT"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card: OTHER (not crypto, not bank) -->
+      <div class="col-span-1" *ngIf="detail.paymentType != 'crypto' && detail.paymentType != 'bank'">
+        <div
+          class="relative min-h-[200px] rounded-xl text-white"
+          [ngClass]="classes[index % classes.length]"
+        >
+          <div class="flex w-full flex-col p-4">
+            <div>
+              <div class="flex items-center justify-between font-bold uppercase">
+                <h3 class="payment-title text-xl tracking-wide">
+                  {{ detail.paymentType }}
+                </h3>
+                <div class="rounded-full bg-white/15 px-3 py-1 text-sm font-semibold ring-1 ring-white/30">
+                  ₹{{ detail.amount }}
+                </div>
+              </div>
+
+              <div class="my-2 flex items-center justify-between">
+                <img
+                  *ngFor="let img of paymentMethodsImgs"
+                  class="h-6 w-6 rounded-full object-cover"
+                  [src]="img"
+                  alt="payment method"
+                />
+              </div>
+
+              <div>
+                <div class="text-sm">
+                  <span class="mr-1">1.</span><span class="capitalize font-bold">Click PayNow</span>
+                </div>
+                <div class="text-sm">
+                  <span class="mr-1">2.</span><span class="capitalize font-bold">Scan QR CODE</span>
+                </div>
+                <div class="text-sm">
+                  <span class="mr-1">3.</span><span class="capitalize font-bold">Submit UTR/Payment Slip</span>
+                </div>
+                <div class="text-sm">
+                  <span class="mr-1">4.</span><span class="capitalize font-bold">Get Your Points</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-auto text-end">
+              <button
+                (click)="DepositDetails(detail)"
+                class="mt-2 inline-flex items-center self-center rounded-lg bg-white/90 px-5 py-2 text-sm font-semibold text-gray-900 shadow hover:bg-white focus:outline-none focus:ring-2 focus:ring-white/60 focus:ring-offset-2"
+              >
+                Pay Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card: BANK -->
+      <div class="col-span-1 flex" *ngIf="detail.paymentType === 'bank'">
+        <div
+          class="relative min-h-[200px] w-full rounded-xl text-white"
+          [ngClass]="classes[index % classes.length]"
+        >
+          <div class="flex w-full flex-col p-4">
+            <div>
+              <div class="flex items-center justify-between font-bold uppercase">
+                <h3 class="payment-title text-xl tracking-wide">
+                  {{ detail.paymentType }}
+                </h3>
+                <div class="rounded-full bg-white/15 px-3 py-1 text-sm font-semibold ring-1 ring-white/30">
+                  ₹{{ detail.amount }}
+                </div>
+              </div>
+
+              <ol class="mb-0 mt-3 list-decimal pl-4 text-sm">
+                <li><span class="capitalize font-bold">Click PayNow</span></li>
+                <li><span class="capitalize font-bold">Pay on Bank Account</span></li>
+                <li><span class="capitalize font-bold">Submit Payment Slip</span></li>
+                <li><span class="capitalize font-bold">Get Your Points</span></li>
+              </ol>
+            </div>
+
+            <div class="mt-auto text-end">
+              <button
+                (click)="DepositDetails(detail)"
+                class="mt-2 inline-flex items-center self-center rounded-lg bg-white/90 px-5 py-2 text-sm font-semibold text-gray-900 shadow hover:bg-white focus:outline-none focus:ring-2 focus:ring-white/60 focus:ring-offset-2"
+              >
+                Pay Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </ng-container>
+  </div>
+
+  <!-- Notes -->
+  <div class="mt-4 rounded-xl bg-white p-4 shadow-sm">
+    <ul class="mb-0 list-disc pl-5 text-sm text-red-600">
+      <li>Deposit money only in the below available accounts to get the fastest credits and avoid possible delays.</li>
+      <li>Site is not responsible for money deposited to Old, Inactive or Closed accounts.</li>
+      <li>After deposit, add amount to receive balance.</li>
+      <li>NEFT receiving time varies from 20 minutes to 1 hours.</li>
+      <li>In case of account modification: payment valid for 1 hour after changing account details in deposit page.</li>
+    </ul>
+  </div>
+</div>

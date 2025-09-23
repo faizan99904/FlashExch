@@ -112,6 +112,18 @@ export const routes: Routes = [
         path: 'banking/withdrawdetails',
         loadComponent: () => import('./pages/banking/withdraw-details/withdraw-details.component').then(m => m.WithdrawDetailsComponent),
       },
+      {
+        path: 'banking/deposit/:id',
+        loadComponent: () => import('./pages/banking/deposit/deposit.component').then(m => m.DepositComponent),
+      },
+      {
+        path: 'banking/deposit-details/:id',
+        loadComponent: () => import('./pages/banking/deposit-details/deposit-details.component').then(m => m.DepositDetailsComponent),
+      },
+      {
+        path: 'banking/payment-waiting/:amount/:utr/:method',
+        loadComponent: () => import('./pages/banking/payment-waiting/payment-waiting.component').then(m => m.PaymentWaitingComponent),
+      },
 
     ],
   },

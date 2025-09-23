@@ -1,0 +1,252 @@
+<!-- Tailwind version -->
+<div class="relative w-full overflow-y-auto font-sans ">
+  <div class="flex min-h-screen w-full justify-center bg-white p-4 md:p-6">
+    <div class="relative h-full w-full min-h-screen max-w-3xl rounded-t-2xl shadow-lg pb-1 mb-[100px]">
+
+      <!-- Header / amount -->
+      <div class="w-full rounded-b-3xl shadow-lg flex flex-col items-center details-card">
+        <a class="mt-3 backLink mb-2 inline-flex items-center gap-2 text-sm font-medium text-indigo-600 hover:text-indigo-700 cursor-pointer"
+           (click)="gotoBack()">
+          <i class="fas fa-angle-left"></i> Back
+        </a>
+
+        <img [src]="themeConfig?.data?.exchangeLogo" alt="logo" class="h-10 w-auto object-contain mb-2" />
+
+        <div class="flex w-full items-center justify-between px-3 py-2">
+          <div class="flex flex-col items-center">
+            <div class="text-xs uppercase tracking-wide ">Amount</div>
+            <div class="text-base font-semibold ">
+              {{ amountForDisplay | number : '1.2-2' }}
+            </div>
+          </div>
+
+          <div class="flex flex-col items-center justify-center" *ngIf="depositDetails?.paymentType == 'crypto'">
+            <div class="text-xs font-medium text-gray-700">
+              Buy Price (₹{{ depositDetails.buyPrice }})
+            </div>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <div class="text-xs uppercase tracking-wide ">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+            </div>
+            <div class="text-base font-semibold ">
+              {{ display }}
+            </div>
+          </div>
+        </div>
+
+        <!-- for crypto -->
+        <div class="flex flex-col items-center justify-center" *ngIf="depositDetails?.paymentType == 'crypto'">
+          <img
+            class="h-12 w-auto object-contain cursor-pointer"
+            src="assets/paymentMethods/USDTT.png"
+            alt="USDT"
+          />
+          <a
+            class="mt-2 inline-flex items-center text-sm font-medium  hover:text-indigo-700 break-all cursor-pointer"
+            (click)="copyMessage(depositDetails?.walletAddress)"
+          >
+            {{ depositDetails?.walletAddress }}
+            <svg class="ml-2 h-4 w-4" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+              <path d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- for paytm / other (not crypto, not bank) -->
+        <ng-container *ngIf="depositDetails?.paymentType != 'crypto' && depositDetails?.paymentType != 'bank'">
+          <div class="my-2 flex w-full items-center justify-between px-3">
+            <img
+              *ngFor="let img of paymentMethodsImgs"
+              class="h-6 w-6 rounded-full object-cover"
+              [src]="img"
+              alt="payment method"
+            />
+          </div>
+
+          <div class="flex flex-col items-center justify-center">
+            <a
+              class="mt-2 inline-flex items-center text-sm font-medium  hover:text-indigo-700 cursor-pointer"
+              (click)="copyMessage(paymentView().name)"
+            >
+              {{ paymentView().name || '—' }}
+              <svg class="ml-2 h-4 w-4" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                <path d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="flex flex-col items-center justify-center">
+            <a
+              class="mt-2 inline-flex items-center text-sm font-medium  hover:text-indigo-700 cursor-pointer"
+              (click)="copyMessage(paymentView().number)"
+            >
+              {{ paymentView().number || '—' }}
+              <svg class="ml-2 h-4 w-4" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                <path d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"/>
+              </svg>
+            </a>
+          </div>
+        </ng-container>
+
+        <!-- for bank -->
+        <ng-container *ngIf="depositDetails?.paymentType == 'bank'">
+          <div class="flex w-full justify-between p-3 text-sm">
+            <div>Min Limit: {{ minMaxArr[0] }}</div>
+            <div>Max Limit: {{ minMaxArr[1] }}</div>
+          </div>
+          <div class="px-3 pb-3 text-center text-sm text-gray-700">
+            Please copy the bank account details provided, complete the payment,
+            and attach a screenshot of the payment confirmation for our records.
+          </div>
+        </ng-container>
+      </div>
+
+      <!-- Bank Details card -->
+      <div class="flex w-full flex-col items-center" *ngIf="depositDetails?.paymentType === 'bank'">
+        <h3 class="mt-3 text-lg font-bold">Bank Details</h3>
+
+        <div class="relative w-full px-4">
+          <a class="absolute right-[2rem] top-2 cursor-pointer text-gray-600 hover:text-gray-800"
+             (click)="copyWholeDetail(depositDetails)">
+            <svg class="h-6 w-6" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+              <path d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"/>
+            </svg>
+          </a>
+
+          <div class="rounded-xl border border-gray-200 bg-white p-4 text-sm text-gray-900 shadow-sm">
+            <div class="mb-3">
+              <span class="text-[14px] font-semibold uppercase">Holder Name:</span><br />
+              <span class="text-gray-600 inline-flex items-center">
+                {{ depositDetails?.accountHolderName }}
+              </span>
+            </div>
+
+            <div class="mb-3">
+              <span class="text-[14px] font-semibold uppercase">Bank Name:</span><br />
+              <span class="text-gray-600 inline-flex items-center">
+                {{ depositDetails?.bankName }}
+              </span>
+            </div>
+
+            <div class="mb-3">
+              <span class="text-[14px] font-semibold uppercase">Account Number:</span><br />
+              <span class="text-gray-600 inline-flex items-center">
+                {{ depositDetails?.accountNumber }}
+                <a class="ml-2 inline-flex cursor-pointer text-indigo-600 hover:text-indigo-700"
+                   (click)="copyMessage(depositDetails?.accountNumber)">
+                  <svg class="h-4 w-4" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                    <path d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"/>
+                  </svg>
+                </a>
+              </span>
+            </div>
+
+            <div class="mb-1">
+              <span class="text-[14px] font-semibold uppercase">IFSC Code:</span><br />
+              <span class="text-gray-600 inline-flex items-center">
+                {{ depositDetails?.ifsc }}
+                <a class="ml-2 inline-flex cursor-pointer text-indigo-600 hover:text-indigo-700"
+                   (click)="copyMessage(depositDetails?.ifsc)">
+                  <svg class="h-4 w-4" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                    <path d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"/>
+                  </svg>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QR Code card (non-bank) -->
+      <div
+        class="flex w-full flex-col items-center"
+        *ngIf="depositDetails?.paymentType != 'bank'">
+        <h3 class="mt-3 text-lg font-bold">Scan QR Code</h3>
+        <div class="rounded-xl bg-white p-2 shadow-lg">
+          <img [src]="depositDetails?.qrCodeUrl" alt="QR" class="h-56 w-56 object-contain" />
+        </div>
+        <div class="mt-1 text-[10px] font-semibold text-gray-700">
+          Don't use the same QR code to pay multiple times
+        </div>
+      </div>
+
+      <!-- Form section -->
+      <div class="mx-4">
+        <div class="mt-3">
+          <input
+            (input)="onInput($event)"
+            tabindex="1"
+            [(ngModel)]="utrNumber"
+            name="utrNumber"
+            placeholder="UTR Number"
+            pattern="^\d{12,25}$"
+            minlength="12"
+            maxlength="25"
+            required
+            class="block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm font-semibold shadow-sm placeholder-gray-400 focus:border-[#45e310]"
+          />
+        </div>
+
+        <div class="mt-2">
+          <div class="flex rounded-lg border border-gray-300 shadow-sm  focus-within:[#45e310] ">
+            <input
+              type="text"
+              [(ngModel)]="originalFileName"
+              readonly
+              (click)="fileInput.click()"
+              (keydown.enter)="fileInput.click()"
+              (keydown.space)="fileInput.click()"
+              class="w-full rounded-l-lg px-3 py-2 text-sm font-semibold text-gray-900 placeholder-gray-400 focus:outline-none"
+              placeholder="Upload Screenshot"
+            />
+            <label for="uploadPaytmMbl"
+                   class="inline-flex cursor-pointer items-center gap-2 rounded-r-lg bg-white px-3 py-2 text-indigo-900">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                <path d="M15.534 4.466c1.024 0 2.05.39 2.829 1.169 1.561 1.561 1.561 4.098 0 5.656l-7.071 7.072c-.778.779-1.804 1.17-2.828 1.17s-2.049-.391-2.828-1.17c-1.56-1.559-1.56-4.098 0-5.656l.807-.807c-.004.805.25 1.524.701 2.125l-.094.096c-.78.779-.78 2.049 0 2.828.39.39.901.584 1.414.584s1.024-.195 1.414-.584l2.535-2.535 4.537-4.537c.778-.779.778-2.049 0-2.828-.392-.39-.904-.584-1.417-.584-.512 0-1.023.195-1.413.584l-4.535 4.537c-.128.127-.146.275-.146.354 0 .076.019.226.146.353.099.099.228.147.356.147.127 0 .254-.049.352-.146l2.122-2.121 1.414-1.414c.392.392.586.902.586 1.414 0 .511-.194 1.021-.584 1.41l-2.124 2.125c-.486.487-1.127.729-1.768.729s-1.28-.244-1.769-.729c-.472-.474-.731-1.101-.731-1.769 0-.67.261-1.297.732-1.77l4.534-4.535c.779-.779 1.805-1.168 2.829-1.168m0-2c-1.604 0-3.11.623-4.242 1.755l-7.069 7.073c-1.133 1.131-1.757 2.638-1.757 4.242s.624 3.11 1.757 4.243c1.131 1.132 2.639 1.755 4.241 1.755s3.11-.624 4.242-1.757l7.071-7.071c1.133-1.131 1.757-2.638 1.757-4.242 0-1.603-.623-3.11-1.755-4.241-1.133-1.134-2.64-1.757-4.245-1.757z"/>
+              </svg>
+            </label>
+          </div>
+          <input
+            type="file"
+            #fileInput
+            id="uploadPaytmMbl"
+            (change)="onFileSelected($event)"
+            accept="image/*"
+            class="hidden"
+          />
+        </div>
+      </div>
+
+      <!-- Selected image preview -->
+      <div *ngIf="selectedImage" class="mx-4 mt-4">
+        <img [src]="selectedImage" class="w-full h-auto rounded-lg border border-gray-200 object-contain" alt="Selected Image" />
+      </div>
+
+      <!-- Submit + note -->
+      <div class="mx-4 mt-4">
+        <button
+          [disabled]="apicall"
+          class="w-full rounded-lg border-2 border-dashed border-indigo-600 bg-white py-2 font-bold text-indigo-700 hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50"
+          (click)="onSubmitImg()"
+        >
+          SUBMIT
+        </button>
+
+        <div class="mt-2 text-[12px] text-red-600">
+          <span class="font-bold">Note: </span>
+          <span *ngIf="note">{{ note }}</span>
+          Please provide the UTR number or attach a screenshot of the payment
+          confirmation. Without proof, we cannot approve the transaction.
+        </div>
+      </div>
+
+      <div class="mx-4 mt-4 text-center text-[10px] text-red-600">
+        Please do not close this tab or refresh the page while your payment is
+        being processed.
+      </div>
+
+    </div>
+  </div>
+</div>
