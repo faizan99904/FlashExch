@@ -24,7 +24,7 @@
 
                 <tbody>
                     <tr *ngFor="let log of activityList">
-                        <td class="text-center">{{log?.createdAt | date}}</td>
+                        <td class="text-center">{{log?.createdAt | date : 'dd-MM-YYYY H:mm:ss'}}</td>
                         <td class="text-center"
                             [ngClass]="{'text-red-500':log?.logMessage === 'Login Failed', 'text-green-500':log?.logMessage === 'Login Successful'}">
                             {{log?.logMessage}}

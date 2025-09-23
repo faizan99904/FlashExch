@@ -5,12 +5,12 @@
 @media (max-width: 769px) {
   .page-title {
     height: 14vw;
-    line-height: 14vw;
-    padding: 0 6vw;
-    font-size: 4.5vw;
-    background-color: #111317;
-    color: #95999b;
-    font-weight: 400;
+        line-height: 14vw;
+        padding: 0 6vw;
+        font-size: 4.5vw;
+        background-color: #111317;
+        color: #fff;
+        font-weight: 400;
   }
 
   .page-title .arrow {
@@ -34,7 +34,7 @@
     font-size: 24px;
     max-height: 6vw;
     margin-right: 1.1vw;
-    color: #95999b;
+   color: #fff;
   }
 
   .content {
