@@ -35,7 +35,8 @@
                         </div>
                         <div class="field">
                             <input type="password" autocomplete="current-password" name="password"
-                                placeholder_key="LOGIN__PASSWORD" required="" placeholder="Password" formControlName="password">
+                                placeholder_key="LOGIN__PASSWORD" required="" placeholder="Password"
+                                formControlName="password">
                             <svg (click)="showPass()" width="26" height="26" viewBox="0 0 26 26" fill="none"
                                 class="forgot-pass cursor-pointer" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_11_40)">
@@ -68,11 +69,20 @@
                 </div>
                 <div class="flex items-center gap-[9.39262px] after-login-mobile-balance" *ngIf="token">
                     <div class="flex items-center">
-                        <div (click)="exposureModal = true" class="balance md:!text-[16px] md:!mr-[-1vw]">
-                            <span class="amount userTotalBalance">{{this.userBalance?.data?.bankBalance -
-                                this.userBalance?.data?.exposure || '0.00'}}</span>
-                            <span class="currency">INR</span>
+                        <div  class="balance md:!text-[16px] md:!mr-[-1vw] flex flex-col">
+                            <div>
+                                <span class="amount userTotalBalance">Bal: {{ (this.userBalance?.data?.bankBalance -
+                                    this.userBalance?.data?.exposure) | number :'1.0-2'}}</span>
+                                <!-- <span class="currency">INR</span> -->
+                            </div>
+                            <a (click)="exposureModal = true">
+                                 <span class="amount userTotalExposure w-full text-end">Exp: {{this.userBalance?.data?.exposure || '0.00'}}</span>
+                                <!-- <span class="currency">INR</span> -->
+                            </a>
+
+
                         </div>
+
                         <div>
                             <img src="/assets/header/deposit-money.svg" style="height: 18px;" alt="">
                         </div>

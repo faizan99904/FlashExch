@@ -10,6 +10,10 @@
   font-weight: 500;
   font-style: normal;
 }
+.userTotalExposure{
+  color: #f36161 !important;
+
+}
 
 .poppins-regular {
   font-family: "Poppins", sans-serif;
@@ -729,7 +733,7 @@ header .change-lang ul li span {
   align-items: center;
   padding: 6px 8px 6px 4px;
   background: #1f2327;
-  height: 18px;
+  /* height: 18px; */
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border-radius: 6px;
