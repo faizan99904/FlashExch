@@ -1,107 +1,114 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { SportsBookComponent } from './pages/sports-book/sports-book.component';
-import { LoginComponent } from './auth/login/login.component';
-import { MarketDetailComponent } from './pages/market-detail/market-detail.component';
-import { CasinoComponent } from './pages/casino/casino.component';
 
-import { RacingComponent } from './pages/racing/racing.component';
-
-import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
-import { PromosComponent } from './pages/promos/promos.component';
-import { LiveCasinoComponent } from './pages/live-casino/live-casino.component';
 import { AccountLayoutComponent } from './account-layout/account-layout.component';
-import { DashboardComponent } from './pages/accont/dashboard/dashboard.component';
 
-import { AffliateComponent } from './pages/affliate/affliate.component';
-
-import { LivePageComponent } from './live-page/live-page.component';
-
-import { EventViewComponent } from './component/event-view/event-view.component';
-
-import { PersonalInformationComponent } from './pages/accont/personal-information/personal-information.component';
-import { DepositComponent } from './pages/accont/deposit/deposit.component';
-import { WithdrawComponent } from './pages/accont/withdraw/withdraw.component';
-import { TransactionsHistoryComponent } from './pages/accont/transactions-history/transactions-history.component';
-import { BonusesComponent } from './pages/accont/bonuses/bonuses.component';
-import { FreespinsComponent } from './pages/accont/freespins/freespins.component';
-import { KycComponent } from './pages/accont/kyc/kyc.component';
-import { ChangePasswordComponent } from './pages/accont/change-password/change-password.component';
-import { AccountNavComponent } from './pages/account-nav/account-nav.component';
-import { ProfitLossComponent } from './pages/accont/profit-loss/profit-loss.component';
-import { CompetitionsComponent } from './pages/competitions/competitions.component';
-import { MinigamesComponent } from './pages/minigames/minigames.component';
-import { BetHistoryComponent } from './pages/accont/bet-history/bet-history.component';
-import { ActivityLogComponent } from './pages/accont/activity-log/activity-log.component';
-import { AccountStatementComponent } from './pages/accont/account-statement/account-statement.component';
-import { PasswordHistoryComponent } from './pages/accont/password-history/password-history.component';
-import { ProfitlossEventComponent } from './pages/accont/profitloss-event/profitloss-event.component';
-import { ProfitlossMarketComponent } from './pages/accont/profitloss-market/profitloss-market.component';
-import { ProfitHistoryComponent } from './pages/accont/profit-history/profit-history.component';
-import { LotteryComponent } from './shared/lottery/lottery.component';
-import { TipsAndPreviewsComponent } from './pages/news/tips-and-previews/tips-and-previews.component';
-import { InplayComponent } from './shared/inplay/inplay.component';
-import { VirtualComponent } from './pages/virtual/virtual.component';
-import { LotteryDetailsComponent } from './shared/lottery-details/lottery-details.component';
-import { BallbyballComponent } from './pages/ballbyball/ballbyball.component';
-import { SportComponent } from './pages/sport/sport.component';
 
 export const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent,
+    loadComponent: () => import('./auth/login/login.component').then(m => m.LoginComponent),
   },
-  { path: 'passwordrecovery', component: ForgetPasswordComponent },
+  {
+    path: 'passwordrecovery',
+    loadComponent: () => import('./auth/forget-password/forget-password.component').then(m => m.ForgetPasswordComponent),
+  },
 
   {
     path: '',
     component: LayoutComponent,
 
     children: [
-      { path: '', component: SportsBookComponent },
-      { path: 'market-detail', component: MarketDetailComponent },
+      {
+        path: '',
+        component: SportsBookComponent
+      },
+      {
+        path: 'market-detail',
+        loadComponent: () => import('./pages/market-detail/market-detail.component').then(m => m.MarketDetailComponent),
+      },
       {
         path: 'market-detail/:sportId/:eventId',
-        component: MarketDetailComponent,
+        loadComponent: () => import('./pages/market-detail/market-detail.component').then(m => m.MarketDetailComponent),
       },
       {
         path: 'ballByBall/:sportId/:eventId',
-        component: BallbyballComponent,
+        loadComponent: () => import('./pages/ballbyball/ballbyball.component').then(m => m.BallbyballComponent),
       },
 
-      { path: 'racing/:id', component: RacingComponent },
-      { path: 'competitions/:id', component: CompetitionsComponent },
-      { path: 'virtual', component: VirtualComponent },
+      {
+        path: 'racing/:id',
+        loadComponent: () => import('./pages/racing/racing.component').then(m => m.RacingComponent),
+      },
+      {
+        path: 'competitions/:id',
+        loadComponent: () => import('./pages/competitions/competitions.component').then(m => m.CompetitionsComponent),
+      },
+      {
+        path: 'virtual',
+        loadComponent: () => import('./pages/virtual/virtual.component').then(m => m.VirtualComponent),
+      },
 
+
+      // ye use ni hora...bad me remove krdein gy
       {
         path: 'live',
-        component: LivePageComponent,
+        loadComponent: () => import('./live-page/live-page.component').then(m => m.LivePageComponent),
+
 
         children: [
           {
             path: 'event-view',
-            component: EventViewComponent,
+            loadComponent: () => import('./component/event-view/event-view.component').then(m => m.EventViewComponent),
           },
         ],
       },
-      { path: 'inplay', component: InplayComponent },
-      { path: 'casino', component: CasinoComponent },
-      { path: 'live-casino', component: LiveCasinoComponent },
-      { path: 'promos', component: PromosComponent },
-      { path: 'affliate', component: AffliateComponent },
-      { path: 'minigames', component: MinigamesComponent },
-      { path: 'lottery', component: LotteryComponent },
-      { path: 'news', component: TipsAndPreviewsComponent },
+      {
+        path: 'inplay',
+        loadComponent: () => import('./shared/inplay/inplay.component').then(m => m.InplayComponent),
+      },
+      {
+        path: 'casino',
+        loadComponent: () => import('./pages/casino/casino.component').then(m => m.CasinoComponent),
+      },
+      {
+        path: 'live-casino',
+        loadComponent: () => import('./pages/live-casino/live-casino.component').then(m => m.LiveCasinoComponent),
+      },
+      {
+        path: 'promos',
+        loadComponent: () => import('./pages/promos/promos.component').then(m => m.PromosComponent),
+      },
+      {
+        path: 'affliate',
+        loadComponent: () => import('./pages/affliate/affliate.component').then(m => m.AffliateComponent),
+      },
+      {
+        path: 'minigames',
+        loadComponent: () => import('./pages/minigames/minigames.component').then(m => m.MinigamesComponent),
+      },
+      {
+        path: 'lottery',
+        loadComponent: () => import('./shared/lottery/lottery.component').then(m => m.LotteryComponent),
+      },
+      {
+        path: 'news',
+        loadComponent: () => import('./pages/news/tips-and-previews/tips-and-previews.component').then(m => m.TipsAndPreviewsComponent),
+      },
       {
         path: 'lottery-details/:sportId/:eventId',
-        component: LotteryDetailsComponent,
+        loadComponent: () => import('./shared/lottery-details/lottery-details.component').then(m => m.LotteryDetailsComponent),
       },
-      { path: 'sport', component: SportComponent },
+      {
+        path: 'sport',
+        loadComponent: () => import('./pages/sport/sport.component').then(m => m.SportComponent),
+      },
       {
         path: 'banking/withdraw',
         loadComponent: () => import('./pages/banking/withdraw/withdraw.component').then(m => m.WithdrawComponent),
       },
-       {
+      {
         path: 'banking/withdrawdetails',
         loadComponent: () => import('./pages/banking/withdraw-details/withdraw-details.component').then(m => m.WithdrawDetailsComponent),
       },
@@ -113,32 +120,69 @@ export const routes: Routes = [
     path: 'account',
     component: AccountLayoutComponent,
     children: [
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'personalinfo', component: PersonalInformationComponent },
-      { path: 'deposit', component: DepositComponent },
-      { path: 'withdraw', component: WithdrawComponent },
-      { path: 'transactions', component: TransactionsHistoryComponent },
-      { path: 'bonuses', component: BonusesComponent },
-      { path: 'freespins', component: FreespinsComponent },
-      { path: 'kyc', component: KycComponent },
-      { path: 'change-password', component: ChangePasswordComponent },
-      { path: 'profit-loss', component: ProfitLossComponent },
-      { path: 'bet-history', component: BetHistoryComponent },
-      { path: 'activity-log', component: ActivityLogComponent },
-      { path: 'account-statement', component: AccountStatementComponent },
-      { path: 'password-history', component: PasswordHistoryComponent },
-      { path: 'nav', component: AccountNavComponent },
+      {
+        path: 'dashboard',
+        loadComponent: () => import('./pages/accont/dashboard/dashboard.component').then(m => m.DashboardComponent),
+      },
+      {
+        path: 'personalinfo',
+        loadComponent: () => import('./pages/accont/personal-information/personal-information.component').then(m => m.PersonalInformationComponent),
+      },
+      {
+        path: 'transactions',
+        loadComponent: () => import('./pages/accont/transactions-history/transactions-history.component').then(m => m.TransactionsHistoryComponent),
+      },
+      {
+        path: 'bonuses',
+        loadComponent: () => import('./pages/accont/bonuses/bonuses.component').then(m => m.BonusesComponent),
+      },
+      {
+        path: 'freespins',
+        loadComponent: () => import('./pages/accont/freespins/freespins.component').then(m => m.FreespinsComponent),
+      },
+      {
+        path: 'kyc',
+        loadComponent: () => import('./pages/accont/kyc/kyc.component').then(m => m.KycComponent),
+      },
+      {
+        path: 'change-password',
+        loadComponent: () => import('./pages/accont/change-password/change-password.component').then(m => m.ChangePasswordComponent),
+      },
+      {
+        path: 'profit-loss',
+        loadComponent: () => import('./pages/accont/profit-loss/profit-loss.component').then(m => m.ProfitLossComponent),
+      },
+      {
+        path: 'bet-history',
+        loadComponent: () => import('./pages/accont/bet-history/bet-history.component').then(m => m.BetHistoryComponent),
+      },
+      {
+        path: 'activity-log',
+        loadComponent: () => import('./pages/accont/activity-log/activity-log.component').then(m => m.ActivityLogComponent),
+      },
+      {
+        path: 'account-statement',
+        loadComponent: () => import('./pages/accont/account-statement/account-statement.component').then(m => m.AccountStatementComponent),
+      },
+      {
+        path: 'password-history',
+        loadComponent: () => import('./pages/accont/password-history/password-history.component').then(m => m.PasswordHistoryComponent),
+      },
+      {
+        path: 'nav',
+        loadComponent: () => import('./pages/account-nav/account-nav.component').then(m => m.AccountNavComponent),
+      },
       {
         path: 'profitloss-event/:sportId/:startDate/:endDate',
-        component: ProfitlossEventComponent,
+        loadComponent: () => import('./pages/accont/profitloss-event/profitloss-event.component').then(m => m.ProfitlossEventComponent),
       },
       {
         path: 'profitloss-market/:eventId/:sportId',
-        component: ProfitlossMarketComponent,
+        loadComponent: () => import('./pages/accont/profitloss-market/profitloss-market.component').then(m => m.ProfitlossMarketComponent),
       },
       {
         path: 'profit-history/:sportId/:eventId',
-        component: ProfitHistoryComponent,
+        loadComponent: () => import('./pages/accont/profit-history/profit-history.component').then(m => m.ProfitHistoryComponent),
       },
     ],
   },
