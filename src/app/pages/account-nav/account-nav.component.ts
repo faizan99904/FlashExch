@@ -1,25 +1,28 @@
-import { Component, effect } from '@angular/core';
+import { Component, effect, ElementRef, ViewChild } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { NetworkService } from '../../service/network.service';
 import { SharedService } from '../../service/shared.service';
 import { CONFIG } from '../../../../config';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-account-nav',
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule],
   templateUrl: './account-nav.component.html',
   styleUrl: './account-nav.component.css',
 })
 export class AccountNavComponent {
   userBalance: any;
+  isDeposit: boolean = false
+  @ViewChild('depositInput') depositInput!: ElementRef;
   constructor(
     public networkService: NetworkService,
     public toggle: SharedService,
     private toaster: ToastrService,
     private http: HttpClient,
-    private router:Router
+    private router: Router
   ) {
     effect(() => {
       this.userBalance = this.networkService.getUserBalanceSignal()();
@@ -40,5 +43,15 @@ export class AccountNavComponent {
         this.toaster.success(err.error.message)
       }
     })
+  }
+
+  toggleDeposit() {
+    this.isDeposit = !this.isDeposit;
+
+    if (this.isDeposit) {
+      setTimeout(() => {
+        this.depositInput?.nativeElement.focus();
+      }, 500);
+    }
   }
 }
