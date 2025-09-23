@@ -105,22 +105,27 @@
 </section>
 
 
-<div class="fixed inset-0 bg-black bg-opacity-20 flex  justify-center z-50 invisible" [ngClass]="{'!visible':isDeposit}" (click)="toggleDeposit()">
+<div class="fixed inset-0 bg-black bg-opacity-50 flex  justify-center z-50 invisible" [ngClass]="{'!visible':isDeposit}"
+    (click)="toggleDeposit()">
     <!-- Modal Box -->
-    <div class="bg-[#1C1E25] p-6 rounded-lg max-h-fit mt-4 shadow-lg w-96 relative -translate-y-20 duration-300" [ngClass]="{'translate-y-0 duration-300':isDeposit}" (click)="$event.stopPropagation()">
+    <div class="bg-[#272d33] p-4 rounded-lg max-h-fit mt-4 shadow-lg w-96 relative -translate-y-20 duration-300"
+        [ngClass]="{'translate-y-0 duration-300':isDeposit}" (click)="$event.stopPropagation()">
 
         <!-- Input Field -->
         <input type="number" placeholder="Deposit Amount*"
-            class="w-full h-[41.62px] box-border text-white outline-none bg-[#151414] pl-[16.03px] border border-[#242833] text-[14.02px]  rounded-[10.02px]" #depositInput name="deposit-amount" />
+            class="w-full h-[41.62px] box-border text-white outline-none bg-[#151414] pl-[16.03px] border border-[#242833] text-[14.02px]  rounded-[10.02px]"
+            #depositInput name="deposit-amount" />
 
         <!-- Minimum Amount Note -->
-        <p class="text-white ml-1 mt-1 font-semibold mb-4">
+        <p class="text-white ml-1 font-semibold mt-3 mb-4">
             Minimum deposit Amount is 100.
         </p>
 
         <!-- Button -->
-        <button class="bg-[rgb(17,227,17)] text-white px-5 py-2 rounded">
-            Deposit
-        </button>
+        <div class="w-full justify-center flex">
+            <button class="bg-[rgb(17,227,17)] text-white px-5 py-2 rounded">
+                Deposit
+            </button>
+        </div>
     </div>
 </div>
