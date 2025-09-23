@@ -1,8 +1,9 @@
-import { CommonModule, NgFor, NgIf } from '@angular/common';
+import { CommonModule, NgFor, NgIf, Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, OnInit, QueryList,ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+
 import moment from 'moment';
 import { ToastrService } from 'ngx-toastr';
 import { first } from 'rxjs';
@@ -15,10 +16,12 @@ import { CONFIG } from '../../../../../config';
   templateUrl: './withdraw.component.html',
   styleUrl: './withdraw.component.css'
 })
-export class WithdrawComponent implements OnInit{
-@ViewChild('otpVerifyModal', { static: true }) modalEl!: ElementRef<HTMLDivElement>;
+export class WithdrawComponent implements OnInit {
+  @ViewChild('otpVerifyModal', { static: true }) modalEl!: ElementRef<HTMLDivElement>;
   otpForm!: FormGroup;
   isVisible: boolean = false;
+  isReceiptModal:boolean = false;
+  isCancelModal:boolean = false
   showtext = '';
   text: any;
   calculateAmount = {
@@ -33,11 +36,12 @@ export class WithdrawComponent implements OnInit{
   themeConfig: any;
   successReceipt: any;
   note: any;
+  
   wihtdrawlOTPAuthenticate: boolean = false;
   @ViewChildren('otpBox') otpBoxes!: QueryList<ElementRef>;
 
   constructor(private httpClient: HttpClient,
-    private toaster: ToastrService, private fb: FormBuilder, 
+    private toaster: ToastrService, private fb: FormBuilder, private location: Location,
     private networkService: NetworkService) { }
 
   ngAfterViewInit(): void {
@@ -52,7 +56,7 @@ export class WithdrawComponent implements OnInit{
       let input = document.getElementById('withdrawAmountInput');
       input?.focus()
     }, 500);
-    
+
     this.latestWithdrawalList();
     this.otpForm = this.fb.group({
       digits: this.fb.array(Array(6).fill('').map(() => this.fb.control('')))
@@ -89,16 +93,20 @@ export class WithdrawComponent implements OnInit{
   }
 
   viewReceipt(id: any) {
-    this.networkService.getAllRecordsByPost(CONFIG.successWithdrawalReceipt, { id })
-      .then(
-        (data: any) => {
-          this.successReceipt = data;
-          console.log(this.successReceipt);
-        }).catch(
-          error => {
-            this.networkService.ErrorNotification_Manager(error.error)
-          });
+    this.isReceiptModal = !this.isReceiptModal
+   if(this.isReceiptModal){
+    //  this.networkService.getAllRecordsByPost(CONFIG.successWithdrawalReceipt, { id })
+    //    .then(
+    //      (data: any) => {
+    //        this.successReceipt = data;
+    //        console.log(this.successReceipt);
+    //      }).catch(
+    //        error => {
+    //          this.networkService.ErrorNotification_Manager(error.error)
+    //        });
+   }
   }
+
   calculateWithdrawAmt(amount: any) {
     this.httpClient
       .post<any>(CONFIG.calculateWithdrawAmt, { amount: parseFloat(amount) })
@@ -124,7 +132,7 @@ export class WithdrawComponent implements OnInit{
     if (!amount) {
       return
     }
-    
+
     let req: any = {
       amount: amount.toString()
     }
@@ -139,11 +147,11 @@ export class WithdrawComponent implements OnInit{
         (data) => {
           this.apiCall = false;
           if (data.meta.status) {
-            
-              this.text = '';
-              this.toaster.success('Success', 'Withdrawal request sent successfully!);');
-              this.latestWithdrawalList();
-            
+
+            this.text = '';
+            this.toaster.success('Success', 'Withdrawal request sent successfully!);');
+            this.latestWithdrawalList();
+
 
           }
         },
@@ -176,14 +184,22 @@ export class WithdrawComponent implements OnInit{
           });
   }
 
+
   cancelRequest(id: any) {
+    this.isCancelModal = !this.isCancelModal
     this.cancelRequestId = id;
+
   }
+
   onInput(event: any, index: number) {
     const input = event.target.value;
     if (input && index < this.otpBoxes.length - 1) {
       this.otpBoxes.toArray()[index + 1].nativeElement.focus();
     }
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 

@@ -1,21 +1,28 @@
 <div class="cardMain">
+    <div class="page-title">
+        <a class="material-icons arrow" (click)="goBack()">arrow_back</a>
+        <span class="title">Withdraw</span>
+        <span class="material-icons icon">receipt</span>
+    </div>
     <div class="row">
         <div class="col-sm-12 col-md-12 p-mobile-1">
-            <div class="card card-accent-primary">
-                <div class="card-header account-detail-head">
+            <div class="card card-accent-primary w-full">
+                <div class="card-header account-detail-head flex items-center justify-between w-full">
                     <span style="line-height: 25px;"> Withdraw 24*7 </span>
                     <button routerLink="/banking/withdrawdetails"
-                        class="btn  btn-outline-secondary btn-sm font-weight-bolder pull-right" tabindex="0">Add
-                        Bank Account</button>
+                        class="btn  btn-outline-secondary btn-sm font-weight-bolder pull-right" tabindex="0">Add Bank
+                        Account</button>
                 </div>
                 <div class="card-body account-stat-body">
                     <div class="row">
-                        <div class="col-md-12 row acc-inner-body"><!---->
+                        <div class="w-full"><!---->
                             <div class="col-md-4 withdraw-amount-con">
                                 <div class="form-group"><label>Withdrawal
                                         Amount <span class="asterisk_input"></span></label>
-                                    <input [(ngModel)]="text" class="form-control " autofocus id="withdrawAmountInput"
-                                        name="withdrawAmount" type="number" (ngModelChange)="onAmountChange($event)">
+                                    <input [(ngModel)]="text"
+                                        class="w-full h-[41.62px] box-border text-white outline-none bg-[#151414] pl-[16.03px] border border-[#242833] text-[14.02px]  rounded-[10.02px]"
+                                        autofocus id="withdrawAmountInput" name="withdrawAmount" type="number"
+                                        (ngModelChange)="onAmountChange($event)">
                                 </div>
                             </div><!---->
                             <div class="col-md-12 mt-2 mb-3 feedata ng-star-inserted" *ngIf="isVisible">
@@ -35,11 +42,11 @@
                                 </div>
                                 <div class="form-group">
                                     <button [disabled]="apiCall"
-                                        class="btn btn-primary mr-2 instant withdrw-coin-button"
+                                        class="btn !bg-[#10E312] mr-2 instant withdrw-coin-button"
                                         (click)="withdrawalAmount(calculateAmount.amount)">
                                         Withdraw Coins
                                     </button>
-                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -63,21 +70,22 @@
                                         <td class="text-center">{{getLocalTime(item.createdAt)}}</td>
                                         <td class="text-center">
                                             <span class="badge" [ngClass]="{
-                                                    'badge-success':item.status=='SUCCESS' || item.status=='ACCEPTED' || item.status=='ACCEPT',
-                                                    'badge-danger':item.status=='REJECT',
-                                                    'badge-warning':item.status=='PENDING',
+                                                    'text-green-500':item.status=='SUCCESS' || item.status=='ACCEPTED' || item.status=='ACCEPT',
+                                                    'text-red-500':item.status=='REJECT',
+                                                    'text-yellow-500':item.status=='PENDING',
                                                     'badge-information':item.status=='PROCESSING',
                                             }">{{item.status}}</span>
                                         </td>
                                         <td class="text-center">
                                             <ng-container *ngIf="item.status=='SUCCESS'">
-                                                <button type="submit" class="btn btn-primary btn-sm"
-                                                    data-bs-toggle="modal" data-bs-target="#receiptWithDrawModel"
+                                                <button type="submit"
+                                                    class="btn btn-primary !bg-green-500 !text-white btn-sm"
                                                     (click)="viewReceipt(item._id)">View Receipt</button>
                                             </ng-container>
 
                                             <ng-container *ngIf="item.status=='PENDING' ">
-                                                <button type="submit" class="btn btn-primary btn-sm"
+                                                <button type="submit"
+                                                    class="btn btn-primary !bg-red-500 !text-white  btn-sm"
                                                     data-bs-toggle="modal" data-bs-target="#deleteWithDrawModel"
                                                     (click)="cancelRequest(item._id)">Cancel</button>
                                             </ng-container>
@@ -101,22 +109,20 @@
     data-bs-target="#deleteWithDrawModel">Cancel</button> -->
 <!-- temp you can delete -->
 
-<div class="modal fade" id="deleteWithDrawModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-
-        <div class="modal-content">
-            <div class="modal-content add-user">
-                <div class="modal-header bet-slip-head" style="font-size: 17.5px;">
-                    <h6 class="modal-title">Cancel Withdraw Request</h6>
-                    <button class="close" data-bs-dismiss="modal" type="button"><span class="cancel-close-button"
-                            aria-hidden="true">×</span></button>
-                </div>
-                <div class="modal-body text-center">
-                    <h6 class="msg">Are you sure want to cancel?</h6>
-                    <button class="btn btn-primary mt-2" type="button" (click)="cancelWithDrawRequest(cancelRequestId)"
-                        data-bs-dismiss="modal" *ngIf="cancelRequestId">Yes</button>
-                </div>
+<div class="fixed inset-0 bg-black bg-opacity-50  flex justify-center   z-50 invisible" [ngClass]="{'!visible':isCancelModal}" (click)="cancelRequest({})">
+    <div
+        class="!bg-[#272d33] w-full max-w-[calc(100%-20px)] rounded-lg max-h-fit mt-4 shadow-lg relative  duration-300 -translate-y-20" [ngClass]="{'translate-y-0 duration-300':isCancelModal}" (click)="$event.stopPropagation()">
+        <div class="modal-content !bg-[#272d33]  add-user">
+            <div class="modal-header bet-slip-head" style="font-size: 17.5px;">
+                <h6 class="modal-title">Cancel Withdraw Request</h6>
+                <button class="close" (click)="cancelRequest({})" data-bs-dismiss="modal" type="button"><span class="cancel-close-button"
+                        aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body text-center">
+                <h6 class="msg !text-white">Are you sure want to cancel?</h6>
+                <button class="btn btn-primary !bg-red-500 !text-white mt-2" type="button"
+                    (click)="cancelWithDrawRequest(cancelRequestId)" data-bs-dismiss="modal"
+                    *ngIf="cancelRequestId">Yes</button>
             </div>
         </div>
     </div>
@@ -124,64 +130,69 @@
 
 
 
-<div class="modal fade" id="receiptWithDrawModel" tabindex="-1" role="dialog" aria-labelledby="receiptWithDrawModel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-
-        <div class="modal-content">
-            <div class="modal-content add-user">
-                <div class="modal-header bet-slip-head receipt" style="font-size: 17.5px;">
-                    <h6 class="modal-title">Receipt</h6>
-                    <button class="close" data-bs-dismiss="modal" type="button"><span class="cancel-close-button"
-                            aria-hidden="true">×</span></button>
-                </div>
-                <div class="modal-body text-center">
-                    <div class="d-flex flex-column align-items-center">
-                        <span class="receiptImg">
-                            <img class="site-logo" *ngIf="successReceipt?.logo" routerLink="/"
-                                [src]="successReceipt?.logo" alt="">
-                        </span>
-                        <span class="receiptTitle">
-                            TRANSACTION RECEIPT
-                        </span>
-                        <span class="receiptAmountTitle">
-                            Payment Amount
-                        </span>
-                        <span class="receiptTitle">
-                            ₹ {{successReceipt?.data?.amount}}
-                        </span>
-
-                        <span class="receiptStatus">
-                            Successfully Transferred
-                        </span>
-                    </div>
+<div class="fixed inset-0 bg-black bg-opacity-50  flex justify-center   z-50 invisible"
+    [ngClass]="{'!visible':isReceiptModal}" (click)="viewReceipt({})">
 
 
-                    <div class="detailsTable">
-                        <span class="lable">Name</span>
-                        <span class="receiptTabledetail">{{successReceipt?.data?.accountHolderName}}</span>
-                    </div>
-                    <div class="detailsTable">
-                        <span class="lable">Credit Account</span>
-                        <span class="receiptTabledetail">{{successReceipt?.data?.accountNumber}}</span>
-                    </div>
-                    <div class="detailsTable">
-                        <span class="lable">UTR No.</span>
-                        <span class="receiptTabledetail">{{successReceipt?.data?.utr}}</span>
-                    </div>
-                    <div class="detailsTable">
-                        <span class="lable">Paid Date</span>
-                        <span class="receiptTabledetail">{{successReceipt?.data?.updatedAt | date : 'dd-MM-YYYY h:mm:ss a'}}</span>
-                    </div>
+    <div class="bg-[#272d33] w-full max-w-[calc(100%-20px)] rounded-lg max-h-fit mt-4 shadow-lg relative  duration-300 -translate-y-20"
+        [ngClass]="{'translate-y-0 duration-300':isReceiptModal}" (click)="$event.stopPropagation()">
+        <div class="modal-content add-user">
 
-                    <div class="messageSuccess">
-                        <span>Your payment has been <span style="color: #0faa17;">completed successfully</span></span>
-                        
-                    </div>
-
-
-                </div>
+            <div class="modal-header bet-slip-head receipt w-full !bg-[#272d33]" style="font-size: 17.5px;">
+                <h6 class="modal-title">Receipt</h6>
+                <button class="close" (click)="viewReceipt({})" data-bs-dismiss="modal" type="button"><span
+                        class="cancel-close-button" aria-hidden="true">×</span></button>
             </div>
+
+            <div class="modal-body text-center bg-[#14161B] text-white">
+                <div class="flex flex-col items-center">
+                    <span class="receiptImg">
+                        <img class="site-logo" *ngIf="successReceipt?.logo" routerLink="/" [src]="successReceipt?.logo"
+                            alt="">
+                    </span>
+                    <span class="receiptTitle">
+                        TRANSACTION RECEIPT
+                    </span>
+                    <span class="receiptAmountTitle">
+                        Payment Amount
+                    </span>
+                    <span class="receiptTitle">
+                        ₹ {{successReceipt?.data?.amount}}
+                    </span>
+
+                    <span class="receiptStatus">
+                        Successfully Transferred
+                    </span>
+                </div>
+
+
+                <div class="detailsTable">
+                    <span class="lable">Name</span>
+                    <span class="receiptTabledetail">{{successReceipt?.data?.accountHolderName}}</span>
+                </div>
+                <div class="detailsTable">
+                    <span class="lable">Credit Account</span>
+                    <span class="receiptTabledetail">{{successReceipt?.data?.accountNumber}}</span>
+                </div>
+                <div class="detailsTable">
+                    <span class="lable">UTR No.</span>
+                    <span class="receiptTabledetail">{{successReceipt?.data?.utr}}</span>
+                </div>
+                <div class="detailsTable">
+                    <span class="lable">Paid Date</span>
+                    <span class="receiptTabledetail">{{successReceipt?.data?.updatedAt | date : 'dd-MM-YYYY h:mm:ss
+                        a'}}</span>
+                </div>
+
+                <div class="messageSuccess">
+                    <span>Your payment has been <span style="color: #0faa17;">completed successfully</span></span>
+
+                </div>
+
+
+            </div>
+
         </div>
     </div>
+
 </div>
