@@ -1,4 +1,4 @@
-import { CommonModule, NgClass, NgFor, NgIf } from '@angular/common';
+import { CommonModule, Location, NgClass, NgFor, NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -10,23 +10,34 @@ declare var $: any;
 
 @Component({
   selector: 'app-withdraw-details',
-  imports: [CommonModule,FormsModule,ReactiveFormsModule,NgIf,NgFor,NgClass],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, NgIf, NgFor, NgClass],
   templateUrl: './withdraw-details.component.html',
   styleUrl: './withdraw-details.component.css'
 })
-export class WithdrawDetailsComponent implements OnInit{
-dropdonw = false;
-  isIconUp :any=[];
-  isIcondwon = false
-  withdrawalBankDetails: any=[];
-  withdrawalPaytmDetails: any=[];
-  withdrawalGooglePayDetails: any=[];
-  withdrawalPhonePeDetails: any=[];
-  withdrawalNagadDetails: any=[];
-  withdrawalBkashDetails: any=[];
-  withdrawalRocketDetails: any=[];
+export class WithdrawDetailsComponent implements OnInit {
+  dropdonw = false;
+  isDeleteGooglePayModal = false
+  isDeletePhonePeModal = false
+  isDeletePaytmModal = false;
+  isDeleteModal:boolean = false
+  isAddRocket = false
+  isIconUp: any = [];
+  isIcondwon = false;
+  isAddBkash = false
+  isAddPhonePe = false
+  isAddNagad: boolean = false
+  isAddBank: boolean = false
+  isAddGooglepay: boolean = false
+  isAddPaytm: boolean = false
+  withdrawalBankDetails: any = [];
+  withdrawalPaytmDetails: any = [];
+  withdrawalGooglePayDetails: any = [];
+  withdrawalPhonePeDetails: any = [];
+  withdrawalNagadDetails: any = [];
+  withdrawalBkashDetails: any = [];
+  withdrawalRocketDetails: any = [];
   deleteItemId: any;
-  isRunxch:boolean=false;
+  isRunxch: boolean = false;
   bankData = {
     id: '',
     bankName: '',
@@ -56,7 +67,8 @@ dropdonw = false;
   constructor(
     private toaster: ToastrService,
     private httpClient: HttpClient,
-    private backendService:NetworkService
+    private backendService: NetworkService,
+    private location: Location,
   ) { }
 
   ngOnInit(): void {
@@ -70,21 +82,23 @@ dropdonw = false;
     if (domainsForWithoutOTP.includes(currentOrigin)) {
       this.isRunxch = true;
     }
+
+
   }
 
   addNewDetailsEvent(type: any) {
-    if(type === 'phonepe'){
+    if (type === 'phonepe') {
       this.phonepeData.id = '';
       this.phonepeData.name = '';
       this.phonepeData.phonepeNumber = '';
     }
-    else if(type === 'googlepay') {
+    else if (type === 'googlepay') {
 
     }
-    else if(type === 'paytm') {
+    else if (type === 'paytm') {
 
     }
-    else if(type === 'bank') {
+    else if (type === 'bank') {
 
     }
   }
@@ -134,32 +148,33 @@ dropdonw = false;
 
   toggleBank(value: any) {
     $('#' + value).slideToggle();
-    if(this.isIconUp[value]){
-      if(this.isIconUp[value]==''){
+    if (this.isIconUp[value]) {
+      if (this.isIconUp[value] == '') {
         this.isIconUp[value] = value;
       }
-      else{
-        this.isIconUp[value] ='';
+      else {
+        this.isIconUp[value] = '';
       }
     }
-    else{
-      this.isIconUp[value] =value;
+    else {
+      this.isIconUp[value] = value;
     }
-    
+
 
   }
+
   toggleBank1(value: any) {
     $('#' + value).slideToggle();
-    if(this.isIconUp[value]){
-      if(this.isIconUp[value]==''){
+    if (this.isIconUp[value]) {
+      if (this.isIconUp[value] == '') {
         this.isIconUp[value] = value;
       }
-      else{
-        this.isIconUp[value] ='';
+      else {
+        this.isIconUp[value] = '';
       }
     }
-    else{
-      this.isIconUp[value] =value;
+    else {
+      this.isIconUp[value] = value;
     }
 
   }
@@ -221,7 +236,7 @@ dropdonw = false;
       })
 
     }
-  } 
+  }
 
   addNewNagad(paytmForm: any) {
     if (paytmForm.valid) {
@@ -249,7 +264,7 @@ dropdonw = false;
       })
 
     }
-  } 
+  }
   addNewBkash(paytmForm: any) {
     if (paytmForm.valid) {
       // The form is valid, you can access the form values from the bankData object.
@@ -276,7 +291,7 @@ dropdonw = false;
       })
 
     }
-  } 
+  }
   addNewRocket(paytmForm: any) {
     if (paytmForm.valid) {
       // The form is valid, you can access the form values from the bankData object.
@@ -303,7 +318,7 @@ dropdonw = false;
       })
 
     }
-  } 
+  }
   addNewGooglepay(googlepayForm: any) {
     if (googlepayForm.valid) {
       // The form is valid, you can access the form values from the bankData object.
@@ -328,10 +343,10 @@ dropdonw = false;
       }).catch((error: any) => {
         this.backendService.ErrorNotification_Manager(error.error)
       })
-     
+
     }
   }
- 
+
   addNewPhonePe(phonepeForm: any) {
     if (phonepeForm.valid) {
       // The form is valid, you can access the form values from the bankData object.
@@ -380,7 +395,41 @@ dropdonw = false;
   }
 
   getDeleteItemId(id: any) {
+
     this.deleteItemId = id;
   }
+
+  goBack(): void {
+    this.location.back();
+  }
+
+  toggleAddBank() {
+    this.isAddBank = !this.isAddBank
+  }
+
+  toggleAddPaytm() {
+    this.isAddPaytm = !this.isAddPaytm
+  }
+
+  toggleAddGooglepay() {
+    this.isAddGooglepay = !this.isAddGooglepay
+  }
+
+  toggleAddNagad(){
+    this.isAddNagad = !this.isAddNagad
+  }
+
+  toggleAddPhonePe(){
+    this.isAddPhonePe = !this.isAddPhonePe
+  }
+
+  toggleAddBkash(){
+    this.isAddBkash = !this.isAddBkash
+  }
+
+  toggleAddRocket(){
+    this.isAddRocket = !this.isAddRocket
+  }
+
 
 }

@@ -2,11 +2,14 @@
     <div class="row">
         <div class="col-sm-12 col-md-12 p-mobile-0 withdraw-detail-con">
             <div class="card ">
-                <div class="card-header account-detail-head"><span style="line-height: 25px;"> Withdrawal Details
-                    </span></div>
+                <div class="page-title">
+                    <a class="material-icons arrow !text-[24px]" (click)="goBack()">arrow_back</a>
+                    <span class="title">Withdraw Details</span>
+                    <span class="material-icons icon">receipt</span>
+                </div>
                 <div class="card-body account-stat-body">
                     <div class="col-md-12 p-0">
-                        <!-- ..................////////////////............. -->
+
                         <div class="banking-accordion bank">
                             <div class="acc-wrapper">
                                 <a class="acc-heading" (click)="toggleBank('bank')">
@@ -17,8 +20,8 @@
                                                 Details </h1>
                                         </div>
                                     </div>
-                                    <button *ngIf="withdrawalBankDetails.length==0" data-bs-toggle="modal"
-                                        data-bs-target="#addnew" class="btn btn-warning addNewButton"> Add New </button>
+
+                                    <button (click)="toggleAddBank(); $event.stopPropagation()" *ngIf="withdrawalBankDetails.length==0" class="btn btn-warning addNewButton"> Add New </button>
 
                                     <a *ngIf="withdrawalBankDetails.length>0" class="arrow-down "><i aria-hidden="true"
                                             class="fa"
@@ -39,8 +42,9 @@
                                                             <h1>{{bank.bankName}}</h1>
                                                             <small *ngIf="bank.status=='PENDING'"
                                                                 class="text-warning">{{bank.status}}</small>
-                                                        </div><a class="arrow-down"><i aria-hidden="true"
-                                                                [class]="isIconUp[bank.id]==bank.id ? 'fa-chevron-down' : 'fa-chevron-right'"
+                                                        </div><a class="arrow-down fa-chevron-right"><i
+                                                                aria-hidden="true"
+                                                                [class]="isIconUp[bank.id]==bank.id ? 'rotate-90' : ''"
                                                                 class="fa "></i></a>
                                                     </a>
                                                     <div class="acc-body bankdetails-body " id="{{bank.id}}">
@@ -58,8 +62,8 @@
                                                         </div>
                                                         <div class="form-btn"><button data-bs-toggle="modal"
                                                                 data-bs-target="#deletemodal"
-                                                                (click)="getDeleteItemId(bank.id)"
-                                                                class="btn btn-warning btn-block">
+                                                                (click)="getDeleteItemId(bank.id); isDeleteModal = true"
+                                                                class="btn btn-warning btn-block !bg-red-500">
                                                                 Delete </button></div>
                                                     </div>
                                                 </div>
@@ -80,13 +84,13 @@
                                 <a class="acc-heading" (click)="toggleBank('paytm')">
                                     <div class="heading-cont">
                                         <div class="bank-detail-label">
-                                            <h1><span class="wallet-icon"><img
-                                                        src="/assets/bank/paytm1.png"></span> Paytm Wallet
+                                            <h1><span class="wallet-icon"><img src="/assets/bank/paytm1.png"></span>
+                                                Paytm Wallet
                                             </h1>
                                         </div>
                                     </div>
-                                    <button *ngIf="withdrawalPaytmDetails.length==0" data-bs-toggle="modal"
-                                        data-bs-target="#addPaytm" class="btn btn-warning addNewButton"> Add New
+                                    <button *ngIf="withdrawalPaytmDetails.length==0" (click)="toggleAddPaytm(); $event.stopPropagation()"
+                                        class="btn btn-warning addNewButton"> Add New
                                     </button>
 
                                     <a *ngIf="withdrawalPaytmDetails.length>0" class="arrow-down "><i aria-hidden="true"
@@ -110,7 +114,7 @@
                                                                 <button data-bs-toggle="modal"
                                                                     data-bs-target="#deletemodalpaytm"
                                                                     class="btn btn-warning btn-sm pull-right"
-                                                                    (click)="getDeleteItemId(paytm.id)">
+                                                                    (click)="getDeleteItemId(paytm.id); isDeletePaytmModal= true">
                                                                     Delete </button>
                                                             </li>
 
@@ -133,8 +137,8 @@
                                 <a class="acc-heading" (click)="toggleBank('nagad')">
                                     <div class="heading-cont">
                                         <div class="bank-detail-label">
-                                            <h1><span class="wallet-icon"><img
-                                                        src="/assets/bank/nagadLogo.png"></span> Nagad Wallet
+                                            <h1><span class="wallet-icon"><img src="/assets/bank/nagadLogo.png"></span>
+                                                Nagad Wallet
                                             </h1>
                                         </div>
                                     </div>
@@ -180,8 +184,8 @@
                                 </div>
                             </div>
                         </div>
-                          <!-- for bkash tm ---  -->
-                          <div class="banking-accordion paytm" *ngIf="isRunxch">
+                        <!-- for bkash tm ---  -->
+                        <div class="banking-accordion paytm" *ngIf="isRunxch">
                             <div class="acc-wrapper">
                                 <a class="acc-heading" (click)="toggleBank('bkash')">
                                     <div class="heading-cont">
@@ -192,7 +196,7 @@
                                         </div>
                                     </div>
                                     <button *ngIf="withdrawalBkashDetails.length==0" data-bs-toggle="modal"
-                                        data-bs-target="#addBkash" class="btn btn-warning addNewButton"> Add New
+                                        (click)="toggleAddBkash(); $event.stopPropagation()" class="btn btn-warning addNewButton"> Add New
                                     </button>
 
                                     <a *ngIf="withdrawalBkashDetails.length>0" class="arrow-down "><i aria-hidden="true"
@@ -233,23 +237,24 @@
                                 </div>
                             </div>
                         </div>
-                         <!-- for rocket tm ---  -->
-                         <div class="banking-accordion paytm"  *ngIf="isRunxch">
+                        <!-- for rocket tm ---  -->
+                        <div class="banking-accordion paytm" *ngIf="isRunxch">
                             <div class="acc-wrapper">
                                 <a class="acc-heading" (click)="toggleBank('rocket')">
                                     <div class="heading-cont">
                                         <div class="bank-detail-label">
                                             <h1><span class="wallet-icon"><img
-                                                        src="/assets/bank/Rocket_mobile_banking_logo.svg.png"></span> Rocket Wallet
+                                                        src="/assets/bank/Rocket_mobile_banking_logo.svg.png"></span>
+                                                Rocket Wallet
                                             </h1>
                                         </div>
                                     </div>
                                     <button *ngIf="withdrawalRocketDetails.length==0" data-bs-toggle="modal"
-                                        data-bs-target="#addRocket" class="btn btn-warning addNewButton"> Add New
+                                        (click)="toggleAddRocket()" class="btn btn-warning addNewButton"> Add New
                                     </button>
 
-                                    <a *ngIf="withdrawalRocketDetails.length>0" class="arrow-down "><i aria-hidden="true"
-                                            class="fa"
+                                    <a *ngIf="withdrawalRocketDetails.length>0" class="arrow-down "><i
+                                            aria-hidden="true" class="fa"
                                             [class]="isIconUp['rocket']=='rocket' ? 'fa-chevron-circle-down' : 'fa-chevron-circle-right'">
                                         </i>
                                         <!-- <i aria-hidden="true" id="one" class="fa fa-chevron-circle-right" (click)="toggleBank('b')"></i> -->
@@ -294,14 +299,14 @@
                                 <a class="acc-heading" (click)="toggleBank('googlepay')">
                                     <div class="heading-cont">
                                         <div class="bank-detail-label">
-                                            <h1><span class="wallet-icon"><img
-                                                        src="/assets/bank/google_pay.png"></span> Google Pay
+                                            <h1><span class="wallet-icon"><img src="/assets/bank/google_pay.png"></span>
+                                                Google Pay
                                             </h1>
                                         </div>
                                     </div>
 
                                     <button *ngIf="withdrawalGooglePayDetails.length==0" data-bs-toggle="modal"
-                                        data-bs-target="#addGooglepay" class="btn btn-warning addNewButton"> Add New
+                                        (click)="toggleAddGooglepay(); $event.stopPropagation()" class="btn btn-warning addNewButton"> Add New
                                     </button>
 
                                     <a *ngIf="withdrawalGooglePayDetails.length>0" class="arrow-down "><i
@@ -326,12 +331,12 @@
                                                                 <button data-bs-toggle="modal"
                                                                     data-bs-target="#deletemodalgooglepay"
                                                                     class="btn btn-warning btn-sm pull-right"
-                                                                    (click)="getDeleteItemId(googlepay.id)">
+                                                                    (click)="getDeleteItemId(googlepay.id); isDeleteGooglePayModal = true">
                                                                     Delete </button>
                                                             </li>
 
                                                         </ul>
-                                                        <div class="form-btn"></div>
+                                                      
                                                     </div>
                                                 </div>
                                             </div>
@@ -352,13 +357,14 @@
                                 <a class="acc-heading" (click)="toggleBank('phonepe')">
                                     <div class="heading-cont">
                                         <div class="bank-detail-label">
-                                            <h1><span class="wallet-icon"><img
-                                                        src="/assets/bank/phone_pe.png"></span> PhonePe
+                                            <h1><span class="wallet-icon"><img src="/assets/bank/phone_pe.png"></span>
+                                                PhonePe
                                             </h1>
                                         </div>
                                     </div>
+
                                     <button *ngIf="withdrawalPhonePeDetails.length==0" data-bs-toggle="modal"
-                                        data-bs-target="#addPhonepe" class="btn btn-warning addNewButton"> Add New
+                                        (click)="toggleAddPhonePe(); $event.stopPropagation()" class="btn btn-warning addNewButton"> Add New
                                     </button>
 
                                     <a *ngIf="withdrawalPhonePeDetails.length>0" class="arrow-down "><i
@@ -384,12 +390,12 @@
                                                                 <button data-bs-toggle="modal"
                                                                     data-bs-target="#deletemodalphonepe"
                                                                     class="btn btn-warning btn-sm pull-right"
-                                                                    (click)="getDeleteItemId(phonepe.id)">
+                                                                    (click)="getDeleteItemId(phonepe.id); isDeletePhonePeModal = true">
                                                                     Delete </button>
                                                             </li>
 
                                                         </ul>
-                                                        <div class="form-btn"></div>
+                                                      
                                                     </div>
                                                 </div>
                                             </div>
@@ -454,406 +460,576 @@
 </div>
 
 <!-- model -- for phonepe -->
-<div class="modal fade" id="addPhonepe" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-content add-user">
-                <div class="modal-header">
-                    <h5 class="modal-title headtext" style="margin: 0;">Add New PhonePe Number </h5>
-                    <button class="close" type="button"><span data-bs-dismiss="modal"
-                            aria-hidden="true">×</span></button>
-                </div>
-                <form #phonepeForm="ngForm" (ngSubmit)="addNewPhonePe(phonepeForm)">
-                    <div class="modal-body">
-                        <div class="col-md-10">
-                            <div class="form-group row">
-                                <label class="col-md-4">Name <span class="asterisk_input"></span></label>
-                                <div class="col-md-7 d-flex justify-content-center">
-                                    <input class="form-control" name="name" [(ngModel)]="phonepeData.name"
-                                        placeholder="PhonePe Name.." required type="text">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-10">
-                            <div class="form-group row">
-                                <label class="col-md-4">PhonePe Number <span class="asterisk_input"></span></label>
-                                <div class="col-md-7 d-flex justify-content-center">
-                                    <input class="form-control" name="phonepeNumber"
-                                        [(ngModel)]="phonepeData.phonepeNumber" placeholder="PhonePe Number.." required
-                                        type="text">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary" type="submit">Submit</button>
-                    </div>
-                </form>
+<div class="fixed inset-0 bg-gray-700 bg-opacity-50 flex justify-center z-50 invisible" (click)="toggleAddPhonePe()"
+    [ngClass]="{'!visible':isAddPhonePe}">
 
+    <div class="!bg-[black] w-full max-w-[calc(100%-20px)] rounded-lg mt-4 shadow-lg relative duration-300 
+        -translate-y-20 max-h-fit" [ngClass]="{'translate-y-0 duration-300':isAddPhonePe}"
+        (click)="$event.stopPropagation()">
+
+        <div class="modal-content add-user">
+            <!-- Header -->
+            <div class="modal-header flex border-l-[12px] border-[#11e311] justify-between items-center !p-3">
+                <h5 class="modal-title headtext !m-0 !text-white">Add New PhonePe Number</h5>
+                <button class="close text-white text-xl" type="button">
+                    <span (click)="toggleAddPhonePe()" aria-hidden="true">×</span>
+                </button>
             </div>
+
+            <!-- Form -->
+            <form #phonepeForm="ngForm" (ngSubmit)="addNewPhonePe(phonepeForm)">
+                <div class="modal-body p-4 space-y-4">
+
+                    <!-- Name -->
+                    <div class="w-10/12">
+                        <div class="flex items-center space-x-4 text-white">
+                            <label class="w-4/12">Name <span class="asterisk_input"></span></label>
+                            <div class="w-7/12 flex justify-center">
+                                <input class="form-control w-full px-3 py-2 rounded-md bg-black focus:!bg-black 
+                                    !text-white border border-gray-600 !outline-none" name="name"
+                                    [(ngModel)]="phonepeData.name" placeholder="PhonePe Name.." required type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PhonePe Number -->
+                    <div class="w-10/12">
+                        <div class="flex items-center space-x-4 text-white">
+                            <label class="w-4/12">PhonePe Number <span class="asterisk_input"></span></label>
+                            <div class="w-7/12 flex justify-center">
+                                <input class="form-control w-full px-3 py-2 rounded-md bg-black focus:!bg-black 
+                                    !text-white border border-gray-600 !outline-none" name="phonepeNumber"
+                                    [(ngModel)]="phonepeData.phonepeNumber" placeholder="PhonePe Number.." required
+                                    type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="modal-footer p-4 w-full flex justify-end">
+                    <button class="bg-[#11e311] w-full hover:bg-green-600 text-white px-4 py-2 rounded-md"
+                        type="submit">
+                        Submit
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
 
 <!-- model -- for google pay -->
-<div class="modal fade" id="addGooglepay" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-content add-user">
-                <div class="modal-header">
-                    <h5 class="modal-title headtext" style="margin: 0;">Add New Google Pay Number </h5>
-                    <button class="close" type="button"><span data-bs-dismiss="modal"
-                            aria-hidden="true">×</span></button>
-                </div>
-                <form #googlepayForm="ngForm" (ngSubmit)="addNewGooglepay(googlepayForm)">
-                    <div class="modal-body">
-                        <div class="col-md-10">
-                            <div class="form-group row">
-                                <label class="col-md-4">Name <span class="asterisk_input"></span></label>
-                                <div class="col-md-7 d-flex justify-content-center">
-                                    <input class="form-control" name="name" [(ngModel)]="googlepayData.name"
-                                        placeholder="Google Pay Name.." required type="text">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-10">
-                            <div class="form-group row">
-                                <label class="col-md-4">G Pay Number <span class="asterisk_input"></span></label>
-                                <div class="col-md-7 d-flex justify-content-center">
-                                    <input class="form-control" name="gpayNumber" [(ngModel)]="googlepayData.gpayNumber"
-                                        placeholder="Google Pay Number.." required type="text">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary" type="submit">Submit</button>
-                    </div>
-                </form>
+<div class="fixed inset-0 bg-gray-700 bg-opacity-50 flex justify-center z-50 invisible" (click)="toggleAddGooglepay()"
+    [ngClass]="{'!visible':isAddGooglepay}">
 
+    <div class="!bg-[black] w-full max-w-[calc(100%-20px)] rounded-lg mt-4 shadow-lg relative duration-300 -translate-y-20 max-h-fit"
+        [ngClass]="{'translate-y-0 duration-300':isAddGooglepay}" (click)="$event.stopPropagation()">
+
+        <div class="modal-content add-user">
+            <!-- Header -->
+            <div class="modal-header flex border-l-[12px] border-[#11e311] justify-between items-center !p-3">
+                <h5 class="modal-title headtext !m-0 !text-white">Add New Google Pay Number</h5>
+                <button class="close text-white text-xl" type="button">
+                    <span (click)="toggleAddGooglepay()" aria-hidden="true">×</span>
+                </button>
             </div>
+
+            <!-- Form -->
+            <form #googlepayForm="ngForm" (ngSubmit)="addNewGooglepay(googlepayForm)">
+                <div class="modal-body p-4 space-y-4">
+
+                    <!-- Name -->
+                    <div class="w-10/12">
+                        <div class="flex items-center space-x-4 text-white">
+                            <label class="w-4/12">Name <span class="asterisk_input"></span></label>
+                            <div class="w-7/12 flex justify-center">
+                                <input
+                                    class="form-control w-full px-3 py-2 rounded-md bg-black focus:!bg-black !text-white border border-gray-600 !outline-none"
+                                    name="name" [(ngModel)]="googlepayData.name" placeholder="Google Pay Name.."
+                                    required type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Google Pay Number -->
+                    <div class="w-10/12">
+                        <div class="flex items-center space-x-4 text-white">
+                            <label class="w-4/12">G Pay Number <span class="asterisk_input"></span></label>
+                            <div class="w-7/12 flex justify-center">
+                                <input
+                                    class="form-control w-full px-3 py-2 rounded-md bg-black focus:!bg-black !text-white border border-gray-600 !outline-none"
+                                    name="gpayNumber" [(ngModel)]="googlepayData.gpayNumber"
+                                    placeholder="Google Pay Number.." required type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="modal-footer p-4 w-full flex justify-end">
+                    <button class="bg-[#11e311] w-full hover:bg-green-600 text-white px-4 py-2 rounded-md"
+                        type="submit">
+                        Submit
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
 
 <!-- model -- for paytm -->
-<div class="modal fade" id="addPaytm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-content add-user">
-                <div class="modal-header">
-                    <h5 class="modal-title headtext" style="margin: 0;">Add New Paytm Wallet Number </h5>
-                    <button class="close" type="button"><span data-bs-dismiss="modal"
-                            aria-hidden="true">×</span></button>
-                </div>
-                <form #paytmForm="ngForm" (ngSubmit)="addNewPaytm(paytmForm)">
-                    <div class="modal-body">
-                        <div class="col-md-10">
-                            <div class="form-group row">
-                                <label class="col-md-4">Name <span class="asterisk_input"></span></label>
-                                <div class="col-md-7 d-flex justify-content-center">
-                                    <input class="form-control" name="name" [(ngModel)]="paytmData.name"
-                                        placeholder="Paytm Name.." required type="text">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-10">
-                            <div class="form-group row">
-                                <label class="col-md-4">Paytm Number <span class="asterisk_input"></span></label>
-                                <div class="col-md-7 d-flex justify-content-center">
-                                    <input class="form-control" name="paytmNumber" [(ngModel)]="paytmData.paytmNumber"
-                                        placeholder="Paytm Number.." required type="text">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary" type="submit">Submit</button>
-                    </div>
-                </form>
-
+<div class="fixed inset-0 bg-gray-700 bg-opacity-50 flex justify-center z-50 invisible" (click)="toggleAddPaytm()"
+    [ngClass]="{'!visible':isAddPaytm}">
+    <div class="!bg-[black]  w-full max-w-[calc(100%-20px)] rounded-lg mt-4 shadow-lg relative duration-300 -translate-y-20 max-h-fit"
+        [ngClass]="{'translate-y-0 duration-300':isAddPaytm}" (click)="$event.stopPropagation()">
+        <div class="modal-content add-user">
+            <div class="modal-header flex border-l-[12px] border-[#11e311] justify-between items-center !p-3">
+                <h5 class="modal-title headtext !m-0 !text-white">Add New Paytm Wallet Number</h5>
+                <button class="close text-white text-xl" type="button">
+                    <span (click)="toggleAddPaytm()" aria-hidden="true">×</span>
+                </button>
             </div>
+
+            <form #paytmForm="ngForm" (ngSubmit)="addNewPaytm(paytmForm)">
+                <div class="modal-body p-4 space-y-4">
+                    <div class="w-10/12">
+                        <div class="flex items-center space-x-4 text-white">
+                            <label class="w-4/12">Name <span class="asterisk_input"></span></label>
+                            <div class="w-7/12 flex justify-center">
+                                <input
+                                    class="form-control w-full px-3 py-2 rounded-md bg-black focus:!bg-black !text-white border border-gray-600 !outline-none"
+                                    name="name" [(ngModel)]="paytmData.name" placeholder="Paytm Name.." required
+                                    type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-10/12">
+                        <div class="flex items-center space-x-4 text-white">
+                            <label class="w-4/12">Paytm Number <span class="asterisk_input"></span></label>
+                            <div class="w-7/12 flex justify-center">
+                                <input
+                                    class="form-control w-full px-3 py-2 rounded-md bg-black focus:!bg-black !text-white border border-gray-600 !outline-none"
+                                    name="paytmNumber" [(ngModel)]="paytmData.paytmNumber" placeholder="Paytm Number.."
+                                    required type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer p-4 w-full flex justify-end">
+                    <button class="bg-[#11e311] w-full hover:bg-green-600 text-white px-4 py-2 rounded-md"
+                        type="submit">
+                        Submit
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
 <!-- model -- for nagad -->
-<div class="modal fade" id="addNagad" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-content add-user">
-                <div class="modal-header">
-                    <h5 class="modal-title headtext" style="margin: 0;">Add New Nagad Wallet Number </h5>
-                    <button class="close" type="button"><span data-bs-dismiss="modal"
-                            aria-hidden="true">×</span></button>
-                </div>
-                <form #paytmForm="ngForm" (ngSubmit)="addNewNagad(paytmForm)">
-                    <div class="modal-body">
-                        <div class="col-md-10">
-                            <div class="form-group row">
-                                <label class="col-md-4">Name <span class="asterisk_input"></span></label>
-                                <div class="col-md-7 d-flex justify-content-center">
-                                    <input class="form-control" name="name" [(ngModel)]="paytmData.name"
-                                        placeholder="Nagad Name.." required type="text">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-10">
-                            <div class="form-group row">
-                                <label class="col-md-4">Nagad Number <span class="asterisk_input"></span></label>
-                                <div class="col-md-7 d-flex justify-content-center">
-                                    <input class="form-control" name="paytmNumber" [(ngModel)]="paytmData.paytmNumber"
-                                        placeholder="Nagad Number.." required type="text">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary" type="submit">Submit</button>
-                    </div>
-                </form>
+<div class="fixed inset-0 bg-gray-700 bg-opacity-50 flex justify-center z-50 invisible" (click)="toggleAddNagad()"
+    [ngClass]="{'!visible':isAddNagad}">
 
+    <div class="!bg-[black] w-full max-w-[calc(100%-20px)] rounded-lg mt-4 shadow-lg relative duration-300 -translate-y-20 max-h-fit"
+        [ngClass]="{'translate-y-0 duration-300':isAddNagad}" (click)="$event.stopPropagation()">
+
+        <div class="modal-content add-user">
+            <!-- Header -->
+            <div class="modal-header flex border-l-[12px] border-[#11e311] justify-between items-center !p-3">
+                <h5 class="modal-title headtext !m-0 !text-white">Add New Nagad Wallet Number</h5>
+                <button class="close text-white text-xl" type="button">
+                    <span (click)="toggleAddNagad()" aria-hidden="true">×</span>
+                </button>
             </div>
+
+            <!-- Form -->
+            <form #paytmForm="ngForm" (ngSubmit)="addNewNagad(paytmForm)">
+                <div class="modal-body p-4 space-y-4">
+
+                    <!-- Name -->
+                    <div class="w-10/12">
+                        <div class="flex items-center space-x-4 text-white">
+                            <label class="w-4/12">Name <span class="asterisk_input"></span></label>
+                            <div class="w-7/12 flex justify-center">
+                                <input class="form-control w-full px-3 py-2 rounded-md bg-black focus:!bg-black 
+                                    !text-white border border-gray-600 !outline-none" name="name"
+                                    [(ngModel)]="paytmData.name" placeholder="Nagad Name.." required type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nagad Number -->
+                    <div class="w-10/12">
+                        <div class="flex items-center space-x-4 text-white">
+                            <label class="w-4/12">Nagad Number <span class="asterisk_input"></span></label>
+                            <div class="w-7/12 flex justify-center">
+                                <input class="form-control w-full px-3 py-2 rounded-md bg-black focus:!bg-black 
+                                    !text-white border border-gray-600 !outline-none" name="nagadNumber"
+                                    [(ngModel)]="paytmData.paytmNumber" placeholder="Nagad Number.." required
+                                    type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="modal-footer p-4 w-full flex justify-end">
+                    <button class="bg-[#11e311] w-full hover:bg-green-600 text-white px-4 py-2 rounded-md"
+                        type="submit">
+                        Submit
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
 <!-- model -- for bkash -->
-<div class="modal fade" id="addBkash" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-content add-user">
-                <div class="modal-header">
-                    <h5 class="modal-title headtext" style="margin: 0;">Add New Bkash Wallet Number </h5>
-                    <button class="close" type="button"><span data-bs-dismiss="modal"
-                            aria-hidden="true">×</span></button>
-                </div>
-                <form #paytmForm="ngForm" (ngSubmit)="addNewBkash(paytmForm)">
-                    <div class="modal-body">
-                        <div class="col-md-10">
-                            <div class="form-group row">
-                                <label class="col-md-4">Name <span class="asterisk_input"></span></label>
-                                <div class="col-md-7 d-flex justify-content-center">
-                                    <input class="form-control" name="name" [(ngModel)]="paytmData.name"
-                                        placeholder="Bkash Name.." required type="text">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-10">
-                            <div class="form-group row">
-                                <label class="col-md-4">Bkash Number <span class="asterisk_input"></span></label>
-                                <div class="col-md-7 d-flex justify-content-center">
-                                    <input class="form-control" name="paytmNumber" [(ngModel)]="paytmData.paytmNumber"
-                                        placeholder="Bkash Number.." required type="text">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary" type="submit">Submit</button>
-                    </div>
-                </form>
+<div class="fixed inset-0 bg-gray-700 bg-opacity-50 flex justify-center z-50 invisible" (click)="toggleAddBkash()"
+    [ngClass]="{'!visible':isAddBkash}">
 
+    <div class="!bg-[black] w-full max-w-[calc(100%-20px)] rounded-lg mt-4 shadow-lg relative duration-300 
+        -translate-y-20 max-h-fit" [ngClass]="{'translate-y-0 duration-300':isAddBkash}"
+        (click)="$event.stopPropagation()">
+
+        <div class="modal-content add-user">
+            <!-- Header -->
+            <div class="modal-header flex border-l-[12px] border-[#11e311] justify-between items-center !p-3">
+                <h5 class="modal-title headtext !m-0 !text-white">Add New Bkash Wallet Number</h5>
+                <button class="close text-white text-xl" type="button">
+                    <span (click)="toggleAddBkash()" aria-hidden="true">×</span>
+                </button>
             </div>
+
+            <!-- Form -->
+            <form #paytmForm="ngForm" (ngSubmit)="addNewBkash(paytmForm)">
+                <div class="modal-body p-4 space-y-4">
+
+                    <!-- Name -->
+                    <div class="w-10/12">
+                        <div class="flex items-center space-x-4 text-white">
+                            <label class="w-4/12">Name <span class="asterisk_input"></span></label>
+                            <div class="w-7/12 flex justify-center">
+                                <input class="form-control w-full px-3 py-2 rounded-md bg-black focus:!bg-black 
+                                    !text-white border border-gray-600 !outline-none" name="name"
+                                    [(ngModel)]="paytmData.name" placeholder="Bkash Name.." required type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bkash Number -->
+                    <div class="w-10/12">
+                        <div class="flex items-center space-x-4 text-white">
+                            <label class="w-4/12">Bkash Number <span class="asterisk_input"></span></label>
+                            <div class="w-7/12 flex justify-center">
+                                <input class="form-control w-full px-3 py-2 rounded-md bg-black focus:!bg-black 
+                                    !text-white border border-gray-600 !outline-none" name="paytmNumber"
+                                    [(ngModel)]="paytmData.paytmNumber" placeholder="Bkash Number.." required
+                                    type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="modal-footer p-4 w-full flex justify-end">
+                    <button class="bg-[#11e311] w-full hover:bg-green-600 text-white px-4 py-2 rounded-md"
+                        type="submit">
+                        Submit
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
 <!-- model -- for rocket -->
-<div class="modal fade" id="addRocket" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-content add-user">
-                <div class="modal-header">
-                    <h5 class="modal-title headtext" style="margin: 0;">Add New Rocket Wallet Number </h5>
-                    <button class="close" type="button"><span data-bs-dismiss="modal"
-                            aria-hidden="true">×</span></button>
-                </div>
-                <form #paytmForm="ngForm" (ngSubmit)="addNewRocket(paytmForm)">
-                    <div class="modal-body">
-                        <div class="col-md-10">
-                            <div class="form-group row">
-                                <label class="col-md-4">Name <span class="asterisk_input"></span></label>
-                                <div class="col-md-7 d-flex justify-content-center">
-                                    <input class="form-control" name="name" [(ngModel)]="paytmData.name"
-                                        placeholder="Rocket Name.." required type="text">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-10">
-                            <div class="form-group row">
-                                <label class="col-md-4">Bkash Number <span class="asterisk_input"></span></label>
-                                <div class="col-md-7 d-flex justify-content-center">
-                                    <input class="form-control" name="paytmNumber" [(ngModel)]="paytmData.paytmNumber"
-                                        placeholder="Rocket Number.." required type="text">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary" type="submit">Submit</button>
-                    </div>
-                </form>
+<div class="fixed inset-0 bg-gray-700 bg-opacity-50 flex justify-center z-50 invisible" (click)="toggleAddRocket()"
+    [ngClass]="{'!visible':isAddRocket}">
 
+    <div class="!bg-[black] w-full max-w-[calc(100%-20px)] rounded-lg mt-4 shadow-lg relative duration-300 
+        -translate-y-20 max-h-fit" [ngClass]="{'translate-y-0 duration-300':isAddRocket}"
+        (click)="$event.stopPropagation()">
+
+        <div class="modal-content add-user">
+            <!-- Header -->
+            <div class="modal-header flex border-l-[12px] border-[#11e311] justify-between items-center !p-3">
+                <h5 class="modal-title headtext !m-0 !text-white">Add New Rocket Wallet Number</h5>
+                <button class="close text-white text-xl" type="button">
+                    <span (click)="toggleAddRocket()" aria-hidden="true">×</span>
+                </button>
             </div>
+
+            <!-- Form -->
+            <form #paytmForm="ngForm" (ngSubmit)="addNewRocket(paytmForm)">
+                <div class="modal-body p-4 space-y-4">
+
+                    <!-- Name -->
+                    <div class="w-10/12">
+                        <div class="flex items-center space-x-4 text-white">
+                            <label class="w-4/12">Name <span class="asterisk_input"></span></label>
+                            <div class="w-7/12 flex justify-center">
+                                <input class="form-control w-full px-3 py-2 rounded-md bg-black focus:!bg-black 
+                                    !text-white border border-gray-600 !outline-none" name="name"
+                                    [(ngModel)]="paytmData.name" placeholder="Rocket Name.." required type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rocket Number -->
+                    <div class="w-10/12">
+                        <div class="flex items-center space-x-4 text-white">
+                            <label class="w-4/12">Rocket Number <span class="asterisk_input"></span></label>
+                            <div class="w-7/12 flex justify-center">
+                                <input class="form-control w-full px-3 py-2 rounded-md bg-black focus:!bg-black 
+                                    !text-white border border-gray-600 !outline-none" name="paytmNumber"
+                                    [(ngModel)]="paytmData.paytmNumber" placeholder="Rocket Number.." required
+                                    type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="modal-footer p-4 w-full flex justify-end">
+                    <button class="bg-[#11e311] w-full hover:bg-green-600 text-white px-4 py-2 rounded-md"
+                        type="submit">
+                        Submit
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
 
 <!-- <<<<<<<<<<<< Modal >>>>>>>>>>>>>> -->
 <!-- Modal -->
-<div class="modal fade" id="addnew" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-content add-user">
-                <div class="modal-header">
-                    <h5 class="modal-title headtext" style="margin: 0;">Add Your Bank Account</h5>
-                    <button class="close" type="button"><span data-bs-dismiss="modal"
-                            aria-hidden="true">×</span></button>
-                </div>
-                <form #bankForm="ngForm" (ngSubmit)="addNewBank(bankForm)">
-                    <div class="modal-body">
-                        <div class="col-md-10">
-                            <div class="form-group row">
-                                <label class="col-md-4">Bank Name <span class="asterisk_input"></span></label>
-                                <div class="col-md-7 d-flex justify-content-center">
-                                    <input class="form-control" name="bankName" [(ngModel)]="bankData.bankName"
-                                        placeholder="Bank Name.." required type="text">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-10">
-                            <div class="form-group row">
-                                <label class="col-md-4">Account Number <span class="asterisk_input"></span></label>
-                                <div class="col-md-7 d-flex justify-content-center">
-                                    <input class="form-control" name="accountNumber"
-                                        [(ngModel)]="bankData.accountNumber" placeholder="Account Number.." required
-                                        type="text">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-10">
-                            <div class="form-group row">
-                                <label class="col-md-4">IFSC <span class="asterisk_input"></span></label>
-                                <div class="col-md-7 d-flex justify-content-center">
-                                    <input class="form-control" name="ifsc" [(ngModel)]="bankData.ifsc"
-                                        placeholder="IFSC.." required style="text-transform: uppercase" type="text">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-10">
-                            <div class="form-group row">
-                                <label class="col-md-4">Holder Name<span class="asterisk_input"></span></label>
-                                <div class="col-md-7 d-flex justify-content-center">
-                                    <input class="form-control" name="holderName" [(ngModel)]="bankData.holderName"
-                                        placeholder="Account Holder Name.." required type="text">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary" type="submit">Submit</button>
-                    </div>
-                </form>
+<div class="fixed inset-0 bg-gray-700 bg-opacity-50 flex justify-center z-50 invisible" (click)="toggleAddBank()"
+    [ngClass]="{'!visible':isAddBank}">
 
+    <div class="!bg-[black] w-full max-w-[calc(100%-20px)] rounded-lg mt-4 shadow-lg relative duration-300 -translate-y-20 max-h-fit"
+        [ngClass]="{'translate-y-0 duration-300':isAddBank}" (click)="$event.stopPropagation()">
+
+        <div class="modal-content add-user">
+            <!-- Header -->
+            <div class="modal-header flex border-l-[12px] border-[#11e311] justify-between items-center !p-3">
+                <h5 class="modal-title headtext !m-0 !text-white">Add Your Bank Account</h5>
+                <button class="close text-white text-xl" type="button">
+                    <span (click)="toggleAddBank()" aria-hidden="true">×</span>
+                </button>
             </div>
+
+            <!-- Form -->
+            <form #bankForm="ngForm" (ngSubmit)="addNewBank(bankForm)">
+                <div class="modal-body p-4 space-y-4">
+
+                    <!-- Bank Name -->
+                    <div class="w-10/12">
+                        <div class="flex items-center space-x-4 text-white">
+                            <label class="w-4/12">Bank Name <span class="asterisk_input"></span></label>
+                            <div class="w-7/12 flex justify-center">
+                                <input
+                                    class="form-control w-full px-3 py-2 rounded-md bg-black focus:!bg-black !text-white border border-gray-600 !outline-none"
+                                    name="bankName" [(ngModel)]="bankData.bankName" placeholder="Bank Name.." required
+                                    type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Account Number -->
+                    <div class="w-10/12">
+                        <div class="flex items-center space-x-4 text-white">
+                            <label class="w-4/12">Account Number <span class="asterisk_input"></span></label>
+                            <div class="w-7/12 flex justify-center">
+                                <input
+                                    class="form-control w-full px-3 py-2 rounded-md bg-black focus:!bg-black !text-white border border-gray-600 !outline-none"
+                                    name="accountNumber" [(ngModel)]="bankData.accountNumber"
+                                    placeholder="Account Number.." required type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IFSC -->
+                    <div class="w-10/12">
+                        <div class="flex items-center space-x-4 text-white">
+                            <label class="w-4/12">IFSC <span class="asterisk_input"></span></label>
+                            <div class="w-7/12 flex justify-center">
+                                <input
+                                    class="form-control w-full px-3 py-2 rounded-md bg-black focus:!bg-black !text-white border border-gray-600 !outline-none uppercase"
+                                    name="ifsc" [(ngModel)]="bankData.ifsc" placeholder="IFSC.." required type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Holder Name -->
+                    <div class="w-10/12">
+                        <div class="flex items-center space-x-4 text-white">
+                            <label class="w-4/12">Holder Name <span class="asterisk_input"></span></label>
+                            <div class="w-7/12 flex justify-center">
+                                <input
+                                    class="form-control w-full px-3 py-2 rounded-md bg-black focus:!bg-black !text-white border border-gray-600 !outline-none"
+                                    name="holderName" [(ngModel)]="bankData.holderName"
+                                    placeholder="Account Holder Name.." required type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="modal-footer p-4 w-full flex justify-end">
+                    <button class="bg-[#11e311] w-full hover:bg-green-600 text-white px-4 py-2 rounded-md"
+                        type="submit">
+                        Submit
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
+
 
 <!-- ................... Delete modal.............. -->
 <!-- Modal -->
-<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<div class="fixed inset-0 bg-gray-700 bg-opacity-50 flex justify-center top-0  z-50 invisible"
+    (click)="isDeleteModal = false" [ngClass]="{'!visible':isDeleteModal}">
 
-        <div class="modal-content">
-            <div class="modal-content add-user">
-                <div class="modal-header" style="font-size: 17.5px;">
-                    <h5 class="modal-title">Delete Bank Details</h5>
-                    <button class="close" data-bs-dismiss="modal" type="button"><span
-                            aria-hidden="true">×</span></button>
-                </div>
-                <div class="modal-body text-center">
-                    <h5>Are you sure want to delete?</h5>
-                    <button class="btn btn-primary mt-2" type="button" (click)="deleteBankDetails(deleteItemId)"
-                        *ngIf="deleteItemId" data-bs-dismiss="modal">Yes</button>
-                    <button class="btn btn-secondary ms-2 mt-2" data-bs-dismiss="modal" type="button">Cancel</button>
-                </div>
+    <div class="!bg-[black] w-full max-w-[calc(100%-20px)] mt-5 rounded-lg shadow-lg relative duration-300 
+        -translate-y-10 max-h-fit" [ngClass]="{'!translate-y-0 duration-300':isDeleteModal}"
+        (click)="$event.stopPropagation()">
+
+        <!-- Header -->
+        <div class="modal-header flex border-l-[12px] border-red-600 justify-between items-center !p-3">
+            <h5 class="modal-title text-white text-lg font-semibold">Delete Bank Details</h5>
+            <button class="close text-white text-xl" type="button">
+                <span (click)="isDeleteModal = false" aria-hidden="true">×</span>
+            </button>
+        </div>
+
+        <!-- Body -->
+        <div class="modal-body text-center p-6">
+            <h5 class="text-white text-base">Are you sure want to delete?</h5>
+            <div class="flex justify-center gap-4 mt-4">
+                <button class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md" type="button"
+                    (click)="deleteBankDetails(deleteItemId)" *ngIf="deleteItemId" (click)="isDeleteModal = false">
+                    Yes
+                </button>
+                <button class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-md" type="button"
+                    (click)="isDeleteModal = false">
+                    Cancel
+                </button>
             </div>
         </div>
     </div>
 </div>
+
 
 <!-- paytm delete model -->
-<div class="modal fade" id="deletemodalpaytm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<div class="fixed inset-0 bg-gray-700 bg-opacity-50 flex justify-center top-0  z-50 invisible"
+    (click)="isDeletePaytmModal = false" [ngClass]="{'!visible':isDeletePaytmModal}">
 
-        <div class="modal-content">
-            <div class="modal-content add-user">
-                <div class="modal-header" style="font-size: 17.5px;">
-                    <h5 class="modal-title">Delete Paytm Details</h5>
-                    <button class="close" data-bs-dismiss="modal" type="button"><span
-                            aria-hidden="true">×</span></button>
-                </div>
-                <div class="modal-body text-center">
-                    <h5>Are you sure want to delete?</h5>
-                    <button class="btn btn-primary mt-2" type="button" (click)="deleteBankDetails(deleteItemId)"
-                        *ngIf="deleteItemId" data-bs-dismiss="modal">Yes</button>
-                    <button class="btn btn-secondary ms-2 mt-2" data-bs-dismiss="modal" type="button">Cancel</button>
-                </div>
+    <div class="!bg-[black] w-full max-w-[calc(100%-20px)] mt-5 rounded-lg shadow-lg relative duration-300 
+        -translate-y-10 max-h-fit" [ngClass]="{'translate-y-0 duration-300':isDeletePaytmModal}"
+        (click)="$event.stopPropagation()">
+
+        <!-- Header -->
+        <div class="modal-header flex border-l-[12px] border-red-600 justify-between items-center !p-3">
+            <h5 class="modal-title text-white text-lg font-semibold">Delete Paytm Details</h5>
+            <button class="close text-white text-xl" type="button">
+                <span (click)="isDeletePaytmModal = false" aria-hidden="true">×</span>
+            </button>
+        </div>
+
+        <!-- Body -->
+        <div class="modal-body text-center p-6">
+            <h5 class="text-white text-base">Are you sure want to delete?</h5>
+            <div class="flex justify-center gap-4 mt-4">
+                <button class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md" type="button"
+                    (click)="deleteBankDetails(deleteItemId)" *ngIf="deleteItemId" (click)="isDeletePaytmModal = false">
+                    Yes
+                </button>
+                <button class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-md" type="button"
+                    (click)="isDeletePaytmModal = false">
+                    Cancel
+                </button>
             </div>
         </div>
     </div>
 </div>
+
+
+
 
 <!-- google pay model -->
-<div class="modal fade" id="deletemodalgooglepay" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<div class="fixed inset-0 bg-gray-700 bg-opacity-50 flex justify-center top-0  z-50 invisible"
+    (click)="isDeleteGooglePayModal = false" [ngClass]="{'!visible':isDeleteGooglePayModal}">
 
-        <div class="modal-content">
-            <div class="modal-content add-user">
-                <div class="modal-header" style="font-size: 17.5px;">
-                    <h5 class="modal-title">Delete Googlel Pay Details</h5>
-                    <button class="close" data-bs-dismiss="modal" type="button"><span
-                            aria-hidden="true">×</span></button>
-                </div>
-                <div class="modal-body text-center">
-                    <h5>Are you sure want to delete?</h5>
-                    <button class="btn btn-primary mt-2" type="button" (click)="deleteBankDetails(deleteItemId)"
-                        *ngIf="deleteItemId" data-bs-dismiss="modal">Yes</button>
-                    <button class="btn btn-secondary ms-2 mt-2" data-bs-dismiss="modal" type="button">Cancel</button>
-                </div>
+    <div class="!bg-[black] w-full max-w-[calc(100%-20px)] mt-5 rounded-lg shadow-lg relative duration-300 
+        -translate-y-10 max-h-fit" [ngClass]="{'!translate-y-0 duration-300':isDeleteGooglePayModal}"
+        (click)="$event.stopPropagation()">
+
+        <!-- Header -->
+        <div class="modal-header flex border-l-[12px] border-red-600 justify-between items-center !p-3">
+            <h5 class="modal-title text-white text-lg font-semibold">Delete Google Pay Details</h5>
+            <button class="close text-white text-xl" type="button">
+                <span (click)="isDeleteGooglePayModal = false" aria-hidden="true">×</span>
+            </button>
+        </div>
+
+        <!-- Body -->
+        <div class="modal-body text-center p-6">
+            <h5 class="text-white text-base">Are you sure want to delete?</h5>
+            <div class="flex justify-center gap-4 mt-4">
+                <button class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md" type="button"
+                    (click)="deleteBankDetails(deleteItemId)" *ngIf="deleteItemId"
+                    (click)="isDeleteGooglePayModal = false">
+                    Yes
+                </button>
+                <button class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-md" type="button"
+                    (click)="isDeleteGooglePayModal = false">
+                    Cancel
+                </button>
             </div>
         </div>
     </div>
 </div>
+
 
 <!-- delete phonepe model -->
 
 
-<div class="modal fade" id="deletemodalphonepe" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<div class="fixed inset-0 bg-gray-700 bg-opacity-50 flex justify-center top-0  z-50 invisible"
+    (click)="isDeletePhonePeModal = false" [ngClass]="{'!visible':isDeletePhonePeModal}">
 
-        <div class="modal-content">
-            <div class="modal-content add-user">
-                <div class="modal-header" style="font-size: 17.5px;">
-                    <h5 class="modal-title">Delete PhonePe Details</h5>
-                    <button class="close" data-bs-dismiss="modal" type="button"><span
-                            aria-hidden="true">×</span></button>
-                </div>
-                <div class="modal-body text-center">
-                    <h5>Are you sure want to delete?</h5>
-                    <button class="btn btn-primary mt-2" type="button" (click)="deleteBankDetails(deleteItemId)"
-                        *ngIf="deleteItemId" data-bs-dismiss="modal">Yes</button>
-                    <button class="btn btn-secondary ms-2 mt-2" data-bs-dismiss="modal" type="button">Cancel</button>
-                </div>
+    <div class="!bg-[black] w-full max-w-[calc(100%-20px)] mt-5 rounded-lg shadow-lg relative duration-300 
+        -translate-y-10 max-h-fit" [ngClass]="{'translate-y-0 duration-300':isDeletePhonePeModal}"
+        (click)="$event.stopPropagation()">
+
+        <!-- Header -->
+        <div class="modal-header flex border-l-[12px] border-red-600 justify-between items-center !p-3">
+            <h5 class="modal-title text-white text-lg font-semibold">Delete PhonePe Details</h5>
+            <button class="close text-white text-xl" type="button">
+                <span (click)="isDeletePhonePeModal = false" aria-hidden="true">×</span>
+            </button>
+        </div>
+
+        <!-- Body -->
+        <div class="modal-body text-center p-6">
+            <h5 class="text-white text-base">Are you sure want to delete?</h5>
+            <div class="flex justify-center gap-4 mt-4">
+                <button class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md" type="button"
+                    (click)="deleteBankDetails(deleteItemId)" *ngIf="deleteItemId" (click)="isDeletePhonePeModal = false">
+                    Yes
+                </button>
+                <button class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-md" type="button"
+                    (click)="isDeletePhonePeModal = false">
+                    Cancel
+                </button>
             </div>
         </div>
     </div>
