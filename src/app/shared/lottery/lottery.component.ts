@@ -42,7 +42,7 @@ export class LotteryComponent implements OnInit {
   }
 
   lotteryDetails(game: any) {
-    console.log('game: ', game);
+    // console.log('game: ', game);
 
     this.router.navigateByUrl(
       `/lottery-details/66104/${game.eventId}`

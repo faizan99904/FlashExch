@@ -56,7 +56,7 @@ export class BottomNavComponent {
         this.loader = false;
       },
       error: (error) => {
-        console.log(error);
+        // console.log(error);
         this.loader = false;
       },
     });

@@ -291,7 +291,7 @@ return
     let data: any;
 
     const item = this.item;
-    console.log(item)
+    // console.log(item)
     // Special handling for mobile
     if (this.isMobile) {
       this.placeBetObj.profitlossCall = false;
@@ -596,7 +596,7 @@ return
   }
 
   setMinStake(): void {
-    console.log(this.item)
+    // console.log(this.item)
     this.stake = this.item.minValue;
     this.profit = this.stake * 2;
   }

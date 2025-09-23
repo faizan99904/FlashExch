@@ -108,7 +108,7 @@ export class HeaderComponent {
         this.toggle.exposureData.set(this.userExposureList);
       },
       error: (error) => {
-        console.log(error);
+        // console.log(error);
       },
     });
   }

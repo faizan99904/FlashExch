@@ -36,7 +36,7 @@ export class VirtualComponent implements OnInit {
         this.loader = false;
       },
       (error: any) => {
-        console.log(error);
+        // console.log(error);
       }
     );
   }
