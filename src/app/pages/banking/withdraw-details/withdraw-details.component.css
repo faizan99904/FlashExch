@@ -1,0 +1,450 @@
+.divider-top {
+    margin-top: 25px;
+    margin-bottom: 40px;
+    padding: 0.15rem;
+}
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+}
+.card-header:first-child {
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+    padding: 6px;
+}
+.account-detail-head {
+    font-weight: 700;
+    font-size: 14px;
+    background: var(--newsColor);
+    padding: 6px;
+    color: #fff;
+}
+.card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #f0f3f5;
+    border-bottom: 1px solid #c8ced3;
+}
+
+.btn-primary{
+    font-size: 14px;
+    border-radius: 5px;
+}
+.btn-secondary {
+    color: #23282c;
+    background-color: #c8ced3;
+    border-color: #c8ced3;
+    padding: 0.37rem 0.75rem;
+    border-radius: 5px;
+    font-size: 14px;
+}
+/* .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #c8ced3;
+    border-radius: .25rem;
+} */
+.wrapper{
+    display:inline-block;
+  }
+  .wrapper::after #two {
+    display: inline-block;
+  }
+  .wrapper::before #one {
+    display: none;
+  }
+  .h5, h5 {
+    font-size: 1.09375rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+.banking-accordion {
+    margin-bottom: 10px;
+}
+.banking-accordion {
+    width: 100%;
+}
+.banking-accordion .acc-wrapper {
+    background-color: #191919;
+    border-radius: 8px;
+    /* padding: 16px; */
+}
+.banking-accordion  .acc-wrapper  .acc-heading{
+    background-color: #191919;
+    padding: 1rem;
+    border-radius: 8px;
+}
+.banking-accordion   .acc-wrapper   .acc-heading, .banking-accordion   .acc-wrapper   .acc-heading   .heading-cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.banking-accordion   .acc-wrapper   .acc-heading   .heading-cont   h1 {
+    font-size: 14px;
+    margin: 0;
+    color: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.banking-accordion   .acc-wrapper   .acc-heading   .heading-cont   .building-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #e59a18;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    min-width: 36px;
+}
+.banking-accordion   .acc-wrapper   .acc-heading   .heading-cont   .building-icon   img {
+    width: 24px;
+}
+img {
+    max-width: 100%;
+    border: 0;
+}
+.addNewButton {
+    min-width: 120px;
+    min-height: 30px;
+    text-transform: unset;
+    height: 30px;
+    line-height: 18px;
+    border-radius: 0.25rem;
+    /* font-size: 12px; */
+}
+.banking-accordion   .acc-wrapper   .acc-heading   .heading-cont   .wallet-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    min-width: 36px;
+}
+.banking-accordion   .acc-wrapper   .acc-heading   .heading-cont   .wallet-icon   img {
+    max-width: 100%;
+}
+
+/* <<<<<< modal >>>>>>>>>>>> */
+.add-user   .modal-header {
+    padding: 5px 7px;
+}
+.modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid #c8ced3;
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+}
+.add-user   .headtext, .add-user   .modal-header   .close {
+    font-size: 17px;
+    color: #3b5160;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 10px;
+    font-weight: 500;
+    line-height: 1.2;
+}
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+}
+button.close {
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.close {
+    float: right;
+    font-size: 1.3125rem;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+}
+.add-user   .form-group {
+    margin-bottom: 6px;
+    text-align: right;
+}
+.add-user   .asterisk_input:before, .add-user   label {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 0;
+    line-height: 20px;
+    margin-top: 5px;
+}
+.banking-accordion   .acc-wrapper   .acc-heading   a.arrow-down {
+    color: #ccc;
+    font-size: 21px;
+    top: 4px;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-decoration: none;
+}
+.banking-accordion   .acc-wrapper   .acc-body {
+    display: none;
+}
+
+.banking-accordion   .acc-wrapper   .acc-body {
+    padding: 15px!important;
+}
+.banking-accordion   .acc-wrapper   .acc-body   .inner-accordion {
+    margin-bottom: 15px;
+}
+.banking-accordion {
+    margin-bottom: 10px;
+    width: 100%;
+}
+.banking-accordion   .acc-wrapper   .acc-body   .inner-accordion   .banking-accordion   .acc-wrapper {
+    background-color: #191919;
+    border-radius: 15px;
+}
+.banking-accordion   .acc-wrapper   .acc-body   .inner-accordion   .banking-accordion   .acc-wrapper   .acc-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #606060;
+    padding: 1rem;
+    border-radius: 8px;
+}
+.banking-accordion   .acc-wrapper   .acc-body   .inner-accordion   .banking-accordion   .acc-wrapper   .acc-headings {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+}
+.banking-accordion   .acc-wrapper   .acc-body   .inner-accordion   .banking-accordion   .acc-wrapper   .acc-heading   .heading-cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.banking-accordion   .acc-wrapper   .acc-body   .inner-accordion   .banking-accordion   .acc-wrapper   .acc-heading   .heading-cont   h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 14px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.arrow-down{
+    cursor: pointer !important;
+}
+
+.banking-accordion   .acc-wrapper   .acc-body {
+    padding: 15px!important;
+}
+.list-group {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+a.acc-heading{
+    text-decoration: none;
+}
+.bankDetails   .list-group-item {
+    background-color: #191919;
+    border: 1px solid rgba(248,248,248,.125);
+    color: #ccc;
+    padding: .55rem 1.25rem;
+    margin-bottom: -1px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-btn {
+    padding: 10px;
+}
+.btn-block {
+    display: block;
+    width: 100%;
+}
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: .765625rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+}
+
+.acc-body .btn{
+    padding: 0.25rem 0.5rem !important;
+    border-radius: 4px !important;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+.add-user   .modal-footer {
+    justify-content: center;
+}
+.btn-primary {
+    border-color: unset;
+    background: var(--newsColor);
+}
+.modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 1rem;
+    border-top: 1px solid #c8ced3;
+    border-bottom-right-radius: .3rem;
+    border-bottom-left-radius: .3rem;
+}
+.add-user   .modal-footer   .btn {
+    justify-content: center;
+    width: 140px;
+    font-size: 12px;
+    margin: unset;
+    border-radius: 0.25rem;
+}
+.form-control {
+    width: 91.63%;
+    height: 32px;
+    border-radius: 4px;
+}
+input {
+    display: block;
+    width: 50vw;
+   
+}
+.add-user   .asterisk_input:before, .add-user   label {
+    font-size: 12px;
+    /* color: #73818f; */
+    font-weight: 700;
+    padding: 0;
+    line-height: 20px;
+    margin-top: 5px;
+    margin-right: -3px;
+}
+.add-user   .headtext, .add-user   .modal-header   .close {
+    font-size: 17px;
+    color: #3b5160 !important;
+    opacity: 1;
+}
+input,
+input::placeholder {
+    font-size: 12px;
+    color: #73818f;
+}
+.asterisk_input:before {
+    content: "*";
+    font-size: 15px;
+    color: #e85656
+}
+.error-message {
+    font-size: 15px;
+    line-height: 14px;
+    overflow: hidden;
+    transition: all .3s cubic-bezier(.55,0,.55,.2);
+    opacity: 1;
+    margin-top: 0;
+    padding-top: 5px;
+    color: #d50000
+}
+@media (min-width: 768px){
+.col-md-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+}
+@media (min-width: 768px){
+.col-sm-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+}
+@media only screen and (max-width: 992px){
+   
+    .add-user   .asterisk_input:before, .add-user   label {
+       text-align: center;
+    }
+    }
+@media only screen and (min-width:992px){
+    .mylist{
+        width: 47vw;
+        height: 8.3vh;
+    }
+    .list-md{
+        margin-top: 1.5vh;
+    }
+    .form-btn{
+        margin-top: 1.95vh;
+    }
+}
+@media only screen and (max-width:768px){
+    .mylist{
+        width: 73.334vw !important;
+        /* height: 7.435vh; */
+    }
+    .banking-accordion   .acc-wrapper   .acc-body   .inner-accordion   .banking-accordion   .acc-wrapper   .acc-headings {
+    
+        justify-content: center;
+    }
+    .withdraw-detail-con{
+        padding-left: 8.5px;
+        padding-right: 8.5px;
+    }
+    .divider-top{
+        margin-top: 22.5px;
+    }
+    .fa-chevron-circle-right,.fa-chevron-circle-down{
+        font-family: fontawesome !important;
+        font-weight: 500 !important;
+        font-size: larger !important;
+    }
+    .fa-chevron-right{
+        font-size: medium !important;
+        font-family: fontawesome;
+        font-weight: 400 !important;
+        color: #fff;
+    }
+    .list-group{
+        padding: 7.25px 0;
+    }
+    .list-group-item:first-child{
+        border-top-left-radius: 0.25rem ;
+    border-top-right-radius: 0.25rem;
+    }
+    .list-group-item:last-child {
+        border-bottom-right-radius: 0.25rem;
+        border-bottom-left-radius: 0.25rem;
+    }
+    .acc-body .add-new-btn{
+        padding: 0.375rem 0.75rem !important;
+        font-size: .875rem;
+    }
+}.form-control:focus {
+    border-color: var(--account-statement-cmp-form-control-focus-border);
+    box-shadow: unset;
+    color: var(--account-statement-cmp-form-control-focus-color);
+    background-color: var(--account-statement-cmp-form-control-focus-bg);
+    outline: 0;
+}

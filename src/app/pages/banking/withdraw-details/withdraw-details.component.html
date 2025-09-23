@@ -1,0 +1,860 @@
+<div class="animated fadeIn divider-top">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 p-mobile-0 withdraw-detail-con">
+            <div class="card ">
+                <div class="card-header account-detail-head"><span style="line-height: 25px;"> Withdrawal Details
+                    </span></div>
+                <div class="card-body account-stat-body">
+                    <div class="col-md-12 p-0">
+                        <!-- ..................////////////////............. -->
+                        <div class="banking-accordion bank">
+                            <div class="acc-wrapper">
+                                <a class="acc-heading" (click)="toggleBank('bank')">
+                                    <div class="heading-cont">
+                                        <div class="bank-detail-label">
+                                            <h1><span class="building-icon"><img
+                                                        src="/assets/bank/account_balance-24px.svg"></span> Bank
+                                                Details </h1>
+                                        </div>
+                                    </div>
+                                    <button *ngIf="withdrawalBankDetails.length==0" data-bs-toggle="modal"
+                                        data-bs-target="#addnew" class="btn btn-warning addNewButton"> Add New </button>
+
+                                    <a *ngIf="withdrawalBankDetails.length>0" class="arrow-down "><i aria-hidden="true"
+                                            class="fa"
+                                            [class]="isIconUp['bank']=='bank' ? 'fa-chevron-circle-down' : 'fa-chevron-circle-right'">
+                                        </i>
+                                        <!-- <i aria-hidden="true" id="one" class="fa fa-chevron-circle-right" (click)="toggleBank('b')"></i> -->
+                                    </a>
+                                </a>
+
+                                <div [ngClass]="withdrawalBankDetails.length>0?'d-block':'d-none'">
+                                    <div class="acc-body" id="bank">
+                                        <div class="inner-accordion">
+                                            <div class="banking-accordion 6476a21776a46007771e5248">
+                                                <div class="acc-wrapper"
+                                                    *ngFor="let bank of withdrawalBankDetails;let i =index ">
+                                                    <a class="acc-heading" (click)="toggleBank1(bank.id)">
+                                                        <div class="heading-cont">
+                                                            <h1>{{bank.bankName}}</h1>
+                                                            <small *ngIf="bank.status=='PENDING'"
+                                                                class="text-warning">{{bank.status}}</small>
+                                                        </div><a class="arrow-down"><i aria-hidden="true"
+                                                                [class]="isIconUp[bank.id]==bank.id ? 'fa-chevron-down' : 'fa-chevron-right'"
+                                                                class="fa "></i></a>
+                                                    </a>
+                                                    <div class="acc-body bankdetails-body " id="{{bank.id}}">
+                                                        <div class="md list-md hydrated">
+                                                            <ul class="list-group bankDetails">
+                                                                <li class="list-group-item">Bank Name:
+                                                                    {{bank?.bankName}}</li>
+                                                                <li class="list-group-item">Account No:
+                                                                    {{bank?.accountNumber}}</li>
+                                                                <li class="list-group-item">IFSC Code: {{bank?.ifsc}}
+                                                                </li>
+                                                                <li class="list-group-item">Account Holder Name:
+                                                                    {{bank?.accountHolderName}}</li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="form-btn"><button data-bs-toggle="modal"
+                                                                data-bs-target="#deletemodal"
+                                                                (click)="getDeleteItemId(bank.id)"
+                                                                class="btn btn-warning btn-block">
+                                                                Delete </button></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="text-center mb-15"><button class="btn btn-warning"
+                                                data-bs-toggle="modal" data-bs-target="#addnew"> Add New
+                                            </button>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- for pay tm ---  -->
+                        <div class="banking-accordion paytm">
+                            <div class="acc-wrapper">
+                                <a class="acc-heading" (click)="toggleBank('paytm')">
+                                    <div class="heading-cont">
+                                        <div class="bank-detail-label">
+                                            <h1><span class="wallet-icon"><img
+                                                        src="/assets/bank/paytm1.png"></span> Paytm Wallet
+                                            </h1>
+                                        </div>
+                                    </div>
+                                    <button *ngIf="withdrawalPaytmDetails.length==0" data-bs-toggle="modal"
+                                        data-bs-target="#addPaytm" class="btn btn-warning addNewButton"> Add New
+                                    </button>
+
+                                    <a *ngIf="withdrawalPaytmDetails.length>0" class="arrow-down "><i aria-hidden="true"
+                                            class="fa"
+                                            [class]="isIconUp['paytm']=='paytm' ? 'fa-chevron-circle-down' : 'fa-chevron-circle-right'">
+                                        </i>
+                                        <!-- <i aria-hidden="true" id="one" class="fa fa-chevron-circle-right" (click)="toggleBank('b')"></i> -->
+                                    </a>
+                                </a>
+
+                                <div [ngClass]="withdrawalPaytmDetails.length>0?'d-block':'d-none'">
+                                    <div class="acc-body" id="paytm">
+                                        <div class="inner-accordion">
+                                            <div class="banking-accordion 6476a21776a46007771e5248">
+                                                <div class="acc-wrapper"
+                                                    *ngFor="let paytm of withdrawalPaytmDetails;let i =index ">
+                                                    <div class="acc-headings">
+                                                        <ul class="list-group bankDetails">
+                                                            <li class="list-group-item mylist">
+                                                                {{paytm?.paytmName}}: {{paytm?.paytmNumber}}
+                                                                <button data-bs-toggle="modal"
+                                                                    data-bs-target="#deletemodalpaytm"
+                                                                    class="btn btn-warning btn-sm pull-right"
+                                                                    (click)="getDeleteItemId(paytm.id)">
+                                                                    Delete </button>
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="text-center mb-15"><button class="btn btn-warning add-new-btn"
+                                                data-bs-toggle="modal" data-bs-target="#addPaytm"> Add New
+                                            </button>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- for nagad tm ---  -->
+                        <div class="banking-accordion paytm" *ngIf="isRunxch">
+                            <div class="acc-wrapper">
+                                <a class="acc-heading" (click)="toggleBank('nagad')">
+                                    <div class="heading-cont">
+                                        <div class="bank-detail-label">
+                                            <h1><span class="wallet-icon"><img
+                                                        src="/assets/bank/nagadLogo.png"></span> Nagad Wallet
+                                            </h1>
+                                        </div>
+                                    </div>
+                                    <button *ngIf="withdrawalNagadDetails.length==0" data-bs-toggle="modal"
+                                        data-bs-target="#addNagad" class="btn btn-warning addNewButton"> Add New
+                                    </button>
+
+                                    <a *ngIf="withdrawalNagadDetails.length>0" class="arrow-down "><i aria-hidden="true"
+                                            class="fa"
+                                            [class]="isIconUp['nagad']=='nagad' ? 'fa-chevron-circle-down' : 'fa-chevron-circle-right'">
+                                        </i>
+                                        <!-- <i aria-hidden="true" id="one" class="fa fa-chevron-circle-right" (click)="toggleBank('b')"></i> -->
+                                    </a>
+                                </a>
+
+                                <div [ngClass]="withdrawalNagadDetails.length>0?'d-block':'d-none'">
+                                    <div class="acc-body" id="nagad">
+                                        <div class="inner-accordion">
+                                            <div class="banking-accordion 6476a21776a46007771e5248">
+                                                <div class="acc-wrapper"
+                                                    *ngFor="let nagad of withdrawalNagadDetails;let i =index ">
+                                                    <div class="acc-headings">
+                                                        <ul class="list-group bankDetails">
+                                                            <li class="list-group-item mylist">
+                                                                {{nagad?.nagadName}}: {{nagad?.nagadNumber}}
+                                                                <button data-bs-toggle="modal"
+                                                                    data-bs-target="#deletemodalpaytm"
+                                                                    class="btn btn-warning btn-sm pull-right"
+                                                                    (click)="getDeleteItemId(nagad.id)">
+                                                                    Delete </button>
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="text-center mb-15"><button class="btn btn-warning add-new-btn"
+                        data-bs-toggle="modal" data-bs-target="#addPaytm"> Add New
+                    </button>
+                </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                          <!-- for bkash tm ---  -->
+                          <div class="banking-accordion paytm" *ngIf="isRunxch">
+                            <div class="acc-wrapper">
+                                <a class="acc-heading" (click)="toggleBank('bkash')">
+                                    <div class="heading-cont">
+                                        <div class="bank-detail-label">
+                                            <h1><span class="wallet-icon"><img
+                                                        src="/assets/bank/bkashRound1.png"></span> Bkash Wallet
+                                            </h1>
+                                        </div>
+                                    </div>
+                                    <button *ngIf="withdrawalBkashDetails.length==0" data-bs-toggle="modal"
+                                        data-bs-target="#addBkash" class="btn btn-warning addNewButton"> Add New
+                                    </button>
+
+                                    <a *ngIf="withdrawalBkashDetails.length>0" class="arrow-down "><i aria-hidden="true"
+                                            class="fa"
+                                            [class]="isIconUp['bkash']=='bkash' ? 'fa-chevron-circle-down' : 'fa-chevron-circle-right'">
+                                        </i>
+                                        <!-- <i aria-hidden="true" id="one" class="fa fa-chevron-circle-right" (click)="toggleBank('b')"></i> -->
+                                    </a>
+                                </a>
+
+                                <div [ngClass]="withdrawalBkashDetails.length>0?'d-block':'d-none'">
+                                    <div class="acc-body" id="bkash">
+                                        <div class="inner-accordion">
+                                            <div class="banking-accordion 6476a21776a46007771e5248">
+                                                <div class="acc-wrapper"
+                                                    *ngFor="let bkash of withdrawalBkashDetails;let i =index ">
+                                                    <div class="acc-headings">
+                                                        <ul class="list-group bankDetails">
+                                                            <li class="list-group-item mylist">
+                                                                {{bkash?.bkashName}}: {{bkash?.bkashNumber}}
+                                                                <button data-bs-toggle="modal"
+                                                                    data-bs-target="#deletemodalpaytm"
+                                                                    class="btn btn-warning btn-sm pull-right"
+                                                                    (click)="getDeleteItemId(bkash.id)">
+                                                                    Delete </button>
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="text-center mb-15"><button class="btn btn-warning add-new-btn"
+                        data-bs-toggle="modal" data-bs-target="#addPaytm"> Add New
+                    </button>
+                </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         <!-- for rocket tm ---  -->
+                         <div class="banking-accordion paytm"  *ngIf="isRunxch">
+                            <div class="acc-wrapper">
+                                <a class="acc-heading" (click)="toggleBank('rocket')">
+                                    <div class="heading-cont">
+                                        <div class="bank-detail-label">
+                                            <h1><span class="wallet-icon"><img
+                                                        src="/assets/bank/Rocket_mobile_banking_logo.svg.png"></span> Rocket Wallet
+                                            </h1>
+                                        </div>
+                                    </div>
+                                    <button *ngIf="withdrawalRocketDetails.length==0" data-bs-toggle="modal"
+                                        data-bs-target="#addRocket" class="btn btn-warning addNewButton"> Add New
+                                    </button>
+
+                                    <a *ngIf="withdrawalRocketDetails.length>0" class="arrow-down "><i aria-hidden="true"
+                                            class="fa"
+                                            [class]="isIconUp['rocket']=='rocket' ? 'fa-chevron-circle-down' : 'fa-chevron-circle-right'">
+                                        </i>
+                                        <!-- <i aria-hidden="true" id="one" class="fa fa-chevron-circle-right" (click)="toggleBank('b')"></i> -->
+                                    </a>
+                                </a>
+
+                                <div [ngClass]="withdrawalRocketDetails.length>0?'d-block':'d-none'">
+                                    <div class="acc-body" id="rocket">
+                                        <div class="inner-accordion">
+                                            <div class="banking-accordion 6476a21776a46007771e5248">
+                                                <div class="acc-wrapper"
+                                                    *ngFor="let rocket of withdrawalRocketDetails;let i =index ">
+                                                    <div class="acc-headings">
+                                                        <ul class="list-group bankDetails">
+                                                            <li class="list-group-item mylist">
+                                                                {{rocket?.rocketName}}: {{rocket?.rocketNumber}}
+                                                                <button data-bs-toggle="modal"
+                                                                    data-bs-target="#deletemodalpaytm"
+                                                                    class="btn btn-warning btn-sm pull-right"
+                                                                    (click)="getDeleteItemId(rocket.id)">
+                                                                    Delete </button>
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="text-center mb-15"><button class="btn btn-warning add-new-btn"
+                        data-bs-toggle="modal" data-bs-target="#addPaytm"> Add New
+                    </button>
+                </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- for google pay -- -->
+
+                        <div class="banking-accordion googlepay">
+                            <div class="acc-wrapper">
+                                <a class="acc-heading" (click)="toggleBank('googlepay')">
+                                    <div class="heading-cont">
+                                        <div class="bank-detail-label">
+                                            <h1><span class="wallet-icon"><img
+                                                        src="/assets/bank/google_pay.png"></span> Google Pay
+                                            </h1>
+                                        </div>
+                                    </div>
+
+                                    <button *ngIf="withdrawalGooglePayDetails.length==0" data-bs-toggle="modal"
+                                        data-bs-target="#addGooglepay" class="btn btn-warning addNewButton"> Add New
+                                    </button>
+
+                                    <a *ngIf="withdrawalGooglePayDetails.length>0" class="arrow-down "><i
+                                            aria-hidden="true" class="fa"
+                                            [class]="isIconUp['googlepay']=='googlepay' ? 'fa-chevron-circle-down' : 'fa-chevron-circle-right'">
+                                        </i>
+                                        <!-- <i aria-hidden="true" id="one" class="fa fa-chevron-circle-right" (click)="toggleBank('b')"></i> -->
+                                    </a>
+                                </a>
+
+                                <div [ngClass]="withdrawalGooglePayDetails.length>0?'d-block':'d-none'">
+                                    <div class="acc-body" id="googlepay">
+                                        <div class="inner-accordion">
+                                            <div class="banking-accordion 6476a21776a46007771e5248">
+                                                <div class="acc-wrapper"
+                                                    *ngFor="let googlepay of withdrawalGooglePayDetails;let i =index ">
+                                                    <div class="acc-headings">
+                                                        <ul class="list-group bankDetails">
+                                                            <li class="list-group-item mylist">
+                                                                {{googlepay?.gpayName}}:{{googlepay?.gpayNumber}}
+
+                                                                <button data-bs-toggle="modal"
+                                                                    data-bs-target="#deletemodalgooglepay"
+                                                                    class="btn btn-warning btn-sm pull-right"
+                                                                    (click)="getDeleteItemId(googlepay.id)">
+                                                                    Delete </button>
+                                                            </li>
+
+                                                        </ul>
+                                                        <div class="form-btn"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="text-center mb-15"><button class="btn btn-warning"
+                                                data-bs-toggle="modal" data-bs-target="#addGooglepay"> Add New
+                                            </button>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- for phonepe -- -->
+
+                        <div class="banking-accordion phonepay">
+                            <div class="acc-wrapper">
+                                <a class="acc-heading" (click)="toggleBank('phonepe')">
+                                    <div class="heading-cont">
+                                        <div class="bank-detail-label">
+                                            <h1><span class="wallet-icon"><img
+                                                        src="/assets/bank/phone_pe.png"></span> PhonePe
+                                            </h1>
+                                        </div>
+                                    </div>
+                                    <button *ngIf="withdrawalPhonePeDetails.length==0" data-bs-toggle="modal"
+                                        data-bs-target="#addPhonepe" class="btn btn-warning addNewButton"> Add New
+                                    </button>
+
+                                    <a *ngIf="withdrawalPhonePeDetails.length>0" class="arrow-down "><i
+                                            aria-hidden="true" class="fa"
+                                            [class]="isIconUp['phonepe']=='phonepe' ? 'fa-chevron-circle-down' : 'fa-chevron-circle-right'">
+                                        </i>
+                                        <!-- <i aria-hidden="true" id="one" class="fa fa-chevron-circle-right" (click)="toggleBank('b')"></i> -->
+                                    </a>
+                                </a>
+
+                                <div [ngClass]="withdrawalPhonePeDetails.length>0?'d-block':'d-none'">
+                                    <div class="acc-body" id="phonepe">
+                                        <div class="inner-accordion">
+                                            <div class="banking-accordion 6476a21776a46007771e5248">
+
+                                                <div class="acc-wrapper"
+                                                    *ngFor="let phonepe of withdrawalPhonePeDetails;let i =index ">
+                                                    <div class="acc-headings">
+                                                        <ul class="list-group bankDetails">
+                                                            <li class="list-group-item mylist">
+                                                                {{phonepe?.phonepeName}}:{{phonepe?.phonepeNumber}}
+
+                                                                <button data-bs-toggle="modal"
+                                                                    data-bs-target="#deletemodalphonepe"
+                                                                    class="btn btn-warning btn-sm pull-right"
+                                                                    (click)="getDeleteItemId(phonepe.id)">
+                                                                    Delete </button>
+                                                            </li>
+
+                                                        </ul>
+                                                        <div class="form-btn"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="text-center mb-15"><button class="btn btn-warning"
+                                                data-bs-toggle="modal" data-bs-target="#addPhonepe"> Add New
+                                            </button>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- .......................... -->
+                        <!-- <div class="banking-accordion paytm">
+                            <div class="acc-wrapper">
+                                <div class="acc-heading">
+                                    <div class="heading-cont">
+                                        <div class="bank-detail-label">
+                                            <h1><span class="wallet-icon"><img
+                                                        src="./../../../../../public/assets/bank/paytm1.png"></span> Paytm Wallet
+                                            </h1>
+                                        </div>
+                                    </div><button data-bs-toggle="modal" data-bs-target="#addPaytm"
+                                        class="btn btn-warning addNewButton"> Add New </button>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- <div class="banking-accordion googlepay">
+                            <div class="acc-wrapper">
+                                <div class="acc-heading">
+                                    <div class="heading-cont">
+                                        <div class="bank-detail-label">
+                                            <h1><span class="wallet-icon"><img
+                                                        src="./../../../../../public/assets/bank/google_pay.png"></span> Google Pay
+                                            </h1>
+                                        </div>
+                                    </div><button data-bs-toggle="modal" data-bs-target="#addGooglepay"
+                                        class="btn btn-warning addNewButton"> Add New </button>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- <div class="banking-accordion phonepay">
+                            <div class="acc-wrapper">
+                                <div class="acc-heading">
+                                    <div class="heading-cont">
+                                        <div class="bank-detail-label">
+                                            <h1><span class="wallet-icon"><img
+                                                        src="./../../../../../public/assets/bank/phone_pe.png"></span> PhonePe
+                                            </h1>
+                                        </div>
+                                    </div><button data-bs-toggle="modal" data-bs-target="#addPhonepe"
+                                        class="btn btn-warning addNewButton"> Add New </button>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- model -- for phonepe -->
+<div class="modal fade" id="addPhonepe" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-content add-user">
+                <div class="modal-header">
+                    <h5 class="modal-title headtext" style="margin: 0;">Add New PhonePe Number </h5>
+                    <button class="close" type="button"><span data-bs-dismiss="modal"
+                            aria-hidden="true">×</span></button>
+                </div>
+                <form #phonepeForm="ngForm" (ngSubmit)="addNewPhonePe(phonepeForm)">
+                    <div class="modal-body">
+                        <div class="col-md-10">
+                            <div class="form-group row">
+                                <label class="col-md-4">Name <span class="asterisk_input"></span></label>
+                                <div class="col-md-7 d-flex justify-content-center">
+                                    <input class="form-control" name="name" [(ngModel)]="phonepeData.name"
+                                        placeholder="PhonePe Name.." required type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-group row">
+                                <label class="col-md-4">PhonePe Number <span class="asterisk_input"></span></label>
+                                <div class="col-md-7 d-flex justify-content-center">
+                                    <input class="form-control" name="phonepeNumber"
+                                        [(ngModel)]="phonepeData.phonepeNumber" placeholder="PhonePe Number.." required
+                                        type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- model -- for google pay -->
+<div class="modal fade" id="addGooglepay" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-content add-user">
+                <div class="modal-header">
+                    <h5 class="modal-title headtext" style="margin: 0;">Add New Google Pay Number </h5>
+                    <button class="close" type="button"><span data-bs-dismiss="modal"
+                            aria-hidden="true">×</span></button>
+                </div>
+                <form #googlepayForm="ngForm" (ngSubmit)="addNewGooglepay(googlepayForm)">
+                    <div class="modal-body">
+                        <div class="col-md-10">
+                            <div class="form-group row">
+                                <label class="col-md-4">Name <span class="asterisk_input"></span></label>
+                                <div class="col-md-7 d-flex justify-content-center">
+                                    <input class="form-control" name="name" [(ngModel)]="googlepayData.name"
+                                        placeholder="Google Pay Name.." required type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-group row">
+                                <label class="col-md-4">G Pay Number <span class="asterisk_input"></span></label>
+                                <div class="col-md-7 d-flex justify-content-center">
+                                    <input class="form-control" name="gpayNumber" [(ngModel)]="googlepayData.gpayNumber"
+                                        placeholder="Google Pay Number.." required type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- model -- for paytm -->
+<div class="modal fade" id="addPaytm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-content add-user">
+                <div class="modal-header">
+                    <h5 class="modal-title headtext" style="margin: 0;">Add New Paytm Wallet Number </h5>
+                    <button class="close" type="button"><span data-bs-dismiss="modal"
+                            aria-hidden="true">×</span></button>
+                </div>
+                <form #paytmForm="ngForm" (ngSubmit)="addNewPaytm(paytmForm)">
+                    <div class="modal-body">
+                        <div class="col-md-10">
+                            <div class="form-group row">
+                                <label class="col-md-4">Name <span class="asterisk_input"></span></label>
+                                <div class="col-md-7 d-flex justify-content-center">
+                                    <input class="form-control" name="name" [(ngModel)]="paytmData.name"
+                                        placeholder="Paytm Name.." required type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-group row">
+                                <label class="col-md-4">Paytm Number <span class="asterisk_input"></span></label>
+                                <div class="col-md-7 d-flex justify-content-center">
+                                    <input class="form-control" name="paytmNumber" [(ngModel)]="paytmData.paytmNumber"
+                                        placeholder="Paytm Number.." required type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- model -- for nagad -->
+<div class="modal fade" id="addNagad" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-content add-user">
+                <div class="modal-header">
+                    <h5 class="modal-title headtext" style="margin: 0;">Add New Nagad Wallet Number </h5>
+                    <button class="close" type="button"><span data-bs-dismiss="modal"
+                            aria-hidden="true">×</span></button>
+                </div>
+                <form #paytmForm="ngForm" (ngSubmit)="addNewNagad(paytmForm)">
+                    <div class="modal-body">
+                        <div class="col-md-10">
+                            <div class="form-group row">
+                                <label class="col-md-4">Name <span class="asterisk_input"></span></label>
+                                <div class="col-md-7 d-flex justify-content-center">
+                                    <input class="form-control" name="name" [(ngModel)]="paytmData.name"
+                                        placeholder="Nagad Name.." required type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-group row">
+                                <label class="col-md-4">Nagad Number <span class="asterisk_input"></span></label>
+                                <div class="col-md-7 d-flex justify-content-center">
+                                    <input class="form-control" name="paytmNumber" [(ngModel)]="paytmData.paytmNumber"
+                                        placeholder="Nagad Number.." required type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- model -- for bkash -->
+<div class="modal fade" id="addBkash" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-content add-user">
+                <div class="modal-header">
+                    <h5 class="modal-title headtext" style="margin: 0;">Add New Bkash Wallet Number </h5>
+                    <button class="close" type="button"><span data-bs-dismiss="modal"
+                            aria-hidden="true">×</span></button>
+                </div>
+                <form #paytmForm="ngForm" (ngSubmit)="addNewBkash(paytmForm)">
+                    <div class="modal-body">
+                        <div class="col-md-10">
+                            <div class="form-group row">
+                                <label class="col-md-4">Name <span class="asterisk_input"></span></label>
+                                <div class="col-md-7 d-flex justify-content-center">
+                                    <input class="form-control" name="name" [(ngModel)]="paytmData.name"
+                                        placeholder="Bkash Name.." required type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-group row">
+                                <label class="col-md-4">Bkash Number <span class="asterisk_input"></span></label>
+                                <div class="col-md-7 d-flex justify-content-center">
+                                    <input class="form-control" name="paytmNumber" [(ngModel)]="paytmData.paytmNumber"
+                                        placeholder="Bkash Number.." required type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- model -- for rocket -->
+<div class="modal fade" id="addRocket" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-content add-user">
+                <div class="modal-header">
+                    <h5 class="modal-title headtext" style="margin: 0;">Add New Rocket Wallet Number </h5>
+                    <button class="close" type="button"><span data-bs-dismiss="modal"
+                            aria-hidden="true">×</span></button>
+                </div>
+                <form #paytmForm="ngForm" (ngSubmit)="addNewRocket(paytmForm)">
+                    <div class="modal-body">
+                        <div class="col-md-10">
+                            <div class="form-group row">
+                                <label class="col-md-4">Name <span class="asterisk_input"></span></label>
+                                <div class="col-md-7 d-flex justify-content-center">
+                                    <input class="form-control" name="name" [(ngModel)]="paytmData.name"
+                                        placeholder="Rocket Name.." required type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-group row">
+                                <label class="col-md-4">Bkash Number <span class="asterisk_input"></span></label>
+                                <div class="col-md-7 d-flex justify-content-center">
+                                    <input class="form-control" name="paytmNumber" [(ngModel)]="paytmData.paytmNumber"
+                                        placeholder="Rocket Number.." required type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <<<<<<<<<<<< Modal >>>>>>>>>>>>>> -->
+<!-- Modal -->
+<div class="modal fade" id="addnew" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-content add-user">
+                <div class="modal-header">
+                    <h5 class="modal-title headtext" style="margin: 0;">Add Your Bank Account</h5>
+                    <button class="close" type="button"><span data-bs-dismiss="modal"
+                            aria-hidden="true">×</span></button>
+                </div>
+                <form #bankForm="ngForm" (ngSubmit)="addNewBank(bankForm)">
+                    <div class="modal-body">
+                        <div class="col-md-10">
+                            <div class="form-group row">
+                                <label class="col-md-4">Bank Name <span class="asterisk_input"></span></label>
+                                <div class="col-md-7 d-flex justify-content-center">
+                                    <input class="form-control" name="bankName" [(ngModel)]="bankData.bankName"
+                                        placeholder="Bank Name.." required type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-group row">
+                                <label class="col-md-4">Account Number <span class="asterisk_input"></span></label>
+                                <div class="col-md-7 d-flex justify-content-center">
+                                    <input class="form-control" name="accountNumber"
+                                        [(ngModel)]="bankData.accountNumber" placeholder="Account Number.." required
+                                        type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-group row">
+                                <label class="col-md-4">IFSC <span class="asterisk_input"></span></label>
+                                <div class="col-md-7 d-flex justify-content-center">
+                                    <input class="form-control" name="ifsc" [(ngModel)]="bankData.ifsc"
+                                        placeholder="IFSC.." required style="text-transform: uppercase" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="form-group row">
+                                <label class="col-md-4">Holder Name<span class="asterisk_input"></span></label>
+                                <div class="col-md-7 d-flex justify-content-center">
+                                    <input class="form-control" name="holderName" [(ngModel)]="bankData.holderName"
+                                        placeholder="Account Holder Name.." required type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ................... Delete modal.............. -->
+<!-- Modal -->
+<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <div class="modal-content add-user">
+                <div class="modal-header" style="font-size: 17.5px;">
+                    <h5 class="modal-title">Delete Bank Details</h5>
+                    <button class="close" data-bs-dismiss="modal" type="button"><span
+                            aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body text-center">
+                    <h5>Are you sure want to delete?</h5>
+                    <button class="btn btn-primary mt-2" type="button" (click)="deleteBankDetails(deleteItemId)"
+                        *ngIf="deleteItemId" data-bs-dismiss="modal">Yes</button>
+                    <button class="btn btn-secondary ms-2 mt-2" data-bs-dismiss="modal" type="button">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- paytm delete model -->
+<div class="modal fade" id="deletemodalpaytm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <div class="modal-content add-user">
+                <div class="modal-header" style="font-size: 17.5px;">
+                    <h5 class="modal-title">Delete Paytm Details</h5>
+                    <button class="close" data-bs-dismiss="modal" type="button"><span
+                            aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body text-center">
+                    <h5>Are you sure want to delete?</h5>
+                    <button class="btn btn-primary mt-2" type="button" (click)="deleteBankDetails(deleteItemId)"
+                        *ngIf="deleteItemId" data-bs-dismiss="modal">Yes</button>
+                    <button class="btn btn-secondary ms-2 mt-2" data-bs-dismiss="modal" type="button">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- google pay model -->
+<div class="modal fade" id="deletemodalgooglepay" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <div class="modal-content add-user">
+                <div class="modal-header" style="font-size: 17.5px;">
+                    <h5 class="modal-title">Delete Googlel Pay Details</h5>
+                    <button class="close" data-bs-dismiss="modal" type="button"><span
+                            aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body text-center">
+                    <h5>Are you sure want to delete?</h5>
+                    <button class="btn btn-primary mt-2" type="button" (click)="deleteBankDetails(deleteItemId)"
+                        *ngIf="deleteItemId" data-bs-dismiss="modal">Yes</button>
+                    <button class="btn btn-secondary ms-2 mt-2" data-bs-dismiss="modal" type="button">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- delete phonepe model -->
+
+
+<div class="modal fade" id="deletemodalphonepe" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <div class="modal-content add-user">
+                <div class="modal-header" style="font-size: 17.5px;">
+                    <h5 class="modal-title">Delete PhonePe Details</h5>
+                    <button class="close" data-bs-dismiss="modal" type="button"><span
+                            aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body text-center">
+                    <h5>Are you sure want to delete?</h5>
+                    <button class="btn btn-primary mt-2" type="button" (click)="deleteBankDetails(deleteItemId)"
+                        *ngIf="deleteItemId" data-bs-dismiss="modal">Yes</button>
+                    <button class="btn btn-secondary ms-2 mt-2" data-bs-dismiss="modal" type="button">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
