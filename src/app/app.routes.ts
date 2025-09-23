@@ -100,8 +100,12 @@ export const routes: Routes = [
       {
         path: 'banking/withdraw',
         loadComponent: () => import('./pages/banking/withdraw/withdraw.component').then(m => m.WithdrawComponent),
-        
       },
+       {
+        path: 'banking/withdrawdetails',
+        loadComponent: () => import('./pages/banking/withdraw-details/withdraw-details.component').then(m => m.WithdrawDetailsComponent),
+      },
+
     ],
   },
 
