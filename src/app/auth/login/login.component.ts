@@ -9,17 +9,20 @@ import { CONFIG } from '../../../../config';
 import { NetworkService } from '../../service/network.service';
 import { MainService } from '../../service/main.service';
 import { FooterComponent } from '../../shared/footer/footer.component';
+import { SignupComponent } from "../signup/signup.component";
+import { SharedService } from '../../service/shared.service';
 
 @Component({
   selector: 'app-login',
-  imports: [CommonModule, HeaderComponent, RouterLink, ReactiveFormsModule, FooterComponent],
+  imports: [CommonModule, HeaderComponent, RouterLink, ReactiveFormsModule, FooterComponent, SignupComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
   currentIndex = 0;
-  isEye:boolean = false
-  activeRoute:any
+  isEye: boolean = false
+  activeRoute: any
+  loader: boolean = false
   iplocation: any;
   loginForm!: FormGroup;
   currentUrl: any
@@ -47,9 +50,9 @@ export class LoginComponent {
       zip: '0',
     }
 
-  constructor(private router: Router, private toaster: ToastrService, private http: HttpClient, private fb: FormBuilder, private appService: NetworkService, private mainService: MainService) {
+  constructor(private router: Router, private toaster: ToastrService, private http: HttpClient, private fb: FormBuilder, private appService: NetworkService, private mainService: MainService,    private shared: SharedService,) {
 
-  
+
     this.loginForm = this.fb.group({
       userName: ['', Validators.required],
       password: ['', Validators.required]
@@ -106,7 +109,8 @@ export class LoginComponent {
       password: this.loginForm.get('password')?.value,
     }
 
-    if (this.loginForm.valid) {
+    if (this.loginForm.valid && !this.loader) {
+      this.loader = true
       this.http.post(CONFIG.userLogin, req).subscribe({
         next: (res: any) => {
           localStorage.setItem('token', res.data.accessToken);
@@ -118,18 +122,23 @@ export class LoginComponent {
           } else {
             this.router.navigate(['/']);
           }
-
+          this.loader = false
           this.toaster.success(res.meta.message, '', {
             positionClass: 'toast-top-right',
           });
 
         },
         error: (error: any) => {
-         this.appService.ErrorNotification_Manager(error.error);
+          this.appService.ErrorNotification_Manager(error.error);
+          this.loader = false
         }
       })
     }
 
+  }
+
+  openSignup() {
+    this.shared.setSignUpMModal(true);
   }
 
 }

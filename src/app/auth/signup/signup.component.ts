@@ -17,6 +17,7 @@ import {
 import { HttpClient } from '@angular/common/http';
 import { CONFIG } from '../../../../config';
 import { ToastrService } from 'ngx-toastr';
+import { NetworkService } from '../../service/network.service';
 
 @Component({
   selector: 'app-signup',
@@ -30,7 +31,7 @@ export class SignupComponent {
   signupForm!: FormGroup;
   isSignUp: boolean = false
   otpForm!: FormGroup;
-
+  loader: boolean = false
 
   passwordChecks = {
     lengthValid: false,
@@ -52,7 +53,8 @@ export class SignupComponent {
     private fb: FormBuilder,
     private http: HttpClient,
     private toaster: ToastrService,
-    private shared: SharedService
+    private shared: SharedService,
+    private appService: NetworkService,
   ) {
     this.signupForm = this.fb.group({
       username: ['', Validators.required],
@@ -81,11 +83,11 @@ export class SignupComponent {
     });
 
 
-    effect(()=>{
+    effect(() => {
       this.isSignUp = this.shared.signUpMModal();
     })
 
-   
+
 
 
     this.signupForm
@@ -95,7 +97,7 @@ export class SignupComponent {
       .get('username')
       ?.valueChanges.subscribe(() => this.onPasswordInput());
   }
- 
+
 
   getClass(isValid: boolean): string {
     const password = this.signupForm.get('password')?.value;
@@ -117,7 +119,9 @@ export class SignupComponent {
   }
 
   onSubmit() {
-    if (this.signupForm.valid && this.otpForm.valid) {
+
+    if (this.signupForm.valid && this.otpForm.valid && !this.loader) {
+
       const formValue = this.signupForm.value;
       const fullNumber = `+${formValue.areaCode}${formValue.mobileNumber}`;
       const otpCode = Object.values(this.otpForm.value).join('');
@@ -132,7 +136,12 @@ export class SignupComponent {
       this.http.post(CONFIG.verifyUserRegisterOtp, payload).subscribe({
         next: (res) => {
           this.toaster.success('Registered Successfully!');
+
         },
+        error: (error) => {
+
+          this.appService.ErrorNotification_Manager(error.error);
+        }
       });
       // console.log(payload);
     } else {
@@ -199,24 +208,27 @@ export class SignupComponent {
     };
 
     // console.log(payload);
+    if (!this.loader) {
+      this.loader = true
+      this.http.post(CONFIG.sendUserRegisterOtp, payload).subscribe({
+        next: (res) => {
+          this.toaster.success('OTP sent successfully!');
+          this.otpSent = true;
+          this.loader = false
+          setTimeout(() => {
+            if (this.otpInput0) {
+              this.otpInput0.nativeElement.focus();
+            }
+          });
+        },
+        error: (err) => {
+          this.appService.ErrorNotification_Manager(err.error);
+          this.loader = false
+          this.otpSent = true;
+        },
+      });
+    }
 
-    this.http.post(CONFIG.sendUserRegisterOtp, payload).subscribe({
-      next: (res) => {
-        this.toaster.success('OTP sent successfully!');
-        this.otpSent = true;
-
-        setTimeout(() => {
-          if (this.otpInput0) {
-            this.otpInput0.nativeElement.focus();
-          }
-        });
-      },
-      error: (err) => {
-        this.toaster.error('Failed to send OTP.');
-        console.error(err);
-        this.otpSent = true;
-      },
-    });
   }
 
 

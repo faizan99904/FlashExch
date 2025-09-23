@@ -35,8 +35,9 @@
                             {{log?.isp?log?.isp:'-'}}</td>
 
                         <td class="text-center font-weight-bold">
-                            {{log.city?log.city:'-' + '/' + log.state?log.state:'-' + '/' +
-                            log.country?log.country:'-'}}</td>
+                            {{ (log.city ? log.city : '-') + '/' + (log.state ? log.state : '-') + '/' + (log.country ?
+                            log.country : '-') }}
+                        </td>
 
 
                     </tr>
@@ -46,3 +47,7 @@
 
     </div>
 </div>
+
+<!-- "city": "London",
+"state": "England",
+"country": "United Kingdom" -->
