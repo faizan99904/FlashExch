@@ -96,7 +96,12 @@ export const routes: Routes = [
         path: 'lottery-details/:sportId/:eventId',
         component: LotteryDetailsComponent,
       },
-      { path: 'sport', component: SportComponent }
+      { path: 'sport', component: SportComponent },
+      {
+        path: 'banking/withdraw',
+        loadComponent: () => import('./pages/banking/withdraw/withdraw.component').then(m => m.WithdrawComponent),
+        
+      },
     ],
   },
 
