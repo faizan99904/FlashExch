@@ -3,7 +3,6 @@ import {
   AfterViewInit,
   Component,
   effect,
-  ElementRef,
   EventEmitter,
   Input,
   OnDestroy,
