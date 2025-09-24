@@ -232,12 +232,12 @@
 
                 <li class="username cursor-pointer flex flex-col justify-center items-center">
                     <div class="max-h-[15px] flex justify-center items-center">
-                        <span class="currency-str !text-[#ffdd55]">Bal : </span>
+                        <span class="currency-str !text-[#ffdd55]">Bal:  &nbsp;</span>
                         <span class="amount userTotalBalance !text-[#ffdd55]"> {{this.userBalance?.data?.bankBalance -
                             this.userBalance?.data?.exposure || '0.00'}}</span>
                     </div>
                     <div class="max-h-[15px] flex justify-center items-center" (click)="exposureModal = true">
-                        <span class="currency-str !text-[#f36161]">Exp : </span>
+                        <span class="currency-str !text-[#f36161]">Exp:&nbsp;  </span>
                         <span class="amount userTotalBalance text-[#f36161]"> ({{this.userBalance?.data?.exposure+'.00'
                             ||
                             '0'}})</span>
