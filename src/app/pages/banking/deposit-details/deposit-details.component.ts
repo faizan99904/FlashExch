@@ -34,7 +34,7 @@ const FIELD_MAP: Record<string, { name: string; number: string; qr?: string }> =
 
 @Component({
   selector: 'app-deposit-details',
-   imports: [CommonModule, FormsModule, CdkCopyToClipboard],
+   imports: [CommonModule, FormsModule],
   templateUrl: './deposit-details.component.html',
   styleUrl: './deposit-details.component.css'
 })

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, effect } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { NetworkService } from '../../../service/network.service';
 import { CONFIG } from '../../../../../config';
@@ -13,13 +13,18 @@ import { ChangePassComponent } from '../../../shared/change-pass/change-pass.com
 })
 export class PersonalInformationComponent {
   passModal: boolean = false;
+  userBalance:any
   user: any = [];
 
   constructor(
     private location: Location,
     private backenservice: NetworkService,
     private router: Router
-  ) {}
+  ) {
+    effect(() => {
+      this.userBalance = this.backenservice.getUserBalanceSignal()();
+    });
+  }
   goBack(): void {
     this.location.back();
   }

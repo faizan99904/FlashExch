@@ -6,8 +6,9 @@
                 <span>Balance</span>
             </div>
             <div>
-                <span class="amount">0.00</span>
-                <span class="currency-str">USD</span>
+                <span class="amount">{{this.userBalance?.data?.bankBalance -
+                this.userBalance?.data?.exposure || '0.00'}}</span>
+                <span class="currency-str">INR</span>
             </div>
         </div>
         <a class="deposit rect ">

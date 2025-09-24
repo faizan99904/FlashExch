@@ -230,10 +230,19 @@
                     </ul>
                 </li>
 
-                <li class="username cursor-pointer">
-                    <span class="amount userTotalBalance">{{this.userBalance?.data?.bankBalance -
-                        this.userBalance?.data?.exposure || '0.00'}}</span>
-                    <span class="currency-str">INR</span>
+                <li class="username cursor-pointer flex flex-col justify-center items-center">
+                    <div class="max-h-[15px] flex justify-center items-center">
+                        <span class="currency-str !text-[#ffdd55]">INR : </span>
+                        <span class="amount userTotalBalance !text-[#ffdd55]"> {{this.userBalance?.data?.bankBalance -
+                            this.userBalance?.data?.exposure || '0.00'}}</span>
+                    </div>
+                    <div class="max-h-[15px] flex justify-center items-center" (click)="exposureModal = true">
+                        <span class="currency-str !text-[#f36161]">Exposure : </span>
+                        <span class="amount userTotalBalance text-[#f36161]"> ({{this.userBalance?.data?.exposure+'.00'
+                            ||
+                            '0'}})</span>
+                    </div>
+
                 </li>
 
                 <!-- <li class="li-height"> -->
@@ -310,7 +319,7 @@
             </svg>
         </button>
         <div class="wrapper">
-            <table class="table text-[#95999b] exposure-table-wrapper">
+            <table class="table text-[#95999b] w-full exposure-table-wrapper">
                 <thead class="border-b border-white">
                     <tr class="whitespace-nowrap">
                         <th class="text-center">Sport Name</th>

@@ -15,7 +15,7 @@ import { LoaderComponent } from "../loader/loader.component";
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, CommonModule, LoginModalComponent, ReactiveFormsModule, LoaderComponent],
+  imports: [RouterLink, CommonModule, LoginModalComponent, ReactiveFormsModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })

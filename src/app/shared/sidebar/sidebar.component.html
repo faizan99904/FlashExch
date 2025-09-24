@@ -160,6 +160,7 @@
 
             <li class="text-[#FFFFFF99] hover:text-white text-[0.9vw]"
                 *ngFor="let item of filteredSidebarEvent; let i = index">
+                @if(item.sportName !== 'Binary'){
                 <div (click)="sidebarSportToggle(i)"
                     class="flex items-center justify-between tracking-tighter  hover:bg-[#151a21] px-[0.6vw] pt-[.2vw] cursor-pointer h-[2vw] ">
                     <div class="flex items-center gap-[0.78vw]">
@@ -172,6 +173,8 @@
                     </div>
 
                 </div>
+                }
+
 
                 @if (parentIndex === i) {
                 <div *ngFor="let tournament of item?.data; let ii = index">
