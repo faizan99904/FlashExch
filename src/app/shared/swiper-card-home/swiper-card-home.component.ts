@@ -1,5 +1,6 @@
 import { NgFor } from '@angular/common';
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit, effect } from '@angular/core';
+import { MainService } from '../../service/main.service';
 declare var Swiper: any; // 👈️ this is required to use Swiper from CDN
 
 @Component({
@@ -10,14 +11,14 @@ declare var Swiper: any; // 👈️ this is required to use Swiper from CDN
   styleUrl: './swiper-card-home.component.css',
 })
 export class SwiperCardHomeComponent implements AfterViewInit {
-  swiperImages: any = [
-    'swiper-home/1.webp',
-    'swiper-home/2.webp',
-    'swiper-home/1.webp',
-    'swiper-home/2.webp',
-    'swiper-home/1.webp',
-    'swiper-home/2.webp',
-  ];
+  swiperImages:any
+
+  constructor(private mainService: MainService) {
+    effect(() => {
+      const sliderList = this.mainService.getSlider()();
+      this.swiperImages = sliderList?.slider
+    })
+  }
 
   ngAfterViewInit(): void {
     // @ts-ignore — using Swiper from CDN
@@ -45,4 +46,6 @@ export class SwiperCardHomeComponent implements AfterViewInit {
       },
     });
   }
+
+
 }

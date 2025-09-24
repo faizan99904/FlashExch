@@ -32,6 +32,7 @@ export class MainService {
   autoDepositURL: WritableSignal<string | null> = signal(null);
   showChangePasswordModal: WritableSignal<boolean> = signal(false);
   SideBarEvents: WritableSignal<any | null> = signal(null);
+  sliderList: WritableSignal<any | null> = signal(null);
   logout: WritableSignal<any> = signal(null);
   navActiveItem: WritableSignal<any> = signal(null);
   activeSport: WritableSignal<string | null> = signal(null);
@@ -487,5 +488,12 @@ export class MainService {
     localStorage.setItem(multiMarketKey, JSON.stringify(multiMarketData));
   }
 
+  getSlider(){
+    return this.sliderList;
+  }
+
+  serSlider(value:any){
+    this.sliderList.set(value);
+  }
 
 }

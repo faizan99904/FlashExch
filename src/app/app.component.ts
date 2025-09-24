@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { CONFIG } from '../../config';
 import { MainService } from './service/main.service';
 
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
@@ -10,9 +11,7 @@ import { MainService } from './service/main.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-
   title = 'FlashExch';
-
   constructor(private mainService: MainService) {
 
   }
@@ -22,6 +21,7 @@ export class AppComponent implements OnInit {
     this.sportsList();
     this.allRacing()
     this.livCasinoList()
+    this.getSlider()
     
   }
 
@@ -33,6 +33,8 @@ export class AppComponent implements OnInit {
 
     });
   }
+
+
   allEventsList() {
     this.mainService.getDataFromServices(CONFIG.getAllEventsList, CONFIG.getAllEventsListTime, { key: CONFIG.siteKey }).subscribe((data: any) => {
       this.mainService.setAllEvents(data?.data);
@@ -57,9 +59,13 @@ export class AppComponent implements OnInit {
   }
 
  
+  getSlider() {
+    this.mainService.getDataFromServices(CONFIG.sliderList, CONFIG.sliderListTime, { key: CONFIG.siteKey }).subscribe((data: any) => {
+      this.mainService.serSlider(data.data)
+    });
+  }
 
   
 
 
-  // livCasinoList
 }
