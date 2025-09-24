@@ -10,16 +10,18 @@ import { ToastrService } from 'ngx-toastr';
 import { LoginModalComponent } from '../../component/login-modal/login-modal.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { LoaderComponent } from "../loader/loader.component";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, CommonModule, LoginModalComponent, ReactiveFormsModule],
+  imports: [RouterLink, CommonModule, LoginModalComponent, ReactiveFormsModule, LoaderComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
   loginForm!: FormGroup;
+  loader:boolean = false
   iplocation: any;
   token: any;
   userExposureList: any = [];
@@ -54,6 +56,7 @@ export class HeaderComponent {
     private mainService: MainService,
     private toaster: ToastrService,
     private deviceService: DeviceDetectorService,
+    private appService: NetworkService,
   ) {
     this.token = localStorage.getItem('token');
     this.toggle.getToken().subscribe((value: any) => {
@@ -185,13 +188,15 @@ export class HeaderComponent {
       password: this.loginForm.get('password')?.value,
     }
 
-    if (this.loginForm.valid) {
+    if (this.loginForm.valid && !this.loader) {
+      this.loader = true
       this.http.post(CONFIG.userLogin, req).subscribe({
         next: (res: any) => {
           localStorage.setItem('token', res.data.accessToken);
           localStorage.setItem('userDetail', JSON.stringify(res.data.userDetail));
           localStorage.setItem('intCasino', res.data.intCasino)
           this.router.navigate(['/']);
+          this.loader = false
           if (res.data.userDetail.isLogin == 0) {
             this.router.navigate(['/account/change-password']);
           } else {
@@ -204,9 +209,8 @@ export class HeaderComponent {
 
         },
         error: (error: any) => {
-          this.toaster.error(error.meta.message, '', {
-            positionClass: 'toast-top-right',
-          });
+          this.loader = false
+          this.appService.ErrorNotification_Manager(error.error);
         }
       })
     }
