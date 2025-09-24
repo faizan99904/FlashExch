@@ -1,0 +1,26 @@
+<div class="fixed inset-0 bg-black bg-opacity-50 flex  justify-center z-50 invisible" [ngClass]="{'!visible':isDeposit}"
+    (click)="sendFalse()">
+    <!-- Modal Box -->
+    <div class="bg-[#272d33] p-4 rounded-lg max-h-fit mt-4 shadow-lg w-96 max-w-[calc(100%-20px)] relative -translate-y-20 duration-300"
+        [ngClass]="{'translate-y-0 duration-300':isDeposit}" (click)="$event.stopPropagation()">
+
+        <!-- Input Field -->
+        <input type="number" placeholder="Deposit Amount*" [(ngModel)]="depositAmount" (keypress)="numberOnly($event)"
+            inputmode="numeric"
+            class="w-full h-[41.62px] box-border text-white outline-none bg-[#151414] pl-[16.03px] border border-[#242833] text-[14.02px]  rounded-[10.02px]"
+            #depositInput name="deposit-amount" />
+
+        <!-- Minimum Amount Note -->
+        <p class="text-white ml-1 font-semibold mt-3 mb-4">
+            Minimum deposit Amount is 100.
+        </p>
+
+        <!-- Button -->
+        <div class="w-full justify-center flex">
+            <button class="bg-[rgb(17,227,17)] text-white px-5 py-2 rounded" [disabled]="!depositAmount"
+                [routerLink]="['/banking/deposit/'+depositAmount]">
+                Deposit
+            </button>
+        </div>
+    </div>
+</div>

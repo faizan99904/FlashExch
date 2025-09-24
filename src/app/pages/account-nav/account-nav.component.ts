@@ -7,10 +7,11 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { DepositModalComponent } from "../../component/deposit-modal/deposit-modal.component";
 
 @Component({
   selector: 'app-account-nav',
-  imports: [RouterLink, CommonModule,FormsModule],
+  imports: [RouterLink, CommonModule, FormsModule, DepositModalComponent],
   templateUrl: './account-nav.component.html',
   styleUrl: './account-nav.component.css',
 })
@@ -56,13 +57,10 @@ export class AccountNavComponent {
       }, 500);
     }
   }
-    numberOnly(event: any): boolean {
-    const charCode = (event.which) ? event.which : event.keyCode;
 
-    if (charCode > 31 && (charCode < 45 || charCode > 57)) {
-      return false;
-    }
-    return true;
-
+  handleEvent(value: boolean){
+   this.isDeposit = value
   }
+
+ 
 }

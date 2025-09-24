@@ -1445,7 +1445,7 @@
                           (market?.oddsData?.status == 'OPEN' ||
                             market?.oddsData?.status == 'ONLINE')
                         ">
-                        <div class="winSP w-100" [id]="'betslip'+'_'+market.exMarketId">
+                        <div class="winSP w-100 lg:hidden" [id]="'betslip'+'_'+market.exMarketId">
                           <app-betslip (valueEventPlaceBet)="getValueBetSlip($event)" [id]="market?.exMarketId"
                             [item]="betplaceObj"></app-betslip>
                         </div>

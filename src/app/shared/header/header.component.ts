@@ -11,15 +11,17 @@ import { LoginModalComponent } from '../../component/login-modal/login-modal.com
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { LoaderComponent } from "../loader/loader.component";
+import { DepositModalComponent } from "../../component/deposit-modal/deposit-modal.component";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, CommonModule, LoginModalComponent, ReactiveFormsModule],
+  imports: [RouterLink, CommonModule, LoginModalComponent, ReactiveFormsModule, DepositModalComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
+  isDeposit:boolean = false
   loginForm!: FormGroup;
   loader:boolean = false
   iplocation: any;
@@ -230,6 +232,14 @@ export class HeaderComponent {
         this.toaster.success(err.error.message)
       }
     })
+  }
+
+  handleEvent(value: boolean) {
+    this.isDeposit = value
+  }
+
+  toggleDeposit() {
+    this.isDeposit = !this.isDeposit;
   }
 
 
