@@ -18,7 +18,7 @@ export class AccountStatementComponent {
   @ViewChild(DataTableDirective)
   datatableElement!: DataTableDirective;
   dtOptions: Config = {};
-
+  loader:boolean = false
 
   reportType = '4';
   public today = new Date();
@@ -80,7 +80,7 @@ export class AccountStatementComponent {
               if (resp.data) {
                 that.statementList = data;
               }
-
+              this.loader = false
               callback({
                 recordsTotal: resp.data['original'].recordsTotal,
                 recordsFiltered: resp.data['original'].recordsFiltered,
@@ -113,14 +113,18 @@ export class AccountStatementComponent {
     // console.log('startDate New', this.backendService.getStartDate(this.startDate))
     // console.log('endDate', this.endDate)
     // console.log('endDate New', this.backendService.getEndDate(this.endDate),)
-    this.reqForBets = {
-      startDate: this.backendService.getStartDate(this.startDate),
-      endDate: this.backendService.getEndDate(this.endDate),
-      dataSource: this.selectedDataSource
-    }
-    this.datatableElement.dtInstance.then((dtInstance: any) => {
-      dtInstance.draw();
-    });
+     if(!this.loader){
+       this.loader = true
+       this.reqForBets = {
+         startDate: this.backendService.getStartDate(this.startDate),
+         endDate: this.backendService.getEndDate(this.endDate),
+         dataSource: this.selectedDataSource
+       }
+       this.datatableElement.dtInstance.then((dtInstance: any) => {
+         dtInstance.draw();
+       });
+     }
+   
   }
   showLoading() {
     this.isLoader = true;

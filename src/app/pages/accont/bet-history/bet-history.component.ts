@@ -21,6 +21,7 @@ export class BetHistoryComponent {
   @ViewChild(DataTableDirective)
   datatableElement!: DataTableDirective;
   dtOptions: Config = {};
+  loader: boolean = false
 
   reportType = '4'
   betStatus = 'settle';
@@ -131,6 +132,7 @@ export class BetHistoryComponent {
               if (resp.data) {
                 that.historyList = data;
               }
+              this.loader = false
 
               callback({
                 recordsTotal: resp.data['original'].recordsTotal,
@@ -232,16 +234,20 @@ export class BetHistoryComponent {
   }
 
   rerender(): void {
-    this.reqForBets = {
-      startDate: this.backendService.getStartDate(this.startDate),
-      endDate: this.backendService.getEndDate(this.endDate),
-      sportId: this.reportType,
-      flag: this.betStatus,
-      dataSource: this.selectedDataSource
+    if (!this.loader) {
+      this.loader = true
+      this.reqForBets = {
+        startDate: this.backendService.getStartDate(this.startDate),
+        endDate: this.backendService.getEndDate(this.endDate),
+        sportId: this.reportType,
+        flag: this.betStatus,
+        dataSource: this.selectedDataSource
+      }
+      this.datatableElement.dtInstance.then((dtInstance: any) => {
+        dtInstance.draw();
+      });
     }
-    this.datatableElement.dtInstance.then((dtInstance: any) => {
-      dtInstance.draw();
-    });
+
   }
 
   showLoading() {
@@ -252,7 +258,7 @@ export class BetHistoryComponent {
     this.isLoader = false;
   }
 
-  
+
 }
 
 

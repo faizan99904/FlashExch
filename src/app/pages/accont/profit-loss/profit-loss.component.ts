@@ -18,6 +18,7 @@ export class ProfitLossComponent {
   @ViewChild(DataTableDirective)
   datatableElement!: DataTableDirective;
   dtOptions: Config = {};
+  loader: boolean = false
 
   public today = new Date();
   time = { hour: 13, minute: 30 };
@@ -139,6 +140,7 @@ export class ProfitLossComponent {
               if (resp.total) {
                 that.totalProfitLoss = resp.total;
               }
+              this.loader = false
               callback({
                 recordsTotal: resp.data['original'].recordsTotal,
                 recordsFiltered: resp.data['original'].recordsFiltered,
@@ -152,14 +154,18 @@ export class ProfitLossComponent {
 
   rerender(): void {
     // console.log('this.startDate', this.startDate);
-    this.reqForBets = {
-      startDate: this.backendService.getStartDate(this.startDate),
-      endDate: this.backendService.getEndDate(this.endDate),
-      dataSource: this.selectedDataSource
+    if (!this.loader) {
+      this.loader = true
+      this.reqForBets = {
+        startDate: this.backendService.getStartDate(this.startDate),
+        endDate: this.backendService.getEndDate(this.endDate),
+        dataSource: this.selectedDataSource
+      }
+      this.datatableElement.dtInstance.then((dtInstance: any) => {
+        dtInstance.draw();
+      });
     }
-    this.datatableElement.dtInstance.then((dtInstance: any) => {
-      dtInstance.draw();
-    });
+
   }
 
   showLoading() {
