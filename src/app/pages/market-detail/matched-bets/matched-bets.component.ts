@@ -17,6 +17,7 @@ import { ToastrService } from 'ngx-toastr';
 export class MatchedBetsComponent implements OnInit, OnDestroy {
   @Input() eventId:any;
   unmatchedBets = false;
+  login: any;
   matchedBets = false;
   isLiveStreaming = false;
   matchedData: any;
@@ -90,6 +91,12 @@ export class MatchedBetsComponent implements OnInit, OnDestroy {
       });
 
     this.checkUserForStream();
+    this.loginState()
+    window.addEventListener('storage', (event) => {
+      if (event.key === 'token') {
+        this.loginState();
+      }
+    });
   }
 
   ProfitLossBalance() {
@@ -117,5 +124,13 @@ export class MatchedBetsComponent implements OnInit, OnDestroy {
     this.toaster.error('Please login to watch the Live stream', '', {
       positionClass: 'toast-top-right',
     });
+  }
+
+
+
+  loginState(): boolean {
+    const token = localStorage.getItem('token');
+    this.login = !!token;  
+    return this.login;
   }
 }

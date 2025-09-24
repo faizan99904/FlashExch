@@ -17,8 +17,8 @@
                 </svg>
             </div>
         </div>
-        <div (click)="isLiveStreaming = !isLiveStreaming" id="unmatched_0" *ngIf="activeRoute === 'market-detail' && token"
-            class="bet-container flex-item-center max-lg:!hidden">
+        <div (click)="isLiveStreaming = !isLiveStreaming" id="unmatched_0"
+            *ngIf="activeRoute === 'market-detail' && token" class="bet-container flex-item-center max-lg:!hidden">
             <div class="head pl-2">
                 <span class=" text-white font-lato-bold">
                     Live Streaming
@@ -34,7 +34,8 @@
             </div>
         </div>
 
-        <div [ngClass]="{'overflow-hidden h-0': !isLiveStreaming}" class="transition-all w-full origin-top"  *ngIf="activeRoute === 'market-detail'">
+        <div [ngClass]="{'overflow-hidden h-0': !isLiveStreaming}" class="transition-all w-full origin-top"
+            *ngIf="activeRoute === 'market-detail'">
             <ng-container *ngIf="isDesktop">
                 <ng-container *ngIf="isLiveStreaming && streamShowValidation; else noStream">
                     <app-video-real [eventId]="eventId" (dataEmitter)="hasStream($event)"></app-video-real>
@@ -69,6 +70,7 @@
                 You have no Unmatched Bets.
             </div>
         </div>
+        @if(login){
         <div (click)="matchedBets = !matchedBets" id="matched_1" class="bet-container flex-item-center">
             <div class="head pl-2">
                 <span class="text-white font-lato-bold">
@@ -101,5 +103,7 @@
             }
 
         </div>
+        }
+
     </div>
 </div>
