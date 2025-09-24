@@ -27,7 +27,9 @@ import { NetworkService } from '../../service/network.service';
 })
 export class SignupComponent {
   otpSent: boolean = false;
+  sentOtpLoader: boolean = false;
   havePromo: boolean = false;
+  isShowOtp: boolean = false;
   signupForm!: FormGroup;
   isSignUp: boolean = false
   otpForm!: FormGroup;
@@ -120,8 +122,8 @@ export class SignupComponent {
 
   onSubmit() {
 
-    if (this.signupForm.valid && this.otpForm.valid && !this.loader) {
-
+    if (this.signupForm.valid && this.otpForm.valid && !this.sentOtpLoader) {
+      this.sentOtpLoader = true
       const formValue = this.signupForm.value;
       const fullNumber = `+${formValue.areaCode}${formValue.mobileNumber}`;
       const otpCode = Object.values(this.otpForm.value).join('');
@@ -136,10 +138,11 @@ export class SignupComponent {
       this.http.post(CONFIG.verifyUserRegisterOtp, payload).subscribe({
         next: (res) => {
           this.toaster.success('Registered Successfully!');
+          this.sentOtpLoader = false
 
         },
         error: (error) => {
-
+          this.sentOtpLoader = false
           this.appService.ErrorNotification_Manager(error.error);
         }
       });
@@ -214,6 +217,7 @@ export class SignupComponent {
         next: (res) => {
           this.toaster.success('OTP sent successfully!');
           this.otpSent = true;
+          this.isShowOtp = true
           this.loader = false
           setTimeout(() => {
             if (this.otpInput0) {
@@ -224,6 +228,7 @@ export class SignupComponent {
         error: (err) => {
           this.appService.ErrorNotification_Manager(err.error);
           this.loader = false
+          this.isShowOtp = false
           this.otpSent = true;
         },
       });
@@ -235,4 +240,11 @@ export class SignupComponent {
   closeModal() {
     this.shared.setSignUpMModal(false);
   }
+
+  get isOtpComplete(): boolean {
+    if (!this.otpForm) return false;
+    const values = Object.values(this.otpForm.value);
+    return values.every(val => val && val.toString().trim().length === 1);
+  }
+
 }

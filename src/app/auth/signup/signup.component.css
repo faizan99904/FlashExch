@@ -249,10 +249,10 @@ form ul li:not(.accept-terms) .currency-cont {
 
 .otp-input-group input {
   width: 40px;
-  height: 35px;
+  height: 48.09px;
   background: transparent;
   border: 1px solid #11e31233;
-  border-radius: 4px;
+  border-radius: 0.5672rem;
   color: white;
   font-weight: bold;
   text-align: center;

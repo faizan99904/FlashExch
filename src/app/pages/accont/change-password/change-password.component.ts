@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import { CONFIG } from '../../../../../config';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { NetworkService } from '../../../service/network.service';
 @Component({
   selector: 'app-change-password',
   imports: [ReactiveFormsModule, CommonModule],
@@ -20,6 +21,7 @@ export class ChangePasswordComponent {
   changePassword!: FormGroup;
   confirmPasswordMatch: boolean = false;
   showOldPassword = false;
+  loader: boolean = false
   showNewPassword = false;
   showConfirmPassword = false;
 
@@ -28,7 +30,8 @@ export class ChangePasswordComponent {
     private fb: FormBuilder,
     private http: HttpClient,
     private toaster: ToastrService,
-    private router: Router
+    private router: Router,
+    private appService: NetworkService
   ) {
     this.changePassword = this.fb.group({
       newPassword: ['', Validators.required],
@@ -67,33 +70,19 @@ export class ChangePasswordComponent {
       newPassword: this.changePassword.get('newPassword')?.value,
     };
 
-    if (this.changePassword.valid) {
+    if (this.changePassword.valid && !this.loader) {
+      this.loader = true
       this.http.post(CONFIG.userChangePassword, req).subscribe({
         next: (res: any) => {
           this.toaster.success(res.meta.message);
           localStorage.clear();
           this.router.navigate(['/']);
+          this.loader = false
           this.changePassword.reset();
         },
-
         error: (error: any) => {
-          let errorObject = error.meta
-            ? error.meta.message
-            : error.error?.meta?.message;
-          if (typeof errorObject === 'object') {
-            for (var key of Object.keys(errorObject)) {
-              this.toaster.error(errorObject[key].message, '', {
-                positionClass: 'toast-top-right',
-              });
-              return;
-            }
-          } else {
-            this.toaster.error(errorObject, '', {
-              positionClass: 'toast-top-right',
-              timeOut: 800,
-            });
-            return;
-          }
+          this.loader = false
+          this.appService.ErrorNotification_Manager(error.error);
         },
       });
     }

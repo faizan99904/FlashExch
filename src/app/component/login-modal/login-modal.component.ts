@@ -17,10 +17,11 @@ import { Token } from '@angular/compiler';
 })
 export class LoginModalComponent {
   loginForm!: FormGroup;
+  loader: boolean = false
   isEye: boolean = false
   isLoginModal: boolean = false
   iplocation: any;
-  constructor(private fb: FormBuilder, private appService: NetworkService, private http: HttpClient, private toaster: ToastrService, private router: Router, private sharedService: SharedService,) {
+  constructor(private fb: FormBuilder, private appService: NetworkService, private http: HttpClient, private toaster: ToastrService, private router: Router, private sharedService: SharedService, ) {
     this.loginForm = this.fb.group({
       userName: ['', Validators.required],
       password: ['', Validators.required],
@@ -79,37 +80,39 @@ export class LoginModalComponent {
       userName: this.loginForm.get('userName')?.value,
       password: this.loginForm.get('password')?.value,
     }
-
-    if (this.loginForm.valid) {
-      this.http.post(CONFIG.userLogin, req).subscribe({
-        next: (res: any) => {
-          localStorage.setItem('token', res.data.accessToken);
-          localStorage.setItem('userDetail', JSON.stringify(res.data.userDetail));
-          localStorage.setItem('intCasino', res.data.intCasino)
-          this.router.navigate(['/']);
-          if (res.data.userDetail.isLogin == 0) {
-            this.router.navigate(['/account/change-password']);
-          } else {
+    if (this.loginForm.valid && !this.loader) {
+        this.loader = true
+        this.http.post(CONFIG.userLogin, req).subscribe({
+          next: (res: any) => {
+            localStorage.setItem('token', res.data.accessToken);
+            localStorage.setItem('userDetail', JSON.stringify(res.data.userDetail));
+            this.loader = false
+            localStorage.setItem('intCasino', res.data.intCasino)
             this.router.navigate(['/']);
+            if (res.data.userDetail.isLogin == 0) {
+              this.router.navigate(['/account/change-password']);
+            } else {
+              this.router.navigate(['/']);
+            }
+
+            this.toaster.success(res.meta.message, '', {
+              positionClass: 'toast-top-right',
+            });
+
+          },
+          error: (error: any) => {
+            this.loader = false
+            this.appService.ErrorNotification_Manager(error.error);
           }
+        })
+      
 
-          this.toaster.success(res.meta.message, '', {
-            positionClass: 'toast-top-right',
-          });
-
-        },
-        error: (error: any) => {
-          this.toaster.error(error.meta.message, '', {
-            positionClass: 'toast-top-right',
-          });
-        }
-      })
     }
 
   }
 
   showSignup() {
-     this.sharedService.setSignUpMModal(true);
-     this.sharedService.setLoginModal(false)
+    this.sharedService.setSignUpMModal(true);
+    this.sharedService.setLoginModal(false)
   }
 }
