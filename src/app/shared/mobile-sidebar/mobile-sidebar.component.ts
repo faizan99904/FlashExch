@@ -13,12 +13,30 @@ import { MainService } from '../../service/main.service';
 import { Router, RouterLink } from '@angular/router';
 import { MarketComponent } from "../../component/market/market.component";
 import { NetworkService } from '../../service/network.service';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate
+} from '@angular/animations';
 
 @Component({
   selector: 'app-mobile-sidebar',
   imports: [CommonModule, RouterLink, MarketComponent],
   templateUrl: './mobile-sidebar.component.html',
   styleUrl: './mobile-sidebar.component.css',
+  animations: [
+    trigger('sidebarAnimation', [
+      transition(':enter', [
+        style({ transform: 'translateX(-100%)', opacity: 1 }),
+        animate('300ms ease-out', style({ transform: 'translateX(0)', opacity: 1 }))
+      ]),
+      transition(':leave', [
+        animate('300ms ease-in', style({ transform: 'translateX(-100%)', opacity: 1 }))
+      ])
+    ])
+  ]
 })
 export class MobileSidebarComponent {
   @Input() searchTab!: string;

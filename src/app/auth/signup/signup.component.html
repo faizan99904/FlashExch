@@ -1,11 +1,11 @@
-<div class="overlay fixed left-0 top-0 w-full h-screen bg-[rgba(6,6,6,.7)] sm:bg-[rgba(35,31,32,.9)] z-[9999] invisible"
-    [ngClass]="{'!visible ':isSignUp}" (click)="closeModal()">
-    <div class="content-wrapper sm:w-[18.7491rem] lg:w-[433px] overflow-hidden translate-y-[-40px]"
-        [ngClass]="{'translate-y-[0] !duration-300':isSignUp}" (click)="$event.stopPropagation()">
+<div *ngIf="isSignUp"
+    class="overlay fixed left-0 top-0 w-full h-screen bg-[rgba(6,6,6,.7)] sm:bg-[rgba(35,31,32,.9)] z-[9999]"
+    [@fadeSlide] (click)="closeModal()">
+    <div class="content-wrapper sm:w-[18.7491rem] lg:w-[433px] overflow-hidden" (click)="$event.stopPropagation()">
         <div style="scrollbar-width: none;" class="overflow-y-auto !overflow-x-hidden h-full">
             <div class="mt-[1.7016rem] lg:mt-[13px] sm:mt-0 sm:p-[0.7125rem_1.35rem]">
                 <img class="sm:h-[5.925rem] h-[6.267rem] w-full lg:h-[136px] rounded-lg mb-3 sm:mb-0 sm:mt-8"
-                    src="/assets/images/slide1.webp" alt="">
+                    src="/assets/images/slide1.webp" alt="slide1">
             </div>
             <form [formGroup]="signupForm" class="px-0 sm:px-[1.35rem]">
                 <ul>
@@ -486,7 +486,7 @@
                     </div>
                     <li>
                         <div (click)="this.havePromo = !this.havePromo" class="flex items-center mt-2.5 cursor-pointer">
-                            <img class="!h-[17px] mr-2 sm:mr-[4.800px]" src="/assets/images/promocode.png" alt="">
+                            <img class="!h-[17px] mr-2 sm:mr-[4.800px]" src="/assets/images/promocode.png" alt="promocode">
                             <span [ngClass]="{'!text-[#11e311]': havePromo}"
                                 class="roboto-regular underline text-[#fffFFFE5] text-[12px] sm:text-[7.2px]">
                                 I Have Promo
@@ -596,7 +596,7 @@
                 <span
                     class="hidden sm:block text-white absolute left-1/2 text-[9.6003px] translate-x-[-50%] lg:text-base">Registration</span>
                 <img (click)="closeModal()" class="sm:w-[11.9997px] lg:w-[20px] cursor-pointer"
-                    src="/assets/images/close.png" alt="">
+                    src="/assets/images/close.png" alt="close-icon">
             </div>
         </div>
     </div>

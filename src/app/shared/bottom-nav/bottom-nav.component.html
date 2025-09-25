@@ -1,28 +1,14 @@
 <div class="w-full py-[11.250px] flex bg-[#0A0C0E] lg:hidden">
-    <ul class="w-full flex px-[5.674vw] justify-between items-end relative">
-        <li (click)="openSidebar()"
-            class="flex flex-col items-center justify-center gap-[0.709vw] relative opacity-[0.6]">
-            <img src="/assets/images/menu.svg" alt="">
-            <span class="text-[#FFFFFF99] uppercase text-[13.125px] font-bold">Menu</span>
-        </li>
-        <li class="flex flex-col items-center justify-center gap-[0.709vw] relative opacity-[0.6]" routerLink="/inplay">
-            <img src="/assets/images/live.svg" alt="">
-            <span class="text-[#FFFFFF99] text-[13.125px] font-bold">Live</span>
-        </li>
-        <li class="flex flex-col items-center justify-center gap-[0.709vw] relative opacity-[0.6]" routerLink="/live-casino">
-            <img src="/assets/images/casino.svg" alt="">
-            <span class="text-[#FFFFFF99] text-[13.125px] font-bold">Casino</span>
-        </li>
-        <li class="flex flex-col items-center justify-center gap-[0.709vw] relative opacity-[0.6]" routerLink="/sport">
-            <img src="/assets/images/sports.svg" alt="">
-            <span class="text-[#FFFFFF99] text-[13.125px] font-bold">Sports</span>
-        </li>
-        <li (click)="toggleBets()"
-            class="flex flex-col items-center justify-center gap-[0.709vw] relative opacity-[0.6]">
-            <img src="/assets/images/bets.svg" alt="">
-            <span class="text-[#FFFFFF99] text-[13.125px] font-bold">My Bets</span>
-        </li>
-    </ul>
+<ul class="w-full flex px-[5.674vw] justify-between items-end relative">
+    <li *ngFor="let item of menuItems" (click)="item.action ? actionsMap[item.action]() : null"
+        [routerLink]="item.route ? item.route : null"
+        class="flex flex-col items-center justify-center gap-[0.709vw] relative opacity-[0.6]">
+        <img [src]="item.icon" alt="" aria-hidden="true">
+        <span class="text-[#FFFFFF99] uppercase text-[13.125px] font-bold">{{ item.label }}</span>
+    </li>
+
+</ul>
+
 </div>
 
 @if(bets){

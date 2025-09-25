@@ -34,8 +34,13 @@ export const authInterceptor: HttpInterceptorFn = (
     catchError((error) => {
       if (error.status === 401) {
         localStorage.clear();
+        if (width >= 1024) {
+          router.navigate(['/']);
+       
+        } else {
           router.navigate(['/login']);
-    
+        }
+
       }
       return throwError(() => error);
     })

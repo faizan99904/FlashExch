@@ -4,21 +4,25 @@
             <div class="logo flex items-center">
                 <a>
                     <img src="/assets/header/112,1c3cd62c481703.png"
-                        class="mobile-logo mt-0.5 max-h-[40px] max-w-[40px]" routerLink="/">
+                        class="mobile-logo mt-0.5 max-h-[40px] max-w-[40px]" routerLink="/" alt="FlashExch Logo"
+                        decoding="async">
                     <img src="/assets/header/112,1c3cf09c739d87.png"
-                        class="max-[819px]:hidden !h-[19px] lg:!h-[22px] xl:!h-[33px] desktop-logo" routerLink="/">
+                        class="max-[819px]:hidden !h-[19px] lg:!h-[22px] xl:!h-[33px] desktop-logo" routerLink="/"
+                        alt="FlashExch Logo" decoding="async">
                 </a>
                 <div class="ml-[19.0357px]  flex items-center balance-main-container" *ngIf="token">
                     <ul class="flex items-center gap-2 md:gap-4 md:mt-[-7px]">
                         <li routerLink="/account/freespins">
                             <a class="gift-icon max-h-[40px] max-w-[40px]">
-                                <img src="/assets/header/gifts.png" class="max-h-[40px] max-w-[40px]" alt="">
+                                <img src="/assets/header/gifts.png" class="max-h-[40px] max-w-[40px]"
+                                    alt="Gift icon - rewards section" loading="lazy" decoding="async">
                             </a>
                         </li>
 
                         <li>
                             <a class="gift-icon max-h-[40px] max-w-[40px]">
-                                <img src="/assets/header/notifications.png" class="max-h-[40px] max-w-[40px]" alt="">
+                                <img src="/assets/header/notifications.png" class="max-h-[40px] max-w-[40px]"
+                                    alt="Notification bell icon" loading="lazy" decoding="async">
                             </a>
                         </li>
                     </ul>
@@ -93,7 +97,8 @@
                         </div>
 
                         <div (click)="toggleDeposit()">
-                            <img src="/assets/header/deposit-money.svg" style="height: 18px;" alt="">
+                            <img src="/assets/header/deposit-money.svg" style="height: 18px;" alt="Deposit money icon"
+                                loading="lazy" decoding="async">
                         </div>
                     </div>
                     <a (click)="gotoAccNav()" class="user-icon authorized">
@@ -232,12 +237,12 @@
 
                 <li class="username cursor-pointer flex flex-col justify-center items-center">
                     <div class="max-h-[15px] flex justify-center items-center">
-                        <span class="currency-str !text-[#ffdd55]">Bal:  &nbsp;</span>
+                        <span class="currency-str !text-[#ffdd55]">Bal: &nbsp;</span>
                         <span class="amount userTotalBalance !text-[#ffdd55]"> {{this.userBalance?.data?.bankBalance -
                             this.userBalance?.data?.exposure || '0.00'}}</span>
                     </div>
                     <div class="max-h-[15px] flex justify-center items-center" (click)="exposureModal = true">
-                        <span class="currency-str !text-[#f36161]">Exp:&nbsp;  </span>
+                        <span class="currency-str !text-[#f36161]">Exp:&nbsp; </span>
                         <span class="amount userTotalBalance text-[#f36161]"> ({{this.userBalance?.data?.exposure+'.00'
                             ||
                             '0'}})</span>
@@ -254,7 +259,7 @@
 
             <div class="change-lang max-[810px]:!hidden" style="display: block;">
                 <div class="current-lang"><span class="current-lang lang-text">en</span><img src="/assets/header/en.png"
-                        lang="en"></div>
+                        lang="en" alt="English language - US flag" decoding="async"></div>
 
                 <ul class="text-[12.53px]">
 
@@ -262,7 +267,8 @@
                     <li class="hover:bg-[#23282a]">
                         <a>
                             <span>BR - Portuguese</span>
-                            <img src="/assets/images/flags/br.png">
+                            <img src="/assets/images/flags/br.png" alt="Brazil flag - Portuguese language"
+                                decoding="async">
                         </a>
                     </li>
 
@@ -270,27 +276,29 @@
                     <li class="hover:bg-[#23282a]">
                         <a>
                             <span>ES - Español</span>
-                            <img src="/assets/images/flags/es.png">
+                            <img src="/assets/images/flags/es.png" alt="Spain flag - Español language" decoding="async">
                         </a>
                     </li>
                     <li class="hover:bg-[#23282a]">
                         <a>
                             <span>FR - Français</span>
-                            <img src="/assets/images/flags/fr.png">
+                            <img src="/assets/images/flags/fr.png" alt="France flag - Français language"
+                                decoding="async" />
                         </a>
                     </li>
 
                     <li class="hover:bg-[#23282a]">
                         <a>
                             <span>DE - Deutsch</span>
-                            <img src="/assets/images/flags/de.png">
+                            <img src="/assets/images/flags/de.png" alt="Germany flag - Deutsch language"
+                                decoding="async">
                         </a>
                     </li>
 
                     <li class="hover:bg-[#23282a]">
                         <a>
                             <span>FI - Finnish</span>
-                            <img src="/assets/images/flags/fi.png">
+                            <img src="/assets/images/flags/fi.png" alt="Finland flag - Suomi language" decoding="async">
                         </a>
                     </li>
                 </ul>

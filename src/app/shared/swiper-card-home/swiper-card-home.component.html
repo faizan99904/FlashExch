@@ -1,12 +1,13 @@
 <!-- Swiper container -->
 <div class="swiper mySwiper  max-w-[calc(100vw)] [375px]:max-h-[112.55px]
- lg:mt-2 lg:rounded-md">
+ lg:mt-2 lg:rounded-md min-h-[100px]">
     <div class="swiper-wrapper forMedia max-h-[112.55px]">
 
 
-     <div class="swiper-slide h-full" *ngFor=" let img of swiperImages">
-            <img [src]="img.url" alt="slide" class="w-full max-h-[112.55px] imageMain object-cover " />
-    </div>
+        <div class="swiper-slide h-full" *ngFor=" let img of swiperImages; let i = index">
+            <img [src]="img.url" alt="slide" [attr.fetchpriority]="i === 0 ? 'high' : null"
+                [attr.loading]="i === 0 ? 'eager' : 'lazy'" class="w-full max-h-[112.55px] imageMain object-cover " />
+        </div>
 
 
 

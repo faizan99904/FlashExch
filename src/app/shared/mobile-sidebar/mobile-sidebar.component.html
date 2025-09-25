@@ -1,10 +1,11 @@
-<div class="w-[94vw] h-[100dvh] mb-10 fixed top-0 translate-x-[-100%] left-0 z-[999999] bg-[#0f1215] text-white sidebar-container  flex-col transform transition-transform duration-300 ease-in-out"
-    [ngClass]="{ 'translate-x-[0%] flex': isVisible, '-translate-x-full ': !isVisible }">
+<div *ngIf="isVisible" class="w-[94vw] h-[100dvh] mb-10 fixed top-0 left-0 z-[999999] bg-[#0f1215] text-white sidebar-container  flex-col"
+     @sidebarAnimation>
     <!-- Fixed Close Button -->
-    <span class="material-icons close text-end pt-[5.2vw] pr-[5.9vw] text-[5vw] sticky top-0 z-10 bg-[#0f1215]">
+    <span class="material-icons close text-end w-full pt-[5.2vw] pr-[5.9vw] text-[5vw] sticky top-0 z-10 bg-[#0f1215]">
         <span (click)="closeSidebar()">close</span>
     </span>
 
+   
     <!-- Scrollable content wrapper -->
     <div class="flex-1 overflow-y-auto">
 
@@ -14,7 +15,8 @@
             <div
                 class="flex justify-between items-center itemsDropdown pb-[5.566vw] mx-[6.56vw] pt-[7.4vw] text-[3.3vw] cursor-pointer">
                 <div class="flex gap-[4.88vw] items-center">
-                    <img src="/assets/images/menu/globe.svg" class="w-[4.87vw] h-[4.87vw]" alt="globe">
+                    <img src="/assets/images/menu/globe.svg" class="w-[4.87vw] h-[4.87vw]"
+                        alt="Language selector globe icon" decoding="async">
                     <span class="text-[3.458vw]">{{ selectedLanguage.label }}</span>
                 </div>
                 <span class="material-icons transition-transform duration-300 text-[4vw] pb-[1px] pr-[0.5px]"
@@ -29,7 +31,8 @@
                 <ul class="text-[#c6c6c6] bg-[#13171a]  rounded-md " #dropdownList>
                     <li *ngFor="let lang of languages" (click)="selectLanguage(lang)"
                         class="flex items-center px-[6.56vw] gap-[3.6vw] py-[7px] itemsDropdown cursor-pointer text-[3.5vw] border-b border-white/10">
-                        <img [src]="lang.flag" alt="{{ lang.code }}" class="w-[5vw] h-[5vw]">
+                        <img [src]="lang.flag" alt="{{ lang.code }}" class="w-[5vw] h-[5vw]" [alt]="lang.label"
+                            loading="lazy" decoding="async">
                         <span>{{ lang.label }}</span>
                     </li>
                 </ul>
@@ -37,22 +40,29 @@
         </div>
         <div class="nav-list">
             <ul>
-                <li routerLink="/sport" (click)="closeSidebar()"><a><img src="/assets/images/menu/sport.svg">
+                <li routerLink="/sport" (click)="closeSidebar()"><a><img src="/assets/images/menu/sport.svg"
+                            alt="Sports menu icon" decoding="async">
                         <span>Sports</span></a></li>
-                <li routerLink="/inplay" (click)="closeSidebar()"><a><img src="/assets/images/menu/live.svg">
+                <li routerLink="/inplay" (click)="closeSidebar()"><a><img src="/assets/images/menu/live.svg"
+                            alt="Live menu icon" decoding="async">
                         <span>Live</span></a></li>
-                <li (click)="closeSidebar()"><a><img src="/assets/images/menu/esports.svg"> <span>Esports</span></a>
+                <li (click)="closeSidebar()"><a><img src="/assets/images/menu/esports.svg" alt="Esports menu icon"
+                            decoding="async"> <span>Esports</span></a>
                 </li>
-                <li routerLink="/live-casino" (click)="closeSidebar()"><a><img src="/assets/images/menu/livecasino.svg">
+                <li routerLink="/live-casino" (click)="closeSidebar()"><a><img src="/assets/images/menu/livecasino.svg"
+                            alt="Live Casino">
                         <span>Live
                             Casino</span></a></li>
-                <li routerLink="/casino" (click)="closeSidebar()"><a><img src="/assets/images/menu/777.svg">
+                <li routerLink="/casino" (click)="closeSidebar()"><a><img src="/assets/images/menu/777.svg"
+                            alt="Casino">
                         <span>Casino</span></a></li>
-                <li (click)="closeSidebar()"><a><img src="/assets/images/menu/virtual.svg"> <span>Virtual
+                <li (click)="closeSidebar()"><a><img src="/assets/images/menu/virtual.svg" alt="Virtual"> <span>Virtual
                             sport</span></a></li>
-                <li routerLink="/promotions" (click)="closeSidebar()"><a><img src="/assets/images/menu/promos.svg">
+                <li routerLink="/promotions" (click)="closeSidebar()"><a><img src="/assets/images/menu/promos.svg"
+                            alt="Promotions">
                         <span>Promotions</span></a></li>
-                <li routerLink="/affiliate" (click)="closeSidebar()"><a><img src="/assets/images/menu/affiliate.svg">
+                <li routerLink="/affiliate" (click)="closeSidebar()"><a><img src="/assets/images/menu/affiliate.svg"
+                            alt="AFFILIATES">
                         <span>AFFILIATES</span></a></li>
             </ul>
         </div>
@@ -71,7 +81,8 @@
             <ul class="space-y-2">
 
                 <li class="!mb-[2vw]" *ngFor="let event of filterCompetitions; let ii = index">
-                    <div class="flex items-center justify-between hover:bg-gray-800  rounded" (click)="toggleLeagues(ii)">
+                    <div class="flex items-center justify-between hover:bg-gray-800  rounded"
+                        (click)="toggleLeagues(ii)">
                         <div class="flex items-center gap-[3.6vw]">
                             <i class="sport-icon text-[3.7vw]" [attr.sport]="event.sportName.toLowerCase()"></i>
                             <span class="text-[3.7vw]">{{event.tournamentName}}p</span>
@@ -80,9 +91,10 @@
                     </div>
 
                     <div class="dropdown-content" [class.open]="activeDropdownIndex === ii">
-                    
+
                         <ul class="text-green-500 p-2 text-sm space-y-1" *ngIf="tournamentData[ii]?.length">
-                            <li class="cursor-pointer" (click)="gotoLeagues(match)" *ngFor="let match of tournamentData[ii]">
+                            <li class="cursor-pointer" (click)="gotoLeagues(match)"
+                                *ngFor="let match of tournamentData[ii]">
                                 {{ match.eventName }}
                             </li>
                         </ul>

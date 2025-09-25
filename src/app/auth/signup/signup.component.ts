@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { trigger, transition, style, animate } from '@angular/animations';
 import {
   Component,
   effect,
@@ -23,6 +24,17 @@ import { NetworkService } from '../../service/network.service';
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css',
+  animations: [
+    trigger('fadeSlide', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(-40px)' }),
+        animate('300ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+      ]),
+      transition(':leave', [
+        animate('300ms ease-in', style({ opacity: 0, transform: 'translateY(-40px)' }))
+      ])
+    ])
+  ]
 })
 export class SignupComponent {
   otpSent: boolean = false;

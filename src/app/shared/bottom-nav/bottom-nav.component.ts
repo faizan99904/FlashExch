@@ -21,12 +21,25 @@ export class BottomNavComponent {
   bets: boolean = false;
   betInfo: boolean = false;
   checkBoxIndex: any;
-  matchedBetList:any;
+  matchedBetList: any;
   constructor(
     private sharedService: SharedService,
     private backendService: NetworkService,
     private http: HttpClient
   ) { }
+
+  menuItems = [
+    { label: 'Menu', icon: '/assets/images/menu.svg', action: 'openSidebar' },
+    { label: 'Live', icon: '/assets/images/live.svg', route: '/inplay' },
+    { label: 'Casino', icon: '/assets/images/casino.svg', route: '/live-casino' },
+    { label: 'Sports', icon: '/assets/images/sports.svg', route: '/sport' },
+    { label: 'My Bets', icon: '/assets/images/bets.svg', action: 'toggleBets' }
+  ];
+
+  actionsMap: { [key: string]: () => void } = {
+    openSidebar: () => this.openSidebar(),
+    toggleBets: () => this.toggleBets()
+  };
 
 
   getUserEventExposure() {
@@ -81,7 +94,7 @@ export class BottomNavComponent {
   }
 
   toggleBet(item: any, index: number) {
-    
+
     this.matchedBetList = [];
     if (this.checkBoxIndex == index) {
       this.checkBoxIndex = null
@@ -90,22 +103,22 @@ export class BottomNavComponent {
       this.loader = true;
     }
 
-      let req = {
-        eventId: item.eventId,
-        sportId: item.sportId,
-      };
-      this.backendService
-        .getAllRecordsByPost(CONFIG.eventMatchedBetList, req)
-        .then(
-          (record: any) => {
-            this.matchedBetList = record.data;
-            this.loader = false;
-          },
-          () => {
-            this.loader = false;
-          }
-        );
-    
+    let req = {
+      eventId: item.eventId,
+      sportId: item.sportId,
+    };
+    this.backendService
+      .getAllRecordsByPost(CONFIG.eventMatchedBetList, req)
+      .then(
+        (record: any) => {
+          this.matchedBetList = record.data;
+          this.loader = false;
+        },
+        () => {
+          this.loader = false;
+        }
+      );
+
   }
 
   openSidebar() {
