@@ -34,13 +34,8 @@ export const authInterceptor: HttpInterceptorFn = (
     catchError((error) => {
       if (error.status === 401) {
         localStorage.clear();
-        if (width >= 1024) {
-
-          sharedService.setLoginModal(true)
-        } else {
           router.navigate(['/login']);
-        }
-
+    
       }
       return throwError(() => error);
     })
