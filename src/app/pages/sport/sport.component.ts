@@ -18,7 +18,6 @@ export class SportComponent {
 
   constructor(
     private mainService: MainService,
-    private router: Router,
     private networkService: NetworkService
   ) {
     effect(() => {

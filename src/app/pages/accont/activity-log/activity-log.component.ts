@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { DataTablesModule } from 'angular-datatables';
-import { Config } from 'datatables.net';
 import { CONFIG } from '../../../../../config';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';

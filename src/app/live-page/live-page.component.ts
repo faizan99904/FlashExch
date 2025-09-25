@@ -1,4 +1,4 @@
-import { Component, computed, signal, Signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { SportsNavComponent } from '../shared/sports-nav/sports-nav.component';
 import { BottomNavComponent } from '../shared/bottom-nav/bottom-nav.component';

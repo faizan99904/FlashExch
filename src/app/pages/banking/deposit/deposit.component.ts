@@ -1,5 +1,5 @@
 import { NgFor, NgIf, NgClass } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CONFIG } from '../../../../../config';

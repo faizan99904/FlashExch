@@ -1,7 +1,5 @@
-import { Component, ViewEncapsulation } from '@angular/core';
-import { HeaderComponent } from '../../shared/header/header.component';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SportsNavComponent } from '../../shared/sports-nav/sports-nav.component';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { BottomNavComponent } from '../../shared/bottom-nav/bottom-nav.component';
 declare var Swiper: any;

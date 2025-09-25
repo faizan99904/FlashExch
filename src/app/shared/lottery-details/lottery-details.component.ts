@@ -1,6 +1,5 @@
 import {
   DecimalPipe,
-  KeyValuePipe,
   NgClass,
   NgFor,
   NgIf,

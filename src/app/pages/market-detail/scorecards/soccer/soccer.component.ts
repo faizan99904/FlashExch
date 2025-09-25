@@ -1,4 +1,4 @@
-import { NgFor, NgIf } from '@angular/common';
+import {  NgIf } from '@angular/common';
 import { Component, Inject, Input } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { DeviceDetectorService } from 'ngx-device-detector';

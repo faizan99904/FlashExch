@@ -1,4 +1,4 @@
-import { Component, computed, effect } from '@angular/core';
+import { Component, effect } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { SharedService } from '../../service/shared.service';
 import { CommonModule } from '@angular/common';
@@ -10,7 +10,6 @@ import { ToastrService } from 'ngx-toastr';
 import { LoginModalComponent } from '../../component/login-modal/login-modal.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { LoaderComponent } from "../loader/loader.component";
 import { DepositModalComponent } from "../../component/deposit-modal/deposit-modal.component";
 
 @Component({

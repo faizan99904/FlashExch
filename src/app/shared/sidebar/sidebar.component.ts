@@ -1,15 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, effect, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, effect } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
   ActivatedRoute,
   NavigationEnd,
-  Route,
   Router,
   RouterLink,
   RouterLinkActive,
 } from '@angular/router';
-import { filter } from 'rxjs';
 import { MainService } from '../../service/main.service';
 import { SharedService } from '../../service/shared.service';
 import { NetworkService } from '../../service/network.service';

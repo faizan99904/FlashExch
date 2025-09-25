@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { MainService } from '../../service/main.service';
 import { SharedService } from '../../service/shared.service';
 import { MarketComponent } from '../market/market.component';
-import { DeviceDetectorService } from 'ngx-device-detector';
+
 
 @Component({
   selector: 'app-my-favourites',

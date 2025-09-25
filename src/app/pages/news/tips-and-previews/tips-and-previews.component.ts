@@ -1,4 +1,4 @@
-import { CommonModule, NgFor, NgIf, SlicePipe } from '@angular/common';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { TipsAndPreviewsDetailsComponent } from '../tips-and-previews-details/tips-and-previews-details.component';
 import { MainService } from '../../../service/main.service';

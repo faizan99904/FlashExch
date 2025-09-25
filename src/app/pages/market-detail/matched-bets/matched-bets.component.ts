@@ -3,7 +3,7 @@ import { Component, effect, Input, OnDestroy, OnInit } from '@angular/core';
 import { SharedService } from '../../../service/shared.service';
 import { VideoRealComponent } from '../video-real/video-real.component';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import {  NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { NetworkService } from '../../../service/network.service';
 import { ToastrService } from 'ngx-toastr';

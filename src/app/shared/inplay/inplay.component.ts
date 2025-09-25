@@ -1,7 +1,6 @@
 import { Component, effect } from '@angular/core';
 import { MainService } from '../../service/main.service';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
 import { NetworkService } from '../../service/network.service';
 
 @Component({

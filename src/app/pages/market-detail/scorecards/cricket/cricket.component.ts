@@ -1,4 +1,4 @@
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { DeviceDetectorService } from 'ngx-device-detector';

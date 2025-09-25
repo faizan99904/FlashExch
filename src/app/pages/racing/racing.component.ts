@@ -1,9 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, effect, Input, input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, effect, Input,  OnChanges, } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, RouterLink } from '@angular/router';
 import { LiveStreemComponent } from '../../component/live-streem/live-streem.component';
 import { MainService } from '../../service/main.service';
-import { elementAt } from 'rxjs';
 import { SharedService } from '../../service/shared.service';
 
 @Component({

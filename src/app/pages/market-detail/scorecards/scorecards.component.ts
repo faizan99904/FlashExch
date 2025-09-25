@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, } from '@angular/core';
 import { TennisComponent } from './tennis/tennis.component';
 import { CricketComponent } from './cricket/cricket.component';
 import { SoccerComponent } from './soccer/soccer.component';
-import { NgFor, NgIf } from '@angular/common';
+import {  NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-scorecards',

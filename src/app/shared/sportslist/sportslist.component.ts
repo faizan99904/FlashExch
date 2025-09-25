@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component,  Input, } from '@angular/core';
 import { MainService } from '../../service/main.service';
 
 @Component({

@@ -6,7 +6,6 @@ import { Location } from '@angular/common';
 
 import { take } from 'rxjs';
 import { FormsModule } from '@angular/forms';
-import { CdkCopyToClipboard } from "@angular/cdk/clipboard";
 import { NetworkService } from '../../../service/network.service';
 import { CompressImageService } from '../../../service/compress-image.service';
 import { CONFIG } from '../../../../../config';

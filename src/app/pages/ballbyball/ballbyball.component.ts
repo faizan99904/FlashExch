@@ -1,4 +1,4 @@
-import { Component, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 
 import { CommonModule, NgFor } from '@angular/common';
 
