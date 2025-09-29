@@ -20,4 +20,4 @@ describe('ForgetModalComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+})

@@ -3,6 +3,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { SportsBookComponent } from './pages/sports-book/sports-book.component';
 
 import { AccountLayoutComponent } from './account-layout/account-layout.component';
+import { authGuard } from './guard/auth.guard';
 
 
 export const routes: Routes = [
@@ -131,6 +132,7 @@ export const routes: Routes = [
   {
     path: 'account',
     component: AccountLayoutComponent,
+    canActivate: [authGuard],
     children: [
       {
         path: 'dashboard',
