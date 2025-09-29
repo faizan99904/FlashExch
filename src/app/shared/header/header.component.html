@@ -74,7 +74,7 @@
                     <a (click)="showSignup()"
                         class="btn registration open-registration-popup min-[820px]:!h-[24px]  lg:!w-[89px] lg:!h-[26px] xl:!w-[134px] xl:!h-[40px]   sign-btn">Sign
                         Up</a>
-                    <a (click)="gotoLogin()" type="submit"
+                    <a (click)="gotoLogin()" [type]="screenWidth < 819 ? 'button' : 'submit'"
                         class="btn login open-login-popup min-[820px]:!h-[24px] lg:!w-[89px] lg:!h-[26px] xl:!w-[126px] xl:!h-[40px]  log-btn">Log
                         In</a>
                 </div>

@@ -20,10 +20,11 @@ import { DepositModalComponent } from "../../component/deposit-modal/deposit-mod
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  isDeposit:boolean = false
+  isDeposit: boolean = false
   loginForm!: FormGroup;
-  loader:boolean = false
+  loader: boolean = false
   iplocation: any;
+  screenWidth: any = window.innerWidth
   token: any;
   userExposureList: any = [];
   userBalance: any;
@@ -63,8 +64,10 @@ export class HeaderComponent {
     this.toggle.getToken().subscribe((value: any) => {
       if (value) {
         this.token = value;
+        console.log('its work now');
         this.networkService.getUserBalanceFromApi();
         this.gerUserEventExposure();
+   
       }
     });
     if (this.token) {
@@ -97,11 +100,10 @@ export class HeaderComponent {
 
   gotoLogin() {
     let width = window.innerWidth;
-    this.onSubmit();
     if (width < 819) {
       this.router.navigateByUrl('/login');
     } else {
-      return;
+      this.onSubmit()
     }
   }
 
@@ -194,6 +196,7 @@ export class HeaderComponent {
       this.http.post(CONFIG.userLogin, req).subscribe({
         next: (res: any) => {
           localStorage.setItem('token', res.data.accessToken);
+          this.toggle.setToken(res.data.accessToken);
           localStorage.setItem('userDetail', JSON.stringify(res.data.userDetail));
           localStorage.setItem('intCasino', res.data.intCasino)
           this.router.navigate(['/']);

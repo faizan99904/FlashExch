@@ -74,7 +74,27 @@ export class ProfitlossMarketComponent {
               });
             });
       },
-      columns: [{ data: 'sportName' }, { data: 'eventName' }, { data: 'marketName' }, { data: 'marketId' }, { data: 'result' }, { data: 'pl' }, { data: 'commission' }, { data: 'createdAt' }]
+      columns: this._sportId === '66102'
+        ? [
+          { data: 'sportName' },
+          { data: 'eventName' },
+          { data: 'marketId' },   
+          { data: 'marketName' },
+          { data: 'result' },
+          { data: 'pl' },
+          { data: 'commission' },
+          { data: 'createdAt' }
+        ]
+        : [
+          { data: 'sportName' },
+          { data: 'eventName' },
+          { data: 'marketName' }, 
+          { data: 'result' },
+          { data: 'pl' },
+          { data: 'commission' },
+          { data: 'createdAt' }
+        ]
+
     };
   }
 
