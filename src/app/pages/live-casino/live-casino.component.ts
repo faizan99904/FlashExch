@@ -196,7 +196,12 @@ export class LiveCasinoComponent implements AfterViewInit,OnInit {
       this.router.navigate(['/login']);
       return
     }
+    console.log('lobby', lobby);
+    // return
+    
     if (lobby.link) {
+      lobby.link = 'https://casino.betever365.com/authentication/{$token}/{$eventId}';
+      
       let isTokenString = lobby.link.includes("{$token}");
       if (isTokenString && lobby.companyName == 'UNIVERSE') {
 
