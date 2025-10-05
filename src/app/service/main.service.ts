@@ -4,6 +4,7 @@ import { CONFIG } from '../../../config';
 import { IndexedDbService } from './indexed-db.service';
 import { NetworkService } from './network.service';
 import { SharedService } from './shared.service';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -44,7 +45,8 @@ export class MainService {
   constructor(
     private networkService: NetworkService,
     private indexedDBService: IndexedDbService,
-    private toggle:SharedService
+    private toggle:SharedService,
+    private router:Router
   ) { }
 
   // ─── Show Change-Password Modal ────────────────────────
@@ -494,6 +496,39 @@ export class MainService {
 
   serSlider(value:any){
     this.sliderList.set(value);
+  }
+
+  gotoAviator() {
+    let avres = {
+      eventId: '88.0022',
+      eventName: 'vimaan',
+      menuId: '2',
+      menuName: 'Vimaan',
+      link: 'https://{$domain}/authentication/{$token}/{$eventId}',
+      popular: true,
+      sequence: 2,
+      companyName: 'UNIVERSE',
+      room: 'asian',
+    };
+
+    let token = localStorage.getItem('token');
+    if (!token) {
+      this.router.navigate(['/login']);
+      return;
+    }
+    let intCasino = localStorage.getItem('intCasino');
+    let domain = window.location.hostname
+
+    let isTokenString = avres.link.includes('{$token}');
+    if (isTokenString && avres.companyName == 'UNIVERSE') {
+      let finalLinkWithToken = avres.link.replace('{$token}', token);
+      let finalUrl = finalLinkWithToken.replace('{$eventId}', avres?.eventId);
+      let finalUrlwithDomain = finalUrl.replace("{$domain}", 'casino.' + domain);
+      let trim_host = finalUrlwithDomain.replace("www.", '');
+      // console.log('final output',finalUrl)
+      window.location.href = trim_host + '/' + intCasino; ``;
+      return;
+    }
   }
 
 }

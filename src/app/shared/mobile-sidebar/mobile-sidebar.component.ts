@@ -110,7 +110,8 @@ export class MobileSidebarComponent {
     private renderer: Renderer2,
     public mainService: MainService,
     private router: Router,
-    private networkService: NetworkService
+    private networkService: NetworkService,
+
   ) {
     this.selectedFilterid = JSON.parse(
       localStorage.getItem(`multiMarket_${this.sharedService.username()}`) ??
@@ -283,4 +284,6 @@ export class MobileSidebarComponent {
 
 
   }
+
+
 }

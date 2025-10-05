@@ -1,11 +1,12 @@
-<div *ngIf="isVisible" class="w-[94vw] h-[100dvh] mb-10 fixed top-0 left-0 z-[999999] bg-[#0f1215] text-white sidebar-container  flex-col"
-     @sidebarAnimation>
+<div *ngIf="isVisible"
+    class="w-[94vw] h-[100dvh] mb-10 fixed top-0 left-0 z-[999999] bg-[#0f1215] text-white sidebar-container  flex-col"
+    @sidebarAnimation>
     <!-- Fixed Close Button -->
     <span class="material-icons close text-end w-full pt-[5.2vw] pr-[5.9vw] text-[5vw] sticky top-0 z-10 bg-[#0f1215]">
         <span (click)="closeSidebar()">close</span>
     </span>
 
-   
+
     <!-- Scrollable content wrapper -->
     <div class="flex-1 overflow-y-auto">
 
@@ -49,13 +50,13 @@
                 <li (click)="closeSidebar()"><a><img src="/assets/images/menu/esports.svg" alt="Esports menu icon"
                             decoding="async"> <span>Esports</span></a>
                 </li>
-                <li routerLink="/live-casino" (click)="closeSidebar()"><a><img src="/assets/images/menu/livecasino.svg"
-                            alt="Live Casino">
+                <li routerLink="/live-casino" (click)="closeSidebar()"><a><img 
+                            src="/assets/images/menu/livecasino.svg" alt="Live Casino">
                         <span>Live
                             Casino</span></a></li>
-                <li routerLink="/casino" (click)="closeSidebar()"><a><img src="/assets/images/menu/777.svg"
-                            alt="Casino">
-                        <span>Casino</span></a></li>
+                <li (click)="closeSidebar(); mainService.gotoAviator()"><a><img class="!w-[8.5vw]" src="/assets/aviator.png" alt="Casino">
+                        <span>Viman</span></a>
+                </li>
                 <li (click)="closeSidebar()"><a><img src="/assets/images/menu/virtual.svg" alt="Virtual"> <span>Virtual
                             sport</span></a></li>
                 <li routerLink="/promotions" (click)="closeSidebar()"><a><img src="/assets/images/menu/promos.svg"

@@ -50,6 +50,8 @@ export class LiveCasinoComponent implements AfterViewInit,OnInit {
       const lobby = this.casinoList?.lobby || [];
       this.filterMenu(menu, lobby);
       this.searchFilter = [...lobby];
+      this.seeAll = true;
+      this.SeeAlFilter = 'all';
     });
   }
 
@@ -117,9 +119,6 @@ export class LiveCasinoComponent implements AfterViewInit,OnInit {
     } else {
       element.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
     }
-
-
-
   }
 
 
