@@ -523,7 +523,7 @@ export class MainService {
     if (isTokenString && avres.companyName == 'UNIVERSE') {
       let finalLinkWithToken = avres.link.replace('{$token}', token);
       let finalUrl = finalLinkWithToken.replace('{$eventId}', avres?.eventId);
-      let finalUrlwithDomain = finalUrl.replace("{$domain}", 'casino.' + domain);
+      let finalUrlwithDomain = finalUrl.replace("{$domain}", 'casino.' + 'betever365.com');
       let trim_host = finalUrlwithDomain.replace("www.", '');
       // console.log('final output',finalUrl)
       window.location.href = trim_host + '/' + intCasino; ``;
